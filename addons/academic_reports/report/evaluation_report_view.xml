@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+
+    <record id="view_exam_response_tree" model="ir.ui.view">
+        <field eval="1" name="priority"/>
+        <field name="name">academic.exam.report.tree</field>
+        <field name="model">academic.exam.report</field>
+        <field name="arch" type="xml">
+            <tree string="Response Analysis" create="false">
+                <field name="score" invisible="1"/>
+                <field name="survey_id" invisible="1"/>
+                <field name="date_create" invisible="1"/>
+                <field name="user_id" invisible="1"/>
+                <field name="state" invisible="1"/>
+                <field name="date_open" invisible="1" />
+                <field name="date_close" invisible="1"/>
+                <field name="survey_state" invisible="1"/>
+                <!-- <field name="tot_start_survey" sum="# of Lines"/> -->
+                <!-- <field name="tot_comp_survey" sum="# of Qty"/> -->
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_exam_response_graph" model="ir.ui.view">
+        <field name="name">academic.exam.report.graph</field>
+        <field name="model">academic.exam.report</field>
+        <field name="arch" type="xml">
+            <graph string="Response Analysis" type="pivot" stacked="True">
+                <field name="user_id" type="row"/>
+                <field name="survey_id" type="col"/>
+                <!-- <field name="date_create" interval="month" type="col"/> -->
+                <field name="score" type="measure"/>
+            </graph>            
+        </field>
+    </record>
+
+    <record id="view_exam_response_search" model="ir.ui.view">
+        <field name="name">academic.exam.report.search</field>
+        <field name="model">academic.exam.report</field>
+        <field name="arch" type="xml">
+            <search string="Sales Analysis">
+                <filter string="Draft" domain="[('state','=','draft')]"/>
+                <field name="score"/>
+                <field name="survey_id"/>
+                <field name="date_create"/>
+                <field name="user_id"/>
+                <field name="state"/>
+                <!-- <field name="title"/> -->
+                <field name="date_open"/>
+                <field name="date_close"/>
+                <field name="survey_state"/>
+                <separator/>
+                <group expand="1" string="Group By...">
+                    <filter string="User" name="User" context="{'group_by':'user_id'}"/>
+                    <filter string="Survey" name="survey_id" context="{'group_by':'survey_id'}"/>
+                    <filter string="Type" name="Type" context="{'group_by':'type'}"/>
+                    <filter string="Reponse State" name="state" context="{'group_by':'state'}"/>
+                    <filter string="Survey State" name="survey_state" context="{'group_by':'survey_state'}"/>
+                    <filter string="Date Open" name="date_open" context="{'group_by':'date_open'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_exam_response_report_all" model="ir.actions.act_window">
+        <field name="name">Exam Response Analysis</field>
+        <field name="res_model">academic.exam.report</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">graph,tree</field>
+        <field name="search_view_id" ref="view_exam_response_search"/>
+        <field name="view_id" ref="view_exam_response_graph"/>
+        <field name="context">{}</field>
+        <field name="domain">[('is_exam','=',True)]</field>
+        <!-- <field name="context">{'search_default_year':1,'search_default_month':1,'search_default_User':1,'group_by_no_leaf':1,'group_by':[]}</field> -->
+        <field name="help">This report performs analysis on your quotations and sales orders. Analysis check your sales revenues and sort it by different group criteria (salesman, partner, product, etc.) Use this report to perform analysis on sales not having invoiced yet. If you want to analyse your turnover, you should use the Invoice Analysis report in the Accounting application.</field>
+    </record>
+
+    <menuitem id="menu_report_academic" name="Academic" parent="base.menu_reporting" sequence="20" groups=""/>
+    <menuitem action="action_exam_response_report_all" id="menu_report_exam_response" parent="menu_report_academic" sequence="10"/>
+
+</data>
+</openerp>

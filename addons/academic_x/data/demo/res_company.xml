@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+
+        <record id="base.main_partner" model="res.partner">
+            <field name="name">APDES</field>
+            <field name="street">INTENDENTE ÁVALOS 2751</field>
+            <field name="city">MUNRO - BUENOS AIRES</field>
+            <field name="zip">1605</field>
+            <field name="phone">(011) 4762-6115</field>
+            <field name="email">info@apdes.esc.edu.ar</field>
+            <field name="website">www.apdes.esc.edu.ar</field>
+        </record>
+
+
+        <!-- Basic Company  -->
+        <record id="base.main_company" model="res.company">
+            <field name="name">APDES</field>
+            <field name="rml_header1">ASOCIACIÓN PARA LA PROMOCIÓN DEPORTIVA, EDUCATIVA Y SOCIAL</field>
+            <!-- <field name="partner_id" ref="main_partner"/> -->
+            <field name="currency_id" ref="base.ARS"/>
+        </record>
+
+
+
+        <!-- Schools Companies  -->
+        <record id="res_company_los_molinos" model="res.company">
+            <field name="partner_id" ref="res_partner_los_molinos"/>
+            <field name="name">Colegio Los Molinos</field>
+            <field name="parent_id" ref="base.main_company"/>
+            <field name="currency_id" ref="base.ARS"/>
+        </record>    
+
+<!-- No se porque me da error al levantar esta otra compania -->
+
+        <record id="res_company_los_arroyos" model="res.company">
+            <field name="partner_id" ref="res_partner_los_arroyos"/>
+            <field name="name">Colegio Los Arroyos</field>
+            <field name="parent_id" ref="base.main_company"/>
+            <field name="currency_id" ref="base.ARS"/>
+        </record>      
+
+
+<!-- Partners companies -->
+        <record id="res_partner_los_molinos" model="res.partner">
+            <field name="company_id" ref="res_company_los_molinos"/>
+        </record>
+
+        <record id="res_partner_laura_sali" model="res.partner">
+            <field name="company_id" ref="res_company_los_molinos"/>
+        </record> 
+
+        <record id="res_partner_martin_perez" model="res.partner">
+            <field name="company_id" ref="res_company_los_molinos"/>
+        </record>
+        
+        <record id="res_partner_roberto_martin" model="res.partner">
+            <field name="company_id" ref="res_company_los_molinos"/>
+        </record>
+
+        <record id="res_partner_los_arroyos" model="res.partner">
+            <field name="company_id" ref="res_company_los_arroyos"/>
+        </record>
+        
+        <record id="res_partner_ignacio_rodriguez" model="res.partner">
+            <field name="company_id" ref="res_company_los_arroyos"/>
+        </record>
+
+        <record id="res_partner_alvaro_diaz" model="res.partner">
+            <field name="company_id" ref="res_company_los_arroyos"/>
+        </record>
+
+        <record id="res_partner_jose_martin_rodriguez" model="res.partner">
+            <field name="company_id" ref="res_company_los_arroyos"/>
+        </record>
+        
+        <record id="res_partner_juan_gomez" model="res.partner">
+            <field name="company_id" ref="res_company_los_arroyos"/>
+        </record>
+    </data>
+</openerp>

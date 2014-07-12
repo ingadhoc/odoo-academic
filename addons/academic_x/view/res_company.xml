@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="action_res_company_form" model="ir.actions.act_window">
+            <field name="name">Companies</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.company</field>
+            <field name="view_type">form</field>
+            <field name="help">Create and manage the companies that will be managed by OpenERP from here. Shops or subsidiaries can be created and maintained from here.</field>
+        </record>
+        <menuitem action="action_res_company_form" id="menu_action_res_company_form" parent="academic.menu_partners"/>
+
+        <record id="view_company_form" model="ir.ui.view">
+            <field name="name">res.company.form</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="report.reporting_settings_form_inherited"/>
+            <field name="arch" type="xml">
+        <!-- esto lo dejo comentado porque en saas-3 se llama de una manera y en trunk de otra, cuando pasemos todo a trunk lo descomentamos (ahora esta preparado para trunk) -->
+<!--                 <page string="Report Configuration" position="attributes">
+                    <attribute name="groups">base.group_no_one</attribute>
+                </page> -->
+                <page string="Configuration" position="attributes">
+                    <attribute name="groups">base.group_no_one</attribute>
+                </page>
+                <group string="Bank Accounts" position="attributes">
+                    <attribute name="groups">base.group_no_one</attribute>
+                </group>
+                <div class="oe_title" position="after">
+                    <div name="buttons">
+                        <button name="%(academic_x.action_academic_partner_administrators)d" 
+                            type="action"
+                            string="Administrators"
+                            context="{'default_partner_type':'administrator','default_company_id':active_id}"
+                            groups=""/>
+                        <button name="%(academic_x.action_academic_partner_teachers)d" 
+                            type="action"
+                            string="Teachers"
+                            context="{'default_partner_type':'teacher','default_company_id':active_id}"
+                            groups=""/>                      
+                        <button name="%(academic_x.action_academic_partner_students)d" 
+                            type="action"
+                            string="Students"
+                            context="{'default_partner_type':'student','default_company_id':active_id}"
+                            groups=""/>
+                        <button name="%(academic_x.action_academic_group_groups)d" 
+                            type="action"
+                            string="Groups"
+                            context="{'default_company_id':active_id}"
+                            groups=""/>                                                     
+                    </div>                            
+                </div>                            
+            </field>
+        </record>
+
+    <!-- Actions Extras -->
+<!--         <record id="action_academic_partner_institutions" model="ir.actions.act_window">
+            <field name="name">Institutions</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="view_id" ref=""/>
+            <field name="search_view_id" ref="academic.view_academic_partner_filter"/>
+            <field name="context">{'default_partner_type':'institution','search_default_company_id': active_id}</field>
+            <field name="domain">[('partner_type','=','institution')]</field>
+        </record> -->
+
+<!--                 <div name="buttons" position="inside">
+                <button name="%(academic_x.action_academic_partner_administrators)d" type="action"
+                    string="Administrators"
+                    attrs="{'invisible': [('partner_type', '!=', 'institution')]}"
+                    context="{'default_partner_type':'administrator','default_company_id':active_id}"
+                    groups=""/>
+                <button name="%(academic_x.action_academic_partner_teachers)d" type="action"
+                    string="Teachers"
+                    attrs="{'invisible': [('partner_type', '!=', 'institution')]}"
+                    context="{'default_partner_type':'teacher','default_company_id':active_id}"
+                    groups=""/>                      
+                <button name="%(academic_x.action_academic_partner_students)d" type="action"
+                    string="Students"
+                    context="{'default_partner_type':'student','default_company_id':active_id}"
+                    attrs="{'invisible': [('partner_type', '!=', 'institution')]}"
+                    groups=""/>                    
+                 </div>
+
+                    <page string="Groups" attrs="{'invisible': [('partner_type','!=','institution')]}">
+                        <field name="company_group_ids" context="{'default_company_id': active_id}"/>
+                    </page>     -->                
+    </data>
+</openerp>    

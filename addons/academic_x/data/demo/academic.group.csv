@@ -1,0 +1,3 @@
+id,level_id/id,division_id,company_id/id,subject_id/id,teacher_id/id,year,student_ids/id
+academic_group_1,academic_course_1,,res_company_los_arroyos,academic_subject_1,res_partner_ignacio_rodriguez,2014,"res_partner_alvaro_diaz,res_partner_jose_martin_rodriguez"
+academic_group_2,academic_course_2,,res_company_los_molinos,academic_subject_2,res_partner_laura_sali,2014,res_partner_martin_perez

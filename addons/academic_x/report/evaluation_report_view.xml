@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+
+
+    <record id="view_evaluation_response_graph" model="ir.ui.view">
+        <field name="name">academic.evaluation.report.graph</field>
+        <field name="model">academic.evaluation.report</field>
+        <field name="arch" type="xml">
+            <graph string="Response Analysis" type="pivot" stacked="True">
+                <field name="partner_id" type="row"/>
+                <field name="survey_id" type="col"/>
+                <field name="question_avg_score" type="measure"/>
+            </graph>            
+        </field>
+    </record>
+
+    <record id="view_evaluation_response_search" model="ir.ui.view">
+        <field name="name">academic.evaluation.report.search</field>
+        <field name="model">academic.evaluation.report</field>
+        <field name="arch" type="xml">
+            <search string="Sales Analysis">
+                <filter string="Draft" domain="[('state','=','draft')]"/>
+                <field name="survey_id"/>
+                <field name="partner_id"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+                <field name="group_id"/>
+                <field name="survey_stage_id"/>
+                <field name="input_state"/>
+                <separator/>
+                <group expand="1" string="Group By...">
+                    <filter string="Partner" name="Partner" context="{'group_by':'partner_id'}"/>
+                    <filter string="Company" groups="base.group_multi_company" name="User" context="{'group_by':'company_id'}"/>                    
+                    <filter string="Group" name="User" context="{'group_by':'group_id'}"/>
+                    <filter string="Evaluation" name="survey_id" context="{'group_by':'survey_id'}"/>
+                    <filter string="Answer State" name="state" context="{'group_by':'input_state'}"/>
+                    <filter string="Evaluation Stage" name="survey_stage_id" context="{'group_by':'stage_id'}"/>
+                    <filter string="Objective" name="objective_id" context="{'group_by':'objective_id'}"/>
+                    <filter string="Level" name="level_id" context="{'group_by':'level_id'}"/>
+                    <filter string="Content" name="content_id" context="{'group_by':'content_id'}"/>
+                    <filter string="Indicator" name="indicator_id" context="{'group_by':'indicator_id'}"/>
+                    <filter string="Variable" name="variable_id" context="{'group_by':'variable_id'}"/>
+                    <filter string="Performance" name="performance_id" context="{'group_by':'performance_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_evaluation_response_report_all" model="ir.actions.act_window">
+        <field name="name">Responses Analysis</field>
+        <field name="res_model">academic.evaluation.report</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">graph</field>
+        <field name="search_view_id" ref="view_evaluation_response_search"/>
+        <field name="view_id" ref="view_evaluation_response_graph"/>
+        <field name="context">{}</field>
+        <field name="domain">[('is_evaluation','=',True)]</field>
+        <!-- <field name="context">{'search_default_year':1,'search_default_month':1,'search_default_User':1,'group_by_no_leaf':1,'group_by':[]}</field> -->
+    </record>
+
+    <menuitem id="menu_report_academic" name="Academic" parent="base.menu_reporting" sequence="20" groups=""/>
+    <menuitem action="action_evaluation_response_report_all" id="menu_report_evaluation_response" parent="menu_report_academic" sequence="10"/>
+
+</data>
+</openerp>

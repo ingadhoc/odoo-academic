@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+#
+#    Academic
+#    Copyright (C) 2014 No author.
+#    No email
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
+-->
+<!-- academic.academic_report -->
+<!-- academic.academic_report -->
+<!-- academic.academic_report -->
+<openerp>
+    <data>
+
+        <!-- KANBAN VIEW -->
+        <record id="view_academic_academic_report_kanban" model="ir.ui.view">
+            <field name="name">academic.academic_report.kanban</field>
+            <field name="model">academic.academic_report</field>
+            <field name="arch" type="xml">
+                <kanban version="7.0" class="oe_background_grey">
+                    <field name="name"/>
+                    <field name="value"/>
+                    <field name="color"/>
+                    <field name="max_value"/>
+                    <!-- <field name="monthly_open_leads"/> -->
+                    <!-- <field name="monthly_planned_revenue"/> -->
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_color_#{kanban_getcolor(record.color.raw_value)} oe_kanban_card oe_kanban_global_click oe_kanban_crm_salesteams">
+                                <!-- <div class="oe_dropdown_toggle oe_dropdown_kanban" groups="base.group_sale_manager"> -->
+                                <div class="oe_dropdown_toggle oe_dropdown_kanban">
+                                    <span class="oe_e">í</span>
+                                    <ul class="oe_dropdown_menu">
+                                        <li t-if="widget.view.is_action_enabled('edit')"><a type="edit">Sales Teams Settings</a></li>
+                                        <li t-if="widget.view.is_action_enabled('delete')"><a type="delete">Delete</a></li>
+                                        <li t-if="widget.view.is_action_enabled('edit')"><ul class="oe_kanban_colorpicker" data-field="color"/></li>
+                                    </ul>
+                                </div>
+                                <div class="oe_kanban_content">
+                                    <h4 class="oe_center"><field name="name"/></h4>
+                                    <div class="oe_kanban_alias oe_center">
+                                    <!-- <div class="oe_kanban_alias oe_center" t-if="record.use_leads.raw_value and record.alias_id.value"> -->
+                    <!-- <div class="oe_salesteams_orders"> -->
+                        <field name="value" widget="gauge" style="width:160px; height: 120px; cursor: pointer;" options="{'max_field': 'max_value', 'action_change': 'action_forecast'}">ASDASDA</field>
+                    <!-- </div>                                     -->
+                                        <!-- <small><span class="oe_e oe_e_alias" style="float: none;">%%</span><t t-raw="record.alias_id.raw_value[1]"/></small> -->
+                                    </div>
+                                    <div class="oe_items_list">
+                                    </div>
+                                    <div class="oe_clear"></div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+
+            </field>
+        </record>          
+
+        <record id="academic.action_academic_academic_report_academic_report" model="ir.actions.act_window">
+            <!-- <field name="name">Academic Report</field> -->
+            <!-- <field name="res_model">academic.academic_report</field> -->
+            <!-- <field name="view_type">form</field> -->
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="view_id" ref="view_academic_academic_report_kanban"/>
+            <!-- <field name="search_view_id" ref="view_academic_academic_report_filter"/> -->
+            <!-- <field name="domain">[]</field> -->
+        </record>      
+          
+
+        <!-- SEARCH VIEW -->
+<!--         <record id="view_academic_academic_report_filter" model="ir.ui.view">
+            <field name="name">academic.academic_report.select</field>
+            <field name="model">academic.academic_report</field>
+            <field name="arch" type="xml">
+                <search string="academic_report" version="7.0">
+                    <group string="By Attribute">
+                    <field name="name" string="name"
+                            />
+                    <field name="value" string="value"
+                            />
+                    </group>
+                    <group string="By object">
+                    </group>
+                </search>
+            </field>
+        </record> -->
+
+        <!-- FORMVIEW -->
+<!--         <record id="view_academic_academic_report_form" model="ir.ui.view">
+            <field name="name">academic.academic_report.form</field>
+            <field name="model">academic.academic_report</field>
+            <field name="arch" type="xml">
+                <form string="academic_report" version="7.0">
+                    <header>
+                    </header>
+                    <sheet string="academic_report">
+                     <group>
+                        <field name="name"
+                            />
+                        <field name="value"
+                            />
+                     </group>
+                    </sheet>
+
+                </form>
+            </field>
+        </record> -->
+
+        <!-- TREEVIEW -->
+
+<!--         <record id="view_academic_academic_report_tree" model="ir.ui.view">
+            <field name="name">academic.academic_report.tree</field>
+            <field name="model">academic.academic_report</field>
+            <field name="arch" type="xml">
+                <tree string="academic_report"
+                    >
+                    <field name="name"
+                        />
+                    <field name="value"
+                        />
+                </tree>
+            </field>
+        </record> -->
+
+    </data>
+</openerp>
+<!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4
+     -->

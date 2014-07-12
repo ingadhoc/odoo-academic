@@ -1,0 +1,149 @@
+id,sequence,question_id_2/id,question_id/id,score,quizz_mark,value
+survey_label_99,,,survey_question_22,3,,a) En un antiguo convento de los Templarios.
+survey_label_98,1,,survey_question_18,,,Ninguna
+survey_label_97,,,survey_question_21,20,,90-100%
+survey_label_96,,,survey_question_21,14,,80-90%
+survey_label_95,,,survey_question_21,12,,70-80%
+survey_label_94,,,survey_question_21,8,,60-70%
+survey_label_93,,,survey_question_21,4,,50-60%
+survey_label_92,,,survey_question_21,,,0-50%
+survey_label_91,,,survey_question_20,10,,90-100%
+survey_label_90,,,survey_question_20,8,,80-90%
+survey_label_89,,,survey_question_20,6,,70-80%
+survey_label_88,,,survey_question_20,4,,60-70%
+survey_label_87,,,survey_question_20,2,,50-60%
+survey_label_86,,,survey_question_20,,,0-50%
+survey_label_85,,,survey_question_19,,,Principalmente Organizativos
+survey_label_84,,,survey_question_19,10,,25% Pedagógicos / 75% Organizativos
+survey_label_83,,,survey_question_19,30,,75% Pedagógicos / 25% Organizativos
+survey_label_82,,,survey_question_19,20,,Principalmente Pedagógicos
+survey_label_81,5,,survey_question_18,40,,Cuatro o más
+survey_label_80,4,,survey_question_18,30,,Tres
+survey_label_79,3,,survey_question_18,20,,Dos
+survey_label_78,2,,survey_question_18,10,,Una
+survey_label_77,3,,survey_question_17,20,,Dos o más
+survey_label_76,2,,survey_question_17,10,,Una
+survey_label_75,1,,survey_question_17,,,Ninguna
+survey_label_74,,,survey_question_16,20,,Uno o más
+survey_label_73,,,survey_question_16,,,Ninguno
+survey_label_72,6,,survey_question_15,30,,90-100%
+survey_label_71,5,,survey_question_15,25,,80-90%
+survey_label_70,4,,survey_question_15,20,,70-80%
+survey_label_69,3,,survey_question_15,15,,60-70%
+survey_label_68,2,,survey_question_15,10,,50-60%
+survey_label_67,1,,survey_question_15,,,0-50%
+survey_label_66,,,survey_question_14,30,,90-100%
+survey_label_65,,,survey_question_14,25,,80-90%
+survey_label_64,,,survey_question_14,20,,70-80%
+survey_label_63,,,survey_question_14,15,,60-70%
+survey_label_62,,,survey_question_14,10,,50-60%
+survey_label_61,,,survey_question_14,,,0-50%
+survey_label_208,,,survey_question_40,,,d) Ninguna de las respuestas es correcta.
+survey_label_207,,,survey_question_40,,,c) -4/12
+survey_label_206,,,survey_question_40,,,b) 4/3
+survey_label_205,,,survey_question_40,,,a) 3/4
+survey_label_204,,,survey_question_39,,,d) Ninguna de las respuestas es correcta
+survey_label_203,,,survey_question_39,,,c) Desarrollo amarillo
+survey_label_202,,,survey_question_39,,,b) Desarrollo verde
+survey_label_201,,,survey_question_39,,,a) Desarrollo rojo
+survey_label_200,,,survey_question_38,,,d) Ninguna de las respuestas es correcta
+survey_label_199,,,survey_question_38,,,c) 42
+survey_label_198,,,survey_question_38,,,b) 22
+survey_label_197,,,survey_question_38,,,a) 24 
+survey_label_196,,,survey_question_37,,,d) Ninguna de las respuestas es correcta
+survey_label_195,,,survey_question_37,,,c) -2
+survey_label_194,,,survey_question_37,,,b) 0
+survey_label_193,,,survey_question_37,,,a) 18
+survey_label_192,,,survey_question_36,,,d) Ninguna de las respuestas es correcta
+survey_label_191,,,survey_question_36,,,c) 2m2
+survey_label_190,,,survey_question_36,,,b) 6m2
+survey_label_189,,,survey_question_36,,,a) 4m2
+survey_label_188,,,survey_question_35,,,d) Ninguna de las respuestas es correcta
+survey_label_187,,,survey_question_35,,,c) Subió  -53metros. 
+survey_label_186,,,survey_question_35,,,b) Subió 53 metros.
+survey_label_185,,,survey_question_35,,,a) Bajó -97 metros.
+survey_label_184,,,survey_question_34,-10,,f) Racional
+survey_label_183,,,survey_question_34,-10,,e) Lógico
+survey_label_182,,,survey_question_34,1,,d) Sinsentido
+survey_label_181,,,survey_question_34,-10,,c) Sensato
+survey_label_180,,,survey_question_34,1,,b) Desatinado
+survey_label_179,,,survey_question_34,1,,a) Irracional
+survey_label_178,,,survey_question_33,,,e) El músico que toca el instrumento de viento anteriormente descripto.
+survey_label_177,,,survey_question_33,,,d) Un trompo.
+survey_label_176,,,survey_question_33,,,c) Una  borrachera.
+survey_label_175,,,survey_question_33,5,,"b) El instrumento musical de viento formado por un tubo de metal, de unos 3,50 m. de longitud, enroscado circularmente."
+survey_label_174,,,survey_question_33,,,a) La prolongación muscular hueca y flexible de la nariz de algunos animales.
+survey_label_173,,,survey_question_32,-10,,d) Los personajes son dioses o semidioses.
+survey_label_172,,,survey_question_32,1,,c) Los hechos contados son de carácter sobrenatural.
+survey_label_171,,,survey_question_32,1,,b) Explica un suceso extraño o una particularidad del mundo exterior.
+survey_label_170,,,survey_question_32,-10,,a) Se narran episodios de carácter realista.
+survey_label_169,,,survey_question_31,,,d) Su vida está sumergida entre las sombras y la confusión.
+survey_label_168,,,survey_question_31,5,,c) Busca a la mujer de sus sueños y no entiende por qué no puede encontrarla.
+survey_label_167,,,survey_question_31,,,b) Está preparándose para la próxima guerra.
+survey_label_166,,,survey_question_31,,,a) Lee atentamente la última cantiga de un trovador portugués.
+survey_label_165,,,survey_question_30,,,d) Se refugia en la lectura para no tener que batallar.
+survey_label_164,,,survey_question_30,5,,c) Vive en un mundo fantástico y no presta atención a la realidad.
+survey_label_163,,,survey_question_30,,,"b) Es un valiente, no teme  el fragor de la batalla."
+survey_label_162,,,survey_question_30,,,"a) Es un cobarde, huye de la guerra."
+survey_label_161,,,survey_question_29,,,"d) Las fiestas, los trovadores y la poesía ayudan a Manrique a olvidar."
+survey_label_160,,,survey_question_29,,,c) Manrique conoce otras mujeres y olvida sus fantasías de juventud.
+survey_label_159,,,survey_question_29,10,,b) El desengaño es tan brutal que Manrique enloquece y no se recupera.
+survey_label_158,,,survey_question_29,,,a) Manrique olvida sus fantasías y marcha a la guerra buscando poder y gloria.
+survey_label_157,,survey_question_28,,,,"j) La luna llena ilumina la noche, mostrando a Manrique el camino del hogar."
+survey_label_156,,survey_question_28,,,,"i) El ramaje es espeso, intrincado, confuso como los sentimientos de Manrique."
+survey_label_155,,survey_question_28,,,,"h) Llama la atención que el agua, símbolo de la vida y de la muerte, no aparezca."
+survey_label_154,,survey_question_28,,,,g) Los senderos de los jardines son rectos y están bien delimitados.
+survey_label_153,,survey_question_28,,,,f) La espesura de las ramas forma una agradable estancia que ofrece amparo.
+survey_label_152,,survey_question_28,,,,"e) La hiedra cubre las ruinas, borrando su  belleza y el recuerdo de quien allí vivió."
+survey_label_151,,survey_question_28,,,,d) Los álamos dan sombra y frescura bajo el ardiente sol del mediodía.
+survey_label_150,,survey_question_28,,,,"c) El paisaje es suave, dulce, agradable, no existen rocas, riscos ni amenazas."
+survey_label_149,,survey_question_28,,,,b) Las nubes huyen como la sombra que persigue entre las ruinas.
+survey_label_148,,survey_question_28,,,,a) Las estrellas son tan hermosas e inalcanzables como los sueños de Manrique.
+survey_label_147,,,survey_question_28,,,Falso
+survey_label_146,,,survey_question_28,,,Verdadero
+survey_label_145,,,survey_question_27,5,,"f) Se trata de una joven de ojos claros, húmedos y melancólicos. Cabello negro y largo. Su voz es suave como el rumor del viento en las hojas de los álamos. Su andar es musical, acompasado. Es el alma gemela de Manrique."
+survey_label_144,,,survey_question_27,,,"e) La joven es un fantasma de niebla y de luz, que no existe en la realidad y, por eso, jamás podrá amar a Manrique."
+survey_label_143,,,survey_question_27,,,"d) Se trata de una joven pálida, con trenzas de oro, dulce y cariñosa. Guarda en su corazón un tesoro de ternura que compartirá con Manrique."
+survey_label_142,,,survey_question_27,,,"c) Se trata de una joven de ojos negros y larga melena que flota al viento. Su voz es suave  y cadenciosa como la música. Sus pasos, rotundos y decididos. Su espíritu emana una melancolía que enamora a Manrique."
+survey_label_141,,,survey_question_27,10,,"b) Se trata de una joven de ojos zarcos, húmedos y expresivos. Cabello negro y largo. Su voz es suave como el rumor del viento en las hojas de los álamos. Su andar es majestuoso, acompasado. Su espíritu melancólico armoniza perfectamente con los sentimientos de Manrique."
+survey_label_140,,,survey_question_27,,,"a) Se trata de una joven de ojos azules, cabello negro y largo. Su voz es suave como el rumor del viento. Es cariñosa y siempre está alegre, por eso Manrique piensa que a su lado será feliz; ella siente la dicha que él no ha sentido jamás."
+survey_label_139,,survey_question_26,,,,"j)  - En los huertos y en los jardines, cuyos senderos no hollaban hacía muchos años las plantas de los religiosos, la vegetación, abandonada a sí misma, desplegaba todas sus galas, sin temor de que la mano del hombre la mutilase, creyendo embellecerla."
+survey_label_138,,survey_question_26,,,,"i) […]  Era noble, había nacido entre el estruendo de las armas, y el insólito clamor de una trompa de guerra no le hubiera hecho levantar la cabeza un instante […]"
+survey_label_137,,survey_question_26,,,,h) […] y el viento suspiraba con un rumor dulcísimo entre las hojas de los árboles.
+survey_label_136,,survey_question_26,,,,"g) […] y prorrumpe al fin una carcajada, una carcajada sonora, estridente, horrible."
+survey_label_135,,survey_question_26,,,,"f) Sobre el Duero, que pasaba lamiendo las carcomidas y oscuras piedras de las murallas de Soria, hay un puente que conduce de la ciudad al antiguo convento de los Templarios, cuyas posesiones se extendían a lo largo de la opuesta margen del río."
+survey_label_134,,survey_question_26,,,,"e) -Pero siguen sonando sus pisadas -murmuró otra vez;- creo que ha hablado; no hay duda, ha hablado... El viento que suspira entre las ramas; las hojas, que parece que rezan en voz baja, me han impedido oír lo que ha dicho; pero no hay duda, va por ahí, ha hablado... ha hablado... ¿En qué idioma? No sé, pero es una lengua extranjera..."
+survey_label_133,,survey_question_26,,,,"d) […] notando que las ramas, por entre las cuales había desaparecido, se movían; ya imaginando distinguir en la arena la huella de sus propios pies […]"
+survey_label_132,,survey_question_26,,,,c) […] creyó divisar por entre los cruzados troncos de los árboles como una claridad o una forma blanca que se movía.
+survey_label_131,,survey_question_26,,,,"b) […] luego, firmemente persuadido de que un perfume especial que aspiraba a intervalos era un aroma perteneciente a aquella mujer"
+survey_label_130,,survey_question_26,,,,"a) […] La orla del traje de una mujer, de una mujer que había cruzado el sendero y se ocultaba entre el follaje, en el mismo instante en que el loco soñador de quimeras o imposibles penetraba en los jardines."
+survey_label_129,,,survey_question_26,,,3. Olfato
+survey_label_128,,,survey_question_26,,,2. Oído
+survey_label_127,,,survey_question_26,,,1. Vista
+survey_label_126,,survey_question_25,,,,h) No había que buscarle…
+survey_label_125,,survey_question_25,,,,g) Se acurrucaba…
+survey_label_124,,survey_question_25,,,,f) Leía la última cantiga de un trovador…
+survey_label_123,,survey_question_25,,,,e) Manrique se encontraba bien...
+survey_label_122,,survey_question_25,,,,d) Vio agitarse una sombra…
+survey_label_121,,survey_question_25,,,,c) Era noble; había nacido…
+survey_label_120,,survey_question_25,,,,b) Se sentaba…
+survey_label_119,,survey_question_25,,,,a) Veía pasar las olas del río
+survey_label_118,,,survey_question_25,,,…en el borde de las tumbas
+survey_label_117,,,survey_question_25,,,…en oscuros pergaminos
+survey_label_116,,,survey_question_25,,,…en medio de la soledad
+survey_label_115,,,survey_question_25,,,…en el puente
+survey_label_114,,,survey_question_25,,,…en el fondo de una sombría alameda.
+survey_label_113,,,survey_question_25,,,…entre el estruendo de las armas.
+survey_label_112,,,survey_question_25,,,…en la quiebra de las rocas
+survey_label_111,,,survey_question_25,,,…en el patio de su castillo
+survey_label_110,,,survey_question_24,,,"d) No se indica, pero debe ser en primavera por la abundancia de la vegetación."
+survey_label_109,,,survey_question_24,,,c) En invierno.
+survey_label_108,,,survey_question_24,,,b) En otoño.
+survey_label_107,,,survey_question_24,5,,a) En verano.
+survey_label_106,,,survey_question_23,,,d) Cuando la medianoche tocaba a su punto y la luna remontaba lentamente.
+survey_label_105,,,survey_question_23,,,"c) Cuatro semanas, de luna llena a luna llena."
+survey_label_104,,,survey_question_23,5,,b) Dos meses.
+survey_label_103,,,survey_question_23,,,"a) Algunas horas, desde la medianoche hasta el amanecer."
+survey_label_102,,,survey_question_22,,,d) En la cabeza de Manrique.
+survey_label_101,,,survey_question_22,5,,c) En Soria.
+survey_label_100,,,survey_question_22,,,b) En el patio de armas del castillo de los Manrique.

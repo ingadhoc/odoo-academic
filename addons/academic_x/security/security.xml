@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data noupdate="1">
+<!-- multi -->
+
+    <record model="ir.rule" id="group_multi_company">
+        <field name="name">group multi-company</field>
+        <field name="model_id" search="[('model','=','academic.group')]" model="ir.model"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+    </record>
+
+    <record model="ir.rule" id="group_evaluation_multi_company">
+        <field name="name">group evaluation multi-company</field>
+        <field name="model_id" search="[('model','=','academic.group_evaluation')]" model="ir.model"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+    </record>  
+
+    <record model="ir.rule" id="user_input_multi_company">
+        <field name="name">user input multi-company</field>
+        <field name="model_id" search="[('model','=','survey.user_input')]" model="ir.model"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+    </record>    
+
+    <record model="ir.rule" id="group_evaluation_all">
+        <field name="name">group evaluation survey user</field>
+        <field name="model_id" search="[('model','=','academic.group_evaluation')]" model="ir.model"/>
+        <field name="groups" eval="[(4, ref('base.group_survey_user'))]"/>
+        <field name="domain_force">[('state','!=','invisible')]</field>
+    </record>    
+
+    <record model="ir.rule" id="group_evaluation_survey_manager">
+        <field name="name">group evaluation survey manager</field>
+        <field name="model_id" search="[('model','=','academic.group_evaluation')]" model="ir.model"/>
+        <!-- <field name="global" eval="True"/> -->
+        <field name="groups" eval="[(4, ref('base.group_survey_manager'))]"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+    </record>
+</data>
+</openerp>

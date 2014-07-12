@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!-- We deactivate multicompany rule over multicompany to aboid errors -->
+        <record model="ir.rule" id="base.res_company_rule">
+            <field name="active" eval="False"/>
+        </record>       
+
+    	<!-- We change user rule to share portal user with all companies -->
+        <record model="ir.rule" id="base.res_users_rule">
+        <field name="domain_force">['|',('company_ids','=',False),('company_ids','child_of',[user.company_id.id])]</field>
+        </record>    	
+
+		<!-- Technical features and multi company for adminsitrator -->
+        <record id="base.user_root" model="res.users">
+            <field name="groups_id" eval="[(4,ref('base.group_multi_company')),(4,ref('base.group_no_one'))]"/>
+        </record>        
+
+        <record id="survey.access_survey_user_input_line_user" model="ir.model.access">
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <record id="survey.access_survey_question_user" model="ir.model.access">
+            <field name="perm_write" eval="False"/>
+            <!-- <field name="perm_write" eval="True"/> -->
+        </record>
+    </data>
+</openerp>
