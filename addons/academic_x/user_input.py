@@ -34,9 +34,7 @@ class survey_user_input(osv.Model):
 
 	def force_closure(self, cr, uid, ids, context=None):
 		for record in self.browse(cr, uid, ids, context=context):
-			if record.observation_category_id.name == None:
-			# TODO. can try with read, dont know why this one does not work
-			# if record.observation_category_id == False:
+			if not record.observation_category_id or not record.observation_category_id.name:
 				raise osv.except_osv(_('Error!'), _("You can not force closure if you not set an observation category."))
 		return self.write(cr, uid, ids, {'state':'done'}, context=context)
 

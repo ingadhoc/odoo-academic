@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+
+    <record id="academic_division_analysis_tree" model="ir.ui.view">
+        <field eval="1" name="priority"/>
+        <field name="name">academic.division_analysis.tree</field>
+        <field name="model">academic.division_analysis</field>
+        <field name="arch" type="xml">
+            <tree string="Division Analysis">
+                <field name="name"/>
+                <field name="group_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="academic_division_analysis_form" model="ir.ui.view">
+        <field name="name">academic.division_analysis.form</field>
+        <field name="model">academic.division_analysis</field>
+        <field name="arch" type="xml">
+            <form string="Division Analysis">
+                <group>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                    <group>
+                        <field name="group_id"/>
+                    </group>
+                    <group col="8" colspan="2" string="Indicador Interno Lengua">
+                        <field name="subi_internal_lang_ind_id" string="Indicator"/>
+                        <field name="subi_internal_lang_sub_id" string="Subject"/>
+                        <field name="subi_internal_lang_weight" string="Weight"/>
+                        <!-- <field name="subi_internal_lang_value" string="Value"/> -->
+                    </group>
+                    <group col="8" colspan="2" string="Indicador Interno Matemática">
+                        <field name="subi_internal_math_ind_id" string="Indicator"/>
+                        <field name="subi_internal_math_sub_id" string="Subject"/>
+                        <field name="subi_internal_math_weight" string="Weight"/>
+                        <!-- <field name="subi_internal_math_value" string="Value"/> -->
+                    </group>
+                    <group col="8" colspan="2" string="Indicador Externo Lengua">
+                        <field name="subi_external_lang_ind_id" string="Indicator"/>
+                        <field name="subi_external_lang_sub_id" string="Subject"/>
+                        <field name="subi_external_lang_weight" string="Weight"/>
+                        <!-- <field name="subi_external_lang_value" string="Value"/> -->
+                    </group>
+                    <group col="8" colspan="2" string="Indicador Interno Matemática">
+                        <field name="subi_external_math_ind_id" string="Indicator"/>
+                        <field name="subi_external_math_sub_id" string="Subject"/>
+                        <field name="subi_external_math_weight" string="Weight"/>
+                        <!-- <field name="subi_external_math_value" string="Value"/> -->
+                    </group>
+                    <group col="8" colspan="2" string="Porcentaje de horas dadas Lengua">
+                        <field name="subi_avg_hour_lang_ind_id" string="Indicator"/>
+                        <field name="subi_avg_hour_lang_sub_id" string="Subject"/>
+                        <field name="subi_avg_hour_lang_weight" string="Weight"/>
+                        <!-- <field name="subi_avg_hour_lang_value" string="Value"/> -->
+                    </group>
+                    <group col="8" colspan="2" string="Porcentaje de horas dadas Matematica">
+                        <field name="subi_avg_hour_math_ind_id" string="Indicator"/>
+                        <field name="subi_avg_hour_math_sub_id" string="Subject"/>
+                        <field name="subi_avg_hour_math_weight" string="Weight"/>
+                        <!-- <field name="subi_avg_hour_math_value" string="Value"/> -->
+                    </group>
+                    <group col="8" colspan="2" string="Porcentaje de temas desarrollados Lengua">
+                        <field name="subi_avg_topics_lang_ind_id" string="Indicator"/>
+                        <field name="subi_avg_topics_lang_sub_id" string="Subject"/>
+                        <field name="subi_avg_topics_lang_weight" string="Weight"/>
+                        <!-- <field name="subi_avg_topics_lang_value" string="Value"/> -->
+                    </group>
+                    <group col="8" colspan="2" string="Porcentaje de temas desarrollados Matematica">
+                        <field name="subi_avg_topics_math_ind_id" string="Indicator"/>
+                        <field name="subi_avg_topics_math_sub_id" string="Subject"/>
+                        <field name="subi_avg_topics_math_weight" string="Weight"/>
+                        <!-- <field name="subi_avg_topics_math_value" string="Value"/> -->
+                    </group>
+                    <group col="8" colspan="2" string="Porcentaje de proyectos específicos Lengua">
+                        <field name="subi_avg_spec_proj_lang_ind_id" string="Indicator"/>
+                        <field name="subi_avg_spec_proj_lang_sub_id" string="Subject"/>
+                        <field name="subi_avg_spec_proj_lang_weight" string="Weight"/>
+                        <!-- <field name="subi_avg_spec_proj_lang_value" string="Value"/> -->
+                    </group>
+                    <group col="8" colspan="2" string="Porcentaje de proyectos específicos Matematica">
+                        <field name="subi_avg_spec_proj_math_ind_id" string="Indicator"/>
+                        <field name="subi_avg_spec_proj_math_sub_id" string="Subject"/>
+                        <field name="subi_avg_spec_proj_math_weight" string="Weight"/>
+                        <!-- <field name="subi_avg_spec_proj_math_value" string="Value"/> -->
+                    </group>
+                    <group col="8" colspan="2" string="Porcentaje de capacitación pertinente Lengua">
+                        <field name="subi_avg_relevant_training_lang_ind_id" string="Indicator"/>
+                        <field name="subi_avg_relevant_training_lang_sub_id" string="Subject"/>
+                        <field name="subi_avg_relevant_training_lang_weight" string="Weight"/>
+                        <!-- <field name="subi_avg_relevant_training_lang_value" string="Value"/> -->
+                    </group>
+                    <group col="8" colspan="2" string="Porcentaje de capacitación pertinente Matematica">
+                        <field name="subi_avg_relevant_training_math_ind_id" string="Indicator"/>
+                        <field name="subi_avg_relevant_training_math_sub_id" string="Subject"/>
+                        <field name="subi_avg_relevant_training_math_weight" string="Weight"/>
+                        <!-- <field name="subi_avg_relevant_training_math_value" string="Value"/> -->
+                    </group>
+
+                    <group col="8" colspan="2" string="Porcentaje de entrevitas con docentes">
+                        <field name="subi_avg_teacher_interview_ind_id" string="Indicator"/>
+                        <field name="subi_avg_teacher_interview_sub_id" string="Subject"/>
+                        <field name="subi_avg_teacher_interview_weight" string="Weight"/>
+                        <!-- <field name="subi_avg_teacher_interview_value" string="Value"/> -->
+                    </group>
+
+                    <group col="8" colspan="2" string="Porcentaje de tiempo por tema Lengua - Pedagógicos">
+                        <field name="subi_timextopic_ped_lang_ind_id" string="Indicator"/>
+                        <field name="subi_timextopic_ped_lang_sub_id" string="Subject"/>
+                        <field name="subi_timextopic_ped_lang_weight" string="Weight"/>
+                        <!-- <field name="subi_timextopic_ped_lang_value" string="Value"/> -->
+                    </group>
+                    <group col="8" colspan="2" string="Porcentaje de tiempo por tema Matemática - Pedagógicos">
+                        <field name="subi_timextopic_ped_math_ind_id" string="Indicator"/>
+                        <field name="subi_timextopic_ped_math_sub_id" string="Subject"/>
+                        <field name="subi_timextopic_ped_math_weight" string="Weight"/>
+                        <!-- <field name="subi_timextopic_ped_math_value" string="Value"/> -->
+                    </group>
+                    <group col="8" colspan="2" string="Porcentaje de tiempo por tema Lengua - Organizativos">
+                        <field name="subi_timextopic_org_lang_ind_id" string="Indicator"/>
+                        <field name="subi_timextopic_org_lang_sub_id" string="Subject"/>
+                        <field name="subi_timextopic_org_lang_weight" string="Weight"/>
+                        <!-- <field name="subi_timextopic_org_lang_value" string="Value"/> -->
+                    </group>
+                    <group col="8" colspan="2" string="Porcentaje de tiempo por tema Matemática - Organizativos">
+                        <field name="subi_timextopic_org_math_ind_id" string="Indicator"/>
+                        <field name="subi_timextopic_org_math_sub_id" string="Subject"/>
+                        <field name="subi_timextopic_org_math_weight" string="Weight"/>
+                        <!-- <field name="subi_timextopic_org_math_value" string="Value"/> -->
+                    </group>
+
+                    <group col="8" colspan="2" string="Porcentaje de entrevitas con alumnos">
+                        <field name="subi_avg_student_interview_ind_id" string="Indicator"/>
+                        <field name="subi_avg_student_interview_sub_id" string="Subject"/>
+                        <field name="subi_avg_student_interview_weight" string="Weight"/>
+                        <!-- <field name="subi_avg_student_interview_value" string="Value"/> -->
+                    </group>  
+
+                    <group col="8" colspan="2" string="Porcentaje de asistencia matrimonio">
+                        <field name="subi_avg_marriage_att_ind_id" string="Indicator"/>
+                        <field name="subi_avg_marriage_att_sub_id" string="Subject"/>
+                        <field name="subi_avg_marriage_att_weight" string="Weight"/>
+                        <!-- <field name="subi_avg_marriage_att_value" string="Value"/> -->
+                    </group>    
+                    <group col="8" colspan="2" string="Porcentaje de asistencia padre o mandre">
+                        <field name="subi_avg_parent_att_ind_id" string="Indicator"/>
+                        <field name="subi_avg_parent_att_sub_id" string="Subject"/>
+                        <field name="subi_avg_parent_att_weight" string="Weight"/>
+                        <!-- <field name="subi_avg_parent_att_value" string="Value"/> -->
+                    </group>                    
+                </group>
+
+            </form>            
+        </field>
+    </record>
+
+<!-- No pudimos resolver que el contexto pase con el self la info de 2 o mas grupos seleccionados -->
+<!--     <record id="academic_division_analysis_search" model="ir.ui.view">
+        <field name="name">academic.division_analysis.search</field>
+        <field name="model">academic.division_analysis</field>
+        <field name="arch" type="xml">
+            <search string="Division Analysis">
+                <filter context="{'juancho':True}" string="Juancho True"/>
+                <field name="group_id" filter_domain="[('group_id','=',False)]" context="{'adasda':self}"/>
+                <field name="company_id" filter_domain="[]"/>
+            </search>            
+        </field>
+    </record> -->
+
+    <record id="academic_division_analysis_kanban" model="ir.ui.view" >
+        <field name="name">academic.division_analysis.kanban</field>
+        <field name="model">academic.division_analysis</field>
+        <field name="arch" type="xml">
+            <kanban class="oe_background_grey">
+                <field name="name"/>
+                <field name="group_id"/>
+                <field name="company_id"/>
+                <field name="subi_internal_lang_value"/>
+                <field name="subi_internal_math_value"/>
+                <field name="subi_external_lang_value"/>
+                <field name="subi_external_math_value"/>
+                <field name="subi_avg_hour_lang_value"/>
+                <field name="subi_avg_hour_math_value"/>
+                <field name="subi_avg_topics_lang_value"/>
+                <field name="subi_avg_topics_math_value"/>
+                <field name="subi_avg_spec_proj_lang_value"/>
+                <field name="subi_avg_spec_proj_math_value"/>
+                <field name="subi_avg_relevant_training_lang_value"/>
+                <field name="subi_avg_relevant_training_math_value"/>
+                <field name="subi_avg_teacher_interview_value"/>
+                <field name="subi_timextopic_ped_lang_value"/>
+                <field name="subi_timextopic_ped_math_value"/>
+                <field name="subi_timextopic_org_lang_value"/>
+                <field name="subi_timextopic_org_math_value"/>
+                <field name="subi_avg_student_interview_value"/>
+                <field name="subi_avg_marriage_att_value"/>
+                <field name="subi_avg_parent_att_value"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_card oe_kanban_global_click oe_kanban_crm_salesteams">
+                            <div class="oe_kanban_content">
+                                <h4 class="text-center" name="name"><strong><field name="name"/></strong></h4>
+                                <div class="oe_items_list">
+                                </div>                                    
+                                <div class="oe_clear"></div>
+                                <div class="oe_center">
+                                </div>
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:13px;padding:5px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg th{font-family:Arial, sans-serif;font-size:13px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg .tg-wr85{font-weight:bold;background-color:#efefef;text-align:center}
+.tg .tg-zcxc{font-weight:bold;background-color:#fffe81;text-align:center}
+.tg .tg-5t2x{font-weight:bold;background-color:#fffc9e}
+.tg .tg-s6z2{text-align:center}
+.tg .tg-tfw5{background-color:#ffffc7;text-align:center}
+.tg .tg-n5tn{font-weight:bold;background-color:#fffc9e;text-align:center}
+.tg .tg-uqai{font-weight:bold;background-color:#ffffc7;text-align:center}
+</style>
+<table class="tg">
+  <tr>
+    <th class="tg-wr85">Núcleos de observación</th>
+    <th class="tg-wr85">Puntaje</th>
+    <th class="tg-wr85">Variable Seleccionada </th>
+    <th class="tg-wr85" colspan="4">Indicadores </th>
+  </tr>
+  <tr>
+    <td class="tg-uqai" rowspan="3">Desempeño de los alumnos (DA)</td>
+    <td class="tg-uqai">IDA</td>
+    <td class="tg-uqai" rowspan="2"> </td>
+    <td class="tg-uqai" colspan="2">Interno</td>
+    <td class="tg-uqai" colspan="2">Externo</td>
+  </tr>
+  <tr>
+    <td class="tg-s6z2" rowspan="2"><field name="student_perfomance"/></td>
+    <td class="tg-uqai">Lengua</td>
+    <td class="tg-uqai">Matemáticas</td>
+    <td class="tg-uqai">Lengua</td>
+    <td class="tg-uqai">Matemáticas</td>
+  </tr>
+  <tr>
+    <td class="tg-uqai">Evaluación de rendimiento 3° , 6° y 3°,en Lengua y Matemática</td>
+    <td class="tg-s6z2"><field name="subi_internal_lang_value"/></td>
+    <td class="tg-s6z2"><field name="subi_internal_math_value"/></td>
+    <td class="tg-s6z2"><field name="subi_external_lang_value"/></td>
+    <td class="tg-s6z2"><field name="subi_external_math_value"/></td>
+  </tr>
+  <tr>
+    <td class="tg-n5tn" rowspan="6">Desempeño docente (DD) por áreas</td>
+    <td class="tg-n5tn">IDD</td>
+    <td class="tg-5t2x" rowspan="2"></td>
+    <td class="tg-n5tn" colspan="2">Horas de clase dadas</td>
+    <td class="tg-n5tn" colspan="2">Temas desarrollados sobre planificación anual</td>
+  </tr>
+  <tr>
+    <td class="tg-s6z2" rowspan="5"><field name="teacher_perfomance"/></td>
+    <td class="tg-n5tn">Lengua</td>
+    <td class="tg-n5tn">Matemáticas</td>
+    <td class="tg-n5tn">Lengua</td>
+    <td class="tg-n5tn">Matemáticas</td>
+  </tr>
+  <tr>
+    <td class="tg-n5tn">Cumplimiento de tareas típicas</td>
+    <td class="tg-s6z2"><field name="subi_avg_hour_lang_value"/></td>
+    <td class="tg-s6z2"><field name="subi_avg_hour_math_value"/></td>
+    <td class="tg-s6z2"><field name="subi_avg_topics_lang_value"/></td>
+    <td class="tg-s6z2"><field name="subi_avg_topics_math_value"/></td>
+  </tr>
+  <tr>
+    <td class="tg-n5tn" rowspan="2"></td>
+    <td class="tg-n5tn" colspan="2">Proyectos específicos (1 por cuatrimestre)</td>
+    <td class="tg-n5tn" colspan="2">Capacitación pertinente (2 por cuatrimestre)</td>
+  </tr>
+  <tr>
+    <td class="tg-n5tn">Lengua</td>
+    <td class="tg-n5tn">Matemáticas</td>
+    <td class="tg-n5tn">Lengua</td>
+    <td class="tg-n5tn">Matemáticas</td>
+  </tr>
+  <tr>
+    <td class="tg-n5tn">Participación institucional</td>
+    <td class="tg-s6z2"><field name="subi_avg_spec_proj_lang_value"/></td>
+    <td class="tg-s6z2"><field name="subi_avg_spec_proj_math_value"/></td>
+    <td class="tg-s6z2"><field name="subi_avg_relevant_training_lang_value"/></td>
+    <td class="tg-s6z2"><field name="subi_avg_relevant_training_math_value"/></td>
+  </tr>
+  <tr>
+    <td class="tg-zcxc" rowspan="8">Agenda del director (AD)</td>
+    <td class="tg-zcxc">IAG</td>
+    <td class="tg-zcxc" rowspan="2"></td>
+    <td class="tg-zcxc" colspan="2" rowspan="2">Cantidad (máximo 4)</td>
+    <td class="tg-zcxc" colspan="2">del tiempo asignado a Temas</td>
+  </tr>
+  <tr>
+    <td class="tg-s6z2" rowspan="7"><field name="director_perfomance"/></td>
+    <td class="tg-zcxc">Lengua</td>
+    <td class="tg-zcxc">Matemáticas</td>
+  </tr>
+  <tr>
+    <td class="tg-zcxc" rowspan="4">Entrevistas con los docentes respectivos</td>
+    <td class="tg-s6z2" colspan="2" rowspan="4"><field name="subi_avg_teacher_interview_value"/></td>
+    <td class="tg-zcxc">Pedagógicos</td>
+    <td class="tg-zcxc">Pedagógicos</td>
+  </tr>
+  <tr>
+    <td class="tg-s6z2"><field name="subi_timextopic_ped_lang_value"/></td>
+    <td class="tg-s6z2"><field name="subi_timextopic_ped_math_value"/></td>
+  </tr>
+  <tr>
+    <td class="tg-zcxc">Organizativos</td>
+    <td class="tg-zcxc">Organizativos</td>
+  </tr>
+  <tr>                
+    <td class="tg-s6z2"><field name="subi_timextopic_org_lang_value"/></td>
+    <td class="tg-s6z2"><field name="subi_timextopic_org_math_value"/></td>
+  </tr>
+  <tr>
+    <td class="tg-zcxc" rowspan="2">Entrevistas,formales con los padres del curso en cuestión </td>
+    <td class="tg-zcxc" colspan="2">sobre cantidad de alumnos con 2 entrevistas</td>
+    <td class="tg-zcxc">asistencia Matrimonio</td>
+    <td class="tg-zcxc">asistencia,Padre o madre</td>
+  </tr>
+  <tr>
+    <td class="tg-s6z2" colspan="2"><field name="subi_avg_student_interview_value"/></td>
+    <td class="tg-s6z2"><field name="subi_avg_marriage_att_value"/></td>
+    <td class="tg-s6z2"><field name="subi_avg_parent_att_value"/></td>
+  </tr>
+</table>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_academic_division_analysis" model="ir.actions.act_window">
+        <field name="name">Division Analysis</field>
+        <field name="res_model">academic.division_analysis</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="search_view_id" ref="academic_division_analysis_search"/>
+        <field name="view_id" ref=""/>
+        <field name="context">{}</field>
+        <field name="domain"></field>
+    </record>
+
+    <menuitem id="menu_report_academic" name="Academic" parent="base.menu_reporting" sequence="20" groups=""/>    
+
+    <menuitem id="menu_academic_division_analysis" name="Division Analysis" parent="menu_report_academic" sequence="20" action="action_academic_division_analysis" groups=""/>
+
+</data>
+</openerp>

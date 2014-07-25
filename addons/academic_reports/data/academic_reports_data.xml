@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+
+        <record id="division_analysis_chart" model="academic.division_analysis">
+            <field name="name">Division Analysis</field>
+
+            <field name="subi_internal_lang_ind_id" search="[('name','ilike','Promedio notas trimestrales (interno)')]"/>
+            <field name="subi_internal_lang_sub_id" search="[('name','like','Lengua')]"/>
+            <field name="subi_internal_lang_weight" eval="15"/>
+
+            <field name="subi_internal_math_ind_id" search="[('name','ilike','Promedio notas trimestrales (interno)')]"/>
+            <field name="subi_internal_math_sub_id" search="[('name','like','Matemática')]"/>
+            <field name="subi_internal_math_weight" eval="15"/>
+
+
+            <field name="subi_external_lang_ind_id" search="[('name','ilike','Promedio Evaluación Externa')]"/>
+            <field name="subi_external_lang_sub_id" search="[('name','like','Lengua')]"/>
+            <field name="subi_external_lang_weight" eval="35"/>
+
+            <field name="subi_external_math_ind_id" search="[('name','ilike','Promedio Evaluación Externa')]"/>
+            <field name="subi_external_math_sub_id" search="[('name','like','Matemática')]"/>
+            <field name="subi_external_math_weight" eval="35"/>
+
+
+            <field name="subi_avg_hour_lang_ind_id" search="[('name','ilike','Porcentaje de horas dadas')]"/>
+            <field name="subi_avg_hour_lang_sub_id" search="[('name','like','Lengua')]"/>
+            <field name="subi_avg_hour_lang_weight" eval="15"/>
+
+            <field name="subi_avg_hour_math_ind_id" search="[('name','ilike','Porcentaje de horas dadas')]"/>
+            <field name="subi_avg_hour_math_sub_id" search="[('name','like','Matemática')]"/>
+            <field name="subi_avg_hour_math_weight" eval="15"/>
+
+
+            <field name="subi_avg_topics_lang_ind_id" search="[('name','ilike','Porcentaje de temas desarrollados')]"/>
+            <field name="subi_avg_topics_lang_sub_id" search="[('name','like','Lengua')]"/>
+            <field name="subi_avg_topics_lang_weight" eval="15"/>
+
+            <field name="subi_avg_topics_math_ind_id" search="[('name','ilike','Porcentaje de temas desarrollados')]"/>
+            <field name="subi_avg_topics_math_sub_id" search="[('name','like','Matemática')]"/>
+            <field name="subi_avg_topics_math_weight" eval="15"/>
+
+
+            <field name="subi_avg_spec_proj_lang_ind_id" search="[('name','ilike','Proyectos específicos')]"/>
+            <field name="subi_avg_spec_proj_lang_sub_id" search="[('name','like','Lengua')]"/>
+            <field name="subi_avg_spec_proj_lang_weight" eval="10"/>  
+
+            <field name="subi_avg_spec_proj_math_ind_id" search="[('name','ilike','Proyectos específicos')]"/>
+            <field name="subi_avg_spec_proj_math_sub_id" search="[('name','like','Matemática')]"/>
+            <field name="subi_avg_spec_proj_math_weight" eval="10"/>    
+
+
+            <field name="subi_avg_relevant_training_lang_ind_id" search="[('name','ilike','Capacitación pertinente')]"/>
+            <field name="subi_avg_relevant_training_lang_sub_id" search="[('name','like','Lengua')]"/>
+            <field name="subi_avg_relevant_training_lang_weight" eval="10"/>           
+
+            <field name="subi_avg_relevant_training_math_ind_id" search="[('name','ilike','Capacitación pertinente')]"/>
+            <field name="subi_avg_relevant_training_math_sub_id" search="[('name','like','Matemática')]"/>
+            <field name="subi_avg_relevant_training_math_weight" eval="10"/>  
+
+
+            <field name="subi_avg_teacher_interview_ind_id" search="[('name','ilike','Cantidad de entrevistas con docentes ')]"/>
+            <field name="subi_avg_teacher_interview_weight" eval="30"/>           
+
+            <!-- Comentado por ahorra porque no existen los indicadores pedagogicos y organizativo -->
+<!--             <field name="subi_timextopic_ped_lang_ind_id" search="[('name','ilike','Porcentaje del tiempo asignado a los temas')]"/>
+            <field name="subi_timextopic_ped_lang_sub_id" search="[('name','like','Lengua')]"/>
+            <field name="subi_timextopic_ped_lang_weight" eval="15"/>           
+
+            <field name="subi_timextopic_ped_math_ind_id" search="[('name','ilike','Porcentaje del tiempo asignado a los temas')]"/>
+            <field name="subi_timextopic_ped_math_sub_id" search="[('name','like','Matemática')]"/>
+            <field name="subi_timextopic_ped_math_weight" eval="15"/>
+
+
+            <field name="subi_timextopic_org_lang_ind_id" search="[('name','ilike','Porcentaje del tiempo asignado a los temas')]"/>
+            <field name="subi_timextopic_org_lang_sub_id" search="[('name','like','Lengua')]"/>
+            <field name="subi_timextopic_org_lang_weight" eval="5"/>           
+
+            <field name="subi_timextopic_org_math_ind_id" search="[('name','ilike','Porcentaje del tiempo asignado a los temas')]"/>
+            <field name="subi_timextopic_org_math_sub_id" search="[('name','like','Matemática')]"/>
+            <field name="subi_timextopic_org_math_weight" eval="5"/>   -->
+
+            
+            <field name="subi_avg_student_interview_ind_id" search="[('name','ilike','Porcentaje de padres entrevistados')]"/>
+            <field name="subi_avg_student_interview_weight" eval="20"/>             
+            
+
+        </record>
+
+        <record forcecreate="True" id="decimal_sub_indicator_value" model="decimal.precision">
+            <field name="name">Sub Indicator Value</field>
+            <field name="digits">0</field>
+        </record>
+        <record forcecreate="True" id="decimal_sub_indicator_weight" model="decimal.precision">
+            <field name="name">Sub Indicator Weight</field>
+            <field name="digits">0</field>
+        </record>
+
+    </data>
+</openerp>

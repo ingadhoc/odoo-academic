@@ -6,10 +6,10 @@
             <field name="active" eval="False"/>
         </record>       
 
-    	<!-- We change user rule to share portal user with all companies -->
+        <!-- We change user rule to share portal user with all companies -->
         <record model="ir.rule" id="base.res_users_rule">
-        <field name="domain_force">['|',('company_ids','=',False),('company_ids','child_of',[user.company_id.id])]</field>
-        </record>    	
+        <field name="domain_force">['|','|',('company_id.child_ids','child_of',[user.company_id.id]),('company_id','child_of',[user.company_id.id]),('company_id','=',False)]</field>
+        </record>               	
 
 		<!-- Technical features and multi company for adminsitrator -->
         <record id="base.user_root" model="res.users">

@@ -40,6 +40,9 @@ Academic Reports
         # 'report/evaluation_report_view.xml'
         # Para hacer la vista kanban
         # 'academic_report_view.xml',
+        'report/division_analysis_view.xml',
+        # 'report/division_analysis_detail_view.xml',
+        'data/academic_reports_data.xml',
     ],
     'demo': [
     ],

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+
+    <record id="academic_division_analysis_detail_tree" model="ir.ui.view">
+        <field eval="1" name="priority"/>
+        <field name="name">academic.division_analysis_detail.tree</field>
+        <field name="model">academic.division_analysis_detail</field>
+        <field name="arch" type="xml">
+            <tree string="Division Analysis">
+                <field name="indicator_id"/>
+                <field name="subject_id"/>
+                <field name="weight"/>
+                <field name="value"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="academic_division_analysis_detail_form" model="ir.ui.view">
+        <field name="name">academic.division_analysis_detail.form</field>
+        <field name="model">academic.division_analysis_detail</field>
+        <field name="arch" type="xml">
+            <form string="Division Analysis">
+                <field name="indicator_id"/>
+                <field name="subject_id"/>
+                <field name="weight"/>
+                <field name="value"/>
+            </form>            
+        </field>
+    </record>
+
+</data>
+</openerp>

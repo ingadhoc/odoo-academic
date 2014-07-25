@@ -24,12 +24,13 @@
         <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
     </record>    
 
-    <record model="ir.rule" id="group_evaluation_all">
+<!-- No se necesita aca, despues se le limtia al administrador -->
+<!--     <record model="ir.rule" id="group_evaluation_all">
         <field name="name">group evaluation survey user</field>
         <field name="model_id" search="[('model','=','academic.group_evaluation')]" model="ir.model"/>
         <field name="groups" eval="[(4, ref('base.group_survey_user'))]"/>
         <field name="domain_force">[('state','!=','invisible')]</field>
-    </record>    
+    </record>     -->
 
     <record model="ir.rule" id="group_evaluation_survey_manager">
         <field name="name">group evaluation survey manager</field>
