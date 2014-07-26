@@ -336,18 +336,18 @@
         </field>
     </record>
 
-    <record id="action_academic_division_analysis" model="ir.actions.act_window">
-        <field name="name">Division Analysis</field>
+    <record id="action_academic_division_analysis_conf" model="ir.actions.act_window">
+        <field name="name">Division Analysis Configuration</field>
         <field name="res_model">academic.division_analysis</field>
         <field name="view_type">form</field>
-        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_mode">form,kanban,tree</field>
         <field name="search_view_id" ref=""/>
         <field name="view_id" ref=""/>
         <field name="context">{}</field>
         <field name="domain"></field>
     </record>
 
-    <!-- <menuitem id="menu_academic_division_analysis" name="Division Analysis" parent="menu_report_academic" sequence="20" action="action_academic_division_analysis" groups=""/> -->
+    <menuitem id="menu_academic_division_analysis_conf" name="Indicator Analysis Configuration" parent="base.menu_reporting_config" sequence="20" action="action_academic_division_analysis_conf" groups=""/>
 
 </data>
 </openerp>
