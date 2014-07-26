@@ -12,8 +12,7 @@ class survey_user_input_question_score(models.Model):
     indicator_rel_score = fields.Float('Indicator Relative Score',compute='_get_indicator_rel_score', store=True)
     
     @api.one
-    @api.depends('score')
-    # @api.depends('score','question_id.max_indicator_rel_score')
+    @api.depends('score','question_id.max_indicator_rel_score')
     def _get_indicator_rel_score(self):
         # questions = self.env['survey.question'].search([('survey_id','=',self.question_id.survey_id.id),
         #     ('indicator_id','=',self.question_id.indicator_id.id)])
