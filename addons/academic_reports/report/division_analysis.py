@@ -181,13 +181,10 @@ class academic_division_analysis(models.Model):
             + self.subi_avg_marriage_att_value + self.subi_avg_parent_att_value
 
     @api.one
-    # TODO ampliar esta funcion para que pueda recibir estos argumentos
-    # Para esto voy a tener que agregar trimestre y anos
-    # def _get_value(self, indicator, subject, weight, year, quarter=False, group_ids=False, company_id=False):
     def _get_value(self, indicator, subject, weight):
-        print 'self.env.context', self.env.context
-        group_id = self.env.context.get('default_group_id', False)
-        company_id = self.env.context.get('default_company_id', False)
+        period_ids = self.env.context.get('period_ids', False)
+        group_ids = self.env.context.get('group_ids', False)
+        company_id = self.env.context.get('company_id', False)
         
         domain = []
         # If not indicator we return False
@@ -200,8 +197,10 @@ class academic_division_analysis(models.Model):
             domain.append(('user_input_id.group_id.subject_id','=',subject.id))            
         
         # Append restrictions from context
-        if group_id:
-            domain.append(('user_input_id.group_id','=',group_id))
+        if group_ids:
+            domain.append(('user_input_id.group_id','in',group_ids))
+        if period_ids:
+            domain.append(('question_id.survey_id.period_id','in',period_ids))
         if company_id:
             domain.append(('user_input_id.company_id','=',company_id))
 

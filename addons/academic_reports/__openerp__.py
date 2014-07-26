@@ -43,6 +43,7 @@ Academic Reports
         'report/division_analysis_view.xml',
         # 'report/division_analysis_detail_view.xml',
         'data/academic_reports_data.xml',
+        'wizard/division_analysis_wizard_view.xml',
     ],
     'demo': [
     ],

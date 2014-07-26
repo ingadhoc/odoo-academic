@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="academic_division_analysis_wizard_view" model="ir.ui.view">
+             <field name="name">Academic Division Analysis Wizard</field>
+             <field name="model">academic.division_analysis_wizard</field>
+             <field name="arch" type="xml">
+                <form string="Division Analysis">
+                    <group>
+                        <field name="group_ids"/>
+                        <field name="period_ids"/>
+                        <field name="company_id"/>
+                    </group>
+                    <footer>
+                        <button name="action_confirm" string="Confirm" type="object" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+             </field>
+         </record>
+
+        <record id="action_academic_division_analysis_wizard" model="ir.actions.act_window">
+             <field name="name">Academic Division Analysis Wizard</field>
+             <field name="res_model">academic.division_analysis_wizard</field>
+             <field name="type">ir.actions.act_window</field>
+             <field name="view_type">form</field>
+             <field name="view_mode">tree,form</field>
+             <field name="view_id" ref="academic_division_analysis_wizard_view"/>
+             <field name="context">{}</field>
+             <field name="target">new</field>
+        </record>
+    
+        <menuitem id="menu_academic_division_analysis_wizard" name="Indicator Analysis" parent="academic_x.menu_report_academic" sequence="20" action="action_academic_division_analysis_wizard" groups=""/>
+    </data>
+</openerp>

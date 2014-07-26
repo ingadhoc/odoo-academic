@@ -341,15 +341,13 @@
         <field name="res_model">academic.division_analysis</field>
         <field name="view_type">form</field>
         <field name="view_mode">kanban,tree,form</field>
-        <field name="search_view_id" ref="academic_division_analysis_search"/>
+        <field name="search_view_id" ref=""/>
         <field name="view_id" ref=""/>
         <field name="context">{}</field>
         <field name="domain"></field>
     </record>
 
-    <menuitem id="menu_report_academic" name="Academic" parent="base.menu_reporting" sequence="20" groups=""/>    
-
-    <menuitem id="menu_academic_division_analysis" name="Division Analysis" parent="menu_report_academic" sequence="20" action="action_academic_division_analysis" groups=""/>
+    <!-- <menuitem id="menu_academic_division_analysis" name="Division Analysis" parent="menu_report_academic" sequence="20" action="action_academic_division_analysis" groups=""/> -->
 
 </data>
 </openerp>

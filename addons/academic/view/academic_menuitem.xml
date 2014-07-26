@@ -261,6 +261,15 @@
             groups="group_manager"
             />
 
+
+        <menuitem
+            name="Periods"
+            id="menu_periods"
+            sequence="60"
+            parent="menu_general_data"
+            groups="group_manager"
+            />
+
         <record id="action_academic_promotion_promotions" model="ir.actions.act_window">
             <field name="name">Promotions</field>
             <field name="res_model">academic.promotion</field>

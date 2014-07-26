@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+#
+#    Academic
+#    Copyright (C) 2014 No author.
+#    No email
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
+-->
+<!-- academic.period -->
+<!-- academic.period -->
+<!-- academic.period -->
+<openerp>
+    <data>
+
+        <!-- SEARCH VIEW -->
+        <record id="view_academic_period_filter" model="ir.ui.view">
+            <field name="name">academic.period.select</field>
+            <field name="model">academic.period</field>
+            <field name="arch" type="xml">
+                <search string="period" version="7.0">
+                    <group string="By Attribute">
+                    <field name="name" string="Name"
+                            />
+                    <field name="year" string="Year"
+                            />
+                    </group>
+                    <group string="By object">
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- FORMVIEW -->
+        <record id="view_academic_period_form" model="ir.ui.view">
+            <field name="name">academic.period.form</field>
+            <field name="model">academic.period</field>
+            <field name="arch" type="xml">
+                <form string="period" version="7.0">
+                    <header>
+                    </header>
+                    <sheet string="period">
+                     <group>
+                        <field name="name"
+                            />
+                        <field name="year"
+                            />
+                     </group>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+
+        <!-- TREEVIEW -->
+
+        <record id="view_academic_period_tree" model="ir.ui.view">
+            <field name="name">academic.period.tree</field>
+            <field name="model">academic.period</field>
+            <field name="arch" type="xml">
+                <tree string="period"
+                    >
+                    <field name="name"
+                        />
+                    <field name="year"
+                        />
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</openerp>
+<!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4
+     -->
