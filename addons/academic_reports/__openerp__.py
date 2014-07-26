@@ -28,13 +28,14 @@
 Academic Reports
 ================
     """,
-    'author':  'Sistemas ADHOC',
-    'website': 'www.sistemasadhoc.com.ar',
+    'author':  'Ingenieria ADHOC',
+    'website': 'www.ingadhoc.com',
     'images': [
     ],
     'depends': [
         'board',
         'academic_x',
+        'decimal_precision',
     ],
     'data': [
         # 'report/evaluation_report_view.xml'
