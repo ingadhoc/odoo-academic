@@ -10,8 +10,11 @@ class academic_division_analysis(models.Model):
     _description = 'academic.division_analysis'
 
     name = fields.Char('Division')
-    group_id = fields.Many2one('academic.group','Group',)
-    company_id = fields.Many2one('res.company','Company',)
+    # group_id = fields.Many2one('academic.group','Group',)
+    # company_id = fields.Many2one('res.company','Company',)
+    groups = fields.Char('Groups', compute='_get_indicators',)
+    periods = fields.Char('Periods', compute='_get_indicators',)
+    company = fields.Char('Comapny', compute='_get_indicators',)    
     
     # Agregamos estos indicadores aca para poder mostrarlos donde queremos y porque no podemos mostrar el campo o2m
     # Indicador Interno Lengua
@@ -164,7 +167,7 @@ class academic_division_analysis(models.Model):
         self.subi_avg_marriage_att_value = self._get_value(self.subi_avg_marriage_att_ind_id, self.subi_avg_marriage_att_sub_id, self.subi_avg_marriage_att_weight)[0]
         self.subi_avg_parent_att_value = self._get_value(self.subi_avg_parent_att_ind_id, self.subi_avg_parent_att_sub_id, self.subi_avg_parent_att_weight)[0]
 
-        # Performance - Desempenos    
+        # Performance -    
         self.student_perfomance = self.subi_internal_lang_value + self.subi_internal_math_value \
             + self.subi_external_lang_value + self.subi_external_math_value
 
@@ -180,13 +183,29 @@ class academic_division_analysis(models.Model):
             + self.subi_avg_student_interview_value \
             + self.subi_avg_marriage_att_value + self.subi_avg_parent_att_value
 
+        # Get names
+        groups = self.env.context.get('groups',False)
+        periods = self.env.context.get('periods',False)
+        company = self.env.context.get('company',False)
+        self.groups = groups
+        self.periods = periods
+        self.company = company        
+
     @api.one
     def _get_value(self, indicator, subject, weight):
         period_ids = self.env.context.get('period_ids', False)
         group_ids = self.env.context.get('group_ids', False)
         company_id = self.env.context.get('company_id', False)
+        consider_disabled_person = self.env.context.get('consider_disabled_person', False)
         
-        domain = []
+        # Descartamos las dont consider
+        domain = ['|',('user_input_id.observation_category_id','=',False),('user_input_id.observation_category_id.dont_consider','!=',True)]
+
+        # Si no se especifica tener en cuenta personas con discapacidad, las sacamos del analisis
+        if not consider_disabled_person:
+            domain.append(('user_input_id.partner_id.disabled_person','!=',True))
+
+
         # If not indicator we return False
         if indicator:
             domain.append(('question_id.indicator_id','=',indicator.id))

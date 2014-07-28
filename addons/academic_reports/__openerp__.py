@@ -38,11 +38,10 @@ Academic Reports
         'decimal_precision',
     ],
     'data': [
-        # 'report/evaluation_report_view.xml'
-        # Para hacer la vista kanban
-        # 'academic_report_view.xml',
         'report/division_analysis_view.xml',
-        # 'report/division_analysis_detail_view.xml',
+        'report/evaluation_report_view.xml',
+        'security/ir.model.access.csv',
+        'security/academic_reports_security.xml',
         'data/academic_reports_data.xml',
         'wizard/division_analysis_wizard_view.xml',
     ],

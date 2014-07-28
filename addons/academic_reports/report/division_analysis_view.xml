@@ -9,7 +9,7 @@
         <field name="arch" type="xml">
             <tree string="Division Analysis">
                 <field name="name"/>
-                <field name="group_id"/>
+                <!-- <field name="group_id"/> -->
             </tree>
         </field>
     </record>
@@ -24,7 +24,7 @@
                         <field name="name"/>
                     </group>
                     <group>
-                        <field name="group_id"/>
+                        <!-- <field name="group_id"/> -->
                     </group>
                     <group col="8" colspan="2" string="Indicador Interno Lengua">
                         <field name="subi_internal_lang_ind_id" string="Indicator"/>
@@ -175,8 +175,6 @@
         <field name="arch" type="xml">
             <kanban class="oe_background_grey">
                 <field name="name"/>
-                <field name="group_id"/>
-                <field name="company_id"/>
                 <field name="subi_internal_lang_value"/>
                 <field name="subi_internal_math_value"/>
                 <field name="subi_external_lang_value"/>
@@ -197,12 +195,20 @@
                 <field name="subi_avg_student_interview_value"/>
                 <field name="subi_avg_marriage_att_value"/>
                 <field name="subi_avg_parent_att_value"/>
+                <field name="company"/>
+                <field name="groups"/>
+                <field name="periods"/>
                 <templates>
                     <t t-name="kanban-box">
                         <div t-attf-class="oe_kanban_card oe_kanban_global_click oe_kanban_crm_salesteams">
                             <div class="oe_kanban_content">
                                 <h4 class="text-center" name="name"><strong><field name="name"/></strong></h4>
                                 <div class="oe_items_list">
+                                    Colegio: <field name="company"/>
+                                    <br/>
+                                    Grupos: <field name="groups"/>
+                                    <br/>
+                                    Períodos: <field name="periods"/>
                                 </div>                                    
                                 <div class="oe_clear"></div>
                                 <div class="oe_center">

@@ -69,7 +69,6 @@
         'view/survey_indicator_view.xml',
         'security/ir.model.access.csv',
         'security/security.xml',
-        'report/evaluation_report_view.xml',        
         'report/report_users.xml',
         'report/group_evaluation_report_users.xml',
         'view/res_company.xml',

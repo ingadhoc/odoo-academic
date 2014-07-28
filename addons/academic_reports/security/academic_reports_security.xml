@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data noupdate="0">
+    <record model="ir.rule" id="academic_evaluation_report_comp_rule">
+        <field name="name">Response Analysis Report</field>
+        <field name="model_id" ref="model_academic_evaluation_report"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+    </record>
+</data>
+</openerp>

@@ -10,23 +10,37 @@ class academic_division_analysis_wizard(osv.osv_memory):
     group_ids = fields.Many2many('academic.group', 'division_analysis_group_rel',string='Groups')
     period_ids = fields.Many2many('academic.period', 'division_analysis_periods_rel',string='Period')
     company_id = fields.Many2one('res.company', string='Company')
+    consider_disabled_person = fields.Boolean(string='Considerar Personas con Discapacidad?')
+    groups = fields.Char('Groups',)
+    periods = fields.Char('Periods',)
+    company = fields.Char('Comapny',)
 
     @api.multi
     def action_confirm(self):
         group_ids = [x.id for x in self.group_ids]
-        period_ids = [x.id for x in self.group_ids]
+        period_ids = [x.id for x in self.period_ids]
         company_id = self.company_id.id
-        print 'context1', self.env.context
-        context = self.with_context(company_id=company_id, period_ids=period_ids, group_ids=group_ids).env.context
-        print 'context2', context
+        consider_disabled_person = self.consider_disabled_person
+
+        periods = ', '.join([x.name for x in self.period_ids])
+        groups = ', '.join([x.complete_name for x in self.group_ids])
+        company = self.company_id.name
+
+        context = self.with_context(groups=groups, 
+            periods=periods, 
+            company=company, 
+            period_ids=period_ids, 
+            group_ids=group_ids,
+            company_id=company_id,
+            consider_disabled_person=consider_disabled_person,
+            ).env.context
+
         return {
-            'name': _('Division Analysis'),
+            'name': _('Tablero'),
             'type': 'ir.actions.act_window',
             'view_type': 'form',
             'view_mode': 'kanban',
             'res_model': 'academic.division_analysis',
-            # 'views': [(compose_form.id, 'form')],
-            # 'view_id': compose_form.id,
-            'target': 'current',
+            'target': 'inlineview',
             'context': context,
         }
