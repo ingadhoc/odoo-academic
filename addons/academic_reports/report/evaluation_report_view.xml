@@ -19,7 +19,7 @@
         <field name="name">academic.evaluation.report.search</field>
         <field name="model">academic.evaluation.report</field>
         <field name="arch" type="xml">
-            <search string="Sales Analysis">
+            <search string="Response Analysis">
                 <filter string="Draft" domain="[('state','=','draft')]"/>
                 <field name="survey_id"/>
                 <field name="partner_id"/>
@@ -33,8 +33,8 @@
                     <filter string="Company" groups="base.group_multi_company" name="User" context="{'group_by':'company_id'}"/>                    
                     <filter string="Group" name="User" context="{'group_by':'group_id'}"/>
                     <filter string="Evaluation" name="survey_id" context="{'group_by':'survey_id'}"/>
-                    <filter string="Answer State" name="state" context="{'group_by':'input_state'}"/>
-                    <filter string="Evaluation Stage" name="survey_stage_id" context="{'group_by':'stage_id'}"/>
+                    <!-- <filter string="Answer State" name="state" context="{'group_by':'input_state'}"/> -->
+                    <!-- <filter string="Evaluation Stage" name="survey_stage_id" context="{'group_by':'stage_id'}"/> -->
                     <filter string="Objective" name="objective_id" context="{'group_by':'objective_id'}"/>
                     <filter string="Level" name="level_id" context="{'group_by':'level_id'}"/>
                     <filter string="Content" name="content_id" context="{'group_by':'content_id'}"/>
@@ -54,12 +54,14 @@
         <field name="search_view_id" ref="view_evaluation_response_search"/>
         <field name="view_id" ref="view_evaluation_response_graph"/>
         <field name="context">{}</field>
+        <field name="auto_load" eval="False"/>
         <field name="domain">[('is_evaluation','=',True)]</field>
         <!-- <field name="context">{'search_default_year':1,'search_default_month':1,'search_default_User':1,'group_by_no_leaf':1,'group_by':[]}</field> -->
     </record>
 
     <menuitem id="menu_report_academic" name="Academic" parent="base.menu_reporting" sequence="20" groups=""/>
-    <menuitem action="action_evaluation_response_report_all" id="menu_report_evaluation_response" parent="menu_report_academic" sequence="10"/>
+    <!-- # Este no lo usamos por ahroa -->
+    <!-- <menuitem action="action_evaluation_response_report_all" id="menu_report_evaluation_response" parent="menu_report_academic" sequence="10"/> -->
 
 </data>
 </openerp>

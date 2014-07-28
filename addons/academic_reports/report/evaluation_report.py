@@ -20,7 +20,7 @@ class academic_evaluation_report(osv.osv):
         'input_state' : fields.selection([('done', 'Finished '),('skip', 'Not Finished')], 'Status', readonly=True),        
         'group_id' : fields.many2one('academic.group', 'Group', readonly=True,),
         'partner_id' : fields.many2one('res.partner', 'Partner', readonly=True,),
-        'company_id' : fields.many2one('res.partner', 'Company', readonly=True,),
+        'company_id' : fields.many2one('res.company', 'Company', readonly=True,),
     # User Input Question Fields
         # 'question_score': fields.float('Score', readonly=True, group_operator='avg', ),
         'question_avg_score': fields.float('Score', readonly=True, group_operator='avg', ),

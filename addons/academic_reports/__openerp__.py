@@ -40,6 +40,7 @@ Academic Reports
     'data': [
         'report/division_analysis_view.xml',
         'report/evaluation_report_view.xml',
+        'report/evaluation_analysis_view.xml',
         'security/ir.model.access.csv',
         'security/academic_reports_security.xml',
         'data/academic_reports_data.xml',

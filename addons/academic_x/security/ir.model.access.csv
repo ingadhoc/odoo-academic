@@ -13,7 +13,6 @@ academic.access_survey_survey_manager,survey.survey.manager,academic.model_surve
 academic.access_survey_survey_user,survey.survey.user,academic.model_survey_survey,academic.group_user,1,0,0,0
 academic.access_survey_user_input_manager,survey.user_input.manager,academic.model_survey_user_input,academic.group_manager,1,1,1,1
 academic.access_survey_user_input_user,survey.user_input.user,academic.model_survey_user_input,academic.group_user,1,1,1,0
-access_survey_academic_evaluation_report,survey.academic.evaluation.report,model_academic_evaluation_report,,1,1,1,1
 access_group_global,academic.group.global,academic.model_academic_group,,1,0,0,0
 access_academic_observation_category_global,academic.academic_observation_category_global,academic.model_academic_observation_category,,1,0,0,0
 access_subject_global,academic.subject.global,academic.model_academic_subject,,1,0,0,0
