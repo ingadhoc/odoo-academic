@@ -34,7 +34,8 @@
             <field name="alias_name">_administrator_template_user</field>
         </record>       
 
-        <record id="ir_administrator_template_user" model="ir.values">
+<!-- Dejaron de andar en la 8 y entonces agregamos el defaults -->
+<!--         <record id="ir_administrator_template_user" model="ir.values">
             <field name="key2">partner_type=administrator</field>
             <field name="model">res.partner</field>
             <field name="name">template_user_id</field>
@@ -56,6 +57,6 @@
             <field name="name">template_user_id</field>
             <field name="key">default</field>
             <field ref="student_template_user" name="value_unpickle"/>            
-        </record>           
+        </record>           --> 
     </data>
 </openerp>        
