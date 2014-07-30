@@ -58,8 +58,13 @@
             <field name="subi_avg_relevant_training_math_weight" eval="10"/>  
 
 
-            <field name="subi_avg_teacher_interview_ind_id" search="[('name','ilike','Cantidad de entrevistas con docentes ')]"/>
-            <field name="subi_avg_teacher_interview_weight" eval="30"/>           
+            <field name="subi_avg_teacher_interview_lang_ind_id" search="[('name','ilike','Cantidad de entrevistas con docentes')]"/>
+            <field name="subi_avg_teacher_interview_lang_sub_id" search="[('name','like','Lengua')]"/>
+            <field name="subi_avg_teacher_interview_lang_weight" eval="30"/>   
+
+            <field name="subi_avg_teacher_interview_math_ind_id" search="[('name','ilike','Cantidad de entrevistas con docentes')]"/>
+            <field name="subi_avg_teacher_interview_math_sub_id" search="[('name','like','Matemática')]"/>
+            <field name="subi_avg_teacher_interview_math_weight" eval="30"/>           
 
             <!-- Comentado por ahorra porque no existen los indicadores pedagogicos y organizativo -->
 <!--             <field name="subi_timextopic_ped_lang_ind_id" search="[('name','ilike','Porcentaje del tiempo asignado a los temas')]"/>

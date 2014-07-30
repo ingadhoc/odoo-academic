@@ -81,11 +81,17 @@ class academic_division_analysis(models.Model):
     subi_avg_relevant_training_math_weight = fields.Float('weight subi_avg_relevant_training_math_value', digits_compute=dp.get_precision('Sub Indicator Weight'))
     subi_avg_relevant_training_math_value = fields.Float('Porcentaje de temas desarrollados Matematica', compute='_get_indicators', digits_compute=dp.get_precision('Sub Indicator Value'), readonly=True)    
                 
-    # Porcentaje de entrevistas con docentes  
-    subi_avg_teacher_interview_ind_id = fields.Many2one('survey.question.indicator','Indicator subi_avg_teacher_interview_value',)
-    subi_avg_teacher_interview_sub_id = fields.Many2one('academic.subject','Subject subi_avg_teacher_interview_value',)
-    subi_avg_teacher_interview_weight = fields.Float('weight subi_avg_teacher_interview_value', digits_compute=dp.get_precision('Sub Indicator Weight'))
-    subi_avg_teacher_interview_value = fields.Float('Porcentaje de temas desarrollados Matematica', compute='_get_indicators', digits_compute=dp.get_precision('Sub Indicator Value'), readonly=True)    
+    # Porcentaje de entrevistas con docentes - Lengua
+    subi_avg_teacher_interview_lang_ind_id = fields.Many2one('survey.question.indicator','Indicator subi_avg_teacher_interview_lang_value',)
+    subi_avg_teacher_interview_lang_sub_id = fields.Many2one('academic.subject','Subject subi_avg_teacher_interview_lang_value',)
+    subi_avg_teacher_interview_lang_weight = fields.Float('weight subi_avg_teacher_interview_lang_value', digits_compute=dp.get_precision('Sub Indicator Weight'))
+    subi_avg_teacher_interview_lang_value = fields.Float('Porcentaje de temas desarrollados Matematica', compute='_get_indicators', digits_compute=dp.get_precision('Sub Indicator Value'), readonly=True)    
+    # Porcentaje de entrevistas con docentes - Matemática
+    subi_avg_teacher_interview_math_ind_id = fields.Many2one('survey.question.indicator','Indicator subi_avg_teacher_interview_math_value',)
+    subi_avg_teacher_interview_math_sub_id = fields.Many2one('academic.subject','Subject subi_avg_teacher_interview_math_value',)
+    subi_avg_teacher_interview_math_weight = fields.Float('weight subi_avg_teacher_interview_math_value', digits_compute=dp.get_precision('Sub Indicator Weight'))
+    subi_avg_teacher_interview_math_value = fields.Float('Porcentaje de temas desarrollados Matematica', compute='_get_indicators', digits_compute=dp.get_precision('Sub Indicator Value'), readonly=True)    
+
     
     # Porcentaje tiempo asignado a temas pedagógico Lengua
     subi_timextopic_ped_lang_ind_id = fields.Many2one('survey.question.indicator','Indicator subi_timextopic_ped_lang_value',)
@@ -129,7 +135,7 @@ class academic_division_analysis(models.Model):
     
     student_perfomance = fields.Float('Student Performance', compute="_get_indicators", digits_compute=dp.get_precision('Sub Indicator Weight'))
     teacher_perfomance = fields.Float('Teacher Performance', compute="_get_indicators", digits_compute=dp.get_precision('Sub Indicator Weight'))
-    director_perfomance = fields.Float('Director Performance', compute="_get_indicators", digits_compute=dp.get_precision('Sub Indicator Weight'))
+    administrator_perfomance = fields.Float('Administrator Performance', compute="_get_indicators", digits_compute=dp.get_precision('Sub Indicator Weight'))
 
     @api.one
     def _get_indicators(self):
@@ -152,7 +158,8 @@ class academic_division_analysis(models.Model):
         self.subi_avg_relevant_training_lang_value = self._get_value(self.subi_avg_relevant_training_lang_ind_id, self.subi_avg_relevant_training_lang_sub_id, self.subi_avg_relevant_training_lang_weight)[0]
         self.subi_avg_relevant_training_math_value = self._get_value(self.subi_avg_relevant_training_math_ind_id, self.subi_avg_relevant_training_math_sub_id, self.subi_avg_relevant_training_math_weight)[0]
         
-        self.subi_avg_teacher_interview_value = self._get_value(self.subi_avg_teacher_interview_ind_id, self.subi_avg_teacher_interview_sub_id, self.subi_avg_teacher_interview_weight)[0]
+        self.subi_avg_teacher_interview_lang_value = self._get_value(self.subi_avg_teacher_interview_lang_ind_id, self.subi_avg_teacher_interview_lang_sub_id, self.subi_avg_teacher_interview_lang_weight)[0]
+        self.subi_avg_teacher_interview_math_value = self._get_value(self.subi_avg_teacher_interview_math_ind_id, self.subi_avg_teacher_interview_math_sub_id, self.subi_avg_teacher_interview_math_weight)[0]
         
         self.subi_timextopic_ped_lang_value = self._get_value(self.subi_timextopic_ped_lang_ind_id, self.subi_timextopic_ped_lang_sub_id, self.subi_timextopic_ped_lang_weight)[0]
         self.subi_timextopic_ped_math_value = self._get_value(self.subi_timextopic_ped_math_ind_id, self.subi_timextopic_ped_math_sub_id, self.subi_timextopic_ped_math_weight)[0]
@@ -174,7 +181,7 @@ class academic_division_analysis(models.Model):
             + self.subi_avg_spec_proj_lang_value + self.subi_avg_spec_proj_math_value \
             + self.subi_avg_relevant_training_lang_value + self.subi_avg_relevant_training_math_value
         
-        self.director_perfomance = self.subi_avg_teacher_interview_value \
+        self.administrator_perfomance = self.subi_avg_teacher_interview_value \
             + self.subi_timextopic_ped_lang_value + self.subi_timextopic_ped_math_value \
             + self.subi_timextopic_org_lang_value + self.subi_timextopic_org_math_value \
             + self.subi_timextopic_org_lang_value + self.subi_timextopic_org_math_value \

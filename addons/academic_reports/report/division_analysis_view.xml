@@ -99,11 +99,15 @@
                         <!-- <field name="subi_avg_relevant_training_math_value" string="Value"/> -->
                     </group>
 
-                    <group col="8" colspan="2" string="Porcentaje de entrevitas con docentes">
-                        <field name="subi_avg_teacher_interview_ind_id" string="Indicator"/>
-                        <field name="subi_avg_teacher_interview_sub_id" string="Subject"/>
-                        <field name="subi_avg_teacher_interview_weight" string="Weight"/>
-                        <!-- <field name="subi_avg_teacher_interview_value" string="Value"/> -->
+                    <group col="8" colspan="2" string="Porcentaje de entrevitas con docentes - Lengua">
+                        <field name="subi_avg_teacher_interview_lang_ind_id" string="Indicator"/>
+                        <field name="subi_avg_teacher_interview_lang_sub_id" string="Subject"/>
+                        <field name="subi_avg_teacher_interview_lang_weight" string="Weight"/>
+                    </group>
+                    <group col="8" colspan="2" string="Porcentaje de entrevitas con docentes - Matemática">
+                        <field name="subi_avg_teacher_interview_math_ind_id" string="Indicator"/>
+                        <field name="subi_avg_teacher_interview_math_sub_id" string="Subject"/>
+                        <field name="subi_avg_teacher_interview_math_weight" string="Weight"/>
                     </group>
 
                     <group col="8" colspan="2" string="Porcentaje de tiempo por tema Lengua - Pedagógicos">
@@ -187,7 +191,8 @@
                 <field name="subi_avg_spec_proj_math_value"/>
                 <field name="subi_avg_relevant_training_lang_value"/>
                 <field name="subi_avg_relevant_training_math_value"/>
-                <field name="subi_avg_teacher_interview_value"/>
+                <field name="subi_avg_teacher_interview_lang_value"/>
+                <field name="subi_avg_teacher_interview_math_value"/>
                 <field name="subi_timextopic_ped_lang_value"/>
                 <field name="subi_timextopic_ped_math_value"/>
                 <field name="subi_timextopic_org_lang_value"/>
@@ -213,127 +218,112 @@
                                 <div class="oe_clear"></div>
                                 <div class="oe_center">
                                 </div>
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{font-family:Arial, sans-serif;font-size:13px;padding:5px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
-.tg th{font-family:Arial, sans-serif;font-size:13px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
-.tg .tg-wr85{font-weight:bold;background-color:#efefef;text-align:center}
-.tg .tg-zcxc{font-weight:bold;background-color:#fffe81;text-align:center}
-.tg .tg-5t2x{font-weight:bold;background-color:#fffc9e}
-.tg .tg-s6z2{text-align:center}
-.tg .tg-tfw5{background-color:#ffffc7;text-align:center}
-.tg .tg-n5tn{font-weight:bold;background-color:#fffc9e;text-align:center}
-.tg .tg-uqai{font-weight:bold;background-color:#ffffc7;text-align:center}
-</style>
-<table class="tg">
-  <tr>
-    <th class="tg-wr85">Núcleos de observación</th>
-    <th class="tg-wr85">Puntaje</th>
-    <th class="tg-wr85">Variable Seleccionada </th>
-    <th class="tg-wr85" colspan="4">Indicadores </th>
-  </tr>
-  <tr>
-    <td class="tg-uqai" rowspan="3">Desempeño de los alumnos (DA)</td>
-    <td class="tg-uqai">IDA</td>
-    <td class="tg-uqai" rowspan="2"> </td>
-    <td class="tg-uqai" colspan="2">Interno</td>
-    <td class="tg-uqai" colspan="2">Externo</td>
-  </tr>
-  <tr>
-    <td class="tg-s6z2" rowspan="2"><field name="student_perfomance"/></td>
-    <td class="tg-uqai">Lengua</td>
-    <td class="tg-uqai">Matemáticas</td>
-    <td class="tg-uqai">Lengua</td>
-    <td class="tg-uqai">Matemáticas</td>
-  </tr>
-  <tr>
-    <td class="tg-uqai">Evaluación de rendimiento 3° , 6° y 3°,en Lengua y Matemática</td>
-    <td class="tg-s6z2"><field name="subi_internal_lang_value"/></td>
-    <td class="tg-s6z2"><field name="subi_internal_math_value"/></td>
-    <td class="tg-s6z2"><field name="subi_external_lang_value"/></td>
-    <td class="tg-s6z2"><field name="subi_external_math_value"/></td>
-  </tr>
-  <tr>
-    <td class="tg-n5tn" rowspan="6">Desempeño docente (DD) por áreas</td>
-    <td class="tg-n5tn">IDD</td>
-    <td class="tg-5t2x" rowspan="2"></td>
-    <td class="tg-n5tn" colspan="2">Horas de clase dadas</td>
-    <td class="tg-n5tn" colspan="2">Temas desarrollados sobre planificación anual</td>
-  </tr>
-  <tr>
-    <td class="tg-s6z2" rowspan="5"><field name="teacher_perfomance"/></td>
-    <td class="tg-n5tn">Lengua</td>
-    <td class="tg-n5tn">Matemáticas</td>
-    <td class="tg-n5tn">Lengua</td>
-    <td class="tg-n5tn">Matemáticas</td>
-  </tr>
-  <tr>
-    <td class="tg-n5tn">Cumplimiento de tareas típicas</td>
-    <td class="tg-s6z2"><field name="subi_avg_hour_lang_value"/></td>
-    <td class="tg-s6z2"><field name="subi_avg_hour_math_value"/></td>
-    <td class="tg-s6z2"><field name="subi_avg_topics_lang_value"/></td>
-    <td class="tg-s6z2"><field name="subi_avg_topics_math_value"/></td>
-  </tr>
-  <tr>
-    <td class="tg-n5tn" rowspan="2"></td>
-    <td class="tg-n5tn" colspan="2">Proyectos específicos (1 por cuatrimestre)</td>
-    <td class="tg-n5tn" colspan="2">Capacitación pertinente (2 por cuatrimestre)</td>
-  </tr>
-  <tr>
-    <td class="tg-n5tn">Lengua</td>
-    <td class="tg-n5tn">Matemáticas</td>
-    <td class="tg-n5tn">Lengua</td>
-    <td class="tg-n5tn">Matemáticas</td>
-  </tr>
-  <tr>
-    <td class="tg-n5tn">Participación institucional</td>
-    <td class="tg-s6z2"><field name="subi_avg_spec_proj_lang_value"/></td>
-    <td class="tg-s6z2"><field name="subi_avg_spec_proj_math_value"/></td>
-    <td class="tg-s6z2"><field name="subi_avg_relevant_training_lang_value"/></td>
-    <td class="tg-s6z2"><field name="subi_avg_relevant_training_math_value"/></td>
-  </tr>
-  <tr>
-    <td class="tg-zcxc" rowspan="8">Agenda del director (AD)</td>
-    <td class="tg-zcxc">IAG</td>
-    <td class="tg-zcxc" rowspan="2"></td>
-    <td class="tg-zcxc" colspan="2" rowspan="2">Cantidad (máximo 4)</td>
-    <td class="tg-zcxc" colspan="2">del tiempo asignado a Temas</td>
-  </tr>
-  <tr>
-    <td class="tg-s6z2" rowspan="7"><field name="director_perfomance"/></td>
-    <td class="tg-zcxc">Lengua</td>
-    <td class="tg-zcxc">Matemáticas</td>
-  </tr>
-  <tr>
-    <td class="tg-zcxc" rowspan="4">Entrevistas con los docentes respectivos</td>
-    <td class="tg-s6z2" colspan="2" rowspan="4"><field name="subi_avg_teacher_interview_value"/></td>
-    <td class="tg-zcxc">Pedagógicos</td>
-    <td class="tg-zcxc">Pedagógicos</td>
-  </tr>
-  <tr>
-    <td class="tg-s6z2"><field name="subi_timextopic_ped_lang_value"/></td>
-    <td class="tg-s6z2"><field name="subi_timextopic_ped_math_value"/></td>
-  </tr>
-  <tr>
-    <td class="tg-zcxc">Organizativos</td>
-    <td class="tg-zcxc">Organizativos</td>
-  </tr>
-  <tr>                
-    <td class="tg-s6z2"><field name="subi_timextopic_org_lang_value"/></td>
-    <td class="tg-s6z2"><field name="subi_timextopic_org_math_value"/></td>
-  </tr>
-  <tr>
-    <td class="tg-zcxc" rowspan="2">Entrevistas,formales con los padres del curso en cuestión </td>
-    <td class="tg-zcxc" colspan="2">sobre cantidad de alumnos con 2 entrevistas</td>
-    <td class="tg-zcxc">asistencia Matrimonio</td>
-    <td class="tg-zcxc">asistencia,Padre o madre</td>
-  </tr>
-  <tr>
-    <td class="tg-s6z2" colspan="2"><field name="subi_avg_student_interview_value"/></td>
-    <td class="tg-s6z2"><field name="subi_avg_marriage_att_value"/></td>
-    <td class="tg-s6z2"><field name="subi_avg_parent_att_value"/></td>
-  </tr>
-</table>
+                                <style type="text/css">
+                                .tg  {border-collapse:collapse;border-spacing:0;}
+                                .tg td{font-family:Arial, sans-serif;font-size:13px;padding:5px 5px;border-style:solid;border-width:1px;border-color:1px;overflow:hidden;word-break:normal;}
+                                .tg th{font-family:Arial, sans-serif;font-size:13px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+                                .tg .tg-wr85{font-weight:bold;background-color:#efefef;text-align:center}
+                                .tg .tg-zcxc{font-weight:bold;background-color:#fffe81;text-align:center}
+                                .tg .tg-5t2x{font-weight:bold;background-color:#fffc9e}
+                                .tg .tg-s6z2{text-align:center}
+                                .tg .tg-tfw5{background-color:#ffffc7;text-align:center}
+                                .tg .tg-n5tn{font-weight:bold;background-color:#fffc9e;text-align:center}
+                                .tg .tg-uqai{font-weight:bold;background-color:#ddffd4;text-align:center}
+                                .tg .tg-hgcj{font-weight:bold;background-color:#d6e9fc;text-align:center}
+                                </style>
+                                <table class="tg">
+                                      <tr>
+                                        <th class="tg-wr85">Núcleos de observación</th>
+                                        <th class="tg-wr85">Puntaje</th>
+                                        <th class="tg-wr85" style="border-width:1px 3px 1px 3px;">Variable Seleccionada </th>
+                                        <th class="tg-wr85" colspan="4">Indicadores </th>
+                                      </tr>
+                                      <tr>
+                                        <td class="tg-uqai" rowspan="3">Desempeño de los alumnos (DA)</td>
+                                        <td class="tg-uqai" style="border-widt:2px;">IDA</td>
+                                        <td class="tg-uqai" rowspan="3" style="border-width:0px 3px 0px 3px;">Evaluación de rendimiento de alumnos en Lengua y Matemática</td>
+                                        <td class="tg-uqai" colspan="2">Promedio Interno</td>
+                                        <td class="tg-uqai" colspan="2">Promedio Externo</td>
+                                      </tr>
+                                      <tr>
+                                        <td class="tg-s6z2" rowspan="2"><field name="student_perfomance"/></td>
+                                        <td class="tg-uqai">Lengua</td>
+                                        <td class="tg-uqai">Matemática</td>
+                                        <td class="tg-uqai">Lengua</td>
+                                        <td class="tg-uqai">Matemática</td>
+                                      </tr>
+                                      <tr>
+                                        <td class="tg-s6z2"><field name="subi_internal_lang_value"/></td>
+                                        <td class="tg-s6z2"><field name="subi_internal_math_value"/></td>
+                                        <td class="tg-s6z2"><field name="subi_external_lang_value"/></td>
+                                        <td class="tg-s6z2"><field name="subi_external_math_value"/></td>
+                                      </tr>
+                                      <tr>
+                                        <td class="tg-n5tn" rowspan="6">Desempeño docente (DD)</td>
+                                        <td class="tg-n5tn">IDD</td>
+                                        <td class="tg-n5tn" rowspan="3" style="border-width:1px 3px 0px 3px;">Cumplimiento de tareas típicas</td>
+                                        <td class="tg-n5tn" colspan="2">Horas de clase efectivamente dadas</td>
+                                        <td class="tg-n5tn" colspan="2">Temas efectivamente dados</td>
+                                      </tr>
+                                      <tr>
+                                        <td class="tg-s6z2" rowspan="5"><field name="teacher_perfomance"/></td>
+                                        <td class="tg-n5tn">Lengua</td>
+                                        <td class="tg-n5tn">Matemática</td>
+                                        <td class="tg-n5tn">Lengua</td>
+                                        <td class="tg-n5tn">Matemática</td>
+                                      </tr>
+                                      <tr>
+                                        <td class="tg-s6z2"><field name="subi_avg_hour_lang_value"/></td>
+                                        <td class="tg-s6z2"><field name="subi_avg_hour_math_value"/></td>
+                                        <td class="tg-s6z2"><field name="subi_avg_topics_lang_value"/></td>
+                                        <td class="tg-s6z2"><field name="subi_avg_topics_math_value"/></td>
+                                      </tr>
+                                      <tr>
+                                        <td class="tg-n5tn" rowspan="3" style="border-width:1px 3px 0px 3px;">Participación institucional</td>
+                                        <td class="tg-n5tn" colspan="2">Proyectos específicos</td>
+                                        <td class="tg-n5tn" colspan="2">Capacitación pertinente</td>
+                                      </tr>
+                                      <tr>
+                                        <td class="tg-n5tn">Lengua</td>
+                                        <td class="tg-n5tn">Matemática</td>
+                                        <td class="tg-n5tn">Lengua</td>
+                                        <td class="tg-n5tn">Matemática</td>
+                                      </tr>
+                                      <tr>
+
+                                        <td class="tg-s6z2"><field name="subi_avg_spec_proj_lang_value"/></td>
+                                        <td class="tg-s6z2"><field name="subi_avg_spec_proj_math_value"/></td>
+                                        <td class="tg-s6z2"><field name="subi_avg_relevant_training_lang_value"/></td>
+                                        <td class="tg-s6z2"><field name="subi_avg_relevant_training_math_value"/></td>
+                                      </tr>
+                                       <tr>
+                                        <td class="tg-hgcj" rowspan="5">Agenda del Director (AD)</td>
+                                        <td class="tg-hgcj">AD</td>
+                                        <td class="tg-hgcj" rowspan="3" style="border-width:1px 3px 0px 3px;">Entrevistas formales con los docentes</td>
+                                        <td class="tg-hgcj" colspan="2">Entrevistas formales</td>
+                                        <td class="tg-hgcj" colspan="2">Tiempo asignado a temas pedagógicos u organizativos</td>
+                                      </tr>
+                                      <tr>
+                                        <td class="tg-s6z2" rowspan="4"><field name="administrator_perfomance"/></td>
+                                        <td class="tg-hgcj">Lengua</td>
+                                        <td class="tg-hgcj">Matemática</td>
+                                        <td class="tg-hgcj">Lengua</td>
+                                        <td class="tg-hgcj">Matemática</td>
+                                      </tr>
+                                      <tr>
+                                        <td class="tg-s6z2"><field name="subi_avg_teacher_interview_lang_value"/></td>
+                                        <td class="tg-s6z2"><field name="subi_avg_teacher_interview_math_value"/></td>
+                                        <td class="tg-s6z2">-indicador tiempo a pedag u org lengua</td>
+                                        <td class="tg-s6z2">-indicador tiempo a pedag u org matem</td>
+                                      </tr>
+                                      <tr>
+                                        <td class="tg-hgcj" rowspan="2" style="border-width:1px 3px 1px 3px;">Entrevistas formales con padres</td>
+                                        <td class="tg-hgcj" colspan="4">Padres entrevistados</td>
+                                      </tr>
+                                      <tr>
+                                        <td class="tg-s6z2" colspan="4">-indicador padres entrevistados</td>
+                                      </tr>
+                                </table>                                
                             </div>
                         </div>
                     </t>
