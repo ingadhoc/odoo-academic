@@ -40,6 +40,7 @@
 
                 <field name="evaluation_type" position="after">
                     <field name="evaluation_subtype" attrs="{'required':[('is_evaluation','=',True)]}"/>
+                    <field name="is_diagnosis"/>
                 </field>
                 <group name="evaluation_config" position="inside">
                     <!-- <field name="apply_to" attrs="{'required':[('is_evaluation','=',True)]}"/> -->

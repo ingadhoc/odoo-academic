@@ -10,8 +10,6 @@ class academic_division_analysis(models.Model):
     _description = 'academic.division_analysis'
 
     name = fields.Char('Division')
-    # group_id = fields.Many2one('academic.group','Group',)
-    # company_id = fields.Many2one('res.company','Company',)
     groups = fields.Char('Groups', compute='_get_indicators',)
     periods = fields.Char('Periods', compute='_get_indicators',)
     company = fields.Char('Comapny', compute='_get_indicators',)    
@@ -193,20 +191,33 @@ class academic_division_analysis(models.Model):
 
     @api.one
     def _get_value(self, indicator, subject, weight):
+        def get_user_input_scores(self, domain, get_max_indicator_rel_scores = True):
+            user_input_question_score_ids = self.env['survey.user_input_question_score'].search(domain)
+        
+            # Hago este read exclusviamente porque sin este read vuelve a calcular los campos funcion
+            user_input_question_score_ids.read(['indicator_rel_score'])
+            indicator_rel_scores = [x.indicator_rel_score for x in user_input_question_score_ids]
+
+            max_indicator_rel_scores = []
+            if get_max_indicator_rel_scores:
+                # Hago este read exclusviamente porque sin este read vuelve a calcular los campos funcion
+                question_ids = [x.question_id.id for x in user_input_question_score_ids]
+                questions = self.env['survey.question'].search([('id','in',question_ids)])
+                questions.read(['max_indicator_rel_score'])
+
+                max_indicator_rel_scores = [x.question_id.max_indicator_rel_score for x in user_input_question_score_ids]
+            return indicator_rel_scores, max_indicator_rel_scores
+
         period_ids = self.env.context.get('period_ids', False)
         group_ids = self.env.context.get('group_ids', False)
         company_id = self.env.context.get('company_id', False)
+        include_diagnosis_eval = self.env.context.get('include_diagnosis_eval', False)
         consider_disabled_person = self.env.context.get('consider_disabled_person', False)
         
-        # Descartamos las dont consider
+    # Descartamos las dont consider
         domain = ['|',('user_input_id.observation_category_id','=',False),('user_input_id.observation_category_id.dont_consider','!=',True)]
 
-        # Si no se especifica tener en cuenta personas con discapacidad, las sacamos del analisis
-        if not consider_disabled_person:
-            domain.append(('user_input_id.partner_id.disabled_person','!=',True))
-
-
-        # If not indicator we return False
+    # If not indicator we return False
         if indicator:
             domain.append(('question_id.indicator_id','=',indicator.id))
         else:
@@ -215,63 +226,44 @@ class academic_division_analysis(models.Model):
         if subject:
             domain.append(('user_input_id.group_id.subject_id','=',subject.id))            
         
-        # Append restrictions from context
-        if group_ids:
-            domain.append(('user_input_id.group_id','in',group_ids))
+    # Append restrictions from context
+        # Si no se especifica tener en cuenta personas con discapacidad, las sacamos del analisis
+        if not consider_disabled_person:
+            domain.append(('user_input_id.partner_id.disabled_person','!=',True))
+        # Si no se especifica tener en cuenta evaluaciones de diagnostico, las sacamos del analisis
+        if not include_diagnosis_eval:
+            domain.append(('user_input_id.survey_id.is_diagnosis','!=',True))
         if period_ids:
             domain.append(('question_id.survey_id.period_id','in',period_ids))
         if company_id:
             domain.append(('user_input_id.company_id','=',company_id))
-
-        user_input_question_score_ids = self.env['survey.user_input_question_score'].search(domain)
-        
-        # Hago este read exclusviamente porque sin este read vuelve a calcular los campos funcion
-        print len(user_input_question_score_ids.read(['indicator_rel_score']))
-        indicator_rel_scores = [x.indicator_rel_score for x in user_input_question_score_ids]
-
-        
-        # Hago este read exclusviamente porque sin este read vuelve a calcular los campos funcion
-        question_ids = [x.question_id.id for x in user_input_question_score_ids]
-        questions = self.env['survey.question'].search([('id','in',question_ids)])
-        print len(questions.read(['max_indicator_rel_score']))
-        
-        max_indicator_rel_scores = [x.question_id.max_indicator_rel_score for x in user_input_question_score_ids]
-        sum_max_indicator_rel_scores = sum(max_indicator_rel_scores)
-        value = 0.0
-        if sum_max_indicator_rel_scores and sum_max_indicator_rel_scores != 0.0:
-            value = (sum(indicator_rel_scores) / sum(max_indicator_rel_scores)) * (weight / 100.0)
-        return value
-
-# Esto no lo pudimos usar porque el foreach en la kanban no sabemos como funciona y a su vez no sabriamos como poner cada elemento donde queremos
-# class academic_division_analysis_detail(models.Model):
-#     """"""
     
-#     _name = 'academic.division_analysis_detail'
-#     _description = 'academic.division_analysis detail'
+    # Calculamos los indicadores segun su tipo
+        value = 0.0
+        if indicator.calc_type == 'group_max':
+            max_group_scores = []
+            if not group_ids:
+                group_domain = []
+                if company_id:
+                    group_domain = [('company_id','=',company_id)]
+                group_ids = [x.id for x in self.env['academic.group'].search(group_domain)]
 
-#     indicator_id = fields.Many2one ('survey.question.indicator', 'Indicator')
-#     subject_id = fields.Many2one ('academic.subject', 'Subject')
-#     value = fields.Float ('Value', compute="_get_value")
-#     weight = fields.Float ('Ponderator', required=True)
-#     sequence = fields.Integer ('Sequence', required=True)
-#     # TODO agregar un ondelete para hacer la composicion
-#     division_analysis_id  = fields.Many2one ('academic.division_analysis', 'Division Analysis', required=True, ondelete="cascade")
-
-#     @api.one
-#     def _get_value(self):
-#         group_id = self.env.context.get('default_group_id', False)
-#         company_id = self.env.context.get('default_company_id', False)
-#         print 'self.env.context22222222222', self.env.context
-#         # subject_id = self.env.context.get('default_subject_id', False)
-#         domain = []
-#         if group_id:
-#             domain.append(('user_input_id.group_id','=',group_id))
-#         if company_id:
-#             domain.append(('user_input_id.company_id','=',company_id))
-#         if self.subject_id:
-#             domain.append(('user_input_id.group_id.subject_id','=',self.subject_id.id))            
-#         # user_input_question_score_ids = self.env['survey.user_input_question_score'].search(domain)
-#         # scores = [x.score for x in user_input_question_score_ids]
-#         # value = sum(scores) * self.weight / len(scores)
-#         value = 5
-#         self.value = value
+            for group_id in group_ids:
+                group_domain = domain[:]
+                group_domain.append(('user_input_id.group_id','=',group_id))
+                group_indicator_rel_scores, group_max_indicator_rel_scores = get_user_input_scores(self, group_domain, get_max_indicator_rel_scores=False)
+                if group_indicator_rel_scores:
+                    max_group_indicator_rel_score = max(group_indicator_rel_scores)
+                    max_group_scores.append(max_group_indicator_rel_score)
+                    if len(max_group_scores) != 0:
+                        value = (sum(max_group_scores) / len(max_group_scores)) * (weight / 100.0)
+        
+        elif indicator.calc_type == 'group_average':    
+            if group_ids:
+                domain.append(('user_input_id.group_id','in',group_ids))
+            
+            indicator_rel_scores, max_indicator_rel_scores = get_user_input_scores(self, domain)
+            sum_max_indicator_rel_scores = sum(max_indicator_rel_scores)
+            if sum_max_indicator_rel_scores and sum_max_indicator_rel_scores != 0.0:
+                value = (sum(indicator_rel_scores) / sum(max_indicator_rel_scores)) * (weight / 100.0)
+        return value

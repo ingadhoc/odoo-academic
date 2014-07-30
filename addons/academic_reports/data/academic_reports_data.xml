@@ -13,7 +13,6 @@
             <field name="subi_internal_math_sub_id" search="[('name','like','Matemática')]"/>
             <field name="subi_internal_math_weight" eval="15"/>
 
-
             <field name="subi_external_lang_ind_id" search="[('name','ilike','Promedio Evaluación Externa')]"/>
             <field name="subi_external_lang_sub_id" search="[('name','like','Lengua')]"/>
             <field name="subi_external_lang_weight" eval="35"/>

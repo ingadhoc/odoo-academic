@@ -21,6 +21,7 @@
             <field name="arch" type="xml">
                 <tree string="Survey Question Indicator">
                     <field name="name"/>
+                    <field name="calc_type"/>
                     <field name="variable_id"/>
                 </tree>
             </field>
@@ -33,6 +34,7 @@
                 <form string="Survey Question Indicator" version="7.0">
                     <group>
                         <field name="name"/>
+                        <field name="calc_type"/>
                         <field name="variable_id"/>
                     </group>                    
                 </form>

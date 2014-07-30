@@ -40,6 +40,7 @@ class survey(osv.osv):
         'checked_by': fields.selection([(u'student', u'Student'), (u'teacher', u'Teacher'), (u'administrator', u'Administrator')], string='Checked By'),
         'evaluation_subtype': fields.selection([(u'student_evaluation', u'Student Evaluation'), (u'poll_survey', u'Poll Survey')], string='Subtype'),
         'period_id': fields.many2one('academic.period', string='period_id'),
+        'is_diagnosis': fields.boolean(string='Is Diagnosis?'),
         'group_evaluation_ids': fields.one2many('academic.group_evaluation', 'survey_id', string='Groups', context={'from_survey':True}), 
         'level_ids': fields.many2many('academic.level', 'academic_survey_ids_level_ids_rel', 'survey_id', 'level_id', string='Levels'), 
         'subject_ids': fields.many2many('academic.subject', 'academic_survey_ids_subject_ids_rel', 'survey_id', 'subject_id', string='Subjects'), 

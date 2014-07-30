@@ -7,10 +7,20 @@
         <field name="model">academic.evaluation.analysis</field>
         <field name="arch" type="xml">
             <graph string="Response Analysis" type="pivot" stacked="True">
-                <field name="partner_id" type="row"/>
-                <field name="survey_id" type="col"/>
                 <field name="avg_score" type="measure"/>
             </graph>            
+        </field>
+    </record>
+
+    <record id="view_evaluation_analysis_tree" model="ir.ui.view">
+        <field name="name">academic.evaluation.analysis.tree</field>
+        <field name="model">academic.evaluation.analysis</field>
+        <field name="arch" type="xml">
+            <tree string="Response Analysis">
+                <field name="partner_id"/>
+                <field name="disabled_person"/>
+                <field name="dont_consider"/>
+            </tree>            
         </field>
     </record>
 
@@ -20,6 +30,11 @@
         <field name="arch" type="xml">
             <search string="Response Analysis">
                 <filter string="Closed" name="closed" domain="[('group_evaluation_state','=','closed')]"/>
+                <separator/>
+                <filter string="Excluir Personas con Discapacidad" name="exclude_disable_partners" domain="[('disabled_person','=',False)]"/>
+                <separator/>
+                <!-- <filter string="Excluir Evaluaciones a no Considerar" name="exclude_donot_consider_eval" domain="[('dont_consider','!=',True)]"/> -->
+                <separator/>
                 <field name="survey_id"/>
                 <field name="period_id"/>
                 <field name="partner_id"/>
@@ -44,9 +59,9 @@
         <field name="view_mode">graph</field>
         <field name="search_view_id" ref="view_evaluation_analysis_search"/>
         <field name="view_id" ref="view_evaluation_analysis_graph"/>
-        <field name="context">{'search_default_closed':1}</field>
-        <field name="auto_search" eval="False"/>
-        <field name="domain">[('is_evaluation','=',True)]</field>
+        <field name="context">{'search_default_closed':1,'search_default_exclude_disable_partners':1}</field>
+        <field name="auto_search" eval="True"/>
+        <field name="domain">[('is_evaluation','=',True),('dont_consider','=',False)]</field>
     </record>
 
     <menuitem action="action_evaluation_analysis_report_all" id="menu_report_evaluation_analysis" parent="menu_report_academic" sequence="10"/>

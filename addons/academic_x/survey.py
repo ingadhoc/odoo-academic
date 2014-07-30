@@ -117,10 +117,14 @@ class survey_question_indicator(osv.Model):
 	
 	_columns = {
 		'name': fields.char(string="Name", required=True, translate=True),
+		'calc_type': fields.selection([('group_average','Group Average'),('group_max','Group Max Value')], string="Calculation Type", required=True,),
 		'variable_id': fields.many2one('survey.question.variable', string="Variable", required=True,),
 		'question_ids': fields.one2many('survey.question', 'indicator_id', string="Questions",),
 	}
 
+	_defaults = {
+		'calc_type': 'group_average',
+	}
 class survey_question(osv.Model):
 	
 	_inherit = 'survey.question'

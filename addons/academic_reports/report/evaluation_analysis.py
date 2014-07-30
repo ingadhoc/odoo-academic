@@ -15,8 +15,12 @@ class academic_evaluation_analysis(models.Model):
     
     # Group evaluation
     group_evaluation_state = fields.Selection([(u'invisible', u'Invisible'), (u'visible', u'Visible'), (u'open', u'Open'), (u'closed', u'Closed')], 'Group Ev. Status', readonly=True)
-
+    
+    # Partner
+    disabled_person = fields.Boolean('Disabled Person?')
+    
     # User Input
+    dont_consider = fields.Boolean('Don not Consider?')
     input_state = fields.Selection([('done', 'Finished '),('skip', 'Not Finished')], 'Status', readonly=True)
     group_id = fields.Many2one('academic.group', 'Group', readonly=True,)
     partner_id = fields.Many2one('res.partner', 'Partner', readonly=True,)
@@ -37,9 +41,11 @@ SELECT
         survey_user_input.survey_id as survey_id,
         survey_user_input.partner_id as partner_id,
         survey_user_input.state as input_state,
+        academic_observation_category.dont_consider as dont_consider,
         academic_group_evaluation.group_id as group_id,
         academic_group_evaluation.state as group_evaluation_state,
         academic_group.company_id,
+        res_partner.disabled_person as disabled_person,
         survey_survey.is_evaluation as is_evaluation,
         survey_survey.stage_id as survey_stage_id,
         survey_survey.period_id as period_id        
@@ -50,6 +56,10 @@ SELECT
         on survey_user_input.group_evaluation_id = academic_group_evaluation.id  
     FULL JOIN academic_group
         on academic_group_evaluation.group_id = academic_group.id  
+    LEFT JOIN academic_observation_category
+    on survey_user_input.observation_category_id = academic_observation_category.id
+    INNER JOIN res_partner
+    on survey_user_input.partner_id = res_partner.id
         )
         """)
 

@@ -261,11 +261,21 @@
             groups="group_manager"
             />
 
+        <record id="action_academic_period_periods" model="ir.actions.act_window">
+            <field name="name">Periods</field>
+            <field name="res_model">academic.period</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_academic_period_tree"/>
+            <field name="search_view_id" ref="view_academic_period_filter"/>
+            <field name="domain">[]</field>
+        </record>
 
         <menuitem
             name="Periods"
             id="menu_periods"
             sequence="60"
+            action="action_academic_period_periods"
             parent="menu_general_data"
             groups="group_manager"
             />

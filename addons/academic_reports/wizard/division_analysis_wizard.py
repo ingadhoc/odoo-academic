@@ -14,6 +14,7 @@ class academic_division_analysis_wizard(osv.osv_memory):
     groups = fields.Char('Groups',)
     periods = fields.Char('Periods',)
     company = fields.Char('Comapny',)
+    include_diagnosis_eval = fields.Boolean('Incluir Evaluaciones Diagnóstico?',)
 
     @api.multi
     def action_confirm(self):
@@ -21,6 +22,7 @@ class academic_division_analysis_wizard(osv.osv_memory):
         period_ids = [x.id for x in self.period_ids]
         company_id = self.company_id.id
         consider_disabled_person = self.consider_disabled_person
+        include_diagnosis_eval = self.include_diagnosis_eval
 
         periods = ', '.join([x.name for x in self.period_ids])
         groups = ', '.join([x.complete_name for x in self.group_ids])
@@ -33,6 +35,7 @@ class academic_division_analysis_wizard(osv.osv_memory):
             group_ids=group_ids,
             company_id=company_id,
             consider_disabled_person=consider_disabled_person,
+            include_diagnosis_eval=include_diagnosis_eval,
             ).env.context
 
         return {

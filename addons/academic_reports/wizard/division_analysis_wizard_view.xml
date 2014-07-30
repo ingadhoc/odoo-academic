@@ -15,6 +15,7 @@
                         <field name="group_ids"/>
                         <field name="period_ids"/>
                         <field name="consider_disabled_person"/>
+                        <field name="include_diagnosis_eval" groups="base.group_user"/>
                     </group>
                     <footer>
                         <button name="action_confirm" string="Confirm" type="object" class="oe_highlight"/>
