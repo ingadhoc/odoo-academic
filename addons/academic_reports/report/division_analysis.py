@@ -152,12 +152,9 @@ class academic_division_analysis(models.Model):
             + self.subi_avg_spec_proj_lang_value + self.subi_avg_spec_proj_math_value \
             + self.subi_avg_relevant_training_lang_value + self.subi_avg_relevant_training_math_value
         
-        self.administrator_perfomance = self.subi_avg_teacher_interview_value \
-            + self.subi_timextopic_ped_lang_value + self.subi_timextopic_ped_math_value \
-            + self.subi_timextopic_org_lang_value + self.subi_timextopic_org_math_value \
-            + self.subi_timextopic_org_lang_value + self.subi_timextopic_org_math_value \
-            + self.subi_avg_student_interview_value \
-            + self.subi_avg_marriage_att_value + self.subi_avg_parent_att_value
+        self.administrator_perfomance = self.subi_avg_teacher_interview_lang_value + self.subi_avg_teacher_interview_math_value \
+            + self.subi_timextopic_lang_value + self.subi_timextopic_math_value \
+            + self.subi_avg_parent_att_value
 
         # Get names
         groups = self.env.context.get('groups',False)
