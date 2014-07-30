@@ -11,6 +11,7 @@
                     <h3>Ingrese los filtros que desea aplicar a la información.</h3>
                     <h3>Tenga en cuenta que en caso de no aplicar ningún filtro, se mostrará toda la información agrupada.</h3>
                     <group>
+                        <field name="division_analysis_id"/>
                         <field name="company_id" groups="base.group_multi_company"/>
                         <field name="group_ids"/>
                         <field name="period_ids"/>
