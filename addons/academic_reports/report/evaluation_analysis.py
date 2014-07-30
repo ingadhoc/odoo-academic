@@ -34,10 +34,10 @@ class academic_evaluation_analysis(models.Model):
         cr.execute("""
             create or replace view academic_evaluation_analysis as (
 SELECT
-        survey_user_input.id as id,
-        survey_user_input.score as avg_score,
-        survey_user_input.score as min_score,
-        survey_user_input.score as max_score,
+        survey_user_input_question_score.id as id,
+        survey_user_input_question_score.score_percentage as avg_score, 
+        survey_user_input_question_score.score_percentage as min_score, 
+        survey_user_input_question_score.score_percentage as max_score, 
         survey_user_input.survey_id as survey_id,
         survey_user_input.partner_id as partner_id,
         survey_user_input.state as input_state,
@@ -49,7 +49,9 @@ SELECT
         survey_survey.is_evaluation as is_evaluation,
         survey_survey.stage_id as survey_stage_id,
         survey_survey.period_id as period_id        
-    FROM survey_user_input
+    FROM survey_user_input_question_score
+    INNER JOIN survey_user_input
+    on survey_user_input_question_score.user_input_id = survey_user_input.id
     INNER JOIN survey_survey
     on survey_user_input.survey_id = survey_survey.id
     FULL JOIN academic_group_evaluation
@@ -59,7 +61,7 @@ SELECT
     LEFT JOIN academic_observation_category
     on survey_user_input.observation_category_id = academic_observation_category.id
     INNER JOIN res_partner
-    on survey_user_input.partner_id = res_partner.id
+    on survey_user_input.partner_id = res_partner.id    
         )
         """)
 

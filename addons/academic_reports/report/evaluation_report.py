@@ -1,41 +1,39 @@
 # -*- coding: utf-8 -*-
 from openerp import tools
-from openerp.osv import fields, osv
+from openerp import models, fields, api, _
 
-class academic_evaluation_report(osv.osv):
+class academic_evaluation_report(models.Model):
     _name = "academic.evaluation.report"
     _description = "Academic Evaluation Report"
     _auto = False
-    # _rec_name = 'date'
-    _columns = {
+
     # Survey Fields
-        'is_evaluation': fields.boolean('Is Evaluation?', readonly=True, ),
-        'survey_id' : fields.many2one('survey.survey', 'Survey', readonly=True,),
-        'survey_stage_id': fields.many2one('survey.stage', string="Stage", readonly=True,),
-    # User Input Fields / answer
-        'input_score': fields.float('Score', readonly=True, group_operator='sum', ),
-        'input_min_score': fields.float('Min. Score', readonly=True, group_operator='min', ),
-        'input_max_score': fields.float('Max. Score', readonly=True, group_operator='max', ),
-        'input_avg_score': fields.float('Avg. Score', readonly=True, group_operator='avg', ),
-        'input_state' : fields.selection([('done', 'Finished '),('skip', 'Not Finished')], 'Status', readonly=True),        
-        'group_id' : fields.many2one('academic.group', 'Group', readonly=True,),
-        'partner_id' : fields.many2one('res.partner', 'Partner', readonly=True,),
-        'company_id' : fields.many2one('res.company', 'Company', readonly=True,),
-    # User Input Question Fields
-        # 'question_score': fields.float('Score', readonly=True, group_operator='avg', ),
-        'question_avg_score': fields.float('Score', readonly=True, group_operator='avg', ),
+    is_evaluation = fields.Boolean('Is Evaluation?', readonly=True,)
+    survey_id = fields.Many2one('survey.survey', 'Survey', readonly=True,)
+    survey_stage_id = fields.Many2one('survey.stage', string="Stage", readonly=True,)
+    period_id =  fields.Many2one('academic.period', string='Period', readonly=True,)
+    
+    # Group evaluation
+    group_evaluation_state = fields.Selection([(u'invisible', u'Invisible'), (u'visible', u'Visible'), (u'open', u'Open'), (u'closed', u'Closed')], 'Group Ev. Status', readonly=True)
+    
+    # # Partner
+    disabled_person = fields.Boolean('Disabled Person?')
+    
+    # User Input
+    question_id =  fields.Many2one('survey.question', string='Question',)
+    dont_consider = fields.Boolean('Don not Consider?')
+    input_state = fields.Selection([('done', 'Finished '),('skip', 'Not Finished')], 'Status', readonly=True)
+    group_id = fields.Many2one('academic.group', 'Group', readonly=True,)
+    partner_id = fields.Many2one('res.partner', 'Partner', readonly=True,)
+    company_id = fields.Many2one('res.company', 'Company', readonly=True,)
+    input_avg_score = fields.Float('Avg Score', readonly=True, group_operator='avg',)
+    input_min_score = fields.Float('Min Score', readonly=True, group_operator='min',)
+    input_max_score = fields.Float('Max Score', readonly=True, group_operator='max',)
+
     # Question fields
-        'objective_id': fields.many2one('survey.question.objective', string='Objective', readonly=True),
-        'level_id': fields.many2one('survey.question.level', string='Level', readonly=True),        
-        'content_id': fields.many2one('survey.question.content', string='Content', readonly=True),        
-        'indicator_id': fields.many2one('survey.question.indicator', string='Indicator', readonly=True),        
-        'variable_id': fields.many2one('survey.question.variable', string='Variable', readonly=True),        
-        'performance_id': fields.many2one('survey.question.performance', string='Performance', readonly=True),
-        # TODO to bring max_score it should be a stored functional field
-        # 'max_score': fields.integer('Max Score', readonly=True),
-    # Not used fields / to analize
-        # 'date_create' : fields.datetime('Create Date', readonly=True, ),
-    }
+    objective_id = fields.Many2one('survey.objective', string='Objective', readonly=True)
+    level_id = fields.Many2one('survey.level', string='Level', readonly=True) 
+    content_id = fields.Many2one('survey.content', string='Content', readonly=True)
 
     def init(self, cr):
         tools.drop_view_if_exists(cr, 'academic_evaluation_report')
@@ -43,25 +41,24 @@ class academic_evaluation_report(osv.osv):
             create or replace view academic_evaluation_report as (
 SELECT
         survey_user_input_question_score.id as id,
-        survey_user_input_question_score.score as question_avg_score,
+        survey_user_input_question_score.question_id as question_id,
+        survey_user_input_question_score.score_percentage as input_avg_score,
+        survey_user_input_question_score.score_percentage as input_min_score,
+        survey_user_input_question_score.score_percentage as input_max_score,
         survey_question.objective_id as objective_id,
         survey_question.level_id as level_id,
         survey_question.content_id as content_id,
-        survey_question.indicator_id as indicator_id,
-        survey_question_indicator.variable_id as variable_id,
-    survey_question_variable.performance_id as performance_id,        
-        survey_user_input.score as input_score,
-        survey_user_input.score as input_min_score,
-        survey_user_input.score as input_max_score,
-        survey_user_input.score as avg_score,
         survey_user_input.survey_id as survey_id,
-        survey_user_input.date_create as date_create,
         survey_user_input.partner_id as partner_id,
         survey_user_input.state as input_state,
+        res_partner.disabled_person as disabled_person,
         academic_group_evaluation.group_id as group_id,
+        academic_group_evaluation.state as group_evaluation_state,
         academic_group.company_id,
+        academic_observation_category.dont_consider as dont_consider,
         survey_survey.is_evaluation as is_evaluation,
-        survey_survey.stage_id as survey_stage_id        
+        survey_survey.stage_id as survey_stage_id,
+        survey_survey.period_id as period_id  
     FROM survey_user_input_question_score
     INNER JOIN survey_user_input
         on survey_user_input_question_score.user_input_id = survey_user_input.id
@@ -73,10 +70,11 @@ SELECT
         on academic_group_evaluation.group_id = academic_group.id  
     INNER JOIN survey_question
         on survey_user_input_question_score.question_id = survey_question.id
-    FULL JOIN survey_question_indicator
-        on survey_question.indicator_id = survey_question_indicator.id      
-    FULL JOIN survey_question_variable
-        on survey_question_indicator.variable_id = survey_question_variable.id
+    LEFT JOIN academic_observation_category
+    on survey_user_input.observation_category_id = academic_observation_category.id        
+    INNER JOIN res_partner
+    on survey_user_input.partner_id = res_partner.id            
+    WHERE survey_survey.evaluation_subtype = 'student_evaluation'
         )
         """)
 

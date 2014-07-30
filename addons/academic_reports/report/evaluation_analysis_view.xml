@@ -33,8 +33,6 @@
                 <separator/>
                 <filter string="Excluir Personas con Discapacidad" name="exclude_disable_partners" domain="[('disabled_person','=',False)]"/>
                 <separator/>
-                <!-- <filter string="Excluir Evaluaciones a no Considerar" name="exclude_donot_consider_eval" domain="[('dont_consider','!=',True)]"/> -->
-                <separator/>
                 <field name="survey_id"/>
                 <field name="period_id"/>
                 <field name="partner_id"/>
