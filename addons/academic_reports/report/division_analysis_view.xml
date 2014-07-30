@@ -123,19 +123,6 @@
                         <!-- <field name="subi_timextopic_math_value" string="Value"/> -->
                     </group>
 
-                    <group col="8" colspan="2" string="Porcentaje de entrevitas con alumnos">
-                        <field name="subi_avg_student_interview_ind_id" string="Indicator"/>
-                        <field name="subi_avg_student_interview_sub_id" string="Subject"/>
-                        <field name="subi_avg_student_interview_weight" string="Weight"/>
-                        <!-- <field name="subi_avg_student_interview_value" string="Value"/> -->
-                    </group>  
-
-                    <group col="8" colspan="2" string="Porcentaje de asistencia matrimonio">
-                        <field name="subi_avg_marriage_att_ind_id" string="Indicator"/>
-                        <field name="subi_avg_marriage_att_sub_id" string="Subject"/>
-                        <field name="subi_avg_marriage_att_weight" string="Weight"/>
-                        <!-- <field name="subi_avg_marriage_att_value" string="Value"/> -->
-                    </group>    
                     <group col="8" colspan="2" string="Porcentaje de asistencia padre o mandre">
                         <field name="subi_avg_parent_att_ind_id" string="Indicator"/>
                         <field name="subi_avg_parent_att_sub_id" string="Subject"/>
@@ -183,8 +170,6 @@
                 <field name="subi_avg_teacher_interview_math_value"/>
                 <field name="subi_timextopic_lang_value"/>
                 <field name="subi_timextopic_math_value"/>
-                <field name="subi_avg_student_interview_value"/>
-                <field name="subi_avg_marriage_att_value"/>
                 <field name="subi_avg_parent_att_value"/>
                 <field name="company"/>
                 <field name="groups"/>
@@ -307,7 +292,7 @@
                                         <td class="tg-hgcj" colspan="4">Padres entrevistados</td>
                                       </tr>
                                       <tr>
-                                        <td class="tg-s6z2" colspan="4">-indicador padres entrevistados</td>
+                                        <td class="tg-s6z2" colspan="4"><field name="subi_avg_parent_att_value"/></td>
                                       </tr>
                                 </table>                                
                             </div>

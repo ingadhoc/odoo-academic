@@ -104,18 +104,6 @@ class academic_division_analysis(models.Model):
     subi_timextopic_math_weight = fields.Float('weight subi_timextopic_math_value', digits_compute=dp.get_precision('Sub Indicator Weight'))
     subi_timextopic_math_value = fields.Float('Porcentaje de temas desarrollados Matematica', compute='_get_indicators', digits_compute=dp.get_precision('Sub Indicator Value'), readonly=True)    
 
-    # Porcentaje de entrevistas con alumnos  
-    subi_avg_student_interview_ind_id = fields.Many2one('survey.question.indicator','Indicator subi_avg_student_interview_value',)
-    subi_avg_student_interview_sub_id = fields.Many2one('academic.subject','Subject subi_avg_student_interview_value',)
-    subi_avg_student_interview_weight = fields.Float('weight subi_avg_student_interview_value', digits_compute=dp.get_precision('Sub Indicator Weight'))
-    subi_avg_student_interview_value = fields.Float('Porcentaje de temas desarrollados Matematica', compute='_get_indicators', digits_compute=dp.get_precision('Sub Indicator Value'), readonly=True)    
-        
-    # Porcentaje de asistencia padre o madre
-    subi_avg_marriage_att_ind_id = fields.Many2one('survey.question.indicator','Indicator subi_avg_student_interview_value',)
-    subi_avg_marriage_att_sub_id = fields.Many2one('academic.subject','Subject subi_avg_marriage_att_value',)
-    subi_avg_marriage_att_weight = fields.Float('weight subi_avg_marriage_att_value', digits_compute=dp.get_precision('Sub Indicator Weight'))
-    subi_avg_marriage_att_value = fields.Float('Porcentaje de temas desarrollados Matematica', compute='_get_indicators', digits_compute=dp.get_precision('Sub Indicator Value'), readonly=True)    
-            
     # Porcentaje de asistencia padre o madre
     subi_avg_parent_att_ind_id = fields.Many2one('survey.question.indicator','Indicator subi_avg_student_interview_value',)
     subi_avg_parent_att_sub_id = fields.Many2one('academic.subject','Subject subi_avg_parent_att_value',)
@@ -153,9 +141,6 @@ class academic_division_analysis(models.Model):
         self.subi_timextopic_lang_value = self._get_value(self.subi_timextopic_lang_ind_id, self.subi_timextopic_lang_sub_id, self.subi_timextopic_lang_weight)[0]
         self.subi_timextopic_math_value = self._get_value(self.subi_timextopic_math_ind_id, self.subi_timextopic_math_sub_id, self.subi_timextopic_math_weight)[0]
 
-        self.subi_avg_student_interview_value = self._get_value(self.subi_avg_student_interview_ind_id, self.subi_avg_student_interview_sub_id, self.subi_avg_student_interview_weight)[0]
-        
-        self.subi_avg_marriage_att_value = self._get_value(self.subi_avg_marriage_att_ind_id, self.subi_avg_marriage_att_sub_id, self.subi_avg_marriage_att_weight)[0]
         self.subi_avg_parent_att_value = self._get_value(self.subi_avg_parent_att_ind_id, self.subi_avg_parent_att_sub_id, self.subi_avg_parent_att_weight)[0]
 
         # Performance -    

@@ -65,10 +65,6 @@
             <field name="subi_avg_teacher_interview_math_ind_id" search="[('name','ilike','Cantidad de entrevistas con docentes')]"/>
             <field name="subi_avg_teacher_interview_math_sub_id" search="[('name','like','Matemática')]"/>
             <field name="subi_avg_teacher_interview_math_weight" eval="30"/>           
-            
-            <field name="subi_avg_student_interview_ind_id" search="[('name','ilike','Porcentaje de padres entrevistados')]"/>
-            <field name="subi_avg_student_interview_weight" eval="20"/>             
-            
 
         </record>
 
