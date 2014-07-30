@@ -93,28 +93,17 @@ class academic_division_analysis(models.Model):
     subi_avg_teacher_interview_math_value = fields.Float('Porcentaje de temas desarrollados Matematica', compute='_get_indicators', digits_compute=dp.get_precision('Sub Indicator Value'), readonly=True)    
 
     
-    # Porcentaje tiempo asignado a temas pedagógico Lengua
-    subi_timextopic_ped_lang_ind_id = fields.Many2one('survey.question.indicator','Indicator subi_timextopic_ped_lang_value',)
-    subi_timextopic_ped_lang_sub_id = fields.Many2one('academic.subject','Subject subi_timextopic_ped_lang_value',)
-    subi_timextopic_ped_lang_weight = fields.Float('weight subi_timextopic_ped_lang_value', digits_compute=dp.get_precision('Sub Indicator Weight'))
-    subi_timextopic_ped_lang_value = fields.Float('Porcentaje de temas desarrollados Matematica', compute='_get_indicators', digits_compute=dp.get_precision('Sub Indicator Value'), readonly=True)        
+    # Porcentaje tiempo asignado a temas Lengua
+    subi_timextopic_lang_ind_id = fields.Many2one('survey.question.indicator','Indicator subi_timextopic_lang_value',)
+    subi_timextopic_lang_sub_id = fields.Many2one('academic.subject','Subject subi_timextopic_lang_value',)
+    subi_timextopic_lang_weight = fields.Float('weight subi_timextopic_lang_value', digits_compute=dp.get_precision('Sub Indicator Weight'))
+    subi_timextopic_lang_value = fields.Float('Porcentaje de temas desarrollados Matematica', compute='_get_indicators', digits_compute=dp.get_precision('Sub Indicator Value'), readonly=True)        
     # Porcentaje tiempo asignado a temas pedagógico Matematica
-    subi_timextopic_ped_math_ind_id = fields.Many2one('survey.question.indicator','Indicator subi_timextopic_ped_math_value',)
-    subi_timextopic_ped_math_sub_id = fields.Many2one('academic.subject','Subject subi_timextopic_ped_math_value',)
-    subi_timextopic_ped_math_weight = fields.Float('weight subi_timextopic_ped_math_value', digits_compute=dp.get_precision('Sub Indicator Weight'))
-    subi_timextopic_ped_math_value = fields.Float('Porcentaje de temas desarrollados Matematica', compute='_get_indicators', digits_compute=dp.get_precision('Sub Indicator Value'), readonly=True)    
-        
-    # Porcentaje tiempo asignado a temas organizativos Lengua
-    subi_timextopic_org_lang_ind_id = fields.Many2one('survey.question.indicator','Indicator subi_timextopic_org_lang_value',)
-    subi_timextopic_org_lang_sub_id = fields.Many2one('academic.subject','Subject subi_timextopic_org_lang_value',)
-    subi_timextopic_org_lang_weight = fields.Float('weight subi_timextopic_org_lang_value', digits_compute=dp.get_precision('Sub Indicator Weight'))
-    subi_timextopic_org_lang_value = fields.Float('Porcentaje de temas desarrollados Matematica', compute='_get_indicators', digits_compute=dp.get_precision('Sub Indicator Value'), readonly=True)        
-    # Porcentaje tiempo asignado a temas organizativos Matematica
-    subi_timextopic_org_math_ind_id = fields.Many2one('survey.question.indicator','Indicator subi_timextopic_org_math_value',)
-    subi_timextopic_org_math_sub_id = fields.Many2one('academic.subject','Subject subi_timextopic_org_math_value',)
-    subi_timextopic_org_math_weight = fields.Float('weight subi_timextopic_org_math_value', digits_compute=dp.get_precision('Sub Indicator Weight'))
-    subi_timextopic_org_math_value = fields.Float('Porcentaje de temas desarrollados Matematica', compute='_get_indicators', digits_compute=dp.get_precision('Sub Indicator Value'), readonly=True)    
-    
+    subi_timextopic_math_ind_id = fields.Many2one('survey.question.indicator','Indicator subi_timextopic_math_value',)
+    subi_timextopic_math_sub_id = fields.Many2one('academic.subject','Subject subi_timextopic_math_value',)
+    subi_timextopic_math_weight = fields.Float('weight subi_timextopic_math_value', digits_compute=dp.get_precision('Sub Indicator Weight'))
+    subi_timextopic_math_value = fields.Float('Porcentaje de temas desarrollados Matematica', compute='_get_indicators', digits_compute=dp.get_precision('Sub Indicator Value'), readonly=True)    
+
     # Porcentaje de entrevistas con alumnos  
     subi_avg_student_interview_ind_id = fields.Many2one('survey.question.indicator','Indicator subi_avg_student_interview_value',)
     subi_avg_student_interview_sub_id = fields.Many2one('academic.subject','Subject subi_avg_student_interview_value',)
@@ -161,11 +150,8 @@ class academic_division_analysis(models.Model):
         self.subi_avg_teacher_interview_lang_value = self._get_value(self.subi_avg_teacher_interview_lang_ind_id, self.subi_avg_teacher_interview_lang_sub_id, self.subi_avg_teacher_interview_lang_weight)[0]
         self.subi_avg_teacher_interview_math_value = self._get_value(self.subi_avg_teacher_interview_math_ind_id, self.subi_avg_teacher_interview_math_sub_id, self.subi_avg_teacher_interview_math_weight)[0]
         
-        self.subi_timextopic_ped_lang_value = self._get_value(self.subi_timextopic_ped_lang_ind_id, self.subi_timextopic_ped_lang_sub_id, self.subi_timextopic_ped_lang_weight)[0]
-        self.subi_timextopic_ped_math_value = self._get_value(self.subi_timextopic_ped_math_ind_id, self.subi_timextopic_ped_math_sub_id, self.subi_timextopic_ped_math_weight)[0]
-
-        self.subi_timextopic_org_lang_value = self._get_value(self.subi_timextopic_org_lang_ind_id, self.subi_timextopic_org_lang_sub_id, self.subi_timextopic_org_lang_weight)[0]
-        self.subi_timextopic_org_math_value = self._get_value(self.subi_timextopic_org_math_ind_id, self.subi_timextopic_org_math_sub_id, self.subi_timextopic_org_math_weight)[0]
+        self.subi_timextopic_lang_value = self._get_value(self.subi_timextopic_lang_ind_id, self.subi_timextopic_lang_sub_id, self.subi_timextopic_lang_weight)[0]
+        self.subi_timextopic_math_value = self._get_value(self.subi_timextopic_math_ind_id, self.subi_timextopic_math_sub_id, self.subi_timextopic_math_weight)[0]
 
         self.subi_avg_student_interview_value = self._get_value(self.subi_avg_student_interview_ind_id, self.subi_avg_student_interview_sub_id, self.subi_avg_student_interview_weight)[0]
         

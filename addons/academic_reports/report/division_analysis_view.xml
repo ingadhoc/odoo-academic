@@ -110,29 +110,17 @@
                         <field name="subi_avg_teacher_interview_math_weight" string="Weight"/>
                     </group>
 
-                    <group col="8" colspan="2" string="Porcentaje de tiempo por tema Lengua - Pedagógicos">
-                        <field name="subi_timextopic_ped_lang_ind_id" string="Indicator"/>
-                        <field name="subi_timextopic_ped_lang_sub_id" string="Subject"/>
-                        <field name="subi_timextopic_ped_lang_weight" string="Weight"/>
-                        <!-- <field name="subi_timextopic_ped_lang_value" string="Value"/> -->
+                    <group col="8" colspan="2" string="Porcentaje de tiempo por tema Lengua">
+                        <field name="subi_timextopic_lang_ind_id" string="Indicator"/>
+                        <field name="subi_timextopic_lang_sub_id" string="Subject"/>
+                        <field name="subi_timextopic_lang_weight" string="Weight"/>
+                        <!-- <field name="subi_timextopic_lang_value" string="Value"/> -->
                     </group>
-                    <group col="8" colspan="2" string="Porcentaje de tiempo por tema Matemática - Pedagógicos">
-                        <field name="subi_timextopic_ped_math_ind_id" string="Indicator"/>
-                        <field name="subi_timextopic_ped_math_sub_id" string="Subject"/>
-                        <field name="subi_timextopic_ped_math_weight" string="Weight"/>
-                        <!-- <field name="subi_timextopic_ped_math_value" string="Value"/> -->
-                    </group>
-                    <group col="8" colspan="2" string="Porcentaje de tiempo por tema Lengua - Organizativos">
-                        <field name="subi_timextopic_org_lang_ind_id" string="Indicator"/>
-                        <field name="subi_timextopic_org_lang_sub_id" string="Subject"/>
-                        <field name="subi_timextopic_org_lang_weight" string="Weight"/>
-                        <!-- <field name="subi_timextopic_org_lang_value" string="Value"/> -->
-                    </group>
-                    <group col="8" colspan="2" string="Porcentaje de tiempo por tema Matemática - Organizativos">
-                        <field name="subi_timextopic_org_math_ind_id" string="Indicator"/>
-                        <field name="subi_timextopic_org_math_sub_id" string="Subject"/>
-                        <field name="subi_timextopic_org_math_weight" string="Weight"/>
-                        <!-- <field name="subi_timextopic_org_math_value" string="Value"/> -->
+                    <group col="8" colspan="2" string="Porcentaje de tiempo por tema Matemática">
+                        <field name="subi_timextopic_math_ind_id" string="Indicator"/>
+                        <field name="subi_timextopic_math_sub_id" string="Subject"/>
+                        <field name="subi_timextopic_math_weight" string="Weight"/>
+                        <!-- <field name="subi_timextopic_math_value" string="Value"/> -->
                     </group>
 
                     <group col="8" colspan="2" string="Porcentaje de entrevitas con alumnos">
@@ -193,10 +181,8 @@
                 <field name="subi_avg_relevant_training_math_value"/>
                 <field name="subi_avg_teacher_interview_lang_value"/>
                 <field name="subi_avg_teacher_interview_math_value"/>
-                <field name="subi_timextopic_ped_lang_value"/>
-                <field name="subi_timextopic_ped_math_value"/>
-                <field name="subi_timextopic_org_lang_value"/>
-                <field name="subi_timextopic_org_math_value"/>
+                <field name="subi_timextopic_lang_value"/>
+                <field name="subi_timextopic_math_value"/>
                 <field name="subi_avg_student_interview_value"/>
                 <field name="subi_avg_marriage_att_value"/>
                 <field name="subi_avg_parent_att_value"/>
@@ -313,8 +299,8 @@
                                       <tr>
                                         <td class="tg-s6z2"><field name="subi_avg_teacher_interview_lang_value"/></td>
                                         <td class="tg-s6z2"><field name="subi_avg_teacher_interview_math_value"/></td>
-                                        <td class="tg-s6z2">-indicador tiempo a pedag u org lengua</td>
-                                        <td class="tg-s6z2">-indicador tiempo a pedag u org matem</td>
+                                        <td class="tg-s6z2"><field name="subi_timextopic_lang_value"/></td>
+                                        <td class="tg-s6z2"><field name="subi_timextopic_math_value"/></td>
                                       </tr>
                                       <tr>
                                         <td class="tg-hgcj" rowspan="2" style="border-width:1px 3px 1px 3px;">Entrevistas formales con padres</td>
