@@ -13,8 +13,11 @@
         <menuitem id="menu_portal_division_analysis_wizard" name="Indicator Analysis" parent="menu_portal_reporting" sequence="20" action="academic_reports.action_academic_division_analysis_wizard" groups=""/>
         
         <!-- # Este no lo usamos por ahroa -->
-        <!-- <menuitem action="academic_reports.action_evaluation_response_report_all" id="menu_portal_report_evaluation_response" parent="menu_portal_reporting" sequence="10"/> -->
+        <menuitem action="academic_reports.action_evaluation_response_report_all" id="menu_portal_report_evaluation_response" parent="menu_portal_reporting" sequence="10"/>
 
         <menuitem action="academic_reports.action_evaluation_analysis_report_all" id="menu_portal_report_evaluation_analysis" parent="menu_portal_reporting" sequence="10"/>
+       
+
+
     </data>
 </openerp>
