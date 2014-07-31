@@ -44,7 +44,7 @@
                     <filter string="Company" groups="base.group_multi_company" name="User" context="{'group_by':'company_id'}"/>
                     <filter string="Group" name="User" context="{'group_by':'group_id'}"/>
                     <filter string="Evaluation" name="survey_id" context="{'group_by':'survey_id'}"/>
-                    <filter string="Period" name="period_id" context="{'group_by':'survey_id'}"/>
+                    <filter string="Period" name="period_id" context="{'group_by':'period_id'}"/>
                 </group>
             </search>
         </field>
