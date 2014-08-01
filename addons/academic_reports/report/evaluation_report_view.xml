@@ -41,6 +41,7 @@
                 <field name="partner_id"/>
                 <field name="company_id" groups="base.group_multi_company"/>
                 <field name="group_id"/>
+                <field name="period_id"/>
                 <field name="survey_stage_id"/>
                 <field name="input_state"/>
                 <separator/>
