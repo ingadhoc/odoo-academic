@@ -24,6 +24,7 @@ class academic_evaluation_report(models.Model):
     dont_consider = fields.Boolean('Don not Consider?')
     input_state = fields.Selection([('done', 'Finished '),('skip', 'Not Finished')], 'Status', readonly=True)
     group_id = fields.Many2one('academic.group', 'Group', readonly=True,)
+    course_level_id = fields.Many2one('academic.level', 'Course Level', readonly=True,)
     partner_id = fields.Many2one('res.partner', 'Partner', readonly=True,)
     company_id = fields.Many2one('res.company', 'Company', readonly=True,)
     input_avg_score = fields.Float('Avg Score', readonly=True, group_operator='avg',)
@@ -55,6 +56,7 @@ SELECT
         academic_group_evaluation.group_id as group_id,
         academic_group_evaluation.state as group_evaluation_state,
         academic_group.company_id,
+        academic_group.level_id as course_level_id,
         academic_observation_category.dont_consider as dont_consider,
         survey_survey.is_evaluation as is_evaluation,
         survey_survey.stage_id as survey_stage_id,
@@ -73,7 +75,9 @@ SELECT
     LEFT JOIN academic_observation_category
     on survey_user_input.observation_category_id = academic_observation_category.id        
     INNER JOIN res_partner
-    on survey_user_input.partner_id = res_partner.id            
+    on survey_user_input.partner_id = res_partner.id
+    LEFT JOIN academic_level
+    on academic_group.level_id = academic_level.id            
     WHERE survey_survey.evaluation_subtype = 'student_evaluation'
         )
         """)

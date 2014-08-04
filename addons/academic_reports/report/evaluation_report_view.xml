@@ -49,6 +49,7 @@
                     <filter string="Partner" name="Partner" context="{'group_by':'partner_id'}"/>
                     <filter string="Company" groups="base.group_multi_company" name="User" context="{'group_by':'company_id'}"/>
                     <filter string="Group" name="User" context="{'group_by':'group_id'}"/>
+                    <filter string="Course Level" name="User" context="{'group_by':'course_level_id'}"/>
                     <filter string="Evaluation" name="survey_id" context="{'group_by':'survey_id'}"/>
                     <filter string="Period" name="period_id" context="{'group_by':'period_id'}"/>                    
                     <filter string="Question" name="question_id" context="{'group_by':'question_id'}"/>
