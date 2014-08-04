@@ -4,7 +4,7 @@ from openerp import models, fields, api, _
 
 class academic_evaluation_analysis(models.Model):
     _name = "academic.evaluation.analysis"
-    _description = "Academic Evaluation Analysis"
+    _description = "Evaluation Analysis"
     _auto = False
 
     # Survey Fields
@@ -36,9 +36,9 @@ class academic_evaluation_analysis(models.Model):
             create or replace view academic_evaluation_analysis as (
 SELECT
         survey_user_input_question_score.id as id,
-        survey_user_input_question_score.score_percentage as avg_score, 
-        survey_user_input_question_score.score_percentage as min_score, 
-        survey_user_input_question_score.score_percentage as max_score, 
+        survey_user_input.score as avg_score, 
+        survey_user_input.score as min_score, 
+        survey_user_input.score as max_score, 
         survey_user_input.survey_id as survey_id,
         survey_user_input.partner_id as partner_id,
         survey_user_input.state as input_state,

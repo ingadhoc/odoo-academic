@@ -4,7 +4,7 @@ from openerp import models, fields, api, _
 
 class academic_evaluation_report(models.Model):
     _name = "academic.evaluation.report"
-    _description = "Academic Evaluation Report"
+    _description = "Question_Analysis"
     _auto = False
 
     # Survey Fields
