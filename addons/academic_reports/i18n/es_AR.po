@@ -1,44 +1,69 @@
 # Translation of OpenERP Server.
 # This file contains the translation of the following modules:
-#	* academic_reports
+# 	* academic_reports
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 8.0rc1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-31 18:57+0000\n"
-"PO-Revision-Date: 2014-07-31 18:57+0000\n"
+"POT-Creation-Date: 2014-08-04 20:26+0000\n"
+"PO-Revision-Date: 2014-08-04 17:26-0300\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
+"X-Generator: Poedit 1.5.4\n"
 
 #. module: academic_reports
 #: view:academic.division_analysis:0
-msgid ".tg  {border-collapse:collapse;border-spacing:0;}\n"
-"                                .tg td{font-family:Arial, sans-serif;font-size:13px;padding:5px 5px;border-style:solid;border-width:1px;border-color:1px;overflow:hidden;word-break:normal;}\n"
-"                                .tg th{font-family:Arial, sans-serif;font-size:13px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}\n"
-"                                .tg .tg-wr85{font-weight:bold;background-color:#efefef;text-align:center}\n"
-"                                .tg .tg-zcxc{font-weight:bold;background-color:#fffe81;text-align:center}\n"
-"                                .tg .tg-5t2x{font-weight:bold;background-color:#fffc9e}\n"
+msgid ""
+".tg  {border-collapse:collapse;border-spacing:0;}\n"
+"                                .tg td{font-family:Arial, sans-serif;font-"
+"size:13px;padding:5px 5px;border-style:solid;border-width:1px;border-"
+"color:1px;overflow:hidden;word-break:normal;}\n"
+"                                .tg th{font-family:Arial, sans-serif;font-"
+"size:13px;font-weight:normal;padding:10px 5px;border-style:solid;border-"
+"width:1px;overflow:hidden;word-break:normal;}\n"
+"                                .tg .tg-wr85{font-weight:bold;background-"
+"color:#efefef;text-align:center}\n"
+"                                .tg .tg-zcxc{font-weight:bold;background-"
+"color:#fffe81;text-align:center}\n"
+"                                .tg .tg-5t2x{font-weight:bold;background-"
+"color:#fffc9e}\n"
 "                                .tg .tg-s6z2{text-align:center}\n"
-"                                .tg .tg-tfw5{background-color:#ffffc7;text-align:center}\n"
-"                                .tg .tg-n5tn{font-weight:bold;background-color:#fffc9e;text-align:center}\n"
-"                                .tg .tg-uqai{font-weight:bold;background-color:#ddffd4;text-align:center}\n"
-"                                .tg .tg-hgcj{font-weight:bold;background-color:#d6e9fc;text-align:center}"
-msgstr ".tg  {border-collapse:collapse;border-spacing:0;}\n"
-"                                .tg td{font-family:Arial, sans-serif;font-size:13px;padding:5px 5px;border-style:solid;border-width:1px;border-color:1px;overflow:hidden;word-break:normal;}\n"
-"                                .tg th{font-family:Arial, sans-serif;font-size:13px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}\n"
-"                                .tg .tg-wr85{font-weight:bold;background-color:#efefef;text-align:center}\n"
-"                                .tg .tg-zcxc{font-weight:bold;background-color:#fffe81;text-align:center}\n"
-"                                .tg .tg-5t2x{font-weight:bold;background-color:#fffc9e}\n"
+"                                .tg .tg-tfw5{background-color:#ffffc7;text-"
+"align:center}\n"
+"                                .tg .tg-n5tn{font-weight:bold;background-"
+"color:#fffc9e;text-align:center}\n"
+"                                .tg .tg-uqai{font-weight:bold;background-"
+"color:#ddffd4;text-align:center}\n"
+"                                .tg .tg-hgcj{font-weight:bold;background-"
+"color:#d6e9fc;text-align:center}"
+msgstr ""
+".tg  {border-collapse:collapse;border-spacing:0;}\n"
+"                                .tg td{font-family:Arial, sans-serif;font-"
+"size:13px;padding:5px 5px;border-style:solid;border-width:1px;border-"
+"color:1px;overflow:hidden;word-break:normal;}\n"
+"                                .tg th{font-family:Arial, sans-serif;font-"
+"size:13px;font-weight:normal;padding:10px 5px;border-style:solid;border-"
+"width:1px;overflow:hidden;word-break:normal;}\n"
+"                                .tg .tg-wr85{font-weight:bold;background-"
+"color:#efefef;text-align:center}\n"
+"                                .tg .tg-zcxc{font-weight:bold;background-"
+"color:#fffe81;text-align:center}\n"
+"                                .tg .tg-5t2x{font-weight:bold;background-"
+"color:#fffc9e}\n"
 "                                .tg .tg-s6z2{text-align:center}\n"
-"                                .tg .tg-tfw5{background-color:#ffffc7;text-align:center}\n"
-"                                .tg .tg-n5tn{font-weight:bold;background-color:#fffc9e;text-align:center}\n"
-"                                .tg .tg-uqai{font-weight:bold;background-color:#ddffd4;text-align:center}\n"
-"                                .tg .tg-hgcj{font-weight:bold;background-color:#d6e9fc;text-align:center}"
+"                                .tg .tg-tfw5{background-color:#ffffc7;text-"
+"align:center}\n"
+"                                .tg .tg-n5tn{font-weight:bold;background-"
+"color:#fffc9e;text-align:center}\n"
+"                                .tg .tg-uqai{font-weight:bold;background-"
+"color:#ddffd4;text-align:center}\n"
+"                                .tg .tg-hgcj{font-weight:bold;background-"
+"color:#d6e9fc;text-align:center}"
 
 #. module: academic_reports
 #: model:ir.ui.menu,name:academic_reports.menu_report_academic
@@ -122,6 +147,14 @@ msgid "Content"
 msgstr "Contenido"
 
 #. module: academic_reports
+#: view:academic.evaluation.analysis:0
+#: field:academic.evaluation.analysis,course_level_id:0
+#: view:academic.evaluation.report:0
+#: field:academic.evaluation.report,course_level_id:0
+msgid "Course Level"
+msgstr "Nivel del Curso"
+
+#. module: academic_reports
 #: field:academic.division_analysis,create_uid:0
 #: field:academic.division_analysis_wizard,create_uid:0
 msgid "Created by"
@@ -160,8 +193,7 @@ msgid "Division"
 msgstr "División"
 
 #. module: academic_reports
-#: view:academic.division_analysis:0
-#: view:academic.division_analysis_wizard:0
+#: view:academic.division_analysis:0 view:academic.division_analysis_wizard:0
 msgid "Division Analysis"
 msgstr "Análisis de Divisiones"
 
@@ -202,8 +234,7 @@ msgid "Evaluación de rendimiento de alumnos en Lengua y Matemática"
 msgstr "Evaluación de rendimiento de alumnos en Lengua y Matemática"
 
 #. module: academic_reports
-#: view:academic.evaluation.analysis:0
-#: view:academic.evaluation.report:0
+#: view:academic.evaluation.analysis:0 view:academic.evaluation.report:0
 msgid "Evaluation"
 msgstr "Evaluación"
 
@@ -214,8 +245,7 @@ msgid "Evaluation Analysis"
 msgstr "Análisis de Evaluaciones"
 
 #. module: academic_reports
-#: view:academic.evaluation.analysis:0
-#: view:academic.evaluation.report:0
+#: view:academic.evaluation.analysis:0 view:academic.evaluation.report:0
 msgid "Excluir Personas con Discapacidad"
 msgstr "Excluir Personas con Discapacidad"
 
@@ -232,8 +262,7 @@ msgid "Group"
 msgstr "Grupo"
 
 #. module: academic_reports
-#: view:academic.evaluation.analysis:0
-#: view:academic.evaluation.report:0
+#: view:academic.evaluation.analysis:0 view:academic.evaluation.report:0
 msgid "Group By..."
 msgstr "Agrupar por..."
 
@@ -314,12 +343,12 @@ msgstr "Indicador"
 #. module: academic_reports
 #: model:ir.ui.menu,name:academic_reports.menu_academic_division_analysis_wizard
 msgid "Indicator Analysis"
-msgstr "Análisis de Indicadores"
+msgstr "Análisis de Tableros"
 
 #. module: academic_reports
 #: model:ir.ui.menu,name:academic_reports.menu_academic_division_analysis_conf
 msgid "Indicator Analysis Configuration"
-msgstr "Configuración de Análisis de Indicadores"
+msgstr "Configuración de Análisis de Tableros"
 
 #. module: academic_reports
 #: field:survey.user_input_question_score,indicator_rel_score:0
@@ -630,8 +659,7 @@ msgid "Questions"
 msgstr "Preguntas"
 
 #. module: academic_reports
-#: view:academic.evaluation.analysis:0
-#: view:academic.evaluation.report:0
+#: view:academic.evaluation.analysis:0 view:academic.evaluation.report:0
 msgid "Response Analysis"
 msgstr "Análisis de Respuestas"
 
@@ -766,8 +794,12 @@ msgstr "Temas efectivamente dados"
 
 #. module: academic_reports
 #: view:academic.division_analysis_wizard:0
-msgid "Tenga en cuenta que en caso de no aplicar ningún filtro, se mostrará toda la información agrupada."
-msgstr "Tenga en cuenta que en caso de no aplicar ningún filtro, se mostrará toda la información agrupada."
+msgid ""
+"Tenga en cuenta que en caso de no aplicar ningún filtro, se mostrará toda la "
+"información agrupada."
+msgstr ""
+"Tenga en cuenta que en caso de no aplicar ningún filtro, se mostrará toda la "
+"información agrupada."
 
 #. module: academic_reports
 #: view:academic.division_analysis:0
@@ -889,4 +921,3 @@ msgstr "weight subi_timextopic_lang_value"
 #: field:academic.division_analysis,subi_timextopic_math_weight:0
 msgid "weight subi_timextopic_math_value"
 msgstr "weight subi_timextopic_math_value"
-
