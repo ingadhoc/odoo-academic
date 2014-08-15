@@ -166,6 +166,8 @@ class academic_division_analysis(models.Model):
 
     @api.one
     def _get_value(self, indicator, subject, weight):
+        print indicator, subject, weight
+        print self.env.context
         def get_user_input_scores(self, domain, get_max_indicator_rel_scores = True):
             user_input_question_score_ids = self.env['survey.user_input_question_score'].search(domain)
         
