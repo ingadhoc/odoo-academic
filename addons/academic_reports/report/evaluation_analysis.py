@@ -4,7 +4,7 @@ from openerp import models, fields, api, _
 
 class academic_evaluation_analysis(models.Model):
     _name = "academic.evaluation.analysis"
-    _description = "Academic Evaluation Analysis"
+    _description = "Evaluation Analysis"
     _auto = False
 
     # Survey Fields
@@ -23,6 +23,7 @@ class academic_evaluation_analysis(models.Model):
     dont_consider = fields.Boolean('Don not Consider?')
     input_state = fields.Selection([('done', 'Finished '),('skip', 'Not Finished')], 'Status', readonly=True)
     group_id = fields.Many2one('academic.group', 'Group', readonly=True,)
+    course_level_id = fields.Many2one('academic.level', 'Course Level', readonly=True,)
     partner_id = fields.Many2one('res.partner', 'Partner', readonly=True,)
     company_id = fields.Many2one('res.company', 'Company', readonly=True,)
     avg_score = fields.Float('Avg Score', readonly=True, group_operator='avg',)
@@ -35,14 +36,15 @@ class academic_evaluation_analysis(models.Model):
             create or replace view academic_evaluation_analysis as (
 SELECT
         survey_user_input_question_score.id as id,
-        survey_user_input_question_score.score_percentage as avg_score, 
-        survey_user_input_question_score.score_percentage as min_score, 
-        survey_user_input_question_score.score_percentage as max_score, 
+        survey_user_input.score as avg_score, 
+        survey_user_input.score as min_score, 
+        survey_user_input.score as max_score, 
         survey_user_input.survey_id as survey_id,
         survey_user_input.partner_id as partner_id,
         survey_user_input.state as input_state,
         academic_observation_category.dont_consider as dont_consider,
         academic_group_evaluation.group_id as group_id,
+        academic_group.level_id as course_level_id,
         academic_group_evaluation.state as group_evaluation_state,
         academic_group.company_id,
         res_partner.disabled_person as disabled_person,
@@ -61,7 +63,9 @@ SELECT
     LEFT JOIN academic_observation_category
     on survey_user_input.observation_category_id = academic_observation_category.id
     INNER JOIN res_partner
-    on survey_user_input.partner_id = res_partner.id    
+    on survey_user_input.partner_id = res_partner.id
+    LEFT JOIN academic_level
+    on academic_group.level_id = academic_level.id    
         )
         """)
 

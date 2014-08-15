@@ -1,0 +1,882 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* academic_reports
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 8.0rc1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-07-31 18:57+0000\n"
+"PO-Revision-Date: 2014-07-31 18:57+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: academic_reports
+#: view:academic.division_analysis:0
+msgid ".tg  {border-collapse:collapse;border-spacing:0;}\n"
+"                                .tg td{font-family:Arial, sans-serif;font-size:13px;padding:5px 5px;border-style:solid;border-width:1px;border-color:1px;overflow:hidden;word-break:normal;}\n"
+"                                .tg th{font-family:Arial, sans-serif;font-size:13px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}\n"
+"                                .tg .tg-wr85{font-weight:bold;background-color:#efefef;text-align:center}\n"
+"                                .tg .tg-zcxc{font-weight:bold;background-color:#fffe81;text-align:center}\n"
+"                                .tg .tg-5t2x{font-weight:bold;background-color:#fffc9e}\n"
+"                                .tg .tg-s6z2{text-align:center}\n"
+"                                .tg .tg-tfw5{background-color:#ffffc7;text-align:center}\n"
+"                                .tg .tg-n5tn{font-weight:bold;background-color:#fffc9e;text-align:center}\n"
+"                                .tg .tg-uqai{font-weight:bold;background-color:#ddffd4;text-align:center}\n"
+"                                .tg .tg-hgcj{font-weight:bold;background-color:#d6e9fc;text-align:center}"
+msgstr ""
+
+#. module: academic_reports
+#: model:ir.ui.menu,name:academic_reports.menu_report_academic
+msgid "Academic"
+msgstr ""
+
+#. module: academic_reports
+#: model:ir.actions.act_window,name:academic_reports.action_academic_division_analysis_wizard
+msgid "Academic Division Analysis Wizard"
+msgstr ""
+
+#. module: academic_reports
+#: model:ir.model,name:academic_reports.model_academic_evaluation_analysis
+msgid "Academic Evaluation Analysis"
+msgstr ""
+
+#. module: academic_reports
+#: model:ir.model,name:academic_reports.model_academic_evaluation_report
+msgid "Academic Evaluation Report"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis:0
+msgid "Agenda del Director (AD)"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.evaluation.analysis,avg_score:0
+msgid "Avg Score"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis_wizard:0
+msgid "Cancel"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis:0
+msgid "Capacitación pertinente"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.evaluation.analysis:0
+#: selection:academic.evaluation.analysis,group_evaluation_state:0
+#: view:academic.evaluation.report:0
+#: selection:academic.evaluation.report,group_evaluation_state:0
+msgid "Closed"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis:0
+msgid "Colegio:"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis_wizard,company:0
+msgid "Comapny"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis_wizard,company_id:0
+#: view:academic.evaluation.analysis:0
+#: field:academic.evaluation.analysis,company_id:0
+#: view:academic.evaluation.report:0
+msgid "Company"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis_wizard:0
+msgid "Confirm"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis_wizard,consider_disabled_person:0
+msgid "Considerar Personas con Discapacidad?"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.evaluation.report:0
+msgid "Content"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,create_uid:0
+#: field:academic.division_analysis_wizard,create_uid:0
+msgid "Created by"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,create_date:0
+#: field:academic.division_analysis_wizard,create_date:0
+msgid "Created on"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis:0
+msgid "Cumplimiento de tareas típicas"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis:0
+msgid "Desempeño de los alumnos (DA)"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis:0
+msgid "Desempeño docente (DD)"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.evaluation.analysis,disabled_person:0
+#: field:academic.evaluation.report,disabled_person:0
+msgid "Disabled Person?"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,name:0
+msgid "Division"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis:0
+#: view:academic.division_analysis_wizard:0
+msgid "Division Analysis"
+msgstr ""
+
+#. module: academic_reports
+#: model:ir.actions.act_window,name:academic_reports.action_academic_division_analysis_conf
+msgid "Division Analysis Configuration"
+msgstr ""
+
+#. module: academic_reports
+#: model:ir.model,name:academic_reports.model_academic_division_analysis_wizard
+msgid "Division Analysis Wizard"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.evaluation.analysis,dont_consider:0
+#: field:academic.evaluation.report,dont_consider:0
+msgid "Don not Consider?"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis:0
+msgid "Entrevistas formales"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis:0
+msgid "Entrevistas formales con los docentes"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis:0
+msgid "Entrevistas formales con padres"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis:0
+msgid "Evaluación de rendimiento de alumnos en Lengua y Matemática"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.evaluation.analysis:0
+#: view:academic.evaluation.report:0
+msgid "Evaluation"
+msgstr ""
+
+#. module: academic_reports
+#: model:ir.actions.act_window,name:academic_reports.action_evaluation_analysis_report_all
+#: model:ir.ui.menu,name:academic_reports.menu_report_evaluation_analysis
+msgid "Evaluation Analysis"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.evaluation.analysis:0
+#: view:academic.evaluation.report:0
+msgid "Excluir Personas con Discapacidad"
+msgstr ""
+
+#. module: academic_reports
+#: selection:academic.evaluation.analysis,input_state:0
+msgid "Finished "
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.evaluation.analysis:0
+#: field:academic.evaluation.analysis,group_id:0
+#: view:academic.evaluation.report:0
+msgid "Group"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.evaluation.analysis:0
+#: view:academic.evaluation.report:0
+msgid "Group By..."
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.evaluation.analysis,group_evaluation_state:0
+#: field:academic.evaluation.report,group_evaluation_state:0
+msgid "Group Ev. Status"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis_wizard,group_ids:0
+#: field:academic.division_analysis_wizard,groups:0
+msgid "Groups"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis:0
+msgid "Grupos:"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis:0
+msgid "Horas de clase efectivamente dadas"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis:0
+msgid "IAD"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,id:0
+#: field:academic.division_analysis_wizard,id:0
+#: field:academic.evaluation.analysis,id:0
+msgid "ID"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis:0
+msgid "IDA"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis:0
+msgid "IDD"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis_wizard,include_diagnosis_eval:0
+msgid "Incluir Evaluaciones Diagnóstico?"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis:0
+msgid "Indicador Externo Lengua"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis:0
+msgid "Indicador Interno Lengua"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis:0
+msgid "Indicador Interno Matemática"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis:0
+msgid "Indicadores"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis:0
+msgid "Indicator"
+msgstr ""
+
+#. module: academic_reports
+#: model:ir.ui.menu,name:academic_reports.menu_academic_division_analysis_wizard
+msgid "Indicator Analysis"
+msgstr ""
+
+#. module: academic_reports
+#: model:ir.ui.menu,name:academic_reports.menu_academic_division_analysis_conf
+msgid "Indicator Analysis Configuration"
+msgstr ""
+
+#. module: academic_reports
+#: field:survey.user_input_question_score,indicator_rel_score:0
+msgid "Indicator Relative Score"
+msgstr ""
+
+#. module: academic_reports
+#: field:survey.question,max_indicator_rel_score:0
+msgid "Indicator Score"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,subi_avg_hour_lang_ind_id:0
+msgid "Indicator subi_avg_hour_lang_value"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,subi_avg_hour_math_ind_id:0
+msgid "Indicator subi_avg_hour_math_value"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,subi_external_lang_ind_id:0
+#: field:academic.division_analysis,subi_internal_lang_ind_id:0
+msgid "Indicator subi_avg_note_lang_value"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,subi_avg_relevant_training_lang_ind_id:0
+msgid "Indicator subi_avg_relevant_training_lang_value"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,subi_avg_relevant_training_math_ind_id:0
+msgid "Indicator subi_avg_relevant_training_math_value"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,subi_avg_spec_proj_lang_ind_id:0
+msgid "Indicator subi_avg_spec_proj_lang_value"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,subi_avg_spec_proj_math_ind_id:0
+msgid "Indicator subi_avg_spec_proj_math_value"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,subi_avg_parent_att_ind_id:0
+msgid "Indicator subi_avg_student_interview_value"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,subi_avg_teacher_interview_lang_ind_id:0
+msgid "Indicator subi_avg_teacher_interview_lang_value"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,subi_avg_teacher_interview_math_ind_id:0
+msgid "Indicator subi_avg_teacher_interview_math_value"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,subi_avg_topics_lang_ind_id:0
+msgid "Indicator subi_avg_topics_lang_value"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,subi_avg_topics_math_ind_id:0
+msgid "Indicator subi_avg_topics_math_value"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,subi_external_math_ind_id:0
+msgid "Indicator subi_external_math_value"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,subi_internal_math_ind_id:0
+msgid "Indicator subi_internal_math_value"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,subi_timextopic_lang_ind_id:0
+msgid "Indicator subi_timextopic_lang_value"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,subi_timextopic_math_ind_id:0
+msgid "Indicator subi_timextopic_math_value"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis_wizard:0
+msgid "Ingrese los filtros que desea aplicar a la información."
+msgstr ""
+
+#. module: academic_reports
+#: selection:academic.evaluation.analysis,group_evaluation_state:0
+#: selection:academic.evaluation.report,group_evaluation_state:0
+msgid "Invisible"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.evaluation.analysis,is_evaluation:0
+msgid "Is Evaluation?"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,write_uid:0
+#: field:academic.division_analysis_wizard,write_uid:0
+msgid "Last Updated by"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,write_date:0
+#: field:academic.division_analysis_wizard,write_date:0
+msgid "Last Updated on"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis:0
+msgid "Lengua"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.evaluation.report:0
+msgid "Level"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis:0
+msgid "Matemática"
+msgstr ""
+
+#. module: academic_reports
+#: field:survey.question,max_indicator_score:0
+msgid "Max Indicator Score"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.evaluation.analysis,max_score:0
+msgid "Max Score"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.evaluation.analysis,min_score:0
+msgid "Min Score"
+msgstr ""
+
+#. module: academic_reports
+#: selection:academic.evaluation.analysis,input_state:0
+msgid "Not Finished"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis:0
+msgid "Núcleos de observación"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.evaluation.report:0
+msgid "Objective"
+msgstr ""
+
+#. module: academic_reports
+#: selection:academic.evaluation.analysis,group_evaluation_state:0
+#: selection:academic.evaluation.report,group_evaluation_state:0
+msgid "Open"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis:0
+msgid "Padres entrevistados"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis:0
+msgid "Participación institucional"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.evaluation.analysis:0
+#: field:academic.evaluation.analysis,partner_id:0
+#: view:academic.evaluation.report:0
+msgid "Partner"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis_wizard,period_ids:0
+#: view:academic.evaluation.analysis:0
+#: field:academic.evaluation.analysis,period_id:0
+#: view:academic.evaluation.report:0
+#: field:academic.evaluation.report,period_id:0
+msgid "Period"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis_wizard,periods:0
+msgid "Periods"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis:0
+msgid "Períodos:"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis:0
+msgid "Porcentaje de asistencia padre o mandre"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis:0
+msgid "Porcentaje de capacitación pertinente Lengua"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis:0
+msgid "Porcentaje de capacitación pertinente Matematica"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis:0
+msgid "Porcentaje de entrevitas con docentes - Lengua"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis:0
+msgid "Porcentaje de entrevitas con docentes - Matemática"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis:0
+msgid "Porcentaje de horas dadas Lengua"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis:0
+msgid "Porcentaje de horas dadas Matematica"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis:0
+msgid "Porcentaje de proyectos específicos Lengua"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis:0
+msgid "Porcentaje de proyectos específicos Matematica"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis:0
+msgid "Porcentaje de temas desarrollados Lengua"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis:0
+msgid "Porcentaje de temas desarrollados Matematica"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis:0
+msgid "Porcentaje de tiempo por tema Lengua"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis:0
+msgid "Porcentaje de tiempo por tema Matemática"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis:0
+msgid "Promedio Externo"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis:0
+msgid "Promedio Interno"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis:0
+msgid "Proyectos específicos"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis:0
+msgid "Puntaje"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.evaluation.report:0
+#: field:academic.evaluation.report,question_id:0
+msgid "Question"
+msgstr ""
+
+#. module: academic_reports
+#: model:ir.actions.act_window,name:academic_reports.action_evaluation_response_report_all
+#: model:ir.ui.menu,name:academic_reports.menu_report_evaluation_response
+msgid "Question Analysis"
+msgstr ""
+
+#. module: academic_reports
+#: field:survey.survey,question_ids:0
+msgid "Questions"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.evaluation.analysis:0
+#: view:academic.evaluation.report:0
+msgid "Response Analysis"
+msgstr ""
+
+#. module: academic_reports
+#: model:ir.model,name:academic_reports.model_survey_user_input_question_score
+msgid "Score of a User Input by Question"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.evaluation.analysis,survey_stage_id:0
+msgid "Stage"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.evaluation.analysis,input_state:0
+msgid "Status"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis:0
+msgid "Subject"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,subi_avg_hour_lang_sub_id:0
+msgid "Subject subi_avg_hour_lang_value"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,subi_avg_hour_math_sub_id:0
+msgid "Subject subi_avg_hour_math_value"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,subi_avg_parent_att_sub_id:0
+msgid "Subject subi_avg_parent_att_value"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,subi_avg_relevant_training_lang_sub_id:0
+msgid "Subject subi_avg_relevant_training_lang_value"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,subi_avg_relevant_training_math_sub_id:0
+msgid "Subject subi_avg_relevant_training_math_value"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,subi_avg_spec_proj_lang_sub_id:0
+msgid "Subject subi_avg_spec_proj_lang_value"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,subi_avg_spec_proj_math_sub_id:0
+msgid "Subject subi_avg_spec_proj_math_value"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,subi_avg_teacher_interview_lang_sub_id:0
+msgid "Subject subi_avg_teacher_interview_lang_value"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,subi_avg_teacher_interview_math_sub_id:0
+msgid "Subject subi_avg_teacher_interview_math_value"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,subi_avg_topics_lang_sub_id:0
+msgid "Subject subi_avg_topics_lang_value"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,subi_avg_topics_math_sub_id:0
+msgid "Subject subi_avg_topics_math_value"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,subi_external_lang_sub_id:0
+msgid "Subject subi_external_lang_value"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,subi_external_math_sub_id:0
+msgid "Subject subi_external_math_value"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,subi_internal_lang_sub_id:0
+msgid "Subject subi_internal_lang_value"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,subi_internal_math_sub_id:0
+msgid "Subject subi_internal_math_value"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,subi_timextopic_lang_sub_id:0
+msgid "Subject subi_timextopic_lang_value"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,subi_timextopic_math_sub_id:0
+msgid "Subject subi_timextopic_math_value"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.evaluation.analysis,survey_id:0
+#: model:ir.model,name:academic_reports.model_survey_survey
+msgid "Survey"
+msgstr ""
+
+#. module: academic_reports
+#: model:ir.model,name:academic_reports.model_survey_question
+msgid "Survey Question"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis_wizard:0
+#: field:academic.division_analysis_wizard,division_analysis_id:0
+#: code:addons/academic_reports/wizard/division_analysis_wizard.py:47
+#, python-format
+msgid "Tablero"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis:0
+msgid "Temas efectivamente dados"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis_wizard:0
+msgid "Tenga en cuenta que en caso de no aplicar ningún filtro, se mostrará toda la información agrupada."
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis:0
+msgid "Tiempo asignado a temas pedagógicos u organizativos"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis:0
+msgid "Variable Seleccionada"
+msgstr ""
+
+#. module: academic_reports
+#: selection:academic.evaluation.analysis,group_evaluation_state:0
+#: selection:academic.evaluation.report,group_evaluation_state:0
+msgid "Visible"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis:0
+msgid "Weight"
+msgstr ""
+
+#. module: academic_reports
+#: model:ir.model,name:academic_reports.model_academic_division_analysis
+msgid "academic.division_analysis"
+msgstr ""
+
+#. module: academic_reports
+#: view:academic.division_analysis_wizard:0
+msgid "or"
+msgstr ""
+
+#. module: academic_reports
+#: field:survey.survey,period_id:0
+msgid "period_id"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,subi_avg_hour_lang_weight:0
+msgid "weight subi_avg_hour_lang_value"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,subi_avg_hour_math_weight:0
+msgid "weight subi_avg_hour_math_value"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,subi_avg_parent_att_weight:0
+msgid "weight subi_avg_parent_att_value"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,subi_avg_relevant_training_lang_weight:0
+msgid "weight subi_avg_relevant_training_lang_value"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,subi_avg_relevant_training_math_weight:0
+msgid "weight subi_avg_relevant_training_math_value"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,subi_avg_spec_proj_lang_weight:0
+msgid "weight subi_avg_spec_proj_lang_value"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,subi_avg_spec_proj_math_weight:0
+msgid "weight subi_avg_spec_proj_math_value"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,subi_avg_teacher_interview_lang_weight:0
+msgid "weight subi_avg_teacher_interview_lang_value"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,subi_avg_teacher_interview_math_weight:0
+msgid "weight subi_avg_teacher_interview_math_value"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,subi_avg_topics_lang_weight:0
+msgid "weight subi_avg_topics_lang_value"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,subi_avg_topics_math_weight:0
+msgid "weight subi_avg_topics_math_value"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,subi_external_lang_weight:0
+msgid "weight subi_external_lang_value"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,subi_external_math_weight:0
+msgid "weight subi_external_math_value"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,subi_internal_lang_weight:0
+msgid "weight subi_internal_lang_value"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,subi_internal_math_weight:0
+msgid "weight subi_internal_math_value"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,subi_timextopic_lang_weight:0
+msgid "weight subi_timextopic_lang_value"
+msgstr ""
+
+#. module: academic_reports
+#: field:academic.division_analysis,subi_timextopic_math_weight:0
+msgid "weight subi_timextopic_math_value"
+msgstr ""
+

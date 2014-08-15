@@ -36,11 +36,12 @@
                 <separator/>
                 <filter string="Excluir Personas con Discapacidad" name="exclude_disable_partners" domain="[('disabled_person','=',False)]"/>
                 <separator/>
-                <field name="survey_id"/>
+                <field name="survey_id" string="Evaluación"/>
                 <field name="question_id"/>
                 <field name="partner_id"/>
                 <field name="company_id" groups="base.group_multi_company"/>
                 <field name="group_id"/>
+                <field name="period_id"/>
                 <field name="survey_stage_id"/>
                 <field name="input_state"/>
                 <separator/>
@@ -48,8 +49,9 @@
                     <filter string="Partner" name="Partner" context="{'group_by':'partner_id'}"/>
                     <filter string="Company" groups="base.group_multi_company" name="User" context="{'group_by':'company_id'}"/>
                     <filter string="Group" name="User" context="{'group_by':'group_id'}"/>
+                    <filter string="Course Level" name="User" context="{'group_by':'course_level_id'}"/>
                     <filter string="Evaluation" name="survey_id" context="{'group_by':'survey_id'}"/>
-                    <filter string="Period" name="period_id" context="{'group_by':'survey_id'}"/>                    
+                    <filter string="Period" name="period_id" context="{'group_by':'period_id'}"/>                    
                     <filter string="Question" name="question_id" context="{'group_by':'question_id'}"/>
                     <filter string="Objective" name="objective_id" context="{'group_by':'objective_id'}"/>
                     <filter string="Level" name="level_id" context="{'group_by':'level_id'}"/>

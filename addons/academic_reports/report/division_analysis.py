@@ -209,7 +209,7 @@ class academic_division_analysis(models.Model):
             domain.append(('user_input_id.partner_id.disabled_person','!=',True))
         # Si no se especifica tener en cuenta evaluaciones de diagnostico, las sacamos del analisis
         if not include_diagnosis_eval:
-            domain.append(('user_input_id.survey_id.is_diagnosis','!=',True))
+            domain.append(('user_input_id.survey_id.is_diagnosis','=',False))
         if period_ids:
             domain.append(('question_id.survey_id.period_id','in',period_ids))
         if company_id:
