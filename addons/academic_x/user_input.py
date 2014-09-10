@@ -41,6 +41,10 @@ class survey_user_input(osv.Model):
 	def action_answer_survey(self, cr, uid, ids, context=None):
 		''' Open the website page with the survey form into test mode'''
 		user_input = self.browse(cr, uid, ids, context=context)[0]
+		
+		# TODO mejorar este fix que hicimos, es porque algunas veces daba error al re abrir una survey
+		user_input.write({'state': 'new'})
+
 		url = user_input.survey_id.public_url + '/' + user_input.token
 		return {
 			'type': 'ir.actions.act_url',
