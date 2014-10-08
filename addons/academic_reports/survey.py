@@ -36,7 +36,8 @@ class survey_question(models.Model):
         compute='_get_max_indicator_rel_score', store=True)
 
     @api.one
-    @api.depends('max_score')
+    @api.depends('page_id.survey_id.page_ids.question_ids.max_score')
+    # @api.depends('max_score')
     def _get_max_indicator_rel_score(self):
         '''Con esta funcion se calcula el valor porcentual maximo que
         se puede obtener en una pregunta
