@@ -28,7 +28,7 @@
     'category': 'Tools',
     'demo_xml': [
         ],
-    'depends': ['base','survey','academic_x','web','auth_crypt'],
+    'depends': ['base','survey','academic_x','web'],
     'description': 'Academic Fixes and Customizations',
     'init_xml': [],
     'license': 'AGPL-3',
