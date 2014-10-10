@@ -32,9 +32,9 @@ class academic_evaluation_report(models.Model):
     input_max_score = fields.Float('Max Score', readonly=True, group_operator='max',)
 
     # Question fields
-    objective_id = fields.Many2one('survey.objective', string='Objective', readonly=True)
-    level_id = fields.Many2one('survey.level', string='Level', readonly=True) 
-    content_id = fields.Many2one('survey.content', string='Content', readonly=True)
+    objective_id = fields.Many2one('survey.question.objective', string='Objective', readonly=True)
+    level_id = fields.Many2one('survey.question.level', string='Level', readonly=True) 
+    content_id = fields.Many2one('survey.question.content', string='Content', readonly=True)
 
     def init(self, cr):
         tools.drop_view_if_exists(cr, 'academic_evaluation_report')
