@@ -35,6 +35,15 @@
                 They usually do not belong to the usual OpenERP groups.</field>
         </record>
 
+    <!-- Portal Gral Administrator Group -->
+        <record id="base.group_portal_gral_administrator" model="res.groups">
+            <field name="name">Gral Administrator's Portal</field>
+            <field name="implied_ids" eval="[(4, ref('base.group_portal_administrator'))]"/>
+            <field name="category_id" ref="module_category_portal"/>
+            <field name="comment">General Administrator's Portal members have specific access rights (such as record rules and restricted menus).
+                They usually do not belong to the usual OpenERP groups.</field>
+        </record>
+
         <!-- Groups view -->
         <record model="ir.rule" id="res_partner_group_administrator_rule">
             <field name="name">portal administrator: only section groups</field>
@@ -43,12 +52,25 @@
             <field name="groups" eval="[(4, ref('base.group_portal_administrator'))]"/>
         </record>
 
+        <record model="ir.rule" id="res_partner_group_administrator_rule">
+            <field name="name">portal gral administrator: all groups</field>
+            <field name="model_id" ref="academic.model_academic_group"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+            <field name="groups" eval="[(4, ref('base.group_portal_gral_administrator'))]"/>
+        </record>
+
         <!-- Groups Evaluations view -->
         <record model="ir.rule" id="res_partner_group_evaluation_administrator_rule">
             <field name="name">portal administrator: only section groups evaluation</field>
             <field name="model_id" ref="academic.model_academic_group_evaluation"/>
             <field name="domain_force">[('group_id.level_id.section_id','=',user.partner_id.section_id.id),('state','!=','invisible')]</field>
             <field name="groups" eval="[(4, ref('base.group_portal_administrator'))]"/>
+        </record>
+        <record model="ir.rule" id="res_partner_group_evaluation_administrator_rule">
+            <field name="name">portal gral administrator: all groups evaluation</field>
+            <field name="model_id" ref="academic.model_academic_group_evaluation"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+            <field name="groups" eval="[(4, ref('base.group_portal_gral_administrator'))]"/>
         </record>
 
         <!-- Partner -->
@@ -76,10 +98,16 @@
 
 <!-- le dimos full acces porque el director tiene que poder forzar el cierre de evaluaciones y demas -->
         <record model="ir.rule" id="survey_input_administrator_full_rule">
-            <field name="name">survey input: portal administrator: full access survey inputs</field>
+            <field name="name">survey input: portal administrator: section access survey inputs</field>
             <field name="model_id" ref="survey.model_survey_user_input"/>
             <field name="domain_force">['|',('group_id','=',False),('group_id.level_id.section_id','=',user.partner_id.section_id.id)]</field>
             <field name="groups" eval="[(4, ref('base.group_portal_administrator'))]"/>
+        </record>   
+        <record model="ir.rule" id="survey_input_administrator_full_rule">
+            <field name="name">survey input: portal gral administrator: full access survey inputs</field>
+            <field name="model_id" ref="survey.model_survey_user_input"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+            <field name="groups" eval="[(4, ref('base.group_portal_gral_administrator'))]"/>
         </record>              
 
         <!-- Old rules that where improoved with new desing of partner_id and apply_to_id  -->

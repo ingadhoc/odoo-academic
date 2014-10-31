@@ -32,6 +32,17 @@
             <field name="company_ids" eval="[(5)]"/>
             <field name="company_ids" eval="[(6, 0, [])]"/>
             <field name="alias_name">_administrator_template_user</field>
+        </record>
+
+        <record id="gral_administrator_template_user" model="res.users">
+            <field name="name">Gral Administrator Template user</field>
+            <field name="login">gral_administrator_template</field>
+            <field name="password"></field>
+            <field name="groups_id" eval="[(6, 0,  [ref('base.group_portal_gral_administrator')])]"/>
+            <field name="active" eval="False"/>
+            <field name="company_ids" eval="[(5)]"/>
+            <field name="company_ids" eval="[(6, 0, [])]"/>
+            <field name="alias_name">_gral_administrator_template</field>
         </record>       
 
 <!-- Dejaron de andar en la 8 y entonces agregamos el defaults -->

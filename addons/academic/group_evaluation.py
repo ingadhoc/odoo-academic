@@ -1,25 +1,4 @@
 # -*- coding: utf-8 -*-
-##############################################################################
-#
-#    Academic
-#    Copyright (C) 2014 No author.
-#    No email
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
-
 
 import re
 from openerp import netsvc
@@ -35,6 +14,8 @@ class group_evaluation(osv.osv):
 
     _track = {
     }
+
+
     _columns = {
         'date_open': fields.datetime(string='Date Open', readonly=True),
         'date_close': fields.datetime(string='Date Close', readonly=True),
@@ -48,6 +29,8 @@ class group_evaluation(osv.osv):
 
     _defaults = {
         'state': 'invisible',
+        'group_id': lambda self, cr, uid, context=None: context and context.get('group_id', False),
+        'survey_id': lambda self, cr, uid, context=None: context and context.get('survey_id', False),
     }
 
 
