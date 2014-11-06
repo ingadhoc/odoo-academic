@@ -52,7 +52,7 @@
             <field name="groups" eval="[(4, ref('base.group_portal_administrator'))]"/>
         </record>
 
-        <record model="ir.rule" id="res_partner_group_administrator_rule">
+        <record model="ir.rule" id="res_partner_group_gral_administrator_rule">
             <field name="name">portal gral administrator: all groups</field>
             <field name="model_id" ref="academic.model_academic_group"/>
             <field name="domain_force">[(1,'=',1)]</field>
@@ -66,7 +66,7 @@
             <field name="domain_force">[('group_id.level_id.section_id','=',user.partner_id.section_id.id),('state','!=','invisible')]</field>
             <field name="groups" eval="[(4, ref('base.group_portal_administrator'))]"/>
         </record>
-        <record model="ir.rule" id="res_partner_group_evaluation_administrator_rule">
+        <record model="ir.rule" id="res_partner_group_evaluation_gral_administrator_rule">
             <field name="name">portal gral administrator: all groups evaluation</field>
             <field name="model_id" ref="academic.model_academic_group_evaluation"/>
             <field name="domain_force">[(1,'=',1)]</field>
@@ -103,7 +103,7 @@
             <field name="domain_force">['|',('group_id','=',False),('group_id.level_id.section_id','=',user.partner_id.section_id.id)]</field>
             <field name="groups" eval="[(4, ref('base.group_portal_administrator'))]"/>
         </record>   
-        <record model="ir.rule" id="survey_input_administrator_full_rule">
+        <record model="ir.rule" id="survey_input_gral_administrator_full_rule">
             <field name="name">survey input: portal gral administrator: full access survey inputs</field>
             <field name="model_id" ref="survey.model_survey_user_input"/>
             <field name="domain_force">[(1,'=',1)]</field>
