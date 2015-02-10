@@ -7,6 +7,9 @@
             <field name="model">academic.group</field>
             <field name="arch" type="xml">
                 <search string="group">
+                    <field name="company_id" string="Company"
+                            groups="base.group_multi_company"
+                            />
                     <field name="year" string="Year"
                             />
                     <field name="division_id" string="Division"
@@ -37,11 +40,12 @@
                        <div class="oe_right oe_button_box" name="buttons">
                        </div>
                      <group>
+                        <field name="company_id"
+                            groups="base.group_multi_company"
+                            /> 
                         <field name="year"
                             /> 
                         <field name="division_id"
-                            /> 
-                        <field name="company_id"
                             /> 
                         <field name="level_id"
                         /> 
@@ -65,11 +69,12 @@
             <field name="arch" type="xml">
                 <tree string="group"
                     >
+                    <field name="company_id"
+                            groups="base.group_multi_company"
+                        />
                     <field name="year"
                         />
                     <field name="division_id"
-                        />
-                    <field name="company_id"
                         />
                     <field name="level_id"
                         />

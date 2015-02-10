@@ -9,6 +9,13 @@ class group(models.Model):
     _name = 'academic.group'
     _description = 'group'
 
+    company_id = fields.Many2one(
+        'res.company',
+        string='Company',
+        required=True,
+        context={'default_is_company':True},
+        default=lambda s, cr, uid, c: s.pool.get('res.company')._company_default_get(cr, uid, 'academic.group', context=c)
+        )
     type = fields.Selection(
         [(u'student', u'Student'), (u'teacher', u'Teacher'), (u'administrator', u'Administrator'), (u'gral_administrator', u'Gral. Administrator')],
         string='type'
@@ -21,13 +28,6 @@ class group(models.Model):
         'academic.division',
         string='Division',
         copy=False
-        )
-    company_id = fields.Many2one(
-        'res.company',
-        string='Company',
-        required=True,
-        context={'default_is_company':True},
-        default=lambda s, cr, uid, c: s.pool.get('res.company')._company_default_get(cr, uid, 'academic.group', context=c)
         )
     level_id = fields.Many2one(
         'academic.level',
