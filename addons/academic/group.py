@@ -8,6 +8,7 @@ class group(models.Model):
 
     _name = 'academic.group'
     _description = 'group'
+    _rec_name = 'complete_name'
 
     company_id = fields.Many2one(
         'res.company',
@@ -55,8 +56,60 @@ class group(models.Model):
         context={'default_partner_type':'student'},
         domain=[('partner_type','=','student')]
         )
+    complete_name = fields.Char(
+        compute='_complete_name',
+        string='Complete Name',
+        store=True,
+        )
 
     _constraints = [
+        ('group_unique',
+            'unique(subject_id, company_id, level_id, year, division_id)',
+            'Group should be unique per Institution, Subject, Course-Division and Year')
     ]
+
+    @api.one
+    @api.depends(
+        'year',
+        'subject_id',
+        'subject_id.name',
+        'company_id',
+        'company_id.name',
+        'division_id',
+        'division_id.name',
+        )
+    def _complete_name(self):
+        """ Forms complete name of location from parent location to child location.
+        @return: Dictionary of values
+        """
+        name = "%s - %s, %s - %s - %s - Año: %i" % (
+            self.subject_id.name,
+            self.company_id.name,
+            self.level_id.name,
+            self.division_id and ' ' + self.division_id.name or '',
+            self.level_id.section_id.name,
+            self.year,
+            )
+        self.complete_name = name
+
+    def create_students_users(self, cr, uid, ids, context=None):
+        '''
+        This function create users if they don't exist for students related to this group.
+        '''
+        for group in self.browse(cr, uid, ids, context=context):
+            partners = group.student_ids
+            partner_ids = [x.id for x in partners]
+            print 'partner_ids', partner_ids
+            # Create users, if they already exists it will update grupos and activate them
+            self.pool.get('res.partner').quickly_create_user(cr, uid, partner_ids, context=context)
+        return False
+
+    def print_users(self, cr, uid, ids, context=None):
+        '''
+        This function prints a report with users login and password. 
+        '''
+        assert len(ids) == 1, 'This option should only be used for a single id at a time'
+        self.create_students_users(cr, uid, ids, context=context)
+        return self.pool['report'].get_action(cr, uid, ids, 'academic_x.template_report_users', context=context)
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
