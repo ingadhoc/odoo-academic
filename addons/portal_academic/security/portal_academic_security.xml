@@ -11,7 +11,7 @@
         <!-- Portal Student Group -->
         <record id="base.group_portal_student" model="res.groups">
             <field name="name">Student's Portal</field>
-            <field name="implied_ids" eval="[(4, ref('base.group_portal')),(4, ref('base.group_survey_user'))]"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_portal'))]"/>
             <field name="category_id" ref="module_category_portal"/>
             <field name="comment">Student's Portal members have specific access rights (such as record rules and restricted menus).
                 They usually do not belong to the usual OpenERP groups.</field>
@@ -20,7 +20,7 @@
         <!-- Portal Teacher Group -->
         <record id="base.group_portal_teacher" model="res.groups">
             <field name="name">Teacher's Portal</field>
-            <field name="implied_ids" eval="[(4, ref('base.group_portal_student')),(4, ref('base.group_survey_see_scores'))]"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_portal_student'))]"/>
             <field name="category_id" ref="module_category_portal"/>
             <field name="comment">Teacher's Portal members have specific access rights (such as record rules and restricted menus).
                 They usually do not belong to the usual OpenERP groups.</field>
@@ -59,20 +59,6 @@
             <field name="groups" eval="[(4, ref('base.group_portal_gral_administrator'))]"/>
         </record>
 
-        <!-- Groups Evaluations view -->
-        <record model="ir.rule" id="res_partner_group_evaluation_administrator_rule">
-            <field name="name">portal administrator: only section groups evaluation</field>
-            <field name="model_id" ref="academic.model_academic_group_evaluation"/>
-            <field name="domain_force">[('group_id.level_id.section_id','=',user.partner_id.section_id.id),('state','!=','invisible')]</field>
-            <field name="groups" eval="[(4, ref('base.group_portal_administrator'))]"/>
-        </record>
-        <record model="ir.rule" id="res_partner_group_evaluation_gral_administrator_rule">
-            <field name="name">portal gral administrator: all groups evaluation</field>
-            <field name="model_id" ref="academic.model_academic_group_evaluation"/>
-            <field name="domain_force">[(1,'=',1)]</field>
-            <field name="groups" eval="[(4, ref('base.group_portal_gral_administrator'))]"/>
-        </record>
-
         <!-- Partner -->
         <record model="ir.rule" id="res_partner_portal_administrator_rule">
             <field name="name">res_partner: portal administrator: full access all partners</field>
@@ -88,83 +74,5 @@
             <field name="groups" eval="[(4, ref('base.group_portal_teacher'))]"/>
         </record>
 
-        <!-- Portal user input  -->
-        <record model="ir.rule" id="survey_input_student_full_rule">
-            <field name="name">survey input: portal student: full access survey inputs</field>
-            <field name="model_id" ref="survey.model_survey_user_input"/>
-            <field name="domain_force">[('partner_id','=',user.partner_id.id)]</field>
-            <field name="groups" eval="[(4, ref('base.group_portal_student'))]"/>
-        </record>
-
-<!-- le dimos full acces porque el director tiene que poder forzar el cierre de evaluaciones y demas -->
-        <record model="ir.rule" id="survey_input_administrator_full_rule">
-            <field name="name">survey input: portal administrator: section access survey inputs</field>
-            <field name="model_id" ref="survey.model_survey_user_input"/>
-            <field name="domain_force">['|',('group_id','=',False),('group_id.level_id.section_id','=',user.partner_id.section_id.id)]</field>
-            <field name="groups" eval="[(4, ref('base.group_portal_administrator'))]"/>
-        </record>   
-        <record model="ir.rule" id="survey_input_gral_administrator_full_rule">
-            <field name="name">survey input: portal gral administrator: full access survey inputs</field>
-            <field name="model_id" ref="survey.model_survey_user_input"/>
-            <field name="domain_force">[(1,'=',1)]</field>
-            <field name="groups" eval="[(4, ref('base.group_portal_gral_administrator'))]"/>
-        </record>              
-
-        <!-- Old rules that where improoved with new desing of partner_id and apply_to_id  -->
-<!--         <record model="ir.rule" id="survey_input_student_full_rule">
-            <field name="name">survey input: portal student: full access survey inputs</field>
-            <field name="model_id" ref="survey.model_survey_user_input"/>
-            <field name="domain_force">[('survey_id.answered_by', '=', 'student'),('partner_id','=',user.partner_id.id)]</field>
-            <field name="groups" eval="[(4, ref('base.group_portal_student'))]"/>
-        </record>        
-
-        <record model="ir.rule" id="survey_input_teacher_full_rule">
-            <field name="name">survey input: portal teacher: full access survey inputs</field>
-            <field name="model_id" ref="survey.model_survey_user_input"/>
-            <field name="domain_force">[('survey_id.answered_by', '=', 'teacher'),('partner_id','=',user.partner_id.id)]</field>
-            <field name="groups" eval="[(4, ref('base.group_portal_teacher'))]"/>
-        </record>
-
-        <record model="ir.rule" id="survey_input_administrator_full_rule">
-            <field name="name">survey input: portal administrator: full access survey inputs</field>
-            <field name="model_id" ref="survey.model_survey_user_input"/>
-            <field name="domain_force">[('survey_id.answered_by', '=', 'administrator'),('partner_id','=',user.partner_id.id)]</field>
-            <field name="groups" eval="[(4, ref('base.group_portal_administrator'))]"/>
-        </record>    -->
-
-        <record model="ir.rule" id="survey_input_teacher_read_rule">
-            <field name="name">survey input: portal teacher: read access survey inputs</field>
-            <field name="model_id" ref="survey.model_survey_user_input"/>
-            <field name="domain_force">[('survey_id.apply_to', '!=', 'administrator')]</field>
-            <field name="groups" eval="[(4, ref('base.group_portal_teacher'))]"/>
-            <field name="perm_read" eval="True"/>
-            <field name="perm_write" eval="False"/>
-            <field name="perm_crate" eval="False"/>
-            <field name="perm_unlink" eval="False"/>            
-        </record>
-
-        <!-- Agregamos esta regla porque si no solo puede ver las surveys abiertas -->
-        <record id="survey_administrator_access" model="ir.rule">
-            <field name="name">Administrator survey access rights</field>
-            <field name="model_id" ref="survey.model_survey_survey"/>
-            <field name="domain_force">[(1, '=', 1)]</field>
-            <field name="groups" eval="[(4, ref('base.group_portal_administrator'))]"/>
-            <field eval="1" name="perm_unlink"/>
-            <field eval="1" name="perm_write"/>
-            <field eval="1" name="perm_read"/>
-            <field eval="1" name="perm_create"/>
-        </record>
-                
-<!-- le dimos full acces mas arriba porque el director tiene que poder forzar el cierre de evaluaciones y demas -->
-<!--         <record model="ir.rule" id="survey_input_administrator_read_rule">
-            <field name="name">survey input: portal administrator: read access survey inputs</field>
-            <field name="model_id" ref="survey.model_survey_user_input"/>
-            <field name="domain_force">[(1, '=', 1)]</field>
-            <field name="groups" eval="[(4, ref('base.group_portal_administrator'))]"/>
-            <field name="perm_read" eval="True"/>
-            <field name="perm_write" eval="False"/>
-            <field name="perm_crate" eval="False"/>
-            <field name="perm_unlink" eval="False"/>
-        </record>      -->   
     </data>
 </openerp>
