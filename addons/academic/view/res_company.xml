@@ -30,22 +30,22 @@
                         <button name="%(academic.action_academic_partner_administrators)d" 
                             type="action"
                             string="Administrators"
-                            context="{'default_partner_type':'administrator','default_company_id':active_id}"
+                            context="{'default_partner_type':'administrator','search_default_company_id':active_id}"
                             groups=""/>
                         <button name="%(academic.action_academic_partner_teachers)d" 
                             type="action"
                             string="Teachers"
-                            context="{'default_partner_type':'teacher','default_company_id':active_id}"
+                            context="{'default_partner_type':'teacher','search_default_company_id':active_id}"
                             groups=""/>                      
                         <button name="%(academic.action_academic_partner_students)d" 
                             type="action"
                             string="Students"
-                            context="{'default_partner_type':'student','default_company_id':active_id}"
+                            context="{'default_partner_type':'student','search_default_company_id':active_id}"
                             groups=""/>
                         <button name="%(academic.action_academic_company_group_groups)d" 
                             type="action"
                             string="Groups"
-                            context="{'default_company_id':active_id}"
+                            context="{'search_default_company_id':active_id}"
                             groups=""/>                                                     
                     </div>                            
                 </div>                            

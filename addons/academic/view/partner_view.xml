@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-        <record id="action_academic_partner_administrators" model="ir.actions.act_window">
+<!--         <record id="action_academic_partner_administrators" model="ir.actions.act_window">
             <field name="name">Administrators</field>
             <field name="res_model">res.partner</field>
             <field name="view_type">form</field>
@@ -33,7 +33,7 @@
             <field name="context">{}</field>
             <field name="domain">[('company_id','=',active_id),('partner_type','=','teacher')]</field>
         </record>                
-
+ -->
 
         <!-- INHERITED FORM -->
         <record id="academic.view_academic_partner_form" model="ir.ui.view">
@@ -119,7 +119,7 @@
         </record>      
 
     <!-- Actions -->
-        <record id="academic.action_academic_partner_administrators" model="ir.actions.act_window">
+<!--         <record id="academic.action_academic_partner_administrators" model="ir.actions.act_window">
             <field name="view_mode">kanban,tree,form</field>
             <field name="view_id" ref=""/>
         </record>
@@ -133,7 +133,7 @@
             <field name="view_mode">kanban,tree,form</field>
             <field name="view_id" ref=""/>
         </record>                
-
+ -->
 
     </data>
 </openerp>

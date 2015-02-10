@@ -84,7 +84,7 @@ class group(models.Model):
         """ Forms complete name of location from parent location to child location.
         @return: Dictionary of values
         """
-        name = "%s - %s, %s - %s - %s - Año: %i" % (
+        name = _("%s - %s, %s - %s - %s - Year: %i") % (
             self.subject_id.name,
             self.company_id.name,
             self.level_id.name,

@@ -36,8 +36,8 @@
             <field name="name">Administrators</field>
             <field name="res_model">res.partner</field>
             <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
-            <field name="view_id" ref="view_academic_partner_tree"/>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="view_id" ref=""/>
             <field name="search_view_id" ref="view_academic_partner_filter"/>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create"> Click to create a Administrators.</p>
@@ -70,8 +70,8 @@
             <field name="name">Gral Administrators</field>
             <field name="res_model">res.partner</field>
             <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
-            <field name="view_id" ref="view_academic_partner_tree"/>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="view_id" ref=""/>
             <field name="search_view_id" ref="view_academic_partner_filter"/>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create"> Click to create a Gral Administrators.</p>
@@ -116,8 +116,8 @@
             <field name="name">Students</field>
             <field name="res_model">res.partner</field>
             <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
-            <field name="view_id" ref="view_academic_partner_tree"/>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="view_id" ref=""/>
             <field name="search_view_id" ref="view_academic_partner_filter"/>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create"> Click to create a Students.</p>
@@ -142,8 +142,8 @@
             <field name="name">Teachers</field>
             <field name="res_model">res.partner</field>
             <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
-            <field name="view_id" ref="view_academic_partner_tree"/>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="view_id" ref=""/>
             <field name="search_view_id" ref="view_academic_partner_filter"/>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create"> Click to create a Teachers.</p>
