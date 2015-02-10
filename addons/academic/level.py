@@ -1,34 +1,31 @@
 # -*- coding: utf-8 -*-
+from openerp import models, fields, api, _
+from openerp.exceptions import Warning
 
-import re
-from openerp import netsvc
-from openerp.osv import osv, fields
 
-class level(osv.osv):
+class level(models.Model):
     """"""
-    
+
     _name = 'academic.level'
     _description = 'level'
 
-
-
-    _columns = {
-        'name': fields.char(string='Name', required=True, translate=True),
-        'section_id': fields.many2one('academic.section', string='Section', required=True),
-        'group_ids': fields.one2many('academic.group', 'level_id', string='Groups'), 
-        'survey_ids': fields.many2many('survey.survey', 'academic_survey_ids_level_ids_rel', 'level_id', 'survey_id', string='Surveys'), 
-    }
-
-    _defaults = {
-    }
-
+    name = fields.Char(
+        string='Name',
+        required=True,
+        translate=True
+        )
+    section_id = fields.Many2one(
+        'academic.section',
+        string='Section',
+        required=True
+        )
+    group_ids = fields.One2many(
+        'academic.group',
+        'level_id',
+        string='Groups'
+        )
 
     _constraints = [
     ]
-
-
-
-
-level()
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

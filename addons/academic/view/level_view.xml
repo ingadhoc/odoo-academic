@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-
         <!-- SEARCH VIEW -->
         <record id="view_academic_level_filter" model="ir.ui.view">
             <field name="name">academic.level.select</field>
             <field name="model">academic.level</field>
             <field name="arch" type="xml">
-                <search string="level" version="7.0">
-                    <group string="By Attribute">
+                <search string="level">
                     <field name="name" string="Name"
                             />
                     <field name="section_id" string="Section"
                             />
-                    </group>
-                    <group string="By object">
+                    <group expand="0" string="Group By">
                     </group>
                 </search>
             </field>
@@ -25,15 +22,17 @@
             <field name="name">academic.level.form</field>
             <field name="model">academic.level</field>
             <field name="arch" type="xml">
-                <form string="level" version="7.0">
+                <form string="level">
                     <header>
                     </header>
                     <sheet string="level">
+                       <div class="oe_right oe_button_box" name="buttons">
+                       </div>
                      <group>
                         <field name="name"
-                            />
+                            /> 
                         <field name="section_id"
-                            />
+                            /> 
                      </group>
                     </sheet>
 
@@ -42,7 +41,6 @@
         </record>
 
         <!-- TREEVIEW -->
-
         <record id="view_academic_level_tree" model="ir.ui.view">
             <field name="name">academic.level.tree</field>
             <field name="model">academic.level</field>

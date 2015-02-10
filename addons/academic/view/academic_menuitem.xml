@@ -9,7 +9,6 @@
             groups="group_user"
             />
 
-
         <menuitem
             name="Configuration"
             id="menu_configuration"
@@ -17,7 +16,6 @@
             parent="menu_academic"
             groups="group_manager"
             />
-
 
         <menuitem
             name="Data"
@@ -27,16 +25,6 @@
             groups="group_user"
             />
 
-
-        <menuitem
-            name="Evaluations"
-            id="menu_evaluations_main"
-            sequence="30"
-            parent="menu_academic"
-            groups="group_user"
-            />
-
-
         <menuitem
             name="Partners"
             id="menu_partners"
@@ -44,7 +32,6 @@
             parent="menu_academic"
             groups="group_user"
             />
-
         <record id="action_academic_partner_administrators" model="ir.actions.act_window">
             <field name="name">Administrators</field>
             <field name="res_model">res.partner</field>
@@ -52,8 +39,15 @@
             <field name="view_mode">tree,form</field>
             <field name="view_id" ref="view_academic_partner_tree"/>
             <field name="search_view_id" ref="view_academic_partner_filter"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create"> Click to create a Administrators.</p>
+            </field>
             <field name="context">{'default_partner_type':'administrator'}</field>
-            <field name="domain">[('partner_type','=','administrator')]</field>
+            <field name="domain">
+                [
+                 ('partner_type','=','administrator'),
+                ]
+            </field>
         </record>
 
         <menuitem
@@ -65,36 +59,6 @@
             groups="group_user"
             />
 
-
-        <menuitem
-            name="Evaluations"
-            id="menu_eval_config"
-            sequence="100"
-            parent="menu_configuration"
-            groups="group_manager"
-            />
-
-        <record id="action_academic_survey_evaluations" model="ir.actions.act_window">
-            <field name="name">Evaluations</field>
-            <field name="res_model">survey.survey</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
-            <field name="view_id" ref="view_academic_survey_tree"/>
-            <field name="search_view_id" ref="view_academic_survey_filter"/>
-            <field name="context">{'default_is_evaluation':True}</field>
-            <field name="domain">[('is_evaluation','=',True)]</field>
-        </record>
-
-        <menuitem
-            name="Evaluations"
-            id="menu_evaluations"
-            sequence="10"
-            action="action_academic_survey_evaluations"
-            parent="menu_evaluations_main"
-            groups="group_user"
-            />
-
-
         <menuitem
             name="General Data"
             id="menu_general_data"
@@ -102,7 +66,6 @@
             parent="menu_configuration"
             groups="group_manager"
             />
-
         <record id="action_academic_partner_gral_administrators" model="ir.actions.act_window">
             <field name="name">Gral Administrators</field>
             <field name="res_model">res.partner</field>
@@ -110,8 +73,15 @@
             <field name="view_mode">tree,form</field>
             <field name="view_id" ref="view_academic_partner_tree"/>
             <field name="search_view_id" ref="view_academic_partner_filter"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create"> Click to create a Gral Administrators.</p>
+            </field>
             <field name="context">{'default_partner_type':'gral_administrator'}</field>
-            <field name="domain">[('partner_type','=','gral_administrator')]</field>
+            <field name="domain">
+                [
+                 ('partner_type','=','gral_administrator'),
+                ]
+            </field>
         </record>
 
         <menuitem
@@ -122,7 +92,6 @@
             parent="menu_partners"
             groups="group_user"
             />
-
         <record id="action_academic_group_groups" model="ir.actions.act_window">
             <field name="name">Groups</field>
             <field name="res_model">academic.group</field>
@@ -130,7 +99,9 @@
             <field name="view_mode">tree,form</field>
             <field name="view_id" ref="view_academic_group_tree"/>
             <field name="search_view_id" ref="view_academic_group_filter"/>
-            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create"> Click to create a Groups.</p>
+            </field>
         </record>
 
         <menuitem
@@ -141,45 +112,6 @@
             parent="menu_data"
             groups="group_user"
             />
-
-        <record id="action_academic_group_evaluation_groups_evaluations" model="ir.actions.act_window">
-            <field name="name">Groups Evaluations</field>
-            <field name="res_model">academic.group_evaluation</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
-            <field name="view_id" ref="view_academic_group_evaluation_tree"/>
-            <field name="search_view_id" ref="view_academic_group_evaluation_filter"/>
-            <field name="domain">[]</field>
-        </record>
-
-        <menuitem
-            name="Groups Evaluations"
-            id="menu_groups_evaluations"
-            sequence="20"
-            action="action_academic_group_evaluation_groups_evaluations"
-            parent="menu_evaluations_main"
-            groups="group_user"
-            />
-
-        <record id="action_academic_user_input_poll_survey_answers" model="ir.actions.act_window">
-            <field name="name">Poll Survey Answers</field>
-            <field name="res_model">survey.user_input</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
-            <field name="view_id" ref="view_academic_user_input_tree"/>
-            <field name="search_view_id" ref="view_academic_user_input_filter"/>
-            <field name="domain">[('survey_id.is_evaluation','=',True),('survey_id.evaluation_subtype','=','poll_survey')]</field>
-        </record>
-
-        <menuitem
-            name="Poll Survey Answers"
-            id="menu_poll_survey_answers"
-            sequence="30"
-            action="action_academic_user_input_poll_survey_answers"
-            parent="menu_evaluations_main"
-            groups="group_user"
-            />
-
         <record id="action_academic_partner_students" model="ir.actions.act_window">
             <field name="name">Students</field>
             <field name="res_model">res.partner</field>
@@ -187,8 +119,15 @@
             <field name="view_mode">tree,form</field>
             <field name="view_id" ref="view_academic_partner_tree"/>
             <field name="search_view_id" ref="view_academic_partner_filter"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create"> Click to create a Students.</p>
+            </field>
             <field name="context">{'default_partner_type':'student'}</field>
-            <field name="domain">[('partner_type','=','student')]</field>
+            <field name="domain">
+                [
+                 ('partner_type','=','student'),
+                ]
+            </field>
         </record>
 
         <menuitem
@@ -199,7 +138,6 @@
             parent="menu_partners"
             groups="group_user"
             />
-
         <record id="action_academic_partner_teachers" model="ir.actions.act_window">
             <field name="name">Teachers</field>
             <field name="res_model">res.partner</field>
@@ -207,8 +145,15 @@
             <field name="view_mode">tree,form</field>
             <field name="view_id" ref="view_academic_partner_tree"/>
             <field name="search_view_id" ref="view_academic_partner_filter"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create"> Click to create a Teachers.</p>
+            </field>
             <field name="context">{'default_partner_type':'teacher'}</field>
-            <field name="domain">[('partner_type','=','teacher')]</field>
+            <field name="domain">
+                [
+                 ('partner_type','=','teacher'),
+                ]
+            </field>
         </record>
 
         <menuitem
@@ -219,26 +164,26 @@
             parent="menu_partners"
             groups="group_user"
             />
-
         <record id="action_academic_division_divisions" model="ir.actions.act_window">
-            <field name="name">50</field>
+            <field name="name">Divisions</field>
             <field name="res_model">academic.division</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
             <field name="view_id" ref="view_academic_division_tree"/>
             <field name="search_view_id" ref="view_academic_division_filter"/>
-            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create"> Click to create a Divisions.</p>
+            </field>
         </record>
 
         <menuitem
-            name="50"
+            name="Divisions"
             id="menu_divisions"
-            sequence="100"
+            sequence="50"
             action="action_academic_division_divisions"
             parent="menu_general_data"
             groups="group_manager"
             />
-
         <record id="action_academic_level_levels" model="ir.actions.act_window">
             <field name="name">Levels</field>
             <field name="res_model">academic.level</field>
@@ -246,7 +191,9 @@
             <field name="view_mode">tree,form</field>
             <field name="view_id" ref="view_academic_level_tree"/>
             <field name="search_view_id" ref="view_academic_level_filter"/>
-            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create"> Click to create a Levels.</p>
+            </field>
         </record>
 
         <menuitem
@@ -257,26 +204,6 @@
             parent="menu_general_data"
             groups="group_manager"
             />
-
-        <record id="action_academic_period_periods" model="ir.actions.act_window">
-            <field name="name">Periods</field>
-            <field name="res_model">academic.period</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
-            <field name="view_id" ref="view_academic_period_tree"/>
-            <field name="search_view_id" ref="view_academic_period_filter"/>
-            <field name="domain">[]</field>
-        </record>
-
-        <menuitem
-            name="Periods"
-            id="menu_periods"
-            sequence="60"
-            action="action_academic_period_periods"
-            parent="menu_general_data"
-            groups="group_manager"
-            />
-
         <record id="action_academic_promotion_promotions" model="ir.actions.act_window">
             <field name="name">Promotions</field>
             <field name="res_model">academic.promotion</field>
@@ -284,7 +211,9 @@
             <field name="view_mode">tree,form</field>
             <field name="view_id" ref="view_academic_promotion_tree"/>
             <field name="search_view_id" ref="view_academic_promotion_filter"/>
-            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create"> Click to create a Promotions.</p>
+            </field>
         </record>
 
         <menuitem
@@ -295,7 +224,6 @@
             parent="menu_general_data"
             groups="group_manager"
             />
-
         <record id="action_academic_section_sections" model="ir.actions.act_window">
             <field name="name">Sections</field>
             <field name="res_model">academic.section</field>
@@ -303,7 +231,9 @@
             <field name="view_mode">tree,form</field>
             <field name="view_id" ref="view_academic_section_tree"/>
             <field name="search_view_id" ref="view_academic_section_filter"/>
-            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create"> Click to create a Sections.</p>
+            </field>
         </record>
 
         <menuitem
@@ -314,7 +244,6 @@
             parent="menu_general_data"
             groups="group_manager"
             />
-
         <record id="action_academic_subject_subjects" model="ir.actions.act_window">
             <field name="name">Subjects</field>
             <field name="res_model">academic.subject</field>
@@ -322,7 +251,9 @@
             <field name="view_mode">tree,form</field>
             <field name="view_id" ref="view_academic_subject_tree"/>
             <field name="search_view_id" ref="view_academic_subject_filter"/>
-            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create"> Click to create a Subjects.</p>
+            </field>
         </record>
 
         <menuitem
@@ -333,26 +264,6 @@
             parent="menu_general_data"
             groups="group_manager"
             />
-
-        <record id="action_academic_observation_category_user_input_observations" model="ir.actions.act_window">
-            <field name="name">User Input Observations</field>
-            <field name="res_model">academic.observation_category</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
-            <field name="view_id" ref="view_academic_observation_category_tree"/>
-            <field name="search_view_id" ref="view_academic_observation_category_filter"/>
-            <field name="domain">[]</field>
-        </record>
-
-        <menuitem
-            name="User Input Observations"
-            id="menu_user_input_observations"
-            sequence="100"
-            action="action_academic_observation_category_user_input_observations"
-            parent="menu_eval_config"
-            groups="group_manager"
-            />
-
     </data>
 </openerp>
 <!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4

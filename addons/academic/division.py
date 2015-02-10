@@ -1,31 +1,20 @@
 # -*- coding: utf-8 -*-
+from openerp import models, fields, api, _
+from openerp.exceptions import Warning
 
-import re
-from openerp import netsvc
-from openerp.osv import osv, fields
 
-class division(osv.osv):
+class division(models.Model):
     """"""
-    
+
     _name = 'academic.division'
     _description = 'division'
 
-
-
-    _columns = {
-        'name': fields.char(string='Name', required=True),
-    }
-
-    _defaults = {
-    }
-
+    name = fields.Char(
+        string='Name',
+        required=True
+        )
 
     _constraints = [
     ]
-
-
-
-
-division()
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

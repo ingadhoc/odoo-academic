@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-
         <!-- SEARCH VIEW -->
         <record id="view_academic_promotion_filter" model="ir.ui.view">
             <field name="name">academic.promotion.select</field>
             <field name="model">academic.promotion</field>
             <field name="arch" type="xml">
-                <search string="promotion" version="7.0">
-                    <group string="By Attribute">
+                <search string="promotion">
                     <field name="name" string="Name"
                             />
-                    </group>
-                    <group string="By object">
+                    <group expand="0" string="Group By">
                     </group>
                 </search>
             </field>
@@ -23,13 +20,15 @@
             <field name="name">academic.promotion.form</field>
             <field name="model">academic.promotion</field>
             <field name="arch" type="xml">
-                <form string="promotion" version="7.0">
+                <form string="promotion">
                     <header>
                     </header>
                     <sheet string="promotion">
+                       <div class="oe_right oe_button_box" name="buttons">
+                       </div>
                      <group>
                         <field name="name"
-                            />
+                            /> 
                      </group>
                     </sheet>
 
@@ -38,7 +37,6 @@
         </record>
 
         <!-- TREEVIEW -->
-
         <record id="view_academic_promotion_tree" model="ir.ui.view">
             <field name="name">academic.promotion.tree</field>
             <field name="model">academic.promotion</field>

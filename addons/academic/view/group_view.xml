@@ -1,20 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-
         <!-- SEARCH VIEW -->
         <record id="view_academic_group_filter" model="ir.ui.view">
             <field name="name">academic.group.select</field>
             <field name="model">academic.group</field>
             <field name="arch" type="xml">
-                <search string="group" version="7.0">
-                    <group string="By Attribute">
+                <search string="group">
                     <field name="year" string="Year"
                             />
                     <field name="division_id" string="Division"
                             />
-                    </group>
-                    <group string="By object">
                     <field name="level_id" string="Level"
                             />
                     <field name="subject_id" string="Subject"
@@ -23,6 +19,7 @@
                             />
                     <field name="student_ids" string="Student"
                             />
+                    <group expand="0" string="Group By">
                     </group>
                 </search>
             </field>
@@ -33,25 +30,27 @@
             <field name="name">academic.group.form</field>
             <field name="model">academic.group</field>
             <field name="arch" type="xml">
-                <form string="group" version="7.0">
+                <form string="group">
                     <header>
                     </header>
                     <sheet string="group">
+                       <div class="oe_right oe_button_box" name="buttons">
+                       </div>
                      <group>
                         <field name="year"
-                            />
+                            /> 
                         <field name="division_id"
-                            />
+                            /> 
                         <field name="company_id"
-                            />
-                    <field name="level_id"
-                            />
-                    <field name="subject_id"
-                            />
-                    <field name="teacher_id"
-                            />
-                    <field name="student_ids"
-                            />
+                            /> 
+                        <field name="level_id"
+                        /> 
+                        <field name="subject_id"
+                        /> 
+                        <field name="teacher_id"
+                        /> 
+                        <field name="student_ids"
+                        /> 
                      </group>
                     </sheet>
 
@@ -60,7 +59,6 @@
         </record>
 
         <!-- TREEVIEW -->
-
         <record id="view_academic_group_tree" model="ir.ui.view">
             <field name="name">academic.group.tree</field>
             <field name="model">academic.group</field>

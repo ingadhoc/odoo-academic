@@ -1,36 +1,41 @@
 # -*- coding: utf-8 -*-
+from openerp import models, fields, api, _
+from openerp.exceptions import Warning
 
-import re
-from openerp import netsvc
-from openerp.osv import osv, fields
 
-class partner(osv.osv):
+class partner(models.Model):
     """"""
-    
+
     _name = 'res.partner'
-    _inherits = {  }
-    _inherit = [ 'res.partner' ]
+    _inherits = {}
+    _inherit = ['res.partner']
 
-
-
-    _columns = {
-        'partner_type': fields.selection([(u'student', u'Student'), (u'teacher', u'Teacher'), (u'administrator', u'Administrator'), (u'gral_administrator', 'gral_administrator')], string='Partner Type'),
-        'section_id': fields.many2one('academic.section', string='Section'),
-        'promotion_id': fields.many2one('academic.promotion', string='Promotion'),
-        'teacher_group_ids': fields.one2many('academic.group', 'teacher_id', string='Groups'), 
-        'student_group_ids': fields.many2many('academic.group', 'academic_student_group_ids_student_ids_rel', 'partner_id', 'group_id', string='Groups'), 
-    }
-
-    _defaults = {
-    }
-
+    partner_type = fields.Selection(
+        [(u'student', u'Student'), (u'teacher', u'Teacher'), (u'administrator', u'Administrator'), (u'gral_administrator', u'Gral. Administrator')],
+        string='Partner Type'
+        )
+    section_id = fields.Many2one(
+        'academic.section',
+        string='Section'
+        )
+    promotion_id = fields.Many2one(
+        'academic.promotion',
+        string='Promotion'
+        )
+    teacher_group_ids = fields.One2many(
+        'academic.group',
+        'teacher_id',
+        string='Groups'
+        )
+    student_group_ids = fields.Many2many(
+        'academic.group',
+        'academic_student_group_ids_student_ids_rel',
+        'partner_id',
+        'group_id',
+        string='Groups'
+        )
 
     _constraints = [
     ]
-
-
-
-
-partner()
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

@@ -1,31 +1,20 @@
 # -*- coding: utf-8 -*-
+from openerp import models, fields, api, _
+from openerp.exceptions import Warning
 
-import re
-from openerp import netsvc
-from openerp.osv import osv, fields
 
-class promotion(osv.osv):
+class promotion(models.Model):
     """"""
-    
+
     _name = 'academic.promotion'
     _description = 'promotion'
 
-
-
-    _columns = {
-        'name': fields.char(string='Name', required=True),
-    }
-
-    _defaults = {
-    }
-
+    name = fields.Char(
+        string='Name',
+        required=True
+        )
 
     _constraints = [
     ]
-
-
-
-
-promotion()
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

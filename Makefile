@@ -6,9 +6,8 @@ design/academic.xmi: design/academic.zargo
 addons: academic
 
 academic: design/academic.uml
-	xmi2oerp -r -i $< -t addons -v 2
+	xmi2odoo -r -i $< -t addons -v 2 -V 8.0
 
 clean:
-	rm -rf addons/academic/*
 	sleep 1
 	touch design/academic.uml

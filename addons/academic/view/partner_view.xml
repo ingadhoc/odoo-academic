@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-
         <!-- INHERITED SEARCH -->
         <record id="view_academic_partner_filter" model="ir.ui.view">
             <field name="name">academic.partner.select</field>
