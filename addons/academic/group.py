@@ -19,7 +19,8 @@ class group(models.Model):
         )
     division_id = fields.Many2one(
         'academic.division',
-        string='Division'
+        string='Division',
+        copy=False
         )
     company_id = fields.Many2one(
         'res.company',

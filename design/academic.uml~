@@ -60,7 +60,7 @@
 			</model>
 		</userDefined>
 </profile>
-<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Mon Feb 09 22:26:52 ART 2015'>
+<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Mon Feb 09 22:43:52 ART 2015'>
   <XMI.header>    <XMI.documentation>
       <XMI.exporter>ArgoUML (using Netbeans XMI Writer version 1.0)</XMI.exporter>
       <XMI.exporterVersion>0.34(6) revised on $Date: 2010-01-11 22:20:14 +0100 (Mon, 11 Jan 2010) $ </XMI.exporterVersion>
@@ -1702,7 +1702,7 @@
                   isSpecification = 'false'>
                   <UML:TaggedValue.dataValue>50</UML:TaggedValue.dataValue>
                   <UML:TaggedValue.type>
-                    <UML:TagDefinition href = 'http://argouml.org/user-profiles/OpenObjectStadardElements.xmi#127-0-1-1-2b464aa4:13b09d81b72:-8000:0000000000001573'/>
+                    <UML:TagDefinition href = 'http://argouml.org/user-profiles/OpenObjectStadardElements.xmi#127-0-1-1--26cf3395:13b343df95b:-8000:0000000000000F93'/>
                   </UML:TaggedValue.type>
                 </UML:TaggedValue>
               </UML:ModelElement.taggedValue>
@@ -7244,8 +7244,8 @@
       >&lt;&lt;menu&gt;&gt;</text>
     </group>
     <rectangle name="Fig11.3"
-      x="-94"
-      y="74"
+      x="10"
+      y="10"
       width="11"
       height="1"
       fill="1"
@@ -7255,7 +7255,7 @@
       visibility="0"
     />
     <group name="Fig11.4"
-         description="org.argouml.uml.diagram.ui.FigExtensionPointsCompartment[-94, 74, 64, 19]"
+         description="org.argouml.uml.diagram.ui.FigExtensionPointsCompartment[10, 10, 64, 19]"
          href="127-0-1-1-60562ca5:144c234092b:-8000:00000000000013CE"
          fill="1"
          fillcolor="white"
@@ -7267,8 +7267,8 @@
       </private>
       
       <rectangle name="Fig11.4.0"
-        x="-94"
-        y="74"
+        x="10"
+        y="10"
         width="64"
         height="19"
         fill="0"
@@ -7637,8 +7637,8 @@
       >&lt;&lt;menu&gt;&gt;</text>
     </group>
     <rectangle name="Fig16.3"
-      x="-94"
-      y="74"
+      x="10"
+      y="10"
       width="11"
       height="1"
       fill="1"
@@ -7648,7 +7648,7 @@
       visibility="0"
     />
     <group name="Fig16.4"
-         description="org.argouml.uml.diagram.ui.FigExtensionPointsCompartment[-94, 74, 64, 19]"
+         description="org.argouml.uml.diagram.ui.FigExtensionPointsCompartment[10, 10, 64, 19]"
          href="127-0-1-1-60562ca5:144c234092b:-8000:00000000000013E4"
          fill="1"
          fillcolor="white"
@@ -7660,8 +7660,8 @@
       </private>
       
       <rectangle name="Fig16.4.0"
-        x="-94"
-        y="74"
+        x="10"
+        y="10"
         width="64"
         height="19"
         fill="0"
@@ -8060,9 +8060,9 @@
       strokecolor="51 51 153"
     >
       <moveto x="510"
-              y="420" />
+              y="413" />
       <lineto x="650"
-              y="437" />
+              y="430" />
     </path>
   </group>
   <group name="Fig22"
