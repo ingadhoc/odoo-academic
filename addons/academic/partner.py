@@ -12,6 +12,7 @@ class partner(models.Model):
 
     partner_type = fields.Selection(
         [(u'student', u'Student'), (u'teacher', u'Teacher'), (u'administrator', u'Administrator'), (u'gral_administrator', u'Gral. Administrator')],
+        change_default=True,
         string='Partner Type'
         )
     section_id = fields.Many2one(

@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from openerp import models, fields, api, _
 from openerp.exceptions import Warning
+from datetime import date
 
 
 class group(models.Model):
@@ -23,6 +24,7 @@ class group(models.Model):
         )
     year = fields.Integer(
         string='Year',
+        default=date.today().year,
         required=True
         )
     division_id = fields.Many2one(
