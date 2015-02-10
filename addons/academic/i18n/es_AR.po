@@ -1,6 +1,6 @@
 # Translation of OpenERP Server.
 # This file contains the translation of the following modules:
-#	* academic_x
+#	* academic
 #
 msgid ""
 msgstr ""
@@ -15,192 +15,192 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
-#. module: academic_x
-#: model:academic.section,name:academic_x.academic_section_2
+#. module: academic
+#: model:academic.section,name:academic.academic_section_2
 msgid "A Buen Puerto"
 msgstr "A Buen Puerto"
 
-#. module: academic_x
-#: model:ir.model,name:academic_x.model_academic_evaluation_report
+#. module: academic
+#: model:ir.model,name:academic.model_academic_evaluation_report
 msgid "Academic Evaluation Report"
 msgstr "Reporte de Evaluaciones Académicas"
 
-#. module: academic_x
+#. module: academic
 #: view:survey.survey:0
 msgid "Add Related Groups"
 msgstr "Agregar Grupos Relacionados"
 
-#. module: academic_x
-#: model:ir.actions.act_window,name:academic_x.action_academic_partner_administrators
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_academic_partner_administrators
 #: view:res.company:0
 msgid "Administrators"
 msgstr "Directores"
 
-#. module: academic_x
+#. module: academic
 #: view:survey.user_input:0
 msgid "Answer Survey"
 msgstr "Responder Encuesta"
 
-#. module: academic_x
+#. module: academic
 #: view:survey.user_input:0
 msgid "Answered By"
 msgstr "Respondida por"
 
-#. module: academic_x
-#: code:addons/academic_x/survey.py:80
+#. module: academic
+#: code:addons/academic/survey.py:80
 #, python-format
 msgid "Atuomatically Add Groups Error!"
 msgstr "Error al Agrupar Grupos automaticamente!"
 
-#. module: academic_x
+#. module: academic
 #: field:academic.evaluation.report,input_avg_score:0
 msgid "Avg Score"
 msgstr "Avg Score"
 
-#. module: academic_x
+#. module: academic
 #: view:res.company:0
 msgid "Bank Accounts"
 msgstr "Cuentas Bancarias"
 
-#. module: academic_x
+#. module: academic
 #: view:academic.group:0
 msgid "By Attribute"
 msgstr "Por Atributo"
 
-#. module: academic_x
+#. module: academic
 #: field:survey.question.indicator,calc_type:0
 msgid "Calculation Type"
 msgstr "Calculation Type"
 
-#. module: academic_x
+#. module: academic
 #: view:academic.group_evaluation:0
 #: view:survey.survey:0
 msgid "Close"
 msgstr "Cerrar"
 
-#. module: academic_x
-#: model:ir.actions.act_window,name:academic_x.action_res_company_form
-#: model:ir.model,name:academic_x.model_res_company
-#: model:ir.ui.menu,name:academic_x.menu_action_res_company_form
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_res_company_form
+#: model:ir.model,name:academic.model_res_company
+#: model:ir.ui.menu,name:academic.menu_action_res_company_form
 msgid "Companies"
 msgstr "Compañías"
 
-#. module: academic_x
+#. module: academic
 #: field:academic.evaluation.report,company_id:0
 #: field:academic.group_evaluation,company_id:0
 #: field:survey.user_input,company_id:0
 msgid "Company"
 msgstr "Colegio"
 
-#. module: academic_x
+#. module: academic
 #: field:academic.group,complete_name:0
 msgid "Complete Name"
 msgstr "Nombre Completo"
 
-#. module: academic_x
+#. module: academic
 #: view:res.company:0
 msgid "Configuration"
 msgstr "Configuración"
 
-#. module: academic_x
+#. module: academic
 #: field:academic.evaluation.report,content_id:0
 msgid "Content"
 msgstr "Contenido"
 
-#. module: academic_x
-#: model:ir.actions.act_window,help:academic_x.action_res_company_form
+#. module: academic
+#: model:ir.actions.act_window,help:academic.action_res_company_form
 msgid "Create and manage the companies that will be managed by OpenERP from here. Shops or subsidiaries can be created and maintained from here."
 msgstr "Cree o modifique las compañías que se gestionarán mediante OpenERP. Tiendas o delegaciones también pueden ser creadas y gestionadas desde aquí."
 
-#. module: academic_x
+#. module: academic
 #: field:survey.question.indicator,create_uid:0
 #: field:survey.question.performance,create_uid:0
 #: field:survey.question.variable,create_uid:0
 msgid "Created by"
 msgstr "Creado por"
 
-#. module: academic_x
+#. module: academic
 #: field:survey.question.indicator,create_date:0
 #: field:survey.question.performance,create_date:0
 #: field:survey.question.variable,create_date:0
 msgid "Created on"
 msgstr "Creado en"
 
-#. module: academic_x
-#: model:academic.level,name:academic_x.academic_course_10
-#: model:academic.level,name:academic_x.academic_course_4
+#. module: academic
+#: model:academic.level,name:academic.academic_course_10
+#: model:academic.level,name:academic.academic_course_4
 msgid "Cuarto"
 msgstr "Cuarto"
 
-#. module: academic_x
-#: code:addons/academic_x/group_evaluation.py:75
-#: code:addons/academic_x/group_evaluation.py:130
-#: code:addons/academic_x/group_evaluation.py:139
-#: code:addons/academic_x/user_input.py:38
+#. module: academic
+#: code:addons/academic/group_evaluation.py:75
+#: code:addons/academic/group_evaluation.py:130
+#: code:addons/academic/group_evaluation.py:139
+#: code:addons/academic/user_input.py:38
 #, python-format
 msgid "Error!"
 msgstr "Error!"
 
-#. module: academic_x
+#. module: academic
 #: view:survey.survey:0
 msgid "Evaluation"
 msgstr "Evaluación"
 
-#. module: academic_x
+#. module: academic
 #: selection:academic.evaluation.report,input_state:0
 msgid "Finished "
 msgstr "Finalizado"
 
-#. module: academic_x
+#. module: academic
 #: view:survey.user_input:0
 msgid "Force Closure"
 msgstr "Forzar Cierre"
 
-#. module: academic_x
+#. module: academic
 #: view:False:0
 msgid "Go back to surveys"
 msgstr "Volver a las encuestas"
 
-#. module: academic_x
+#. module: academic
 #: field:academic.evaluation.report,group_id:0
 #: field:survey.user_input,group_id:0
 msgid "Group"
 msgstr "Grupo"
 
-#. module: academic_x
+#. module: academic
 #: selection:survey.question.indicator,calc_type:0
 msgid "Group Average"
 msgstr "Group Average"
 
-#. module: academic_x
-#: model:ir.actions.report.xml,name:academic_x.group_ev_report_users
+#. module: academic
+#: model:ir.actions.report.xml,name:academic.group_ev_report_users
 msgid "Group Evaluation Users"
 msgstr "Usarios Evaluaciones de Grupos"
 
-#. module: academic_x
+#. module: academic
 #: selection:survey.question.indicator,calc_type:0
 msgid "Group Max Value"
 msgstr "Group Max Value"
 
-#. module: academic_x
-#: model:ir.actions.report.xml,name:academic_x.report_users
+#. module: academic
+#: model:ir.actions.report.xml,name:academic.report_users
 msgid "Group Users"
 msgstr "Usuarios de Grupos"
 
-#. module: academic_x
+#. module: academic
 #: sql_constraint:academic.group:0
 msgid "Group should be unique per Institution, Subject, Course-Division and Year"
 msgstr "Los grupos deberán ser únicos por Institución, Materia, Curso-División y Año"
 
-#. module: academic_x
-#: model:ir.actions.act_window,name:academic_x.action_academic_group_groups
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_academic_group_groups
 #: view:res.company:0
 #: field:res.company,company_group_ids:0
 #: view:survey.survey:0
 msgid "Groups"
 msgstr "Grupos"
 
-#. module: academic_x
+#. module: academic
 #: field:academic.evaluation.report,id:0
 #: field:survey.question.indicator,id:0
 #: field:survey.question.performance,id:0
@@ -208,78 +208,78 @@ msgstr "Grupos"
 msgid "ID"
 msgstr "ID"
 
-#. module: academic_x
+#. module: academic
 #: field:survey.question,indicator_id:0
 msgid "Indicator"
 msgstr "Indicador"
 
-#. module: academic_x
-#: model:ir.ui.menu,name:academic_x.menu_academic_question_indicator
+#. module: academic
+#: model:ir.ui.menu,name:academic.menu_academic_question_indicator
 #: field:survey.question.variable,indicator_ids:0
 msgid "Indicators"
 msgstr "Indicadores"
 
-#. module: academic_x
+#. module: academic
 #: field:academic.evaluation.report,is_evaluation:0
 msgid "Is Evaluation?"
 msgstr "Es una evaluación?"
 
-#. module: academic_x
-#: model:ir.actions.act_window,name:academic_x.action_survey_label_form
-#: model:ir.ui.menu,name:academic_x.menu_survey_label_form1
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_survey_label_form
+#: model:ir.ui.menu,name:academic.menu_survey_label_form1
 msgid "Labels"
 msgstr "Etiquetas"
 
-#. module: academic_x
+#. module: academic
 #: field:survey.question.indicator,write_uid:0
 #: field:survey.question.performance,write_uid:0
 #: field:survey.question.variable,write_uid:0
 msgid "Last Updated by"
 msgstr "Actualizado por última vez por..."
 
-#. module: academic_x
+#. module: academic
 #: field:survey.question.indicator,write_date:0
 #: field:survey.question.performance,write_date:0
 #: field:survey.question.variable,write_date:0
 msgid "Last Updated on"
 msgstr "Ultima actualización en"
 
-#. module: academic_x
-#: model:academic.subject,name:academic_x.academic_subject_2
+#. module: academic
+#: model:academic.subject,name:academic.academic_subject_2
 msgid "Lengua"
 msgstr "Lengua"
 
-#. module: academic_x
+#. module: academic
 #: field:academic.evaluation.report,level_id:0
 msgid "Level"
 msgstr "Nivel"
 
-#. module: academic_x
+#. module: academic
 #: view:False:0
 msgid "Login"
 msgstr "Login"
 
-#. module: academic_x
-#: model:academic.section,name:academic_x.academic_section_1
+#. module: academic
+#: model:academic.section,name:academic.academic_section_1
 msgid "Mar Adentro"
 msgstr "Mar Adentro"
 
-#. module: academic_x
-#: model:academic.subject,name:academic_x.academic_subject_1
+#. module: academic
+#: model:academic.subject,name:academic.academic_subject_1
 msgid "Matemática"
 msgstr "Matemática"
 
-#. module: academic_x
+#. module: academic
 #: field:academic.evaluation.report,input_max_score:0
 msgid "Max Score"
 msgstr "Max Score"
 
-#. module: academic_x
+#. module: academic
 #: field:academic.evaluation.report,input_min_score:0
 msgid "Min Score"
 msgstr "Min Score"
 
-#. module: academic_x
+#. module: academic
 #: view:False:0
 #: field:survey.question.indicator,name:0
 #: field:survey.question.performance,name:0
@@ -287,298 +287,298 @@ msgstr "Min Score"
 msgid "Name"
 msgstr "Nombre"
 
-#. module: academic_x
+#. module: academic
 #: selection:academic.evaluation.report,input_state:0
 msgid "Not Finished"
 msgstr "No finalizado"
 
-#. module: academic_x
+#. module: academic
 #: field:academic.evaluation.report,objective_id:0
 msgid "Objective"
 msgstr "Objetivo"
 
-#. module: academic_x
+#. module: academic
 #: view:academic.group_evaluation:0
 #: view:survey.survey:0
 msgid "Open"
 msgstr "Abierto"
 
-#. module: academic_x
-#: model:ir.actions.act_window,name:academic_x.action_survey_page_form
-#: model:ir.ui.menu,name:academic_x.menu_survey_page_form1
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_survey_page_form
+#: model:ir.ui.menu,name:academic.menu_survey_page_form1
 msgid "Pages"
 msgstr "Páginas"
 
-#. module: academic_x
+#. module: academic
 #: field:academic.evaluation.report,partner_id:0
-#: model:ir.model,name:academic_x.model_res_partner
+#: model:ir.model,name:academic.model_res_partner
 msgid "Partner"
 msgstr "Alumno"
 
-#. module: academic_x
+#. module: academic
 #: view:False:0
 msgid "Password"
 msgstr "Password"
 
-#. module: academic_x
+#. module: academic
 #: field:survey.question.variable,performance_id:0
 msgid "Performance"
 msgstr "Desempeño"
 
-#. module: academic_x
-#: model:ir.ui.menu,name:academic_x.menu_academic_question_performance
+#. module: academic
+#: model:ir.ui.menu,name:academic.menu_academic_question_performance
 msgid "Performances"
 msgstr "Desempeños"
 
-#. module: academic_x
+#. module: academic
 #: view:survey.survey:0
 msgid "Period..."
 msgstr "Period..."
 
-#. module: academic_x
-#: model:academic.level,name:academic_x.academic_course_1
-#: model:academic.level,name:academic_x.academic_course_7
+#. module: academic
+#: model:academic.level,name:academic.academic_course_1
+#: model:academic.level,name:academic.academic_course_7
 msgid "Primero"
 msgstr "Primero"
 
-#. module: academic_x
-#: model:ir.ui.menu,name:academic_x.menu_academic_question_analysis
+#. module: academic
+#: model:ir.ui.menu,name:academic.menu_academic_question_analysis
 msgid "Question Analysis"
 msgstr "Análisis de Preguntas"
 
-#. module: academic_x
-#: model:ir.ui.menu,name:academic_x.menu_survey_question_content
+#. module: academic
+#: model:ir.ui.menu,name:academic.menu_survey_question_content
 msgid "Question Content"
 msgstr "Contenido de Pregunta"
 
-#. module: academic_x
-#: model:ir.actions.act_window,name:academic_x.action_question_indicator
-#: model:ir.model,name:academic_x.model_survey_question_indicator
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_question_indicator
+#: model:ir.model,name:academic.model_survey_question_indicator
 msgid "Question Indicator"
 msgstr "Indicador de Pregunta"
 
-#. module: academic_x
-#: model:ir.ui.menu,name:academic_x.menu_survey_question_level
+#. module: academic
+#: model:ir.ui.menu,name:academic.menu_survey_question_level
 msgid "Question Level"
 msgstr "Nivel de Pregunta"
 
-#. module: academic_x
-#: model:ir.ui.menu,name:academic_x.menu_survey_question_objective
+#. module: academic
+#: model:ir.ui.menu,name:academic.menu_survey_question_objective
 msgid "Question Objective"
 msgstr "Objetivo de Pregunta"
 
-#. module: academic_x
-#: model:ir.actions.act_window,name:academic_x.action_question_performance
-#: model:ir.model,name:academic_x.model_survey_question_performance
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_question_performance
+#: model:ir.model,name:academic.model_survey_question_performance
 msgid "Question Performance"
 msgstr "Desempeño de Pregunta"
 
-#. module: academic_x
-#: model:ir.actions.act_window,name:academic_x.action_question_variable
-#: model:ir.model,name:academic_x.model_survey_question_variable
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_question_variable
+#: model:ir.model,name:academic.model_survey_question_variable
 msgid "Question Variable"
 msgstr "Variable de Pregunta"
 
-#. module: academic_x
-#: model:ir.actions.act_window,name:academic_x.action_survey_question_form
-#: model:ir.ui.menu,name:academic_x.menu_survey_question_form1
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_survey_question_form
+#: model:ir.ui.menu,name:academic.menu_survey_question_form1
 #: field:survey.question.indicator,question_ids:0
 msgid "Questions"
 msgstr "Preguntas"
 
-#. module: academic_x
-#: model:academic.level,name:academic_x.academic_course_11
-#: model:academic.level,name:academic_x.academic_course_5
+#. module: academic
+#: model:academic.level,name:academic.academic_course_11
+#: model:academic.level,name:academic.academic_course_5
 msgid "Quinto"
 msgstr "Quinto"
 
-#. module: academic_x
+#. module: academic
 #: view:survey.survey:0
 msgid "Re-Compute Scores"
 msgstr "Re-Computar Resultados"
 
-#. module: academic_x
+#. module: academic
 #: view:academic.group_evaluation:0
 msgid "Re-Open"
 msgstr "Re-Abrir"
 
-#. module: academic_x
-#: model:academic.level,name:academic_x.academic_course_2
-#: model:academic.level,name:academic_x.academic_course_8
+#. module: academic
+#: model:academic.level,name:academic.academic_course_2
+#: model:academic.level,name:academic.academic_course_8
 msgid "Segundo"
 msgstr "Segundo"
 
-#. module: academic_x
+#. module: academic
 #: view:survey.survey:0
 msgid "Set Invisible"
 msgstr "Marcar Invisible"
 
-#. module: academic_x
+#. module: academic
 #: view:academic.group_evaluation:0
 #: view:survey.survey:0
 msgid "Set Visible"
 msgstr "Poner Visible"
 
-#. module: academic_x
-#: model:academic.level,name:academic_x.academic_course_12
-#: model:academic.level,name:academic_x.academic_course_6
+#. module: academic
+#: model:academic.level,name:academic.academic_course_12
+#: model:academic.level,name:academic.academic_course_6
 msgid "Sexto"
 msgstr "Sexto"
 
-#. module: academic_x
+#. module: academic
 #: field:academic.evaluation.report,survey_stage_id:0
 msgid "Stage"
 msgstr "Etapa"
 
-#. module: academic_x
+#. module: academic
 #: field:academic.evaluation.report,input_state:0
 msgid "Status"
 msgstr "Estado"
 
-#. module: academic_x
-#: model:ir.actions.act_window,name:academic_x.action_academic_partner_students
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_academic_partner_students
 #: view:res.company:0
 msgid "Students"
 msgstr "Alumnos"
 
-#. module: academic_x
+#. module: academic
 #: field:academic.evaluation.report,survey_id:0
-#: model:ir.model,name:academic_x.model_survey_survey
+#: model:ir.model,name:academic.model_survey_survey
 msgid "Survey"
 msgstr "Encuesta"
 
-#. module: academic_x
-#: model:ir.model,name:academic_x.model_survey_page
+#. module: academic
+#: model:ir.model,name:academic.model_survey_page
 msgid "Survey Page"
 msgstr "Página de la encuesta"
 
-#. module: academic_x
-#: model:ir.model,name:academic_x.model_survey_question
+#. module: academic
+#: model:ir.model,name:academic.model_survey_question
 msgid "Survey Question"
 msgstr "Pregunta de la encuesta"
 
-#. module: academic_x
+#. module: academic
 #: view:survey.question.indicator:0
 msgid "Survey Question Indicator"
 msgstr "Indicador de Pregunta de Encuesta"
 
-#. module: academic_x
+#. module: academic
 #: view:survey.question.performance:0
 msgid "Survey Question Performance"
 msgstr "Desempeño de Pregunta de Encuesta"
 
-#. module: academic_x
+#. module: academic
 #: view:survey.question.variable:0
 msgid "Survey Question Variable"
 msgstr "Variable de Pregunta de Encuesta"
 
-#. module: academic_x
-#: model:ir.model,name:academic_x.model_survey_user_input
+#. module: academic
+#: model:ir.model,name:academic.model_survey_user_input
 msgid "Survey User Input"
 msgstr "Input Usuario Encuesta"
 
-#. module: academic_x
-#: model:ir.actions.act_window,name:academic_x.action_survey_user_input_line
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_survey_user_input_line
 msgid "Survey User Input lines"
 msgstr "Lineas de Input Usuario Encuesta"
 
-#. module: academic_x
-#: model:ir.actions.act_window,name:academic_x.action_academic_partner_teachers
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_academic_partner_teachers
 #: view:res.company:0
 msgid "Teachers"
 msgstr "Docentes"
 
-#. module: academic_x
-#: model:academic.level,name:academic_x.academic_course_3
-#: model:academic.level,name:academic_x.academic_course_9
+#. module: academic
+#: model:academic.level,name:academic.academic_course_3
+#: model:academic.level,name:academic.academic_course_9
 msgid "Tercero"
 msgstr "Tercero"
 
-#. module: academic_x
+#. module: academic
 #: sql_constraint:academic.group_evaluation:0
 msgid "There can not be two groups for the same evaluation."
 msgstr "No puede haber dos grupos para la misma evaluación"
 
-#. module: academic_x
-#: code:addons/academic_x/group_evaluation.py:130
-#: code:addons/academic_x/group_evaluation.py:139
+#. module: academic
+#: code:addons/academic/group_evaluation.py:130
+#: code:addons/academic/group_evaluation.py:139
 #, python-format
 msgid "There is no administrator set up for "
 msgstr "No hay administrador fijado para"
 
-#. module: academic_x
+#. module: academic
 #: field:academic.group_evaluation,time_used:0
 msgid "Time Used"
 msgstr "Tiempo usado"
 
-#. module: academic_x
-#: code:addons/academic_x/survey.py:80
+#. module: academic
+#: code:addons/academic/survey.py:80
 #, python-format
 msgid "To auotmatically add Groups you should set level and subject!"
 msgstr "Para agregar automáticamente grupos debes setear nivel y materia!"
 
-#. module: academic_x
-#: model:ir.ui.menu,name:academic_x.menu_survey_response_line_form
+#. module: academic
+#: model:ir.ui.menu,name:academic.menu_survey_response_line_form
 msgid "User Input Lines"
 msgstr "Lineas Usuario Input"
 
-#. module: academic_x
+#. module: academic
 #: field:survey.question.indicator,variable_id:0
 msgid "Variable"
 msgstr "Variable"
 
-#. module: academic_x
-#: model:ir.ui.menu,name:academic_x.menu_academic_question_variable
+#. module: academic
+#: model:ir.ui.menu,name:academic.menu_academic_question_variable
 #: field:survey.question.performance,variable_ids:0
 msgid "Variables"
 msgstr "Variables"
 
-#. module: academic_x
-#: code:addons/academic_x/group.py:54
+#. module: academic
+#: code:addons/academic/group.py:54
 #, python-format
 msgid "Year: "
 msgstr "Año: "
 
-#. module: academic_x
-#: code:addons/academic_x/group_evaluation.py:75
+#. module: academic
+#: code:addons/academic/group_evaluation.py:75
 #, python-format
 msgid "You can not close a Group Evaluation with user inputs not done. First you should close each user input."
 msgstr "No puedes cerrar una Evaluación de Grupo con inputs de usuarios no finalizados. Primero debes cerrar cada input de usuario."
 
-#. module: academic_x
-#: code:addons/academic_x/user_input.py:38
+#. module: academic
+#: code:addons/academic/user_input.py:38
 #, python-format
 msgid "You can not force closure if you not set an observation category."
 msgstr "No puedes forzar cierre si no fijas una categoría de observación."
 
-#. module: academic_x
+#. module: academic
 #: view:res.company:0
 #: view:survey.user_input:0
 msgid "base.group_no_one"
 msgstr "base.group_no_one"
 
-#. module: academic_x
-#: model:ir.model,name:academic_x.model_academic_group
+#. module: academic
+#: model:ir.model,name:academic.model_academic_group
 msgid "group"
 msgstr "grupo"
 
-#. module: academic_x
+#. module: academic
 #: view:academic.group_evaluation:0
-#: model:ir.model,name:academic_x.model_academic_group_evaluation
+#: model:ir.model,name:academic.model_academic_group_evaluation
 msgid "group_evaluation"
 msgstr "evaluacion_grupo"
 
-#. module: academic_x
-#: model:ir.model,name:academic_x.model_academic_level
+#. module: academic
+#: model:ir.model,name:academic.model_academic_level
 msgid "level"
 msgstr "nivel"
 
-#. module: academic_x
-#: model:ir.model,name:academic_x.model_academic_period
+#. module: academic
+#: model:ir.model,name:academic.model_academic_period
 msgid "period"
 msgstr "period"
 
-#. module: academic_x
+#. module: academic
 #: view:survey.user_input:0
 msgid "user_input"
 msgstr "user_input"

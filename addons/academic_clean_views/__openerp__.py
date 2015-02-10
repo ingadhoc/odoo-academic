@@ -29,7 +29,7 @@ Academic Clean Views
 ====================
     """,
     'author': 'Sistemas ADHOC',
-    'depends': ['academic_x','evaluation','portal'],
+    'depends': ['academic','evaluation','portal'],
     'data': [
         'view.xml',
         ],

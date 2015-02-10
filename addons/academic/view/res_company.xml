@@ -27,22 +27,22 @@
                 </group>
                 <div class="oe_title" position="after">
                     <div name="buttons">
-                        <button name="%(academic_x.action_academic_partner_administrators)d" 
+                        <button name="%(academic.action_academic_partner_administrators)d" 
                             type="action"
                             string="Administrators"
                             context="{'default_partner_type':'administrator','default_company_id':active_id}"
                             groups=""/>
-                        <button name="%(academic_x.action_academic_partner_teachers)d" 
+                        <button name="%(academic.action_academic_partner_teachers)d" 
                             type="action"
                             string="Teachers"
                             context="{'default_partner_type':'teacher','default_company_id':active_id}"
                             groups=""/>                      
-                        <button name="%(academic_x.action_academic_partner_students)d" 
+                        <button name="%(academic.action_academic_partner_students)d" 
                             type="action"
                             string="Students"
                             context="{'default_partner_type':'student','default_company_id':active_id}"
                             groups=""/>
-                        <button name="%(academic_x.action_academic_group_groups)d" 
+                        <button name="%(academic.action_academic_company_group_groups)d" 
                             type="action"
                             string="Groups"
                             context="{'default_company_id':active_id}"
@@ -51,39 +51,6 @@
                 </div>                            
             </field>
         </record>
-
-    <!-- Actions Extras -->
-<!--         <record id="action_academic_partner_institutions" model="ir.actions.act_window">
-            <field name="name">Institutions</field>
-            <field name="res_model">res.partner</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">kanban,tree,form</field>
-            <field name="view_id" ref=""/>
-            <field name="search_view_id" ref="academic.view_academic_partner_filter"/>
-            <field name="context">{'default_partner_type':'institution','search_default_company_id': active_id}</field>
-            <field name="domain">[('partner_type','=','institution')]</field>
-        </record> -->
-
-<!--                 <div name="buttons" position="inside">
-                <button name="%(academic_x.action_academic_partner_administrators)d" type="action"
-                    string="Administrators"
-                    attrs="{'invisible': [('partner_type', '!=', 'institution')]}"
-                    context="{'default_partner_type':'administrator','default_company_id':active_id}"
-                    groups=""/>
-                <button name="%(academic_x.action_academic_partner_teachers)d" type="action"
-                    string="Teachers"
-                    attrs="{'invisible': [('partner_type', '!=', 'institution')]}"
-                    context="{'default_partner_type':'teacher','default_company_id':active_id}"
-                    groups=""/>                      
-                <button name="%(academic_x.action_academic_partner_students)d" type="action"
-                    string="Students"
-                    context="{'default_partner_type':'student','default_company_id':active_id}"
-                    attrs="{'invisible': [('partner_type', '!=', 'institution')]}"
-                    groups=""/>                    
-                 </div>
-
-                    <page string="Groups" attrs="{'invisible': [('partner_type','!=','institution')]}">
-                        <field name="company_group_ids" context="{'default_company_id': active_id}"/>
-                    </page>     -->                
+       
     </data>
 </openerp>    

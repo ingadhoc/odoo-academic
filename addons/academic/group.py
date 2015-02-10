@@ -112,6 +112,6 @@ class group(models.Model):
         '''
         assert len(ids) == 1, 'This option should only be used for a single id at a time'
         self.create_students_users(cr, uid, ids, context=context)
-        return self.pool['report'].get_action(cr, uid, ids, 'academic_x.template_report_users', context=context)
+        return self.pool['report'].get_action(cr, uid, ids, 'academic.template_report_users', context=context)
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

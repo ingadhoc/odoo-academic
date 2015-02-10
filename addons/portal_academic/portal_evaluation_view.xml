@@ -58,7 +58,7 @@
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
             <!-- <field name="view_id" ref="survey.survey_user_input_tree"/> -->
-            <field name="view_id" ref="academic_x.view_academic_user_input_tree"/>
+            <field name="view_id" ref="academic.view_academic_user_input_tree"/>
             <field name="search_view_id" ref="survey.survey_user_input_search"/>
             <field name="domain">[('survey_id.is_evaluation','=',True),('survey_id.evaluation_subtype','=','poll_survey'),('state','=','done')]</field>
             <!-- <field name="domain">[('survey_id.is_evaluation','=',True),('partner_id.user_ids','not in', [uid])]</field> -->
@@ -78,7 +78,7 @@
             <field name="res_model">survey.user_input</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree</field>
-            <field name="view_id" ref="academic_x.view_academic_user_input_tree"/>
+            <field name="view_id" ref="academic.view_academic_user_input_tree"/>
             <field name="search_view_id" ref="survey.survey_user_input_search"/>
             <field name="domain">[('survey_id.is_evaluation','=',True),('partner_id.user_ids','in', [uid]), ('state','!=','done')]</field>
             <field name="context">{'show_answer_button':True}</field>

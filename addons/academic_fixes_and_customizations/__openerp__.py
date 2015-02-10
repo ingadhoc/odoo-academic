@@ -28,7 +28,7 @@
     'category': 'Tools',
     'demo_xml': [
         ],
-    'depends': ['base','survey','academic_x','web'],
+    'depends': ['base','survey','academic','web'],
     'description': 'Academic Fixes and Customizations',
     'init_xml': [],
     'license': 'AGPL-3',

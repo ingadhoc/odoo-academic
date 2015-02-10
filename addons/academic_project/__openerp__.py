@@ -27,7 +27,7 @@
     'demo_xml': [
         ],
     'depends': [
-                'academic_x', 
+                'academic', 
                 'disable_openerp_online',
                 'academic_clean_views',
                 'academic_fixes_and_customizations',

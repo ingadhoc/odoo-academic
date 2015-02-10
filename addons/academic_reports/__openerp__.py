@@ -34,7 +34,7 @@ Academic Reports
     ],
     'depends': [
         'board',
-        'academic_x',
+        'academic',
         'decimal_precision',
     ],
     'data': [

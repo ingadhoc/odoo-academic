@@ -2,8 +2,8 @@
 <openerp>
 <data>
 <template id="template_report_users_document">
-<t t-name="academic_x.template_report_users_document">
-    <t t-name="academic_x.template_report_users">
+<t t-name="academic.template_report_users_document">
+    <t t-name="academic.template_report_users">
         <t t-call="report.external_layout">
             <div class="page">
                 <h2>
@@ -46,7 +46,7 @@
 <template id="template_report_users">
     <t t-call="report.html_container">
         <t t-foreach="doc_ids" t-as="doc_id">
-            <t t-raw="translate_doc(doc_id, doc_model, 'company_id.partner_id.lang', 'academic_x.template_report_users_document')"/>
+            <t t-raw="translate_doc(doc_id, doc_model, 'company_id.partner_id.lang', 'academic.template_report_users_document')"/>
         </t>
     </t>
 </template>
@@ -56,8 +56,8 @@
     string="Group Users"
     model="academic.group" 
     report_type="qweb-pdf"
-    file="academic_x.template_report_users" 
-    name="academic_x.template_report_users" 
+    file="academic.template_report_users" 
+    name="academic.template_report_users" 
 />
 </data>
 </openerp>

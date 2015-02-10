@@ -30,7 +30,7 @@
         'data/demo/res_users.xml',
         'data/demo/res.partner.csv',
         ],
-    'depends': ['portal', 'academic_x'],
+    'depends': ['portal', 'academic'],
     'description': 'Academic Portal',
     'init_xml': [],
     'license': 'AGPL-3',

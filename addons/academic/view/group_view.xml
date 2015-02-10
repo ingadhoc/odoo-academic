@@ -54,9 +54,6 @@
                         <page name="students" string="Students">
                             <field name="student_ids" domain="[('company_id','=',company_id),('partner_type','=','student')]" context="{'default_company_id':company_id,'default_partner_type':'student'}"/>
                         </page>
-                        <page name="evaluations" string="Evaluations">
-                            <field name="group_evaluation_ids"/>
-                        </page>
                     </notebook>
                     </sheet>
 
@@ -92,7 +89,7 @@
 
         <!-- For button from company -->
 
-        <record id="action_academic_group_groups" model="ir.actions.act_window">
+        <record id="action_academic_company_group_groups" model="ir.actions.act_window">
             <field name="name">Groups</field>
             <field name="res_model">academic.group</field>
             <field name="view_type">form</field>

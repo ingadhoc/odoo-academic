@@ -3,82 +3,82 @@
     <data noupdate="1">
 
         <!-- Acedmic Subject  -->
-        <record id="academic_x.academic_subject_1" model="academic.subject">
+        <record id="academic.academic_subject_1" model="academic.subject">
             <field name="name">Matemática</field>
         </record>
 
-        <record id="academic_x.academic_subject_2" model="academic.subject">
+        <record id="academic.academic_subject_2" model="academic.subject">
             <field name="name">Lengua</field>
         </record>
 
         <!-- Acedmic Section  -->
-        <record id="academic_x.academic_section_1" model="academic.section">
+        <record id="academic.academic_section_1" model="academic.section">
             <field name="name">Mar Adentro</field>
         </record>
 
-        <record id="academic_x.academic_section_2" model="academic.section">
+        <record id="academic.academic_section_2" model="academic.section">
             <field name="name">A Buen Puerto</field>
         </record>
 
         <!-- Acedmic Level  -->
-        <record id="academic_x.academic_course_1" model="academic.level">
+        <record id="academic.academic_course_1" model="academic.level">
             <field name="name">Primero</field>
-            <field name="section_id" ref="academic_x.academic_section_1"/>
+            <field name="section_id" ref="academic.academic_section_1"/>
         </record>
 
-        <record id="academic_x.academic_course_2" model="academic.level">
+        <record id="academic.academic_course_2" model="academic.level">
             <field name="name">Segundo</field>
-            <field name="section_id" ref="academic_x.academic_section_1"/>
+            <field name="section_id" ref="academic.academic_section_1"/>
         </record>
 
-        <record id="academic_x.academic_course_3" model="academic.level">
+        <record id="academic.academic_course_3" model="academic.level">
             <field name="name">Tercero</field>
-            <field name="section_id" ref="academic_x.academic_section_1"/>
+            <field name="section_id" ref="academic.academic_section_1"/>
         </record>
 
-        <record id="academic_x.academic_course_4" model="academic.level">
+        <record id="academic.academic_course_4" model="academic.level">
             <field name="name">Cuarto</field>
-            <field name="section_id" ref="academic_x.academic_section_1"/>
+            <field name="section_id" ref="academic.academic_section_1"/>
         </record>
 
-        <record id="academic_x.academic_course_5" model="academic.level">
+        <record id="academic.academic_course_5" model="academic.level">
             <field name="name">Quinto</field>
-            <field name="section_id" ref="academic_x.academic_section_1"/>
+            <field name="section_id" ref="academic.academic_section_1"/>
         </record>
 
-        <record id="academic_x.academic_course_6" model="academic.level">
+        <record id="academic.academic_course_6" model="academic.level">
             <field name="name">Sexto</field>
-            <field name="section_id" ref="academic_x.academic_section_1"/>
+            <field name="section_id" ref="academic.academic_section_1"/>
         </record>           
 
-        <record id="academic_x.academic_course_7" model="academic.level">
+        <record id="academic.academic_course_7" model="academic.level">
             <field name="name">Primero</field>
-            <field name="section_id" ref="academic_x.academic_section_2"/>
+            <field name="section_id" ref="academic.academic_section_2"/>
         </record>
 
-        <record id="academic_x.academic_course_8" model="academic.level">
+        <record id="academic.academic_course_8" model="academic.level">
             <field name="name">Segundo</field>
-            <field name="section_id" ref="academic_x.academic_section_2"/>
+            <field name="section_id" ref="academic.academic_section_2"/>
         </record>
 
-        <record id="academic_x.academic_course_9" model="academic.level">
+        <record id="academic.academic_course_9" model="academic.level">
             <field name="name">Tercero</field>
-            <field name="section_id" ref="academic_x.academic_section_2"/>
+            <field name="section_id" ref="academic.academic_section_2"/>
         </record>
 
-        <record id="academic_x.academic_course_10" model="academic.level">
+        <record id="academic.academic_course_10" model="academic.level">
             <field name="name">Cuarto</field>
-            <field name="section_id" ref="academic_x.academic_section_2"/>
+            <field name="section_id" ref="academic.academic_section_2"/>
         </record>
 
-        <record id="academic_x.academic_course_11" model="academic.level">
+        <record id="academic.academic_course_11" model="academic.level">
             <field name="name">Quinto</field>
-            <field name="section_id" ref="academic_x.academic_section_2"/>
+            <field name="section_id" ref="academic.academic_section_2"/>
         </record>
 
-        <record id="academic_x.academic_course_12" model="academic.level">
+        <record id="academic.academic_course_12" model="academic.level">
             <field name="name">Sexto</field>
-            <field name="section_id" ref="academic_x.academic_section_2"/>
+            <field name="section_id" ref="academic.academic_section_2"/>
         </record>      
 
         <!-- Res Company -->
