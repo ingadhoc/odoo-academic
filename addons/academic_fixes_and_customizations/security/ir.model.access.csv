@@ -1,4 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-survey.access_survey_question_public,survey.question public,survey.model_survey_question,,1,1,0,0
-survey.access_survey_question_user,survey.question user,survey.model_survey_question,base.group_survey_user,1,1,0,0
-model_res_groups,base.model_res_groups,base.model_res_groups,,1,0,0,0
