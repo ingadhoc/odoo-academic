@@ -60,7 +60,7 @@
 			</model>
 		</userDefined>
 </profile>
-<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Mon Feb 09 22:51:33 ART 2015'>
+<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Mon Feb 09 22:53:23 ART 2015'>
   <XMI.header>    <XMI.documentation>
       <XMI.exporter>ArgoUML (using Netbeans XMI Writer version 1.0)</XMI.exporter>
       <XMI.exporterVersion>0.34(6) revised on $Date: 2010-01-11 22:20:14 +0100 (Mon, 11 Jan 2010) $ </XMI.exporterVersion>
@@ -348,13 +348,6 @@
                     <UML:TaggedValue xmi.id = '127-0-1-1--35445e22:145ade57f9d:-8000:0000000000000DFC'
                       isSpecification = 'false'>
                       <UML:TaggedValue.dataValue>Partner Type</UML:TaggedValue.dataValue>
-                      <UML:TaggedValue.type>
-                        <UML:TagDefinition href = 'http://argouml.org/user-profiles/OpenObjectStadardElements.xmi#127-0-1-1-2b464aa4:13b09d81b72:-8000:0000000000001573'/>
-                      </UML:TaggedValue.type>
-                    </UML:TaggedValue>
-                    <UML:TaggedValue xmi.id = '127-0-0-1-2a3b23cc:14b711383e8:-8000:000000000000163C'
-                      isSpecification = 'false'>
-                      <UML:TaggedValue.dataValue></UML:TaggedValue.dataValue>
                       <UML:TaggedValue.type>
                         <UML:TagDefinition href = 'http://argouml.org/user-profiles/OpenObjectStadardElements.xmi#127-0-1-1-2b464aa4:13b09d81b72:-8000:0000000000001573'/>
                       </UML:TaggedValue.type>
@@ -1863,7 +1856,7 @@
       justification="Center"
     >group</text>
     <group name="Fig0.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[817, 313, 314, 0]"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[817, 313, 365, 0]"
          href="127-0-1-1-60562ca5:144c234092b:-8000:0000000000000EF4"
          fill="0"
          fillcolor="white"
@@ -1877,7 +1870,7 @@
       <rectangle name="Fig0.2.0"
         x="817"
         y="313"
-        width="314"
+        width="365"
         height="0"
         fill="0"
         fillcolor="white"
@@ -3309,7 +3302,7 @@
                         classname="org.argouml.uml.diagram.ui.PathItemPlacement"
                         figclassname="org.argouml.uml.diagram.ui.FigTextGroup"
                         ownerhref="127-0-1-1-60562ca5:144c234092b:-8000:000000000000167E"
-                        angle="270.0"
+                        angle="267.0"
                         offset="25" />
       <argouml:pathitem figname="Fig12.2"
                         classname="org.argouml.uml.diagram.ui.PathItemPlacement"

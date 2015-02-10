@@ -14,7 +14,7 @@ class group(models.Model):
         string='Company',
         required=True,
         context={'default_is_company':True},
-        default=lambda s, cr, uid, c: s.pool.get('res.company')._company_default_get(cr, uid, 'academic.group', context=c)
+        default=lambda self: self.env['res.company']._company_default_get('academic.group')
         )
     type = fields.Selection(
         [(u'student', u'Student'), (u'teacher', u'Teacher'), (u'administrator', u'Administrator'), (u'gral_administrator', u'Gral. Administrator')],

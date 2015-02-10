@@ -60,7 +60,7 @@
 			</model>
 		</userDefined>
 </profile>
-<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Mon Feb 09 22:53:23 ART 2015'>
+<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Mon Feb 09 23:17:09 ART 2015'>
   <XMI.header>    <XMI.documentation>
       <XMI.exporter>ArgoUML (using Netbeans XMI Writer version 1.0)</XMI.exporter>
       <XMI.exporterVersion>0.34(6) revised on $Date: 2010-01-11 22:20:14 +0100 (Mon, 11 Jan 2010) $ </XMI.exporterVersion>
@@ -219,7 +219,7 @@
                     </UML:TaggedValue>
                     <UML:TaggedValue xmi.id = '127-0-1-1--57fad205:14581b980ca:-8000:00000000000026B7'
                       isSpecification = 'false'>
-                      <UML:TaggedValue.dataValue>lambda s, cr, uid, c: s.pool.get(&apos;res.company&apos;)._company_default_get(cr, uid, &apos;academic.group&apos;, context=c)</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.dataValue>lambda self: self.env[&apos;res.company&apos;]._company_default_get(&apos;academic.group&apos;)</UML:TaggedValue.dataValue>
                       <UML:TaggedValue.type>
                         <UML:TagDefinition href = 'http://argouml.org/user-profiles/OpenObjectStadardElements.xmi#127-0-1-1-2b464aa4:13b09d81b72:-8000:0000000000001567'/>
                       </UML:TaggedValue.type>
