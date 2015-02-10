@@ -1,6 +1,0 @@
-id,answered_by,apply_to,checked_by,evaluation_type,res_model,is_evaluation,message_last_post,auth_required,stage_id/id,thank_you_message,title,users_can_go_back
-survey_survey_2,administrator,administrator,,automatically_evaluated,,True,,True,survey.stage_in_progress,Muchas gracias por completar la evaluación!,Agenda del director,True
-survey_survey_4,administrator,teacher,,automatically_evaluated,,True,,True,survey.stage_in_progress,Muchas gracias por completar la evaluación!,Desempeño docente,True
-survey_survey_5,student,student,,automatically_evaluated,,True,,True,survey.stage_in_progress,Muchas gracias por completar la evaluación!,Prueba de Comprensión lectora  2° / 3° Año – 2014,True
-survey_survey_6,student,student,,automatically_evaluated,,True,,True,survey.stage_in_progress,Muchas gracias por completar la evaluación!,MOCK N°1. ,True
-survey_survey_7,teacher,student,,automatically_evaluated,,True,,True,survey.stage_in_progress,Muchas gracias por completar la evaluación!,Examen histórico alumno – Primer Trimestre,True
