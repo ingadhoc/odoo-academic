@@ -47,9 +47,9 @@ class academic_division_analysis_wizard(osv.osv_memory):
             'name': _('Tablero'),
             'type': 'ir.actions.act_window',
             'view_type': 'form',
-            'view_mode': 'kanban',
+            'view_mode': 'kanban,tree',
             'res_model': 'academic.division_analysis',
-            'target': 'inlineview',
+            'target': 'form',
             'context': context,
             'domain': [('id','=',division_analysis_id)],
         }

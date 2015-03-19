@@ -7,8 +7,30 @@
         <field name="name">academic.division_analysis.tree</field>
         <field name="model">academic.division_analysis</field>
         <field name="arch" type="xml">
-            <tree string="Division Analysis">
+            <tree string="Division Analysis" create="false">
                 <field name="name"/>
+                <field name="company"/>
+                <field name="groups"/>
+                <field name="periods"/>
+                <field name="consider_disabled_person"/>
+                <field name="include_diagnosis_eval"/>
+                <field name="subi_internal_lang_value"/>
+                <field name="subi_internal_math_value"/>
+                <field name="subi_external_lang_value"/>
+                <field name="subi_external_math_value"/>
+                <field name="subi_avg_hour_lang_value"/>
+                <field name="subi_avg_hour_math_value"/>
+                <field name="subi_avg_topics_lang_value"/>
+                <field name="subi_avg_topics_math_value"/>
+                <field name="subi_avg_spec_proj_lang_value"/>
+                <field name="subi_avg_spec_proj_math_value"/>
+                <field name="subi_avg_relevant_training_lang_value"/>
+                <field name="subi_avg_relevant_training_math_value"/>
+                <field name="subi_avg_teacher_interview_lang_value"/>
+                <field name="subi_avg_teacher_interview_math_value"/>
+                <field name="subi_timextopic_lang_value"/>
+                <field name="subi_timextopic_math_value"/>
+                <field name="subi_avg_parent_att_value"/>
                 <!-- <field name="group_id"/> -->
             </tree>
         </field>
@@ -18,7 +40,7 @@
         <field name="name">academic.division_analysis.form</field>
         <field name="model">academic.division_analysis</field>
         <field name="arch" type="xml">
-            <form string="Division Analysis">
+            <form string="Division Analysis" create="false">
                 <group>
                     <group>
                         <field name="name"/>
@@ -54,7 +76,7 @@
                         <field name="subi_avg_hour_lang_ind_id" string="Indicator"/>
                         <field name="subi_avg_hour_lang_sub_id" string="Subject"/>
                         <field name="subi_avg_hour_lang_weight" string="Weight"/>
-                        <!-- <field name="subi_avg_hour_lang_value" string="Value"/> -->
+                        <!-- <field name="subi_avg_hour_lan<g_value" string="Value"/> -->
                     </group>
                     <group col="8" colspan="2" string="Porcentaje de horas dadas Matematica">
                         <field name="subi_avg_hour_math_ind_id" string="Indicator"/>
@@ -152,7 +174,7 @@
         <field name="name">academic.division_analysis.kanban</field>
         <field name="model">academic.division_analysis</field>
         <field name="arch" type="xml">
-            <kanban class="oe_background_grey">
+            <kanban class="oe_background_grey" create="false">
                 <field name="name"/>
                 <field name="subi_internal_lang_value"/>
                 <field name="subi_internal_math_value"/>
