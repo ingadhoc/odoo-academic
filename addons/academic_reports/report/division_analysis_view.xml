@@ -76,7 +76,7 @@
                         <field name="subi_avg_hour_lang_ind_id" string="Indicator"/>
                         <field name="subi_avg_hour_lang_sub_id" string="Subject"/>
                         <field name="subi_avg_hour_lang_weight" string="Weight"/>
-                        <!-- <field name="subi_avg_hour_lan<g_value" string="Value"/> -->
+                        <!-- <field name="subi_avg_hour_lang_value" string="Value"/> -->
                     </group>
                     <group col="8" colspan="2" string="Porcentaje de horas dadas Matematica">
                         <field name="subi_avg_hour_math_ind_id" string="Indicator"/>
