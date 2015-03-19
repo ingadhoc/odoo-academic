@@ -13,7 +13,10 @@ class academic_division_analysis(models.Model):
     groups = fields.Char('Groups', compute='_get_indicators',)
     periods = fields.Char('Periods', compute='_get_indicators',)
     company = fields.Char('Comapny', compute='_get_indicators',)    
+    consider_disabled_person = fields.Char('Consider Disabled Persons', compute='_get_indicators',)    
+    include_diagnosis_eval = fields.Char('Include Diagnosis Evaluations', compute='_get_indicators',)    
     
+
     # Agregamos estos indicadores aca para poder mostrarlos donde queremos y porque no podemos mostrar el campo o2m
     # Indicador Interno Lengua
     subi_internal_lang_ind_id = fields.Many2one('survey.question.indicator','Indicator subi_avg_note_lang_value',)
@@ -160,9 +163,14 @@ class academic_division_analysis(models.Model):
         groups = self.env.context.get('groups',False)
         periods = self.env.context.get('periods',False)
         company = self.env.context.get('company',False)
+        consider_disabled_person = self.env.context.get('consider_disabled_person',False)
+        include_diagnosis_eval = self.env.context.get('include_diagnosis_eval',False)
         self.groups = groups
         self.periods = periods
         self.company = company        
+        self.consider_disabled_person = consider_disabled_person        
+        self.include_diagnosis_eval = include_diagnosis_eval        
+
 
     @api.one
     def _get_value(self, indicator, subject, weight):
