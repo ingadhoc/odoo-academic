@@ -13,7 +13,7 @@
 #    This program is distributed in the hope that it will be useful,
 #    but WITHOUT ANY WARRANTY; without even the implied warranty of
 #    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more detaicreate_students_usersls.
+#    GNU Affero General Public License for more details.
 #
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
@@ -107,7 +107,6 @@ class group(osv.osv):
         for group in self.browse(cr, uid, ids, context=context):
             partners = group.student_ids
             partner_ids = [x.id for x in partners]
-            print 'partner_ids', partner_ids
             # Create users, if they already exists it will update grupos and activate them
             self.pool.get('res.partner').quickly_create_user(cr, uid, partner_ids, context=context)
         return False

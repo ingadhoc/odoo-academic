@@ -25,6 +25,9 @@ class survey(osv.osv):
         'group_evaluation_ids': fields.one2many('academic.group_evaluation', 'survey_id', string='Groups', context={'from_survey':True}), 
         'level_ids': fields.many2many('academic.level', 'academic_survey_ids_level_ids_rel', 'survey_id', 'level_id', string='Levels'), 
         'subject_ids': fields.many2many('academic.subject', 'academic_survey_ids_subject_ids_rel', 'survey_id', 'subject_id', string='Subjects'), 
+        # 'group_year': fields.many2many('academic.group', 'academic_survey_ids_year_rel', 'survey_id', 'year', string='Years'), 
+        'group_year': fields.integer(string='Year'),
+
     }
 
     _defaults = {

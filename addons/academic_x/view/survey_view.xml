@@ -23,7 +23,7 @@
         </record>
 
 
-    	<record model="ir.ui.view" id="evaluation_survey_form">
+        <record model="ir.ui.view" id="evaluation_survey_form">
             <field name="name">evaluation_survey_form</field>
             <field name="model">survey.survey</field>
             <field name="inherit_id" ref="evaluation.evaluation_survey_form"/>
@@ -54,6 +54,7 @@
                             <group>
                                 <field name="subject_ids" widget="many2many_tags"/>
                                 <field name="level_ids" widget="many2many_tags"/>
+                                <field name="group_year"/>
                             </group>
                             <header>
                                 <button name="autom_add_groups" string="Add Related Groups" type="object" icon="gtk-find-and-replace"/>
@@ -67,8 +68,8 @@
                         </field>
                     </page>
                 </page>
-        	</field>
-    	</record>
+            </field>
+        </record>
 
 <!-- Config actions and menus -->
         <record model="ir.actions.act_window" id="action_survey_page_form">
