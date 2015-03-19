@@ -14,6 +14,9 @@
                 <field name="periods"/>
                 <field name="consider_disabled_person"/>
                 <field name="include_diagnosis_eval"/>
+                <field name="student_perfomance"/>
+                <field name="teacher_perfomance"/>
+                <field name="administrator_perfomance"/>
                 <field name="subi_internal_lang_value"/>
                 <field name="subi_internal_math_value"/>
                 <field name="subi_external_lang_value"/>
