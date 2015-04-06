@@ -11,6 +11,7 @@
         <!-- Portal Student Group -->
         <record id="base.group_portal_student" model="res.groups">
             <field name="name">Student's Portal</field>
+            <field name="is_portal" eval="True"/>
             <field name="implied_ids" eval="[(4, ref('base.group_portal'))]"/>
             <field name="category_id" ref="module_category_portal"/>
             <field name="comment">Student's Portal members have specific access rights (such as record rules and restricted menus).
@@ -20,6 +21,7 @@
         <!-- Portal Teacher Group -->
         <record id="base.group_portal_teacher" model="res.groups">
             <field name="name">Teacher's Portal</field>
+            <field name="is_portal" eval="True"/>
             <field name="implied_ids" eval="[(4, ref('base.group_portal_student'))]"/>
             <field name="category_id" ref="module_category_portal"/>
             <field name="comment">Teacher's Portal members have specific access rights (such as record rules and restricted menus).
@@ -29,6 +31,7 @@
     <!-- Portal Administrator Group -->
         <record id="base.group_portal_administrator" model="res.groups">
             <field name="name">Administrator's Portal</field>
+            <field name="is_portal" eval="True"/>
             <field name="implied_ids" eval="[(4, ref('base.group_portal_teacher'))]"/>
             <field name="category_id" ref="module_category_portal"/>
             <field name="comment">Administrator's Portal members have specific access rights (such as record rules and restricted menus).
@@ -38,6 +41,7 @@
     <!-- Portal Gral Administrator Group -->
         <record id="base.group_portal_gral_administrator" model="res.groups">
             <field name="name">Gral Administrator's Portal</field>
+            <field name="is_portal" eval="True"/>
             <field name="implied_ids" eval="[(4, ref('base.group_portal_administrator'))]"/>
             <field name="category_id" ref="module_category_portal"/>
             <field name="comment">General Administrator's Portal members have specific access rights (such as record rules and restricted menus).
