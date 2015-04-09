@@ -58,6 +58,7 @@
             <field name="inherit_id" ref="academic.view_academic_group_evaluation_form"/>
             <field name="arch" type="xml">
                 <header>
+                    <button name="set_invisible" icon="gtk-goto-first" string="Set Invisible" type="object" states="open,visible,close"/>
                     <button name="set_visible" icon="gtk-go-forward" string="Set Visible" type="object" states="invisible"/>
                     <button name="action_send_survey" icon="gtk-go-forward" string="Open" type="object" states="visible"/>
                     <button name="action_send_survey" icon="gtk-redo" string="Re-Open" type="object" states="open"/>
@@ -92,6 +93,7 @@
                     <field name="survey_id" invisible="'from_survey' in context" required="'from_group' in context"/>
                     <button name="print_users" icon="gtk-print" string="Print Users" type="object" states="visible,open"/>
                     <field name="state"/>
+                    <button name="set_invisible" icon="gtk-goto-first" string="Set Invisible" type="object" states="open,visible,close"/>
                     <button name="set_visible" icon="gtk-go-forward" string="Set Visible" type="object" states="invisible"/>
                     <button name="action_send_survey" icon="gtk-go-forward" string="Open" type="object" states="visible"/>
                     <button name="action_send_survey" icon="gtk-redo" string="Re-Open" type="object" states="open"/>

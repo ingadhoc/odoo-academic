@@ -32,6 +32,17 @@ class group_evaluation(osv.osv):
         ('group_uniq', 'unique(group_id, survey_id)', 'There can not be two groups for the same evaluation.'),
     ]    
 
+    def unlink(self, cr, uid, ids, context=None):
+        for record in self.browse(cr, uid, ids, context):
+            if record.state != 'invisible':
+                raise osv.except_osv(
+                    _('Error!'),
+                    _('Solo pueden borrarse evaluaciones en estado invisible.\
+                        ATENCION: esa borrará los registros correspondientes a\
+                        la evaluación del grupo, en caso de que haya\
+                        respuestas registradas'))
+        return super(group_evaluation, self).unlink(cr, uid, ids, context)
+
     def set_invisible(self, cr, uid, ids, context=None):
         return self.write(cr, uid, ids, {'state':'invisible'}, context=context)
 

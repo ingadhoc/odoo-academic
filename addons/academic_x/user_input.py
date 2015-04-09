@@ -10,6 +10,7 @@ class survey_user_input(osv.Model):
     _columns = {
         'company_id': fields.related('group_evaluation_id', 'group_id', 'company_id', type='many2one', relation='res.company', string='Company', store=True, readonly=True),
         'group_id': fields.related('group_evaluation_id', 'group_id', type='many2one', relation='academic.group', string='Group', store=True, readonly=True),
+        'group_evaluation_id': fields.many2one('academic.group_evaluation', ondelete='cascade', string='Group Evaluation', readonly=True), 
     }
 
     def force_closure(self, cr, uid, ids, context=None):
