@@ -87,6 +87,9 @@
                     <field name="promotion_id"/>
                     <field name="company_id" groups="base.group_multi_company"/>
                 </search>
+                <filter string="Company" position="replace">
+                    <filter string="Company" context="{'group_by': 'company_id'}"/>
+                </filter>
             </field>
         </record>        
 
