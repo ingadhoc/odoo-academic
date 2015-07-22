@@ -24,7 +24,7 @@
 {   'active': False,
     'author': 'Sistemas ADHOC',
     'category': 'base.module_category_knowledge_management',
-    'demo_xml': [
+    'demo': [
         ],
     'depends': [
                 'academic_x', 
@@ -40,7 +40,7 @@
     'license': 'AGPL-3',
     'name': u'Academic Project',
     'test': [],
-    'update_xml': [
+    'data': [
         'data/academic_data.xml',   
     ],
     'version': '1.1',

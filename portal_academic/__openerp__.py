@@ -36,7 +36,7 @@
     'license': 'AGPL-3',
     'name': u'Academic Portal',
     'test': [],
-    'update_xml': [   
+    'data': [   
         'security/portal_academic_security.xml',
         'security/ir.model.access.csv',
         'data/data.xml',

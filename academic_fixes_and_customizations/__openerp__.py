@@ -26,7 +26,7 @@
     'auto_install': False,
     'installable': True,
     'category': 'Tools',
-    'demo_xml': [
+    'demo': [
         ],
     'depends': ['base','survey','academic_x','web'],
     'description': 'Academic Fixes and Customizations',
@@ -34,7 +34,7 @@
     'license': 'AGPL-3',
     'name': u'Academic Fixes and Customizations',
     'test': [],
-    'update_xml': [   
+    'data': [   
         'security/security.xml',
         'data/mail.xml', 
         'views/login_page.xml',

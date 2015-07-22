@@ -24,16 +24,15 @@
 {   'active': False,
     'author': 'Sistemas ADHOC',
     'category': 'base.module_category_knowledge_management',
-    'demo_xml': [
-        'data/demo/res.company.csv',
+    'demo': [
+        'data/demo/res.partner.csv',
+        'data/demo/res_company.xml',
+        'data/demo/images/res_partner.xml',
         'data/demo/academic.subject.csv',
         'data/demo/academic.promotion.csv',
         'data/demo/academic.section.csv',
         'data/demo/academic.level.csv',
-        'data/demo/res.partner.csv',
         'data/demo/academic.observation_category.csv',
-        'data/demo/images/res_partner.xml',
-        'data/demo/res_company.xml',
         'data/demo/res_users.xml',
         'data/demo/academic.group.csv',
         'data/demo/evaluation/survey.survey.csv',
@@ -60,7 +59,7 @@
     'test': [],
     'qweb': [
         ],
-    'update_xml': [   
+    'data': [   
         'view/partner_view.xml',
         'view/group_view.xml',
         'view/survey_view.xml',

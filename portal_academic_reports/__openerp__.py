@@ -12,7 +12,7 @@
     'license': 'AGPL-3',
     'name': u'Academic Portal',
     'test': [],
-    'update_xml': [   
+    'data': [   
         'portal_evaluation_view.xml',
         'security/portal_academic_reports_security.xml',
 
