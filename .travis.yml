@@ -7,7 +7,7 @@ addons:
 language: python
 
 # new options suggested by Alexandre Fayolle
-sudo: false
+# sudo: false
 cache: pip
 
 python:
@@ -22,6 +22,20 @@ virtualenv:
   system_site_packages: true
 
 install:
+  # aeroo reports
+  # we install libcups2-dev here because it is not on travis whitelist so it is not installable by addons/apt/packages
+  # you can check if available on https://github.com/travis-ci/apt-package-whitelist/blob/master/ubuntu-precise
+  - git clone https://github.com/aeroo/aeroo_reports.git ${HOME}/aeroo_reports
+  - sudo apt-get update -qq
+  - sudo apt-get install -qq libcups2-dev
+  - pip install git+https://github.com/aeroo/aeroolib.git@master pycups==1.9.68
+
+  # odoo addons adhoc
+  - git clone https://github.com/ingadhoc/odoo-addons.git -b 8.0 ${HOME}/odoo-addons
+
+  # oca server tools
+  - git clone https://github.com/OCA/server-tools.git ${HOME}/server-tools
+
   # repository requirements
   - pip install -r requirements.txt
 
