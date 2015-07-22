@@ -13,12 +13,8 @@
         <record id="view_company_form" model="ir.ui.view">
             <field name="name">res.company.form</field>
             <field name="model">res.company</field>
-            <field name="inherit_id" ref="report.reporting_settings_form_inherited"/>
+            <field name="inherit_id" ref="base.view_company_form"/>
             <field name="arch" type="xml">
-        <!-- esto lo dejo comentado porque en saas-3 se llama de una manera y en trunk de otra, cuando pasemos todo a trunk lo descomentamos (ahora esta preparado para trunk) -->
-<!--                 <page string="Report Configuration" position="attributes">
-                    <attribute name="groups">base.group_no_one</attribute>
-                </page> -->
                 <page string="Configuration" position="attributes">
                     <attribute name="groups">base.group_no_one</attribute>
                 </page>
