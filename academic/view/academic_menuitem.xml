@@ -79,8 +79,6 @@
             <field name="res_model">survey.survey</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
-            <field name="view_id" ref="view_academic_survey_tree"/>
-            <field name="search_view_id" ref="view_academic_survey_filter"/>
             <field name="context">{'default_is_evaluation':True}</field>
             <field name="domain">[('is_evaluation','=',True)]</field>
         </record>
