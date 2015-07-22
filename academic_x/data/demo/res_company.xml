@@ -21,25 +21,31 @@
             <field name="currency_id" ref="base.ARS"/>
         </record>
 
+    <!-- companies parnters -->
+        <record id="res_partner_los_arroyos" model="res.partner">
+            <field name="name">Colegio Los Arroyos</field>
+            <field name="is_company" eval="1" />
+        </record>
 
+        <record id="res_partner_los_molinos" model="res.partner">
+            <field name="name">Colegio Los Molinos</field>
+            <field name="is_company" eval="1" />
+        </record>
 
         <!-- Schools Companies  -->
-        <record id="res_company_los_molinos" model="res.company">
-            <field name="partner_id" ref="res_partner_los_molinos"/>
-            <field name="name">Colegio Los Molinos</field>
-            <field name="parent_id" ref="base.main_company"/>
-            <field name="currency_id" ref="base.ARS"/>
-        </record>    
-
-<!-- No se porque me da error al levantar esta otra compania -->
-
         <record id="res_company_los_arroyos" model="res.company">
             <field name="partner_id" ref="res_partner_los_arroyos"/>
-            <field name="name">Colegio Los Arroyos</field>
             <field name="parent_id" ref="base.main_company"/>
             <field name="currency_id" ref="base.ARS"/>
+            <field name="name">Colegio Los Arroyos</field>
         </record>      
 
+        <record id="res_company_los_molinos" model="res.company">
+            <field name="partner_id" ref="res_partner_los_molinos"/>
+            <field name="parent_id" ref="base.main_company"/>
+            <field name="currency_id" ref="base.ARS"/>
+            <field name="name">Colegio Los Molinos</field>
+        </record>    
 
 <!-- Partners companies -->
         <record id="res_partner_los_molinos" model="res.partner">
