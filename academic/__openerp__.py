@@ -30,7 +30,7 @@
                 u'view/academic_menuitem.xml',
                 'view/res_company.xml',
                 u'view/academic_actions.xml'],
-    'depends': [],
+    'depends': ['base'],
     'demo': [
         'data/demo/academic.subject.csv',
         'data/demo/academic.promotion.csv',
