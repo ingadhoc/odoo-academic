@@ -30,7 +30,10 @@
                 u'view/academic_menuitem.xml',
                 'view/res_company.xml',
                 u'view/academic_actions.xml'],
-    'depends': ['base'],
+    'depends': [
+        'base',
+        'partner_person',
+        ],
     'demo': [
         'data/demo/academic.subject.csv',
         'data/demo/academic.promotion.csv',
