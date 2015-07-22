@@ -9,7 +9,7 @@
         <record id="academic.action_academic_survey_evaluations" model="ir.actions.act_window">
             <!-- <field name="name">Evaluations</field> -->
             <field name="view_mode">kanban,tree,form</field>
-            <field name="search_view_id" ref="survey.survey_search"/>
+            <!-- <field name="search_view_id" ref="survey.survey_search"/> -->
             <!-- <field name="search_view_id" ref="view_academic_survey_filter"/> -->
             <!-- <field name="view_id" ref="view_academic_survey_tree"/> -->
             <field name="view_id" ref=""/>
