@@ -1,14 +1,13 @@
 all: addons
 
-design/academic.xmi: design/academic.zargo
+academic.xmi: academic.zargo
 	-echo "REBUILD academic.xmi from academic.zargo. I cant do it"
 
 addons: academic
 
-academic: design/academic.uml
-	xmi2oerp -r -i $< -t addons -v 2
+academic: academic.uml
+	xmi2odoo -r -i $< -t addons -v 2 -V 8.0
 
 clean:
-	rm -rf addons/academic/*
 	sleep 1
-	touch design/academic.uml
+	touch academic.uml
