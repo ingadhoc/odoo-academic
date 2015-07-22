@@ -35,14 +35,13 @@
         'partner_person',
         ],
     'demo': [
-        # TODO demo data must be fixed
-        'data/demo/res.partner.csv',
-        'data/demo/res_company.xml',
-        'data/demo/images/res_partner.xml',
         'data/demo/academic.subject.csv',
         'data/demo/academic.promotion.csv',
         'data/demo/academic.section.csv',
         'data/demo/academic.level.csv',
+        'data/demo/res.partner.csv',
+        'data/demo/res_company.xml',
+        'data/demo/images/res_partner.xml',
         'data/demo/res_users.xml',
         'data/demo/academic.group.csv',
         ],
