@@ -43,7 +43,7 @@
     'data': [
         'data/academic_data.xml',   
     ],
-    'version': '1.1',
+    'version': '8.0.1.1.0',
     'application': True,
     'website': ''}
 

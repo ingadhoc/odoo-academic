@@ -42,7 +42,7 @@
         'data/data.xml',
         'portal_evaluation_view.xml',
     ],
-    'version': '1.1',
+    'version': '8.0.1.1.0',
     'website': ''}
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

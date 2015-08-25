@@ -21,7 +21,7 @@
 
 {
     'name': 'Academic Reports',
-    'version': '1.0',
+    'version': '8.0.1.0.0',
     'category': 'Academic',
     'sequence': 14,
     'description': """

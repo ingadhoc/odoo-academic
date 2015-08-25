@@ -47,6 +47,6 @@
     'license': 'AGPL-3',
     'name': u'Academic',
     'test': [],
-    'version': 'No version',
+    'version': '8.0.0.0.0',
     'website': ''}
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
