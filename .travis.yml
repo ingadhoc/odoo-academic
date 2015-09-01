@@ -36,6 +36,9 @@ install:
   # odoo addons adhoc
   - git clone https://github.com/ingadhoc/odoo-addons.git -b 8.0 ${HOME}/odoo-addons
 
+  # odoo web adhoc
+  - git clone https://github.com/ingadhoc/odoo-web.git -b 8.0 ${HOME}/odoo-web
+
   # repository requirements
   - pip install -r requirements.txt
 
