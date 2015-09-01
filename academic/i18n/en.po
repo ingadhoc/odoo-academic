@@ -10,11 +10,11 @@ msgstr ""
 "POT-Creation-Date: 2015-09-01 18:52+0000\n"
 "PO-Revision-Date: 2015-09-01 18:52+0000\n"
 "Last-Translator: Juan Jose Scarafia <scarafia.juanjose@gmail.com>\n"
-"Language-Team: Spanish (Argentina) (http://www.transifex.com/adhoc/ingadhoc-odoo-academic-8-0/language/es_AR/)\n"
+"Language-Team: English (http://www.transifex.com/adhoc/ingadhoc-odoo-academic-8-0/language/en/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: es_AR\n"
+"Language: en\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: academic
@@ -96,88 +96,88 @@ msgstr "<p class=\"oe_view_nocontent_create\"> Click to create a Teachers.</p>\n
 #. module: academic
 #: model:academic.section,name:academic.academic_section_2
 msgid "A Buen Puerto"
-msgstr ""
+msgstr "A Buen Puerto"
 
 #. module: academic
 #: model:ir.module.category,description:academic.module_category_academic
 #: model:ir.module.category,name:academic.module_category_academic
 #: model:ir.ui.menu,name:academic.menu_academic
 msgid "Academic"
-msgstr "Academico"
+msgstr "Academic"
 
 #. module: academic
 #: selection:academic.group,type:0 selection:res.partner,partner_type:0
 msgid "Administrator"
-msgstr "Director"
+msgstr "Administrator"
 
 #. module: academic
 #: model:ir.actions.act_window,name:academic.action_academic_partner_administrators
 #: model:ir.ui.menu,name:academic.menu_administrators
 #: view:res.company:academic.view_company_form
 msgid "Administrators"
-msgstr "Directores"
+msgstr "Administrators"
 
 #. module: academic
 #: view:res.company:academic.view_company_form
 msgid "Bank Accounts"
-msgstr "Cuentas Bancarias"
+msgstr "Bank Accounts"
 
 #. module: academic
 #: model:ir.actions.act_window,name:academic.action_res_company_form
 #: model:ir.model,name:academic.model_res_company
 #: model:ir.ui.menu,name:academic.menu_action_res_company_form
 msgid "Companies"
-msgstr "Compañías"
+msgstr "Companies"
 
 #. module: academic
 #: view:academic.group:academic.view_academic_group_filter
 #: field:academic.group,company_id:0
 #: view:res.partner:academic.view_academic_partner_filter
 msgid "Company"
-msgstr "Colegio"
+msgstr "Company"
 
 #. module: academic
 #: field:academic.group,complete_name:0
 msgid "Complete Name"
-msgstr "Nombre Completo"
+msgstr "Complete Name"
 
 #. module: academic
 #: model:ir.ui.menu,name:academic.menu_configuration
 #: view:res.company:academic.view_company_form
 msgid "Configuration"
-msgstr "Configuración"
+msgstr "Configuration"
 
 #. module: academic
 #: model:ir.actions.act_window,help:academic.action_res_company_form
 msgid ""
 "Create and manage the companies that will be managed by OpenERP from here. "
 "Shops or subsidiaries can be created and maintained from here."
-msgstr "Cree o modifique las compañías que se gestionarán mediante OpenERP. Tiendas o delegaciones también pueden ser creadas y gestionadas desde aquí."
+msgstr "Create and manage the companies that will be managed by OpenERP from here. Shops or subsidiaries can be created and maintained from here."
 
 #. module: academic
 #: field:academic.division,create_uid:0 field:academic.group,create_uid:0
 #: field:academic.level,create_uid:0 field:academic.promotion,create_uid:0
 #: field:academic.section,create_uid:0 field:academic.subject,create_uid:0
 msgid "Created by"
-msgstr "Creado por"
+msgstr "Created by"
 
 #. module: academic
 #: field:academic.division,create_date:0 field:academic.group,create_date:0
 #: field:academic.level,create_date:0 field:academic.promotion,create_date:0
 #: field:academic.section,create_date:0 field:academic.subject,create_date:0
 msgid "Created on"
-msgstr "Creado en"
+msgstr "Created on"
 
 #. module: academic
 #: model:ir.ui.menu,name:academic.menu_data
 msgid "Data"
-msgstr "Datos"
+msgstr "Data"
 
 #. module: academic
 #: view:academic.group:academic.view_academic_group_filter
 #: field:academic.group,division_id:0
 msgid "Division"
-msgstr "División"
+msgstr "Division"
 
 #. module: academic
 #: model:ir.actions.act_window,name:academic.action_academic_division_divisions
@@ -188,13 +188,13 @@ msgstr "Divisions"
 #. module: academic
 #: model:ir.ui.menu,name:academic.menu_general_data
 msgid "General Data"
-msgstr "Datos Generales"
+msgstr "General Data"
 
 #. module: academic
 #: model:ir.actions.act_window,name:academic.action_academic_partner_gral_administrators
 #: model:ir.ui.menu,name:academic.menu_gral_administrators
 msgid "Gral Administrators"
-msgstr "Directores Generales"
+msgstr "Gral Administrators"
 
 #. module: academic
 #: selection:academic.group,type:0 selection:res.partner,partner_type:0
@@ -221,7 +221,7 @@ msgstr "Group By"
 #: view:res.partner:academic.view_academic_partner_form
 #: field:res.partner,student_group_ids:0 field:res.partner,teacher_group_ids:0
 msgid "Groups"
-msgstr "Grupos"
+msgstr "Groups"
 
 #. module: academic
 #: field:academic.division,id:0 field:academic.group,id:0
@@ -233,53 +233,53 @@ msgstr "ID"
 #. module: academic
 #: view:res.partner:academic.view_academic_partner_form
 msgid "Institution..."
-msgstr "Colegio..."
+msgstr "Institution..."
 
 #. module: academic
 #: field:academic.division,write_uid:0 field:academic.group,write_uid:0
 #: field:academic.level,write_uid:0 field:academic.promotion,write_uid:0
 #: field:academic.section,write_uid:0 field:academic.subject,write_uid:0
 msgid "Last Updated by"
-msgstr "Actualizado por última vez por..."
+msgstr "Last Updated by"
 
 #. module: academic
 #: field:academic.division,write_date:0 field:academic.group,write_date:0
 #: field:academic.level,write_date:0 field:academic.promotion,write_date:0
 #: field:academic.section,write_date:0 field:academic.subject,write_date:0
 msgid "Last Updated on"
-msgstr "Ultima actualización en"
+msgstr "Last Updated on"
 
 #. module: academic
 #: model:academic.subject,name:academic.academic_subject_2
 msgid "Lengua"
-msgstr ""
+msgstr "Lengua"
 
 #. module: academic
 #: view:academic.group:academic.view_academic_group_filter
 #: field:academic.group,level_id:0
 msgid "Level"
-msgstr "Nivel"
+msgstr "Level"
 
 #. module: academic
 #: model:ir.actions.act_window,name:academic.action_academic_level_levels
 #: model:ir.ui.menu,name:academic.menu_levels
 msgid "Levels"
-msgstr "Niveles"
+msgstr "Levels"
 
 #. module: academic
 #: model:res.groups,name:academic.group_manager
 msgid "Manager"
-msgstr "Responsable"
+msgstr "Manager"
 
 #. module: academic
 #: model:academic.section,name:academic.academic_section_1
 msgid "Mar Adentro"
-msgstr ""
+msgstr "Mar Adentro"
 
 #. module: academic
 #: model:academic.subject,name:academic.academic_subject_1
 msgid "Matemática"
-msgstr ""
+msgstr "Matemática"
 
 #. module: academic
 #: view:academic.division:academic.view_academic_division_filter
@@ -293,7 +293,7 @@ msgstr ""
 #: view:academic.subject:academic.view_academic_subject_filter
 #: field:academic.subject,name:0
 msgid "Name"
-msgstr "Nombre"
+msgstr "Name"
 
 #. module: academic
 #: model:ir.model,name:academic.model_res_partner
@@ -308,62 +308,62 @@ msgstr "Partner Type"
 #. module: academic
 #: model:ir.ui.menu,name:academic.menu_partners
 msgid "Partners"
-msgstr "Contactos"
+msgstr "Partners"
 
 #. module: academic
 #: model:academic.level,name:academic.academic_course_1
 msgid "Primer Grado"
-msgstr ""
+msgstr "Primer Grado"
 
 #. module: academic
 #: view:academic.group:academic.view_academic_group_form
 msgid "Print Users"
-msgstr "Imprimir Usuarios"
+msgstr "Print Users"
 
 #. module: academic
 #: field:res.partner,promotion_id:0
 msgid "Promotion"
-msgstr "Promoción"
+msgstr "Promotion"
 
 #. module: academic
 #: model:ir.actions.act_window,name:academic.action_academic_promotion_promotions
 #: model:ir.ui.menu,name:academic.menu_promotions
 msgid "Promotions"
-msgstr "Promociones"
+msgstr "Promotions"
 
 #. module: academic
 #: view:res.partner:academic.view_academic_partner_form
 msgid "Sales & Purchases"
-msgstr "Ventas & Compras"
+msgstr "Sales & Purchases"
 
 #. module: academic
 #: view:academic.level:academic.view_academic_level_filter
 #: field:academic.level,section_id:0 field:res.partner,section_id:0
 msgid "Section"
-msgstr "Sección"
+msgstr "Section"
 
 #. module: academic
 #: view:res.partner:academic.view_academic_partner_form
 msgid "Section..."
-msgstr "Sección..."
+msgstr "Section..."
 
 #. module: academic
 #: model:ir.actions.act_window,name:academic.action_academic_section_sections
 #: model:ir.ui.menu,name:academic.menu_sections
 msgid "Sections"
-msgstr "Secciones"
+msgstr "Sections"
 
 #. module: academic
 #: model:academic.level,name:academic.academic_course_2
 msgid "Segundo Grado"
-msgstr ""
+msgstr "Segundo Grado"
 
 #. module: academic
 #: view:academic.group:academic.view_academic_group_filter
 #: field:academic.group,student_ids:0 selection:academic.group,type:0
 #: selection:res.partner,partner_type:0
 msgid "Student"
-msgstr "Alumno"
+msgstr "Student"
 
 #. module: academic
 #: view:academic.group:academic.view_academic_group_form
@@ -371,44 +371,44 @@ msgstr "Alumno"
 #: model:ir.ui.menu,name:academic.menu_students
 #: view:res.company:academic.view_company_form
 msgid "Students"
-msgstr "Alumnos"
+msgstr "Students"
 
 #. module: academic
 #: view:academic.group:academic.view_academic_group_filter
 #: field:academic.group,subject_id:0
 msgid "Subject"
-msgstr "Materia"
+msgstr "Subject"
 
 #. module: academic
 #: model:ir.actions.act_window,name:academic.action_academic_subject_subjects
 #: model:ir.ui.menu,name:academic.menu_subjects
 msgid "Subjects"
-msgstr "Materias"
+msgstr "Subjects"
 
 #. module: academic
 #: view:academic.group:academic.view_academic_group_filter
 #: field:academic.group,teacher_id:0 selection:academic.group,type:0
 #: selection:res.partner,partner_type:0
 msgid "Teacher"
-msgstr "Docente"
+msgstr "Teacher"
 
 #. module: academic
 #: model:ir.actions.act_window,name:academic.action_academic_partner_teachers
 #: model:ir.ui.menu,name:academic.menu_teachers
 #: view:res.company:academic.view_company_form
 msgid "Teachers"
-msgstr "Docentes"
+msgstr "Teachers"
 
 #. module: academic
 #: model:res.groups,name:academic.group_user
 msgid "User"
-msgstr "Usuario"
+msgstr "User"
 
 #. module: academic
 #: view:academic.group:academic.view_academic_group_filter
 #: field:academic.group,year:0
 msgid "Year"
-msgstr "Año"
+msgstr "Year"
 
 #. module: academic
 #: view:res.company:academic.view_company_form
@@ -430,7 +430,7 @@ msgstr "division"
 #: view:academic.group:academic.view_academic_group_tree
 #: model:ir.model,name:academic.model_academic_group
 msgid "group"
-msgstr "grupo"
+msgstr "group"
 
 #. module: academic
 #: view:academic.level:academic.view_academic_level_filter
@@ -438,7 +438,7 @@ msgstr "grupo"
 #: view:academic.level:academic.view_academic_level_tree
 #: model:ir.model,name:academic.model_academic_level
 msgid "level"
-msgstr "nivel"
+msgstr "level"
 
 #. module: academic
 #: view:academic.promotion:academic.view_academic_promotion_filter
@@ -446,7 +446,7 @@ msgstr "nivel"
 #: view:academic.promotion:academic.view_academic_promotion_tree
 #: model:ir.model,name:academic.model_academic_promotion
 msgid "promotion"
-msgstr "promocion"
+msgstr "promotion"
 
 #. module: academic
 #: view:academic.section:academic.view_academic_section_filter
@@ -454,7 +454,7 @@ msgstr "promocion"
 #: view:academic.section:academic.view_academic_section_tree
 #: model:ir.model,name:academic.model_academic_section
 msgid "section"
-msgstr "seccion"
+msgstr "section"
 
 #. module: academic
 #: view:academic.subject:academic.view_academic_subject_filter
@@ -462,12 +462,12 @@ msgstr "seccion"
 #: view:academic.subject:academic.view_academic_subject_tree
 #: model:ir.model,name:academic.model_academic_subject
 msgid "subject"
-msgstr "materia"
+msgstr "subject"
 
 #. module: academic
 #: field:academic.group,type:0
 msgid "type"
-msgstr "tipo"
+msgstr "type"
 
 #. module: academic
 #: constraint:academic.group:0
