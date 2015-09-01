@@ -14,9 +14,20 @@ python:
   - "2.7"
 
 env:
-  # - VERSION="8.0" LINT_CHECK="1"
-  - VERSION="8.0" ODOO_REPO="odoo/odoo" LINT_CHECK="0"
-  - VERSION="8.0" UNIT_TEST="1" LINT_CHECK="0"
+  global:
+  - VERSION="8.0" TESTS="0" LINT_CHECK="0" TRANSIFEX="0"
+  - TRANSIFEX_USER='jjscarafia'
+  - TRANSIFEX_ORGANIZATION='adhoc'
+  # to get secure, run 'travis encrypt TRANSIFEX_PASSWORD=[transifex_password] -r [github_repo]'
+  # example of github repo 'ingadhoc/odoo-infrastructure'
+  - secure: mNde4r+9ADvLceSLH/oQMt5r6iuVsMn1nKhtE3Gq5PiX6yKJZ5UoWjNkku9Uk/L4ZUVb+8p6I0HU1gc6ceW9q+35NVzko47V3ayZALFq7LEbiK8c1c6Tdi7zMWHkRhneBDFi1QDoPztalvpm/C5h9Sm83WIPyZrIpGz1okwKvzN3ahkprn3COZoQ9LKl+xd2/jbcbeSf5Cfi3NGVXZXDOj4DfsDjFsCIcfElOnvzEW1AKt2g5Zvep7zhX0sTRFicSdXi4nWD/t9EVvAexnErQAjyZXnNT4Fqw3+GF3QUaPLj2BmzS1anPa5fPVJJTYTLRbucJTj1QjcWgTnAGY0I4tUcboAWFta3rvDkV4YvO2sFPNb6TnIpgFzZuVEAKVzUkMWFEhYXDgER4jEieEbHuulJWX0qgCv2ksbsbsWpD5GDJDkCb0ecKGYTqj/Q4LKx+o+45+vDnQveLT4Qbojovg+U5UySzHEh7B0q3rUTY+9qrkj1XzbUOGY/TxFeU6mXh4OHOXoj+qUXBmm9n+z9a3kWNryOFz98VS0OW4fxmTIpVxbxYV8kuWrAIFjyPi3ft6ChzsObK518/Vg9euQkkOtNHdjCSyBL8t1Y4wUX0mxthUwTS1KQIBrM8yOUaCCg5TmfwR5fcfQS/c94AR8WFTbIsm9luD60inzeo2hTA10=
+
+  matrix:
+  # TODO enable lint check
+  #- LINT_CHECK="1"
+  - TRANSIFEX="1"
+  - TESTS="1" ODOO_REPO="odoo/odoo"
+  - UNIT_TEST="1"
 
 virtualenv:
   system_site_packages: true
