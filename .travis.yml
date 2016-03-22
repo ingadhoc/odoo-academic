@@ -27,21 +27,12 @@ env:
   #- LINT_CHECK="1"
   - TRANSIFEX="1"
   - TESTS="1" ODOO_REPO="odoo/odoo"
-  - UNIT_TEST="1"
+  # - UNIT_TEST="1"
 
 virtualenv:
   system_site_packages: true
 
 install:
-  # odoo addons adhoc
-  - git clone https://github.com/ingadhoc/odoo-addons.git -b 8.0 ${HOME}/odoo-addons
-
-  # odoo web adhoc
-  - git clone https://github.com/ingadhoc/odoo-web.git -b 8.0 ${HOME}/odoo-web
-
-  # repository requirements
-  - pip install -r requirements.txt
-
   - git clone https://github.com/OCA/maintainer-quality-tools.git ${HOME}/maintainer-quality-tools
   - export PATH=${HOME}/maintainer-quality-tools/travis:${PATH}
   - travis_install_nightly
