@@ -1,5 +1,5 @@
-
+# -*- coding: utf-8 -*-
 import website
 import company
 import project
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
+import res_partner

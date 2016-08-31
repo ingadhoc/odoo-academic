@@ -138,6 +138,32 @@
             parent="menu_partners"
             groups="group_user"
             />
+        <record id="action_academic_partner_parents" model="ir.actions.act_window">
+            <field name="name">Parents</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="view_id" ref=""/>
+            <field name="search_view_id" ref="view_academic_partner_filter"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create"> Click to create a Parent.</p>
+            </field>
+            <field name="context">{'default_partner_type':'parent'}</field>
+            <field name="domain">
+                [
+                 ('partner_type','=','parent'),
+                ]
+            </field>
+        </record>
+
+        <menuitem
+            name="Parents"
+            id="menu_parents"
+            sequence="35"
+            action="action_academic_partner_parents"
+            parent="menu_partners"
+            groups="group_user"
+            />
         <record id="action_academic_partner_teachers" model="ir.actions.act_window">
             <field name="name">Teachers</field>
             <field name="res_model">res.partner</field>

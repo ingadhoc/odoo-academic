@@ -14,8 +14,13 @@ class partner(models.Model):
     _inherits = {}
     _inherit = ['res.partner']
 
-    partner_type = fields.Selection(
-        [(u'student', u'Student'), (u'teacher', u'Teacher'), (u'administrator', u'Administrator'), (u'gral_administrator', u'Gral. Administrator')],
+    partner_type = fields.Selection([
+        (u'student', u'Student'),
+        (u'teacher', u'Teacher'),
+        (u'administrator', u'Administrator'),
+        (u'gral_administrator', u'Gral. Administrator'),
+        (u'parent', u'Parent'),
+    ],
         change_default=True,
         string='Partner Type'
         )

@@ -17,21 +17,26 @@ class partner(models.Model):
         partner_type = self.env.context.get(
             'partner_type', self.env.context.get(
                 'default_partner_type', False))
-        group_ids = self.env['res.users']
+        users = self.env['res.users']
         if partner_type == 'gral_administrator':
-            group_ids = self.env.ref(
+            users = self.env.ref(
                 'portal_academic.gral_administrator_template_user')
         elif partner_type == 'administrator':
-            group_ids = self.env.ref(
+            users = self.env.ref(
                 'portal_academic.administrator_template_user')
         elif partner_type == 'teacher':
-            group_ids = self.env.ref(
+            users = self.env.ref(
                 'portal_academic.teacher_template_user')
+        elif partner_type == 'parent':
+            users = self.env.ref(
+                'portal_academic.parent_template_user')
         elif partner_type == 'student':
-            group_ids = self.env.ref(
+            users = self.env.ref(
                 'portal_academic.student_template_user')
-        return group_ids and group_ids.id or group_ids
+        return users and users.id or users
 
+    # Esto no lo venimos usando, es de la otra version de academic o de
+    # integracion con parnter user
     template_user_id = fields.Many2one(
         'res.users',
         string="Template User",

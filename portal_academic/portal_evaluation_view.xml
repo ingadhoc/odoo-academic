@@ -6,6 +6,15 @@
             sequence="20"/>
 
         <menuitem
+            name="Parents"
+            id="menu_parents"
+            sequence="10"
+            action="academic.action_academic_partner_parents"
+            parent="portal_academic"
+            groups="base.group_portal_parent"
+            />     
+
+        <menuitem
             name="Teachers"
             id="menu_teachers"
             sequence="10"

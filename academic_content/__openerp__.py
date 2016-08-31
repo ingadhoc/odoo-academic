@@ -6,6 +6,7 @@
                 'view/academic_menuitem.xml',
                 'view/res_company.xml',
                 'view/website_view.xml',
+                'view/res_partner_view.xml',
                 'security/security.xml',
                 'security/ir.model.access.csv',
 
@@ -20,6 +21,6 @@
     'license': 'AGPL-3',
     'name': u'Academic Content',
     'test': [],
-    'version': 'No version',
+    'version': '8.0.1.0.0',
     'website': ''}
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
