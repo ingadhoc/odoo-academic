@@ -22,8 +22,13 @@ class group(models.Model):
         context={'default_is_company':True},
         default=lambda self: self.env['res.company']._company_default_get('academic.group')
         )
-    type = fields.Selection(
-        [(u'student', u'Student'), (u'teacher', u'Teacher'), (u'administrator', u'Administrator'), (u'gral_administrator', u'Gral. Administrator')],
+    type = fields.Selection([
+        (u'student', u'Student'),
+        (u'teacher', u'Teacher'),
+        (u'administrator', u'Administrator'),
+        (u'gral_administrator', u'Gral. Administrator'),
+        (u'parent', u'Parent'),
+    ],
         string='type'
         )
     year = fields.Integer(
