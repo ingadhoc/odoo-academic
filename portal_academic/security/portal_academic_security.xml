@@ -22,7 +22,7 @@
         <record id="base.group_portal_parent" model="res.groups">
             <field name="name">Parent's Portal</field>
             <field name="is_portal" eval="True"/>
-            <field name="implied_ids" eval="[(4, ref('base.group_portal'))]"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_portal_student'))]"/>
             <field name="category_id" ref="module_category_portal"/>
             <field name="comment">Parent's Portal members have specific access rights (such as record rules and restricted menus).
                 They usually do not belong to the usual OpenERP groups.</field>
@@ -32,7 +32,7 @@
         <record id="base.group_portal_teacher" model="res.groups">
             <field name="name">Teacher's Portal</field>
             <field name="is_portal" eval="True"/>
-            <field name="implied_ids" eval="[(4, ref('base.group_portal_student'))]"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_portal_parent'))]"/>
             <field name="category_id" ref="module_category_portal"/>
             <field name="comment">Teacher's Portal members have specific access rights (such as record rules and restricted menus).
                 They usually do not belong to the usual OpenERP groups.</field>
