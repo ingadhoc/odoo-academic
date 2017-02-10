@@ -60,6 +60,12 @@
         </record>
 
         <!-- Groups Evaluations view -->
+        <record model="ir.rule" id="res_partner_group_evaluation_teacher_rule">
+            <field name="name">portal teacher: only groups where is teacher evaluation</field>
+            <field name="model_id" ref="academic.model_academic_group_evaluation"/>
+            <field name="domain_force">[('group_id','in',user.teacher_group_ids.ids),('state','!=','invisible')]</field>
+            <field name="groups" eval="[(4, ref('base.group_portal_teacher'))]"/>
+        </record>
         <record model="ir.rule" id="res_partner_group_evaluation_administrator_rule">
             <field name="name">portal administrator: only section groups evaluation</field>
             <field name="model_id" ref="academic.model_academic_group_evaluation"/>
@@ -135,7 +141,7 @@
         <record model="ir.rule" id="survey_input_teacher_read_rule">
             <field name="name">survey input: portal teacher: read access survey inputs</field>
             <field name="model_id" ref="survey.model_survey_user_input"/>
-            <field name="domain_force">[('survey_id.apply_to', '!=', 'administrator')]</field>
+            <field name="domain_force">[('survey_id.answered_by', '!=', 'administrator'),('group_id','in',user.teacher_group_ids.ids)]</field>
             <field name="groups" eval="[(4, ref('base.group_portal_teacher'))]"/>
             <field name="perm_read" eval="True"/>
             <field name="perm_write" eval="False"/>
