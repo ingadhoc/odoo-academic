@@ -17,7 +17,7 @@
         'security/portal_academic_reports_security.xml',
 
     ],
-    'version': '8.0.1.1.0',
+    'version': '8.0.1.2.0',
     'website': ''}
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
