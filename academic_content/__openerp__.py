@@ -17,7 +17,7 @@
     ],
     'demo': [],
     'description': u'Academic Content',
-    'installable': True,
+    'installable': False,
     'license': 'AGPL-3',
     'name': u'Academic Content',
     'test': [],

@@ -66,7 +66,7 @@
         'data/demo/academic.group.csv',
         ],
     'description': u'Academic',
-    'installable': True,
+    'installable': False,
     'license': 'AGPL-3',
     'name': u'Academic',
     'test': [],

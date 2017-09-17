@@ -21,7 +21,7 @@
 {
     'author': 'ADHOC SA',
     'auto_install': True,
-    'installable': True,
+    'installable': False,
     'category': 'Tools',
     'demo': [
         'data/demo/res_users.xml',
