@@ -32,7 +32,6 @@
         'academic',
     ],
     'description': 'Academic Portal',
-    'init_xml': [],
     'license': 'AGPL-3',
     'name': 'Academic Portal',
     'test': [],

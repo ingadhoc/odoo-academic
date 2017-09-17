@@ -20,7 +20,7 @@
 ##############################################################################
 {
     'author': 'ADHOC SA.',
-    'category': 'base.module_category_knowledge_management',
+    'category': 'Tools',
     'data': [
         'security/academic_group.xml',
         'view/division_view.xml',

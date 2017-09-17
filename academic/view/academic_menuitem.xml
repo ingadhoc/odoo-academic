@@ -7,6 +7,7 @@
             id="menu_academic"
             sequence="20"
             groups="group_user"
+            web_icon="academic,static/description/icon.png"
             />
 
         <menuitem

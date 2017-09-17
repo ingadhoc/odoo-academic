@@ -20,7 +20,7 @@
 ##############################################################################
 {
     'author': 'ADHOC SA',
-    'category': 'base.module_category_knowledge_management',
+    'category': 'Tools',
     'data': [
         'view/project_view.xml',
         'view/academic_menuitem.xml',
