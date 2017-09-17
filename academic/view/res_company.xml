@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
+<odoo>
     <data>
         <record id="action_res_company_form" model="ir.actions.act_window">
             <field name="name">Companies</field>
@@ -15,12 +15,9 @@
             <field name="model">res.company</field>
             <field name="inherit_id" ref="base.view_company_form"/>
             <field name="arch" type="xml">
-                <page string="Configuration" position="attributes">
+                <page name="configuration" position="attributes">
                     <attribute name="groups">base.group_no_one</attribute>
                 </page>
-                <group string="Bank Accounts" position="attributes">
-                    <attribute name="groups">base.group_no_one</attribute>
-                </group>
                 <div class="oe_title" position="after">
                     <div name="buttons">
                         <button name="%(academic.action_academic_partner_administrators)d" 
@@ -49,4 +46,4 @@
         </record>
        
     </data>
-</openerp>    
+</odoo>    

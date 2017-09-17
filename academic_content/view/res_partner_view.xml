@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
+<odoo>
     <data>
         <!-- INHERITED SEARCH -->
         <record id="view_res_partner_filter" model="ir.ui.view">
@@ -13,4 +13,4 @@
             </field>
         </record>        
     </data>
-</openerp>
+</odoo>

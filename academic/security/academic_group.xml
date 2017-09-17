@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
-    <data>
+<odoo>
 	<record model="ir.module.category" id="module_category_academic">
 	    <field name="name">Academic</field>
 	    <field name="description">Academic</field>
@@ -18,7 +17,4 @@
         <field name="category_id" ref="module_category_academic"/>
         <field name="implied_ids" eval="[(4,ref('group_user'))]"/>
 	</record>
-    </data>
-</openerp>
-<!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4
-     -->
+</odoo>

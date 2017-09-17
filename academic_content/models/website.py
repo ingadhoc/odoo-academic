@@ -8,4 +8,4 @@ class website_menu(models.Model):
     academic_project_id = fields.Many2one(
         'academic.project',
         string='Project',
-        )
+    )

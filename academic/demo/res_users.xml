@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
+<odoo>
     <data noupdate="1">
         <!-- Portal users are loaded in portal_academic -->
 
@@ -17,4 +17,4 @@ Malena Apdes</field>
         </record>   
 
     </data>
-</openerp>
+</odoo>

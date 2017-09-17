@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<openerp>
+<odoo>
     <data>
         
         <menuitem name="Academic" id="portal_academic" parent="portal.portal_menu"
@@ -44,4 +44,4 @@
 
 
     </data>
-</openerp>
+</odoo>

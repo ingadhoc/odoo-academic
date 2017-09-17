@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
+<odoo>
     <data>
         <!-- SEARCH VIEW -->
         <record id="view_academic_subject_filter" model="ir.ui.view">
@@ -50,6 +50,4 @@
         </record>
 
     </data>
-</openerp>
-<!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4
-     -->
+</odoo>

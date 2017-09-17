@@ -21,17 +21,20 @@
 {
     'author': 'ADHOC SA',
     'auto_install': True,
-    'installable': False,
+    'installable': True,
     'category': 'Tools',
     'demo': [
-        'data/demo/res_users.xml',
-        'data/demo/res.partner.csv',
+        'demo/res_users.xml',
+        'demo/res.partner.csv',
     ],
-    'depends': ['portal', 'academic'],
+    'depends': [
+        'portal',
+        'academic',
+    ],
     'description': 'Academic Portal',
     'init_xml': [],
     'license': 'AGPL-3',
-    'name': u'Academic Portal',
+    'name': 'Academic Portal',
     'test': [],
     'data': [
         'security/portal_academic_security.xml',
@@ -39,7 +42,6 @@
         'data/data.xml',
         'portal_evaluation_view.xml',
     ],
-    'version': '8.0.1.3.0',
-    'website': 'www.adhoc.com.ar'}
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
+    'version': '9.0.1.0.0',
+    'website': 'www.adhoc.com.ar'
+}

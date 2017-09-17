@@ -1,11 +1,9 @@
 # -*- coding: utf-8 -*-
-from openerp import models, fields, api, _
-from openerp.exceptions import Warning
+from openerp import models, fields
+# from openerp.exceptions import Warning
 
 
 class company(models.Model):
-
-    """"""
 
     _inherit = 'res.company'
 
@@ -16,5 +14,3 @@ class company(models.Model):
         'academic_project_id',
         string='Projects'
     )
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

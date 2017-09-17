@@ -1,52 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
+<odoo>
     <data>
-<!--         <record id="action_academic_partner_administrators" model="ir.actions.act_window">
-            <field name="name">Administrators</field>
-            <field name="res_model">res.partner</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">kanban,tree,form</field>
-            <field name="view_id" ref=""/>
-            <field name="search_view_id" ref="academic.view_academic_partner_filter"/>
-            <field name="context">{}</field>
-            <field name="domain">[('company_id','=',active_id),('partner_type','=','administrator')]</field>
-        </record>
-
-        <record id="action_academic_partner_students" model="ir.actions.act_window">
-            <field name="name">Students</field>
-            <field name="res_model">res.partner</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">kanban,tree,form</field>
-            <field name="view_id" ref=""/>
-            <field name="search_view_id" ref="academic.view_academic_partner_filter"/>
-            <field name="context">{}</field>
-            <field name="domain">[('company_id','=',active_id),('partner_type','=','student')]</field>
-        </record>    
-
-        <record id="action_academic_partner_teachers" model="ir.actions.act_window">
-            <field name="name">Teachers</field>
-            <field name="res_model">res.partner</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">kanban,tree,form</field>
-            <field name="view_id" ref=""/>
-            <field name="search_view_id" ref="academic.view_academic_partner_filter"/>
-            <field name="context">{}</field>
-            <field name="domain">[('company_id','=',active_id),('partner_type','=','teacher')]</field>
-        </record>                
- -->
 
         <!-- INHERITED FORM -->
         <record id="academic.view_academic_partner_form" model="ir.ui.view">
             <field name="name">academic.partner.form</field>
             <field name="model">res.partner</field>
             <field name="inherit_id" ref="base.view_partner_form"/>
-            <!-- <field name="inherit_id" ref="base.view_partner_form"/> -->
             <field name="arch" type="xml">
-<!--                 <field name="national_identity" position="after">
-                    <field name="promotion_id" attrs="{'invisible':[('partner_type','!=','student')],'required':[('partner_type','=','student')]}"/>
-                </field> -->
                 <page name="internal_notes" position="before">
-                <!-- <page string="Contacts" position="after" attrs="{'invisible': [('is_company','=',False), ('child_ids', '=', [])]}" autofocus="autofocus"> -->
                     <page string="Groups" attrs="{'invisible': [('partner_type','!=','student')]}">
                         <field name="student_group_ids" context="{'default_company_id': company_id,}"/>
                     </page>                    
@@ -70,7 +32,7 @@
                 <field name="parent_id" position="attributes">
                     <attribute name="attrs">{'invisible':[('partner_type','!=',False)]}</attribute>
                 </field>
-                <page string="Sales &amp; Purchases" position="attributes">
+                <page name='sales_purchases' position="attributes">
                     <attribute name="groups">base.group_no_one</attribute>
                 </page>
             </field>
@@ -87,9 +49,9 @@
                     <field name="promotion_id"/>
                     <field name="company_id" groups="base.group_multi_company"/>
                 </search>
-                <filter string="Company" position="replace">
+                <group>
                     <filter string="Company" context="{'group_by': 'company_id'}"/>
-                </filter>
+                </group>
             </field>
         </record>        
 
@@ -121,24 +83,5 @@
             </field>
         </record>      
 
-    <!-- Actions -->
-<!--         <record id="academic.action_academic_partner_administrators" model="ir.actions.act_window">
-            <field name="view_mode">kanban,tree,form</field>
-            <field name="view_id" ref=""/>
-        </record>
-
-        <record id="academic.action_academic_partner_students" model="ir.actions.act_window">
-            <field name="view_mode">kanban,tree,form</field>
-            <field name="view_id" ref=""/>
-        </record>    
-
-        <record id="academic.action_academic_partner_teachers" model="ir.actions.act_window">
-            <field name="view_mode">kanban,tree,form</field>
-            <field name="view_id" ref=""/>
-        </record>                
- -->
-
     </data>
-</openerp>
-<!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4
-     -->
+</odoo>
