@@ -1,2 +1,3 @@
-adhoc-partner https://github.com/ingadhoc/partner.git
-adhoc-web https://github.com/ingadhoc/odoo-web.git
+ingadhoc-partner https://github.com/ingadhoc/partner.git
+ingadhoc-web https://github.com/ingadhoc/odoo-web.git
+ingadhoc-website https://github.com/ingadhoc/website.git
