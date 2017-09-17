@@ -3,6 +3,9 @@ addons:
     packages:
       - expect-dev  # provides unbuffer utility
       - python-lxml # because pip installation is slow
+      # for aeroo
+      - cups
+      - libcups2-dev
 
 language: python
 
