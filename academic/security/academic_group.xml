@@ -4,7 +4,6 @@
 	    <field name="name">Academic</field>
 	    <field name="description">Academic</field>
         <field name="sequence">1</field>
-        <field name="parent_id" ref="base.module_category_knowledge_management"/>
     </record>
 	<record id="group_user" model="res.groups">
         <field name="name">User</field>
