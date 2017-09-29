@@ -44,6 +44,12 @@ class partner(models.Model):
         'group_id',
         string='Groups'
         )
+    # campo inverso para poder saber si tiene companias
+    # igual al final no lo estamos usando por ahora
+    # company_ids = fields.One2many(
+    #     'res.company',
+    #     'partner_id',
+    # )
 
     _constraints = [
     ]

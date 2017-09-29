@@ -33,6 +33,17 @@
             parent="menu_academic"
             groups="group_user"
             />
+<!-- lo hicimos con companies porque faltaria proteger que no creen desde acá, tmb llevar parent que en realidad esta en companies y modificar vista, por ahora no lo hacemos... -->
+<!--         <record id="action_res_partner_colegios_form" model="ir.actions.act_window">
+            <field name="name">Colegios</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="domain">[('company_ids', '!=', [])]</field>
+            <field name="view_type">form</field>
+        </record>
+
+        <menuitem action="action_res_partner_colegios_form" id="menu_action_res_partner_colegios" parent="academic.menu_partners"/> -->
+
         <record id="action_academic_partner_administrators" model="ir.actions.act_window">
             <field name="name">Administrators</field>
             <field name="res_model">res.partner</field>

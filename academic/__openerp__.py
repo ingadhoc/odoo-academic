@@ -54,6 +54,6 @@
     'installable': True,
     'license': 'AGPL-3',
     'name': 'Academic',
-    'version': '9.0.1.0.0',
+    'version': '9.0.1.1.0',
     'website': 'www.adhoc.com.ar'
 }

@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
+
+        <!-- SEARCH VIEW -->
+        <record id="view_res_company_filter" model="ir.ui.view">
+            <field name="name">res.company.select</field>
+            <field name="model">res.company</field>
+            <field name="arch" type="xml">
+                <search string="group">
+                    <field name="name"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Parent" context="{'group_by': 'parent_id'}"/>
+                        <filter string="Country" context="{'group_by': 'country_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- hicimos el acceso a companias con partners en academic_menuitem -->
+
         <record id="action_res_company_form" model="ir.actions.act_window">
             <field name="name">Companies</field>
             <field name="type">ir.actions.act_window</field>
@@ -8,6 +26,7 @@
             <field name="view_type">form</field>
             <field name="help">Create and manage the companies that will be managed by OpenERP from here. Shops or subsidiaries can be created and maintained from here.</field>
         </record>
+
         <menuitem action="action_res_company_form" id="menu_action_res_company_form" parent="academic.menu_partners"/>
 
         <record id="view_company_form" model="ir.ui.view">

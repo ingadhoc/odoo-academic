@@ -17,5 +17,7 @@ class company(models.Model):
         'academic.group', 'company_id', string='Groups')
     # we add store to fix a problem showing logo on companies
     logo = fields.Binary(store=True)
+    country_id = fields.Many2one(
+        related='partner_id.country_id', store=True)
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
