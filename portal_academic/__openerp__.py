@@ -41,6 +41,6 @@
         'data/data.xml',
         'portal_evaluation_view.xml',
     ],
-    'version': '9.0.1.0.0',
+    'version': '9.0.1.1.0',
     'website': 'www.adhoc.com.ar'
 }

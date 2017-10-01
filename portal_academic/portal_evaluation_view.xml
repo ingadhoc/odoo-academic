@@ -11,7 +11,7 @@
             sequence="10"
             action="academic.action_academic_partner_parents"
             parent="portal_academic"
-            groups="base.group_portal_parent"
+            groups="portal_academic.group_portal_parent"
             />     
 
         <menuitem
@@ -20,7 +20,7 @@
             sequence="10"
             action="academic.action_academic_partner_teachers"
             parent="portal_academic"
-            groups="base.group_portal_teacher"
+            groups="portal_academic.group_portal_teacher"
             />     
 
         <menuitem
@@ -29,7 +29,7 @@
             sequence="20"
             action="academic.action_academic_partner_students"
             parent="portal_academic"
-            groups="base.group_portal_teacher"
+            groups="portal_academic.group_portal_teacher"
             />
 
         <menuitem
@@ -38,7 +38,7 @@
             sequence="25"
             action="academic.action_academic_group_groups"
             parent="portal_academic"
-            groups="base.group_portal_teacher"
+            groups="portal_academic.group_portal_teacher"
             />            
 
 

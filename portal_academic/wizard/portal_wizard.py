@@ -22,19 +22,19 @@ class PortalWizard(models.TransientModel):
             groups = self.env['res.groups']
             if partner_type == 'gral_administrator':
                 groups = self.env.ref(
-                    'base.group_portal_gral_administrator')
+                    'portal_academic.group_portal_gral_administrator')
             elif partner_type == 'administrator':
                 groups = self.env.ref(
-                    'base.group_portal_administrator')
+                    'portal_academic.group_portal_administrator')
             elif partner_type == 'teacher':
                 groups = self.env.ref(
-                    'base.group_portal_teacher')
+                    'portal_academic.group_portal_teacher')
             elif partner_type == 'parent':
                 groups = self.env.ref(
-                    'base.group_portal_parent')
+                    'portal_academic.group_portal_parent')
             elif partner_type == 'student':
                 groups = self.env.ref(
-                    'base.group_portal_student')
+                    'portal_academic.group_portal_student')
             return groups.id
         return super(PortalWizard, self)._default_portal()
 

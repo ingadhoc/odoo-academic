@@ -17,7 +17,7 @@
             <field name="name">Parent Template user</field>
             <field name="login">parent_template</field>
             <field name="password"></field>
-            <field name="groups_id" eval="[(6, 0,  [ref('base.group_portal_parent')])]"/>
+            <field name="groups_id" eval="[(6, 0,  [ref('portal_academic.group_portal_parent')])]"/>
             <field name="active" eval="False"/>
             <field name="company_ids" eval="[(6, 0, [])]"/>
             <field name="alias_name">_parent_template_user</field>
@@ -27,7 +27,7 @@
             <field name="name">Teacher Template user</field>
             <field name="login">teacher_template</field>
             <field name="password"></field>
-            <field name="groups_id" eval="[(6, 0,  [ref('base.group_portal_teacher')])]"/>
+            <field name="groups_id" eval="[(6, 0,  [ref('portal_academic.group_portal_teacher')])]"/>
             <field name="active" eval="False"/>
             <field name="company_ids" eval="[(6, 0, [])]"/>
             <field name="alias_name">_teacher_template_user</field>
@@ -37,7 +37,7 @@
             <field name="name">Administrator Template user</field>
             <field name="login">administrator_template</field>
             <field name="password"></field>
-            <field name="groups_id" eval="[(6, 0,  [ref('base.group_portal_administrator')])]"/>
+            <field name="groups_id" eval="[(6, 0,  [ref('portal_academic.group_portal_administrator')])]"/>
             <field name="active" eval="False"/>
             <field name="company_ids" eval="[(5)]"/>
             <field name="company_ids" eval="[(6, 0, [])]"/>
@@ -48,7 +48,7 @@
             <field name="name">Gral Administrator Template user</field>
             <field name="login">gral_administrator_template</field>
             <field name="password"></field>
-            <field name="groups_id" eval="[(6, 0,  [ref('base.group_portal_gral_administrator')])]"/>
+            <field name="groups_id" eval="[(6, 0,  [ref('portal_academic.group_portal_gral_administrator')])]"/>
             <field name="active" eval="False"/>
             <field name="company_ids" eval="[(5)]"/>
             <field name="company_ids" eval="[(6, 0, [])]"/>
