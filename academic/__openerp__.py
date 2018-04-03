@@ -37,7 +37,6 @@
     ],
     'depends': [
         'base',
-        'partner_person',
     ],
     'demo': [
         'demo/academic.subject.csv',
