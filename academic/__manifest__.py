@@ -20,7 +20,6 @@
 {
     'name': 'Academic',
     'version': '11.0.1.0.0',
-    'category': 'base.module_category_knowledge_management',
     'sequence': 14,
     'summary': '',
     'author': 'ADHOC SA',
