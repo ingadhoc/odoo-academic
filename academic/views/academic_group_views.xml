@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- SEARCH VIEW -->
+    <record id="view_academic_group_filter" model="ir.ui.view">
+        <field name="name">academic.group.select</field>
+        <field name="model">academic.group</field>
+        <field name="arch" type="xml">
+            <search string="group">
+                <group string="By Attribute">
+                    <field name="year" string="Year" />
+                    <field name="division_id" string="Division" />
+                    <field name="company_id" groups="base.group_multi_company"/>
+                </group>
+                <group string="By object">
+                    <field name="level_id" string="Level" />
+                    <field name="subject_id" string="Subject" />
+                    <field name="teacher_id" string="Teacher" />
+                    <field name="student_ids" string="Student" />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- FORMVIEW -->
+    <record id="view_academic_group_form" model="ir.ui.view">
+        <field name="name">academic.group.form</field>
+        <field name="model">academic.group</field>
+        <field name="arch" type="xml">
+            <form string="group">
+                <header>
+                    <button name="print_users" type="object" string="Print Users"/>
+                </header>
+                <sheet string="group">
+                    <group>
+                        <!-- Por ahora no usamos type, me parece que lo podemos borrar -->
+                        <!-- <field name="type"/> -->
+                        <field name="company_id" groups="base.group_multi_company"/>
+                        <field name="subject_id"/>
+                    </group>
+                    <group col="4">
+                        <field name="teacher_id" context="{'default_partner_type':'teacher','default_company_id':company_id}" domain="[('partner_type','=','teacher'),('company_id','=',company_id)]"/>
+                        <field name="level_id"/>
+                        <field name="division_id" required="1"/>
+                        <field name="year"/>
+                    </group>
+                    <notebook>
+                        <page name="students" string="Students">
+                            <field name="student_ids" domain="[('company_id','=',company_id),('partner_type','=','student')]" context="{'default_company_id':company_id,'default_partner_type':'student'}"/>
+                        </page>
+                        <page name="evaluations" string="Evaluations">
+                            <field name="group_evaluation_ids"/>
+                        </page>
+                    </notebook>
+                </sheet>
+
+            </form>
+        </field>
+    </record>
+
+    <!-- TREEVIEW -->
+
+    <record id="view_academic_group_tree" model="ir.ui.view">
+        <field name="name">academic.group.tree</field>
+        <field name="model">academic.group</field>
+        <field name="arch" type="xml">
+            <tree string="group">
+                <!-- <field name="type"/> -->
+                <field name="company_id" groups="base.group_multi_company"/>
+                <field name="level_id"/>
+                <field name="division_id"/>
+                <field name="subject_id"/>
+                <field name="year"/>
+            </tree>
+        </field>
+    </record>
+
+     <record id="action_academic_group_groups" model="ir.actions.act_window">
+        <field name="name">Groups</field>
+        <field name="res_model">academic.group</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_academic_group_tree"/>
+        <field name="search_view_id" ref="view_academic_group_filter"/>
+        <field name="domain">[('company_id','=',active_id)]</field>
+    </record>
+
+    <menuitem name="Groups" id="menu_groups" sequence="10" action="action_academic_group_groups" parent="menu_data" groups="group_user" />
+
+</odoo>

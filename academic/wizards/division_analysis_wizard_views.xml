@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="academic_division_analysis_wizard_view" model="ir.ui.view">
+        <field name="name">Academic Division Analysis Wizard</field>
+        <field name="model">academic.division_analysis_wizard</field>
+        <field name="arch" type="xml">
+            <form string="Division Analysis">
+                <h2>Tablero</h2>
+                <h3>Ingrese los filtros que desea aplicar a la información.</h3>
+                <h3>Tenga en cuenta que en caso de no aplicar ningún filtro, se mostrará toda la información agrupada.</h3>
+                <group>
+                    <field name="division_analysis_id"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                    <field name="group_ids"/>
+                    <field name="period_ids"/>
+                    <field name="consider_disabled_person"/>
+                    <field name="include_diagnosis_eval" groups="base.group_user"/>
+                </group>
+                <footer>
+                    <button name="action_confirm" string="Confirm" type="object" class="oe_highlight"/>
+                        or
+                    <button string="Cancel" class="oe_link" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_academic_division_analysis_wizard" model="ir.actions.act_window">
+        <field name="name">Academic Division Analysis Wizard</field>
+        <field name="res_model">academic.division_analysis_wizard</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="academic_division_analysis_wizard_view"/>
+        <field name="context">{}</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_academic_division_analysis_wizard" name="Indicator Analysis" parent="menu_report_academic" sequence="20" action="action_academic_division_analysis_wizard"/>
+
+    <menuitem id="menu_portal_division_analysis_wizard" name="Indicator Analysis" parent="menu_portal_reporting" sequence="10" action="action_academic_division_analysis_wizard"/>
+</odoo>

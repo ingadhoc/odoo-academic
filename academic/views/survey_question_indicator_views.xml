@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Questions Indicator -->
+    <record model="ir.ui.view" id="survey_question_indicator_tree">
+        <field name="name">survey_question_indicator_tree</field>
+        <field name="model">survey.question.indicator</field>
+        <field name="arch" type="xml">
+            <tree string="Survey Question Indicator">
+                <field name="name"/>
+                <field name="calc_type"/>
+                <field name="variable_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="survey_question_indicator_form">
+        <field name="name">survey_question_indicator_form</field>
+        <field name="model">survey.question.indicator</field>
+        <field name="arch" type="xml">
+            <form string="Survey Question Indicator" version="7.0">
+                <group>
+                    <field name="name"/>
+                    <field name="calc_type"/>
+                    <field name="variable_id"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!-- Configuration -->
+    <record model="ir.actions.act_window" id="action_question_indicator">
+        <field name="name">Question Indicator</field>
+        <field name="res_model">survey.question.indicator</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem name="Indicators" id="menu_academic_question_indicator" action="action_question_indicator" parent="menu_academic_question_analysis" sequence="30"/>
+
+</odoo>

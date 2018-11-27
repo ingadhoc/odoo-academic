@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- SEARCH VIEW -->
+    <record id="view_academic_division_filter" model="ir.ui.view">
+        <field name="name">academic.division.select</field>
+        <field name="model">academic.division</field>
+        <field name="arch" type="xml">
+            <search string="division">
+                <group string="By Attribute">
+                    <field name="name" string="Name" />
+                </group>
+                <group string="By object">
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- FORMVIEW -->
+    <record id="view_academic_division_form" model="ir.ui.view">
+        <field name="name">academic.division.form</field>
+        <field name="model">academic.division</field>
+        <field name="arch" type="xml">
+            <form string="division">
+                <header>
+                </header>
+                <sheet string="division">
+                    <group>
+                        <field name="name" />
+                    </group>
+                </sheet>
+
+            </form>
+        </field>
+    </record>
+
+    <!-- TREEVIEW -->
+
+    <record id="view_academic_division_tree" model="ir.ui.view">
+        <field name="name">academic.division.tree</field>
+        <field name="model">academic.division</field>
+        <field name="arch" type="xml">
+            <tree string="division">
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+
+     <record id="action_academic_division_divisions" model="ir.actions.act_window">
+        <field name="name">50</field>
+        <field name="res_model">academic.division</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_academic_division_tree"/>
+        <field name="search_view_id" ref="view_academic_division_filter"/>
+        <field name="domain">[]</field>
+    </record>
+
+    <menuitem name="50" id="menu_divisions" sequence="100" action="action_academic_division_divisions" parent="menu_general_data" groups="group_manager" />
+
+
+</odoo>

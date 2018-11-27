@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem name="Academic" id="menu_academic" sequence="20" groups="group_user" />
+    <menuitem name="Configuration" id="menu_configuration" sequence="500" parent="menu_academic" groups="group_manager" />
+    <menuitem name="Data" id="menu_data" sequence="20" parent="menu_academic" groups="group_user" />
+    <menuitem name="Evaluations" id="menu_evaluations_main" sequence="30" parent="menu_academic" groups="survey.group_survey_manager" />
+    <menuitem name="Partners" id="menu_partners" sequence="10" parent="menu_academic" groups="group_user" />
+    <menuitem name="Evaluations" id="menu_eval_config" sequence="100" parent="menu_configuration" groups="group_manager" />
+    <menuitem name="General Data" id="menu_general_data" sequence="10" parent="menu_configuration" groups="group_manager" />
+    <menuitem name="Reporting" id="menu_portal_reporting" sequence="50"  groups="group_portal_administrator"/>
+
+</odoo>

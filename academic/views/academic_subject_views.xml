@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- SEARCH VIEW -->
+    <record id="view_academic_subject_filter" model="ir.ui.view">
+        <field name="name">academic.subject.select</field>
+        <field name="model">academic.subject</field>
+        <field name="arch" type="xml">
+            <search string="subject">
+                <group string="By Attribute">
+                    <field name="name" string="Name" />
+                </group>
+                <group string="By object">
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- FORMVIEW -->
+    <record id="view_academic_subject_form" model="ir.ui.view">
+        <field name="name">academic.subject.form</field>
+        <field name="model">academic.subject</field>
+        <field name="arch" type="xml">
+            <form string="subject">
+                <header>
+                </header>
+                <sheet string="subject">
+                    <group>
+                        <field name="name" />
+                    </group>
+                </sheet>
+
+            </form>
+        </field>
+    </record>
+
+    <!-- TREEVIEW -->
+
+    <record id="view_academic_subject_tree" model="ir.ui.view">
+        <field name="name">academic.subject.tree</field>
+        <field name="model">academic.subject</field>
+        <field name="arch" type="xml">
+            <tree string="subject">
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+
+     <record id="action_academic_subject_subjects" model="ir.actions.act_window">
+        <field name="name">Subjects</field>
+        <field name="res_model">academic.subject</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_academic_subject_tree"/>
+        <field name="search_view_id" ref="view_academic_subject_filter"/>
+        <field name="domain">[]</field>
+    </record>
+
+    <menuitem name="Subjects" id="menu_subjects" sequence="30" action="action_academic_subject_subjects" parent="menu_general_data" groups="group_manager" />
+
+</odoo>

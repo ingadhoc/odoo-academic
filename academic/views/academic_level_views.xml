@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- SEARCH VIEW -->
+    <record id="view_academic_level_filter" model="ir.ui.view">
+        <field name="name">academic.level.select</field>
+        <field name="model">academic.level</field>
+        <field name="arch" type="xml">
+            <search string="level">
+                <group string="By Attribute">
+                    <field name="name" string="Name" />
+                    <field name="section_id" string="Section" />
+                </group>
+                <group string="By object">
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- FORMVIEW -->
+    <record id="view_academic_level_form" model="ir.ui.view">
+        <field name="name">academic.level.form</field>
+        <field name="model">academic.level</field>
+        <field name="arch" type="xml">
+            <form string="level">
+                <header>
+                </header>
+                <sheet string="level">
+                    <group>
+                        <field name="name" />
+                        <field name="section_id" />
+                    </group>
+                </sheet>
+
+            </form>
+        </field>
+    </record>
+
+    <!-- TREEVIEW -->
+
+    <record id="view_academic_level_tree" model="ir.ui.view">
+        <field name="name">academic.level.tree</field>
+        <field name="model">academic.level</field>
+        <field name="arch" type="xml">
+            <tree string="level">
+                <field name="name"/>
+                <field name="section_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_academic_level_levels" model="ir.actions.act_window">
+        <field name="name">Levels</field>
+        <field name="res_model">academic.level</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_academic_level_tree"/>
+        <field name="search_view_id" ref="view_academic_level_filter"/>
+        <field name="domain">[]</field>
+    </record>
+
+    <menuitem name="Levels" id="menu_levels" sequence="10" action="action_academic_level_levels" parent="menu_general_data" groups="group_manager" />
+
+</odoo>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Questions Performance -->
+    <record model="ir.ui.view" id="survey_question_performance_tree">
+        <field name="name">survey_question_performance_tree</field>
+        <field name="model">survey.question.performance</field>
+        <field name="arch" type="xml">
+            <tree string="Survey Question Performance">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="survey_question_performance_form">
+        <field name="name">survey_question_performance_form</field>
+        <field name="model">survey.question.performance</field>
+        <field name="arch" type="xml">
+            <form string="Survey Question Performance" version="7.0">
+                <group>
+                    <field name="name"/>
+                    <field name="variable_ids">
+                        <form>
+                            <group>
+                                <field name="name"/>
+                                <field name="indicator_ids">
+                                    <form>
+                                        <group>
+                                            <field name="name"/>
+                                            <field name="question_ids"/>
+                                        </group>
+                                    </form>
+                                </field>
+                            </group>
+                        </form>
+                    </field>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_question_performance">
+        <field name="name">Question Performance</field>
+        <field name="res_model">survey.question.performance</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Performances" id="menu_academic_question_performance" action="action_question_performance" parent="menu_academic_question_analysis" sequence="10"/>
+
+</odoo>
