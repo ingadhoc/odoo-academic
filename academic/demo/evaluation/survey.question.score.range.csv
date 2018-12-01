@@ -1,0 +1,11 @@
+id,survey_from,survey_question_id/id,score,to
+survey_question_score_range_1,5,survey_question_25,5,9
+survey_question_score_range_2,10,survey_question_25,10,10
+survey_question_score_range_3,7,survey_question_26,5,9
+survey_question_score_range_4,10,survey_question_26,10,10
+survey_question_score_range_5,7,survey_question_28,5,9
+survey_question_score_range_6,10,survey_question_28,10,10
+survey_question_score_range_7,1,survey_question_32,5,1
+survey_question_score_range_8,2,survey_question_32,10,2
+survey_question_score_range_9,2,survey_question_34,5,2
+survey_question_score_range_10,3,survey_question_34,10,3

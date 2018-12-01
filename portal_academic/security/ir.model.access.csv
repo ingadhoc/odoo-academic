@@ -1,4 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_group_portal_administrator,academic.group.portal_administrator,academic.model_academic_group,base.group_portal_administrator,1,1,1,1
-access_res_partner_portal_administrator,academic.res_partner.portal_administrator,base.model_res_partner,base.group_portal_administrator,1,1,1,1
-access_group_evaluation_administrator,academic.group_evaluation.administrator,academic.model_academic_group_evaluation,base.group_portal_administrator,1,1,0,0

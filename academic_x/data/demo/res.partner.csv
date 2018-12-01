@@ -1,9 +1,0 @@
-id,name,partner_type,is_company,firstname,lastname,active,section_id/id,promotion_id/id
-res_partner_ignacio_rodriguez,Ignacio Rodriguez,teacher,False,Ignacio,Rodriguez,True,,
-res_partner_laura_sali,Laura Sali,teacher,False,Laura,Sali,True,,
-res_partner_alvaro_diaz,Alvaro Diaz,student,False,Alvaro,Diaz,True,,academic_promotion_1
-res_partner_jose_martin_rodriguez,José Martín Rodriguez,student,False,José Martín,Rodriguez,True,,academic_promotion_1
-res_partner_martin_perez,Martin Perez,student,False,Martin,Perez,True,,academic_promotion_2
-res_partner_juan_gomez,Juan Gomez,administrator,False,Juan,Gomez,True,academic_section_1,
-res_partner_roberto_martin,Roberto Martin,administrator,False,Roberto,Martin,True,academic_section_1,
-res_partner_malena_apdes,Malena Apdes,,False,Malena,Apdes,True,,

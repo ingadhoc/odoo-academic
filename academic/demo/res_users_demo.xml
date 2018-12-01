@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <!-- Portal users are loaded in portal_academic -->
+
+    <!-- Apdes Manger -->
+    <record id="user_malena_apdes" model="res.users">
+        <field name="partner_id" ref="res_partner_malena_apdes"/>
+        <field name="login">mapdes</field>
+        <field name="password">mapdes</field>
+        <field name="email">mapdes@academic.com</field>
+        <field name="signature">--
+Malena Apdes</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="company_ids" eval="[(4, ref('base.main_company'))]"/>
+        <field name="groups_id" eval="[(6,0,[ref('base.group_user'), ref('base.group_partner_manager'),ref('group_manager'),ref('base.group_erp_manager'),ref('survey.group_survey_manager'),ref('base.group_survey_see_scores'),ref('base.group_multi_company'),ref('website.group_website_designer')])]"/>
+    </record>
+
+</odoo>

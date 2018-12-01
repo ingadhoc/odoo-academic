@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- SEARCH VIEW -->
+    <record id="view_academic_promotion_filter" model="ir.ui.view">
+        <field name="name">academic.promotion.select</field>
+        <field name="model">academic.promotion</field>
+        <field name="arch" type="xml">
+            <search string="promotion">
+                <group string="By Attribute">
+                    <field name="name" string="Name" />
+                </group>
+                <group string="By object">
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- FORMVIEW -->
+    <record id="view_academic_promotion_form" model="ir.ui.view">
+        <field name="name">academic.promotion.form</field>
+        <field name="model">academic.promotion</field>
+        <field name="arch" type="xml">
+            <form string="promotion">
+                <header>
+                </header>
+                <sheet string="promotion">
+                    <group>
+                        <field name="name" />
+                    </group>
+                </sheet>
+
+            </form>
+        </field>
+    </record>
+
+    <!-- TREEVIEW -->
+
+    <record id="view_academic_promotion_tree" model="ir.ui.view">
+        <field name="name">academic.promotion.tree</field>
+        <field name="model">academic.promotion</field>
+        <field name="arch" type="xml">
+            <tree string="promotion">
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_academic_promotion_promotions" model="ir.actions.act_window">
+        <field name="name">Promotions</field>
+        <field name="res_model">academic.promotion</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_academic_promotion_tree"/>
+        <field name="search_view_id" ref="view_academic_promotion_filter"/>
+        <field name="domain">[]</field>
+    </record>
+
+    <menuitem name="Promotions" id="menu_promotions" sequence="40" action="action_academic_promotion_promotions" parent="menu_general_data" groups="group_manager" />
+
+</odoo>
