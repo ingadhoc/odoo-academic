@@ -165,5 +165,8 @@
 
     <menuitem name="Teachers" id="menu_teachers" sequence="30" action="action_academic_partner_teachers" parent="menu_partners" groups="group_user" />
 
+    <!-- portal menus -->
+    <menuitem name="Students" id="menu_portal_students" sequence="20" action="action_academic_partner_students" parent="menu_portal_academic" groups="group_portal_teacher" />
+    <menuitem name="Teachers" id="menu_portal_teachers" sequence="10" action="action_academic_partner_teachers" parent="menu_portal_academic" groups="group_portal_teacher" />
 
 </odoo>
