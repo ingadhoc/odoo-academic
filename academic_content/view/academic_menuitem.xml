@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem
+        name=" Academic Projects"
+        id="menu_academic_projects"
+        sequence="5"
+        parent="academic.menu_academic"
+        groups="academic.group_manager"
+        />
+
+    <record id="action_academic_project" model="ir.actions.act_window">
+        <field name="name">Academic Project</field>
+        <field name="res_model">academic.project</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_academic_project_tree"/>
+        <field name="search_view_id" ref=""/>
+    </record>
+
+
+    <menuitem
+        name="Project"
+        id="menu_project"
+        sequence="5"
+        parent="menu_academic_projects"
+        action="action_academic_project"
+        groups="academic.group_manager"
+        />
+
+</odoo>
+

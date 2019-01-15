@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- INHERITED SEARCH -->
+    <record id="view_res_partner_filter" model="ir.ui.view">
+        <field name="name">partner.select</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter"/>
+        <field name="arch" type="xml">
+            <field name="category_id" position="before">
+                <field name="partner_academic_project_ids"/>
+            </field>
+        </field>
+    </record>
+</odoo>
