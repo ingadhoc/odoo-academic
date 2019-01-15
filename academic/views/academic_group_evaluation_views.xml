@@ -73,15 +73,6 @@
         </field>
     </record>
 
-    <menuitem name="Academic" id="portal_academic" sequence="20" groups="base.group_portal"/>
-    <!-- <menuitem name="Academic" id="portal_academic" parent="portal.portal_menu" sequence="20"/> -->
-
-    <menuitem name="Teachers" id="menu_teachers" sequence="10" action="action_academic_partner_teachers" parent="portal_academic" groups="group_portal_teacher" />
-
-    <menuitem name="Students" id="menu_students" sequence="20" action="action_academic_partner_students" parent="portal_academic" groups="group_portal_teacher" />
-
-    <menuitem name="Groups" id="menu_groups" sequence="25" action="action_academic_group_groups" parent="portal_academic" groups="group_portal_teacher" />
-
     <record id="action_academic_group_evaluation_groups_evaluations" model="ir.actions.act_window">
         <field name="name">Groups Evaluations</field>
         <field name="res_model">academic.group_evaluation</field>
@@ -93,9 +84,9 @@
         <field name="domain">[('survey_id.answered_by','!=','administrator')]</field>
     </record>
 
-    <menuitem name="Groups Evaluations" id="menu_groups_evaluations" sequence="30" action="action_academic_group_evaluation_groups_evaluations" parent="portal_academic" groups="group_portal_administrator" />
-
-
     <menuitem name="Groups Evaluations" id="menu_groups_evaluations" sequence="20" action="action_academic_group_evaluation_groups_evaluations" parent="menu_evaluations_main" groups="group_user" />
+
+    <!-- portal menu -->
+    <menuitem name="Groups Evaluations" id="menu_groups_evaluations" sequence="30" action="action_academic_group_evaluation_groups_evaluations" parent="menu_portal_academic" groups="group_portal_administrator" />
 
 </odoo>

@@ -119,7 +119,7 @@
         <!-- <field name="domain">[('survey_id.is_evaluation','=',True),('partner_id.user_ids','not in', [uid])]</field> -->
     </record>
 
-    <menuitem name="Poll Survey Answers" id="menu_poll_survey_answers" sequence="40" action="action_academic_user_input_evaluations" parent="portal_academic" groups="group_portal_teacher" />
+    <menuitem name="Poll Survey Answers" id="menu_poll_survey_answers" sequence="40" action="action_academic_user_input_evaluations" parent="menu_portal_academic" groups="group_portal_teacher" />
 
     <record id="action_academic_user_input_my_evaluations" model="ir.actions.act_window">
         <field name="name">Evaluations To Do</field>
@@ -132,7 +132,7 @@
         <field name="context">{'show_answer_button':True}</field>
     </record>
 
-    <menuitem name="Evaluations To Do" id="menu_my_evaluations" sequence="50" action="action_academic_user_input_my_evaluations" parent="portal_academic" groups="group_portal_student" />
+    <menuitem name="Evaluations To Do" id="menu_my_evaluations" sequence="50" action="action_academic_user_input_my_evaluations" parent="menu_portal_academic" groups="group_portal_student" />
 
 
 </odoo>

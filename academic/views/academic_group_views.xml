@@ -86,4 +86,7 @@
 
     <menuitem name="Groups" id="menu_groups" sequence="10" action="action_academic_group_groups" parent="menu_data" groups="group_user" />
 
+    <!-- portal menu -->
+    <menuitem name="Groups" id="menu_portal_groups" sequence="25" action="action_academic_group_groups" parent="menu_portal_academic" groups="group_portal_teacher" />
+
 </odoo>

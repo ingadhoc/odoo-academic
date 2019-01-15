@@ -146,11 +146,27 @@
         <field name="domain">[('partner_type','=','gral_administrator')]</field>
     </record>
 
+    <record id="action_academic_partner_parents" model="ir.actions.act_window">
+        <field name="name">Parents</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_academic_partner_tree"/>
+        <field name="search_view_id" ref="view_academic_partner_filter"/>
+        <field name="context">{'default_partner_type':'parent'}</field>
+        <field name="domain">[('partner_type','=','parent')]</field>
+    </record>
+
+    <menuitem name="Parents" id="menu_parents" sequence="50" action="action_academic_partner_parents" parent="menu_partners" groups="group_user" />
+
     <menuitem name="Gral Administrators" id="menu_gral_administrators" sequence="15" action="action_academic_partner_gral_administrators" parent="menu_partners" groups="group_user" />
 
     <menuitem name="Students" id="menu_students" sequence="40" action="action_academic_partner_students" parent="menu_partners" groups="group_user" />
 
     <menuitem name="Teachers" id="menu_teachers" sequence="30" action="action_academic_partner_teachers" parent="menu_partners" groups="group_user" />
 
+    <!-- portal menus -->
+    <menuitem name="Students" id="menu_portal_students" sequence="20" action="action_academic_partner_students" parent="menu_portal_academic" groups="group_portal_teacher" />
+    <menuitem name="Teachers" id="menu_portal_teachers" sequence="10" action="action_academic_partner_teachers" parent="menu_portal_academic" groups="group_portal_teacher" />
 
 </odoo>

@@ -14,7 +14,8 @@ class AcademicGroup(models.Model):
         ('student', 'Student'),
         ('teacher', 'Teacher'),
         ('administrator', 'Administrator'),
-        ('gral_administrator', 'gral_administrator')]
+        ('gral_administrator', 'gral_administrator'),
+        ('parent', 'Parent')]
     )
     year = fields.Integer(
         required=True,

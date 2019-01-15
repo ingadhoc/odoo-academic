@@ -14,27 +14,31 @@ class ResPartner(models.Model):
         partner_type = self.env.context.get(
             'partner_type',
             self.env.context.get('default_partner_type', False))
-        group_ids = False
+        user = False
         if partner_type == 'gral_administrator':
-            group_ids = self.env.ref(
-                'portal_academic.gral_administrator_template_user').id
+            user = self.env.ref(
+                'academic.gral_administrator_template_user').id
         elif partner_type == 'administrator':
-            group_ids = self.env.ref(
-                'portal_academic.administrator_template_user').id
+            user = self.env.ref(
+                'academic.administrator_template_user').id
         elif partner_type == 'teacher':
-            group_ids = self.env.ref(
-                'portal_academic.teacher_template_user').id
+            user = self.env.ref(
+                'academic.teacher_template_user').id
+        elif partner_type == 'parent':
+            user = self.env.ref(
+                'academic.parent_template_user')
         elif partner_type == 'student':
-            group_ids = self.env.ref(
-                'portal_academic.student_template_user').id
+            user = self.env.ref(
+                'academic.student_template_user').id
+        return user
 
-        return group_ids
-
-    partner_type = fields.Selection(
-        [('student', 'Student'),
-            ('teacher', 'Teacher'),
-            ('administrator', 'Administrator'),
-            ('gral_administrator', 'gral_administrator')],
+    partner_type = fields.Selection([
+        ('student', 'Student'),
+        ('teacher', 'Teacher'),
+        ('administrator', 'Administrator'),
+        ('gral_administrator', 'gral_administrator'),
+        ('parent', 'Parent'),
+    ],
         change_default=True,
     )
     section_id = fields.Many2one(

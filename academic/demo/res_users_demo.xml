@@ -1,18 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo noupdate="1">
-    <!-- Portal users are loaded in portal_academic -->
 
     <!-- Apdes Manger -->
-    <record id="user_malena_apdes" model="res.users">
+    <record id="user_malena_apdes" model="res.users" context="{'no_reset_password': True}">
         <field name="partner_id" ref="res_partner_malena_apdes"/>
         <field name="login">mapdes</field>
         <field name="password">mapdes</field>
         <field name="email">mapdes@academic.com</field>
-        <field name="signature">--
-Malena Apdes</field>
         <field name="company_id" ref="base.main_company"/>
         <field name="company_ids" eval="[(4, ref('base.main_company'))]"/>
         <field name="groups_id" eval="[(6,0,[ref('base.group_user'), ref('base.group_partner_manager'),ref('group_manager'),ref('base.group_erp_manager'),ref('survey.group_survey_manager'),ref('base.group_survey_see_scores'),ref('base.group_multi_company'),ref('website.group_website_designer')])]"/>
+    </record>
+
+    <!-- Los Molinos administrator -->
+    <record id="user_roberto_martin" model="res.users" context="{'no_reset_password': True}">
+        <field name="partner_id" ref="res_partner_roberto_martin"/>
+        <field name="login">rmartin</field>
+        <field name="password">rmartin</field>
+        <field name="email">rmartin@academic.com</field>
+        <field name="company_id" ref="res_company_los_molinos"/>
+        <field name="company_ids" eval="[(4, ref('academic.res_company_los_molinos'))]"/>
+        <field name="groups_id" eval="[(6,0,[ref('academic.group_portal_administrator')])]"/>
+    </record>
+
+    <!-- Los Molinos Teacher -->
+    <record id="user_laura_sali" model="res.users" context="{'no_reset_password': True}">
+        <field name="partner_id" ref="res_partner_laura_sali"/>
+        <field name="login">lsali</field>
+        <field name="email">lsali@academic.com</field>
+        <field name="password">lsali</field>
+        <field name="company_id" ref="res_company_los_molinos"/>
+        <field name="company_ids" eval="[(4, ref('academic.res_company_los_molinos'))]"/>
+        <field name="groups_id" eval="[(6,0,[ref('academic.group_portal_teacher')])]"/>
+    </record>
+
+    <!-- Los Molinos Student -->
+    <record id="user_martin_perez" model="res.users" context="{'no_reset_password': True}">
+        <field name="partner_id" ref="res_partner_martin_perez"/>
+        <field name="login">mperez</field>
+        <field name="email">mperez@academic.com</field>
+        <field name="password">mperez</field>
+        <field name="company_id" ref="res_company_los_molinos"/>
+        <field name="company_ids" eval="[(4, ref('academic.res_company_los_molinos'))]"/>
+        <field name="groups_id" eval="[(6,0,[ref('academic.group_portal_student')])]"/>
+    </record>
+
+    <!-- Los Arroyos administrator -->
+    <record id="user_juan_gomez" model="res.users" context="{'no_reset_password': True}">
+        <field name="partner_id" ref="res_partner_juan_gomez"/>
+        <field name="login">jgomez</field>
+        <field name="password">jgomez</field>
+        <field name="email">jgomez@academic.com</field>
+        <field name="company_id" ref="res_company_los_arroyos"/>
+        <field name="company_ids" eval="[(4, ref('academic.res_company_los_arroyos'))]"/>
+        <field name="groups_id" eval="[(6,0,[ref('academic.group_portal_administrator')])]"/>
+    </record>
+
+    <!-- Los Arroyos Teacher -->
+    <record id="user_ignacio_rodriguez" model="res.users" context="{'no_reset_password': True}">
+        <field name="partner_id" ref="res_partner_ignacio_rodriguez"/>
+        <field name="login">irodriguez</field>
+        <field name="email">irodriguez@academic.com</field>
+        <field name="password">irodriguez</field>
+        <field name="company_id" ref="res_company_los_arroyos"/>
+        <field name="company_ids" eval="[(4, ref('academic.res_company_los_arroyos'))]"/>
+        <field name="groups_id" eval="[(6,0,[ref('academic.group_portal_teacher')])]"/>
+    </record>
+
+    <!-- Los Arroyos Student -->
+    <record id="user_alvaro_diaz" model="res.users" context="{'no_reset_password': True}">
+        <field name="partner_id" ref="res_partner_alvaro_diaz"/>
+        <field name="login">adiaz</field>
+        <field name="email">adiaz@academic.com</field>
+        <field name="password">adiaz</field>
+        <field name="company_id" ref="res_company_los_arroyos"/>
+        <field name="company_ids" eval="[(4, ref('academic.res_company_los_arroyos'))]"/>
+        <field name="groups_id" eval="[(6,0,[ref('academic.group_portal_student')])]"/>
     </record>
 
 </odoo>
