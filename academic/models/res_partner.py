@@ -17,16 +17,19 @@ class ResPartner(models.Model):
         group_ids = False
         if partner_type == 'gral_administrator':
             group_ids = self.env.ref(
-                'portal_academic.gral_administrator_template_user').id
+                'academic.gral_administrator_template_user').id
         elif partner_type == 'administrator':
             group_ids = self.env.ref(
-                'portal_academic.administrator_template_user').id
+                'academic.administrator_template_user').id
         elif partner_type == 'teacher':
             group_ids = self.env.ref(
-                'portal_academic.teacher_template_user').id
+                'academic.teacher_template_user').id
+        elif partner_type == 'parent':
+            users = self.env.ref(
+                'academic.parent_template_user')
         elif partner_type == 'student':
             group_ids = self.env.ref(
-                'portal_academic.student_template_user').id
+                'academic.student_template_user').id
 
         return group_ids
 
@@ -34,7 +37,8 @@ class ResPartner(models.Model):
         [('student', 'Student'),
             ('teacher', 'Teacher'),
             ('administrator', 'Administrator'),
-            ('gral_administrator', 'gral_administrator')],
+            ('gral_administrator', 'gral_administrator'),
+            ('parent', 'Parent'),],
         change_default=True,
     )
     section_id = fields.Many2one(

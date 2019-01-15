@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <menuitem name="Academic" id="menu_academic" sequence="20" groups="group_user" />
+    <menuitem name="Academic" id="menu_academic" sequence="20" groups="group_user" web_icon="academic,static/description/icon.png"/>
     <menuitem name="Configuration" id="menu_configuration" sequence="500" parent="menu_academic" groups="group_manager" />
     <menuitem name="Data" id="menu_data" sequence="20" parent="menu_academic" groups="group_user" />
     <menuitem name="Evaluations" id="menu_evaluations_main" sequence="30" parent="menu_academic" groups="survey.group_survey_manager" />

@@ -56,7 +56,6 @@
         'views/survey_question_variable_views.xml',
         'views/survey_question_performance_views.xml',
         'views/login_page.xml',
-        'views/res_user_template.xml',
         'report/division_analysis_views.xml',
         'report/evaluation_report_views.xml',
         'report/evaluation_analysis_views.xml',
@@ -65,6 +64,7 @@
         'wizards/division_analysis_wizard_views.xml',
         'data/academic_data.xml',
         'data/academic_mail_template.xml',
+        'data/res_users_data.xml',
     ],
     'demo': [
         'demo/academic.subject.csv',

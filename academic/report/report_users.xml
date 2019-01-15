@@ -44,5 +44,5 @@
         </t>
     </template>
 
-    <report id="report_users" string="Group Users" model="academic.group" report_type="qweb-pdf" file="academic.template_report_users" name="academic.template_report_users" />
+    <report id="report_users" string="Group Users" model="academic.group" report_type="qweb-pdf" file="academic.template_report_users" name="academic.template_report_users"/>
 </odoo>
