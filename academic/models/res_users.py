@@ -3,6 +3,15 @@
 # directory
 ##############################################################################
 from odoo import models, fields
+from odoo.addons.auth_crypt.models.res_users import ResUsers
+
+
+def new_init(self):
+    """Moneky patch para desactivar crear los hash"""
+    pass
+
+
+ResUsers.init = new_init
 
 
 class ResUsers(models.Model):
