@@ -39,9 +39,10 @@ env:
   # to get secure, run 'travis encrypt TRANSIFEX_PASSWORD=[transifex_password] -r [github_repo]'
   # example of github repo 'ingadhoc/odoo-infrastructure'
   # TODO create transations for 11.0branch
-  # - secure:
+  - secure: EwiQKdqLUNlZf0tazJxBiTVyKbEicw/bQ/bJ73PBZ7Sv85CE+41n3y85umHRtFmLKNyzMJX4/i1zKeayomPAuQjsisR09/IGeLAcnSBuAgzJUQAH1YjrdMvVNvjAujPSks31h5F92XyTbF3DcM4Cv7ygUjc14rUOTemVTimueVX6yq4ljM3i1OD1VVtK650pV+BOuZxQPwlOfYet4P1IBxtlmsjJQSk/kXOjUWOINp0Gg8oUl3f2nr7y7orsDtgskHxQU05N48jnxXreuyIDrdATGykGK7+5u8u0dlx49F4yGGrOG7qRecsMDJ+KaOYom2xwiuXabBKIBODbajQ65+9xpN+egZNvyIaBOtDhJsLeArETPO+zeLo+Bb8Afk99RxTyEAlacnLSj3lajiMMDpiJ43ByrL/FyQaIXHUuWBv/w5BRRiFhGouo8szvhhHz5OvrDNHQqbBjw/RYDoOIPXS36GRfXyrr2Lrrg+jsWANPPHpwE9WwvSOQnHX9Cbx0f7bvAejRXt7KQtdzhcxTRapyC0tK08BOk0+35jug0+Kn+fDXhQy6+ja37d8Tsbhs2nYSn0H9VnNt9c9z9FQzzvMi3od+RgmwX1FGu5qlVp5cK9y72RdztBX0DfkLDrnTVZ3cfPho9EXf6LjxC9NOfqnMrxj++u9XnnGouZB/tkc=
   - TRANSIFEX_ORGANIZATION='adhoc'
   - TRANSIFEX_TEAM='46451'
+
   matrix:
   # TODO enable lint check
   - LINT_CHECK="1"
