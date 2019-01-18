@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 ##############################################################################
 #
 #    Copyright (C) 2015  ADHOC SA  (http://www.adhoc.com.ar)
@@ -36,7 +35,6 @@
         'website_security',
     ],
     'demo': [],
-    'description': 'Academic Content',
     'installable': True,
     'license': 'AGPL-3',
     'name': 'Academic Content',
