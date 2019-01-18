@@ -24,6 +24,22 @@ class SurveyQuestion(models.Model):
         store=True,
     )
 
+    description = fields.Html(
+        translate=False,
+    )
+
+    question = fields.Char(
+        translate=False,
+    )
+
+    validation_error_msg = fields.Char(
+        translate=False,
+    )
+
+    constr_error_msg = fields.Char(
+        translate=False,
+    )
+
     @api.depends('page_id.survey_id.page_ids.question_ids.max_score')
     # @api.depends('max_score')
     def _compute_max_indicator_rel_score(self):
