@@ -61,16 +61,18 @@ class ResPartner(models.Model):
         'group_id',
         string='Groups',
     )
-
     template_user_id = fields.Many2one(
         'res.users',
         'Template User',
         domain=[('active', '=', False)],
         default=_default_template_user_id,
     )
-
     disabled_person = fields.Boolean(
         'Disabled Person?',
+    )
+    sex = fields.Selection(
+        [('M', 'Male'), ('F', 'Female')],
+        string='Sex',
     )
 
     @api.multi

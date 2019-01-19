@@ -33,9 +33,19 @@
         <!-- <field name="inherit_id" ref="partner_person.view_partner_person_form"/> -->
         <field name="inherit_id" ref="base.view_partner_form"/>
         <field name="arch" type="xml">
-            <!-- <field name="national_identity" position="after">
-                <field name="promotion_id" attrs="{'invisible':[('partner_type','!=','student')],'required':[('partner_type','=','student')]}"/>
-            </field> -->
+            <!-- ocultamos pagina de contactos si no es compania -->
+            <page position="attributes">
+                <attribute name="attrs">{'invisible':[('is_company','=',False)]}</attribute>
+            </page>
+            <page position="before">
+                <page string="Personal Information" attrs="{'invisible':[('is_company','=',True)]}">
+                    <group>
+                        <field name="promotion_id" attrs="{'invisible':[('partner_type','!=','student')],'required':[('partner_type','=','student')]}"/>
+                        <field name="disabled_person"/>
+                        <field name="sex"/>
+                    </group>
+                </page>
+            </page>
             <page name="internal_notes" position="before">
                 <!-- <page string="Contacts" position="after" attrs="{'invisible': [('is_company','=',False), ('child_ids', '=', [])]}" autofocus="autofocus"> -->
                 <page string="Groups" attrs="{'invisible': [('partner_type','!=','student')]}">
@@ -57,7 +67,6 @@
                 <field name="company_id" groups="base.group_multi_company" placeholder="Institution..." attrs="{'required':[('partner_type','in',['teacher','student','administrator'])]}"/>
                 <!-- lo hacemos requerido por temas de seguridad, no se contemplan directores generales. -->
                 <field name="section_id" placeholder="Section..." attrs="{'invisible':[('partner_type','!=','administrator')],'required':[('partner_type','=','administrator')]}"/>
-                <field name="disabled_person"/>
             </field>
             <field name="parent_id" position="attributes">
                 <attribute name="attrs">{'invisible':[('partner_type','!=',False)]}</attribute>
