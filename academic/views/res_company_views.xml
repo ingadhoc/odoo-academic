@@ -26,10 +26,10 @@
             </group> -->
             <div class="oe_title" position="after">
                 <div name="buttons">
-                    <button name="%(action_academic_partner_administrators)d" type="action" string="Administrators" context="{'default_partner_type':'administrator','default_company_id':active_id}" groups=""/>
-                    <button name="%(action_academic_partner_teachers)d" type="action" string="Teachers" context="{'default_partner_type':'teacher','default_company_id':active_id}" groups=""/>
-                    <button name="%(action_academic_partner_students)d" type="action" string="Students" context="{'default_partner_type':'student','default_company_id':active_id}" groups=""/>
-                    <button name="%(action_academic_group_groups)d" type="action" string="Groups" context="{'default_company_id':active_id}" groups=""/>
+                    <button name="%(action_academic_company_partner_administrators)d" type="action" string="Administrators" context="{'default_partner_type':'administrator','default_company_id':active_id}" groups=""/>
+                    <button name="%(action_academic_company_partner_teachers)d" type="action" string="Teachers" context="{'default_partner_type':'teacher','default_company_id':active_id}" groups=""/>
+                    <button name="%(action_academic_company_partner_students)d" type="action" string="Students" context="{'default_partner_type':'student','default_company_id':active_id}" groups=""/>
+                    <button name="%(action_academic_company_group_groups)d" type="action" string="Groups" context="{'default_company_id':active_id}" groups=""/>
                 </div>
             </div>
         </field>

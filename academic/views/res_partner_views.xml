@@ -99,7 +99,6 @@
         </field>
     </record>
 
-
     <record id="action_academic_partner_administrators" model="ir.actions.act_window">
         <field name="name">Administrators</field>
         <field name="res_model">res.partner</field>
@@ -111,7 +110,29 @@
         <field name="domain">[('partner_type','=','administrator')]</field>
     </record>
 
+    <record id="action_academic_company_partner_administrators" model="ir.actions.act_window">
+        <field name="name">Administrators</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_id" ref="view_academic_partner_tree"/>
+        <field name="search_view_id" ref="view_academic_partner_filter"/>
+        <field name="context">{'default_partner_type':'administrator'}</field>
+        <field name="domain">[('company_id','=',active_id), ('partner_type','=','administrator')]</field>
+    </record>
+
     <record id="action_academic_partner_students" model="ir.actions.act_window">
+        <field name="name">Students</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_id" ref=""/>
+        <field name="search_view_id" ref="academic.view_academic_partner_filter"/>
+        <field name="context">{'default_partner_type':'student'}</field>
+        <field name="domain">[('partner_type','=','student')]</field>
+    </record>
+
+    <record id="action_academic_company_partner_students" model="ir.actions.act_window">
         <field name="name">Students</field>
         <field name="res_model">res.partner</field>
         <field name="view_type">form</field>
@@ -129,8 +150,19 @@
         <field name="view_mode">kanban,tree,form</field>
         <field name="view_id" ref=""/>
         <field name="search_view_id" ref="academic.view_academic_partner_filter"/>
-        <field name="context">{}</field>
+        <field name="context">{'default_partner_type':'teacher'}</field>
         <field name="domain">[('partner_type','=','teacher')]</field>
+    </record>
+
+    <record id="action_academic_company_partner_teachers" model="ir.actions.act_window">
+        <field name="name">Teachers</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_id" ref=""/>
+        <field name="search_view_id" ref="academic.view_academic_partner_filter"/>
+        <field name="context">{'default_partner_type':'teacher'}</field>
+        <field name="domain">[('company_id','=',active_id), ('partner_type','=','teacher')]</field>
     </record>
 
     <menuitem name="Administrators" id="menu_administrators" sequence="20" action="action_academic_partner_administrators" parent="menu_partners" groups="group_user" />

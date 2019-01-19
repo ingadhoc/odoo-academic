@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-
     <record model="ir.ui.view" id="evaluation_survey_form">
         <field name="name">evaluation_survey_form</field>
         <field name="model">survey.survey</field>
@@ -65,34 +64,21 @@
         <field name="model">survey.survey</field>
         <field name="inherit_id" ref="survey.survey_kanban"/>
         <field name="arch" type="xml">
+            <!-- estos campos hacen que sea lento cargar la vista y no los usamos -->
+            <field name="tot_sent_survey" position="replace"/>
+            <field name="tot_start_survey" position="replace"/>
+            <field name="tot_comp_survey" position="replace"/>
             <div class="o_kanban_record_bottom" position="replace">
                 <div class="o_kanban_record_bottom">
-                    <h4 class="oe_center">
-                        <field name="title" />
-                    </h4>
-                    <div>
-                        <ul>
-                            <li>
-                                <a name="action_test_survey" type="object">Design</a>
-                            </li>
-                            <li>
-                                <t t-if="record.designed.raw_value">
-                                    <a type="object" name="action_test_survey">Test</a>
-                                </t>
-                                <t t-if="! record.designed.raw_value">
-                                    <a style="color: #aaaaaa;">Test</a>
-                                </t>
-                            </li>
-                            <!--                             <li>
-                            <t t-if="record.designed.raw_value"><a type="object" name="action_send_survey">Share &amp;amp; Invite</a></t>
-                            <t t-if="! record.designed.raw_value"><a style="color: #aaaaaa;">Share &amp;amp; Invite</a></t>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a name="action_test_survey" type="object">Design</a>
                         </li>
                         <li>
-                            <t t-if="record.tot_start_survey.raw_value &gt; 0"><a name="action_result_survey" type="object">Analyse Answers</a> <span t-if="record.tot_start_survey.raw_value &gt; 0">(<field name="tot_start_survey" />)</span></t>
-                            <t t-if="record.tot_start_survey.raw_value &lt;= 0"><a style="color: #aaaaaa;">Analyse Answers</a></t>
-                        </li> -->
-                        </ul>
-                    </div>
+                            <t t-if="record.designed.raw_value"><a type="object" name="action_test_survey">Test</a></t>
+                            <t t-if="! record.designed.raw_value"><a style="color: #aaaaaa;">Test</a></t>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </field>
@@ -164,4 +150,10 @@
     <menuitem id="menu_survey_question_level" action="evaluation.action_question_level" parent="academic.menu_eval_config" sequence="8"/>
 
     <menuitem id="menu_survey_question_content" action="evaluation.action_question_content" parent="academic.menu_eval_config" sequence="10"/>
+
+    <!-- hide surveys menu -->
+    <record model="ir.ui.menu" id="survey.menu_surveys">
+        <field name="groups_id" eval="[(6, 0, [ref('base.group_no_one')])]"/>
+    </record>
+
 </odoo>
