@@ -1,0 +1,2481 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * academic
+# 
+# Translators:
+# Elise Wit <era.gyorgy@gmail.com>, 2019
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-01-21 10:13+0000\n"
+"PO-Revision-Date: 2019-01-19 12:45+0000\n"
+"Last-Translator: Elise Wit <era.gyorgy@gmail.com>, 2019\n"
+"Language-Team: Romanian (https://www.transifex.com/adhoc/teams/46451/ro/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: ro\n"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
+
+#. module: academic
+#: model:survey.page,title:academic.survey_page_20
+msgid ""
+"1) Un submarino estaba a -75metros respecto del nivel del mar y ahora está a"
+" -22metros."
+msgstr ""
+
+#. module: academic
+#: model:survey.page,title:academic.survey_page_21
+msgid ""
+"2) En la figura se observa un cuadrado de 2m de lado y dentro del mismo otro"
+" cuadrado más pequeño. ¿Cuál es la superficie sombreada? "
+msgstr ""
+
+#. module: academic
+#: model:survey.page,title:academic.survey_page_22
+msgid ""
+"3)  Una tortuga se desplaza sobre la recta numérica. Sale del el origen de "
+"la recta y recorre 5 unidades hacia la derecha. Descansa un momento, y sigue"
+" avanzando 3 unidades más en el mismo sentido. Al final emprende el regreso,"
+" desplazándose 10  unidades en sentido contrario."
+msgstr ""
+
+#. module: academic
+#: model:survey.page,title:academic.survey_page_23
+msgid ""
+"4) Martín tiene cierta cantidad de figuritas. Si las agrupa de a 4 o 5, le "
+"sobran 2, y si las agrupa de a 3 le sobra 1. ¿Cuántas figuritas tendrá si "
+"sabe que son menos de 50?"
+msgstr ""
+
+#. module: academic
+#: model:survey.page,title:academic.survey_page_24
+msgid ""
+"5) Al observar un dado, los números 1 y 6, están en caras paralelas, lo "
+"mismo que el 3 y 4 y el 5 y 2. Indicar cuál de las opciones es correcta."
+msgstr ""
+
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_academic_division_divisions
+#: model:ir.ui.menu,name:academic.menu_divisions
+msgid "50"
+msgstr ""
+
+#. module: academic
+#: model:survey.page,title:academic.survey_page_25
+msgid "6) En la siguiente ecuación:"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_kanban
+msgid ""
+"<br/>\n"
+"                                    Grupos:"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_kanban
+msgid ""
+"<br/>\n"
+"                                    Períodos:"
+msgstr ""
+
+#. module: academic
+#: model:survey.page,description:academic.survey_page_7
+msgid ""
+"<span style=\"font-family: Arial; color: rgb(0, 0, 0); font-style: italic; "
+"vertical-align: baseline; white-space: pre-wrap;\">-No sabemos -respondían "
+"sus servidores:- acaso estará en el claustro del monasterio de la Peña, "
+"sentado al borde de una tumba, prestando oído a ver si sorprende alguna "
+"palabra de la conversación de los muertos; o en el puente, mirando correr "
+"unas tras otras las olas del río por debajo de sus arcos; o acurrucado en la"
+" quiebra de una roca y entretenido en contar las estrellas del cielo, en "
+"seguir una nube con la vista o contemplar los fuegos fatuos que cruzan como "
+"exhalaciones sobre el haz de las lagunas. En cualquiera parte estará menos "
+"en donde esté todo el mundo.</span>"
+msgstr ""
+
+#. module: academic
+#: model:survey.page,description:academic.survey_page_7
+msgid ""
+"<span style=\"font-family: Arial; color: rgb(0, 0, 0); font-style: italic; "
+"vertical-align: baseline; white-space: pre-wrap;\">-Yo la he de encontrar, "
+"la he de encontrar. ¿Cómo serán sus ojos?... Deben de ser azules, azules y "
+"húmedos como el cielo de la noche; me gustan tanto los ojos de ese color; "
+"son tan expresivos, tan melancólicos, tan... Sí... no hay duda; azules deben"
+" de ser, azules son, seguramente; y sus cabellos negros, muy negros y largos"
+" para que floten... Me parece que los vi flotar aquella noche, al par que su"
+" traje, y eran negros... no me engaño, no; eran negros. ¡Su voz!... su voz "
+"la he oído... su voz es suave como el rumor del viento en las hojas de los "
+"álamos, y su andar acompasado y majestuoso como las cadencias de una música."
+" Y esa mujer, que es hermosa como el más hermoso de mis sueños de "
+"adolescente, que piensa como yo pienso, que gusta como yo gusto, que odia lo"
+" que yo odio, que es un espíritu humano de mi espíritu, que es el "
+"complemento de mi ser, ¿no se ha de sentir conmovida al encontrarme? ¿No me "
+"ha de amar como yo la amaré, como la amo ya, con todas las fuerzas de mi "
+"vida, con todas las facultades de mi alma?</span>"
+msgstr ""
+
+#. module: academic
+#: model:survey.page,description:academic.survey_page_7
+msgid ""
+"<span style=\"font-family: Arial; color: rgb(0, 0, 0); font-style: italic; "
+"vertical-align: baseline; white-space: pre-wrap;\">-¡Es ella, es ella, que "
+"lleva alas en los pies y huye como una sombra! -dijo, y se precipitó en su "
+"busca, separando con las manos las redes de hiedra que se extendían como un "
+"tapiz de unos en otros álamos. Llegó rompiendo por entre la maleza y las "
+"plantas parásitas hasta una especie de rellano que iluminaba la claridad del"
+" cielo... ¡Nadie! -¡Ah!, por aquí, por aquí va –exclamó entonces.- Oigo sus "
+"pisadas sobre las hojas secas, y el crujido de su traje que arrastra por el "
+"suelo y roza en los arbustos; -y corría y corría como un loco de aquí para "
+"allá, y no la veía. -Pero siguen sonando sus pisadas -murmuró otra vez;- "
+"creo que ha hablado; no hay duda, ha hablado... El viento que suspira entre "
+"las ramas; las hojas, que parece que rezan en voz baja, me han impedido oír "
+"lo que ha dicho; pero no hay duda, va por ahí, ha hablado... ha "
+"hablado...</span>"
+msgstr ""
+
+#. module: academic
+#: model:survey.page,description:academic.survey_page_7
+msgid ""
+"<span style=\"font-family: Arial; color: rgb(0, 0, 0); font-style: italic; "
+"vertical-align: baseline; white-space: pre-wrap;\">-¡Una mujer "
+"desconocida!... ¡En este sitio!..., ¡A estas horas! Esa, esa es la mujer que"
+" yo busco -exclamó Manrique; y se lanzó en su seguimiento, rápido como una "
+"saeta.</span>"
+msgstr ""
+
+#. module: academic
+#: model:survey.page,description:academic.survey_page_7
+msgid ""
+"<span style=\"font-family: Arial; color: rgb(0, 0, 0); font-style: italic; "
+"vertical-align: baseline; white-space: pre-wrap;\">-¿Dónde está Manrique, "
+"dónde está vuestro señor? -preguntaba algunas veces su madre.</span>"
+msgstr ""
+
+#. module: academic
+#: model:survey.page,description:academic.survey_page_7
+msgid ""
+"<span style=\"font-family: Arial; color: rgb(0, 0, 0); font-style: italic; "
+"vertical-align: baseline; white-space: pre-wrap;\"><span class=\"Apple-tab-"
+"span\" style=\"white-space:pre;\"> </span>La media noche tocaba a su punto. "
+"La luna, que se había ido remontando lentamente, estaba ya en lo más alto "
+"del cielo, cuando al entrar en una oscura alameda que conducía desde el "
+"derruido claustro a la margen del Duero, Manrique exhaló un grito leve y "
+"ahogado, mezcla extraña de sorpresa, de temor y de júbilo.</span>"
+msgstr ""
+
+#. module: academic
+#: model:survey.page,description:academic.survey_page_7
+msgid ""
+"<span style=\"font-family: Arial; color: rgb(0, 0, 0); font-style: italic; "
+"vertical-align: baseline; white-space: pre-wrap;\">Aquella cosa blanca, "
+"ligera, flotante, había vuelto a brillar ante sus ojos, pero había brillado "
+"a sus pies un instante, no más que un instante.</span>"
+msgstr ""
+
+#. module: academic
+#: model:survey.page,description:academic.survey_page_7
+msgid ""
+"<span style=\"font-family: Arial; color: rgb(0, 0, 0); font-style: italic; "
+"vertical-align: baseline; white-space: pre-wrap;\">Corre, corre en su busca,"
+" llega al sitio en que la ha visto desaparecer; pero al llegar se detiene, "
+"fija los espantados ojos en el suelo, permanece un rato inmóvil; un ligero "
+"temblor nervioso agita sus miembros, un temblor que va creciendo, que va "
+"creciendo y ofrece los síntomas de una verdadera convulsión, y prorrumpe al "
+"fin una carcajada, una carcajada sonora, estridente, horrible.</span>"
+msgstr ""
+
+#. module: academic
+#: model:survey.page,description:academic.survey_page_7
+msgid ""
+"<span style=\"font-family: Arial; color: rgb(0, 0, 0); font-style: italic; "
+"vertical-align: baseline; white-space: pre-wrap;\">Dos meses habían "
+"transcurrido desde que el escudero de D. Alonso de Valdecuellos desengañó al"
+" iluso Manrique; dos meses durante los cuales en cada hora había formado un "
+"castillo en el aire, que la realidad desvanecía con un soplo; dos meses, "
+"durante los cuales había buscado en vano a aquella mujer desconocida, cuyo "
+"absurdo amor iba creciendo en su alma, merced a sus aún más absurdas "
+"imaginaciones, cuando después de atravesar absorto en estas ideas el puente "
+"que conduce a los Templarios, el enamorado joven se perdió entre las "
+"intrincadas sendas de sus jardines.</span>"
+msgstr ""
+
+#. module: academic
+#: model:survey.page,description:academic.survey_page_7
+msgid ""
+"<span style=\"font-family: Arial; color: rgb(0, 0, 0); font-style: italic; "
+"vertical-align: baseline; white-space: pre-wrap;\">En efecto, Manrique amaba"
+" la soledad, y la amaba de tal modo, que algunas veces hubiera deseado no "
+"tener sombra, porque su sombra no le siguiese a todas partes.</span>"
+msgstr ""
+
+#. module: academic
+#: model:survey.page,description:academic.survey_page_7
+msgid ""
+"<span style=\"font-family: Arial; color: rgb(0, 0, 0); font-style: italic; "
+"vertical-align: baseline; white-space: pre-wrap;\">En el fondo de la sombría"
+" alameda había visto agitarse una cosa blanca, que flotó un momento y "
+"desapareció en la oscuridad. La orla del traje de una mujer, de una mujer "
+"que había cruzado el sendero y se ocultaba entre el follaje, en el mismo "
+"instante en que el loco soñador de quimeras o imposibles penetraba en los "
+"jardines.</span>"
+msgstr ""
+
+#. module: academic
+#: model:survey.page,description:academic.survey_page_7
+msgid ""
+"<span style=\"font-family: Arial; color: rgb(0, 0, 0); font-style: italic; "
+"vertical-align: baseline; white-space: pre-wrap;\">En la época a que nos "
+"referimos, los caballeros de la Orden habían ya abandonado sus históricas "
+"fortalezas; pero aún quedaban en pie los restos de los anchos torreones de "
+"sus muros, aún se veían, como en parte se ven hoy, cubiertos de hiedra y "
+"campanillas blancas, los macizos arcos de su claustro, las prolongadas "
+"galerías ojivales de sus patios de armas, en las que suspiraba el viento con"
+" un gemido, agitando las altas hierbas.</span>"
+msgstr ""
+
+#. module: academic
+#: model:survey.page,description:academic.survey_page_7
+msgid ""
+"<span style=\"font-family: Arial; color: rgb(0, 0, 0); font-style: italic; "
+"vertical-align: baseline; white-space: pre-wrap;\">En los huertos y en los "
+"jardines, cuyos senderos no hollaban hacía muchos años las plantas de los "
+"religiosos, la vegetación, abandonada a sí misma, desplegaba todas sus "
+"galas, sin temor de que la mano del hombre la mutilase, creyendo "
+"embellecerla.</span>"
+msgstr ""
+
+#. module: academic
+#: model:survey.page,description:academic.survey_page_7
+msgid ""
+"<span style=\"font-family: Arial; color: rgb(0, 0, 0); font-style: italic; "
+"vertical-align: baseline; white-space: pre-wrap;\">Era de noche; una noche "
+"de verano, templada, llena de perfumes y de rumores apacibles, y con una "
+"luna blanca y serena, en mitad de un cielo azul, luminoso y "
+"transparente.</span>"
+msgstr ""
+
+#. module: academic
+#: model:survey.page,description:academic.survey_page_7
+msgid ""
+"<span style=\"font-family: Arial; color: rgb(0, 0, 0); font-style: italic; "
+"vertical-align: baseline; white-space: pre-wrap;\">Era noble, había nacido "
+"entre el estruendo de las armas, y el insólito clamor de una trompa de "
+"guerra no le hubiera hecho levantar la cabeza un instante ni apartar sus "
+"ojos un punto del oscuro pergamino en que leía la última cantiga de un "
+"trovador.</span>"
+msgstr ""
+
+#. module: academic
+#: model:survey.page,description:academic.survey_page_7
+msgid ""
+"<span style=\"font-family: Arial; color: rgb(0, 0, 0); font-style: italic; "
+"vertical-align: baseline; white-space: pre-wrap;\">Era un rayo de luna, un "
+"rayo de luna que penetraba a intervalos por entre la verde bóveda de los "
+"árboles cuando el viento movía sus ramas.</span>"
+msgstr ""
+
+#. module: academic
+#: model:survey.page,description:academic.survey_page_7
+msgid ""
+"<span style=\"font-family: Arial; color: rgb(0, 0, 0); font-style: italic; "
+"vertical-align: baseline; white-space: pre-wrap;\">Había visto flotar un "
+"instante y desaparecer el extremo del traje blanco, del traje blanco de la "
+"mujer de sus sueños, de la mujer que ya amaba como un loco.</span>"
+msgstr ""
+
+#. module: academic
+#: model:survey.page,description:academic.survey_page_7
+msgid ""
+"<span style=\"font-family: Arial; color: rgb(0, 0, 0); font-style: italic; "
+"vertical-align: baseline; white-space: pre-wrap;\">La noche estaba serena y "
+"hermosa, la luna brillaba en toda su plenitud en lo más alto del cielo, y el"
+" viento suspiraba con un rumor dulcísimo entre las hojas de los "
+"árboles.</span>"
+msgstr ""
+
+#. module: academic
+#: model:survey.page,description:academic.survey_page_7
+msgid ""
+"<span style=\"font-family: Arial; color: rgb(0, 0, 0); font-style: italic; "
+"vertical-align: baseline; white-space: pre-wrap;\">Las plantas trepadoras "
+"subían encaramándose por los añosos troncos de los árboles; las sombrías "
+"calles de álamos, cuyas copas se tocaban y se confundían entre sí, se habían"
+" cubierto de césped; los cardos silvestres y las ortigas brotaban en medio "
+"de los enarenados caminos, y en dos trozos de fábrica, próximos a "
+"desplomarse, el jaramago, flotando al viento como el penacho de una cimera, "
+"y las campanillas blancas y azules, balanceándose como en un columpio sobre "
+"sus largos y flexibles tallos, pregonaban la victoria de la destrucción y la"
+" ruina.</span>"
+msgstr ""
+
+#. module: academic
+#: model:survey.page,description:academic.survey_page_7
+msgid ""
+"<span style=\"font-family: Arial; color: rgb(0, 0, 0); font-style: italic; "
+"vertical-align: baseline; white-space: pre-wrap;\">Llegó al punto en que "
+"había visto perderse entre la espesura de las ramas a la mujer misteriosa. "
+"Había desaparecido. ¿Por dónde? Allá lejos, muy lejos, creyó divisar por "
+"entre los cruzados troncos de los árboles como una claridad o una forma "
+"blanca que se movía.</span>"
+msgstr ""
+
+#. module: academic
+#: model:survey.page,description:academic.survey_page_7
+msgid ""
+"<span style=\"font-family: Arial; color: rgb(0, 0, 0); font-style: italic; "
+"vertical-align: baseline; white-space: pre-wrap;\">Los que quisieran "
+"encontrarle, no lo debían buscar en el anchuroso patio de su castillo, donde"
+" los palafreneros domaban los potros, los pajes enseñaban a volar a los "
+"halcones, y los soldados se entretenían los días de reposo en afilar el "
+"hierro de su lanza contra una piedra.</span>"
+msgstr ""
+
+#. module: academic
+#: model:survey.page,description:academic.survey_page_7
+msgid ""
+"<span style=\"font-family: Arial; color: rgb(0, 0, 0); font-style: italic; "
+"vertical-align: baseline; white-space: pre-wrap;\">Manrique llegó al "
+"claustro, tendió la vista por su recinto y miró a través de las macizas "
+"columnas de sus arcadas... Estaba desierto. Salió de él encaminó sus pasos "
+"hacia la oscura alameda que conduce al Duero, y aún no había penetrado en "
+"ella, cuando de sus labios se escapó un grito de júbilo.</span>"
+msgstr ""
+
+#. module: academic
+#: model:survey.page,description:academic.survey_page_7
+msgid ""
+"<span style=\"font-family: Arial; color: rgb(0, 0, 0); font-style: italic; "
+"vertical-align: baseline; white-space: pre-wrap;\">Manrique, presa su "
+"imaginación de un vértigo de poesía, después de atravesar el puente, desde "
+"donde contempló un momento la negra silueta de la ciudad, que se destacaba "
+"sobre el fondo de algunas nubes blanquecinas y ligeras arrolladas en el "
+"horizonte, se internó en las desiertas ruinas de los Templarios.</span>"
+msgstr ""
+
+#. module: academic
+#: model:survey.page,description:academic.survey_page_7
+msgid ""
+"<span style=\"font-family: Arial; color: rgb(0, 0, 0); font-style: italic; "
+"vertical-align: baseline; white-space: pre-wrap;\">Sobre el Duero, que "
+"pasaba lamiendo las carcomidas y oscuras piedras de las murallas de Soria, "
+"hay un puente que conduce de la ciudad al antiguo convento de los "
+"Templarios, cuyas posesiones se extendían a lo largo de la opuesta margen "
+"del río.</span>"
+msgstr ""
+
+#. module: academic
+#: model:survey.page,description:academic.survey_page_7
+msgid ""
+"<span style=\"font-family: Arial; color: rgb(0, 0, 0); font-style: italic; "
+"vertical-align: baseline; white-space: pre-wrap;\">Vagó algunas horas de un "
+"lado a otro fuera de sí, ya parándose para escuchar, ya deslizándose con las"
+" mayores precauciones sobre la hierba, ya en una carrera frenética y "
+"desesperada, sin dar con ella.</span>"
+msgstr ""
+
+#. module: academic
+#: model:survey.page,description:academic.survey_page_7
+msgid ""
+"<span style=\"font-family: Arial; color: rgb(0, 0, 0); font-style: italic; "
+"vertical-align: baseline; white-space: pre-wrap;\">Y tornó a correr en su "
+"seguimiento, unas veces creyendo verla, otras pensando oírla; ya notando que"
+" las ramas, por entre las cuales había desaparecido, se movían; ya "
+"imaginando distinguir en la arena la huella de sus propios pies; luego, "
+"firmemente persuadido de que un perfume especial que aspiraba a intervalos "
+"era un aroma perteneciente a aquella mujer que se burlaba de él, "
+"complaciéndose en huirle por entre aquellas intrincadas malezas. ¡Afán "
+"inútil!</span>"
+msgstr ""
+
+#. module: academic
+#: model:survey.page,description:academic.survey_page_7
+msgid ""
+"<span style=\"font-family: Arial; color: rgb(0, 0, 0); font-style: italic; "
+"vertical-align: baseline; white-space: pre-wrap;\">¿En qué idioma? No sé, "
+"pero es una lengua extranjera...</span>"
+msgstr ""
+
+#. module: academic
+#: model:academic.observation_category,name:academic.user_input_obs_1
+msgid "Absent"
+msgstr ""
+
+#. module: academic
+#: model:ir.module.category,description:academic.module_category_academic
+#: model:ir.module.category,name:academic.module_category_academic
+#: model:ir.ui.menu,name:academic.menu_academic
+#: model:ir.ui.menu,name:academic.menu_portal_academic
+#: model:ir.ui.menu,name:academic.menu_report_academic
+#: model:ir.ui.view,arch_db:academic.academic_link
+msgid "Academic"
+msgstr ""
+
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_academic_division_analysis_wizard
+msgid "Academic Division Analysis Wizard"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.evaluation_survey_form
+msgid "Add Related Groups"
+msgstr ""
+
+#. module: academic
+#: selection:academic.group,type:0 selection:res.partner,partner_type:0
+#: selection:survey.survey,answered_by:0 selection:survey.survey,apply_to:0
+#: selection:survey.survey,checked_by:0
+msgid "Administrator"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_administrator_perfomance
+msgid "Administrator Performance"
+msgstr ""
+
+#. module: academic
+#: model:res.groups,name:academic.group_portal_administrator
+msgid "Administrator's Portal"
+msgstr ""
+
+#. module: academic
+#: model:res.groups,comment:academic.group_portal_administrator
+msgid ""
+"Administrator's Portal members have specific access rights (such as record rules and restricted menus).\n"
+"                They usually do not belong to the usual odoo groups."
+msgstr ""
+
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_academic_company_partner_administrators
+#: model:ir.actions.act_window,name:academic.action_academic_partner_administrators
+#: model:ir.ui.menu,name:academic.menu_administrators
+#: model:ir.ui.view,arch_db:academic.view_company_form
+msgid "Administrators"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_kanban
+msgid "Agenda del Director (AD)"
+msgstr ""
+
+#. module: academic
+#: model:survey.page,title:academic.survey_page_6
+#: model:survey.survey,title:academic.survey_survey_2
+msgid "Agenda del director"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.view_academic_user_input_tree
+msgid "Answer Survey"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_survey_survey_answered_by
+#: model:ir.ui.view,arch_db:academic.view_academic_user_input_filter
+#: model:ir.ui.view,arch_db:academic.view_academic_user_input_form
+#: model:ir.ui.view,arch_db:academic.view_academic_user_input_tree
+msgid "Answered By"
+msgstr ""
+
+#. module: academic
+#: model:survey.question.objective,name:academic.survey_question_objective_1
+msgid ""
+"Análisis del texto literario narrativo reconociendo  sus elementos de "
+"información explícita"
+msgstr ""
+
+#. module: academic
+#: model:survey.question.objective,name:academic.survey_question_objective_4
+msgid ""
+"Análisis y evaluación del contenido, el lenguaje y los elementos textuales"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_survey_survey_apply_to
+#: model:ir.model.fields,field_description:academic.field_survey_user_input_apply_to_id
+msgid "Apply To"
+msgstr ""
+
+#. module: academic
+#: code:addons/academic/models/survey_survey.py:120
+#, python-format
+msgid ""
+"Automatically Add Groups Error!\n"
+"To automatically add Groups you should set level, subject and year!"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_evaluation_analysis_avg_score
+#: model:ir.model.fields,field_description:academic.field_academic_evaluation_report_input_avg_score
+msgid "Avg Score"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.view_academic_division_filter
+#: model:ir.ui.view,arch_db:academic.view_academic_group_evaluation_filter
+#: model:ir.ui.view,arch_db:academic.view_academic_group_filter
+#: model:ir.ui.view,arch_db:academic.view_academic_level_filter
+#: model:ir.ui.view,arch_db:academic.view_academic_observation_category_filter
+#: model:ir.ui.view,arch_db:academic.view_academic_period_filter
+#: model:ir.ui.view,arch_db:academic.view_academic_promotion_filter
+#: model:ir.ui.view,arch_db:academic.view_academic_section_filter
+#: model:ir.ui.view,arch_db:academic.view_academic_subject_filter
+msgid "By Attribute"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.view_academic_division_filter
+#: model:ir.ui.view,arch_db:academic.view_academic_group_evaluation_filter
+#: model:ir.ui.view,arch_db:academic.view_academic_group_filter
+#: model:ir.ui.view,arch_db:academic.view_academic_level_filter
+#: model:ir.ui.view,arch_db:academic.view_academic_period_filter
+#: model:ir.ui.view,arch_db:academic.view_academic_promotion_filter
+#: model:ir.ui.view,arch_db:academic.view_academic_subject_filter
+msgid "By object"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_survey_question_indicator_calc_type
+msgid "Calculation Type"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_wizard_view
+msgid "Cancel"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_kanban
+msgid "Capacitación pertinente"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_survey_survey_checked_by
+msgid "Checked By"
+msgstr ""
+
+#. module: academic
+#: model:ir.actions.act_window,help:academic.action_academic_survey_evaluations
+msgid "Click to add a evaluation."
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.evaluation_survey_form
+#: model:ir.ui.view,arch_db:academic.view_academic_group_evaluation_form
+#: model:ir.ui.view,arch_db:academic.view_academic_group_evaluation_tree
+msgid "Close"
+msgstr ""
+
+#. module: academic
+#: selection:academic.evaluation.analysis,group_evaluation_state:0
+#: selection:academic.evaluation.report,group_evaluation_state:0
+#: selection:academic.group_evaluation,state:0
+#: model:ir.ui.view,arch_db:academic.view_evaluation_analysis_search
+#: model:ir.ui.view,arch_db:academic.view_evaluation_response_search
+msgid "Closed"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_kanban
+msgid "Colegio:"
+msgstr ""
+
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_res_company_form
+#: model:ir.ui.menu,name:academic.menu_action_res_company_form
+msgid "Companies"
+msgstr "Firme"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_company
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_wizard_company
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_wizard_company_id
+#: model:ir.model.fields,field_description:academic.field_academic_evaluation_analysis_company_id
+#: model:ir.model.fields,field_description:academic.field_academic_evaluation_report_company_id
+#: model:ir.model.fields,field_description:academic.field_academic_group_company_id
+#: model:ir.model.fields,field_description:academic.field_academic_group_evaluation_company_id
+#: model:ir.model.fields,field_description:academic.field_survey_user_input_company_id
+#: model:ir.ui.view,arch_db:academic.view_evaluation_analysis_search
+#: model:ir.ui.view,arch_db:academic.view_evaluation_response_search
+msgid "Company"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_group_complete_name
+msgid "Complete Name"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.menu,name:academic.menu_configuration
+msgid "Configuration"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_wizard_view
+msgid "Confirm"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_consider_disabled_person
+msgid "Consider Disabled Person"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_wizard_consider_disabled_person
+msgid "Considerar Personas con Discapacidad?"
+msgstr ""
+
+#. module: academic
+#: model:ir.model,name:academic.model_res_partner
+msgid "Contact"
+msgstr "Contact"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_evaluation_report_content_id
+#: model:ir.ui.view,arch_db:academic.view_evaluation_response_search
+msgid "Content"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_group_evaluation_contingencies
+msgid "Contingencies?"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_evaluation_analysis_course_level_id
+#: model:ir.model.fields,field_description:academic.field_academic_evaluation_report_course_level_id
+#: model:ir.ui.view,arch_db:academic.view_evaluation_analysis_search
+#: model:ir.ui.view,arch_db:academic.view_evaluation_response_search
+msgid "Course Level"
+msgstr ""
+
+#. module: academic
+#: model:ir.actions.act_window,help:academic.action_res_company_form
+msgid ""
+"Create and manage the companies that will be managed by odoo from here. "
+"Shops or subsidiaries can be created and maintained from here."
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_create_uid
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_wizard_create_uid
+#: model:ir.model.fields,field_description:academic.field_academic_division_create_uid
+#: model:ir.model.fields,field_description:academic.field_academic_group_create_uid
+#: model:ir.model.fields,field_description:academic.field_academic_group_evaluation_create_uid
+#: model:ir.model.fields,field_description:academic.field_academic_level_create_uid
+#: model:ir.model.fields,field_description:academic.field_academic_observation_category_create_uid
+#: model:ir.model.fields,field_description:academic.field_academic_period_create_uid
+#: model:ir.model.fields,field_description:academic.field_academic_promotion_create_uid
+#: model:ir.model.fields,field_description:academic.field_academic_section_create_uid
+#: model:ir.model.fields,field_description:academic.field_academic_subject_create_uid
+#: model:ir.model.fields,field_description:academic.field_survey_question_indicator_create_uid
+#: model:ir.model.fields,field_description:academic.field_survey_question_performance_create_uid
+#: model:ir.model.fields,field_description:academic.field_survey_question_variable_create_uid
+msgid "Created by"
+msgstr "Creat de"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_create_date
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_wizard_create_date
+#: model:ir.model.fields,field_description:academic.field_academic_division_create_date
+#: model:ir.model.fields,field_description:academic.field_academic_group_create_date
+#: model:ir.model.fields,field_description:academic.field_academic_group_evaluation_create_date
+#: model:ir.model.fields,field_description:academic.field_academic_level_create_date
+#: model:ir.model.fields,field_description:academic.field_academic_observation_category_create_date
+#: model:ir.model.fields,field_description:academic.field_academic_period_create_date
+#: model:ir.model.fields,field_description:academic.field_academic_promotion_create_date
+#: model:ir.model.fields,field_description:academic.field_academic_section_create_date
+#: model:ir.model.fields,field_description:academic.field_academic_subject_create_date
+#: model:ir.model.fields,field_description:academic.field_survey_question_indicator_create_date
+#: model:ir.model.fields,field_description:academic.field_survey_question_performance_create_date
+#: model:ir.model.fields,field_description:academic.field_survey_question_variable_create_date
+msgid "Created on"
+msgstr "Creat la data"
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_kanban
+msgid "Cumplimiento de tareas típicas"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.menu,name:academic.menu_data
+msgid "Data"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_group_evaluation_date_close
+msgid "Date Close"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_group_evaluation_date_open
+msgid "Date Open"
+msgstr ""
+
+#. module: academic
+#: model:survey.question.objective,name:academic.survey_question_objective_2
+msgid "Descubrimiento de la información implícita a partir de la explícita"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_kanban
+msgid "Desempeño de los alumnos (DA)"
+msgstr ""
+
+#. module: academic
+#: model:survey.page,title:academic.survey_page_5
+#: model:survey.survey,title:academic.survey_survey_4
+msgid "Desempeño docente"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_kanban
+msgid "Desempeño docente (DD)"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.survey_kanban
+msgid "Design"
+msgstr ""
+
+#. module: academic
+#: model:ir.actions.act_window,help:academic.action_academic_survey_evaluations
+msgid ""
+"Design easily your evaluation, send invitations to answer by email and "
+"analyse answers."
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_evaluation_analysis_disabled_person
+#: model:ir.model.fields,field_description:academic.field_academic_evaluation_report_disabled_person
+#: model:ir.model.fields,field_description:academic.field_res_partner_disabled_person
+#: model:ir.model.fields,field_description:academic.field_res_users_disabled_person
+msgid "Disabled Person?"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_display_name
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_wizard_display_name
+#: model:ir.model.fields,field_description:academic.field_academic_division_display_name
+#: model:ir.model.fields,field_description:academic.field_academic_evaluation_analysis_display_name
+#: model:ir.model.fields,field_description:academic.field_academic_evaluation_report_display_name
+#: model:ir.model.fields,field_description:academic.field_academic_group_display_name
+#: model:ir.model.fields,field_description:academic.field_academic_group_evaluation_display_name
+#: model:ir.model.fields,field_description:academic.field_academic_level_display_name
+#: model:ir.model.fields,field_description:academic.field_academic_observation_category_display_name
+#: model:ir.model.fields,field_description:academic.field_academic_period_display_name
+#: model:ir.model.fields,field_description:academic.field_academic_promotion_display_name
+#: model:ir.model.fields,field_description:academic.field_academic_section_display_name
+#: model:ir.model.fields,field_description:academic.field_academic_subject_display_name
+#: model:ir.model.fields,field_description:academic.field_survey_question_indicator_display_name
+#: model:ir.model.fields,field_description:academic.field_survey_question_performance_display_name
+#: model:ir.model.fields,field_description:academic.field_survey_question_variable_display_name
+msgid "Display Name"
+msgstr "Numele de afișare"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_name
+#: model:ir.model.fields,field_description:academic.field_academic_group_division_id
+#: model:ir.ui.view,arch_db:academic.view_academic_group_filter
+msgid "Division"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_form
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_tree
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_wizard_view
+msgid "Division Analysis"
+msgstr ""
+
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_academic_division_analysis_conf
+msgid "Division Analysis Configuration"
+msgstr ""
+
+#. module: academic
+#: model:ir.model,name:academic.model_academic_division_analysis_wizard
+msgid "Division Analysis Wizard"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_evaluation_analysis_dont_consider
+#: model:ir.model.fields,field_description:academic.field_academic_evaluation_report_dont_consider
+#: model:ir.model.fields,field_description:academic.field_academic_observation_category_dont_consider
+#: model:ir.ui.view,arch_db:academic.view_academic_observation_category_filter
+msgid "Don not Consider?"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_kanban
+msgid "Entrevistas formales"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_kanban
+msgid "Entrevistas formales con los docentes"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_kanban
+msgid "Entrevistas formales con padres"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.view_evaluation_analysis_search
+#: model:ir.ui.view,arch_db:academic.view_evaluation_response_search
+msgid "Evaluación"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_kanban
+msgid "Evaluación de rendimiento de alumnos en Lengua y Matemática"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_group_evaluation_survey_id
+#: model:ir.ui.view,arch_db:academic.view_academic_group_evaluation_filter
+#: model:ir.ui.view,arch_db:academic.view_evaluation_analysis_search
+#: model:ir.ui.view,arch_db:academic.view_evaluation_response_search
+msgid "Evaluation"
+msgstr ""
+
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_evaluation_analysis_report_all
+#: model:ir.model,name:academic.model_academic_evaluation_analysis
+#: model:ir.ui.menu,name:academic.menu_portal_report_evaluation_analysis
+#: model:ir.ui.menu,name:academic.menu_report_evaluation_analysis
+msgid "Evaluation Analysis"
+msgstr ""
+
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_academic_survey_evaluations
+#: model:ir.actions.act_window,name:academic.action_academic_user_input_evaluations
+#: model:ir.model.fields,field_description:academic.field_academic_group_group_evaluation_ids
+#: model:ir.ui.menu,name:academic.menu_eval_config
+#: model:ir.ui.menu,name:academic.menu_evaluations
+#: model:ir.ui.menu,name:academic.menu_evaluations_main
+#: model:ir.ui.view,arch_db:academic.view_academic_group_form
+msgid "Evaluations"
+msgstr ""
+
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_academic_evaluation_survey_answers
+msgid "Evaluations Answers"
+msgstr ""
+
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_academic_user_input_my_evaluations
+#: model:ir.ui.menu,name:academic.menu_my_evaluations
+msgid "Evaluations To Do"
+msgstr ""
+
+#. module: academic
+#: model:survey.survey,title:academic.survey_survey_7
+msgid "Examen histórico alumno – Primer Trimestre"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.view_evaluation_response_search
+msgid "Excluir Personas con Discapacidad"
+msgstr ""
+
+#. module: academic
+#: selection:res.partner,sex:0
+msgid "Female"
+msgstr ""
+
+#. module: academic
+#: selection:academic.evaluation.analysis,input_state:0
+#: selection:academic.evaluation.report,input_state:0
+msgid "Finished "
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.view_academic_user_input_form
+msgid "Force Closure"
+msgstr ""
+
+#. module: academic
+#: model:res.groups,comment:academic.group_portal_gral_administrator
+msgid ""
+"General Administrator's Portal members have specific access rights (such as record rules and restricted menus).\n"
+"                They usually do not belong to the usual odoo groups."
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.menu,name:academic.menu_general_data
+msgid "General Data"
+msgstr ""
+
+#. module: academic
+#: model:res.groups,name:academic.group_portal_gral_administrator
+msgid "Gral Administrator's Portal"
+msgstr ""
+
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_academic_partner_gral_administrators
+#: model:ir.ui.menu,name:academic.menu_gral_administrators
+msgid "Gral Administrators"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_evaluation_analysis_group_id
+#: model:ir.model.fields,field_description:academic.field_academic_evaluation_report_group_id
+#: model:ir.model.fields,field_description:academic.field_academic_group_evaluation_group_id
+#: model:ir.model.fields,field_description:academic.field_survey_user_input_group_id
+#: model:ir.ui.view,arch_db:academic.view_academic_group_evaluation_filter
+#: model:ir.ui.view,arch_db:academic.view_evaluation_analysis_search
+#: model:ir.ui.view,arch_db:academic.view_evaluation_response_search
+msgid "Group"
+msgstr ""
+
+#. module: academic
+#: selection:survey.question.indicator,calc_type:0
+msgid "Group Average"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.view_evaluation_analysis_search
+#: model:ir.ui.view,arch_db:academic.view_evaluation_response_search
+msgid "Group By..."
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_evaluation_analysis_group_evaluation_state
+#: model:ir.model.fields,field_description:academic.field_academic_evaluation_report_group_evaluation_state
+msgid "Group Ev. Status"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_survey_user_input_group_evaluation_id
+msgid "Group Evaluation"
+msgstr ""
+
+#. module: academic
+#: model:ir.actions.report,name:academic.group_ev_report_users
+msgid "Group Evaluation Users"
+msgstr ""
+
+#. module: academic
+#: selection:survey.question.indicator,calc_type:0
+msgid "Group Max Value"
+msgstr ""
+
+#. module: academic
+#: model:ir.actions.report,name:academic.report_users
+msgid "Group Users"
+msgstr ""
+
+#. module: academic
+#: sql_constraint:academic.group:0
+msgid ""
+"Group should be unique per Institution, Subject, Course-Division and Year"
+msgstr ""
+
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_academic_company_group_groups
+#: model:ir.actions.act_window,name:academic.action_academic_group_groups
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_groups
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_wizard_group_ids
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_wizard_groups
+#: model:ir.model.fields,field_description:academic.field_academic_level_group_ids
+#: model:ir.model.fields,field_description:academic.field_academic_subject_group_ids
+#: model:ir.model.fields,field_description:academic.field_res_partner_student_group_ids
+#: model:ir.model.fields,field_description:academic.field_res_partner_teacher_group_ids
+#: model:ir.model.fields,field_description:academic.field_res_users_student_group_ids
+#: model:ir.model.fields,field_description:academic.field_res_users_teacher_group_ids
+#: model:ir.model.fields,field_description:academic.field_survey_survey_group_evaluation_ids
+#: model:ir.ui.menu,name:academic.menu_groups
+#: model:ir.ui.menu,name:academic.menu_portal_groups
+#: model:ir.ui.view,arch_db:academic.evaluation_survey_form
+#: model:ir.ui.view,arch_db:academic.view_academic_partner_form
+#: model:ir.ui.view,arch_db:academic.view_company_form
+msgid "Groups"
+msgstr ""
+
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_academic_group_evaluation_groups_evaluations
+#: model:ir.ui.menu,name:academic.menu_groups_evaluations
+msgid "Groups Evaluations"
+msgstr ""
+
+#. module: academic
+#: model:academic.observation_category,name:academic.user_input_obs_2
+msgid "Has to leave"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_kanban
+msgid "Horas de clase efectivamente dadas"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_kanban
+msgid "IAD"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_id
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_wizard_id
+#: model:ir.model.fields,field_description:academic.field_academic_division_id
+#: model:ir.model.fields,field_description:academic.field_academic_evaluation_analysis_id
+#: model:ir.model.fields,field_description:academic.field_academic_evaluation_report_id
+#: model:ir.model.fields,field_description:academic.field_academic_group_evaluation_id
+#: model:ir.model.fields,field_description:academic.field_academic_group_id
+#: model:ir.model.fields,field_description:academic.field_academic_level_id
+#: model:ir.model.fields,field_description:academic.field_academic_observation_category_id
+#: model:ir.model.fields,field_description:academic.field_academic_period_id
+#: model:ir.model.fields,field_description:academic.field_academic_promotion_id
+#: model:ir.model.fields,field_description:academic.field_academic_section_id
+#: model:ir.model.fields,field_description:academic.field_academic_subject_id
+#: model:ir.model.fields,field_description:academic.field_survey_question_indicator_id_2672
+#: model:ir.model.fields,field_description:academic.field_survey_question_performance_id
+#: model:ir.model.fields,field_description:academic.field_survey_question_variable_id
+msgid "ID"
+msgstr "ID"
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_kanban
+msgid "IDA"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_kanban
+msgid "IDD"
+msgstr ""
+
+#. module: academic
+#: model:survey.question,comments_message:academic.survey_question_14
+#: model:survey.question,comments_message:academic.survey_question_15
+#: model:survey.question,comments_message:academic.survey_question_16
+#: model:survey.question,comments_message:academic.survey_question_17
+#: model:survey.question,comments_message:academic.survey_question_18
+#: model:survey.question,comments_message:academic.survey_question_19
+#: model:survey.question,comments_message:academic.survey_question_20
+#: model:survey.question,comments_message:academic.survey_question_21
+#: model:survey.question,comments_message:academic.survey_question_22
+#: model:survey.question,comments_message:academic.survey_question_23
+#: model:survey.question,comments_message:academic.survey_question_24
+#: model:survey.question,comments_message:academic.survey_question_25
+#: model:survey.question,comments_message:academic.survey_question_26
+#: model:survey.question,comments_message:academic.survey_question_27
+#: model:survey.question,comments_message:academic.survey_question_28
+#: model:survey.question,comments_message:academic.survey_question_29
+#: model:survey.question,comments_message:academic.survey_question_30
+#: model:survey.question,comments_message:academic.survey_question_31
+#: model:survey.question,comments_message:academic.survey_question_32
+#: model:survey.question,comments_message:academic.survey_question_33
+#: model:survey.question,comments_message:academic.survey_question_34
+#: model:survey.question,comments_message:academic.survey_question_35
+#: model:survey.question,comments_message:academic.survey_question_36
+#: model:survey.question,comments_message:academic.survey_question_37
+#: model:survey.question,comments_message:academic.survey_question_38
+#: model:survey.question,comments_message:academic.survey_question_39
+#: model:survey.question,comments_message:academic.survey_question_40
+msgid "If other, please specify:"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_include_diagnosis_eval
+msgid "Include Diagnosis Evaluations"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_wizard_include_diagnosis_eval
+msgid "Incluir Evaluaciones Diagnóstico?"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_external_lang_value
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_form
+msgid "Indicador Externo Lengua"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_external_math_value
+msgid "Indicador Externo Matemática"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_internal_lang_value
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_form
+msgid "Indicador Interno Lengua"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_internal_math_value
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_form
+msgid "Indicador Interno Matemática"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_kanban
+msgid "Indicadores"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_survey_question_indicator_id
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_form
+msgid "Indicator"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.menu,name:academic.menu_academic_division_analysis_wizard
+#: model:ir.ui.menu,name:academic.menu_portal_division_analysis_wizard
+msgid "Indicator Analysis"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.menu,name:academic.menu_academic_division_analysis_conf
+msgid "Indicator Analysis Configuration"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_survey_user_input_question_score_indicator_rel_score
+msgid "Indicator Relative Score"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_survey_question_max_indicator_rel_score
+msgid "Indicator Score"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_hour_lang_ind_id
+msgid "Indicator subi_avg_hour_lang_value"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_hour_math_ind_id
+msgid "Indicator subi_avg_hour_math_value"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_external_lang_ind_id
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_internal_lang_ind_id
+msgid "Indicator subi_avg_note_lang_value"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_relevant_training_lang_ind_id
+msgid "Indicator subi_avg_relevant_training_lang_value"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_relevant_training_math_ind_id
+msgid "Indicator subi_avg_relevant_training_math_value"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_spec_proj_lang_ind_id
+msgid "Indicator subi_avg_spec_proj_lang_value"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_spec_proj_math_ind_id
+msgid "Indicator subi_avg_spec_proj_math_value"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_parent_att_ind_id
+msgid "Indicator subi_avg_student_interview_value"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_teacher_interview_lang_ind_id
+msgid "Indicator subi_avg_teacher_interview_lang_value"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_teacher_interview_math_ind_id
+msgid "Indicator subi_avg_teacher_interview_math_value"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_topics_lang_ind_id
+msgid "Indicator subi_avg_topics_lang_value"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_topics_math_ind_id
+msgid "Indicator subi_avg_topics_math_value"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_external_math_ind_id
+msgid "Indicator subi_external_math_value"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_internal_math_ind_id
+msgid "Indicator subi_internal_math_value"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_timextopic_lang_ind_id
+msgid "Indicator subi_timextopic_lang_value"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_timextopic_math_ind_id
+msgid "Indicator subi_timextopic_math_value"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_survey_question_variable_indicator_ids
+#: model:ir.ui.menu,name:academic.menu_academic_question_indicator
+msgid "Indicators"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_wizard_view
+msgid "Ingrese los filtros que desea aplicar a la información."
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.view_academic_partner_form
+msgid "Institution..."
+msgstr ""
+
+#. module: academic
+#: model:survey.question.objective,name:academic.survey_question_objective_3
+msgid "Interpretación e integración de ideas"
+msgstr ""
+
+#. module: academic
+#: selection:academic.evaluation.analysis,group_evaluation_state:0
+#: selection:academic.evaluation.report,group_evaluation_state:0
+#: selection:academic.group_evaluation,state:0
+msgid "Invisible"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_survey_survey_is_diagnosis
+msgid "Is Diagnosis?"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_evaluation_analysis_is_evaluation
+#: model:ir.model.fields,field_description:academic.field_academic_evaluation_report_is_evaluation
+msgid "Is Evaluation?"
+msgstr ""
+
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_survey_label_form
+#: model:ir.ui.menu,name:academic.menu_survey_label_form1
+msgid "Labels"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division___last_update
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis___last_update
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_wizard___last_update
+#: model:ir.model.fields,field_description:academic.field_academic_evaluation_analysis___last_update
+#: model:ir.model.fields,field_description:academic.field_academic_evaluation_report___last_update
+#: model:ir.model.fields,field_description:academic.field_academic_group___last_update
+#: model:ir.model.fields,field_description:academic.field_academic_group_evaluation___last_update
+#: model:ir.model.fields,field_description:academic.field_academic_level___last_update
+#: model:ir.model.fields,field_description:academic.field_academic_observation_category___last_update
+#: model:ir.model.fields,field_description:academic.field_academic_period___last_update
+#: model:ir.model.fields,field_description:academic.field_academic_promotion___last_update
+#: model:ir.model.fields,field_description:academic.field_academic_section___last_update
+#: model:ir.model.fields,field_description:academic.field_academic_subject___last_update
+#: model:ir.model.fields,field_description:academic.field_survey_question_indicator___last_update
+#: model:ir.model.fields,field_description:academic.field_survey_question_performance___last_update
+#: model:ir.model.fields,field_description:academic.field_survey_question_variable___last_update
+msgid "Last Modified on"
+msgstr "Ultima modificare la"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_wizard_write_uid
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_write_uid
+#: model:ir.model.fields,field_description:academic.field_academic_division_write_uid
+#: model:ir.model.fields,field_description:academic.field_academic_group_evaluation_write_uid
+#: model:ir.model.fields,field_description:academic.field_academic_group_write_uid
+#: model:ir.model.fields,field_description:academic.field_academic_level_write_uid
+#: model:ir.model.fields,field_description:academic.field_academic_observation_category_write_uid
+#: model:ir.model.fields,field_description:academic.field_academic_period_write_uid
+#: model:ir.model.fields,field_description:academic.field_academic_promotion_write_uid
+#: model:ir.model.fields,field_description:academic.field_academic_section_write_uid
+#: model:ir.model.fields,field_description:academic.field_academic_subject_write_uid
+#: model:ir.model.fields,field_description:academic.field_survey_question_indicator_write_uid
+#: model:ir.model.fields,field_description:academic.field_survey_question_performance_write_uid
+#: model:ir.model.fields,field_description:academic.field_survey_question_variable_write_uid
+msgid "Last Updated by"
+msgstr "Ultimul update de"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_wizard_write_date
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_write_date
+#: model:ir.model.fields,field_description:academic.field_academic_division_write_date
+#: model:ir.model.fields,field_description:academic.field_academic_group_evaluation_write_date
+#: model:ir.model.fields,field_description:academic.field_academic_group_write_date
+#: model:ir.model.fields,field_description:academic.field_academic_level_write_date
+#: model:ir.model.fields,field_description:academic.field_academic_observation_category_write_date
+#: model:ir.model.fields,field_description:academic.field_academic_period_write_date
+#: model:ir.model.fields,field_description:academic.field_academic_promotion_write_date
+#: model:ir.model.fields,field_description:academic.field_academic_section_write_date
+#: model:ir.model.fields,field_description:academic.field_academic_subject_write_date
+#: model:ir.model.fields,field_description:academic.field_survey_question_indicator_write_date
+#: model:ir.model.fields,field_description:academic.field_survey_question_performance_write_date
+#: model:ir.model.fields,field_description:academic.field_survey_question_variable_write_date
+msgid "Last Updated on"
+msgstr "Ultimul update la "
+
+#. module: academic
+#: model:survey.page,title:academic.survey_page_7
+msgid "Lea la siguiente leyenda soriana del escritor Gustavo Adolfo Bécquer."
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_kanban
+msgid "Lengua"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_evaluation_report_level_id
+#: model:ir.model.fields,field_description:academic.field_academic_group_level_id
+#: model:ir.model.fields,field_description:academic.field_survey_survey_level_id
+#: model:ir.ui.view,arch_db:academic.view_academic_group_filter
+#: model:ir.ui.view,arch_db:academic.view_evaluation_response_search
+msgid "Level"
+msgstr ""
+
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_academic_level_levels
+#: model:ir.model.fields,field_description:academic.field_survey_survey_level_ids
+#: model:ir.ui.menu,name:academic.menu_levels
+msgid "Levels"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.template_group_ev_report_users
+#: model:ir.ui.view,arch_db:academic.template_report_users
+msgid "Login"
+msgstr ""
+
+#. module: academic
+#: model:survey.survey,title:academic.survey_survey_6
+msgid "MOCK N°1. "
+msgstr ""
+
+#. module: academic
+#: selection:res.partner,sex:0
+msgid "Male"
+msgstr ""
+
+#. module: academic
+#: model:res.groups,name:academic.group_manager
+msgid "Manager"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_kanban
+msgid "Matemática"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_survey_question_max_indicator_score
+msgid "Max Indicator Score"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_evaluation_analysis_max_score
+#: model:ir.model.fields,field_description:academic.field_academic_evaluation_report_input_max_score
+msgid "Max Score"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_evaluation_analysis_min_score
+#: model:ir.model.fields,field_description:academic.field_academic_evaluation_report_input_min_score
+msgid "Min Score"
+msgstr ""
+
+#. module: academic
+#: model:survey.survey,thank_you_message:academic.survey_survey_2
+#: model:survey.survey,thank_you_message:academic.survey_survey_4
+#: model:survey.survey,thank_you_message:academic.survey_survey_5
+#: model:survey.survey,thank_you_message:academic.survey_survey_6
+#: model:survey.survey,thank_you_message:academic.survey_survey_7
+msgid "Muchas gracias por completar la evaluación!"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_name
+#: model:ir.model.fields,field_description:academic.field_academic_level_name
+#: model:ir.model.fields,field_description:academic.field_academic_observation_category_name
+#: model:ir.model.fields,field_description:academic.field_academic_period_name
+#: model:ir.model.fields,field_description:academic.field_academic_promotion_name
+#: model:ir.model.fields,field_description:academic.field_academic_section_name
+#: model:ir.model.fields,field_description:academic.field_academic_subject_name
+#: model:ir.model.fields,field_description:academic.field_survey_question_indicator_name
+#: model:ir.model.fields,field_description:academic.field_survey_question_performance_name
+#: model:ir.model.fields,field_description:academic.field_survey_question_variable_name
+#: model:ir.ui.view,arch_db:academic.template_group_ev_report_users
+#: model:ir.ui.view,arch_db:academic.template_report_users
+#: model:ir.ui.view,arch_db:academic.view_academic_division_filter
+#: model:ir.ui.view,arch_db:academic.view_academic_level_filter
+#: model:ir.ui.view,arch_db:academic.view_academic_observation_category_filter
+#: model:ir.ui.view,arch_db:academic.view_academic_period_filter
+#: model:ir.ui.view,arch_db:academic.view_academic_promotion_filter
+#: model:ir.ui.view,arch_db:academic.view_academic_section_filter
+#: model:ir.ui.view,arch_db:academic.view_academic_subject_filter
+msgid "Name"
+msgstr "Numele"
+
+#. module: academic
+#: model:survey.question.level,name:academic.survey_question_level_3
+msgid "Nivel Alto"
+msgstr ""
+
+#. module: academic
+#: model:survey.question.level,name:academic.survey_question_level_1
+msgid "Nivel Bajo"
+msgstr ""
+
+#. module: academic
+#: model:survey.question.level,name:academic.survey_question_level_2
+msgid "Nivel Medio"
+msgstr ""
+
+#. module: academic
+#: selection:academic.evaluation.analysis,input_state:0
+#: selection:academic.evaluation.report,input_state:0
+msgid "Not Finished"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_survey_user_input_note
+msgid "Note"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_kanban
+msgid "Núcleos de observación"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_evaluation_report_objective_id
+#: model:ir.ui.view,arch_db:academic.view_evaluation_response_search
+msgid "Objective"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_survey_user_input_observation_category_id
+msgid "Observation Category"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_group_evaluation_observation
+msgid "Observations"
+msgstr ""
+
+#. module: academic
+#: selection:academic.evaluation.analysis,group_evaluation_state:0
+#: selection:academic.evaluation.report,group_evaluation_state:0
+#: selection:academic.group_evaluation,state:0
+#: model:ir.ui.view,arch_db:academic.evaluation_survey_form
+#: model:ir.ui.view,arch_db:academic.view_academic_group_evaluation_form
+#: model:ir.ui.view,arch_db:academic.view_academic_group_evaluation_tree
+msgid "Open"
+msgstr ""
+
+#. module: academic
+#: model:academic.observation_category,name:academic.user_input_obs_3
+msgid "Other"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_kanban
+msgid "Padres entrevistados"
+msgstr ""
+
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_survey_page_form
+#: model:ir.ui.menu,name:academic.menu_survey_page_form1
+msgid "Pages"
+msgstr ""
+
+#. module: academic
+#: selection:academic.group,type:0 selection:res.partner,partner_type:0
+msgid "Parent"
+msgstr ""
+
+#. module: academic
+#: model:res.groups,name:academic.group_portal_parent
+msgid "Parent's Portal"
+msgstr ""
+
+#. module: academic
+#: model:res.groups,comment:academic.group_portal_parent
+msgid ""
+"Parent's Portal members have specific access rights (such as record rules and restricted menus).\n"
+"            They usually do not belong to the usual OpenERP groups."
+msgstr ""
+
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_academic_partner_parents
+#: model:ir.ui.menu,name:academic.menu_parents
+msgid "Parents"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_kanban
+msgid "Participación institucional"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_evaluation_analysis_partner_id
+#: model:ir.model.fields,field_description:academic.field_academic_evaluation_report_partner_id
+#: model:ir.ui.view,arch_db:academic.view_evaluation_analysis_search
+#: model:ir.ui.view,arch_db:academic.view_evaluation_response_search
+msgid "Partner"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_res_partner_partner_type
+#: model:ir.model.fields,field_description:academic.field_res_users_partner_type
+msgid "Partner Type"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.menu,name:academic.menu_partners
+msgid "Partners"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.template_group_ev_report_users
+#: model:ir.ui.view,arch_db:academic.template_report_users
+msgid "Password"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_survey_question_variable_performance_id
+msgid "Performance"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.menu,name:academic.menu_academic_question_performance
+msgid "Performances"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_wizard_period_ids
+#: model:ir.model.fields,field_description:academic.field_academic_evaluation_analysis_period_id
+#: model:ir.model.fields,field_description:academic.field_academic_evaluation_report_period_id
+#: model:ir.model.fields,field_description:academic.field_survey_survey_period_id
+#: model:ir.ui.view,arch_db:academic.view_evaluation_analysis_search
+#: model:ir.ui.view,arch_db:academic.view_evaluation_response_search
+msgid "Period"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.evaluation_survey_form
+msgid "Period..."
+msgstr ""
+
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_academic_period_periods
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_periods
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_wizard_periods
+#: model:ir.ui.menu,name:academic.menu_periods
+msgid "Periods"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.view_academic_partner_form
+msgid "Personal Information"
+msgstr ""
+
+#. module: academic
+#: selection:survey.survey,evaluation_subtype:0
+msgid "Poll Survey"
+msgstr ""
+
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_academic_user_input_poll_survey_answers
+#: model:ir.ui.menu,name:academic.menu_poll_survey_answers
+msgid "Poll Survey Answers"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_form
+msgid "Porcentaje de asistencia padre o mandre"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_form
+msgid "Porcentaje de capacitación pertinente Lengua"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_form
+msgid "Porcentaje de capacitación pertinente Matematica"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_form
+msgid "Porcentaje de entrevitas con docentes - Lengua"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_form
+msgid "Porcentaje de entrevitas con docentes - Matemática"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_hour_lang_value
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_form
+msgid "Porcentaje de horas dadas Lengua"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_hour_math_value
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_form
+msgid "Porcentaje de horas dadas Matematica"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_form
+msgid "Porcentaje de proyectos específicos Lengua"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_form
+msgid "Porcentaje de proyectos específicos Matematica"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_relevant_training_lang_value
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_spec_proj_lang_value
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_topics_lang_value
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_form
+msgid "Porcentaje de temas desarrollados Lengua"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_parent_att_value
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_relevant_training_math_value
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_spec_proj_math_value
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_teacher_interview_lang_value
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_teacher_interview_math_value
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_topics_math_value
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_timextopic_lang_value
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_timextopic_math_value
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_form
+msgid "Porcentaje de temas desarrollados Matematica"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_form
+msgid "Porcentaje de tiempo por tema Lengua"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_form
+msgid "Porcentaje de tiempo por tema Matemática"
+msgstr ""
+
+#. module: academic
+#: model:ir.module.category,name:academic.module_category_portal
+msgid "Portal"
+msgstr ""
+
+#. module: academic
+#: model:ir.model,name:academic.model_portal_wizard
+msgid "Portal Access Management"
+msgstr ""
+
+#. module: academic
+#: model:survey.page,title:academic.survey_page_10
+#: model:survey.page,title:academic.survey_page_11
+#: model:survey.page,title:academic.survey_page_12
+#: model:survey.page,title:academic.survey_page_13
+#: model:survey.page,title:academic.survey_page_14
+#: model:survey.page,title:academic.survey_page_15
+#: model:survey.page,title:academic.survey_page_16
+#: model:survey.page,title:academic.survey_page_17
+#: model:survey.page,title:academic.survey_page_18
+#: model:survey.page,title:academic.survey_page_19
+#: model:survey.page,title:academic.survey_page_8
+#: model:survey.page,title:academic.survey_page_9
+msgid "Preguntas"
+msgstr ""
+
+#. module: academic
+#: model:academic.level,name:academic.academic_course_1
+msgid "Primer Grado"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.view_academic_group_evaluation_tree
+#: model:ir.ui.view,arch_db:academic.view_academic_group_form
+msgid "Print Users"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_kanban
+msgid "Promedio Externo"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_kanban
+msgid "Promedio Interno"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_res_partner_promotion_id
+#: model:ir.model.fields,field_description:academic.field_res_users_promotion_id
+msgid "Promotion"
+msgstr ""
+
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_academic_promotion_promotions
+#: model:ir.ui.menu,name:academic.menu_promotions
+msgid "Promotions"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_kanban
+msgid "Proyectos específicos"
+msgstr ""
+
+#. module: academic
+#: model:survey.survey,title:academic.survey_survey_5
+msgid "Prueba de Comprensión lectora  2° / 3° Año – 2014"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_kanban
+msgid "Puntaje"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_evaluation_report_question_id
+#: model:ir.ui.view,arch_db:academic.view_evaluation_response_search
+msgid "Question"
+msgstr ""
+
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_evaluation_response_report_all
+#: model:ir.ui.menu,name:academic.menu_academic_question_analysis
+#: model:ir.ui.menu,name:academic.menu_portal_report_evaluation_response
+#: model:ir.ui.menu,name:academic.menu_report_evaluation_response
+msgid "Question Analysis"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.menu,name:academic.menu_survey_question_content
+msgid "Question Content"
+msgstr ""
+
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_question_indicator
+#: model:ir.model,name:academic.model_survey_question_indicator
+msgid "Question Indicator"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.menu,name:academic.menu_survey_question_level
+msgid "Question Level"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.menu,name:academic.menu_survey_question_objective
+msgid "Question Objective"
+msgstr ""
+
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_question_performance
+#: model:ir.model,name:academic.model_survey_question_performance
+msgid "Question Performance"
+msgstr ""
+
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_question_variable
+#: model:ir.model,name:academic.model_survey_question_variable
+msgid "Question Variable"
+msgstr ""
+
+#. module: academic
+#: model:ir.model,name:academic.model_academic_evaluation_report
+msgid "Question_Analysis"
+msgstr ""
+
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_survey_question_form
+#: model:ir.model.fields,field_description:academic.field_survey_question_indicator_question_ids
+#: model:ir.ui.menu,name:academic.menu_survey_question_form1
+msgid "Questions"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.evaluation_survey_form
+msgid "Re-Compute Scores"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.view_academic_group_evaluation_form
+#: model:ir.ui.view,arch_db:academic.view_academic_group_evaluation_tree
+msgid "Re-Open"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.menu,name:academic.menu_portal_reporting
+msgid "Reporting"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.view_evaluation_analysis_pivot
+#: model:ir.ui.view,arch_db:academic.view_evaluation_analysis_search
+#: model:ir.ui.view,arch_db:academic.view_evaluation_analysis_tree
+#: model:ir.ui.view,arch_db:academic.view_evaluation_response_pivot
+#: model:ir.ui.view,arch_db:academic.view_evaluation_response_search
+#: model:ir.ui.view,arch_db:academic.view_evaluation_response_tree
+msgid "Response Analysis"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.menu,name:academic.menu_evaluations_survey_answers
+msgid "Respuestas de Evaluaciones"
+msgstr ""
+
+#. module: academic
+#: model:ir.model,name:academic.model_survey_user_input_question_score
+msgid "Score of a User Input by Question"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_level_section_id
+#: model:ir.model.fields,field_description:academic.field_res_partner_section_id
+#: model:ir.model.fields,field_description:academic.field_res_users_section_id
+#: model:ir.ui.view,arch_db:academic.view_academic_level_filter
+msgid "Section"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.view_academic_partner_form
+msgid "Section..."
+msgstr ""
+
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_academic_section_sections
+#: model:ir.ui.menu,name:academic.menu_sections
+msgid "Sections"
+msgstr ""
+
+#. module: academic
+#: model:academic.level,name:academic.academic_course_2
+msgid "Segundo Grado"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.evaluation_survey_form
+#: model:ir.ui.view,arch_db:academic.view_academic_group_evaluation_form
+#: model:ir.ui.view,arch_db:academic.view_academic_group_evaluation_tree
+msgid "Set Invisible"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.evaluation_survey_form
+#: model:ir.ui.view,arch_db:academic.view_academic_group_evaluation_form
+#: model:ir.ui.view,arch_db:academic.view_academic_group_evaluation_tree
+msgid "Set Visible"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_res_partner_sex
+#: model:ir.model.fields,field_description:academic.field_res_users_sex
+msgid "Sex"
+msgstr ""
+
+#. module: academic
+#: code:addons/academic/models/academic_group_evaluation.py:94
+#, python-format
+msgid ""
+"Solo pueden borrarse evaluaciones en estado invisible."
+"                        ATENCION: esa borrarÃ¡ los registros "
+"correspondientes a                        la evaluaciÃ³n del grupo, en caso "
+"de que haya                        respuestas registradas"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_evaluation_analysis_survey_stage_id
+#: model:ir.model.fields,field_description:academic.field_academic_evaluation_report_survey_stage_id
+msgid "Stage"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_group_evaluation_state
+#: model:ir.ui.view,arch_db:academic.view_academic_group_evaluation_filter
+msgid "State"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_evaluation_analysis_input_state
+#: model:ir.model.fields,field_description:academic.field_academic_evaluation_report_input_state
+msgid "Status"
+msgstr ""
+
+#. module: academic
+#: selection:academic.group,type:0
+#: model:ir.model.fields,field_description:academic.field_academic_group_student_ids
+#: model:ir.ui.view,arch_db:academic.view_academic_group_filter
+#: selection:res.partner,partner_type:0 selection:survey.survey,answered_by:0
+#: selection:survey.survey,apply_to:0 selection:survey.survey,checked_by:0
+msgid "Student"
+msgstr ""
+
+#. module: academic
+#: selection:survey.survey,evaluation_subtype:0
+msgid "Student Evaluation"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_student_perfomance
+msgid "Student Performance"
+msgstr ""
+
+#. module: academic
+#: model:res.groups,name:academic.group_portal_student
+msgid "Student's Portal"
+msgstr ""
+
+#. module: academic
+#: model:res.groups,comment:academic.group_portal_student
+msgid ""
+"Student's Portal members have specific access rights (such as record rules and restricted menus).\n"
+"                They usually do not belong to the usual odoo groups."
+msgstr ""
+
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_academic_company_partner_students
+#: model:ir.actions.act_window,name:academic.action_academic_partner_students
+#: model:ir.ui.menu,name:academic.menu_portal_students
+#: model:ir.ui.menu,name:academic.menu_students
+#: model:ir.ui.view,arch_db:academic.view_academic_group_form
+#: model:ir.ui.view,arch_db:academic.view_company_form
+msgid "Students"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_group_subject_id
+#: model:ir.model.fields,field_description:academic.field_survey_survey_subject_id
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_form
+#: model:ir.ui.view,arch_db:academic.view_academic_group_filter
+msgid "Subject"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_hour_lang_sub_id
+msgid "Subject subi_avg_hour_lang_value"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_hour_math_sub_id
+msgid "Subject subi_avg_hour_math_value"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_parent_att_sub_id
+msgid "Subject subi_avg_parent_att_value"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_relevant_training_lang_sub_id
+msgid "Subject subi_avg_relevant_training_lang_value"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_relevant_training_math_sub_id
+msgid "Subject subi_avg_relevant_training_math_value"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_spec_proj_lang_sub_id
+msgid "Subject subi_avg_spec_proj_lang_value"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_spec_proj_math_sub_id
+msgid "Subject subi_avg_spec_proj_math_value"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_teacher_interview_lang_sub_id
+msgid "Subject subi_avg_teacher_interview_lang_value"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_teacher_interview_math_sub_id
+msgid "Subject subi_avg_teacher_interview_math_value"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_topics_lang_sub_id
+msgid "Subject subi_avg_topics_lang_value"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_topics_math_sub_id
+msgid "Subject subi_avg_topics_math_value"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_external_lang_sub_id
+msgid "Subject subi_external_lang_value"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_external_math_sub_id
+msgid "Subject subi_external_math_value"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_internal_lang_sub_id
+msgid "Subject subi_internal_lang_value"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_internal_math_sub_id
+msgid "Subject subi_internal_math_value"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_timextopic_lang_sub_id
+msgid "Subject subi_timextopic_lang_value"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_timextopic_math_sub_id
+msgid "Subject subi_timextopic_math_value"
+msgstr ""
+
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_academic_subject_subjects
+#: model:ir.model.fields,field_description:academic.field_survey_survey_subject_ids
+#: model:ir.ui.menu,name:academic.menu_subjects
+msgid "Subjects"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_survey_survey_evaluation_subtype
+msgid "Subtype"
+msgstr ""
+
+#. module: academic
+#: model:ir.model,name:academic.model_survey_survey
+#: model:ir.model.fields,field_description:academic.field_academic_evaluation_analysis_survey_id
+#: model:ir.model.fields,field_description:academic.field_academic_evaluation_report_survey_id
+msgid "Survey"
+msgstr ""
+
+#. module: academic
+#: model:ir.model,name:academic.model_survey_label
+msgid "Survey Label"
+msgstr ""
+
+#. module: academic
+#: model:ir.model,name:academic.model_survey_question
+msgid "Survey Question"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.survey_question_indicator_form
+#: model:ir.ui.view,arch_db:academic.survey_question_indicator_tree
+msgid "Survey Question Indicator"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.survey_question_performance_form
+#: model:ir.ui.view,arch_db:academic.survey_question_performance_tree
+msgid "Survey Question Performance"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.survey_question_variable_form
+#: model:ir.ui.view,arch_db:academic.survey_question_variable_tree
+msgid "Survey Question Variable"
+msgstr ""
+
+#. module: academic
+#: model:ir.model,name:academic.model_survey_user_input
+msgid "Survey User Input"
+msgstr ""
+
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_survey_user_input_line
+msgid "Survey User Input lines"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_level_survey_ids
+#: model:ir.model.fields,field_description:academic.field_academic_subject_survey_ids
+msgid "Surveys"
+msgstr ""
+
+#. module: academic
+#: code:addons/academic/wizards/division_analysis_wizard.py:65
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_wizard_division_analysis_id
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_wizard_view
+#, python-format
+msgid "Tablero"
+msgstr ""
+
+#. module: academic
+#: selection:academic.group,type:0
+#: model:ir.model.fields,field_description:academic.field_academic_group_teacher_id
+#: model:ir.ui.view,arch_db:academic.view_academic_group_filter
+#: selection:res.partner,partner_type:0 selection:survey.survey,answered_by:0
+#: selection:survey.survey,apply_to:0 selection:survey.survey,checked_by:0
+msgid "Teacher"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_teacher_perfomance
+msgid "Teacher Performance"
+msgstr ""
+
+#. module: academic
+#: model:res.groups,name:academic.group_portal_teacher
+msgid "Teacher's Portal"
+msgstr ""
+
+#. module: academic
+#: model:res.groups,comment:academic.group_portal_teacher
+msgid ""
+"Teacher's Portal members have specific access rights (such as record rules and restricted menus).\n"
+"                They usually do not belong to the usual odoo groups."
+msgstr ""
+
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_academic_company_partner_teachers
+#: model:ir.actions.act_window,name:academic.action_academic_partner_teachers
+#: model:ir.ui.menu,name:academic.menu_portal_teachers
+#: model:ir.ui.menu,name:academic.menu_teachers
+#: model:ir.ui.view,arch_db:academic.view_company_form
+msgid "Teachers"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_kanban
+msgid "Temas efectivamente dados"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_res_partner_template_user_id
+#: model:ir.model.fields,field_description:academic.field_res_users_template_user_id
+msgid "Template User"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_wizard_view
+msgid ""
+"Tenga en cuenta que en caso de no aplicar ningún filtro, se mostrará toda la"
+" información agrupada."
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.survey_kanban
+msgid "Test"
+msgstr ""
+
+#. module: academic
+#: sql_constraint:academic.group_evaluation:0
+msgid "There can not be two groups for the same evaluation."
+msgstr ""
+
+#. module: academic
+#: code:addons/academic/models/academic_group_evaluation.py:175
+#: code:addons/academic/models/academic_group_evaluation.py:185
+#, python-format
+msgid "There is no administrator set up for %s"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_kanban
+msgid "Tiempo asignado a temas pedagógicos u organizativos"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_group_evaluation_time_used
+msgid "Time Used"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_group_type
+msgid "Type"
+msgstr ""
+
+#. module: academic
+#: model:res.groups,name:academic.group_user
+msgid "User"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.menu,name:academic.menu_survey_response_line_form
+msgid "User Input Lines"
+msgstr ""
+
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_academic_observation_category_user_input_observations
+#: model:ir.ui.menu,name:academic.menu_user_input_observations
+msgid "User Input Observations"
+msgstr ""
+
+#. module: academic
+#: model:ir.model,name:academic.model_res_users
+msgid "Users"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_group_evaluation_user_input_ids
+msgid "Users Inputs"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.login
+msgid "Usuario"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_survey_question_indicator_variable_id
+msgid "Variable"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_kanban
+msgid "Variable Seleccionada"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_survey_question_performance_variable_ids
+#: model:ir.ui.menu,name:academic.menu_academic_question_variable
+msgid "Variables"
+msgstr ""
+
+#. module: academic
+#: selection:academic.evaluation.analysis,group_evaluation_state:0
+#: selection:academic.evaluation.report,group_evaluation_state:0
+#: selection:academic.group_evaluation,state:0
+msgid "Visible"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_form
+msgid "Weight"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_group_year
+#: model:ir.model.fields,field_description:academic.field_academic_period_year
+#: model:ir.model.fields,field_description:academic.field_survey_survey_group_year
+#: model:ir.ui.view,arch_db:academic.view_academic_group_filter
+#: model:ir.ui.view,arch_db:academic.view_academic_period_filter
+msgid "Year"
+msgstr ""
+
+#. module: academic
+#: code:addons/academic/models/academic_group.py:105
+#, python-format
+msgid "Year: "
+msgstr ""
+
+#. module: academic
+#: model:ir.actions.act_window,help:academic.action_academic_survey_evaluations
+msgid "You can create evaluations for different purposes."
+msgstr ""
+
+#. module: academic
+#: code:addons/academic/models/academic_group_evaluation.py:113
+#, python-format
+msgid ""
+"You can not close a Group Evaluation with user inputs not done. First you "
+"should close each user input."
+msgstr ""
+
+#. module: academic
+#: code:addons/academic/models/user_input.py:52
+#, python-format
+msgid "You can not force closure if you not set an observation category."
+msgstr ""
+
+#. module: academic
+#: model:ir.model,name:academic.model_academic_division_analysis
+msgid "academic.division_analysis"
+msgstr ""
+
+#. module: academic
+#: model:ir.model,name:academic.model_academic_division
+#: model:ir.ui.view,arch_db:academic.view_academic_division_filter
+#: model:ir.ui.view,arch_db:academic.view_academic_division_form
+#: model:ir.ui.view,arch_db:academic.view_academic_division_tree
+msgid "division"
+msgstr ""
+
+#. module: academic
+#: selection:academic.group,type:0 selection:res.partner,partner_type:0
+msgid "gral_administrator"
+msgstr ""
+
+#. module: academic
+#: model:ir.model,name:academic.model_academic_group
+#: model:ir.ui.view,arch_db:academic.view_academic_group_filter
+#: model:ir.ui.view,arch_db:academic.view_academic_group_form
+#: model:ir.ui.view,arch_db:academic.view_academic_group_tree
+msgid "group"
+msgstr ""
+
+#. module: academic
+#: model:ir.model,name:academic.model_academic_group_evaluation
+#: model:ir.ui.view,arch_db:academic.view_academic_group_evaluation_filter
+#: model:ir.ui.view,arch_db:academic.view_academic_group_evaluation_form
+#: model:ir.ui.view,arch_db:academic.view_academic_group_evaluation_tree
+msgid "group_evaluation"
+msgstr ""
+
+#. module: academic
+#: model:ir.model,name:academic.model_academic_level
+#: model:ir.ui.view,arch_db:academic.view_academic_level_filter
+#: model:ir.ui.view,arch_db:academic.view_academic_level_form
+#: model:ir.ui.view,arch_db:academic.view_academic_level_tree
+msgid "level"
+msgstr ""
+
+#. module: academic
+#: model:ir.model,name:academic.model_academic_observation_category
+#: model:ir.ui.view,arch_db:academic.view_academic_observation_category_filter
+#: model:ir.ui.view,arch_db:academic.view_academic_observation_category_form
+#: model:ir.ui.view,arch_db:academic.view_academic_observation_category_tree
+msgid "observation_category"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.academic_division_analysis_wizard_view
+msgid "or"
+msgstr ""
+
+#. module: academic
+#: model:ir.model,name:academic.model_academic_period
+#: model:ir.ui.view,arch_db:academic.view_academic_period_filter
+#: model:ir.ui.view,arch_db:academic.view_academic_period_form
+#: model:ir.ui.view,arch_db:academic.view_academic_period_tree
+msgid "period"
+msgstr ""
+
+#. module: academic
+#: model:ir.model,name:academic.model_academic_promotion
+#: model:ir.ui.view,arch_db:academic.view_academic_promotion_filter
+#: model:ir.ui.view,arch_db:academic.view_academic_promotion_form
+#: model:ir.ui.view,arch_db:academic.view_academic_promotion_tree
+msgid "promotion"
+msgstr ""
+
+#. module: academic
+#: model:ir.model,name:academic.model_academic_section
+#: model:ir.ui.view,arch_db:academic.view_academic_section_filter
+#: model:ir.ui.view,arch_db:academic.view_academic_section_form
+#: model:ir.ui.view,arch_db:academic.view_academic_section_tree
+msgid "section"
+msgstr ""
+
+#. module: academic
+#: model:ir.model,name:academic.model_academic_subject
+#: model:ir.ui.view,arch_db:academic.view_academic_subject_filter
+#: model:ir.ui.view,arch_db:academic.view_academic_subject_form
+#: model:ir.ui.view,arch_db:academic.view_academic_subject_tree
+msgid "subject"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.view,arch_db:academic.view_academic_user_input_tree
+msgid "user_input"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_hour_lang_weight
+msgid "weight subi_avg_hour_lang_value"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_hour_math_weight
+msgid "weight subi_avg_hour_math_value"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_parent_att_weight
+msgid "weight subi_avg_parent_att_value"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_relevant_training_lang_weight
+msgid "weight subi_avg_relevant_training_lang_value"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_relevant_training_math_weight
+msgid "weight subi_avg_relevant_training_math_value"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_spec_proj_lang_weight
+msgid "weight subi_avg_spec_proj_lang_value"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_spec_proj_math_weight
+msgid "weight subi_avg_spec_proj_math_value"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_teacher_interview_lang_weight
+msgid "weight subi_avg_teacher_interview_lang_value"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_teacher_interview_math_weight
+msgid "weight subi_avg_teacher_interview_math_value"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_topics_lang_weight
+msgid "weight subi_avg_topics_lang_value"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_topics_math_weight
+msgid "weight subi_avg_topics_math_value"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_external_lang_weight
+msgid "weight subi_external_lang_value"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_external_math_weight
+msgid "weight subi_external_math_value"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_internal_lang_weight
+msgid "weight subi_internal_lang_value"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_internal_math_weight
+msgid "weight subi_internal_math_value"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_timextopic_lang_weight
+msgid "weight subi_timextopic_lang_value"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_timextopic_math_weight
+msgid "weight subi_timextopic_math_value"
+msgstr ""
