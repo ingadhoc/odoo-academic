@@ -34,6 +34,7 @@
         'security/security.xml',
         'view/academic_menuitem.xml',
         'view/res_company.xml',
+        'view/res_users_view.xml',
     ],
     'depends': [
         'base',
@@ -53,6 +54,6 @@
     'installable': True,
     'license': 'AGPL-3',
     'name': 'Academic',
-    'version': '9.0.1.1.0',
+    'version': '9.0.1.2.0',
     'website': 'www.adhoc.com.ar'
 }
