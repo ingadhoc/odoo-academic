@@ -19,7 +19,7 @@
 ##############################################################################
 {
     'name': 'Academic',
-    'version': '11.0.1.3.0',
+    'version': '11.0.1.4.0',
     'sequence': 14,
     'summary': '',
     'author': 'ADHOC SA',
@@ -51,6 +51,7 @@
         'views/academic_section_views.xml',
         'views/academic_subject_views.xml',
         'views/res_company_views.xml',
+        'views/res_users_views.xml',
         'views/survey_question_views.xml',
         'views/survey_question_indicator_views.xml',
         'views/survey_question_variable_views.xml',
