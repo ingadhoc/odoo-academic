@@ -19,7 +19,7 @@
 ##############################################################################
 {
     'name': 'Academic',
-    'version': '11.0.1.4.0',
+    'version': '11.0.1.5.0',
     'sequence': 14,
     'summary': '',
     'author': 'ADHOC SA',
@@ -91,4 +91,5 @@
     'installable': True,
     'auto_install': False,
     'application': False,
+    # 'post_load': 'post_load_hook',
 }
