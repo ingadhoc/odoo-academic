@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-25 15:49+0000\n"
+"POT-Creation-Date: 2019-02-28 10:17+0000\n"
 "PO-Revision-Date: 2019-01-19 12:45+0000\n"
 "Last-Translator: Katherine Zaoral <katherine.zaoral@gmail.com>, 2019\n"
 "Language-Team: Spanish (https://www.transifex.com/adhoc/teams/46451/es/)\n"
@@ -595,7 +595,7 @@ msgstr ""
 #. module: academic
 #: model:academic.observation_category,name:academic.user_input_obs_1
 msgid "Absent"
-msgstr ""
+msgstr "Ausente"
 
 #. module: academic
 #: model:ir.module.category,description:academic.module_category_academic
@@ -610,12 +610,12 @@ msgstr "Académico"
 #. module: academic
 #: model:ir.actions.act_window,name:academic.action_academic_division_analysis_wizard
 msgid "Academic Division Analysis Wizard"
-msgstr ""
+msgstr "Menu de filtros: Análisis de divisiones académicas"
 
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.evaluation_survey_form
 msgid "Add Related Groups"
-msgstr ""
+msgstr "Agregar Grupos Relacionados"
 
 #. module: academic
 #: selection:academic.group,type:0 selection:res.partner,partner_type:0
@@ -627,12 +627,12 @@ msgstr "Director"
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_administrator_perfomance
 msgid "Administrator Performance"
-msgstr ""
+msgstr "Desempeño del administrador"
 
 #. module: academic
 #: model:res.groups,name:academic.group_portal_administrator
 msgid "Administrator's Portal"
-msgstr ""
+msgstr "Portal del Director"
 
 #. module: academic
 #: model:res.groups,comment:academic.group_portal_administrator
@@ -640,6 +640,8 @@ msgid ""
 "Administrator's Portal members have specific access rights (such as record rules and restricted menus).\n"
 "                They usually do not belong to the usual odoo groups."
 msgstr ""
+"Los miembros del Portal del Director tienen permisos de acceso específicos (como reglas de registro y menús restringidos). \n"
+"                    Por lo general, no pertenecen a los grupos de Odoo habituales."
 
 #. module: academic
 #: model:ir.actions.act_window,name:academic.action_academic_company_partner_administrators
@@ -663,7 +665,7 @@ msgstr "Agenda del director"
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.view_academic_user_input_tree
 msgid "Answer Survey"
-msgstr ""
+msgstr "Responder encuesta"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_survey_survey_answered_by
@@ -671,7 +673,7 @@ msgstr ""
 #: model:ir.ui.view,arch_db:academic.view_academic_user_input_form
 #: model:ir.ui.view,arch_db:academic.view_academic_user_input_tree
 msgid "Answered By"
-msgstr ""
+msgstr "Respondida por"
 
 #. module: academic
 #: model:survey.question.objective,name:academic.survey_question_objective_1
@@ -693,7 +695,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic.field_survey_survey_apply_to
 #: model:ir.model.fields,field_description:academic.field_survey_user_input_apply_to_id
 msgid "Apply To"
-msgstr ""
+msgstr "Aplicado a"
 
 #. module: academic
 #: code:addons/academic/models/survey_survey.py:120
@@ -702,12 +704,14 @@ msgid ""
 "Automatically Add Groups Error!\n"
 "To automatically add Groups you should set level, subject and year!"
 msgstr ""
+"Error al agregar automáticamente a grupos! ¡Para agregar grupos "
+"automáticamente debes establecer el nivel, el tema y el año!"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_evaluation_analysis_avg_score
 #: model:ir.model.fields,field_description:academic.field_academic_evaluation_report_input_avg_score
 msgid "Avg Score"
-msgstr ""
+msgstr "Score Promedio"
 
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.view_academic_division_filter
@@ -720,7 +724,7 @@ msgstr ""
 #: model:ir.ui.view,arch_db:academic.view_academic_section_filter
 #: model:ir.ui.view,arch_db:academic.view_academic_subject_filter
 msgid "By Attribute"
-msgstr ""
+msgstr "Por atributo"
 
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.view_academic_division_filter
@@ -731,17 +735,17 @@ msgstr ""
 #: model:ir.ui.view,arch_db:academic.view_academic_promotion_filter
 #: model:ir.ui.view,arch_db:academic.view_academic_subject_filter
 msgid "By object"
-msgstr ""
+msgstr "Por Objeto"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_survey_question_indicator_calc_type
 msgid "Calculation Type"
-msgstr ""
+msgstr "Tipo de calculo"
 
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.academic_division_analysis_wizard_view
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.academic_division_analysis_kanban
@@ -751,19 +755,19 @@ msgstr "Capacitación pertinente"
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_survey_survey_checked_by
 msgid "Checked By"
-msgstr ""
+msgstr "Controlado por"
 
 #. module: academic
 #: model:ir.actions.act_window,help:academic.action_academic_survey_evaluations
 msgid "Click to add a evaluation."
-msgstr ""
+msgstr "Haga clic para agregar una evaluación."
 
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.evaluation_survey_form
 #: model:ir.ui.view,arch_db:academic.view_academic_group_evaluation_form
 #: model:ir.ui.view,arch_db:academic.view_academic_group_evaluation_tree
 msgid "Close"
-msgstr ""
+msgstr "Cerrar"
 
 #. module: academic
 #: selection:academic.evaluation.analysis,group_evaluation_state:0
@@ -772,7 +776,7 @@ msgstr ""
 #: model:ir.ui.view,arch_db:academic.view_evaluation_analysis_search
 #: model:ir.ui.view,arch_db:academic.view_evaluation_response_search
 msgid "Closed"
-msgstr ""
+msgstr "Cerrado"
 
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.academic_division_analysis_kanban
@@ -812,12 +816,12 @@ msgstr "Configuración"
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.academic_division_analysis_wizard_view
 msgid "Confirm"
-msgstr ""
+msgstr "Confirmar"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_consider_disabled_person
 msgid "Consider Disabled Person"
-msgstr ""
+msgstr "Considerar Alumno con Dificultades de aprendizaje"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_wizard_consider_disabled_person
@@ -827,18 +831,18 @@ msgstr "Considerar Personas con Discapacidad?"
 #. module: academic
 #: model:ir.model,name:academic.model_res_partner
 msgid "Contact"
-msgstr ""
+msgstr "Contacto"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_evaluation_report_content_id
 #: model:ir.ui.view,arch_db:academic.view_evaluation_response_search
 msgid "Content"
-msgstr ""
+msgstr "Contenido"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_group_evaluation_contingencies
 msgid "Contingencies?"
-msgstr ""
+msgstr "Contingencias/Imprevistos?"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_evaluation_analysis_course_level_id
@@ -846,7 +850,7 @@ msgstr ""
 #: model:ir.ui.view,arch_db:academic.view_evaluation_analysis_search
 #: model:ir.ui.view,arch_db:academic.view_evaluation_response_search
 msgid "Course Level"
-msgstr ""
+msgstr "Nivel del Curso"
 
 #. module: academic
 #: model:ir.actions.act_window,help:academic.action_res_company_form
@@ -873,7 +877,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic.field_survey_question_performance_create_uid
 #: model:ir.model.fields,field_description:academic.field_survey_question_variable_create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creado por"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_create_date
@@ -891,7 +895,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic.field_survey_question_performance_create_date
 #: model:ir.model.fields,field_description:academic.field_survey_question_variable_create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creado en"
 
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.academic_division_analysis_kanban
@@ -906,12 +910,12 @@ msgstr "Datos"
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_group_evaluation_date_close
 msgid "Date Close"
-msgstr ""
+msgstr "Fecha Cierre"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_group_evaluation_date_open
 msgid "Date Open"
-msgstr ""
+msgstr "Fecha Apertura"
 
 #. module: academic
 #: model:survey.question.objective,name:academic.survey_question_objective_2
@@ -937,7 +941,7 @@ msgstr "Desempeño docente (DD)"
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.survey_kanban
 msgid "Design"
-msgstr ""
+msgstr "Diseño"
 
 #. module: academic
 #: model:ir.actions.act_window,help:academic.action_academic_survey_evaluations
@@ -945,6 +949,8 @@ msgid ""
 "Design easily your evaluation, send invitations to answer by email and "
 "analyse answers."
 msgstr ""
+"Diseñe fácilmente su evaluación, envíe invitaciones para responder por "
+"correo electrónico y analice las respuestas."
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_evaluation_analysis_disabled_person
@@ -952,7 +958,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic.field_res_partner_disabled_person
 #: model:ir.model.fields,field_description:academic.field_res_users_disabled_person
 msgid "Disabled Person?"
-msgstr ""
+msgstr "¿Alumno con Dificultades de aprendizaje?"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_display_name
@@ -972,7 +978,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic.field_survey_question_performance_display_name
 #: model:ir.model.fields,field_description:academic.field_survey_question_variable_display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nombre para mostrar"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_name
@@ -986,23 +992,23 @@ msgstr "División"
 #: model:ir.ui.view,arch_db:academic.academic_division_analysis_tree
 #: model:ir.ui.view,arch_db:academic.academic_division_analysis_wizard_view
 msgid "Division Analysis"
-msgstr ""
+msgstr "Análisis de Divisiones"
 
 #. module: academic
 #: model:ir.actions.act_window,name:academic.action_academic_division_analysis_conf
 msgid "Division Analysis Configuration"
-msgstr ""
+msgstr "Configuración de Análisis de Divisiones"
 
 #. module: academic
 #: model:ir.model,name:academic.model_academic_division_analysis_wizard
 msgid "Division Analysis Wizard"
-msgstr ""
+msgstr "Wizard de Análisis de Divisiones"
 
 #. module: academic
 #: model:ir.actions.act_window,name:academic.action_academic_division_divisions
 #: model:ir.ui.menu,name:academic.menu_divisions
 msgid "Divisions"
-msgstr ""
+msgstr "Divisiones"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_evaluation_analysis_dont_consider
@@ -1010,7 +1016,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic.field_academic_observation_category_dont_consider
 #: model:ir.ui.view,arch_db:academic.view_academic_observation_category_filter
 msgid "Don not Consider?"
-msgstr ""
+msgstr "No considerar?"
 
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.academic_division_analysis_kanban
@@ -1044,7 +1050,7 @@ msgstr "Evaluación de rendimiento de alumnos en Lengua y Matemática"
 #: model:ir.ui.view,arch_db:academic.view_evaluation_analysis_search
 #: model:ir.ui.view,arch_db:academic.view_evaluation_response_search
 msgid "Evaluation"
-msgstr ""
+msgstr "Evaluación"
 
 #. module: academic
 #: model:ir.actions.act_window,name:academic.action_evaluation_analysis_report_all
@@ -1052,7 +1058,7 @@ msgstr ""
 #: model:ir.ui.menu,name:academic.menu_portal_report_evaluation_analysis
 #: model:ir.ui.menu,name:academic.menu_report_evaluation_analysis
 msgid "Evaluation Analysis"
-msgstr ""
+msgstr "Análisis de Evaluaciones"
 
 #. module: academic
 #: model:ir.actions.act_window,name:academic.action_academic_survey_evaluations
@@ -1063,18 +1069,18 @@ msgstr ""
 #: model:ir.ui.menu,name:academic.menu_evaluations_main
 #: model:ir.ui.view,arch_db:academic.view_academic_group_form
 msgid "Evaluations"
-msgstr ""
+msgstr "Evaluaciones"
 
 #. module: academic
 #: model:ir.actions.act_window,name:academic.action_academic_evaluation_survey_answers
 msgid "Evaluations Answers"
-msgstr ""
+msgstr "Respuestas de Evaluaciones"
 
 #. module: academic
 #: model:ir.actions.act_window,name:academic.action_academic_user_input_my_evaluations
 #: model:ir.ui.menu,name:academic.menu_my_evaluations
 msgid "Evaluations To Do"
-msgstr ""
+msgstr "A realizar"
 
 #. module: academic
 #: model:survey.survey,title:academic.survey_survey_7
@@ -1089,18 +1095,18 @@ msgstr "Excluir Personas con Discapacidad"
 #. module: academic
 #: selection:res.partner,sex:0
 msgid "Female"
-msgstr ""
+msgstr "Femenino"
 
 #. module: academic
 #: selection:academic.evaluation.analysis,input_state:0
 #: selection:academic.evaluation.report,input_state:0
 msgid "Finished "
-msgstr ""
+msgstr "Terminado"
 
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.view_academic_user_input_form
 msgid "Force Closure"
-msgstr ""
+msgstr "Forzar Cierre"
 
 #. module: academic
 #: model:res.groups,comment:academic.group_portal_gral_administrator
@@ -1108,6 +1114,8 @@ msgid ""
 "General Administrator's Portal members have specific access rights (such as record rules and restricted menus).\n"
 "                They usually do not belong to the usual odoo groups."
 msgstr ""
+"Los miembros del Portal de Directores Generales tienen permisos de acceso específicos (como reglas de registro y menús restringidos). \n"
+"                   Por lo general, no pertenecen a los grupos de Odoo habituales."
 
 #. module: academic
 #: model:ir.ui.menu,name:academic.menu_general_data
@@ -1117,7 +1125,7 @@ msgstr "Datos Generales"
 #. module: academic
 #: model:res.groups,name:academic.group_portal_gral_administrator
 msgid "Gral Administrator's Portal"
-msgstr ""
+msgstr "Portal de Directores Generales"
 
 #. module: academic
 #: model:ir.actions.act_window,name:academic.action_academic_partner_gral_administrators
@@ -1134,50 +1142,51 @@ msgstr "Directores Generales"
 #: model:ir.ui.view,arch_db:academic.view_evaluation_analysis_search
 #: model:ir.ui.view,arch_db:academic.view_evaluation_response_search
 msgid "Group"
-msgstr ""
+msgstr "Grupo"
 
 #. module: academic
 #: selection:survey.question.indicator,calc_type:0
 msgid "Group Average"
-msgstr ""
+msgstr "Grupo promedio"
 
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.view_evaluation_analysis_search
 #: model:ir.ui.view,arch_db:academic.view_evaluation_response_search
 msgid "Group By..."
-msgstr ""
+msgstr "Agrupar por..."
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_evaluation_analysis_group_evaluation_state
 #: model:ir.model.fields,field_description:academic.field_academic_evaluation_report_group_evaluation_state
 msgid "Group Ev. Status"
-msgstr ""
+msgstr "Estado de Ev. Grupo"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_survey_user_input_group_evaluation_id
 msgid "Group Evaluation"
-msgstr ""
+msgstr "Evaluación de Grupos"
 
 #. module: academic
 #: model:ir.actions.report,name:academic.group_ev_report_users
 msgid "Group Evaluation Users"
-msgstr ""
+msgstr "Usuarios Evaluaciones de Grupos"
 
 #. module: academic
 #: selection:survey.question.indicator,calc_type:0
 msgid "Group Max Value"
-msgstr ""
+msgstr "Valor máximo del grupo"
 
 #. module: academic
 #: model:ir.actions.report,name:academic.report_users
 msgid "Group Users"
-msgstr ""
+msgstr "Usuarios de Grupos"
 
 #. module: academic
 #: sql_constraint:academic.group:0
 msgid ""
 "Group should be unique per Institution, Subject, Course-Division and Year"
 msgstr ""
+"Los grupos deberán ser únicos por Institución, Materia, Curso-División y Año"
 
 #. module: academic
 #: model:ir.actions.act_window,name:academic.action_academic_company_group_groups
@@ -1204,12 +1213,12 @@ msgstr "Grupos"
 #: model:ir.actions.act_window,name:academic.action_academic_group_evaluation_groups_evaluations
 #: model:ir.ui.menu,name:academic.menu_groups_evaluations
 msgid "Groups Evaluations"
-msgstr ""
+msgstr "Evaluación de Grupos"
 
 #. module: academic
 #: model:academic.observation_category,name:academic.user_input_obs_2
 msgid "Has to leave"
-msgstr ""
+msgstr "Tiene que irse"
 
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.academic_division_analysis_kanban
@@ -1219,7 +1228,7 @@ msgstr "Horas de clase efectivamente dadas"
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.academic_division_analysis_kanban
 msgid "IAD"
-msgstr ""
+msgstr "IAD"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_id
@@ -1239,17 +1248,17 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic.field_survey_question_performance_id
 #: model:ir.model.fields,field_description:academic.field_survey_question_variable_id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.academic_division_analysis_kanban
 msgid "IDA"
-msgstr ""
+msgstr "IDA"
 
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.academic_division_analysis_kanban
 msgid "IDD"
-msgstr ""
+msgstr "IDD"
 
 #. module: academic
 #: model:survey.question,comments_message:academic.survey_question_14
@@ -1280,12 +1289,12 @@ msgstr ""
 #: model:survey.question,comments_message:academic.survey_question_39
 #: model:survey.question,comments_message:academic.survey_question_40
 msgid "If other, please specify:"
-msgstr ""
+msgstr "En otro caso, por favor especifique:"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_include_diagnosis_eval
 msgid "Include Diagnosis Evaluations"
-msgstr ""
+msgstr "Incluir evaluaciones de diagnóstico"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_wizard_include_diagnosis_eval
@@ -1324,115 +1333,115 @@ msgstr "Indicadores"
 #: model:ir.model.fields,field_description:academic.field_survey_question_indicator_id
 #: model:ir.ui.view,arch_db:academic.academic_division_analysis_form
 msgid "Indicator"
-msgstr ""
+msgstr "Indicador"
 
 #. module: academic
 #: model:ir.ui.menu,name:academic.menu_academic_division_analysis_wizard
 #: model:ir.ui.menu,name:academic.menu_portal_division_analysis_wizard
 msgid "Indicator Analysis"
-msgstr ""
+msgstr "Análisis de Tableros"
 
 #. module: academic
 #: model:ir.ui.menu,name:academic.menu_academic_division_analysis_conf
 msgid "Indicator Analysis Configuration"
-msgstr ""
+msgstr "Configuración de Análisis de Tableros"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_survey_user_input_question_score_indicator_rel_score
 msgid "Indicator Relative Score"
-msgstr ""
+msgstr "Puntaje Relativo del Indicador"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_survey_question_max_indicator_rel_score
 msgid "Indicator Score"
-msgstr ""
+msgstr "Puntaje del Indicador"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_hour_lang_ind_id
 msgid "Indicator subi_avg_hour_lang_value"
-msgstr ""
+msgstr "Indicador subi_avg_hour_lang_value"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_hour_math_ind_id
 msgid "Indicator subi_avg_hour_math_value"
-msgstr ""
+msgstr "Indicador subi_avg_hour_math_value"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_external_lang_ind_id
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_internal_lang_ind_id
 msgid "Indicator subi_avg_note_lang_value"
-msgstr ""
+msgstr "Indicador subi_avg_note_lang_value"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_relevant_training_lang_ind_id
 msgid "Indicator subi_avg_relevant_training_lang_value"
-msgstr ""
+msgstr "Indicador subi_avg_relevant_training_lang_value"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_relevant_training_math_ind_id
 msgid "Indicator subi_avg_relevant_training_math_value"
-msgstr ""
+msgstr "Indicador subi_avg_relevant_training_math_value"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_spec_proj_lang_ind_id
 msgid "Indicator subi_avg_spec_proj_lang_value"
-msgstr ""
+msgstr "Indicador subi_avg_spec_proj_lang_value"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_spec_proj_math_ind_id
 msgid "Indicator subi_avg_spec_proj_math_value"
-msgstr ""
+msgstr "Indicador subi_avg_spec_proj_math_value"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_parent_att_ind_id
 msgid "Indicator subi_avg_student_interview_value"
-msgstr ""
+msgstr "Indicador subi_avg_student_interview_value"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_teacher_interview_lang_ind_id
 msgid "Indicator subi_avg_teacher_interview_lang_value"
-msgstr ""
+msgstr "Indicador subi_avg_teacher_interview_lang_value"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_teacher_interview_math_ind_id
 msgid "Indicator subi_avg_teacher_interview_math_value"
-msgstr ""
+msgstr "Indicador subi_avg_teacher_interview_math_value"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_topics_lang_ind_id
 msgid "Indicator subi_avg_topics_lang_value"
-msgstr ""
+msgstr "Indicador subi_avg_topics_lang_value"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_topics_math_ind_id
 msgid "Indicator subi_avg_topics_math_value"
-msgstr ""
+msgstr "Indicador subi_avg_topics_math_value"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_external_math_ind_id
 msgid "Indicator subi_external_math_value"
-msgstr ""
+msgstr "Indicador subi_external_math_value"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_internal_math_ind_id
 msgid "Indicator subi_internal_math_value"
-msgstr ""
+msgstr "Indicador subi_internal_math_value"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_timextopic_lang_ind_id
 msgid "Indicator subi_timextopic_lang_value"
-msgstr ""
+msgstr "Indicador subi_timextopic_lang_value"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_timextopic_math_ind_id
 msgid "Indicator subi_timextopic_math_value"
-msgstr ""
+msgstr "Indicador subi_timextopic_math_value"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_survey_question_variable_indicator_ids
 #: model:ir.ui.menu,name:academic.menu_academic_question_indicator
 msgid "Indicators"
-msgstr ""
+msgstr "Indicadores"
 
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.academic_division_analysis_wizard_view
@@ -1459,19 +1468,19 @@ msgstr "Invisible"
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_survey_survey_is_diagnosis
 msgid "Is Diagnosis?"
-msgstr ""
+msgstr "Es diagnostico?"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_evaluation_analysis_is_evaluation
 #: model:ir.model.fields,field_description:academic.field_academic_evaluation_report_is_evaluation
 msgid "Is Evaluation?"
-msgstr ""
+msgstr "Es una evaluación?"
 
 #. module: academic
 #: model:ir.actions.act_window,name:academic.action_survey_label_form
 #: model:ir.ui.menu,name:academic.menu_survey_label_form1
 msgid "Labels"
-msgstr ""
+msgstr "Etiquetas"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division___last_update
@@ -1491,7 +1500,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic.field_survey_question_performance___last_update
 #: model:ir.model.fields,field_description:academic.field_survey_question_variable___last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Última modificación en"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_wizard_write_uid
@@ -1509,7 +1518,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic.field_survey_question_performance_write_uid
 #: model:ir.model.fields,field_description:academic.field_survey_question_variable_write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Última actualización por"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_wizard_write_date
@@ -1527,7 +1536,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic.field_survey_question_performance_write_date
 #: model:ir.model.fields,field_description:academic.field_survey_question_variable_write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Ultima actualización en"
 
 #. module: academic
 #: model:survey.page,title:academic.survey_page_7
@@ -1546,35 +1555,35 @@ msgstr "Lengua"
 #: model:ir.ui.view,arch_db:academic.view_academic_group_filter
 #: model:ir.ui.view,arch_db:academic.view_evaluation_response_search
 msgid "Level"
-msgstr ""
+msgstr "Nivel"
 
 #. module: academic
 #: model:ir.actions.act_window,name:academic.action_academic_level_levels
 #: model:ir.model.fields,field_description:academic.field_survey_survey_level_ids
 #: model:ir.ui.menu,name:academic.menu_levels
 msgid "Levels"
-msgstr ""
+msgstr "Niveles"
 
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.template_group_ev_report_users
 #: model:ir.ui.view,arch_db:academic.template_report_users
 msgid "Login"
-msgstr ""
+msgstr "Usuario"
 
 #. module: academic
 #: model:survey.survey,title:academic.survey_survey_6
 msgid "MOCK N°1. "
-msgstr ""
+msgstr "MOCK N°1. "
 
 #. module: academic
 #: selection:res.partner,sex:0
 msgid "Male"
-msgstr ""
+msgstr "Masculino"
 
 #. module: academic
 #: model:res.groups,name:academic.group_manager
 msgid "Manager"
-msgstr ""
+msgstr "Responsable"
 
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.academic_division_analysis_kanban
@@ -1584,19 +1593,19 @@ msgstr "Matemática"
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_survey_question_max_indicator_score
 msgid "Max Indicator Score"
-msgstr ""
+msgstr "Puntaje máximo del indicador"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_evaluation_analysis_max_score
 #: model:ir.model.fields,field_description:academic.field_academic_evaluation_report_input_max_score
 msgid "Max Score"
-msgstr ""
+msgstr "Puntuación Máxima"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_evaluation_analysis_min_score
 #: model:ir.model.fields,field_description:academic.field_academic_evaluation_report_input_min_score
 msgid "Min Score"
-msgstr ""
+msgstr "Puntaje Mínimo"
 
 #. module: academic
 #: model:survey.survey,thank_you_message:academic.survey_survey_2
@@ -1628,7 +1637,7 @@ msgstr "Muchas gracias por completar la evaluación!"
 #: model:ir.ui.view,arch_db:academic.view_academic_section_filter
 #: model:ir.ui.view,arch_db:academic.view_academic_subject_filter
 msgid "Name"
-msgstr ""
+msgstr "Nombre"
 
 #. module: academic
 #: model:survey.question.level,name:academic.survey_question_level_3
@@ -1649,12 +1658,12 @@ msgstr "Nivel Medio"
 #: selection:academic.evaluation.analysis,input_state:0
 #: selection:academic.evaluation.report,input_state:0
 msgid "Not Finished"
-msgstr ""
+msgstr "No terminado"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_survey_user_input_note
 msgid "Note"
-msgstr ""
+msgstr "Nota"
 
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.academic_division_analysis_kanban
@@ -1665,17 +1674,17 @@ msgstr "Núcleos de observación"
 #: model:ir.model.fields,field_description:academic.field_academic_evaluation_report_objective_id
 #: model:ir.ui.view,arch_db:academic.view_evaluation_response_search
 msgid "Objective"
-msgstr ""
+msgstr "Objetivo"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_survey_user_input_observation_category_id
 msgid "Observation Category"
-msgstr ""
+msgstr "Categoría de Observación"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_group_evaluation_observation
 msgid "Observations"
-msgstr ""
+msgstr "Observaciones"
 
 #. module: academic
 #: selection:academic.evaluation.analysis,group_evaluation_state:0
@@ -1685,12 +1694,12 @@ msgstr ""
 #: model:ir.ui.view,arch_db:academic.view_academic_group_evaluation_form
 #: model:ir.ui.view,arch_db:academic.view_academic_group_evaluation_tree
 msgid "Open"
-msgstr ""
+msgstr "Abierto"
 
 #. module: academic
 #: model:academic.observation_category,name:academic.user_input_obs_3
 msgid "Other"
-msgstr ""
+msgstr "Otro"
 
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.academic_division_analysis_kanban
@@ -1701,17 +1710,17 @@ msgstr "Padres entrevistados"
 #: model:ir.actions.act_window,name:academic.action_survey_page_form
 #: model:ir.ui.menu,name:academic.menu_survey_page_form1
 msgid "Pages"
-msgstr ""
+msgstr "Páginas"
 
 #. module: academic
 #: selection:academic.group,type:0 selection:res.partner,partner_type:0
 msgid "Parent"
-msgstr ""
+msgstr "Padre"
 
 #. module: academic
 #: model:res.groups,name:academic.group_portal_parent
 msgid "Parent's Portal"
-msgstr ""
+msgstr "Portal de Padres"
 
 #. module: academic
 #: model:res.groups,comment:academic.group_portal_parent
@@ -1719,12 +1728,14 @@ msgid ""
 "Parent's Portal members have specific access rights (such as record rules and restricted menus).\n"
 "            They usually do not belong to the usual OpenERP groups."
 msgstr ""
+"Los miembros del Portal de Padres tienen permisos de acceso específicos (como reglas de registro y menús restringidos). \n"
+"              Por lo general, no pertenecen a los grupos de Odoo habituales."
 
 #. module: academic
 #: model:ir.actions.act_window,name:academic.action_academic_partner_parents
 #: model:ir.ui.menu,name:academic.menu_parents
 msgid "Parents"
-msgstr ""
+msgstr "Padres"
 
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.academic_division_analysis_kanban
@@ -1737,34 +1748,34 @@ msgstr "Participación institucional"
 #: model:ir.ui.view,arch_db:academic.view_evaluation_analysis_search
 #: model:ir.ui.view,arch_db:academic.view_evaluation_response_search
 msgid "Partner"
-msgstr ""
+msgstr "Alumno"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_res_partner_partner_type
 #: model:ir.model.fields,field_description:academic.field_res_users_partner_type
 msgid "Partner Type"
-msgstr ""
+msgstr "Tipo de Alumno"
 
 #. module: academic
 #: model:ir.ui.menu,name:academic.menu_partners
 msgid "Partners"
-msgstr ""
+msgstr "Alumnos"
 
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.template_group_ev_report_users
 #: model:ir.ui.view,arch_db:academic.template_report_users
 msgid "Password"
-msgstr ""
+msgstr "Contraseña"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_survey_question_variable_performance_id
 msgid "Performance"
-msgstr ""
+msgstr "Desempeño"
 
 #. module: academic
 #: model:ir.ui.menu,name:academic.menu_academic_question_performance
 msgid "Performances"
-msgstr ""
+msgstr "Desempeños"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_wizard_period_ids
@@ -1774,12 +1785,12 @@ msgstr ""
 #: model:ir.ui.view,arch_db:academic.view_evaluation_analysis_search
 #: model:ir.ui.view,arch_db:academic.view_evaluation_response_search
 msgid "Period"
-msgstr ""
+msgstr "Periodo"
 
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.evaluation_survey_form
 msgid "Period..."
-msgstr ""
+msgstr "Periodo..."
 
 #. module: academic
 #: model:ir.actions.act_window,name:academic.action_academic_period_periods
@@ -1787,23 +1798,23 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_wizard_periods
 #: model:ir.ui.menu,name:academic.menu_periods
 msgid "Periods"
-msgstr ""
+msgstr "Periodos"
 
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.view_academic_partner_form
 msgid "Personal Information"
-msgstr ""
+msgstr "Información Personal"
 
 #. module: academic
 #: selection:survey.survey,evaluation_subtype:0
 msgid "Poll Survey"
-msgstr ""
+msgstr "Encuesta"
 
 #. module: academic
 #: model:ir.actions.act_window,name:academic.action_academic_user_input_poll_survey_answers
 #: model:ir.ui.menu,name:academic.menu_poll_survey_answers
 msgid "Poll Survey Answers"
-msgstr ""
+msgstr "Respuestas Encuestas"
 
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.academic_division_analysis_form
@@ -1891,7 +1902,7 @@ msgstr "Portal"
 #. module: academic
 #: model:ir.model,name:academic.model_portal_wizard
 msgid "Portal Access Management"
-msgstr ""
+msgstr "Administración de acceso al portal"
 
 #. module: academic
 #: model:survey.page,title:academic.survey_page_10
@@ -1918,7 +1929,7 @@ msgstr "Primer Grado"
 #: model:ir.ui.view,arch_db:academic.view_academic_group_evaluation_tree
 #: model:ir.ui.view,arch_db:academic.view_academic_group_form
 msgid "Print Users"
-msgstr ""
+msgstr "Imprimir Usuarios"
 
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.academic_division_analysis_kanban
@@ -1934,13 +1945,13 @@ msgstr "Promedio Interno"
 #: model:ir.model.fields,field_description:academic.field_res_partner_promotion_id
 #: model:ir.model.fields,field_description:academic.field_res_users_promotion_id
 msgid "Promotion"
-msgstr ""
+msgstr "Promoción"
 
 #. module: academic
 #: model:ir.actions.act_window,name:academic.action_academic_promotion_promotions
 #: model:ir.ui.menu,name:academic.menu_promotions
 msgid "Promotions"
-msgstr ""
+msgstr "Promociones"
 
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.academic_division_analysis_kanban
@@ -1961,7 +1972,7 @@ msgstr "Puntaje"
 #: model:ir.model.fields,field_description:academic.field_academic_evaluation_report_question_id
 #: model:ir.ui.view,arch_db:academic.view_evaluation_response_search
 msgid "Question"
-msgstr ""
+msgstr "Pregunta"
 
 #. module: academic
 #: model:ir.actions.act_window,name:academic.action_evaluation_response_report_all
@@ -1969,68 +1980,68 @@ msgstr ""
 #: model:ir.ui.menu,name:academic.menu_portal_report_evaluation_response
 #: model:ir.ui.menu,name:academic.menu_report_evaluation_response
 msgid "Question Analysis"
-msgstr ""
+msgstr "Análisis de Preguntas"
 
 #. module: academic
 #: model:ir.ui.menu,name:academic.menu_survey_question_content
 msgid "Question Content"
-msgstr ""
+msgstr "Contenido de Pregunta"
 
 #. module: academic
 #: model:ir.actions.act_window,name:academic.action_question_indicator
 #: model:ir.model,name:academic.model_survey_question_indicator
 msgid "Question Indicator"
-msgstr ""
+msgstr "Indicador de Pregunta"
 
 #. module: academic
 #: model:ir.ui.menu,name:academic.menu_survey_question_level
 msgid "Question Level"
-msgstr ""
+msgstr "Nivel de Pregunta"
 
 #. module: academic
 #: model:ir.ui.menu,name:academic.menu_survey_question_objective
 msgid "Question Objective"
-msgstr ""
+msgstr "Objetivo de Pregunta"
 
 #. module: academic
 #: model:ir.actions.act_window,name:academic.action_question_performance
 #: model:ir.model,name:academic.model_survey_question_performance
 msgid "Question Performance"
-msgstr ""
+msgstr "Desempeño de Pregunta"
 
 #. module: academic
 #: model:ir.actions.act_window,name:academic.action_question_variable
 #: model:ir.model,name:academic.model_survey_question_variable
 msgid "Question Variable"
-msgstr ""
+msgstr "Variable de Pregunta"
 
 #. module: academic
 #: model:ir.model,name:academic.model_academic_evaluation_report
 msgid "Question_Analysis"
-msgstr ""
+msgstr "Question_Analysis"
 
 #. module: academic
 #: model:ir.actions.act_window,name:academic.action_survey_question_form
 #: model:ir.model.fields,field_description:academic.field_survey_question_indicator_question_ids
 #: model:ir.ui.menu,name:academic.menu_survey_question_form1
 msgid "Questions"
-msgstr ""
+msgstr "Preguntas"
 
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.evaluation_survey_form
 msgid "Re-Compute Scores"
-msgstr ""
+msgstr "Re-Computar Resultados"
 
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.view_academic_group_evaluation_form
 #: model:ir.ui.view,arch_db:academic.view_academic_group_evaluation_tree
 msgid "Re-Open"
-msgstr ""
+msgstr "Re-Abrir"
 
 #. module: academic
 #: model:ir.ui.menu,name:academic.menu_portal_reporting
 msgid "Reporting"
-msgstr ""
+msgstr "Reporte"
 
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.view_evaluation_analysis_pivot
@@ -2040,7 +2051,7 @@ msgstr ""
 #: model:ir.ui.view,arch_db:academic.view_evaluation_response_search
 #: model:ir.ui.view,arch_db:academic.view_evaluation_response_tree
 msgid "Response Analysis"
-msgstr ""
+msgstr "Análisis de Respuestas"
 
 #. module: academic
 #: model:ir.ui.menu,name:academic.menu_evaluations_survey_answers
@@ -2050,7 +2061,7 @@ msgstr "Respuestas de Evaluaciones"
 #. module: academic
 #: model:ir.model,name:academic.model_survey_user_input_question_score
 msgid "Score of a User Input by Question"
-msgstr ""
+msgstr "Puntaje de Input de usuario por pregunta"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_level_section_id
@@ -2058,43 +2069,43 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic.field_res_users_section_id
 #: model:ir.ui.view,arch_db:academic.view_academic_level_filter
 msgid "Section"
-msgstr ""
+msgstr "Sección"
 
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.view_academic_partner_form
 msgid "Section..."
-msgstr ""
+msgstr "Sección..."
 
 #. module: academic
 #: model:ir.actions.act_window,name:academic.action_academic_section_sections
 #: model:ir.ui.menu,name:academic.menu_sections
 msgid "Sections"
-msgstr ""
+msgstr "Secciones"
 
 #. module: academic
 #: model:academic.level,name:academic.academic_course_2
 msgid "Segundo Grado"
-msgstr ""
+msgstr "Segundo Grado"
 
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.evaluation_survey_form
 #: model:ir.ui.view,arch_db:academic.view_academic_group_evaluation_form
 #: model:ir.ui.view,arch_db:academic.view_academic_group_evaluation_tree
 msgid "Set Invisible"
-msgstr ""
+msgstr "Marcar Invisible"
 
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.evaluation_survey_form
 #: model:ir.ui.view,arch_db:academic.view_academic_group_evaluation_form
 #: model:ir.ui.view,arch_db:academic.view_academic_group_evaluation_tree
 msgid "Set Visible"
-msgstr ""
+msgstr "Poner Visible"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_res_partner_sex
 #: model:ir.model.fields,field_description:academic.field_res_users_sex
 msgid "Sex"
-msgstr ""
+msgstr "Género"
 
 #. module: academic
 #: code:addons/academic/models/academic_group_evaluation.py:94
@@ -2114,19 +2125,19 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic.field_academic_evaluation_analysis_survey_stage_id
 #: model:ir.model.fields,field_description:academic.field_academic_evaluation_report_survey_stage_id
 msgid "Stage"
-msgstr ""
+msgstr "Etapa"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_group_evaluation_state
 #: model:ir.ui.view,arch_db:academic.view_academic_group_evaluation_filter
 msgid "State"
-msgstr ""
+msgstr "Estado"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_evaluation_analysis_input_state
 #: model:ir.model.fields,field_description:academic.field_academic_evaluation_report_input_state
 msgid "Status"
-msgstr ""
+msgstr "Estado"
 
 #. module: academic
 #: selection:academic.group,type:0
@@ -2135,22 +2146,22 @@ msgstr ""
 #: selection:res.partner,partner_type:0 selection:survey.survey,answered_by:0
 #: selection:survey.survey,apply_to:0 selection:survey.survey,checked_by:0
 msgid "Student"
-msgstr ""
+msgstr "Alumnos"
 
 #. module: academic
 #: selection:survey.survey,evaluation_subtype:0
 msgid "Student Evaluation"
-msgstr ""
+msgstr "Evaluación del Alumno"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_student_perfomance
 msgid "Student Performance"
-msgstr ""
+msgstr "Desempeño del Alumno"
 
 #. module: academic
 #: model:res.groups,name:academic.group_portal_student
 msgid "Student's Portal"
-msgstr ""
+msgstr "Portal del Alumno"
 
 #. module: academic
 #: model:res.groups,comment:academic.group_portal_student
@@ -2158,6 +2169,8 @@ msgid ""
 "Student's Portal members have specific access rights (such as record rules and restricted menus).\n"
 "                They usually do not belong to the usual odoo groups."
 msgstr ""
+"Los miembros del Portal de Alumnos tienen permisos de acceso específicos (como reglas de registro y menús restringidos). \n"
+"                Por lo general, no pertenecen a los grupos de Odoo habituales."
 
 #. module: academic
 #: model:ir.actions.act_window,name:academic.action_academic_company_partner_students
@@ -2167,7 +2180,7 @@ msgstr ""
 #: model:ir.ui.view,arch_db:academic.view_academic_group_form
 #: model:ir.ui.view,arch_db:academic.view_company_form
 msgid "Students"
-msgstr ""
+msgstr "Alumnos"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_group_subject_id
@@ -2175,155 +2188,155 @@ msgstr ""
 #: model:ir.ui.view,arch_db:academic.academic_division_analysis_form
 #: model:ir.ui.view,arch_db:academic.view_academic_group_filter
 msgid "Subject"
-msgstr ""
+msgstr "Materia"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_hour_lang_sub_id
 msgid "Subject subi_avg_hour_lang_value"
-msgstr ""
+msgstr "Subject subi_avg_hour_lang_value"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_hour_math_sub_id
 msgid "Subject subi_avg_hour_math_value"
-msgstr ""
+msgstr "Subject subi_avg_hour_math_value"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_parent_att_sub_id
 msgid "Subject subi_avg_parent_att_value"
-msgstr ""
+msgstr "Subject subi_avg_parent_att_value"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_relevant_training_lang_sub_id
 msgid "Subject subi_avg_relevant_training_lang_value"
-msgstr ""
+msgstr "Subject subi_avg_relevant_training_lang_value"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_relevant_training_math_sub_id
 msgid "Subject subi_avg_relevant_training_math_value"
-msgstr ""
+msgstr "Subject subi_avg_relevant_training_math_value"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_spec_proj_lang_sub_id
 msgid "Subject subi_avg_spec_proj_lang_value"
-msgstr ""
+msgstr "Subject subi_avg_spec_proj_lang_value"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_spec_proj_math_sub_id
 msgid "Subject subi_avg_spec_proj_math_value"
-msgstr ""
+msgstr "Subject subi_avg_spec_proj_math_value"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_teacher_interview_lang_sub_id
 msgid "Subject subi_avg_teacher_interview_lang_value"
-msgstr ""
+msgstr "Subject subi_avg_teacher_interview_lang_value"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_teacher_interview_math_sub_id
 msgid "Subject subi_avg_teacher_interview_math_value"
-msgstr ""
+msgstr "Subject subi_avg_teacher_interview_math_value"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_topics_lang_sub_id
 msgid "Subject subi_avg_topics_lang_value"
-msgstr ""
+msgstr "Subject subi_avg_topics_lang_value"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_topics_math_sub_id
 msgid "Subject subi_avg_topics_math_value"
-msgstr ""
+msgstr "Subject subi_avg_topics_math_value"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_external_lang_sub_id
 msgid "Subject subi_external_lang_value"
-msgstr ""
+msgstr "Subject subi_external_lang_value"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_external_math_sub_id
 msgid "Subject subi_external_math_value"
-msgstr ""
+msgstr "Subject subi_external_math_value"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_internal_lang_sub_id
 msgid "Subject subi_internal_lang_value"
-msgstr ""
+msgstr "Subject subi_internal_lang_value"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_internal_math_sub_id
 msgid "Subject subi_internal_math_value"
-msgstr ""
+msgstr "Subject subi_internal_math_value"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_timextopic_lang_sub_id
 msgid "Subject subi_timextopic_lang_value"
-msgstr ""
+msgstr "Subject subi_timextopic_lang_value"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_timextopic_math_sub_id
 msgid "Subject subi_timextopic_math_value"
-msgstr ""
+msgstr "Subject subi_timextopic_math_value"
 
 #. module: academic
 #: model:ir.actions.act_window,name:academic.action_academic_subject_subjects
 #: model:ir.model.fields,field_description:academic.field_survey_survey_subject_ids
 #: model:ir.ui.menu,name:academic.menu_subjects
 msgid "Subjects"
-msgstr ""
+msgstr "Materias"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_survey_survey_evaluation_subtype
 msgid "Subtype"
-msgstr ""
+msgstr "Subtipo"
 
 #. module: academic
 #: model:ir.model,name:academic.model_survey_survey
 #: model:ir.model.fields,field_description:academic.field_academic_evaluation_analysis_survey_id
 #: model:ir.model.fields,field_description:academic.field_academic_evaluation_report_survey_id
 msgid "Survey"
-msgstr ""
+msgstr "Encuesta"
 
 #. module: academic
 #: model:ir.model,name:academic.model_survey_label
 msgid "Survey Label"
-msgstr ""
+msgstr "Etiqueta de la encuesta"
 
 #. module: academic
 #: model:ir.model,name:academic.model_survey_question
 msgid "Survey Question"
-msgstr ""
+msgstr "Pregunta de la encuesta"
 
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.survey_question_indicator_form
 #: model:ir.ui.view,arch_db:academic.survey_question_indicator_tree
 msgid "Survey Question Indicator"
-msgstr ""
+msgstr "Indicador de Pregunta de Encuesta"
 
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.survey_question_performance_form
 #: model:ir.ui.view,arch_db:academic.survey_question_performance_tree
 msgid "Survey Question Performance"
-msgstr ""
+msgstr "Desempeño de Pregunta de Encuesta"
 
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.survey_question_variable_form
 #: model:ir.ui.view,arch_db:academic.survey_question_variable_tree
 msgid "Survey Question Variable"
-msgstr ""
+msgstr "Variable de Pregunta de Encuesta"
 
 #. module: academic
 #: model:ir.model,name:academic.model_survey_user_input
 msgid "Survey User Input"
-msgstr ""
+msgstr "Input Usuario Encuesta"
 
 #. module: academic
 #: model:ir.actions.act_window,name:academic.action_survey_user_input_line
 msgid "Survey User Input lines"
-msgstr ""
+msgstr "Lineas de Input Usuario Encuesta"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_level_survey_ids
 #: model:ir.model.fields,field_description:academic.field_academic_subject_survey_ids
 msgid "Surveys"
-msgstr ""
+msgstr "Encuestas"
 
 #. module: academic
 #: code:addons/academic/wizards/division_analysis_wizard.py:65
@@ -2340,17 +2353,17 @@ msgstr "Tablero"
 #: selection:res.partner,partner_type:0 selection:survey.survey,answered_by:0
 #: selection:survey.survey,apply_to:0 selection:survey.survey,checked_by:0
 msgid "Teacher"
-msgstr ""
+msgstr "Docente"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_teacher_perfomance
 msgid "Teacher Performance"
-msgstr ""
+msgstr "Desempeño del Docente"
 
 #. module: academic
 #: model:res.groups,name:academic.group_portal_teacher
 msgid "Teacher's Portal"
-msgstr ""
+msgstr "Portal del Docente"
 
 #. module: academic
 #: model:res.groups,comment:academic.group_portal_teacher
@@ -2358,6 +2371,8 @@ msgid ""
 "Teacher's Portal members have specific access rights (such as record rules and restricted menus).\n"
 "                They usually do not belong to the usual odoo groups."
 msgstr ""
+"Los miembros del Portal de Docentes tienen permisos de acceso específicos (como reglas de registro y menús restringidos). \n"
+"                 Por lo general, no pertenecen a los grupos de Odoo habituales."
 
 #. module: academic
 #: model:ir.actions.act_window,name:academic.action_academic_company_partner_teachers
@@ -2366,7 +2381,7 @@ msgstr ""
 #: model:ir.ui.menu,name:academic.menu_teachers
 #: model:ir.ui.view,arch_db:academic.view_company_form
 msgid "Teachers"
-msgstr ""
+msgstr "Docentes"
 
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.academic_division_analysis_kanban
@@ -2377,7 +2392,7 @@ msgstr "Temas efectivamente dados"
 #: model:ir.model.fields,field_description:academic.field_res_partner_template_user_id
 #: model:ir.model.fields,field_description:academic.field_res_users_template_user_id
 msgid "Template User"
-msgstr ""
+msgstr "Plantilla de Usuario"
 
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.academic_division_analysis_wizard_view
@@ -2391,19 +2406,19 @@ msgstr ""
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.survey_kanban
 msgid "Test"
-msgstr ""
+msgstr "Probar"
 
 #. module: academic
 #: sql_constraint:academic.group_evaluation:0
 msgid "There can not be two groups for the same evaluation."
-msgstr ""
+msgstr "No puede haber dos grupos para la misma evaluación"
 
 #. module: academic
 #: code:addons/academic/models/academic_group_evaluation.py:175
 #: code:addons/academic/models/academic_group_evaluation.py:185
 #, python-format
 msgid "There is no administrator set up for %s"
-msgstr ""
+msgstr "No hay administrador fijado para %s"
 
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.academic_division_analysis_kanban
@@ -2413,38 +2428,38 @@ msgstr "Tiempo asignado a temas pedagógicos u organizativos"
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_group_evaluation_time_used
 msgid "Time Used"
-msgstr ""
+msgstr "Tiempo usado"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_group_type
 msgid "Type"
-msgstr ""
+msgstr "Tipo"
 
 #. module: academic
 #: model:res.groups,name:academic.group_user
 msgid "User"
-msgstr ""
+msgstr "Usuario"
 
 #. module: academic
 #: model:ir.ui.menu,name:academic.menu_survey_response_line_form
 msgid "User Input Lines"
-msgstr ""
+msgstr "Lineas Usuario Input"
 
 #. module: academic
 #: model:ir.actions.act_window,name:academic.action_academic_observation_category_user_input_observations
 #: model:ir.ui.menu,name:academic.menu_user_input_observations
 msgid "User Input Observations"
-msgstr ""
+msgstr "Observaciones Input Usuario"
 
 #. module: academic
 #: model:ir.model,name:academic.model_res_users
 msgid "Users"
-msgstr ""
+msgstr "Usuarios"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_group_evaluation_user_input_ids
 msgid "Users Inputs"
-msgstr ""
+msgstr "Input de Usuarios"
 
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.login
@@ -2472,12 +2487,12 @@ msgstr "Variables"
 #: selection:academic.evaluation.report,group_evaluation_state:0
 #: selection:academic.group_evaluation,state:0
 msgid "Visible"
-msgstr ""
+msgstr "Visible"
 
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.academic_division_analysis_form
 msgid "Weight"
-msgstr ""
+msgstr "Peso/Ponderación"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_group_year
@@ -2497,7 +2512,7 @@ msgstr "Año:"
 #. module: academic
 #: model:ir.actions.act_window,help:academic.action_academic_survey_evaluations
 msgid "You can create evaluations for different purposes."
-msgstr ""
+msgstr "Puedes crear evaluaciones para diferentes propósitos."
 
 #. module: academic
 #: code:addons/academic/models/academic_group_evaluation.py:113
@@ -2506,12 +2521,14 @@ msgid ""
 "You can not close a Group Evaluation with user inputs not done. First you "
 "should close each user input."
 msgstr ""
+"No puedes cerrar una Evaluación de Grupo con inputs de usuarios no "
+"finalizados. Primero debes cerrar cada input de usuario."
 
 #. module: academic
 #: code:addons/academic/models/user_input.py:52
 #, python-format
 msgid "You can not force closure if you not set an observation category."
-msgstr ""
+msgstr "No puedes forzar cierre si no fijas una categoría de observación."
 
 #. module: academic
 #: model:ir.model,name:academic.model_academic_division_analysis
@@ -2561,7 +2578,7 @@ msgstr "level"
 #: model:ir.ui.view,arch_db:academic.view_academic_observation_category_form
 #: model:ir.ui.view,arch_db:academic.view_academic_observation_category_tree
 msgid "observation_category"
-msgstr ""
+msgstr "observation_category"
 
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.academic_division_analysis_wizard_view
@@ -2603,57 +2620,57 @@ msgstr "subject"
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.view_academic_user_input_tree
 msgid "user_input"
-msgstr ""
+msgstr "user_input"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_hour_lang_weight
 msgid "weight subi_avg_hour_lang_value"
-msgstr ""
+msgstr "weight subi_avg_hour_lang_value"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_hour_math_weight
 msgid "weight subi_avg_hour_math_value"
-msgstr ""
+msgstr "weight subi_avg_hour_math_value"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_parent_att_weight
 msgid "weight subi_avg_parent_att_value"
-msgstr ""
+msgstr "weight subi_avg_parent_att_value"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_relevant_training_lang_weight
 msgid "weight subi_avg_relevant_training_lang_value"
-msgstr ""
+msgstr "weight subi_avg_relevant_training_lang_value"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_relevant_training_math_weight
 msgid "weight subi_avg_relevant_training_math_value"
-msgstr ""
+msgstr "weight subi_avg_relevant_training_math_value"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_spec_proj_lang_weight
 msgid "weight subi_avg_spec_proj_lang_value"
-msgstr ""
+msgstr "weight subi_avg_spec_proj_lang_value"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_spec_proj_math_weight
 msgid "weight subi_avg_spec_proj_math_value"
-msgstr ""
+msgstr "weight subi_avg_spec_proj_math_value"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_teacher_interview_lang_weight
 msgid "weight subi_avg_teacher_interview_lang_value"
-msgstr ""
+msgstr "weight subi_avg_teacher_interview_lang_value"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_teacher_interview_math_weight
 msgid "weight subi_avg_teacher_interview_math_value"
-msgstr ""
+msgstr "weight subi_avg_teacher_interview_math_value"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_topics_lang_weight
 msgid "weight subi_avg_topics_lang_value"
-msgstr ""
+msgstr "weight subi_avg_topics_lang_value"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_avg_topics_math_weight
@@ -2663,7 +2680,7 @@ msgstr "weight subi_avg_topics_math_value"
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_external_lang_weight
 msgid "weight subi_external_lang_value"
-msgstr ""
+msgstr "weight subi_external_lang_value"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_external_math_weight

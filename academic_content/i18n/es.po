@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-25 15:49+0000\n"
+"POT-Creation-Date: 2019-02-28 10:17+0000\n"
 "PO-Revision-Date: 2019-01-19 12:45+0000\n"
 "Last-Translator: Katherine Zaoral <katherine.zaoral@gmail.com>, 2019\n"
 "Language-Team: Spanish (https://www.transifex.com/adhoc/teams/46451/es/)\n"
@@ -22,12 +22,12 @@ msgstr ""
 #. module: academic_content
 #: model:ir.ui.menu,name:academic_content.menu_academic_projects
 msgid " Academic Projects"
-msgstr ""
+msgstr "Proyectos Académicos"
 
 #. module: academic_content
 #: model:ir.actions.act_window,name:academic_content.action_academic_project
 msgid "Academic Project"
-msgstr ""
+msgstr "Proyecto Académico "
 
 #. module: academic_content
 #: model:ir.model,name:academic_content.model_res_company
@@ -38,47 +38,47 @@ msgstr "Compañías"
 #. module: academic_content
 #: model:ir.model,name:academic_content.model_res_partner
 msgid "Contact"
-msgstr ""
+msgstr "Contacto"
 
 #. module: academic_content
 #: model:ir.model.fields,field_description:academic_content.field_academic_project_create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creado por"
 
 #. module: academic_content
 #: model:ir.model.fields,field_description:academic_content.field_academic_project_create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creado en"
 
 #. module: academic_content
 #: model:ir.model.fields,field_description:academic_content.field_academic_project_display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nombre para mostrar"
 
 #. module: academic_content
 #: model:ir.model.fields,field_description:academic_content.field_academic_project_id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: academic_content
 #: model:ir.model.fields,field_description:academic_content.field_academic_project___last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Última modificación en"
 
 #. module: academic_content
 #: model:ir.model.fields,field_description:academic_content.field_academic_project_write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Última actualización por"
 
 #. module: academic_content
 #: model:ir.model.fields,field_description:academic_content.field_academic_project_write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Ultima actualización en"
 
 #. module: academic_content
 #: model:ir.model.fields,field_description:academic_content.field_academic_project_name
 msgid "Name"
-msgstr ""
+msgstr "Nombre"
 
 #. module: academic_content
 #: model:ir.model,name:academic_content.model_academic_project
@@ -86,7 +86,7 @@ msgstr ""
 #: model:ir.ui.menu,name:academic_content.menu_project
 #: model:ir.ui.view,arch_db:academic_content.view_academic_project_form
 msgid "Project"
-msgstr ""
+msgstr "Proyecto"
 
 #. module: academic_content
 #: model:ir.model.fields,field_description:academic_content.field_res_company_academic_project_ids
@@ -94,19 +94,19 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic_content.field_res_users_partner_academic_project_ids
 #: model:ir.ui.view,arch_db:academic_content.view_project_company_form
 msgid "Projects"
-msgstr ""
+msgstr "Proyectos"
 
 #. module: academic_content
 #: model:ir.model,name:academic_content.model_website_menu
 msgid "Website Menu"
-msgstr ""
+msgstr "Menú del sitio web"
 
 #. module: academic_content
 #: model:ir.model.fields,field_description:academic_content.field_academic_project_website_menu_ids
 msgid "Website Menus"
-msgstr ""
+msgstr "Menús del sitio web"
 
 #. module: academic_content
 #: model:ir.ui.view,arch_db:academic_content.view_academic_project_tree
 msgid "project"
-msgstr ""
+msgstr "project"
