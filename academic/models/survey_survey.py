@@ -138,9 +138,9 @@ class SurveySurvey(models.Model):
 
     @api.multi
     def copy(self, default=None):
-        new_survey_id = super(SurveySurvey, self).copy(default)
+        new_survey = super(SurveySurvey, self).copy(default)
         question_obj = self.env['survey.question']
         question_ids = question_obj.search(
-            [('page_id.survey_id', '=', new_survey_id)])
-        question_obj._get_max_score(question_ids)
-        return new_survey_id
+            [('page_id.survey_id', '=', new_survey.id)])
+        question_ids._compute_max_indicator_rel_score()
+        return new_survey
