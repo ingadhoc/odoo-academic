@@ -18,7 +18,7 @@
         <field name="arch" type="xml">
             <tree string="Response Analysis">
                 <field name="partner_id"/>
-                <!-- <field name="disabled_person"/> -->
+                <field name="disabled_person"/>
                 <field name="dont_consider"/>
             </tree>
         </field>
@@ -31,7 +31,7 @@
             <search string="Response Analysis">
                 <filter string="Closed" name="closed" domain="[('group_evaluation_state','=','closed')]"/>
                 <separator/>
-                <!-- <filter string="Excluir Personas con Discapacidad" name="exclude_disable_partners" domain="[('disabled_person','=',False)]"/> -->
+                <filter string="Excluir Personas con Discapacidad" name="exclude_disable_partners" domain="[('disabled_person','=',False)]"/>
                 <separator/>
                 <field name="survey_id" string="Evaluación"/>
                 <field name="period_id"/>
