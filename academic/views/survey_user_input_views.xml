@@ -39,9 +39,6 @@
                 <field name="observation_category_id"/>
                 <field name="note"/>
             </div>
-            <button name="action_view_answers" position="attributes">
-                <attribute name="groups">base.group_no_one</attribute>
-            </button>
             <field name="user_input_line_ids" position="attributes">
                 <attribute name="groups">base.group_no_one</attribute>
             </field>
