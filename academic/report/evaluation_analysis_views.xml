@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <record model="ir.ui.view" id="view_evaluation_analysis_graph">
+        <field name="name">academic.evaluation.analysis.graph</field>
+        <field name="model">academic.evaluation.analysis</field>
+        <field name="arch" type="xml">
+            <graph string="Response Analysis">
+                <field name="avg_score" type="measure"/>
+            </graph>
+        </field>
+    </record>
 
     <record id="view_evaluation_analysis_pivot" model="ir.ui.view">
         <field name="name">academic.evaluation.analysis.pivot</field>
         <field name="model">academic.evaluation.analysis</field>
         <field name="arch" type="xml">
             <pivot string="Response Analysis">
-                 <field name="avg_score" type="measure"/>
-             </pivot>
+                <field name="avg_score" type="measure"/>
+            </pivot>
         </field>
     </record>
-    
+
 
     <record id="view_evaluation_analysis_tree" model="ir.ui.view">
         <field name="name">academic.evaluation.analysis.tree</field>
@@ -55,7 +64,7 @@
         <field name="name">Evaluation Analysis</field>
         <field name="res_model">academic.evaluation.analysis</field>
         <field name="view_type">form</field>
-        <field name="view_mode">pivot,tree</field>
+        <field name="view_mode">pivot,graph,tree</field>
         <field name="search_view_id" ref="view_evaluation_analysis_search"/>
         <field name="view_id" ref="view_evaluation_analysis_pivot"/>
         <field name="context">{'search_default_closed':1,'search_default_exclude_disable_partners':1}</field>
