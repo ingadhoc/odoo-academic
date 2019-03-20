@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-18 17:04+0000\n"
+"POT-Creation-Date: 2019-03-19 19:37+0000\n"
 "PO-Revision-Date: 2019-01-19 12:45+0000\n"
 "Last-Translator: Katherine Zaoral <katherine.zaoral@gmail.com>, 2019\n"
 "Language-Team: Spanish (https://www.transifex.com/adhoc/teams/46451/es/)\n"
@@ -827,12 +827,17 @@ msgstr "Considerar Alumno con Dificultades de aprendizaje"
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_wizard_consider_disabled_person
 msgid "Considerar Personas con Discapacidad?"
-msgstr "Considerar Personas con Discapacidad?"
+msgstr "Considerar alumnos/as con dificultades de aprendizaje?"
 
 #. module: academic
 #: model:ir.model,name:academic.model_res_partner
 msgid "Contact"
 msgstr "Contacto"
+
+#. module: academic
+#: model:ir.ui.menu,name:academic.menu_partners
+msgid "Contacts"
+msgstr ""
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_evaluation_report_content_id
@@ -902,11 +907,6 @@ msgstr "Creado en"
 #: model:ir.ui.view,arch_db:academic.academic_division_analysis_kanban
 msgid "Cumplimiento de tareas típicas"
 msgstr "Cumplimiento de tareas típicas"
-
-#. module: academic
-#: model:ir.ui.menu,name:academic.menu_data
-msgid "Data"
-msgstr "Datos"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_group_evaluation_date_close
@@ -1089,6 +1089,7 @@ msgid "Examen histórico alumno – Primer Trimestre"
 msgstr "Examen histórico alumno – Primer Trimestre"
 
 #. module: academic
+#: model:ir.ui.view,arch_db:academic.view_evaluation_analysis_search
 #: model:ir.ui.view,arch_db:academic.view_evaluation_response_search
 msgid "Excluir Personas con Discapacidad"
 msgstr "Excluir Personas con Discapacidad"
@@ -1202,6 +1203,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic.field_res_users_student_group_ids
 #: model:ir.model.fields,field_description:academic.field_res_users_teacher_group_ids
 #: model:ir.model.fields,field_description:academic.field_survey_survey_group_evaluation_ids
+#: model:ir.ui.menu,name:academic.menu_data
 #: model:ir.ui.menu,name:academic.menu_groups
 #: model:ir.ui.menu,name:academic.menu_portal_groups
 #: model:ir.ui.view,arch_db:academic.evaluation_survey_form
@@ -1756,11 +1758,6 @@ msgstr "Alumno"
 #: model:ir.model.fields,field_description:academic.field_res_users_partner_type
 msgid "Partner Type"
 msgstr "Tipo de Alumno"
-
-#. module: academic
-#: model:ir.ui.menu,name:academic.menu_partners
-msgid "Partners"
-msgstr "Alumnos"
 
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.template_group_ev_report_users
