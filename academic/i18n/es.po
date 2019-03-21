@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-19 19:37+0000\n"
+"POT-Creation-Date: 2019-03-21 01:26+0000\n"
 "PO-Revision-Date: 2019-01-19 12:45+0000\n"
 "Last-Translator: Katherine Zaoral <katherine.zaoral@gmail.com>, 2019\n"
 "Language-Team: Spanish (https://www.transifex.com/adhoc/teams/46451/es/)\n"
@@ -2042,6 +2042,7 @@ msgid "Reporting"
 msgstr "Reporte"
 
 #. module: academic
+#: model:ir.ui.view,arch_db:academic.view_evaluation_analysis_graph
 #: model:ir.ui.view,arch_db:academic.view_evaluation_analysis_pivot
 #: model:ir.ui.view,arch_db:academic.view_evaluation_analysis_search
 #: model:ir.ui.view,arch_db:academic.view_evaluation_analysis_tree
