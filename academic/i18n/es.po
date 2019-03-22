@@ -3,16 +3,16 @@
 # * academic
 # 
 # Translators:
-# Nicolas Mac Rouillon <nmr@ingadhoc.com>, 2019
 # Katherine Zaoral <katherine.zaoral@gmail.com>, 2019
+# Nicolas Mac Rouillon <nmr@ingadhoc.com>, 2019
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-21 01:26+0000\n"
+"POT-Creation-Date: 2019-03-21 09:13+0000\n"
 "PO-Revision-Date: 2019-01-19 12:45+0000\n"
-"Last-Translator: Katherine Zaoral <katherine.zaoral@gmail.com>, 2019\n"
+"Last-Translator: Nicolas Mac Rouillon <nmr@ingadhoc.com>, 2019\n"
 "Language-Team: Spanish (https://www.transifex.com/adhoc/teams/46451/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -837,7 +837,7 @@ msgstr "Contacto"
 #. module: academic
 #: model:ir.ui.menu,name:academic.menu_partners
 msgid "Contacts"
-msgstr ""
+msgstr "Contactos"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_evaluation_report_content_id
