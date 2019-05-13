@@ -3,6 +3,7 @@
 # directory
 ##############################################################################
 from . import survey_survey
+from . import res_partner_relationship
 from . import res_partner
 from . import academic_division
 from . import user_input

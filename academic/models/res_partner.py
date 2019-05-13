@@ -36,8 +36,9 @@ class ResPartner(models.Model):
         ('student', 'Student'),
         ('teacher', 'Teacher'),
         ('administrator', 'Administrator'),
-        ('gral_administrator', 'gral_administrator'),
+        ('gral_administrator', 'General Administrator'),
         ('parent', 'Parent'),
+        ('other', 'Other'),
     ],
         change_default=True,
     )
@@ -69,11 +70,36 @@ class ResPartner(models.Model):
     )
     disabled_person = fields.Boolean(
         'Disabled Person?',
+        help='¿Alumno/a con Dificultades de aprendizaje?'
     )
     sex = fields.Selection(
         [('M', 'Male'), ('F', 'Female')],
         string='Sex',
     )
+    file_number = fields.Char(
+        copy=False,
+    )
+    birthdate = fields.Date(
+        copy=False,
+    )
+    admission_date = fields.Date(
+    )
+    exit_date = fields.Char(
+    )
+    medical_insurance = fields.Char(
+        copy=False,
+    )
+    relationship_id = fields.Many2one(
+        'res.partner.relationship',
+    )
+    withdraw = fields.Boolean(
+    )
+
+    @api.constrains('is_company')
+    @api.onchange('is_company')
+    def _check_partner_type(self):
+        recs = self.filtered(lambda x: x.is_company and x.partner_type)
+        recs.update({'partner_type': False})
 
     @api.multi
     def quickly_create_portal_user(self, portal_group):

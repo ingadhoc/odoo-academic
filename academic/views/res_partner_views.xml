@@ -26,28 +26,39 @@
         </field>
     </record>
 
-
     <record id="view_academic_partner_form" model="ir.ui.view">
         <field name="name">academic.partner.form</field>
         <field name="model">res.partner</field>
-        <!-- <field name="inherit_id" ref="partner_person.view_partner_person_form"/> -->
         <field name="inherit_id" ref="base.view_partner_form"/>
         <field name="arch" type="xml">
+
             <!-- ocultamos pagina de contactos si no es compania -->
             <page position="attributes">
                 <attribute name="attrs">{'invisible':[('is_company','=',False)]}</attribute>
             </page>
+
             <page position="before">
-                <page string="Personal Information" attrs="{'invisible':[('is_company','=',True)]}">
+                <page string="Individual Information" attrs="{'invisible':[('partner_type','=',False)]}">
                     <group>
-                        <field name="promotion_id" attrs="{'invisible':[('partner_type','!=','student')],'required':[('partner_type','=','student')]}"/>
-                        <field name="disabled_person"/>
-                        <field name="sex"/>
+                        <group>
+                            <field name="relationship_id" attrs="{'invisible': [('partner_type', '!=', 'other')], 'required': [('partner_type', '=', 'other')]}"/>
+                            <field name="withdraw" attrs="{'invisible': [('partner_type', '!=', 'other')]}"/>
+                            <field name="file_number" attrs="{'invisible':[('partner_type','!=','student')]}"/>
+                            <field name="sex" attrs="{'invisible':[('partner_type','=',False)], 'required':[('partner_type','=','student')]}"/>
+                            <field name="promotion_id" attrs="{'invisible':[('partner_type','!=','student')], 'required':[('partner_type','=','student')]}"/>
+                        </group>
+                        <group>
+                            <field name="birthdate" attrs="{'invisible':[('partner_type','=',False)]}"/>
+                            <field name="admission_date" attrs="{'invisible':[('partner_type','!=','student')]}"/>
+                            <field name="exit_date" attrs="{'invisible':[('partner_type','!=','student')]}"/>
+                            <field name="medical_insurance" attrs="{'invisible':[('partner_type','!=','student')]}"/>
+                            <field name="disabled_person" attrs="{'invisible':[('partner_type','!=','student')]}"/>
+                        </group>
                     </group>
                 </page>
             </page>
+
             <page name="internal_notes" position="before">
-                <!-- <page string="Contacts" position="after" attrs="{'invisible': [('is_company','=',False), ('child_ids', '=', [])]}" autofocus="autofocus"> -->
                 <page string="Groups" attrs="{'invisible': [('partner_type','!=','student')]}">
                     <field name="student_group_ids" context="{'default_company_id': company_id,}"/>
                 </page>
@@ -55,25 +66,52 @@
                     <field name="teacher_group_ids" context="{'default_company_id': company_id, 'default_teacher_id': active_id}"/>
                 </page>
             </page>
-            <form position="inside">
-                <field name="partner_type" invisible="1"/>
-            </form>
 
-            <div class="oe_edit_only" position="attributes">
-                <attribute name="attrs">{'invisible':[('partner_type','!=',False)]}</attribute>
-            </div>
+            <!-- movemos el campo company. TODO hacer esto con move -->
             <field name="company_id" position="replace"/>
-            <field name="parent_id" position="after">
+            <field name="type" position="before">
                 <field name="company_id" groups="base.group_multi_company" placeholder="Institution..." attrs="{'required':[('partner_type','in',['teacher','student','administrator'])]}"/>
+            </field>
+
+            <field name="type" position="before">
+                <field name="partner_type" attrs="{'invisible': [('is_company', '=', True)]}"/>
+            </field>
+
+            <field name="company_id" position="attributes">
+                <attribute name="attrs">{'required':[('partner_type','in',['teacher','student','administrator', 'gral_administrator'])]}</attribute>
+            </field>
+
+            <field name="parent_id" position="after">
+                <!-- <field name="company_id" groups="base.group_multi_company" placeholder="Institution..." attrs="{'required':[('partner_type','in',['teacher','student','administrator'])]}"/> -->
                 <!-- lo hacemos requerido por temas de seguridad, no se contemplan directores generales. -->
                 <field name="section_id" placeholder="Section..." attrs="{'invisible':[('partner_type','!=','administrator')],'required':[('partner_type','=','administrator')]}"/>
             </field>
-            <field name="parent_id" position="attributes">
-                <attribute name="attrs">{'invisible':[('partner_type','!=',False)]}</attribute>
-            </field>
+
             <page name="sales_purchases" position="attributes">
-                <attribute name="groups">base.group_no_one</attribute>
+                <attribute name="groups">purchase.group_purchase_user,sales_team.group_sale_salesman,account.group_account_invoice</attribute>
             </page>
+
+        <!-- pop up contactos -->
+            <xpath expr="//field[@name='child_ids']//form//field[@name='name']" position="before">
+                <field name="is_company" invisible="1"/>
+                <field name="partner_type" attrs="{'invisible': [('is_company', '=', True)]}"/>
+            </xpath>
+
+            <xpath expr="//field[@name='child_ids']//form//group" position="inside">
+                <group>
+                    <field name="relationship_id" attrs="{'invisible': [('partner_type', '!=', 'other')], 'required': [('partner_type', '=', 'other')]}"/>
+                    <field name="withdraw" attrs="{'invisible': [('partner_type', '!=', 'other')]}"/>
+                    <field name="file_number" attrs="{'invisible':[('partner_type','!=','student')]}"/>
+                    <field name="sex" attrs="{'invisible':[('partner_type','=',False)], 'required':[('partner_type','=','student')]}"/>
+                    <field name="promotion_id" attrs="{'invisible':[('partner_type','!=','student')], 'required':[('partner_type','=','student')]}"/>
+                    <field name="birthdate" attrs="{'invisible':[('partner_type','=',False)]}"/>
+                    <field name="admission_date" attrs="{'invisible':[('partner_type','!=','student')]}"/>
+                    <field name="exit_date" attrs="{'invisible':[('partner_type','!=','student')]}"/>
+                    <field name="medical_insurance" attrs="{'invisible':[('partner_type','!=','student')]}"/>
+                    <field name="disabled_person" attrs="{'invisible':[('partner_type','!=','student')]}"/>
+                </group>
+            </xpath>
+
         </field>
     </record>
 
