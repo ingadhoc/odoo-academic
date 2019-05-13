@@ -959,7 +959,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic.field_res_partner_disabled_person
 #: model:ir.model.fields,field_description:academic.field_res_users_disabled_person
 msgid "Disabled Person?"
-msgstr "¿Alumno/a con Dificultades de aprendizaje?"
+msgstr "¿Dificultades de aprendizaje?"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_display_name
@@ -1757,7 +1757,7 @@ msgstr "Alumno"
 #: model:ir.model.fields,field_description:academic.field_res_partner_partner_type
 #: model:ir.model.fields,field_description:academic.field_res_users_partner_type
 msgid "Partner Type"
-msgstr "Tipo de Alumno"
+msgstr "Tipo de Individuo"
 
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.template_group_ev_report_users
