@@ -5,14 +5,15 @@
 # Translators:
 # Katherine Zaoral <katherine.zaoral@gmail.com>, 2019
 # Nicolas Mac Rouillon <nmr@ingadhoc.com>, 2019
+# Juan José Scarafía <scarafia.juanjose@gmail.com>, 2019
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-21 09:13+0000\n"
+"POT-Creation-Date: 2019-05-13 17:36+0000\n"
 "PO-Revision-Date: 2019-01-19 12:45+0000\n"
-"Last-Translator: Nicolas Mac Rouillon <nmr@ingadhoc.com>, 2019\n"
+"Last-Translator: Juan José Scarafía <scarafia.juanjose@gmail.com>, 2019\n"
 "Language-Team: Spanish (https://www.transifex.com/adhoc/teams/46451/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -653,6 +654,12 @@ msgid "Administrators"
 msgstr "Directores"
 
 #. module: academic
+#: model:ir.model.fields,field_description:academic.field_res_partner_admission_date
+#: model:ir.model.fields,field_description:academic.field_res_users_admission_date
+msgid "Admission Date"
+msgstr ""
+
+#. module: academic
 #: model:ir.ui.view,arch_db:academic.academic_division_analysis_kanban
 msgid "Agenda del Director (AD)"
 msgstr "Agenda del Director (AD)"
@@ -713,6 +720,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic.field_academic_evaluation_report_input_avg_score
 msgid "Avg Score"
 msgstr "Score Promedio"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_res_partner_birthdate
+#: model:ir.model.fields,field_description:academic.field_res_users_birthdate
+msgid "Birthdate"
+msgstr ""
 
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.view_academic_division_filter
@@ -840,6 +853,11 @@ msgid "Contacts"
 msgstr "Contactos"
 
 #. module: academic
+#: model:ir.model,name:academic.model_res_partner_relationship
+msgid "Contacts Relationship"
+msgstr ""
+
+#. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_evaluation_report_content_id
 #: model:ir.ui.view,arch_db:academic.view_evaluation_response_search
 msgid "Content"
@@ -879,6 +897,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic.field_academic_promotion_create_uid
 #: model:ir.model.fields,field_description:academic.field_academic_section_create_uid
 #: model:ir.model.fields,field_description:academic.field_academic_subject_create_uid
+#: model:ir.model.fields,field_description:academic.field_res_partner_relationship_create_uid
 #: model:ir.model.fields,field_description:academic.field_survey_question_indicator_create_uid
 #: model:ir.model.fields,field_description:academic.field_survey_question_performance_create_uid
 #: model:ir.model.fields,field_description:academic.field_survey_question_variable_create_uid
@@ -897,6 +916,7 @@ msgstr "Creado por"
 #: model:ir.model.fields,field_description:academic.field_academic_promotion_create_date
 #: model:ir.model.fields,field_description:academic.field_academic_section_create_date
 #: model:ir.model.fields,field_description:academic.field_academic_subject_create_date
+#: model:ir.model.fields,field_description:academic.field_res_partner_relationship_create_date
 #: model:ir.model.fields,field_description:academic.field_survey_question_indicator_create_date
 #: model:ir.model.fields,field_description:academic.field_survey_question_performance_create_date
 #: model:ir.model.fields,field_description:academic.field_survey_question_variable_create_date
@@ -975,6 +995,7 @@ msgstr "¿Dificultades de aprendizaje?"
 #: model:ir.model.fields,field_description:academic.field_academic_promotion_display_name
 #: model:ir.model.fields,field_description:academic.field_academic_section_display_name
 #: model:ir.model.fields,field_description:academic.field_academic_subject_display_name
+#: model:ir.model.fields,field_description:academic.field_res_partner_relationship_display_name
 #: model:ir.model.fields,field_description:academic.field_survey_question_indicator_display_name
 #: model:ir.model.fields,field_description:academic.field_survey_question_performance_display_name
 #: model:ir.model.fields,field_description:academic.field_survey_question_variable_display_name
@@ -1095,9 +1116,21 @@ msgid "Excluir Personas con Discapacidad"
 msgstr "Excluir Personas con Discapacidad"
 
 #. module: academic
+#: model:ir.model.fields,field_description:academic.field_res_partner_exit_date
+#: model:ir.model.fields,field_description:academic.field_res_users_exit_date
+msgid "Exit Date"
+msgstr ""
+
+#. module: academic
 #: selection:res.partner,sex:0
 msgid "Female"
 msgstr "Femenino"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_res_partner_file_number
+#: model:ir.model.fields,field_description:academic.field_res_users_file_number
+msgid "File Number"
+msgstr ""
 
 #. module: academic
 #: selection:academic.evaluation.analysis,input_state:0
@@ -1109,6 +1142,11 @@ msgstr "Terminado"
 #: model:ir.ui.view,arch_db:academic.view_academic_user_input_form
 msgid "Force Closure"
 msgstr "Forzar Cierre"
+
+#. module: academic
+#: selection:res.partner,partner_type:0
+msgid "General Administrator"
+msgstr ""
 
 #. module: academic
 #: model:res.groups,comment:academic.group_portal_gral_administrator
@@ -1247,7 +1285,8 @@ msgstr "IAD"
 #: model:ir.model.fields,field_description:academic.field_academic_promotion_id
 #: model:ir.model.fields,field_description:academic.field_academic_section_id
 #: model:ir.model.fields,field_description:academic.field_academic_subject_id
-#: model:ir.model.fields,field_description:academic.field_survey_question_indicator_id_2672
+#: model:ir.model.fields,field_description:academic.field_res_partner_relationship_id
+#: model:ir.model.fields,field_description:academic.field_survey_question_indicator_id_2694
 #: model:ir.model.fields,field_description:academic.field_survey_question_performance_id
 #: model:ir.model.fields,field_description:academic.field_survey_question_variable_id
 msgid "ID"
@@ -1447,6 +1486,11 @@ msgid "Indicators"
 msgstr "Indicadores"
 
 #. module: academic
+#: model:ir.ui.view,arch_db:academic.view_academic_partner_form
+msgid "Individual Information"
+msgstr ""
+
+#. module: academic
 #: model:ir.ui.view,arch_db:academic.academic_division_analysis_wizard_view
 msgid "Ingrese los filtros que desea aplicar a la información."
 msgstr "Ingrese los filtros que desea aplicar a la información."
@@ -1499,6 +1543,7 @@ msgstr "Etiquetas"
 #: model:ir.model.fields,field_description:academic.field_academic_promotion___last_update
 #: model:ir.model.fields,field_description:academic.field_academic_section___last_update
 #: model:ir.model.fields,field_description:academic.field_academic_subject___last_update
+#: model:ir.model.fields,field_description:academic.field_res_partner_relationship___last_update
 #: model:ir.model.fields,field_description:academic.field_survey_question_indicator___last_update
 #: model:ir.model.fields,field_description:academic.field_survey_question_performance___last_update
 #: model:ir.model.fields,field_description:academic.field_survey_question_variable___last_update
@@ -1517,6 +1562,7 @@ msgstr "Última modificación en"
 #: model:ir.model.fields,field_description:academic.field_academic_promotion_write_uid
 #: model:ir.model.fields,field_description:academic.field_academic_section_write_uid
 #: model:ir.model.fields,field_description:academic.field_academic_subject_write_uid
+#: model:ir.model.fields,field_description:academic.field_res_partner_relationship_write_uid
 #: model:ir.model.fields,field_description:academic.field_survey_question_indicator_write_uid
 #: model:ir.model.fields,field_description:academic.field_survey_question_performance_write_uid
 #: model:ir.model.fields,field_description:academic.field_survey_question_variable_write_uid
@@ -1535,6 +1581,7 @@ msgstr "Última actualización por"
 #: model:ir.model.fields,field_description:academic.field_academic_promotion_write_date
 #: model:ir.model.fields,field_description:academic.field_academic_section_write_date
 #: model:ir.model.fields,field_description:academic.field_academic_subject_write_date
+#: model:ir.model.fields,field_description:academic.field_res_partner_relationship_write_date
 #: model:ir.model.fields,field_description:academic.field_survey_question_indicator_write_date
 #: model:ir.model.fields,field_description:academic.field_survey_question_performance_write_date
 #: model:ir.model.fields,field_description:academic.field_survey_question_variable_write_date
@@ -1605,6 +1652,12 @@ msgid "Max Score"
 msgstr "Puntuación Máxima"
 
 #. module: academic
+#: model:ir.model.fields,field_description:academic.field_res_partner_medical_insurance
+#: model:ir.model.fields,field_description:academic.field_res_users_medical_insurance
+msgid "Medical Insurance"
+msgstr ""
+
+#. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_evaluation_analysis_min_score
 #: model:ir.model.fields,field_description:academic.field_academic_evaluation_report_input_min_score
 msgid "Min Score"
@@ -1627,6 +1680,7 @@ msgstr "Muchas gracias por completar la evaluación!"
 #: model:ir.model.fields,field_description:academic.field_academic_promotion_name
 #: model:ir.model.fields,field_description:academic.field_academic_section_name
 #: model:ir.model.fields,field_description:academic.field_academic_subject_name
+#: model:ir.model.fields,field_description:academic.field_res_partner_relationship_name
 #: model:ir.model.fields,field_description:academic.field_survey_question_indicator_name
 #: model:ir.model.fields,field_description:academic.field_survey_question_performance_name
 #: model:ir.model.fields,field_description:academic.field_survey_question_variable_name
@@ -1701,6 +1755,7 @@ msgstr "Abierto"
 
 #. module: academic
 #: model:academic.observation_category,name:academic.user_input_obs_3
+#: selection:res.partner,partner_type:0
 msgid "Other"
 msgstr "Otro"
 
@@ -1797,11 +1852,6 @@ msgstr "Periodo..."
 #: model:ir.ui.menu,name:academic.menu_periods
 msgid "Periods"
 msgstr "Periodos"
-
-#. module: academic
-#: model:ir.ui.view,arch_db:academic.view_academic_partner_form
-msgid "Personal Information"
-msgstr "Información Personal"
 
 #. module: academic
 #: selection:survey.survey,evaluation_subtype:0
@@ -2035,6 +2085,12 @@ msgstr "Re-Computar Resultados"
 #: model:ir.ui.view,arch_db:academic.view_academic_group_evaluation_tree
 msgid "Re-Open"
 msgstr "Re-Abrir"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_res_partner_relationship_id_2556
+#: model:ir.model.fields,field_description:academic.field_res_users_relationship_id
+msgid "Relationship"
+msgstr ""
 
 #. module: academic
 #: model:ir.ui.menu,name:academic.menu_portal_reporting
@@ -2494,6 +2550,12 @@ msgid "Weight"
 msgstr "Peso/Ponderación"
 
 #. module: academic
+#: model:ir.model.fields,field_description:academic.field_res_partner_withdraw
+#: model:ir.model.fields,field_description:academic.field_res_users_withdraw
+msgid "Withdraw"
+msgstr ""
+
+#. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_group_year
 #: model:ir.model.fields,field_description:academic.field_academic_period_year
 #: model:ir.model.fields,field_description:academic.field_survey_survey_group_year
@@ -2543,7 +2605,7 @@ msgid "division"
 msgstr "division"
 
 #. module: academic
-#: selection:academic.group,type:0 selection:res.partner,partner_type:0
+#: selection:academic.group,type:0
 msgid "gral_administrator"
 msgstr "gral_administrator"
 
@@ -2705,3 +2767,9 @@ msgstr "weight subi_timextopic_lang_value"
 #: model:ir.model.fields,field_description:academic.field_academic_division_analysis_subi_timextopic_math_weight
 msgid "weight subi_timextopic_math_value"
 msgstr "weight subi_timextopic_math_value"
+
+#. module: academic
+#: model:ir.model.fields,help:academic.field_res_partner_disabled_person
+#: model:ir.model.fields,help:academic.field_res_users_disabled_person
+msgid "¿Alumno/a con Dificultades de aprendizaje?"
+msgstr ""
