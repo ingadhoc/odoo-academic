@@ -95,6 +95,10 @@ class ResPartner(models.Model):
     withdraw = fields.Boolean(
     )
 
+    dni = fields.Integer(
+        'DNI',
+    )
+
     @api.constrains('is_company')
     @api.onchange('is_company')
     def _check_partner_type(self):

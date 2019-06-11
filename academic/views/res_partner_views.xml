@@ -41,6 +41,7 @@
                 <page string="Individual Information" attrs="{'invisible':[('partner_type','=',False)]}">
                     <group>
                         <group>
+                            <field name="dni"/>
                             <field name="relationship_id" attrs="{'invisible': [('partner_type', '!=', 'other')], 'required': [('partner_type', '=', 'other')]}"/>
                             <field name="withdraw" attrs="{'invisible': [('partner_type', '!=', 'other')]}"/>
                             <field name="file_number" attrs="{'invisible':[('partner_type','!=','student')]}"/>
