@@ -21,4 +21,3 @@ from . import survey_question_indicator
 from . import survey_cuestion_variable
 from . import survey_question_performance
 from . import survey_user_input_question_score
-from . import survey_label
