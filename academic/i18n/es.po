@@ -4,16 +4,16 @@
 # 
 # Translators:
 # Katherine Zaoral <katherine.zaoral@gmail.com>, 2019
-# Nicolas Mac Rouillon <nmr@ingadhoc.com>, 2019
 # Juan José Scarafía <scarafia.juanjose@gmail.com>, 2019
+# Nicolas Mac Rouillon <nmr@ingadhoc.com>, 2019
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-13 17:36+0000\n"
+"POT-Creation-Date: 2019-05-14 09:13+0000\n"
 "PO-Revision-Date: 2019-01-19 12:45+0000\n"
-"Last-Translator: Juan José Scarafía <scarafia.juanjose@gmail.com>, 2019\n"
+"Last-Translator: Nicolas Mac Rouillon <nmr@ingadhoc.com>, 2019\n"
 "Language-Team: Spanish (https://www.transifex.com/adhoc/teams/46451/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -657,7 +657,7 @@ msgstr "Directores"
 #: model:ir.model.fields,field_description:academic.field_res_partner_admission_date
 #: model:ir.model.fields,field_description:academic.field_res_users_admission_date
 msgid "Admission Date"
-msgstr ""
+msgstr "Fecha de admisión "
 
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.academic_division_analysis_kanban
@@ -725,7 +725,7 @@ msgstr "Score Promedio"
 #: model:ir.model.fields,field_description:academic.field_res_partner_birthdate
 #: model:ir.model.fields,field_description:academic.field_res_users_birthdate
 msgid "Birthdate"
-msgstr ""
+msgstr "Fecha de nacimiento"
 
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.view_academic_division_filter
@@ -1119,7 +1119,7 @@ msgstr "Excluir Personas con Discapacidad"
 #: model:ir.model.fields,field_description:academic.field_res_partner_exit_date
 #: model:ir.model.fields,field_description:academic.field_res_users_exit_date
 msgid "Exit Date"
-msgstr ""
+msgstr "Fecha de Salida"
 
 #. module: academic
 #: selection:res.partner,sex:0
@@ -1130,7 +1130,7 @@ msgstr "Femenino"
 #: model:ir.model.fields,field_description:academic.field_res_partner_file_number
 #: model:ir.model.fields,field_description:academic.field_res_users_file_number
 msgid "File Number"
-msgstr ""
+msgstr "Número de archivo"
 
 #. module: academic
 #: selection:academic.evaluation.analysis,input_state:0
@@ -1488,7 +1488,7 @@ msgstr "Indicadores"
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.view_academic_partner_form
 msgid "Individual Information"
-msgstr ""
+msgstr "Información individual"
 
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.academic_division_analysis_wizard_view
@@ -1655,7 +1655,7 @@ msgstr "Puntuación Máxima"
 #: model:ir.model.fields,field_description:academic.field_res_partner_medical_insurance
 #: model:ir.model.fields,field_description:academic.field_res_users_medical_insurance
 msgid "Medical Insurance"
-msgstr ""
+msgstr "Seguro Medico"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_evaluation_analysis_min_score
@@ -2772,4 +2772,4 @@ msgstr "weight subi_timextopic_math_value"
 #: model:ir.model.fields,help:academic.field_res_partner_disabled_person
 #: model:ir.model.fields,help:academic.field_res_users_disabled_person
 msgid "¿Alumno/a con Dificultades de aprendizaje?"
-msgstr ""
+msgstr "¿Alumno/a con Dificultades de aprendizaje?"
