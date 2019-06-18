@@ -112,7 +112,12 @@
                     <field name="disabled_person" attrs="{'invisible':[('partner_type','!=','student')]}"/>
                 </group>
             </xpath>
-
+            <xpath expr="//kanban//field[@name='lang']" position="after">
+                <field name="partner_type"/>
+            </xpath>
+            <xpath expr="//kanban//t[@t-name='kanban-box']//div[@t-if='record.function.raw_value']" position="after">
+                <strong><div t-if="record.partner_type.raw_value"><field name="partner_type"/></div></strong>
+            </xpath>
         </field>
     </record>
 
