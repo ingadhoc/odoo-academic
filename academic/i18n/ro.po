@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-13 17:36+0000\n"
+"POT-Creation-Date: 2019-06-17 23:39+0000\n"
 "PO-Revision-Date: 2019-01-19 12:45+0000\n"
 "Last-Translator: Elise Wit <era.gyorgy@gmail.com>, 2019\n"
 "Language-Team: Romanian (https://www.transifex.com/adhoc/teams/46451/ro/)\n"
@@ -20,10 +20,56 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
 
 #. module: academic
+#: model:survey.question,description:academic.survey_question_34
+msgid ""
+"(..) cuyo absurdo amor iba creciendo en su alma, merced a sus aún más "
+"absurdas imaginaciones"
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_61
+#: model:survey.label,value:academic.survey_label_67
+#: model:survey.label,value:academic.survey_label_86
+#: model:survey.label,value:academic.survey_label_92
+msgid "0-50%"
+msgstr ""
+
+#. module: academic
 #: model:survey.page,title:academic.survey_page_20
 msgid ""
 "1) Un submarino estaba a -75metros respecto del nivel del mar y ahora está a"
 " -22metros."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_127
+msgid "1. Vista"
+msgstr ""
+
+#. module: academic
+#: model:survey.question,question:academic.survey_question_22
+msgid "1. ¿Dónde se localiza esta leyenda de Gustavo Adolfo Bécquer?"
+msgstr ""
+
+#. module: academic
+#: model:survey.question,question:academic.survey_question_32
+msgid ""
+"10) Las leyendas constituyen una tipología textual con características "
+"propias, señala con una cruz cuál de estas características aparece en el "
+"texto leído."
+msgstr ""
+
+#. module: academic
+#: model:survey.question,question:academic.survey_question_33
+msgid ""
+"11) En la expresión: “trompa de guerra”, el término “trompa” se  refiere a:"
+msgstr ""
+
+#. module: academic
+#: model:survey.question,question:academic.survey_question_34
+msgid ""
+"12) En esta frase aparece un mismo término referido a dos elementos "
+"distintos, "
 msgstr ""
 
 #. module: academic
@@ -34,12 +80,58 @@ msgid ""
 msgstr ""
 
 #. module: academic
+#: model:survey.label,value:academic.survey_label_128
+msgid "2. Oído"
+msgstr ""
+
+#. module: academic
+#: model:survey.question,question:academic.survey_question_23
+msgid ""
+"2.A. ¿Cuánto tiempo transcurre entre el momento en que Manrique cree ver a "
+"la misteriosa dama paseando entre las ruinas de los Templarios y el momento "
+"de su desengaño?"
+msgstr ""
+
+#. module: academic
+#: model:survey.question,question:academic.survey_question_24
+msgid "2.B. ¿En qué momento del año nos encontramos?"
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_84
+msgid "25% Pedagógicos / 75% Organizativos"
+msgstr ""
+
+#. module: academic
 #: model:survey.page,title:academic.survey_page_22
 msgid ""
 "3)  Una tortuga se desplaza sobre la recta numérica. Sale del el origen de "
 "la recta y recorre 5 unidades hacia la derecha. Descansa un momento, y sigue"
 " avanzando 3 unidades más en el mismo sentido. Al final emprende el regreso,"
 " desplazándose 10  unidades en sentido contrario."
+msgstr ""
+
+#. module: academic
+#: model:survey.question,question:academic.survey_question_25
+msgid ""
+"3) Manrique, el protagonista, es un joven con una  personalidad compleja. "
+"Observe los cuadros y trate de reconstruir los enunciados que mejor lo "
+"describen, indicando el número de cada una de las partes que componen cada "
+"frase."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_129
+msgid "3. Olfato"
+msgstr ""
+
+#. module: academic
+#: model:survey.question,question:academic.survey_question_26
+msgid ""
+"4) Manrique corre de un lado a otro persiguiendo a un fantasma que cree "
+"real, pero sus sentidos lo engañan.  ¿Con cuál de los sentidos percibe el "
+"personaje los  indicios de la existencia de la dama? Marque con una cruz en "
+"la columna correspondiente."
 msgstr ""
 
 #. module: academic
@@ -58,8 +150,97 @@ msgid ""
 msgstr ""
 
 #. module: academic
+#: model:survey.question,question:academic.survey_question_27
+msgid ""
+"5) Manrique se enamora de una mujer irreal, que él mismo va construyendo con"
+" su imaginación. ¿Cuál de las siguientes descripciones se corresponde mejor "
+"con ese arquetipo femenino?"
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_62
+#: model:survey.label,value:academic.survey_label_68
+#: model:survey.label,value:academic.survey_label_87
+#: model:survey.label,value:academic.survey_label_93
+msgid "50-60%"
+msgstr ""
+
+#. module: academic
+#: model:survey.question,question:academic.survey_question_28
+msgid ""
+"6) El mundo sentimental del protagonista parece reflejarse en la naturaleza "
+"que lo rodea. ¿Cómo es el paisaje y cómo es el alma de Manrique? Lee con "
+"mucha atención las siguientes afirmaciones e indica si son verdaderas (V) o "
+"falsas (F)."
+msgstr ""
+
+#. module: academic
 #: model:survey.page,title:academic.survey_page_25
 msgid "6) En la siguiente ecuación:"
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_63
+#: model:survey.label,value:academic.survey_label_69
+#: model:survey.label,value:academic.survey_label_88
+#: model:survey.label,value:academic.survey_label_94
+msgid "60-70%"
+msgstr ""
+
+#. module: academic
+#: model:survey.question,question:academic.survey_question_29
+msgid ""
+"7) La leyenda tiene un final abierto que permite al lector aventurar cuál "
+"será el destino de Manrique después del desengaño. Para elegir la opción "
+"correcta recuerda que  se trata de un amor furioso y ciego, que tiene poco "
+"que ver con la realidad y que implica una actitud melancólica, de ensueño "
+"irrealizable del alma tímida del poeta frente a una amada imposible. "
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_64
+#: model:survey.label,value:academic.survey_label_70
+#: model:survey.label,value:academic.survey_label_89
+#: model:survey.label,value:academic.survey_label_95
+msgid "70-80%"
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_83
+msgid "75% Pedagógicos / 25% Organizativos"
+msgstr ""
+
+#. module: academic
+#: model:survey.question,question:academic.survey_question_30
+msgid ""
+"8) “… el insólito clamor de una trompa de guerra no le hubiera hecho "
+"levantar la cabeza un instante ni apartar sus ojos un punto del oscuro "
+"pergamino en que leía la última cantiga de un trovador.” En esta cita se da "
+"a entender una característica de la personalidad de Manrique, indica cuál de"
+" estas expresiones la describe mejor."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_65
+#: model:survey.label,value:academic.survey_label_71
+#: model:survey.label,value:academic.survey_label_90
+#: model:survey.label,value:academic.survey_label_96
+msgid "80-90%"
+msgstr ""
+
+#. module: academic
+#: model:survey.question,question:academic.survey_question_31
+msgid ""
+"9) El narrador califica a Manrique como “absorto” en una frase del texto, "
+"esta calificación se le da porque:"
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_66
+#: model:survey.label,value:academic.survey_label_72
+#: model:survey.label,value:academic.survey_label_91
+#: model:survey.label,value:academic.survey_label_97
+msgid "90-100%"
 msgstr ""
 
 #. module: academic
@@ -555,6 +736,7 @@ msgstr ""
 
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.academic_division_analysis_kanban
+#: model:survey.question,question:academic.survey_question_17
 msgid "Capacitación pertinente"
 msgstr ""
 
@@ -714,8 +896,19 @@ msgid "Created on"
 msgstr "Creat la data"
 
 #. module: academic
+#: model:survey.label,value:academic.survey_label_81
+msgid "Cuatro o más"
+msgstr ""
+
+#. module: academic
 #: model:ir.ui.view,arch_db:academic.academic_division_analysis_kanban
 msgid "Cumplimiento de tareas típicas"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_res_partner_dni
+#: model:ir.model.fields,field_description:academic.field_res_users_dni
+msgid "DNI"
 msgstr ""
 
 #. module: academic
@@ -829,6 +1022,21 @@ msgid "Don not Consider?"
 msgstr ""
 
 #. module: academic
+#: model:survey.label,value:academic.survey_label_79
+msgid "Dos"
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_77
+msgid "Dos o más"
+msgstr ""
+
+#. module: academic
+#: model:survey.question,question:academic.survey_question_18
+msgid "Entrevistas con los docentes respectivos"
+msgstr ""
+
+#. module: academic
 #: model:ir.ui.view,arch_db:academic.academic_division_analysis_kanban
 msgid "Entrevistas formales"
 msgstr ""
@@ -907,6 +1115,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic.field_res_partner_exit_date
 #: model:ir.model.fields,field_description:academic.field_res_users_exit_date
 msgid "Exit Date"
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_147
+msgid "Falso"
 msgstr ""
 
 #. module: academic
@@ -1071,7 +1284,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic.field_academic_section_id
 #: model:ir.model.fields,field_description:academic.field_academic_subject_id
 #: model:ir.model.fields,field_description:academic.field_res_partner_relationship_id
-#: model:ir.model.fields,field_description:academic.field_survey_question_indicator_id_2694
+#: model:ir.model.fields,field_description:academic.field_survey_question_indicator_id_2741
 #: model:ir.model.fields,field_description:academic.field_survey_question_performance_id
 #: model:ir.model.fields,field_description:academic.field_survey_question_variable_id
 msgid "ID"
@@ -1154,6 +1367,11 @@ msgstr ""
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.academic_division_analysis_kanban
 msgid "Indicadores"
+msgstr ""
+
+#. module: academic
+#: model:survey.question,question:academic.survey_question_39
+msgid "Indicar cuál de las opciones es correcta."
 msgstr ""
 
 #. module: academic
@@ -1268,6 +1486,13 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic.field_survey_question_variable_indicator_ids
 #: model:ir.ui.menu,name:academic.menu_academic_question_indicator
 msgid "Indicators"
+msgstr ""
+
+#. module: academic
+#: model:survey.question,description:academic.survey_question_21
+msgid ""
+"Indique en que porcentaje de las reuniones ha participado el matrimonio (y "
+"no solo el padre o la madre)"
 msgstr ""
 
 #. module: academic
@@ -1482,6 +1707,17 @@ msgid "Name"
 msgstr "Numele"
 
 #. module: academic
+#: model:survey.label,value:academic.survey_label_75
+#: model:survey.label,value:academic.survey_label_98
+msgid "Ninguna"
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_73
+msgid "Ninguno"
+msgstr ""
+
+#. module: academic
 #: model:survey.question.level,name:academic.survey_question_level_3
 msgid "Nivel Alto"
 msgstr ""
@@ -1648,6 +1884,11 @@ msgid "Poll Survey Answers"
 msgstr ""
 
 #. module: academic
+#: model:survey.question,question:academic.survey_question_21
+msgid "Porcentaje de asistencia Matrimonio"
+msgstr ""
+
+#. module: academic
 #: model:ir.ui.view,arch_db:academic.academic_division_analysis_form
 msgid "Porcentaje de asistencia padre o mandre"
 msgstr ""
@@ -1685,6 +1926,11 @@ msgid "Porcentaje de horas dadas Matematica"
 msgstr ""
 
 #. module: academic
+#: model:survey.question,question:academic.survey_question_14
+msgid "Porcentaje de horas de clase dadas"
+msgstr ""
+
+#. module: academic
 #: model:ir.ui.view,arch_db:academic.academic_division_analysis_form
 msgid "Porcentaje de proyectos específicos Lengua"
 msgstr ""
@@ -1716,6 +1962,11 @@ msgid "Porcentaje de temas desarrollados Matematica"
 msgstr ""
 
 #. module: academic
+#: model:survey.question,question:academic.survey_question_15
+msgid "Porcentaje de temas desarrollados sobre planificación anual"
+msgstr ""
+
+#. module: academic
 #: model:ir.ui.view,arch_db:academic.academic_division_analysis_form
 msgid "Porcentaje de tiempo por tema Lengua"
 msgstr ""
@@ -1723,6 +1974,16 @@ msgstr ""
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.academic_division_analysis_form
 msgid "Porcentaje de tiempo por tema Matemática"
+msgstr ""
+
+#. module: academic
+#: model:survey.question,question:academic.survey_question_19
+msgid "Porcentaje del tiempo asignado a Temas"
+msgstr ""
+
+#. module: academic
+#: model:survey.question,question:academic.survey_question_20
+msgid "Porcentaje sobre cantidad de alumnos con 2 entrevistas"
 msgstr ""
 
 #. module: academic
@@ -1757,6 +2018,16 @@ msgid "Primer Grado"
 msgstr ""
 
 #. module: academic
+#: model:survey.label,value:academic.survey_label_85
+msgid "Principalmente Organizativos"
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_82
+msgid "Principalmente Pedagógicos"
+msgstr ""
+
+#. module: academic
 #: model:ir.ui.view,arch_db:academic.view_academic_group_evaluation_tree
 #: model:ir.ui.view,arch_db:academic.view_academic_group_form
 msgid "Print Users"
@@ -1786,6 +2057,7 @@ msgstr ""
 
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.academic_division_analysis_kanban
+#: model:survey.question,question:academic.survey_question_16
 msgid "Proyectos específicos"
 msgstr ""
 
@@ -1870,7 +2142,7 @@ msgid "Re-Open"
 msgstr ""
 
 #. module: academic
-#: model:ir.model.fields,field_description:academic.field_res_partner_relationship_id_2556
+#: model:ir.model.fields,field_description:academic.field_res_partner_relationship_id_2601
 #: model:ir.model.fields,field_description:academic.field_res_users_relationship_id
 msgid "Relationship"
 msgstr ""
@@ -1950,9 +2222,9 @@ msgstr ""
 #, python-format
 msgid ""
 "Solo pueden borrarse evaluaciones en estado invisible."
-"                        ATENCION: esa borrarÃ¡ los registros "
-"correspondientes a                        la evaluaciÃ³n del grupo, en caso "
-"de que haya                        respuestas registradas"
+"                        ATENCION: esa borrará los registros correspondientes"
+" a                        la evaluación del grupo, en caso de que haya"
+"                        respuestas registradas"
 msgstr ""
 
 #. module: academic
@@ -2127,11 +2399,6 @@ msgid "Survey"
 msgstr ""
 
 #. module: academic
-#: model:ir.model,name:academic.model_survey_label
-msgid "Survey Label"
-msgstr ""
-
-#. module: academic
 #: model:ir.model,name:academic.model_survey_question
 msgid "Survey Question"
 msgstr ""
@@ -2237,6 +2504,37 @@ msgid "Test"
 msgstr ""
 
 #. module: academic
+#: model:survey.question,validation_error_msg:academic.survey_question_14
+#: model:survey.question,validation_error_msg:academic.survey_question_15
+#: model:survey.question,validation_error_msg:academic.survey_question_16
+#: model:survey.question,validation_error_msg:academic.survey_question_17
+#: model:survey.question,validation_error_msg:academic.survey_question_18
+#: model:survey.question,validation_error_msg:academic.survey_question_19
+#: model:survey.question,validation_error_msg:academic.survey_question_20
+#: model:survey.question,validation_error_msg:academic.survey_question_21
+#: model:survey.question,validation_error_msg:academic.survey_question_22
+#: model:survey.question,validation_error_msg:academic.survey_question_23
+#: model:survey.question,validation_error_msg:academic.survey_question_24
+#: model:survey.question,validation_error_msg:academic.survey_question_25
+#: model:survey.question,validation_error_msg:academic.survey_question_26
+#: model:survey.question,validation_error_msg:academic.survey_question_27
+#: model:survey.question,validation_error_msg:academic.survey_question_28
+#: model:survey.question,validation_error_msg:academic.survey_question_29
+#: model:survey.question,validation_error_msg:academic.survey_question_30
+#: model:survey.question,validation_error_msg:academic.survey_question_31
+#: model:survey.question,validation_error_msg:academic.survey_question_32
+#: model:survey.question,validation_error_msg:academic.survey_question_33
+#: model:survey.question,validation_error_msg:academic.survey_question_34
+#: model:survey.question,validation_error_msg:academic.survey_question_35
+#: model:survey.question,validation_error_msg:academic.survey_question_36
+#: model:survey.question,validation_error_msg:academic.survey_question_37
+#: model:survey.question,validation_error_msg:academic.survey_question_38
+#: model:survey.question,validation_error_msg:academic.survey_question_39
+#: model:survey.question,validation_error_msg:academic.survey_question_40
+msgid "The answer you entered has an invalid format."
+msgstr ""
+
+#. module: academic
 #: sql_constraint:academic.group_evaluation:0
 msgid "There can not be two groups for the same evaluation."
 msgstr ""
@@ -2246,6 +2544,37 @@ msgstr ""
 #: code:addons/academic/models/academic_group_evaluation.py:185
 #, python-format
 msgid "There is no administrator set up for %s"
+msgstr ""
+
+#. module: academic
+#: model:survey.question,constr_error_msg:academic.survey_question_14
+#: model:survey.question,constr_error_msg:academic.survey_question_15
+#: model:survey.question,constr_error_msg:academic.survey_question_16
+#: model:survey.question,constr_error_msg:academic.survey_question_17
+#: model:survey.question,constr_error_msg:academic.survey_question_18
+#: model:survey.question,constr_error_msg:academic.survey_question_19
+#: model:survey.question,constr_error_msg:academic.survey_question_20
+#: model:survey.question,constr_error_msg:academic.survey_question_21
+#: model:survey.question,constr_error_msg:academic.survey_question_22
+#: model:survey.question,constr_error_msg:academic.survey_question_23
+#: model:survey.question,constr_error_msg:academic.survey_question_24
+#: model:survey.question,constr_error_msg:academic.survey_question_25
+#: model:survey.question,constr_error_msg:academic.survey_question_26
+#: model:survey.question,constr_error_msg:academic.survey_question_27
+#: model:survey.question,constr_error_msg:academic.survey_question_28
+#: model:survey.question,constr_error_msg:academic.survey_question_29
+#: model:survey.question,constr_error_msg:academic.survey_question_30
+#: model:survey.question,constr_error_msg:academic.survey_question_31
+#: model:survey.question,constr_error_msg:academic.survey_question_32
+#: model:survey.question,constr_error_msg:academic.survey_question_33
+#: model:survey.question,constr_error_msg:academic.survey_question_34
+#: model:survey.question,constr_error_msg:academic.survey_question_35
+#: model:survey.question,constr_error_msg:academic.survey_question_36
+#: model:survey.question,constr_error_msg:academic.survey_question_37
+#: model:survey.question,constr_error_msg:academic.survey_question_38
+#: model:survey.question,constr_error_msg:academic.survey_question_39
+#: model:survey.question,constr_error_msg:academic.survey_question_40
+msgid "This question requires an answer."
 msgstr ""
 
 #. module: academic
@@ -2259,8 +2588,24 @@ msgid "Time Used"
 msgstr ""
 
 #. module: academic
+#: model:survey.label,value:academic.survey_label_80
+msgid "Tres"
+msgstr ""
+
+#. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_group_type
 msgid "Type"
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_76
+#: model:survey.label,value:academic.survey_label_78
+msgid "Una"
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_74
+msgid "Uno o más"
 msgstr ""
 
 #. module: academic
@@ -2308,6 +2653,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic.field_survey_question_performance_variable_ids
 #: model:ir.ui.menu,name:academic.menu_academic_question_variable
 msgid "Variables"
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_146
+msgid "Verdadero"
 msgstr ""
 
 #. module: academic
@@ -2363,8 +2713,411 @@ msgid "You can not force closure if you not set an observation category."
 msgstr ""
 
 #. module: academic
+#: model:survey.label,value:academic.survey_label_193
+msgid "a) 18"
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_197
+msgid "a) 24 "
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_205
+msgid "a) 3/4"
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_189
+msgid "a) 4m2"
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_103
+msgid "a) Algunas horas, desde la medianoche hasta el amanecer."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_185
+msgid "a) Bajó -97 metros."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_201
+msgid "a) Desarrollo rojo"
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_99
+msgid "a) En un antiguo convento de los Templarios."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_107
+msgid "a) En verano."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_162
+msgid "a) Es un cobarde, huye de la guerra."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_179
+msgid "a) Irracional"
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_174
+msgid ""
+"a) La prolongación muscular hueca y flexible de la nariz de algunos "
+"animales."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_148
+msgid ""
+"a) Las estrellas son tan hermosas e inalcanzables como los sueños de "
+"Manrique."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_166
+msgid "a) Lee atentamente la última cantiga de un trovador portugués."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_158
+msgid ""
+"a) Manrique olvida sus fantasías y marcha a la guerra buscando poder y "
+"gloria."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_170
+msgid "a) Se narran episodios de carácter realista."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_140
+msgid ""
+"a) Se trata de una joven de ojos azules, cabello negro y largo. Su voz es "
+"suave como el rumor del viento. Es cariñosa y siempre está alegre, por eso "
+"Manrique piensa que a su lado será feliz; ella siente la dicha que él no ha "
+"sentido jamás."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_119
+msgid "a) Veía pasar las olas del río"
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_130
+msgid ""
+"a) […] La orla del traje de una mujer, de una mujer que había cruzado el "
+"sendero y se ocultaba entre el follaje, en el mismo instante en que el loco "
+"soñador de quimeras o imposibles penetraba en los jardines."
+msgstr ""
+
+#. module: academic
 #: model:ir.model,name:academic.model_academic_division_analysis
 msgid "academic.division_analysis"
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_194
+msgid "b) 0"
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_198
+msgid "b) 22"
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_206
+msgid "b) 4/3"
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_190
+msgid "b) 6m2"
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_202
+msgid "b) Desarrollo verde"
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_180
+msgid "b) Desatinado"
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_104
+msgid "b) Dos meses."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_159
+msgid "b) El desengaño es tan brutal que Manrique enloquece y no se recupera."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_175
+msgid ""
+"b) El instrumento musical de viento formado por un tubo de metal, de unos "
+"3,50 m. de longitud, enroscado circularmente."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_100
+msgid "b) En el patio de armas del castillo de los Manrique."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_108
+msgid "b) En otoño."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_163
+msgid "b) Es un valiente, no teme  el fragor de la batalla."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_167
+msgid "b) Está preparándose para la próxima guerra."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_171
+msgid "b) Explica un suceso extraño o una particularidad del mundo exterior."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_149
+msgid "b) Las nubes huyen como la sombra que persigue entre las ruinas."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_120
+msgid "b) Se sentaba…"
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_141
+msgid ""
+"b) Se trata de una joven de ojos zarcos, húmedos y expresivos. Cabello negro"
+" y largo. Su voz es suave como el rumor del viento en las hojas de los "
+"álamos. Su andar es majestuoso, acompasado. Su espíritu melancólico armoniza"
+" perfectamente con los sentimientos de Manrique."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_186
+msgid "b) Subió 53 metros."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_131
+msgid ""
+"b) […] luego, firmemente persuadido de que un perfume especial que aspiraba "
+"a intervalos era un aroma perteneciente a aquella mujer"
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_195
+msgid "c) -2"
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_207
+msgid "c) -4/12"
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_191
+msgid "c) 2m2"
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_199
+msgid "c) 42"
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_168
+msgid ""
+"c) Busca a la mujer de sus sueños y no entiende por qué no puede "
+"encontrarla."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_105
+msgid "c) Cuatro semanas, de luna llena a luna llena."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_203
+msgid "c) Desarrollo amarillo"
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_150
+msgid ""
+"c) El paisaje es suave, dulce, agradable, no existen rocas, riscos ni "
+"amenazas."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_101
+msgid "c) En Soria."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_109
+msgid "c) En invierno."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_121
+msgid "c) Era noble; había nacido…"
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_172
+msgid "c) Los hechos contados son de carácter sobrenatural."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_160
+msgid "c) Manrique conoce otras mujeres y olvida sus fantasías de juventud."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_142
+msgid ""
+"c) Se trata de una joven de ojos negros y larga melena que flota al viento. "
+"Su voz es suave  y cadenciosa como la música. Sus pasos, rotundos y "
+"decididos. Su espíritu emana una melancolía que enamora a Manrique."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_181
+msgid "c) Sensato"
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_187
+msgid "c) Subió  -53metros. "
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_176
+msgid "c) Una  borrachera."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_164
+msgid "c) Vive en un mundo fantástico y no presta atención a la realidad."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_132
+msgid ""
+"c) […] creyó divisar por entre los cruzados troncos de los árboles como una "
+"claridad o una forma blanca que se movía."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_106
+msgid ""
+"d) Cuando la medianoche tocaba a su punto y la luna remontaba lentamente."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_102
+msgid "d) En la cabeza de Manrique."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_161
+msgid ""
+"d) Las fiestas, los trovadores y la poesía ayudan a Manrique a olvidar."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_173
+msgid "d) Los personajes son dioses o semidioses."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_151
+msgid "d) Los álamos dan sombra y frescura bajo el ardiente sol del mediodía."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_188
+#: model:survey.label,value:academic.survey_label_192
+#: model:survey.label,value:academic.survey_label_196
+#: model:survey.label,value:academic.survey_label_200
+#: model:survey.label,value:academic.survey_label_204
+msgid "d) Ninguna de las respuestas es correcta"
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_208
+msgid "d) Ninguna de las respuestas es correcta."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_110
+msgid ""
+"d) No se indica, pero debe ser en primavera por la abundancia de la "
+"vegetación."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_165
+msgid "d) Se refugia en la lectura para no tener que batallar."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_143
+msgid ""
+"d) Se trata de una joven pálida, con trenzas de oro, dulce y cariñosa. "
+"Guarda en su corazón un tesoro de ternura que compartirá con Manrique."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_182
+msgid "d) Sinsentido"
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_169
+msgid "d) Su vida está sumergida entre las sombras y la confusión."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_177
+msgid "d) Un trompo."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_122
+msgid "d) Vio agitarse una sombra…"
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_133
+msgid ""
+"d) […] notando que las ramas, por entre las cuales había desaparecido, se "
+"movían; ya imaginando distinguir en la arena la huella de sus propios pies "
+"[…]"
 msgstr ""
 
 #. module: academic
@@ -2373,6 +3126,96 @@ msgstr ""
 #: model:ir.ui.view,arch_db:academic.view_academic_division_form
 #: model:ir.ui.view,arch_db:academic.view_academic_division_tree
 msgid "division"
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_134
+msgid ""
+"e) -Pero siguen sonando sus pisadas -murmuró otra vez;- creo que ha hablado;"
+" no hay duda, ha hablado... El viento que suspira entre las ramas; las "
+"hojas, que parece que rezan en voz baja, me han impedido oír lo que ha "
+"dicho; pero no hay duda, va por ahí, ha hablado... ha hablado... ¿En qué "
+"idioma? No sé, pero es una lengua extranjera..."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_178
+msgid ""
+"e) El músico que toca el instrumento de viento anteriormente descripto."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_152
+msgid ""
+"e) La hiedra cubre las ruinas, borrando su  belleza y el recuerdo de quien "
+"allí vivió."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_144
+msgid ""
+"e) La joven es un fantasma de niebla y de luz, que no existe en la realidad "
+"y, por eso, jamás podrá amar a Manrique."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_183
+msgid "e) Lógico"
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_123
+msgid "e) Manrique se encontraba bien..."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_153
+msgid ""
+"f) La espesura de las ramas forma una agradable estancia que ofrece amparo."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_124
+msgid "f) Leía la última cantiga de un trovador…"
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_184
+msgid "f) Racional"
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_145
+msgid ""
+"f) Se trata de una joven de ojos claros, húmedos y melancólicos. Cabello "
+"negro y largo. Su voz es suave como el rumor del viento en las hojas de los "
+"álamos. Su andar es musical, acompasado. Es el alma gemela de Manrique."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_135
+msgid ""
+"f) Sobre el Duero, que pasaba lamiendo las carcomidas y oscuras piedras de "
+"las murallas de Soria, hay un puente que conduce de la ciudad al antiguo "
+"convento de los Templarios, cuyas posesiones se extendían a lo largo de la "
+"opuesta margen del río."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_154
+msgid "g) Los senderos de los jardines son rectos y están bien delimitados."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_125
+msgid "g) Se acurrucaba…"
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_136
+msgid ""
+"g) […] y prorrumpe al fin una carcajada, una carcajada sonora, estridente, "
+"horrible."
 msgstr ""
 
 #. module: academic
@@ -2394,6 +3237,55 @@ msgstr ""
 #: model:ir.ui.view,arch_db:academic.view_academic_group_evaluation_form
 #: model:ir.ui.view,arch_db:academic.view_academic_group_evaluation_tree
 msgid "group_evaluation"
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_155
+msgid ""
+"h) Llama la atención que el agua, símbolo de la vida y de la muerte, no "
+"aparezca."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_126
+msgid "h) No había que buscarle…"
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_137
+msgid ""
+"h) […] y el viento suspiraba con un rumor dulcísimo entre las hojas de los "
+"árboles."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_156
+msgid ""
+"i) El ramaje es espeso, intrincado, confuso como los sentimientos de "
+"Manrique."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_138
+msgid ""
+"i) […]  Era noble, había nacido entre el estruendo de las armas, y el "
+"insólito clamor de una trompa de guerra no le hubiera hecho levantar la "
+"cabeza un instante […]"
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_139
+msgid ""
+"j)  - En los huertos y en los jardines, cuyos senderos no hollaban hacía "
+"muchos años las plantas de los religiosos, la vegetación, abandonada a sí "
+"misma, desplegaba todas sus galas, sin temor de que la mano del hombre la "
+"mutilase, creyendo embellecerla."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_157
+msgid ""
+"j) La luna llena ilumina la noche, mostrando a Manrique el camino del hogar."
 msgstr ""
 
 #. module: academic
@@ -2540,7 +3432,81 @@ msgid "weight subi_timextopic_math_value"
 msgstr ""
 
 #. module: academic
+#: model:survey.question,question:academic.survey_question_37
+msgid "¿A qué punto llegó?"
+msgstr ""
+
+#. module: academic
 #: model:ir.model.fields,help:academic.field_res_partner_disabled_person
 #: model:ir.model.fields,help:academic.field_res_users_disabled_person
 msgid "¿Alumno/a con Dificultades de aprendizaje?"
+msgstr ""
+
+#. module: academic
+#: model:survey.question,question:academic.survey_question_35
+msgid "¿Bajó o subió? ¿Cuántos metros?"
+msgstr ""
+
+#. module: academic
+#: model:survey.question,description:academic.survey_question_34
+msgid ""
+"¿Cuál es el significado de esta palabra? Marca los conceptos tengan un "
+"sentido semejante al mismo:"
+msgstr ""
+
+#. module: academic
+#: model:survey.question,question:academic.survey_question_36
+msgid "¿Cuál es la superficie sombreada? "
+msgstr ""
+
+#. module: academic
+#: model:survey.question,question:academic.survey_question_38
+msgid "¿Cuántas figuritas tendrá si sabe que son menos de 50?"
+msgstr ""
+
+#. module: academic
+#: model:survey.question,question:academic.survey_question_40
+msgid ""
+"¿Qué número se debería colocar en la línea de puntos para verificar la "
+"igualdad?"
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_118
+msgid "…en el borde de las tumbas"
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_114
+msgid "…en el fondo de una sombría alameda."
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_111
+msgid "…en el patio de su castillo"
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_115
+msgid "…en el puente"
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_112
+msgid "…en la quiebra de las rocas"
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_116
+msgid "…en medio de la soledad"
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_117
+msgid "…en oscuros pergaminos"
+msgstr ""
+
+#. module: academic
+#: model:survey.label,value:academic.survey_label_113
+msgid "…entre el estruendo de las armas."
 msgstr ""
