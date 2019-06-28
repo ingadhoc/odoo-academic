@@ -108,9 +108,7 @@ class SurveySurvey(models.Model):
         group_evaluation_ids.action_send_survey()
 
     def autom_add_groups(self):
-        for survey in self.read(
-                self.ids, ['level_ids', 'subject_ids', 'group_year'],
-        ):
+        for survey in self.read(['level_ids', 'subject_ids', 'group_year']):
             level_ids = survey.get('level_ids', False)
             subject_ids = survey.get('subject_ids', False)
             survey_id = survey.get('id', False)
@@ -133,7 +131,7 @@ class SurveySurvey(models.Model):
             for i in new_group_ids:
                 self.env['academic.group_evaluation'].create(
                     {'survey_id': survey.id,
-                     'group_id': i,
+                     'group_id': i.id,
                      })
 
     @api.multi
