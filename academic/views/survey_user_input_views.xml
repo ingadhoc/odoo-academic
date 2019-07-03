@@ -77,7 +77,7 @@
                 <field name="test_entry" invisible="True"/>
                 <!-- <field name="designed" invisible="True"/> -->
                 <field name="score" groups="base.group_survey_see_scores"/>
-                <button name="action_answer_survey" icon="gtk-go-forward" string="Answer Survey" type="object" invisible="'show_answer_button' not in context" states="new,skip"/>
+                <button name="action_answer_survey" icon="fa-arrow-right" string="Answer Survey" type="object" invisible="'show_answer_button' not in context" states="new,skip"/>
             </tree>
         </field>
     </record>

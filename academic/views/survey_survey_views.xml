@@ -35,11 +35,11 @@
                         <field name="group_year"/>
                     </group>
                     <header>
-                        <button name="autom_add_groups" string="Add Related Groups" type="object" icon="gtk-find-and-replace"/>
-                        <button name="set_invisible" icon="gtk-goto-first" string="Set Invisible" type="object"/>
-                        <button name="set_visible" icon="gtk-go-forward" string="Set Visible" type="object"/>
-                        <button name="action_send_survey" icon="gtk-go-forward" string="Open" type="object"/>
-                        <button name="set_closed" icon="gtk-cancel" string="Close" type="object"/>
+                        <button name="autom_add_groups" string="Add Related Groups" type="object" icon="fa-search"/>
+                        <button name="set_invisible" icon="fa-step-backward" string="Set Invisible" type="object"/>
+                        <button name="set_visible" icon="fa-arrow-right" string="Set Visible" type="object"/>
+                        <button name="action_send_survey" icon="fa-arrow-right" string="Open" type="object"/>
+                        <button name="set_closed" icon="fa-ban" string="Close" type="object"/>
                     </header>
                     <field name="group_evaluation_ids" context="{'from_survey':True,}">
                         <!-- <field name="group_evaluation_ids" context="{'from_survey':True,'default_apply_to':apply_to}"> -->
