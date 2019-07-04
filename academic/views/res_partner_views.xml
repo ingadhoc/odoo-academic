@@ -118,6 +118,9 @@
             <xpath expr="//kanban//t[@t-name='kanban-box']//div[@t-if='record.function.raw_value']" position="after">
                 <strong><div t-if="record.partner_type.raw_value"><field name="partner_type"/></div></strong>
             </xpath>
+            <field name="website" position="after">
+                <field name="related_user_id" attrs="{'invisible':[('related_user_id', '=', False)]}" context="{'form_view_ref':'base.view_users_form'}"/>
+            </field>
         </field>
     </record>
 
