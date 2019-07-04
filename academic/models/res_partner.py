@@ -98,6 +98,15 @@ class ResPartner(models.Model):
     dni = fields.Integer(
         'DNI',
     )
+    related_user_id = fields.Many2one(
+        'res.users',
+        compute='compute_related_user_id',
+    )
+
+    @api.multi
+    def compute_related_user_id(self):
+        for rec in self:
+            rec.related_user_id = rec.user_ids and rec.user_ids[0]
 
     @api.constrains('is_company')
     @api.onchange('is_company')
