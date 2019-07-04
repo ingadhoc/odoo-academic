@@ -66,6 +66,7 @@
         'data/academic_data.xml',
         'data/academic_mail_template.xml',
         'data/res_users_data.xml',
+        'views/assets.xml',
     ],
     'demo': [
         'demo/academic.subject.csv',
