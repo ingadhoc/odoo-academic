@@ -11,6 +11,16 @@
         </field>
     </record>
 
+    <record id="view_evaluation_response_graph" model="ir.ui.view">
+        <field name="name">academic.evaluation.report.graph</field>
+        <field name="model">academic.evaluation.report</field>
+        <field name="arch" type="xml">
+            <graph string="Response Analysis" type="bar">
+                <field name="input_avg_score"/>
+            </graph>
+        </field>
+    </record>
+
     <record id="view_evaluation_response_tree" model="ir.ui.view">
         <field name="name">academic.evaluation.report.tree</field>
         <field name="model">academic.evaluation.report</field>
@@ -63,7 +73,7 @@
         <field name="name">Question Analysis</field>
         <field name="res_model">academic.evaluation.report</field>
         <field name="view_type">form</field>
-        <field name="view_mode">pivot,tree</field>
+        <field name="view_mode">pivot,graph,tree</field>
         <field name="search_view_id" ref="view_evaluation_response_search"/>
         <field name="view_id" ref="view_evaluation_response_pivot"/>
             <field name="context">{'search_default_closed':1,'search_default_exclude_disable_partners':1}</field>
