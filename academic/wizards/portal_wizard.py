@@ -11,8 +11,6 @@ class PortalWizard(models.TransientModel):
         if active_model == 'res.partner' and active_id:
             partner_type = self.env[
                 active_model].browse(active_id).partner_type
-            # template_user_id = self.env[active_model].with_context(
-            # partner_type=partner_type)._default_template_user_id()
             groups = self.env['res.groups']
             if partner_type == 'gral_administrator':
                 groups = self.env.ref(

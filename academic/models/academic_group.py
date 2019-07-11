@@ -138,8 +138,7 @@ class AcademicGroup(models.Model):
         '''
         # Create users, if they already exists it will update
         #  grupos and activate them
-        self.student_ids.quickly_create_portal_user(
-            self.env.ref('academic.group_portal_student').id)
+        self.student_ids.quickly_create_portal_user()
 
     @api.multi
     def print_users(self):
