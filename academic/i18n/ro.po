@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-04 20:56+0000\n"
+"POT-Creation-Date: 2019-07-11 14:53+0000\n"
 "PO-Revision-Date: 2019-01-19 12:45+0000\n"
 "Last-Translator: Elise Wit <era.gyorgy@gmail.com>, 2019\n"
 "Language-Team: Romanian (https://www.transifex.com/adhoc/teams/46451/ro/)\n"
@@ -851,6 +851,11 @@ msgid "Course Level"
 msgstr ""
 
 #. module: academic
+#: model:ir.ui.view,arch_db:academic.view_academic_partner_form
+msgid "Create User"
+msgstr ""
+
+#. module: academic
 #: model:ir.actions.act_window,help:academic.action_res_company_form
 msgid ""
 "Create and manage the companies that will be managed by odoo from here. "
@@ -1284,7 +1289,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic.field_academic_section_id
 #: model:ir.model.fields,field_description:academic.field_academic_subject_id
 #: model:ir.model.fields,field_description:academic.field_res_partner_relationship_id
-#: model:ir.model.fields,field_description:academic.field_survey_question_indicator_id_2743
+#: model:ir.model.fields,field_description:academic.field_survey_question_indicator_id_2741
 #: model:ir.model.fields,field_description:academic.field_survey_question_performance_id
 #: model:ir.model.fields,field_description:academic.field_survey_question_variable_id
 msgid "ID"
@@ -2148,7 +2153,7 @@ msgid "Related User"
 msgstr ""
 
 #. module: academic
-#: model:ir.model.fields,field_description:academic.field_res_partner_relationship_id_2601
+#: model:ir.model.fields,field_description:academic.field_res_partner_relationship_id_2600
 #: model:ir.model.fields,field_description:academic.field_res_users_relationship_id
 msgid "Relationship"
 msgstr ""
@@ -2490,12 +2495,6 @@ msgstr ""
 #. module: academic
 #: model:ir.ui.view,arch_db:academic.academic_division_analysis_kanban
 msgid "Temas efectivamente dados"
-msgstr ""
-
-#. module: academic
-#: model:ir.model.fields,field_description:academic.field_res_partner_template_user_id
-#: model:ir.model.fields,field_description:academic.field_res_users_template_user_id
-msgid "Template User"
 msgstr ""
 
 #. module: academic
