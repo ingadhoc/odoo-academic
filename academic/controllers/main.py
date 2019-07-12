@@ -19,9 +19,11 @@ class BinaryBackground(Binary):
         placeholder = functools.partial(
             get_resource_path, 'web_enterprise', 'static', 'src', 'img')
         company = request.env["res.company"].sudo().browse(1)
-        background = company.background_image
-        if background:
-            image_base64 = base64.b64decode(background)
+        module_web_studio_installed = request.env['ir.module.module'].search([
+            ('name', '=', 'web_studio'),
+            ('state', '=', 'installed')])
+        if module_web_studio_installed and company.background_image:
+            image_base64 = base64.b64decode(company.background_image)
             image_data = io.BytesIO(image_base64)
             imgext = '.' + (imghdr.what(None, h=image_base64) or 'png')
             response = http.send_file(
