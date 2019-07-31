@@ -35,3 +35,8 @@ class ResUsers(models.Model):
         :param uid: id of the current user
         :param id: id of the user on which the password should be set
         """
+
+    def name_get(self):
+        if self._context.get('show_login', False):
+            return [(r.id, r.login) for r in self]
+        return super().name_get()
