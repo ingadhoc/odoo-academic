@@ -163,7 +163,7 @@
         <field name="view_mode">kanban,tree,form</field>
         <field name="view_id" ref="view_academic_partner_tree"/>
         <field name="search_view_id" ref="view_academic_partner_filter"/>
-        <field name="context">{'default_partner_type':'administrator'}</field>
+        <field name="context">{'default_partner_type':'administrator', 'show_login':True}</field>
         <field name="domain">[('partner_type','=','administrator')]</field>
     </record>
 
@@ -174,7 +174,7 @@
         <field name="view_mode">kanban,tree,form</field>
         <field name="view_id" ref="view_academic_partner_tree"/>
         <field name="search_view_id" ref="view_academic_partner_filter"/>
-        <field name="context">{'default_partner_type':'administrator'}</field>
+        <field name="context">{'default_partner_type':'administrator', 'show_login':True}</field>
         <field name="domain">[('company_id','=',active_id), ('partner_type','=','administrator')]</field>
     </record>
 
@@ -185,7 +185,7 @@
         <field name="view_mode">kanban,tree,form</field>
         <field name="view_id" ref=""/>
         <field name="search_view_id" ref="academic.view_academic_partner_filter"/>
-        <field name="context">{'default_partner_type':'student'}</field>
+        <field name="context">{'default_partner_type':'student', 'show_login':True}</field>
         <field name="domain">[('partner_type','=','student')]</field>
     </record>
 
@@ -196,7 +196,7 @@
         <field name="view_mode">kanban,tree,form</field>
         <field name="view_id" ref=""/>
         <field name="search_view_id" ref="academic.view_academic_partner_filter"/>
-        <field name="context">{'default_partner_type':'student'}</field>
+        <field name="context">{'default_partner_type':'student', 'show_login':True}</field>
         <field name="domain">[('company_id','=',active_id),('partner_type','=','student')]</field>
     </record>
 
@@ -207,7 +207,7 @@
         <field name="view_mode">kanban,tree,form</field>
         <field name="view_id" ref=""/>
         <field name="search_view_id" ref="academic.view_academic_partner_filter"/>
-        <field name="context">{'default_partner_type':'teacher'}</field>
+        <field name="context">{'default_partner_type':'teacher', 'show_login':True}</field>
         <field name="domain">[('partner_type','=','teacher')]</field>
     </record>
 
@@ -218,7 +218,7 @@
         <field name="view_mode">kanban,tree,form</field>
         <field name="view_id" ref=""/>
         <field name="search_view_id" ref="academic.view_academic_partner_filter"/>
-        <field name="context">{'default_partner_type':'teacher'}</field>
+        <field name="context">{'default_partner_type':'teacher', 'show_login':True}</field>
         <field name="domain">[('company_id','=',active_id), ('partner_type','=','teacher')]</field>
     </record>
 
@@ -231,7 +231,7 @@
         <field name="view_mode">tree,form</field>
         <field name="view_id" ref="view_academic_partner_tree"/>
         <field name="search_view_id" ref="view_academic_partner_filter"/>
-        <field name="context">{'default_partner_type':'gral_administrator'}</field>
+        <field name="context">{'default_partner_type':'gral_administrator', 'show_login':True}</field>
         <field name="domain">[('partner_type','=','gral_administrator')]</field>
     </record>
 
@@ -242,7 +242,8 @@
         <field name="view_mode">tree,form</field>
         <field name="view_id" ref="view_academic_partner_tree"/>
         <field name="search_view_id" ref="view_academic_partner_filter"/>
-        <field name="context">{'default_partner_type':'parent'}</field>
+        <field name="context">{'default_partner_type':'parent',
+        'show_login':True}</field>
         <field name="domain">[('partner_type','=','parent')]</field>
     </record>
 
