@@ -24,9 +24,8 @@
         'view/project_view.xml',
         'view/academic_menuitem.xml',
         'view/res_company.xml',
-        'view/website_view.xml',
+        'view/website_page_view.xml',
         'view/res_partner_view.xml',
-        'security/security.xml',
         'security/ir.model.access.csv',
 
     ],
@@ -39,5 +38,5 @@
     'license': 'AGPL-3',
     'name': 'Academic Content',
     'test': [],
-    'version': '11.0.1.0.0',
+    'version': '11.0.1.1.0',
 }

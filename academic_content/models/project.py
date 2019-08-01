@@ -17,8 +17,8 @@ class AcademicProject(models.Model):
         'company_id',
         string='Companies'
     )
-    website_menu_ids = fields.One2many(
-        'website.menu',
+    website_page_ids = fields.One2many(
+        'website.page',
         'academic_project_id',
-        string='Website Menus',
+        string='Website Pages',
     )

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="website_page_form_inherit" model="ir.ui.view">
+        <field name="name">website.page.form.inherit</field>
+        <field name="model">website.page</field>
+        <field name="inherit_id" ref="website.website_pages_form_view"/>
+        <field name="arch" type="xml">
+            <field name="view_id" position="after">
+                <field name="academic_project_id"/>
+            </field>
+        </field>
+    </record>
+</odoo>
