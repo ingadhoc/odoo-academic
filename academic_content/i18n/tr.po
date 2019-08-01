@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-19 21:36+0000\n"
+"POT-Creation-Date: 2019-07-31 21:31+0000\n"
 "PO-Revision-Date: 2019-01-19 12:45+0000\n"
 "Last-Translator: Nil Enkavi <nilenkavi@hotmail.com>, 2019\n"
 "Language-Team: Turkish (https://www.transifex.com/adhoc/teams/46451/tr/)\n"
@@ -20,18 +20,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #. module: academic_content
-#: model:ir.ui.menu,name:academic_content.menu_academic_projects
-msgid " Academic Projects"
-msgstr "Akademik Projeler"
-
-#. module: academic_content
-#: model:ir.actions.act_window,name:academic_content.action_academic_project
-msgid "Academic Project"
-msgstr "Akademik Proje"
-
-#. module: academic_content
 #: model:ir.model,name:academic_content.model_res_company
-#: model:ir.model.fields,field_description:academic_content.field_academic_project_academic_project_company_ids
 msgid "Companies"
 msgstr "Şirketler"
 
@@ -41,72 +30,11 @@ msgid "Contact"
 msgstr "İletişim"
 
 #. module: academic_content
-#: model:ir.model.fields,field_description:academic_content.field_academic_project_create_uid
-msgid "Created by"
-msgstr ""
-
-#. module: academic_content
-#: model:ir.model.fields,field_description:academic_content.field_academic_project_create_date
-msgid "Created on"
-msgstr ""
-
-#. module: academic_content
-#: model:ir.model.fields,field_description:academic_content.field_academic_project_display_name
-msgid "Display Name"
-msgstr "Kullancı Adı"
-
-#. module: academic_content
-#: model:ir.model.fields,field_description:academic_content.field_academic_project_id
-msgid "ID"
-msgstr ""
-
-#. module: academic_content
-#: model:ir.model.fields,field_description:academic_content.field_academic_project___last_update
-msgid "Last Modified on"
-msgstr ""
-
-#. module: academic_content
-#: model:ir.model.fields,field_description:academic_content.field_academic_project_write_uid
-msgid "Last Updated by"
-msgstr ""
-
-#. module: academic_content
-#: model:ir.model.fields,field_description:academic_content.field_academic_project_write_date
-msgid "Last Updated on"
-msgstr ""
-
-#. module: academic_content
-#: model:ir.model.fields,field_description:academic_content.field_academic_project_name
-msgid "Name"
-msgstr "İsim"
-
-#. module: academic_content
 #: model:ir.model,name:academic_content.model_academic_project
-#: model:ir.model.fields,field_description:academic_content.field_website_menu_academic_project_id
-#: model:ir.ui.menu,name:academic_content.menu_project
-#: model:ir.ui.view,arch_db:academic_content.view_academic_project_form
 msgid "Project"
 msgstr "Proje"
-
-#. module: academic_content
-#: model:ir.model.fields,field_description:academic_content.field_res_company_academic_project_ids
-#: model:ir.model.fields,field_description:academic_content.field_res_partner_partner_academic_project_ids
-#: model:ir.model.fields,field_description:academic_content.field_res_users_partner_academic_project_ids
-#: model:ir.ui.view,arch_db:academic_content.view_project_company_form
-msgid "Projects"
-msgstr "Projeler"
 
 #. module: academic_content
 #: model:ir.model,name:academic_content.model_website_menu
 msgid "Website Menu"
 msgstr ""
-
-#. module: academic_content
-#: model:ir.model.fields,field_description:academic_content.field_academic_project_website_menu_ids
-msgid "Website Menus"
-msgstr ""
-
-#. module: academic_content
-#: model:ir.ui.view,arch_db:academic_content.view_academic_project_tree
-msgid "project"
-msgstr "proje"
