@@ -16,7 +16,9 @@
         <field name="model">academic.evaluation.report</field>
         <field name="arch" type="xml">
             <graph string="Response Analysis" type="bar">
-                <field name="input_avg_score"/>
+                <field name="input_avg_score" type="measure"/>
+                <field name="survey_id" type="row"/>
+                <field name="period_id" type="row"/>
             </graph>
         </field>
     </record>
