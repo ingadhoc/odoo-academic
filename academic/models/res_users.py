@@ -6,35 +6,20 @@ from odoo import models, fields
 from odoo.addons.auth_crypt.models.res_users import ResUsers
 
 
-def new_init(self):
-    """Moneky patch para desactivar crear los hash"""
-    pass
-
-
-ResUsers.init = new_init
-
-
 class ResUsers(models.Model):
     _inherit = 'res.users'
 
-    """ Con esto hacemos que las passwords no se encripten asi se pueden
-    imprimir en el reporte"""
-    password = fields.Char(
-        'Password',
-        size=64,
-        invisible=True,
-        copy=False,
-        help="Keep empty if you don't want the user to be able"
-        " to connect on the system.",
-    )
-
     def _set_encrypted_password(self, encrypted):
-        """ Store the provided encrypted password to the database, and clears
-        any plaintext password
-
-        :param uid: id of the current user
-        :param id: id of the user on which the password should be set
+        """ Si es estudiante no limpiamos las password, solo guardamos la encriptada
+        TODO deberiamos mejorar y solo guardar la password si venimos desde los groups, es decir
+        forzando contraseña nosotros. Pero tendriamos que en ese caso ademas hacer que el init que borramos
+        no limpie esas pass.
         """
+        if self.has_group('academic.group_portal_student'):
+            return self.env.cr.execute(
+                "UPDATE res_users SET password_crypt=%s WHERE id=%s",
+                (encrypted, self.id))
+        return super(ResUsers, self)._set_encrypted_password(encrypted)
 
     def name_get(self):
         if self._context.get('show_login', False):

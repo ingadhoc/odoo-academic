@@ -4,6 +4,8 @@
 ##############################################################################
 from odoo import api, models, fields, _
 from datetime import date
+import random
+import string
 
 
 class AcademicGroup(models.Model):
@@ -136,9 +138,11 @@ class AcademicGroup(models.Model):
         This function create users if they don't exist for students related
          to this group.
         '''
-        # Create users, if they already exists it will update
-        #  grupos and activate them
         self.student_ids.quickly_create_portal_user()
+        # reamos contrasenas para todos los students que no tengan una explicita (no hashed)
+        for user in self.student_ids.mapped('user_ids').filtered(lambda x: not x.password):
+            user.password = ''.join(random.choice(
+                string.ascii_uppercase + string.digits) for _ in range(6))
 
     @api.multi
     def print_users(self):
