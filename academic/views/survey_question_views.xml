@@ -8,7 +8,7 @@
         <field name="inherit_id" ref="evaluation.evaluation_question_form"/>
         <field name="arch" type="xml">
             <field name="objective_id" position="before">
-                <field name="indicator_id" required="True"/>
+                <field name="indicator_id" attrs="{'required':[('is_evaluation','=',True)]}"/>
             </field>
         </field>
     </record>
