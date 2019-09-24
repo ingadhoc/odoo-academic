@@ -7,13 +7,16 @@
         <field name="inherit_id" ref="evaluation.evaluation_survey_form"/>
         <field name="arch" type="xml">
             <h1 position="after">
-                <field name="period_id" attrs="{'required':[('is_evaluation','=',True)]}" placeholder="Period..."/>
+                <field name="period_id" attrs="{'invisible':[('is_evaluation','=',False)],'required':[('is_evaluation','=',True)]}" placeholder="Period..."/>
             </h1>
 
-            <!-- escondemos este boton para que no jodan -->
-            <button name="action_result_survey" position="replace">
-                <!-- aprovechamos y agregamos esta -->
-                <button name="compute_score" string="Re-Compute Scores" type="object"/>
+            <button name="action_result_survey" position="after">
+                <!-- agregamos este boton y lo escondemos si no estamos en un evaluacion -->
+                <button name="compute_score" string="Re-Compute Scores" type="object" attrs="{'invisible':[('is_evaluation','=',False)]}"/>
+            </button>
+            <!-- escondemos este boton si es una evaluacion -->
+            <button name="action_result_survey" position="attributes">
+                <attribute name="attrs">{'invisible':['|','|',('id', '=', False), ('tot_start_survey', '!=', 0),('is_evaluation','=',True)]}</attribute>
             </button>
 
             <field name="evaluation_type" position="after">
@@ -138,6 +141,10 @@
         </field>
     </record>
 
+    <record id="survey.action_survey_form" model="ir.actions.act_window">
+        <field name="domain">[('is_evaluation','=',False)]</field>
+    </record>
+
     <menuitem name="Evaluations" id="menu_evaluations" sequence="10" action="action_academic_survey_evaluations" parent="menu_evaluations_main" groups="group_user" />
 
     <menuitem name="Pages" id="menu_survey_page_form1" action="action_survey_page_form" parent="academic.menu_eval_config" sequence="1"/>
@@ -150,10 +157,5 @@
     <menuitem id="menu_survey_question_level" action="evaluation.action_question_level" parent="academic.menu_eval_config" sequence="8"/>
 
     <menuitem id="menu_survey_question_content" action="evaluation.action_question_content" parent="academic.menu_eval_config" sequence="10"/>
-
-    <!-- hide surveys menu -->
-    <record model="ir.ui.menu" id="survey.menu_surveys">
-        <field name="groups_id" eval="[(6, 0, [ref('base.group_no_one')])]"/>
-    </record>
 
 </odoo>
