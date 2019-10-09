@@ -65,7 +65,7 @@ class AcademicGroupEvaluation(models.Model):
 
     company_id = fields.Many2one(
         'res.company',
-        string='Company',
+        related='group_id.company_id',
         readonly=True,
     )
     time_used = fields.Float(
