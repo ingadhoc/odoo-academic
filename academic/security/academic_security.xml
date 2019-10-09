@@ -35,7 +35,7 @@
         <field name="name">user input multi-company</field>
         <field name="model_id" search="[('model','=','survey.user_input')]" model="ir.model"/>
         <field name="global" eval="True"/>
-        <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        <field name="domain_force">['|',('group_evaluation_id.group_id.company_id','=',False),('group_evaluation_id.group_id.company_id','child_of',[user.company_id.id])]</field>
     </record>
 
     <!-- No se necesita aca, despues se le limtia al administrador -->
