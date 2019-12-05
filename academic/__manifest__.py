@@ -89,7 +89,7 @@
         'demo/evaluation/survey.matrix_answer_score.csv',
         'demo/evaluation/survey.question.score.range.csv',
     ],
-    'installable': True,
+    'installable': False,
     'auto_install': False,
     'application': False,
 }

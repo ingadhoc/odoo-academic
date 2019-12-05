@@ -32,5 +32,5 @@
         'l10n_ar_partner',
     ],
     'demo': [],
-    'installable': True,
+    'installable': False,
 }

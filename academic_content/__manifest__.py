@@ -34,7 +34,7 @@
         'website_security',
     ],
     'demo': [],
-    'installable': True,
+    'installable': False,
     'license': 'AGPL-3',
     'name': 'Academic Content',
     'test': [],
