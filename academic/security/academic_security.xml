@@ -118,7 +118,7 @@
     <record id="group_portal_teacher" model="res.groups">
         <field name="name">Teacher's Portal</field>
         <field name="is_portal" eval="True"/>
-        <field name="implied_ids" eval="[(4, ref('group_portal_student')),(4, ref('base.group_survey_see_scores'))]"/>
+        <field name="implied_ids" eval="[(4, ref('group_portal_student')),(4, ref('evaluation.group_survey_see_scores'))]"/>
         <field name="category_id" ref="module_category_portal"/>
         <field name="comment">Teacher's Portal members have specific access rights (such as record rules and restricted menus).
                 They usually do not belong to the usual odoo groups.</field>
