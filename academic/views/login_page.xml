@@ -6,11 +6,9 @@
         </label>
     </template>
 
-    <template id="academic_link" name="Link to backend" inherit_id="website.layout">
-        <xpath expr="//li[@id='o_logout']" position="before">
-            <li>
-                <a href="/web" groups="academic.group_portal_student" role="menuitem">Academic</a>
-            </li>
+    <template id="academic_link" name="Link to backend" inherit_id="portal.frontend_layout">
+        <xpath expr="//a[@id='o_logout']" position="before">
+            <a href="/web" class="dropdown-item" groups="academic.group_portal_student" role="menuitem">Academic</a>
         </xpath>
     </template>
 

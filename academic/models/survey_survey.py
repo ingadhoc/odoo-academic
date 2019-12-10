@@ -64,12 +64,6 @@ class SurveySurvey(models.Model):
         'subject_id',
         string='Subjects',
     )
-    # group_year': fields.Many2many(
-    # 'academic.group',
-    #  'academic_survey_ids_year_rel',
-    #  'survey_id',
-    #  'year',
-    #  string='Years')
     group_year = fields.Integer(
         string='Year',
     )

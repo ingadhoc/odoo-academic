@@ -12,7 +12,7 @@
                 <!-- <field name="apply_to_id"/> -->
                 <field name="observation_category_id"/>
             </field>
-            <filter context="{'group_by': ['partner_id']}" position="replace">
+            <filter name="group_by_partner" position="replace">
                 <filter name="group_by_answered_by" string="Answered By" domain="[]" context="{'group_by': 'partner_id'}"/>
                 <!-- <filter name="group_by_apply_to" string="Apply To" domain="[]" context="{'group_by': 'apply_to_id'}"/>   -->
             </filter>
@@ -42,9 +42,6 @@
             <field name="user_input_line_ids" position="attributes">
                 <attribute name="groups">base.group_no_one</attribute>
             </field>
-            <label for="user_input_line_ids" position="attributes">
-                <attribute name="groups">base.group_no_one</attribute>
-            </label>
             <field name="type" position="attributes">
                 <attribute name="groups">base.group_no_one</attribute>
             </field>

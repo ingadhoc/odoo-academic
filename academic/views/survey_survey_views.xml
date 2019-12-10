@@ -52,9 +52,6 @@
             <button name="action_send_survey" position="attributes">
                 <attribute name="groups">base.group_no_one</attribute>
             </button>
-            <div class="oe_edit_only oe_inline" position="attributes">
-                <attribute name="groups">base.group_no_one</attribute>
-            </div>
             <!-- We hide this because till now it is unusable, only automatically score is functional -->
             <field name="evaluation_type" position="attributes">
                 <attribute name="groups">base.group_no_one</attribute>

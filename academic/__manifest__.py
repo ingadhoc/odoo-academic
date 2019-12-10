@@ -19,7 +19,7 @@
 ##############################################################################
 {
     'name': 'Academic',
-    'version': '11.0.1.21.0',
+    'version': '12.0.1.0.0',
     'sequence': 14,
     'summary': '',
     'author': 'ADHOC SA',
@@ -89,7 +89,7 @@
         'demo/evaluation/survey.matrix_answer_score.csv',
         'demo/evaluation/survey.question.score.range.csv',
     ],
-    'installable': False,
+    'installable': True,
     'auto_install': False,
     'application': False,
 }
