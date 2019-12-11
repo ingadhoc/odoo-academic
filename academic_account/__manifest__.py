@@ -19,7 +19,7 @@
 ##############################################################################
 {
     'name': 'Academic Account',
-    'version': '11.0.1.0.0',
+    'version': '12.0.1.0.0',
     'author': 'ADHOC SA',
     'category': 'Tools',
     'license': 'AGPL-3',
@@ -32,5 +32,5 @@
         'l10n_ar_partner',
     ],
     'demo': [],
-    'installable': False,
+    'installable': True,
 }

@@ -18,7 +18,7 @@
         <field name="name">survey_question_indicator_form</field>
         <field name="model">survey.question.indicator</field>
         <field name="arch" type="xml">
-            <form string="Survey Question Indicator" version="7.0">
+            <form string="Survey Question Indicator">
                 <group>
                     <field name="name"/>
                     <field name="calc_type"/>

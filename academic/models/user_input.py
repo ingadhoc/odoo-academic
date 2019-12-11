@@ -35,14 +35,12 @@ class SurveyUserInput(models.Model):
         related='group_evaluation_id.company_id',
         string='Company',
         store=True,
-        readonly=True,
     )
     group_id = fields.Many2one(
         'academic.group',
         related='group_evaluation_id.group_id',
         string='Group',
         store=True,
-        readonly=True,
     )
 
     def force_closure(self):
