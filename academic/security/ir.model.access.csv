@@ -23,20 +23,6 @@ access_academic_division_manager,academic.division.manager,model_academic_divisi
 access_academic_division_user,academic.division.user,model_academic_division,group_user,1,1,1,1
 access_academic_period_manager,academic.period.manager,model_academic_period,group_manager,1,1,1,1
 access_academic_period_user,academic.period.user,model_academic_period,group_user,1,1,1,1
-academic.access_academic_group_manager,academic.group.manager,model_academic_group,group_manager,1,1,1,1
-academic.access_academic_group_user,academic.group.user,model_academic_group,group_user,1,1,1,1
-academic.access_res_partner_manager,res.partner.manager,model_res_partner,group_manager,1,1,1,1
-academic.access_res_partner_user,res.partner.user,model_res_partner,group_user,1,1,1,1
-academic.access_academic_level_manager,academic.level.manager,model_academic_level,group_manager,1,1,1,1
-academic.access_academic_level_user,academic.level.user,model_academic_level,group_user,1,0,0,0
-academic.access_academic_subject_manager,academic.subject.manager,model_academic_subject,group_manager,1,1,1,1
-academic.access_academic_subject_user,academic.subject.user,model_academic_subject,group_user,1,0,0,0
-academic.access_academic_group_evaluation_manager,academic.group_evaluation.manager,model_academic_group_evaluation,group_manager,1,1,1,1
-academic.access_academic_group_evaluation_user,academic.group_evaluation.user,model_academic_group_evaluation,group_user,1,1,0,0
-academic.access_survey_survey_manager,survey.survey.manager,model_survey_survey,group_manager,1,1,1,1
-academic.access_survey_survey_user,survey.survey.user,model_survey_survey,group_user,1,0,0,0
-academic.access_survey_user_input_manager,survey.user_input.manager,model_survey_user_input,group_manager,1,1,1,1
-academic.access_survey_user_input_user,survey.user_input.user,model_survey_user_input,group_user,1,1,1,0
 access_group_global,academic.group.global,model_academic_group,,1,0,0,0
 access_academic_observation_category_global,academic.academic_observation_category_global,model_academic_observation_category,,1,0,0,0
 access_subject_global,academic.subject.global,model_academic_subject,,1,0,0,0
@@ -58,7 +44,6 @@ access_survey_question_performance_global,academic.survey_question_performance_g
 access_academic_period_global,academic.academic_period_global,model_academic_period,,1,0,0,0
 survey.access_survey_question_public,survey.question public,survey.model_survey_question,,1,1,0,0
 survey.access_survey_question_user,survey.question user,survey.model_survey_question,survey.group_survey_user,1,1,0,0
-model_res_groups,base.model_res_groups,base.model_res_groups,,1,0,0,0
 access_academic_division_analysis_global,academic_reports.academic_division_analysis_global,model_academic_division_analysis,,1,0,0,0
 access_academic_division_analysis_user,academic_reports.academic_division_analysis_user,model_academic_division_analysis,academic.group_user,1,0,0,0
 access_academic_division_analysis_manager,academic_reports.academic_division_analysis_manager,model_academic_division_analysis,academic.group_manager,1,1,1,1
