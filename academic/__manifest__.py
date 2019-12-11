@@ -30,6 +30,7 @@
     'depends': [
         'mail',
         'survey',
+        'website',
         'evaluation',
         'board',
         'decimal_precision',
