@@ -16,7 +16,7 @@ class ResUsers(models.Model):
         """
         if self.has_group('academic.group_portal_student'):
             return self.env.cr.execute(
-                "UPDATE res_users SET password_crypt=%s WHERE id=%s",
+                "UPDATE res_users SET password=%s WHERE id=%s",
                 (pw, uid))
         return super(ResUsers, self)._set_encrypted_password(uid, pw)
 
