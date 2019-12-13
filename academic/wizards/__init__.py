@@ -3,4 +3,5 @@
 # directory
 ##############################################################################
 from . import division_analysis_wizard
+from . import portal_wizard_user
 from . import portal_wizard
