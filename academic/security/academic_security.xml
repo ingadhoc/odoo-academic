@@ -88,19 +88,12 @@
         <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
     </record>
 
-    <!-- We create the Portal App -->
-    <record model="ir.module.category" id="module_category_portal">
-        <field name="name">Portal</field>
-        <field name="sequence">0</field>
-        <field name="visible" eval="0" />
-    </record>
-
     <!-- Portal Student Group -->
     <record id="group_portal_student" model="res.groups">
         <field name="name">Student's Portal</field>
         <field name="is_portal" eval="True"/>
         <field name="implied_ids" eval="[(4, ref('base.group_portal')),(4, ref('survey.group_survey_user'))]"/>
-        <field name="category_id" ref="module_category_portal"/>
+        <field name="category_id" ref="base.module_category_user_type"/>
         <field name="comment">Student's Portal members have specific access rights (such as record rules and restricted menus).
                 They usually do not belong to the usual odoo groups.</field>
     </record>
@@ -109,7 +102,7 @@
         <field name="name">Parent's Portal</field>
         <field name="is_portal" eval="True"/>
         <field name="implied_ids" eval="[(4, ref('base.group_portal'))]"/>
-        <field name="category_id" ref="module_category_portal"/>
+        <field name="category_id" ref="base.module_category_user_type"/>
         <field name="comment">Parent's Portal members have specific access rights (such as record rules and restricted menus).
             They usually do not belong to the usual OpenERP groups.</field>
     </record>
@@ -119,7 +112,7 @@
         <field name="name">Teacher's Portal</field>
         <field name="is_portal" eval="True"/>
         <field name="implied_ids" eval="[(4, ref('group_portal_student')),(4, ref('evaluation.group_survey_see_scores'))]"/>
-        <field name="category_id" ref="module_category_portal"/>
+        <field name="category_id" ref="base.module_category_user_type"/>
         <field name="comment">Teacher's Portal members have specific access rights (such as record rules and restricted menus).
                 They usually do not belong to the usual odoo groups.</field>
     </record>
@@ -129,7 +122,7 @@
         <field name="name">Administrator's Portal</field>
         <field name="is_portal" eval="True"/>
         <field name="implied_ids" eval="[(4, ref('group_portal_teacher'))]"/>
-        <field name="category_id" ref="module_category_portal"/>
+        <field name="category_id" ref="base.module_category_user_type"/>
         <field name="comment">Administrator's Portal members have specific access rights (such as record rules and restricted menus).
                 They usually do not belong to the usual odoo groups.</field>
     </record>
@@ -139,7 +132,7 @@
         <field name="name">Gral Administrator's Portal</field>
         <field name="is_portal" eval="True"/>
         <field name="implied_ids" eval="[(4, ref('group_portal_administrator'))]"/>
-        <field name="category_id" ref="module_category_portal"/>
+        <field name="category_id" ref="base.module_category_user_type"/>
         <field name="comment">General Administrator's Portal members have specific access rights (such as record rules and restricted menus).
                 They usually do not belong to the usual odoo groups.</field>
     </record>
