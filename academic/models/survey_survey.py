@@ -96,6 +96,9 @@ class SurveySurvey(models.Model):
         group_evaluation_ids.set_closed()
 
     def action_send_survey(self):
+        # restore default odoo behaviour if not evaluation
+        if not self.is_evaluation:
+            return super().action_send_survey()
         group_evaluation_obj = self.env['academic.group_evaluation']
         group_evaluation_ids = group_evaluation_obj.search(
             [('survey_id', 'in', self.ids)])
