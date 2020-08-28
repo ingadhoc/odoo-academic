@@ -28,7 +28,7 @@
     'images': [
     ],
     'depends': [
-        'mail',
+        'portal_backend',
         'survey',
         'website',
         'evaluation',
