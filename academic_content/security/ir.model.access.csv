@@ -1,4 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_academic_content_manager,academic_content.manager,model_academic_project,academic.group_manager,1,1,1,1
-access_academic_content_user,academic_content.user,model_academic_project,academic.group_user,1,1,1,1
-access_academic_content_global,academic.academic_content_global,academic_content.model_academic_project,,1,0,0,0
