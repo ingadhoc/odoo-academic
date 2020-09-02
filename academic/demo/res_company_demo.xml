@@ -16,7 +16,6 @@
     <record id="base.main_company" model="res.company">
         <field name="name">APDES</field>
         <field name="report_header">ASOCIACIÓN PARA LA PROMOCIÓN DEPORTIVA, EDUCATIVA Y SOCIAL</field>
-        <!-- <field name="partner_id" ref="main_partner"/> -->
         <field name="currency_id" ref="base.ARS"/>
     </record>
 
@@ -26,6 +25,7 @@
         <field name="partner_id" ref="res_partner_los_arroyos"/>
         <field name="parent_id" ref="base.main_company"/>
         <field name="currency_id" ref="base.ARS"/>
+        <field name="fiscalyear_last_day">31</field>
         <field name="name">Colegio Los Arroyos</field>
     </record>
 
@@ -33,6 +33,7 @@
         <field name="partner_id" ref="res_partner_los_molinos"/>
         <field name="parent_id" ref="base.main_company"/>
         <field name="currency_id" ref="base.ARS"/>
+        <!-- <field name="fiscalyear_last_day">31</field> -->
         <field name="name">Colegio Los Molinos</field>
     </record>
 

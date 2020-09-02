@@ -17,12 +17,6 @@
             <field name="user_id" position="attributes">
                 <attribute name="groups">base.group_no_one</attribute>
             </field>
-            <filter name="customer" position="attributes">
-                <attribute name="groups">base.group_no_one</attribute>
-            </filter>
-            <filter name="supplier" position="attributes">
-                <attribute name="groups">base.group_no_one</attribute>
-            </filter>
         </field>
     </record>
 
@@ -159,7 +153,6 @@
     <record id="action_academic_partner_administrators" model="ir.actions.act_window">
         <field name="name">Administrators</field>
         <field name="res_model">res.partner</field>
-        <field name="view_type">form</field>
         <field name="view_mode">kanban,tree,form</field>
         <field name="view_id" ref="view_academic_partner_tree"/>
         <field name="search_view_id" ref="view_academic_partner_filter"/>
@@ -170,7 +163,6 @@
     <record id="action_academic_company_partner_administrators" model="ir.actions.act_window">
         <field name="name">Administrators</field>
         <field name="res_model">res.partner</field>
-        <field name="view_type">form</field>
         <field name="view_mode">kanban,tree,form</field>
         <field name="view_id" ref="view_academic_partner_tree"/>
         <field name="search_view_id" ref="view_academic_partner_filter"/>
@@ -181,7 +173,6 @@
     <record id="action_academic_partner_students" model="ir.actions.act_window">
         <field name="name">Students</field>
         <field name="res_model">res.partner</field>
-        <field name="view_type">form</field>
         <field name="view_mode">kanban,tree,form</field>
         <field name="view_id" ref=""/>
         <field name="search_view_id" ref="academic.view_academic_partner_filter"/>
@@ -192,7 +183,6 @@
     <record id="action_academic_company_partner_students" model="ir.actions.act_window">
         <field name="name">Students</field>
         <field name="res_model">res.partner</field>
-        <field name="view_type">form</field>
         <field name="view_mode">kanban,tree,form</field>
         <field name="view_id" ref=""/>
         <field name="search_view_id" ref="academic.view_academic_partner_filter"/>
@@ -203,7 +193,6 @@
     <record id="action_academic_partner_teachers" model="ir.actions.act_window">
         <field name="name">Teachers</field>
         <field name="res_model">res.partner</field>
-        <field name="view_type">form</field>
         <field name="view_mode">kanban,tree,form</field>
         <field name="view_id" ref=""/>
         <field name="search_view_id" ref="academic.view_academic_partner_filter"/>
@@ -214,7 +203,6 @@
     <record id="action_academic_company_partner_teachers" model="ir.actions.act_window">
         <field name="name">Teachers</field>
         <field name="res_model">res.partner</field>
-        <field name="view_type">form</field>
         <field name="view_mode">kanban,tree,form</field>
         <field name="view_id" ref=""/>
         <field name="search_view_id" ref="academic.view_academic_partner_filter"/>
@@ -227,7 +215,6 @@
     <record id="action_academic_partner_gral_administrators" model="ir.actions.act_window">
         <field name="name">Gral Administrators</field>
         <field name="res_model">res.partner</field>
-        <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
         <field name="view_id" ref="view_academic_partner_tree"/>
         <field name="search_view_id" ref="view_academic_partner_filter"/>
@@ -238,7 +225,6 @@
     <record id="action_academic_partner_parents" model="ir.actions.act_window">
         <field name="name">Parents</field>
         <field name="res_model">res.partner</field>
-        <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
         <field name="view_id" ref="view_academic_partner_tree"/>
         <field name="search_view_id" ref="view_academic_partner_filter"/>

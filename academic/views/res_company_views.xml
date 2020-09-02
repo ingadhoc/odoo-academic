@@ -4,7 +4,6 @@
         <field name="name">Companies</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">res.company</field>
-        <field name="view_type">form</field>
         <field name="help">Create and manage the companies that will be managed by odoo from here. Shops or subsidiaries can be created and maintained from here.</field>
     </record>
     <menuitem action="action_res_company_form" id="menu_action_res_company_form" parent="menu_partners"/>

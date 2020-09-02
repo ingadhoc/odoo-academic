@@ -24,15 +24,7 @@ class AcademicLevel(models.Model):
         'level_id',
         string='Groups',
     )
-    survey_ids = fields.Many2many(
-        'survey.survey',
-        'academic_survey_ids_level_ids_rel',
-        'level_id',
-        'survey_id',
-        string='Surveys',
-    )
 
-    @api.multi
     def name_get(self):
         # always return the full hierarchical name
         res = []

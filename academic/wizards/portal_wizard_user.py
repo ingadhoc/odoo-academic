@@ -1,4 +1,4 @@
-from odoo import api, models, _
+from odoo import models, _
 from odoo.addons.portal.wizard.portal_wizard import extract_email
 from odoo.tools import ustr
 import re
@@ -38,7 +38,6 @@ class PortalWizardUser(models.TransientModel):
             sequence = (sequence + 1) if sequence else 2
         return new_name
 
-    @api.multi
     def get_error_messages(self):
         res = super().get_error_messages()
         if not self.partner_id.email and any([lis.find(_("Some contacts don't have a valid email: ")) for lis in res]):
@@ -48,7 +47,6 @@ class PortalWizardUser(models.TransientModel):
                 res.remove(_("Some contacts don't have a valid email: "))
         return res
 
-    @api.multi
     def _create_user(self):
         """ we overwrite this method because its not inheritable
         """

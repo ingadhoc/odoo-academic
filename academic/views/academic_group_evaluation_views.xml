@@ -12,7 +12,6 @@
                 </group>
                 <group string="By object">
                     <field name="group_id" string="Group" />
-                    <field name="survey_id" string="Evaluation" />
                 </group>
             </search>
         </field>
@@ -26,21 +25,15 @@
             <form string="group_evaluation">
                     <button name="set_invisible" icon="fa-step-backward" string="Set Invisible" type="object" states="open,visible,close"/>
                 <header>
-                    <button name="set_visible" icon="fa-arrow-right" string="Set Visible" type="object" states="invisible"/>
-                    <button name="action_send_survey" icon="fa-arrow-right" string="Open" type="object" states="visible"/>
-                    <button name="action_send_survey" icon="fa-repeat text-success" string="Re-Open" type="object" states="open"/>
                     <button name="set_closed" icon="fa-ban" string="Close" type="object" states="visible,open"/>
                     <field name="state" widget="statusbar"/>
                 </header>
                 <sheet string="group_evaluation">
                     <group>
-                        <field name="group_id" invisible="'from_group' in context" required="'from_survey' in context"/>
-                        <field name="survey_id" invisible="'from_survey' in context" required="'from_group' in context"/>
                         <field name="date_open"/>
                         <field name="date_close"/>
                         <field name="contingencies"/>
                         <field name="observation"/>
-                        <field name="user_input_ids"/>
                     </group>
                 </sheet>
 
@@ -60,33 +53,12 @@
         <field name="arch" type="xml">
             <tree string="group_evaluation">
                 <!-- <tree string="group_evaluation" editable='top'> -->
-                <field name="group_id" invisible="'from_group' in context" required="'from_survey' in context"/>
-                <field name="survey_id" invisible="'from_survey' in context" required="'from_group' in context"/>
                 <button name="print_users" icon="fa-print" string="Print Users" type="object" states="visible,open"/>
                 <field name="state"/>
                 <button name="set_invisible" icon="fa-step-backward" string="Set Invisible" type="object" states="open,visible,close"/>
                 <button name="set_visible" icon="fa-arrow-right" string="Set Visible" type="object" states="invisible"/>
-                <button name="action_send_survey" icon="fa-arrow-right" string="Open" type="object" states="visible"/>
-                <button name="action_send_survey" icon="fa-repeat text-success" string="Re-Open" type="object" states="open"/>
                 <button name="set_closed" icon="fa-ban" string="Close" type="object" states="visible,open"/>
             </tree>
         </field>
     </record>
-
-    <record id="action_academic_group_evaluation_groups_evaluations" model="ir.actions.act_window">
-        <field name="name">Groups Evaluations</field>
-        <field name="res_model">academic.group_evaluation</field>
-        <field name="view_type">form</field>
-        <field name="view_mode">tree,form</field>
-        <field name="view_id" ref="view_academic_group_evaluation_tree"/>
-        <field name="search_view_id" ref="view_academic_group_evaluation_filter"/>
-        <!-- We hide the ones that are answered by administrator because those one should be open buy academic users (not portal) -->
-        <field name="domain">[('survey_id.answered_by','!=','administrator')]</field>
-    </record>
-
-    <menuitem name="Groups Evaluations" id="menu_groups_evaluations" sequence="20" action="action_academic_group_evaluation_groups_evaluations" parent="menu_evaluations_main" groups="group_user" />
-
-    <!-- portal menu -->
-    <menuitem name="Groups Evaluations" id="menu_groups_evaluations" sequence="30" action="action_academic_group_evaluation_groups_evaluations" parent="menu_portal_academic" groups="group_portal_administrator" />
-
 </odoo>

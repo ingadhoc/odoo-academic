@@ -44,7 +44,6 @@
      <record id="action_academic_section_sections" model="ir.actions.act_window">
         <field name="name">Sections</field>
         <field name="res_model">academic.section</field>
-        <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
         <field name="view_id" ref="view_academic_section_tree"/>
         <field name="search_view_id" ref="view_academic_section_filter"/>

@@ -49,7 +49,6 @@
     <record id="action_academic_promotion_promotions" model="ir.actions.act_window">
         <field name="name">Promotions</field>
         <field name="res_model">academic.promotion</field>
-        <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
         <field name="view_id" ref="view_academic_promotion_tree"/>
         <field name="search_view_id" ref="view_academic_promotion_filter"/>

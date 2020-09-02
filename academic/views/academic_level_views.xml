@@ -52,7 +52,6 @@
     <record id="action_academic_level_levels" model="ir.actions.act_window">
         <field name="name">Levels</field>
         <field name="res_model">academic.level</field>
-        <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
         <field name="view_id" ref="view_academic_level_tree"/>
         <field name="search_view_id" ref="view_academic_level_filter"/>
