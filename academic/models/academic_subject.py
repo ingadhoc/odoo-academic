@@ -18,10 +18,3 @@ class AcademicSubject(models.Model):
         'subject_id',
         string='Groups',
     )
-    survey_ids = fields.Many2many(
-        'survey.survey',
-        'academic_survey_ids_subject_ids_rel',
-        'subject_id',
-        'survey_id',
-        string='Surveys',
-    )

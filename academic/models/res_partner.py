@@ -71,11 +71,10 @@ class ResPartner(models.Model):
     )
     related_user_id = fields.Many2one(
         'res.users',
-        compute='compute_related_user_id',
+        compute='_compute_related_user_id',
     )
 
-    @api.multi
-    def compute_related_user_id(self):
+    def _compute_related_user_id(self):
         for rec in self:
             rec.related_user_id = rec.user_ids and rec.user_ids[0]
 
@@ -85,7 +84,6 @@ class ResPartner(models.Model):
         recs = self.filtered(lambda x: x.is_company and x.partner_type)
         recs.update({'partner_type': False})
 
-    @api.multi
     def quickly_create_portal_user(self):
         """ Metodo que crea o activa usuario inactivo en el grupo portal que
         se defina

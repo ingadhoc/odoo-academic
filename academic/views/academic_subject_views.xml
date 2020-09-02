@@ -49,7 +49,6 @@
      <record id="action_academic_subject_subjects" model="ir.actions.act_window">
         <field name="name">Subjects</field>
         <field name="res_model">academic.subject</field>
-        <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
         <field name="view_id" ref="view_academic_subject_tree"/>
         <field name="search_view_id" ref="view_academic_subject_filter"/>

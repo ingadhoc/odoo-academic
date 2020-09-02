@@ -77,7 +77,6 @@
      <record id="action_academic_group_groups" model="ir.actions.act_window">
         <field name="name">Groups</field>
         <field name="res_model">academic.group</field>
-        <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
         <field name="view_id" ref="view_academic_group_tree"/>
         <field name="search_view_id" ref="view_academic_group_filter"/>
@@ -87,7 +86,6 @@
      <record id="action_academic_company_group_groups" model="ir.actions.act_window">
         <field name="name">Groups</field>
         <field name="res_model">academic.group</field>
-        <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
         <field name="view_id" ref="view_academic_group_tree"/>
         <field name="search_view_id" ref="view_academic_group_filter"/>

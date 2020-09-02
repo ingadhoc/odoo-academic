@@ -123,7 +123,6 @@ class AcademicGroup(models.Model):
             result = self.search(args, limit=limit).name_get()
         return result
 
-    @api.multi
     def copy(self, default=None):
         if default is None:
             default = {}
@@ -132,7 +131,6 @@ class AcademicGroup(models.Model):
         default['group_evaluation_ids'] = []
         return super(AcademicGroup, self).copy(default)
 
-    @api.multi
     def create_students_users(self):
         '''
         This function create users if they don't exist for students related
@@ -144,7 +142,6 @@ class AcademicGroup(models.Model):
             user.password = ''.join(random.choice(
                 string.ascii_uppercase + string.digits) for _ in range(6))
 
-    @api.multi
     def print_users(self):
         '''
         This function prints a report with users login and password.
