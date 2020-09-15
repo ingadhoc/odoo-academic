@@ -32,6 +32,9 @@
                     <button name="%(action_academic_company_group_groups)d" type="action" string="Groups" context="{'default_company_id':active_id}" groups=""/>
                 </div>
             </div>
+            <div class="o_address_format"  position='after'>
+                <field name="study_plan_id"/>
+            </div>
         </field>
     </record>
 
