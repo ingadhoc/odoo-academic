@@ -9,7 +9,11 @@ class AcademicLevel(models.Model):
 
     _name = 'academic.level'
     _description = 'level'
+    _order = 'sequence'
 
+    sequence = fields.Integer(
+        string='Sequence'
+    )
     name = fields.Char(
         required=True,
         translate=True,

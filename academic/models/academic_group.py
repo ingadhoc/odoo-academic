@@ -35,6 +35,7 @@ class AcademicGroup(models.Model):
         default=lambda s: s.env['res.company']._company_default_get(
             'academic.group'),
     )
+    study_plan_level_ids = fields.Many2many(related='company_id.study_plan_id.level_ids')
     level_id = fields.Many2one(
         'academic.level',
         string='Level',
@@ -43,12 +44,12 @@ class AcademicGroup(models.Model):
     subject_id = fields.Many2one(
         'academic.subject',
         string='Subject',
-        required=True,
+        required=False,
     )
     teacher_id = fields.Many2one(
         'res.partner',
         string='Teacher',
-        required=True,
+        required=False,
         context={'default_partner_type': 'teacher'},
         domain=[('partner_type', '=', 'teacher')],
     )
@@ -98,8 +99,7 @@ class AcademicGroup(models.Model):
         @return: Dictionary of values
         """
         for line in self:
-            name = line.subject_id.name
-            name += ' - ' + line.company_id.name
+            name = line.company_id.name
             name += ', ' + line.level_id.name
             if line.division_id:
                 name += ' ' + line.division_id.name
@@ -139,8 +139,11 @@ class AcademicGroup(models.Model):
          to this group.
         '''
         self.student_ids.quickly_create_portal_user()
-        # reamos contrasenas para todos los students que no tengan una explicita (no hashed)
-        for user in self.student_ids.mapped('user_ids').filtered(lambda x: not x.password):
+        # Creamos contrasenas para todos los students que no tengan una
+        # explicita (no hashed)
+        for user in \
+                self.student_ids.mapped('user_ids')\
+                    .filtered(lambda x: not x.password):
             user.password = ''.join(random.choice(
                 string.ascii_uppercase + string.digits) for _ in range(6))
 
