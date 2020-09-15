@@ -62,13 +62,6 @@ class AcademicGroup(models.Model):
         context={'default_partner_type': 'student'},
         domain=[('partner_type', '=', 'student')],
     )
-    group_evaluation_ids = fields.One2many(
-        'academic.group_evaluation',
-        'group_id',
-        string='Evaluations',
-        context={'from_group': True},
-    )
-
     complete_name = fields.Char(
         compute='_compute_complete_name',
     )
@@ -128,7 +121,6 @@ class AcademicGroup(models.Model):
             default = {}
         default = default.copy()
         default['division_id'] = False
-        default['group_evaluation_ids'] = []
         return super(AcademicGroup, self).copy(default)
 
     def create_students_users(self):
