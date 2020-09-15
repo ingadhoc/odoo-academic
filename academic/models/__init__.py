@@ -12,4 +12,3 @@ from . import res_users
 from . import academic_promotion
 from . import academic_section
 from . import academic_subject
-

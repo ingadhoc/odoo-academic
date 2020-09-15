@@ -18,3 +18,6 @@ class AcademicSubject(models.Model):
         'subject_id',
         string='Groups',
     )
+    employees_asignatures_ids = fields.One2many(
+        comodel_name='hr.employee.asignatures',
+        inverse_name='subject_id')

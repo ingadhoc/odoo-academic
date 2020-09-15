@@ -9,9 +9,11 @@ class ResUsers(models.Model):
     _inherit = 'res.users'
 
     def _set_encrypted_password(self, uid, pw):
-        """ Si es estudiante no limpiamos las password, solo guardamos la encriptada
-        TODO deberiamos mejorar y solo guardar la password si venimos desde los groups, es decir
-        forzando contraseña nosotros. Pero tendriamos que en ese caso ademas hacer que el init que borramos
+        """ Si es estudiante no limpiamos las password,
+        solo guardamos la encriptada
+        TODO deberiamos mejorar y solo guardar la password
+        si venimos desde los groups, es decir forzando contraseña nosotros.
+        Pero tendriamos que en ese caso ademas hacer que el init que borramos
         no limpie esas pass.
         """
         if self.has_group('academic.group_portal_student'):

@@ -27,6 +27,7 @@
                 </header>
                 <sheet string="level">
                     <group>
+                        <field name="sequence" invisible='1'/>
                         <field name="name" />
                         <field name="section_id" />
                     </group>
@@ -43,6 +44,7 @@
         <field name="model">academic.level</field>
         <field name="arch" type="xml">
             <tree string="level">
+                <field name="sequence" widget='handle'/>
                 <field name="name"/>
                 <field name="section_id"/>
             </tree>
