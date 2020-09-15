@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<odoo>
+<data>
+    <record id="view_employee_form" model="ir.ui.view">
+        <field name="name">hr.employee.form.inherit.academic</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <field name="job_title" position="after">
+                <!-- <field name="study_plan_id"/> -->
+                <field name="study_plan_level_ids" invisible='1'/>
+                <label for="asignatures_ids" colspan='1'/>
+                <field name="asignatures_ids" nolabel='1' colspan='3'>
+                    <tree editable='bottom' >
+                        <field name="subject_id"/>
+                        <field name="level_ids" domain="[('id','in',parent.study_plan_level_ids)]" options="{'no_create_edit':True}" widget='many2many_tags'/>
+                        <field name="teacher_id" invisible='1'/>
+                    </tree>
+                </field>
+            </field>
+        </field>
+    </record>
+
+    <record id="hr_employee_asignatures_action" model="ir.actions.act_window">
+        <field name="name">Employee's Asignatures</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.employee.asignatures</field>
+        <field name="view_mode">tree</field>
+        <field name="view_type">form</field>
+    </record>
+
+    <record id="hr_employee_asignatures_view_tree" model="ir.ui.view">
+        <field name="name">hr.employee.asignatures.view.tree</field>
+        <field name="model">hr.employee.asignatures</field>
+        <field name="arch" type="xml">
+            <tree editable='bottom'>
+                <field name="subject_id"/>
+                <field name="level_ids" widget='many2many_tags'/>
+                <field name="teacher_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <menuitem
+            id="menu_view_employees_asignatures"
+            name="Asignatures"
+            action="hr_employee_asignatures_action"
+            parent="hr.menu_hr_root"
+            groups="hr.group_hr_manager"
+            sequence="99"/>
+</data>
+</odoo>

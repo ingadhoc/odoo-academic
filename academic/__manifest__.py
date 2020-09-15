@@ -45,6 +45,7 @@
         'views/academic_promotion_views.xml',
         'views/academic_section_views.xml',
         'views/academic_subject_views.xml',
+        'views/hr_views.xml',
         'views/res_company_views.xml',
         'views/res_users_views.xml',
         'views/login_page.xml',

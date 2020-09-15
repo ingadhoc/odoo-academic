@@ -55,7 +55,7 @@
 
             <page name="internal_notes" position="before">
                 <page string="Groups" attrs="{'invisible': [('partner_type','!=','student')]}">
-                    <field name="student_group_ids" context="{'default_company_id': company_id,}"/>
+                    <field name="student_group_ids" domain="[('company_id','=',company_id)]"/>
                 </page>
                 <page string="Groups" attrs="{'invisible': [('partner_type','!=','teacher')]}">
                     <field name="teacher_group_ids" context="{'default_company_id': company_id, 'default_teacher_id': active_id}"/>
