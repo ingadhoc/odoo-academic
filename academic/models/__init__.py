@@ -24,3 +24,5 @@ from . import survey_question_performance
 from . import survey_user_input_question_score
 from . import res_company
 from . import hr
+from . import account_invoice
+from . import sale_order
