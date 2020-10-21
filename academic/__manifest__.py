@@ -19,7 +19,7 @@
 ##############################################################################
 {
     'name': 'Academic',
-    'version': '12.0.2.1.0',
+    'version': '12.0.2.2.0',
     'sequence': 14,
     'summary': '',
     'author': 'ADHOC SA',
@@ -35,7 +35,8 @@
         'evaluation',
         'board',
         'decimal_precision',
-    ],
+        'account',
+        'sale'],
     'data': [
         'security/academic_security.xml',
         'security/ir.model.access.csv',
@@ -54,6 +55,8 @@
         'views/academic_section_views.xml',
         'views/academic_subject_views.xml',
         'views/hr_views.xml',
+        'views/sale_order_views.xml',
+        'views/account_views.xml',
         'views/res_company_views.xml',
         'views/res_users_views.xml',
         'views/survey_question_views.xml',

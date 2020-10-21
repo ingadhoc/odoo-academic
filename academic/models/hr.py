@@ -7,8 +7,6 @@ class EmployeeAsignatures(models.Model):
     _description = 'Employee Asignatures'
     _rec_name = 'teacher_id'
 
-    name = fields.Char(compute='_compute_name')
-
     teacher_id = fields.Many2one(
         'hr.employee',
         required=True,
