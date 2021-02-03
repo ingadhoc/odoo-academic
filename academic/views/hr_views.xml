@@ -26,7 +26,6 @@
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">hr.employee.asignatures</field>
         <field name="view_mode">tree</field>
-        <field name="view_type">form</field>
     </record>
 
     <record id="hr_employee_asignatures_view_tree" model="ir.ui.view">

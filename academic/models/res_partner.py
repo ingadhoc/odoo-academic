@@ -30,14 +30,14 @@ class ResPartner(models.Model):
     teacher_group_ids = fields.One2many(
         'academic.group',
         'teacher_id',
-        string='Groups',
+        string='Teacher Groups',
     )
     student_group_ids = fields.Many2many(
         'academic.group',
         'academic_student_group_ids_student_ids_rel',
         'partner_id',
         'group_id',
-        string='Groups',
+        string='Student Groups',
     )
     disabled_person = fields.Boolean(
         'Disabled Person?',

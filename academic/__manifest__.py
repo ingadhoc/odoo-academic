@@ -19,7 +19,7 @@
 ##############################################################################
 {
     'name': 'Academic',
-    'version': '13.0.1.0.0',
+    'version': '13.0.1.1.0',
     'sequence': 14,
     'summary': '',
     'author': 'ADHOC SA',
@@ -33,6 +33,9 @@
         'hr',
         'website',
         'board',
+        'purchase',
+        'sale_management',
+        'account',
     ],
     'data': [
         'security/academic_security.xml',
@@ -43,7 +46,6 @@
         'views/academic_division_views.xml',
         'views/academic_level_views.xml',
         'views/academic_study_plan_views.xml',
-        'views/academic_period_views.xml',
         'views/academic_promotion_views.xml',
         'views/academic_section_views.xml',
         'views/academic_subject_views.xml',

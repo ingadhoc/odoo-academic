@@ -6,7 +6,6 @@
         <field name="login">student_template</field>
         <field name="groups_id" eval="[(6, 0,  [ref('academic.group_portal_student')])]"/>
         <field name="active" eval="False"/>
-        <!-- <field name="company_ids" eval="[(6, 0, [])]"/> -->
     </record>
 
     <record id="parent_template_user" model="res.users" context="{'no_reset_password': True}">
@@ -14,7 +13,6 @@
         <field name="login">parent_template</field>
         <field name="groups_id" eval="[(6, 0,  [ref('academic.group_portal_parent')])]"/>
         <field name="active" eval="False"/>
-        <!-- <field name="company_ids" eval="[(6, 0, [])]"/> -->
     </record>
 
     <record id="teacher_template_user" model="res.users" context="{'no_reset_password': True}">
@@ -22,7 +20,6 @@
         <field name="login">teacher_template</field>
         <field name="groups_id" eval="[(6, 0,  [ref('academic.group_portal_teacher')])]"/>
         <field name="active" eval="False"/>
-        <!-- <field name="company_ids" eval="[(6, 0, [])]"/> -->
     </record>
 
     <record id="administrator_template_user" model="res.users" context="{'no_reset_password': True}">
@@ -30,7 +27,6 @@
         <field name="login">administrator_template</field>
         <field name="groups_id" eval="[(6, 0,  [ref('academic.group_portal_administrator')])]"/>
         <field name="active" eval="False"/>
-        <!-- <field name="company_ids" eval="[(6, 0, [])]"/> -->
     </record>
 
     <record id="gral_administrator_template_user" model="res.users" context="{'no_reset_password': True}">
@@ -38,7 +34,6 @@
         <field name="login">gral_administrator_template</field>
         <field name="groups_id" eval="[(6, 0,  [ref('academic.group_portal_gral_administrator')])]"/>
         <field name="active" eval="False"/>
-        <!-- <field name="company_ids" eval="[(6, 0, [])]"/> -->
     </record>
 
 </odoo>
