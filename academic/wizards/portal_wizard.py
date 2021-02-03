@@ -30,5 +30,4 @@ class PortalWizard(models.TransientModel):
             return groups.id
         return super(PortalWizard, self)._default_portal()
 
-    portal_id = fields.Many2one(
-        default=_default_portal)
+    portal_id = fields.Many2one('res.groups', default=_default_portal)
