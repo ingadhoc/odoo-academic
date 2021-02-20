@@ -1,0 +1,744 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* academic
+# 
+# Translators:
+# Juan Rivero <jr@adhoc.com.ar>, 2021
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-02-07 09:24+0000\n"
+"PO-Revision-Date: 2021-02-07 09:24+0000\n"
+"Last-Translator: Juan Rivero <jr@adhoc.com.ar>, 2021\n"
+"Language-Team: Spanish (https://www.transifex.com/adhoc/teams/46451/es/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: academic
+#: model:ir.module.category,description:academic.module_category_academic
+#: model:ir.module.category,name:academic.module_category_academic
+#: model:ir.ui.menu,name:academic.menu_academic
+#: model:ir.ui.menu,name:academic.menu_portal_academic
+#: model_terms:ir.ui.view,arch_db:academic.academic_link
+msgid "Academic"
+msgstr "Académico"
+
+#. module: academic
+#: model:ir.model.fields.selection,name:academic.selection__academic_group__type__administrator
+#: model:ir.model.fields.selection,name:academic.selection__res_partner__partner_type__administrator
+msgid "Administrator"
+msgstr "Administrador"
+
+#. module: academic
+#: model:res.groups,name:academic.group_portal_administrator
+msgid "Administrator's Portal"
+msgstr "Portal del Administrador"
+
+#. module: academic
+#: model:res.groups,comment:academic.group_portal_administrator
+msgid ""
+"Administrator's Portal members have specific access rights (such as record rules and restricted menus).\n"
+"                They usually do not belong to the usual odoo groups."
+msgstr ""
+"Los miembros del Portal de Administrador tienen permisos específicos de acceso (como reglas de registro y menúes restringidos).\n"
+"                Normalmente no pertenecen a los grupos usuales de odoo."
+
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_academic_company_partner_administrators
+#: model:ir.actions.act_window,name:academic.action_academic_partner_administrators
+#: model:ir.ui.menu,name:academic.menu_administrators
+#: model_terms:ir.ui.view,arch_db:academic.view_company_form
+msgid "Administrators"
+msgstr "Administradores"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_res_partner__admission_date
+#: model:ir.model.fields,field_description:academic.field_res_users__admission_date
+msgid "Admission Date"
+msgstr "Fecha de Admisión"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_hr_employee__asignatures_ids
+#: model:ir.ui.menu,name:academic.menu_view_employees_asignatures
+msgid "Asignatures"
+msgstr "Asignaturas"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_res_partner__birthdate
+#: model:ir.model.fields,field_description:academic.field_res_users__birthdate
+msgid "Birthdate"
+msgstr "Fecha de Nacimiento"
+
+#. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_division_filter
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_group_filter
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_level_filter
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_promotion_filter
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_section_filter
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_subject_filter
+msgid "By Attribute"
+msgstr "Por Atributo"
+
+#. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_division_filter
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_group_filter
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_level_filter
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_promotion_filter
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_subject_filter
+msgid "By object"
+msgstr "Por objeto"
+
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_res_company_form
+#: model:ir.model,name:academic.model_res_company
+#: model:ir.ui.menu,name:academic.menu_action_res_company_form
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_group__company_id
+msgid "Company"
+msgstr "Compañia"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_group__complete_name
+msgid "Complete Name"
+msgstr "Nombre Completo"
+
+#. module: academic
+#: model:ir.ui.menu,name:academic.menu_configuration
+msgid "Configuration"
+msgstr "Configuración"
+
+#. module: academic
+#: model:ir.model,name:academic.model_res_partner
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: academic
+#: model:ir.ui.menu,name:academic.menu_partners
+msgid "Contacts"
+msgstr "Contactos"
+
+#. module: academic
+#: model:ir.model,name:academic.model_res_partner_relationship
+msgid "Contacts Relationship"
+msgstr "Relación de los contactos"
+
+#. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
+msgid "Create User"
+msgstr "Crear Usuario"
+
+#. module: academic
+#: model_terms:ir.actions.act_window,help:academic.action_res_company_form
+msgid ""
+"Create and manage the companies that will be managed by odoo from here. "
+"Shops or subsidiaries can be created and maintained from here."
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division__create_uid
+#: model:ir.model.fields,field_description:academic.field_academic_group__create_uid
+#: model:ir.model.fields,field_description:academic.field_academic_level__create_uid
+#: model:ir.model.fields,field_description:academic.field_academic_promotion__create_uid
+#: model:ir.model.fields,field_description:academic.field_academic_section__create_uid
+#: model:ir.model.fields,field_description:academic.field_academic_study_plan__create_uid
+#: model:ir.model.fields,field_description:academic.field_academic_subject__create_uid
+#: model:ir.model.fields,field_description:academic.field_hr_employee_asignatures__create_uid
+#: model:ir.model.fields,field_description:academic.field_res_partner_relationship__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division__create_date
+#: model:ir.model.fields,field_description:academic.field_academic_group__create_date
+#: model:ir.model.fields,field_description:academic.field_academic_level__create_date
+#: model:ir.model.fields,field_description:academic.field_academic_promotion__create_date
+#: model:ir.model.fields,field_description:academic.field_academic_section__create_date
+#: model:ir.model.fields,field_description:academic.field_academic_study_plan__create_date
+#: model:ir.model.fields,field_description:academic.field_academic_subject__create_date
+#: model:ir.model.fields,field_description:academic.field_hr_employee_asignatures__create_date
+#: model:ir.model.fields,field_description:academic.field_res_partner_relationship__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_res_partner__dni
+#: model:ir.model.fields,field_description:academic.field_res_users__dni
+msgid "DNI"
+msgstr "DNI"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_res_partner__disabled_person
+#: model:ir.model.fields,field_description:academic.field_res_users__disabled_person
+msgid "Disabled Person?"
+msgstr "Persona Discapacitada?"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division__display_name
+#: model:ir.model.fields,field_description:academic.field_academic_group__display_name
+#: model:ir.model.fields,field_description:academic.field_academic_level__display_name
+#: model:ir.model.fields,field_description:academic.field_academic_promotion__display_name
+#: model:ir.model.fields,field_description:academic.field_academic_section__display_name
+#: model:ir.model.fields,field_description:academic.field_academic_study_plan__display_name
+#: model:ir.model.fields,field_description:academic.field_academic_subject__display_name
+#: model:ir.model.fields,field_description:academic.field_hr_employee_asignatures__display_name
+#: model:ir.model.fields,field_description:academic.field_res_partner_relationship__display_name
+msgid "Display Name"
+msgstr "Mostrar Nombre"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_group__division_id
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_group_filter
+msgid "Division"
+msgstr "División"
+
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_academic_division_divisions
+#: model:ir.ui.menu,name:academic.menu_divisions
+msgid "Divisions"
+msgstr "Divisione"
+
+#. module: academic
+#: model:ir.model,name:academic.model_hr_employee
+msgid "Employee"
+msgstr "Empleado"
+
+#. module: academic
+#: model:ir.model,name:academic.model_hr_employee_asignatures
+msgid "Employee Asignatures"
+msgstr "Asignaturas de los Empleados"
+
+#. module: academic
+#: model:ir.actions.act_window,name:academic.hr_employee_asignatures_action
+msgid "Employee's Asignatures"
+msgstr "Asignaturas del empleado"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_subject__employees_asignatures_ids
+msgid "Employees Asignatures"
+msgstr "Asignaturas de los Empleados"
+
+#. module: academic
+#: model:ir.ui.menu,name:academic.menu_eval_config
+msgid "Evaluations"
+msgstr "Evaluacione"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_res_partner__exit_date
+#: model:ir.model.fields,field_description:academic.field_res_users__exit_date
+msgid "Exit Date"
+msgstr "Fecha de Salida"
+
+#. module: academic
+#: model:ir.model.fields.selection,name:academic.selection__res_partner__sex__f
+msgid "Female"
+msgstr "Femenino"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_res_partner__file_number
+#: model:ir.model.fields,field_description:academic.field_res_users__file_number
+msgid "File Number"
+msgstr "Número de Archivo"
+
+#. module: academic
+#: model:ir.model.fields.selection,name:academic.selection__res_partner__partner_type__gral_administrator
+msgid "General Administrator"
+msgstr "Administrador General"
+
+#. module: academic
+#: model:res.groups,comment:academic.group_portal_gral_administrator
+msgid ""
+"General Administrator's Portal members have specific access rights (such as record rules and restricted menus).\n"
+"                They usually do not belong to the usual odoo groups."
+msgstr ""
+"Los miembros del Portal de Administrador General tienen permisos específicos de acceso (como reglas de registro y menúes restringidos).\n"
+"                Normalmente no pertenecen a los grupos usuales de odoo."
+
+#. module: academic
+#: model:ir.ui.menu,name:academic.menu_general_data
+msgid "General Data"
+msgstr "Información General"
+
+#. module: academic
+#: model:res.groups,name:academic.group_portal_gral_administrator
+msgid "Gral Administrator's Portal"
+msgstr "Portal del Administrador General"
+
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_academic_partner_gral_administrators
+#: model:ir.ui.menu,name:academic.menu_gral_administrators
+msgid "Gral Administrators"
+msgstr "Administrador General"
+
+#. module: academic
+#: model:ir.model,name:academic.model_portal_wizard
+msgid "Grant Portal Access"
+msgstr "Conceder Acceso al Portal"
+
+#. module: academic
+#: model:ir.model.constraint,message:academic.constraint_academic_group_group_unique
+msgid ""
+"Group should be unique per Institution, Subject, Course-Division and Year"
+msgstr ""
+"El grupo debería ser único por Institución, Asignatura, Curso-División y "
+"Año."
+
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_academic_company_group_groups
+#: model:ir.actions.act_window,name:academic.action_academic_group_groups
+#: model:ir.model.fields,field_description:academic.field_academic_level__group_ids
+#: model:ir.model.fields,field_description:academic.field_academic_subject__group_ids
+#: model:ir.model.fields,field_description:academic.field_res_company__company_group_ids
+#: model:ir.ui.menu,name:academic.menu_data
+#: model:ir.ui.menu,name:academic.menu_groups
+#: model:ir.ui.menu,name:academic.menu_portal_groups
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
+#: model_terms:ir.ui.view,arch_db:academic.view_company_form
+msgid "Groups"
+msgstr "Grupos"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division__id
+#: model:ir.model.fields,field_description:academic.field_academic_group__id
+#: model:ir.model.fields,field_description:academic.field_academic_level__id
+#: model:ir.model.fields,field_description:academic.field_academic_promotion__id
+#: model:ir.model.fields,field_description:academic.field_academic_section__id
+#: model:ir.model.fields,field_description:academic.field_academic_study_plan__id
+#: model:ir.model.fields,field_description:academic.field_academic_subject__id
+#: model:ir.model.fields,field_description:academic.field_hr_employee_asignatures__id
+#: model:ir.model.fields,field_description:academic.field_res_partner_relationship__id
+msgid "ID"
+msgstr "ID"
+
+#. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
+msgid "Individual Information"
+msgstr "Información Individual"
+
+#. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
+msgid "Institution..."
+msgstr "Institución..."
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division____last_update
+#: model:ir.model.fields,field_description:academic.field_academic_group____last_update
+#: model:ir.model.fields,field_description:academic.field_academic_level____last_update
+#: model:ir.model.fields,field_description:academic.field_academic_promotion____last_update
+#: model:ir.model.fields,field_description:academic.field_academic_section____last_update
+#: model:ir.model.fields,field_description:academic.field_academic_study_plan____last_update
+#: model:ir.model.fields,field_description:academic.field_academic_subject____last_update
+#: model:ir.model.fields,field_description:academic.field_hr_employee_asignatures____last_update
+#: model:ir.model.fields,field_description:academic.field_res_partner_relationship____last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division__write_uid
+#: model:ir.model.fields,field_description:academic.field_academic_group__write_uid
+#: model:ir.model.fields,field_description:academic.field_academic_level__write_uid
+#: model:ir.model.fields,field_description:academic.field_academic_promotion__write_uid
+#: model:ir.model.fields,field_description:academic.field_academic_section__write_uid
+#: model:ir.model.fields,field_description:academic.field_academic_study_plan__write_uid
+#: model:ir.model.fields,field_description:academic.field_academic_subject__write_uid
+#: model:ir.model.fields,field_description:academic.field_hr_employee_asignatures__write_uid
+#: model:ir.model.fields,field_description:academic.field_res_partner_relationship__write_uid
+msgid "Last Updated by"
+msgstr "Última Actualización por"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division__write_date
+#: model:ir.model.fields,field_description:academic.field_academic_group__write_date
+#: model:ir.model.fields,field_description:academic.field_academic_level__write_date
+#: model:ir.model.fields,field_description:academic.field_academic_promotion__write_date
+#: model:ir.model.fields,field_description:academic.field_academic_section__write_date
+#: model:ir.model.fields,field_description:academic.field_academic_study_plan__write_date
+#: model:ir.model.fields,field_description:academic.field_academic_subject__write_date
+#: model:ir.model.fields,field_description:academic.field_hr_employee_asignatures__write_date
+#: model:ir.model.fields,field_description:academic.field_res_partner_relationship__write_date
+msgid "Last Updated on"
+msgstr "Última modificación el"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_group__level_id
+#: model:ir.model.fields,field_description:academic.field_hr_employee_asignatures__level_ids
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_group_filter
+msgid "Level"
+msgstr "Nivel"
+
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_academic_level_levels
+#: model:ir.model.fields,field_description:academic.field_academic_group__study_plan_level_ids
+#: model:ir.model.fields,field_description:academic.field_academic_study_plan__level_ids
+#: model:ir.model.fields,field_description:academic.field_hr_employee__study_plan_level_ids
+#: model:ir.ui.menu,name:academic.menu_levels
+msgid "Levels"
+msgstr "Niveles"
+
+#. module: academic
+#: model:ir.model.fields.selection,name:academic.selection__res_partner__sex__m
+msgid "Male"
+msgstr "Masculino"
+
+#. module: academic
+#: model:res.groups,name:academic.group_manager
+msgid "Manager"
+msgstr "Manager"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_res_partner__medical_insurance
+#: model:ir.model.fields,field_description:academic.field_res_users__medical_insurance
+msgid "Medical Insurance"
+msgstr "Seguro médico"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_division__name
+#: model:ir.model.fields,field_description:academic.field_academic_level__name
+#: model:ir.model.fields,field_description:academic.field_academic_promotion__name
+#: model:ir.model.fields,field_description:academic.field_academic_section__name
+#: model:ir.model.fields,field_description:academic.field_academic_study_plan__name
+#: model:ir.model.fields,field_description:academic.field_academic_subject__name
+#: model:ir.model.fields,field_description:academic.field_hr_employee_asignatures__name
+#: model:ir.model.fields,field_description:academic.field_res_partner_relationship__name
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_division_filter
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_level_filter
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_promotion_filter
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_section_filter
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_subject_filter
+msgid "Name"
+msgstr "Nombre"
+
+#. module: academic
+#: model:ir.model.fields.selection,name:academic.selection__res_partner__partner_type__other
+msgid "Other"
+msgstr "Otro"
+
+#. module: academic
+#: model:ir.model.fields.selection,name:academic.selection__academic_group__type__parent
+#: model:ir.model.fields.selection,name:academic.selection__res_partner__partner_type__parent
+msgid "Parent"
+msgstr "Padre"
+
+#. module: academic
+#: model:res.groups,name:academic.group_portal_parent
+msgid "Parent's Portal"
+msgstr "Portal de Padres"
+
+#. module: academic
+#: model:res.groups,comment:academic.group_portal_parent
+msgid ""
+"Parent's Portal members have specific access rights (such as record rules and restricted menus).\n"
+"            They usually do not belong to the usual OpenERP groups."
+msgstr ""
+"Los miembros del Portal de Padres tienen permisos específicos de acceso (como reglas de registro y menúes restringidos).\n"
+"                Normalmente no pertenecen a los grupos usuales de odoo."
+
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_academic_partner_parents
+#: model:ir.ui.menu,name:academic.menu_parents
+msgid "Parents"
+msgstr "Padres"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_res_partner__partner_type
+#: model:ir.model.fields,field_description:academic.field_res_users__partner_type
+msgid "Partner Type"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_res_company__study_plan_id
+msgid "Plan de Estudio"
+msgstr "Plan de Estudio"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_portal_wizard__portal_id
+msgid "Portal"
+msgstr "Portal"
+
+#. module: academic
+#: model:ir.model,name:academic.model_portal_wizard_user
+msgid "Portal User Config"
+msgstr "Configuración del Usuario Portal"
+
+#. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_group_form
+msgid "Print Users"
+msgstr "Imprimir Usuarios"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_res_partner__promotion_id
+#: model:ir.model.fields,field_description:academic.field_res_users__promotion_id
+msgid "Promotion"
+msgstr "Promoción"
+
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_academic_promotion_promotions
+#: model:ir.ui.menu,name:academic.menu_promotions
+msgid "Promotions"
+msgstr "Promociones"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_res_partner__related_user_id
+#: model:ir.model.fields,field_description:academic.field_res_users__related_user_id
+msgid "Related User"
+msgstr "Usuario Relacionado"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_res_partner__relationship_id
+#: model:ir.model.fields,field_description:academic.field_res_users__relationship_id
+msgid "Relationship"
+msgstr "Relación"
+
+#. module: academic
+#: model:ir.ui.menu,name:academic.menu_portal_reporting
+msgid "Reporting"
+msgstr "Informando"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_level__section_id
+#: model:ir.model.fields,field_description:academic.field_res_partner__section_id
+#: model:ir.model.fields,field_description:academic.field_res_users__section_id
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_level_filter
+msgid "Section"
+msgstr "Sección"
+
+#. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
+msgid "Section..."
+msgstr "Sección..."
+
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_academic_section_sections
+#: model:ir.ui.menu,name:academic.menu_sections
+msgid "Sections"
+msgstr "Seccione"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_level__sequence
+msgid "Sequence"
+msgstr "Secuencia"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_res_partner__sex
+#: model:ir.model.fields,field_description:academic.field_res_users__sex
+msgid "Sex"
+msgstr "Sexo"
+
+#. module: academic
+#: code:addons/academic/wizards/portal_wizard_user.py:0
+#: code:addons/academic/wizards/portal_wizard_user.py:0
+#, python-format
+msgid "Some contacts don't have a valid email: "
+msgstr "Algunos contactos no tienen una dirección de email válida:"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_group__student_ids
+#: model:ir.model.fields.selection,name:academic.selection__academic_group__type__student
+#: model:ir.model.fields.selection,name:academic.selection__res_partner__partner_type__student
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_group_filter
+msgid "Student"
+msgstr "Estudiante"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_res_partner__student_group_ids
+#: model:ir.model.fields,field_description:academic.field_res_users__student_group_ids
+msgid "Student Groups"
+msgstr "Grupos de Estudiantes"
+
+#. module: academic
+#: model:res.groups,name:academic.group_portal_student
+msgid "Student's Portal"
+msgstr "Portal de Estudiantes"
+
+#. module: academic
+#: model:res.groups,comment:academic.group_portal_student
+msgid ""
+"Student's Portal members have specific access rights (such as record rules and restricted menus).\n"
+"                They usually do not belong to the usual odoo groups."
+msgstr ""
+"Los miembros del Portal de Estudiantes tienen permisos específicos de acceso (como reglas de registro y menúes restringidos).\n"
+"                Normalmente no pertenecen a los grupos usuales de odoo."
+
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_academic_company_partner_students
+#: model:ir.actions.act_window,name:academic.action_academic_partner_students
+#: model:ir.ui.menu,name:academic.menu_portal_students
+#: model:ir.ui.menu,name:academic.menu_students
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_group_form
+#: model_terms:ir.ui.view,arch_db:academic.view_company_form
+msgid "Students"
+msgstr "Estudiantes"
+
+#. module: academic
+#: model:ir.actions.act_window,name:academic.academic_study_plan_action
+#: model:ir.model,name:academic.model_academic_study_plan
+#: model:ir.ui.menu,name:academic.menu_study_plan
+msgid "Study Plan"
+msgstr "Plan de Estudios"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_group__subject_id
+#: model:ir.model.fields,field_description:academic.field_hr_employee_asignatures__subject_id
+msgid "Subject"
+msgstr "Asignatura"
+
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_academic_subject_subjects
+#: model:ir.ui.menu,name:academic.menu_subjects
+msgid "Subjects"
+msgstr "Asignaturas"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_group__teacher_id
+#: model:ir.model.fields,field_description:academic.field_hr_employee_asignatures__teacher_id
+#: model:ir.model.fields.selection,name:academic.selection__academic_group__type__teacher
+#: model:ir.model.fields.selection,name:academic.selection__res_partner__partner_type__teacher
+msgid "Teacher"
+msgstr "Profesor"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_res_partner__teacher_group_ids
+#: model:ir.model.fields,field_description:academic.field_res_users__teacher_group_ids
+msgid "Teacher Groups"
+msgstr "Grupos de Profesor"
+
+#. module: academic
+#: model:res.groups,name:academic.group_portal_teacher
+msgid "Teacher's Portal"
+msgstr "Portal del Profesor"
+
+#. module: academic
+#: model:res.groups,comment:academic.group_portal_teacher
+msgid ""
+"Teacher's Portal members have specific access rights (such as record rules and restricted menus).\n"
+"                They usually do not belong to the usual odoo groups."
+msgstr ""
+"Los miembros del Portal de Profesor tienen permisos específicos de acceso (como reglas de registro y menúes restringidos).\n"
+"                Normalmente no pertenecen a los grupos usuales de odoo."
+
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_academic_company_partner_teachers
+#: model:ir.actions.act_window,name:academic.action_academic_partner_teachers
+#: model:ir.ui.menu,name:academic.menu_portal_teachers
+#: model:ir.ui.menu,name:academic.menu_teachers
+#: model_terms:ir.ui.view,arch_db:academic.view_company_form
+msgid "Teachers"
+msgstr "Profesores"
+
+#. module: academic
+#: code:addons/academic/models/hr.py:0
+#, python-format
+msgid ""
+"There is another record that contains the same subject"
+"                         and teacher"
+msgstr "Hay otro registro que contiene la misma asignatura y profesor"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_group__type
+msgid "Type"
+msgstr "Tipo"
+
+#. module: academic
+#: model:res.groups,name:academic.group_user
+msgid "User"
+msgstr "Usuario"
+
+#. module: academic
+#: model:ir.model,name:academic.model_res_users
+msgid "Users"
+msgstr "Usuarios"
+
+#. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.login
+msgid "Usuario"
+msgstr "Usuario"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_res_partner__withdraw
+#: model:ir.model.fields,field_description:academic.field_res_users__withdraw
+msgid "Withdraw"
+msgstr "Abandonar"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_group__year
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_group_filter
+msgid "Year"
+msgstr "Año"
+
+#. module: academic
+#: code:addons/academic/models/academic_group.py:0
+#, python-format
+msgid "Year: "
+msgstr "Año:"
+
+#. module: academic
+#: code:addons/academic/models/hr.py:0
+#, python-format
+msgid "You have to add at least a level for that subject"
+msgstr "Debe agregar al menos un nivel para esa asignatura"
+
+#. module: academic
+#: model:ir.model,name:academic.model_academic_division
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_division_filter
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_division_form
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_division_tree
+msgid "division"
+msgstr "división"
+
+#. module: academic
+#: model:ir.model.fields.selection,name:academic.selection__academic_group__type__gral_administrator
+msgid "gral_administrator"
+msgstr "gral_administrator"
+
+#. module: academic
+#: model:ir.model,name:academic.model_academic_group
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_group_filter
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_group_form
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_group_tree
+msgid "group"
+msgstr "grupo"
+
+#. module: academic
+#: model:ir.model,name:academic.model_academic_level
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_level_filter
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_level_form
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_level_tree
+msgid "level"
+msgstr "nivel"
+
+#. module: academic
+#: model:ir.model,name:academic.model_academic_promotion
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_promotion_filter
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_promotion_form
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_promotion_tree
+msgid "promotion"
+msgstr "promoción"
+
+#. module: academic
+#: model:ir.model,name:academic.model_academic_section
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_section_filter
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_section_form
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_section_tree
+msgid "section"
+msgstr "sección"
+
+#. module: academic
+#: model:ir.model,name:academic.model_academic_subject
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_subject_filter
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_subject_form
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_subject_tree
+msgid "subject"
+msgstr "asignatura"
+
+#. module: academic
+#: model:ir.model.fields,help:academic.field_res_partner__disabled_person
+#: model:ir.model.fields,help:academic.field_res_users__disabled_person
+msgid "¿Alumno/a con Dificultades de aprendizaje?"
+msgstr "¿Alumno/a con Dificultades de aprendizaje?"
