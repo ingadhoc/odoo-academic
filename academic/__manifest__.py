@@ -19,7 +19,7 @@
 ##############################################################################
 {
     'name': 'Academic',
-    'version': '13.0.1.1.0',
+    'version': '13.0.1.2.0',
     'sequence': 14,
     'summary': '',
     'author': 'ADHOC SA',
@@ -33,7 +33,6 @@
         'hr',
         'website',
         'board',
-        'purchase',
         'sale_management',
         'account',
     ],
