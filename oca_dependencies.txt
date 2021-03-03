@@ -1,3 +1,0 @@
-ingadhoc-survey https://github.com/ingadhoc/survey.git
-ingadhoc-website https://github.com/ingadhoc/website.git
-
