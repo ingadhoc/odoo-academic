@@ -13,8 +13,4 @@
     <menuitem name="Academic" id="menu_portal_academic" sequence="20" groups="base.group_portal" web_icon="academic,static/description/icon.png"/>
     <menuitem name="Reporting" id="menu_portal_reporting" parent="menu_portal_academic" sequence="50"  groups="group_portal_administrator"/>
 
-    <!-- hide discuss menu -->
-    <record model="ir.ui.menu" id="mail.menu_root_discuss">
-        <field name="groups_id" eval="[(6, 0, [ref('base.group_no_one')])]"/>
-    </record>
 </odoo>
