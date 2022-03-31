@@ -78,11 +78,16 @@ class ResPartner(models.Model):
         for rec in self:
             rec.related_user_id = rec.user_ids and rec.user_ids[0]
 
-    @api.constrains('is_company')
     @api.onchange('is_company')
     def _check_partner_type(self):
-        recs = self.filtered(lambda x: x.is_company and x.partner_type)
-        recs.update({'partner_type': False})
+        for record in self.filtered(lambda x: x.is_company and x.partner_type):
+            record.partner_type = False
+
+
+    def write(self, vals):
+        if 'is_company' in vals and vals.get('is_company'):
+            vals['partner_type'] = False
+        return super(ResPartner, self).write(vals)
 
     def quickly_create_portal_user(self):
         """ Metodo que crea o activa usuario inactivo en el grupo portal que
