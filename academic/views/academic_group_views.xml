@@ -41,6 +41,7 @@
                         <field name="level_id" domain="[('id','in',study_plan_level_ids)]"/>
                         <field name="division_id" required="1"/>
                         <field name="year"/>
+                        <field name="sequence"/>
                     </group>
                     <notebook>
                         <page name="students" string="Students">
@@ -61,6 +62,7 @@
         <field name="arch" type="xml">
             <tree string="group">
                 <!-- <field name="type"/> -->
+                <field name="sequence" widget="handle"/>
                 <field name="company_id" groups="base.group_multi_company"/>
                 <field name="level_id"/>
                 <field name="division_id"/>
