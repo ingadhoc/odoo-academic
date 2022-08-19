@@ -19,7 +19,7 @@
 ##############################################################################
 {
     'name': 'Academic',
-    'version': '13.0.1.6.0',
+    'version': "15.0.1.0.0",
     'sequence': 14,
     'summary': '',
     'author': 'ADHOC SA',
@@ -55,7 +55,7 @@
         'data/academic_mail_template.xml',
         'data/res_users_data.xml',
     ],
-    'installable': False,
+    'installable': True,
     'auto_install': False,
     'application': False,
 }

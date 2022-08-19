@@ -49,6 +49,6 @@ class Employee(models.Model):
     asignatures_ids = fields.One2many(
         comodel_name='hr.employee.asignatures',
         inverse_name='teacher_id',
-        )
+    )
 
     study_plan_level_ids = fields.Many2many(related='company_id.study_plan_id.level_ids')

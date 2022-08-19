@@ -1,5 +1,5 @@
 from odoo import models, _
-from odoo.addons.portal.wizard.portal_wizard import extract_email
+from odoo.tools import email_normalize
 from odoo.tools import ustr
 import re
 import unicodedata
@@ -58,8 +58,8 @@ class PortalWizardUser(models.TransientModel):
             'groups_id': [(6, 0, [])],
         }
         if self.partner_id.email:
-            vals['login'] = extract_email(self.partner_id.email)
-            vals['email'] = extract_email(self.partner_id.email)
+            vals['login'] = email_normalize(self.partner_id.email)
+            vals['email'] = email_normalize(self.partner_id.email)
         else:
             vals['login'] = self._clean_and_make_unique(self.partner_id.name)
         return self.env['res.users'].with_context(no_reset_password=True).create(vals)

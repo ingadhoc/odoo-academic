@@ -83,7 +83,6 @@ class ResPartner(models.Model):
         for record in self.filtered(lambda x: x.is_company and x.partner_type):
             record.partner_type = False
 
-
     def write(self, vals):
         if 'is_company' in vals and vals.get('is_company'):
             vals['partner_type'] = False
