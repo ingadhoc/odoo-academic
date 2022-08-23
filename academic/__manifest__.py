@@ -52,7 +52,6 @@
         'views/res_company_views.xml',
         'views/res_users_views.xml',
         'views/login_page.xml',
-        'data/academic_mail_template.xml',
         'data/res_users_data.xml',
     ],
     'installable': True,
