@@ -3,6 +3,7 @@
 # directory
 ##############################################################################
 from odoo import api, models, fields
+from odoo.exceptions import UserError
 
 
 class ResPartner(models.Model):
@@ -92,6 +93,13 @@ class ResPartner(models.Model):
         """ Metodo que crea o activa usuario inactivo en el grupo portal que
         se defina
         """
+        # TODO: el metodo onchange_portal_id no existe.
+        # Esto dejo de usarse pero queda el codigo por posible implementacion a futuro
+        raise UserError(
+            _(
+                "Esta función se encuentra en desarrollo!"
+            )
+        )
         wizard = self.env['portal.wizard'].with_context(
             default_active_ids=self.ids, active_ids=self.ids,
             active_id=self.ids and self.ids[0] or False,

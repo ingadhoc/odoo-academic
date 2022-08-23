@@ -64,13 +64,11 @@
 
             <!-- movemos el campo company. TODO hacer esto con move -->
             <field name="company_id" position="replace"/>
-            <field name="type" position="before">
-                <field name="company_id" groups="base.group_multi_company" placeholder="Institution..." attrs="{'required':[('partner_type','in',['teacher','student','administrator'])]}"/>
-            </field>
 
-            <field name="type" position="before">
+            <xpath expr="//span[@name='address_name']" position="before">
+                <field name="company_id" groups="base.group_multi_company" placeholder="Institution..." attrs="{'required':[('partner_type','in',['teacher','student','administrator'])]}"/>
                 <field name="partner_type" attrs="{'invisible': [('is_company', '=', True)]}"/>
-            </field>
+            </xpath>
 
             <field name="company_id" position="attributes">
                 <attribute name="attrs">{'required':[('partner_type','in',['teacher','student','administrator', 'gral_administrator'])]}</attribute>
