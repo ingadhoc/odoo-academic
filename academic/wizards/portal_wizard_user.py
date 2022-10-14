@@ -40,7 +40,7 @@ class PortalWizardUser(models.TransientModel):
 
     def get_error_messages(self):
         res = super().get_error_messages()
-        if not self.partner_id.email and any([lis.find(_("Some contacts don't have a valid email: ")) for lis in res]):
+        if any([lis.find(_("Some contacts don't have a valid email: ")) for lis in res]):
             if len(res) == 2:
                 res = []
             else:
