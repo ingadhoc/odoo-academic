@@ -54,7 +54,7 @@
         'views/login_page.xml',
         'data/res_users_data.xml',
     ],
-    'installable': True,
+    'installable': False,
     'auto_install': False,
     'application': False,
 }
