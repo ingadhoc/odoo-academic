@@ -56,7 +56,7 @@ class ResPartner(models.Model):
     )
     admission_date = fields.Date(
     )
-    exit_date = fields.Char(
+    exit_date = fields.Date(
     )
     medical_insurance = fields.Char(
         copy=False,
