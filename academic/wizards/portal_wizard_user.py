@@ -50,11 +50,10 @@ class PortalWizardUser(models.TransientModel):
     def _create_user(self):
         """ we overwrite this method because its not inheritable
         """
-        company_id = self.env.context.get('company_id')
         vals = {
             'partner_id': self.partner_id.id,
-            'company_id': company_id,
-            'company_ids': [(6, 0, [company_id])],
+            'company_id': self.env.company.id,
+            'company_ids': [(6, 0, self.env.company.ids)],
             'groups_id': [(6, 0, [])],
         }
         if self.partner_id.email:
