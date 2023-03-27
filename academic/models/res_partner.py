@@ -104,6 +104,5 @@ class ResPartner(models.Model):
             default_active_ids=self.ids, active_ids=self.ids,
             active_id=self.ids and self.ids[0] or False,
             active_model='res.partner').create({})
-        wizard.onchange_portal_id()
         wizard.user_ids.write({'in_portal': True})
         wizard.action_apply()
