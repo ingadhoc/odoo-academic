@@ -11,14 +11,12 @@
         <field name="website">www.apdes.esc.edu.ar</field>
     </record>
 
-
     <!-- Basic Company  -->
     <record id="base.main_company" model="res.company">
         <field name="name">APDES</field>
         <field name="report_header">ASOCIACIÓN PARA LA PROMOCIÓN DEPORTIVA, EDUCATIVA Y SOCIAL</field>
         <field name="currency_id" ref="base.ARS"/>
     </record>
-
 
     <!-- Schools Companies  -->
     <record id="res_company_los_arroyos" model="res.company">

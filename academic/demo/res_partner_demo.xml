@@ -12,14 +12,18 @@
     </record>
 
     <record id="res_partner_ignacio_rodriguez" model="res.partner">
+        <field name="name">Ignacio Rodriguez</field>
     </record>
 
     <record id="res_partner_juan_gomez" model="res.partner">
+        <field name="name">Juan Gomez</field>
     </record>
 
     <record id="res_partner_roberto_martin" model="res.partner">
+        <field name="name">Roberto Martin</field>
     </record>
 
     <record id="res_partner_laura_sali" model="res.partner">
+        <field name="name">Laura Sali</field>
     </record>
 </odoo>
