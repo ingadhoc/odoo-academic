@@ -5,7 +5,7 @@
     <record id="user_malena_apdes" model="res.users" context="{'no_reset_password': True}">
         <field name="partner_id" ref="res_partner_malena_apdes"/>
         <field name="login">mapdes</field>
-        <field name="password">mapdes</field>
+        <field name="password">mapdes@academic.com</field>
         <field name="email">mapdes@academic.com</field>
         <field name="company_id" ref="base.main_company"/>
         <field name="company_ids" eval="[(4, ref('base.main_company'))]"/>
@@ -16,7 +16,7 @@
     <record id="user_roberto_martin" model="res.users" context="{'no_reset_password': True}">
         <field name="partner_id" ref="res_partner_roberto_martin"/>
         <field name="login">rmartin</field>
-        <field name="password">rmartin</field>
+        <field name="password">rmartin@academic.com</field>
         <field name="email">rmartin@academic.com</field>
         <field name="company_id" ref="res_company_los_molinos"/>
         <field name="company_ids" eval="[(4, ref('academic.res_company_los_molinos'))]"/>
@@ -28,7 +28,7 @@
         <field name="partner_id" ref="res_partner_laura_sali"/>
         <field name="login">lsali</field>
         <field name="email">lsali@academic.com</field>
-        <field name="password">lsali</field>
+        <field name="password">lsali@academic.com</field>
         <field name="company_id" ref="res_company_los_molinos"/>
         <field name="company_ids" eval="[(4, ref('academic.res_company_los_molinos'))]"/>
         <field name="groups_id" eval="[(6,0,[ref('academic.group_portal_teacher')])]"/>
@@ -39,7 +39,7 @@
         <field name="partner_id" ref="res_partner_martin_perez"/>
         <field name="login">mperez</field>
         <field name="email">mperez@academic.com</field>
-        <field name="password">mperez</field>
+        <field name="password">mperez@academic.com</field>
         <field name="company_id" ref="res_company_los_molinos"/>
         <field name="company_ids" eval="[(4, ref('academic.res_company_los_molinos'))]"/>
         <field name="groups_id" eval="[(6,0,[ref('academic.group_portal_student')])]"/>
@@ -49,7 +49,7 @@
     <record id="user_juan_gomez" model="res.users" context="{'no_reset_password': True}">
         <field name="partner_id" ref="res_partner_juan_gomez"/>
         <field name="login">jgomez</field>
-        <field name="password">jgomez</field>
+        <field name="password">jgomez@academic.com</field>
         <field name="email">jgomez@academic.com</field>
         <field name="company_id" ref="res_company_los_arroyos"/>
         <field name="company_ids" eval="[(4, ref('academic.res_company_los_arroyos'))]"/>
@@ -61,7 +61,7 @@
         <field name="partner_id" ref="res_partner_ignacio_rodriguez"/>
         <field name="login">irodriguez</field>
         <field name="email">irodriguez@academic.com</field>
-        <field name="password">irodriguez</field>
+        <field name="password">irodriguez@academic.com</field>
         <field name="company_id" ref="res_company_los_arroyos"/>
         <field name="company_ids" eval="[(4, ref('academic.res_company_los_arroyos'))]"/>
         <field name="groups_id" eval="[(6,0,[ref('academic.group_portal_teacher')])]"/>
@@ -72,7 +72,7 @@
         <field name="partner_id" ref="res_partner_alvaro_diaz"/>
         <field name="login">adiaz</field>
         <field name="email">adiaz@academic.com</field>
-        <field name="password">adiaz</field>
+        <field name="password">adiaz@academic.com</field>
         <field name="company_id" ref="res_company_los_arroyos"/>
         <field name="company_ids" eval="[(4, ref('academic.res_company_los_arroyos'))]"/>
         <field name="groups_id" eval="[(6,0,[ref('academic.group_portal_student')])]"/>
