@@ -178,7 +178,7 @@ msgstr "DNI"
 #: model:ir.model.fields,field_description:academic.field_res_partner__disabled_person
 #: model:ir.model.fields,field_description:academic.field_res_users__disabled_person
 msgid "Disabled Person?"
-msgstr "Persona Discapacitada?"
+msgstr "¿Dificultades de aprendizaje?"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division__display_name
@@ -529,7 +529,7 @@ msgstr "Secuencia"
 #: model:ir.model.fields,field_description:academic.field_res_partner__sex
 #: model:ir.model.fields,field_description:academic.field_res_users__sex
 msgid "Sex"
-msgstr "Sexo"
+msgstr "Género"
 
 #. module: academic
 #: code:addons/academic/wizards/portal_wizard_user.py:0
