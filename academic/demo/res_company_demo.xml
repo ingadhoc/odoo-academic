@@ -15,7 +15,6 @@
     <record id="base.main_company" model="res.company">
         <field name="name">APDES</field>
         <field name="report_header">ASOCIACIÓN PARA LA PROMOCIÓN DEPORTIVA, EDUCATIVA Y SOCIAL</field>
-        <field name="currency_id" ref="base.ARS"/>
     </record>
 
     <!-- Schools Companies  -->
