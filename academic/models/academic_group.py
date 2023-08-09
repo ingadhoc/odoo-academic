@@ -33,8 +33,7 @@ class AcademicGroup(models.Model):
         string='Company',
         required=True,
         context={'default_is_company': True},
-        default=lambda s: s.env['res.company']._company_default_get(
-            'academic.group'),
+        default=lambda self: self.env.company
     )
     study_plan_level_ids = fields.Many2many(related='company_id.study_plan_id.level_ids')
     level_id = fields.Many2one(
