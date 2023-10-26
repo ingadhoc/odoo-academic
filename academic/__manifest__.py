@@ -65,7 +65,7 @@
         'demo/res_users_demo.xml',
         'demo/academic.group.csv',
     ],
-    'installable': True,
+    'installable': False,
     'auto_install': False,
     'application': False,
 }
