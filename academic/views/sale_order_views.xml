@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_order_form" model="ir.ui.view">
+        <field name="name">sale.order.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <form>
+                <field name="partner_invoice_ids" invisible="1"/>
+            </form>
+            <field name="partner_invoice_id" position="attributes">
+                <attribute name="domain">[('id', 'in', partner_invoice_ids)]</attribute>
+            </field>
+        </field>
+    </record>
+
+</odoo>

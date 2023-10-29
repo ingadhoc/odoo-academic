@@ -1,0 +1,23 @@
+<odoo>
+
+    <record id="emergency_contact_role" model="res.partner.role">
+        <field name="name">Contacto de Emergencia</field>
+        <field name="color">1</field>
+    </record>
+
+    <record id="emergency_institution_role" model="res.partner.role">
+        <field name="name">Institución de Emergencia</field>
+        <field name="color">2</field>
+    </record>
+
+    <record id="paying_role" model="res.partner.role">
+        <field name="name">Responsable de Pago</field>
+        <field name="color">3</field>
+    </record>
+
+    <record id="withdraw_role" model="res.partner.role">
+        <field name="name">Puede Retirar</field>
+        <field name="color">4</field>
+    </record>
+
+</odoo>
