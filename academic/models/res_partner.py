@@ -2,7 +2,7 @@
 # For copyright and license notices, see __manifest__.py file in module root
 # directory
 ##############################################################################
-from odoo import api, models, fields
+from odoo import api, models, fields, _
 from odoo.exceptions import UserError
 
 
@@ -15,7 +15,7 @@ class ResPartner(models.Model):
         ('teacher', 'Teacher'),
         ('administrator', 'Administrator'),
         ('gral_administrator', 'General Administrator'),
-        ('parent', 'Parent'),
+        ('parent', 'Relative'),
         ('other', 'Other'),
     ],
         change_default=True,
@@ -61,12 +61,6 @@ class ResPartner(models.Model):
     medical_insurance = fields.Char(
         copy=False,
     )
-    relationship_id = fields.Many2one(
-        'res.partner.relationship',
-    )
-    withdraw = fields.Boolean(
-    )
-
     dni = fields.Integer(
         'DNI',
     )
@@ -74,6 +68,7 @@ class ResPartner(models.Model):
         'res.users',
         compute='_compute_related_user_id',
     )
+    partner_link_ids = fields.One2many('res.partner.link', 'student_id', string='Vínculos')
 
     def _compute_related_user_id(self):
         for rec in self:
@@ -95,11 +90,7 @@ class ResPartner(models.Model):
         """
         # TODO: el metodo onchange_portal_id no existe.
         # Esto dejo de usarse pero queda el codigo por posible implementacion a futuro
-        raise UserError(
-            _(
-                "Esta función se encuentra en desarrollo!"
-            )
-        )
+        raise UserError(_("Esta función se encuentra en desarrollo!"))
         wizard = self.env['portal.wizard'].with_context(
             default_active_ids=self.ids, active_ids=self.ids,
             active_id=self.ids and self.ids[0] or False,
