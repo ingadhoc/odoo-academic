@@ -29,3 +29,6 @@ access_res_partner_relationship_user,access_res_partner_relationship_user,model_
 access_res_partner_relationship_manager,access_res_partner_relationship_manager,model_res_partner_relationship,base.group_system,1,1,1,1
 access_hr_employee_asignatures_user,hr.employee.asignatures user,model_hr_employee_asignatures,hr.group_hr_user,1,1,1,1
 access_hr_employee_asignatures_system_user,hr.employee.asignatures system user,model_hr_employee_asignatures,base.group_user,1,0,0,0
+academic.access_res_partner_role,access_res_partner_role,academic.model_res_partner_role,base.group_user,1,0,0,0
+academic.access_res_partner_link_all,access_res_partner_link_all,academic.model_res_partner_link,base.group_user,1,0,0,0
+academic.access_res_partner_link_user,access_res_partner_link_user,academic.model_res_partner_link,group_user,1,1,1,1
