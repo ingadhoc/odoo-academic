@@ -33,6 +33,7 @@
             </div>
             <div class="o_address_format"  position='after'>
                 <field name="study_plan_id"/>
+                <field name="family_required"/>
             </div>
         </field>
     </record>
