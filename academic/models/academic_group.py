@@ -71,7 +71,7 @@ class AcademicGroup(models.Model):
          'unique(subject_id, company_id, level_id, year, division_id)',
          'Group should be unique per Institution, Subject,'
          ' Course-Division and Year')]
-    
+
     sequence = fields.Integer(help='Used to order Groups', default=10)
 
     def name_get(self):

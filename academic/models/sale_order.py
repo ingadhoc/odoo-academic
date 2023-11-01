@@ -13,10 +13,10 @@ class SaleOrder(models.Model):
         domain="[('type', '!=', 'private'), ('company_id', 'in', (False, company_id)), ('partner_type', '=', 'student')]")
     partner_invoice_ids = fields.Many2many('res.partner', compute='_compute_partner_invoice')
 
-    @api.depends('partner_id.partner_link_ids.role_ids')
+    @api.depends('partner_id.student_link_ids.role_ids')
     def _compute_partner_invoice(self):
         for rec in self:
-            rec.partner_invoice_ids = rec.partner_id.partner_link_ids.filtered(
+            rec.partner_invoice_ids = rec.partner_id.student_link_ids.filtered(
                 lambda x: self.env.ref('academic.paying_role') in x.role_ids).mapped('partner_id') if rec.partner_id else False
 
     @api.depends('partner_invoice_ids')
