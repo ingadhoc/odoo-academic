@@ -25,20 +25,54 @@
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_form"/>
         <field name="arch" type="xml">
+            <form>
+                <field name="parent_links_by_student" invisible="True"/>
+            </form>
+
+            <!-- oculamos seleccion de compañía si es estudiante (tal vez en otros tmb lo queremos?) -->
+            <div class="o_row" position="attributes">
+                <attribute name="attrs">{'invisible':[('partner_type','!=',False)]}</attribute>
+            </div>
 
             <!-- ocultamos pagina de contactos si no es compania -->
-            <page position="attributes">
+            <page name="contact_addresses" position="attributes">
                 <attribute name="attrs">{'invisible':[('is_company','=',False)]}</attribute>
             </page>
 
-            <page position="before">
-                <page string="Individual Information" attrs="{'invisible':[('partner_type','=',False)]}">
+            <!-- ocultamos paginas y campos que no queremos si es familia o estudiante de contactos si no es compania -->
+            <field name="vat" position="attributes">
+                <attribute name="attrs">{'invisible':[('partner_type','in',['student', 'family'])]}</attribute>
+            </field>
+            <page name="accounting_disabled" position="attributes">
+                <attribute name="attrs">{'invisible':[('partner_type','in',['student', 'family'])]}</attribute>
+            </page>
+            <page name="sales_purchases" position="attributes">
+                <attribute name="attrs">{'invisible':[('partner_type','in',['student', 'family'])]}</attribute>
+            </page>
+            <page name="accounting" position="attributes">
+                <attribute name="attrs">{'invisible':[('partner_type','in',['student', 'family'])]}</attribute>
+            </page>
+
+            <page name="contact_addresses" position="before">
+                <page string="Estudiantes" attrs="{'invisible':[('partner_type','!=', 'family')]}">
+                    <!-- context="{'default_parent_id': active_id, 'default_street': street, 'default_street2': street2, 'default_city': city, 'default_state_id': state_id, 'default_zip': zip, 'default_country_id': country_id, 'default_lang': lang, 'default_user_id': user_id, 'default_type': 'other'}" -->
+                    <field name="student_ids" context="{'default_partner_type': 'student', 'default_type': 'contact', 'default_company_id': company_id}">
+                        <tree>
+                            <field name="name"/>
+                            <field name="promotion_id"/>
+                            <field name="mobile"/>
+                            <field name="email"/>
+                            <button type="object" name="get_formview_action" icon="fa-pencil-square-o" title="Open" help="Open"/>
+                        </tree>
+                    </field>
+                </page>
+                <page string="Individual Information" attrs="{'invisible':[('partner_type','in',[False, 'family'])]}">
                     <group>
                         <group>
                             <field name="dni"/>
                             <field name="file_number" attrs="{'invisible':[('partner_type','!=','student')]}"/>
-                            <field name="sex" attrs="{'invisible':[('partner_type','=',False)], 'required':[('partner_type','=','student')]}"/>
-                            <field name="promotion_id" attrs="{'invisible':[('partner_type','!=','student')], 'required':[('partner_type','=','student')]}"/>
+                            <field name="sex" attrs="{'invisible':[('partner_type','=',False)]}"/>
+                            <field name="promotion_id" attrs="{'invisible':[('partner_type','!=','student')]}"/>
                         </group>
                         <group>
                             <field name="birthdate" attrs="{'invisible':[('partner_type','=',False)]}"/>
@@ -48,9 +82,20 @@
                             <field name="disabled_person" attrs="{'invisible':[('partner_type','!=','student')]}"/>
                         </group>
                     </group>
+                    <group>
+                        <field name="partner_link_ids" readonly="True" attrs="{'invisible': [('partner_type','in',[False, 'student', 'family'])]}">
+                            <tree>
+                                <field name="partner_id"/>
+                                <field name="relationship_id" options="{'no_create':True}"/>
+                                <field name="role_ids" widget="many2many_tags" options="{'no_create':True, 'color_field': 'color'}"/>
+                                <field name="note"/>
+                            </tree>
+                        </field>
+                    </group>
                 </page>
-                <page string="Vínculos" attrs="{'invisible':[('partner_type','!=','student')]}">
-                    <field name="partner_link_ids">
+                <page string="Contactos y Roles" attrs="{'invisible': ['|', ('links_by_student', '=', True), ('partner_type','not in',['student', 'family'])]}">
+                    <p attrs="{'invisible': ['|', ('partner_type', '!=', 'student'), ('parent_links_by_student', '=', True)]}">Los Contactos y Roles son gestionados en <button name="open_commercial_entity" type="object" string="la familia" class="oe_link"/></p>
+                    <field name="student_link_ids" attrs="{'readonly': [('partner_type', '=', 'student'), ('parent_links_by_student', '=', False)]}">
                         <tree editable="bottom">
                             <field name="partner_id"/>
                             <field name="relationship_id" options="{'no_create':True}"/>
@@ -77,7 +122,11 @@
 
             <xpath expr="//span[@name='address_name']" position="before">
                 <field name="company_id" groups="base.group_multi_company" placeholder="Institution..." attrs="{'required':[('partner_type','in',['teacher','student','administrator', 'gral_administrator'])]}"/>
+                <field name="company_family_required" invisible="1"/>
+                <!-- desde un estudiante elegimos familia de misma cia o sin cia (para el estudiante si la hacemos obligatoria) -->
+                <field name="parent_id" string="Family" attrs="{'invisible': [('partner_type', '!=', 'student')], 'required':[('partner_type', '=', 'student'), ('company_family_required', '=', True)]}" domain="[('partner_type', '=', 'family'), ('company_id', 'in', [company_id, False])]"/>
                 <field name="partner_type" attrs="{'invisible': [('is_company', '=', True)]}"/>
+                <field name="links_by_student" attrs="{'invisible': [('partner_type', '!=', 'family')]}"/>
             </xpath>
 
             <field name="parent_id" position="after">
@@ -87,9 +136,11 @@
             </field>
 
         <!-- pop up contactos -->
-            <xpath expr="//field[@name='child_ids']//form//field[@name='name']" position="before">
+            <!-- <xpath expr="//field[@name='child_ids']//form//field[@name='name']" position="before">
                 <field name="is_company" invisible="1"/>
                 <field name="partner_type" attrs="{'invisible': [('is_company', '=', True)]}"/>
+                <field name="links_by_student" attrs="{'invisible': [('is_company', '=', False)]}"/>
+                <field name="parent_links_by_student" invisible="1"/>
             </xpath>
 
             <xpath expr="//field[@name='child_ids']//form//group" position="inside">
@@ -109,7 +160,9 @@
             </xpath>
             <xpath expr="//kanban//t[@t-name='kanban-box']//div[@t-if='record.function.raw_value']" position="after">
                 <strong><div t-if="record.partner_type.raw_value"><field name="partner_type"/></div></strong>
-            </xpath>
+            </xpath> -->
+
+            <!-- creacion de related user -->
             <!-- <field name="website" position="after">
                 <label for="related_user_id"/>
                 <div>
@@ -235,6 +288,19 @@
     </record>
 
     <menuitem name="Relatives" id="menu_parents" sequence="50" action="action_academic_partner_parents" parent="menu_partners" groups="group_user" />
+
+    <record id="action_academic_partner_families" model="ir.actions.act_window">
+        <field name="name">Families</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_academic_partner_tree"/>
+        <field name="search_view_id" ref="view_academic_partner_filter"/>
+        <field name="context">{'default_partner_type': 'family',
+        'show_login':True}</field>
+        <field name="domain">[('partner_type','=','family')]</field>
+    </record>
+
+    <menuitem name="Families" id="menu_families" sequence="60" action="action_academic_partner_families" parent="menu_partners" groups="group_user" />
 
     <menuitem name="Gral Administrators" id="menu_gral_administrators" sequence="15" action="action_academic_partner_gral_administrators" parent="menu_partners" groups="group_user" />
 

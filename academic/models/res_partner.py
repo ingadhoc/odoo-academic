@@ -17,8 +17,12 @@ class ResPartner(models.Model):
         ('gral_administrator', 'General Administrator'),
         ('parent', 'Relative'),
         ('other', 'Other'),
+        ('family', 'Family'),
     ],
         change_default=True,
+        compute='_compute_partner_type',
+        readonly=False,
+        store=True,
     )
     section_id = fields.Many2one(
         'academic.section',
@@ -68,16 +72,58 @@ class ResPartner(models.Model):
         'res.users',
         compute='_compute_related_user_id',
     )
-    partner_link_ids = fields.One2many('res.partner.link', 'student_id', string='Vínculos')
+    student_link_ids = fields.One2many(
+        'res.partner.link', 'student_id', string='Contactos y Roles', copy=True,
+        compute='_compute_student_links', readonly=False, store=True, recursive=True)
+
+    @api.depends('parent_links_by_student', 'parent_id.student_link_ids')
+    def _compute_student_links(self):
+        for rec in self.filtered(lambda x: x.partner_type == 'student' and x.parent_id and not x.parent_links_by_student):
+            rec.student_link_ids.unlink()
+            for link in rec.parent_id.student_link_ids:
+                link.copy(default={'student_id': rec.id})
+            # rec.student_link_ids = [(5, 0, 0), [rec.parent_id.student_link_ids]
+
+    partner_link_ids = fields.One2many('res.partner.link', 'partner_id', string='Roles', copy=True)
+    links_by_student = fields.Boolean(string='Contactos y Roles por Estudiante')
+    company_family_required = fields.Boolean(related='company_id.family_required')
+    parent_links_by_student = fields.Boolean(related='parent_id.links_by_student', string="La familia define Contactos y Roles por Estudiante")
+    # creamos nuevo campo porque el child_ids como ya esta en la vista nos propaga el mode kanban
+    # al hacerlo con mode tree nos simplfica bastante la herencia de vista porque no tenemos que agregar en el quick
+    # create tantas cosas
+    student_ids = fields.One2many('res.partner', 'parent_id')
+    # company_type = fields.Selection(selection_add=[('family', 'Family')])
+    # is_family = fields.Boolean()
+
+    # @api.depends('is_family')
+    # def _compute_company_type(self):
+    #     families = self.filtered(lambda x: x.is_company and x.is_family)
+    #     families.company_type = 'family'
+    #     return super(ResPartner, self - families)._compute_company_type()
+
+    # def _write_company_type(self):
+    #     families = self.filtered(lambda x: x.company_type == 'family')
+    #     families.is_company = True
+    #     families.is_family = True
+    #     return super(ResPartner, self - families)._write_company_type()
+
+    @api.constrains('company_id', 'partner_type', 'parent_id')
+    def _check_family_configured(self):
+        if self.filtered(lambda x: x.partner_type == 'student' and x.company_id.family_required and x.parent_id.partner_type != 'family'):
+            raise UserError('En la institucion, los estudiantes deben estar vinculados a una familia')
+
+    @api.constrains('parent_id', 'partner_type')
+    def _check_family_student_relation(self):
+        if self.filtered(lambda x: x.partner_type != 'student' and x.parent_id.partner_type == 'family'):
+            raise UserError('Los contactos de una familia solo pueden ser estudiantes')
 
     def _compute_related_user_id(self):
         for rec in self:
             rec.related_user_id = rec.user_ids and rec.user_ids[0]
 
-    @api.onchange('is_company')
-    def _check_partner_type(self):
-        for record in self.filtered(lambda x: x.is_company and x.partner_type):
-            record.partner_type = False
+    @api.depends('is_company')
+    def _compute_partner_type(self):
+        self.filtered(lambda x: x.is_company and x.partner_type).partner_type = False
 
     def write(self, vals):
         if 'is_company' in vals and vals.get('is_company'):
