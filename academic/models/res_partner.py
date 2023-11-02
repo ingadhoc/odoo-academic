@@ -78,11 +78,15 @@ class ResPartner(models.Model):
 
     @api.depends('parent_links_by_student', 'parent_id.student_link_ids')
     def _compute_student_links(self):
+        """ Si se confirugan los contactos en la flia, los propagamos a los hijos. Lo hacemos así para que:
+        a) en todo el codigo solo miremos siempre hijos, lo de la familia es un asistente
+        b) si se marca llevar en estudiantes ya van a tener toda la data que tenía la familia """
         for rec in self.filtered(lambda x: x.partner_type == 'student' and x.parent_id and not x.parent_links_by_student):
-            rec.student_link_ids.unlink()
-            for link in rec.parent_id.student_link_ids:
-                link.copy(default={'student_id': rec.id})
-            # rec.student_link_ids = [(5, 0, 0), [rec.parent_id.student_link_ids]
+            rec.student_link_ids = [(5, 0, 0)] + [(0, 0, {
+                'relationship_id': x.relationship_id.id,
+                'role_ids': x.role_ids,
+                'partner_id': x.partner_id.id,
+                'note': x.note}) for x in rec.parent_id.student_link_ids]
 
     partner_link_ids = fields.One2many('res.partner.link', 'partner_id', string='Roles', copy=True)
     links_by_student = fields.Boolean(string='Contactos y Roles por Estudiante')
