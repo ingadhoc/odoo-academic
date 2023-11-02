@@ -124,7 +124,7 @@
                 <field name="company_id" groups="base.group_multi_company" placeholder="Institution..." attrs="{'required':[('partner_type','in',['teacher','student','administrator', 'gral_administrator'])]}"/>
                 <field name="company_family_required" invisible="1"/>
                 <!-- desde un estudiante elegimos familia de misma cia o sin cia (para el estudiante si la hacemos obligatoria) -->
-                <field name="parent_id" string="Family" attrs="{'invisible': [('partner_type', '!=', 'student')], 'required':[('partner_type', '=', 'student'), ('company_family_required', '=', True)]}" domain="[('partner_type', '=', 'family'), ('company_id', 'in', [company_id, False])]"/>
+                <field name="parent_id" string="Family" attrs="{'invisible': [('partner_type', '!=', 'student')], 'required':[('partner_type', '=', 'student'), ('company_family_required', '=', True)]}" domain="[('partner_type', '=', 'family'), ('company_id', 'in', [company_id, False])]" context="{'default_partner_type': 'family', 'default_company_id': company_id}"/>
                 <field name="partner_type" attrs="{'invisible': [('is_company', '=', True)]}"/>
                 <field name="links_by_student" attrs="{'invisible': [('partner_type', '!=', 'family')]}"/>
             </xpath>
@@ -282,8 +282,7 @@
         <field name="view_mode">tree,form</field>
         <field name="view_id" ref="view_academic_partner_tree"/>
         <field name="search_view_id" ref="view_academic_partner_filter"/>
-        <field name="context">{'default_partner_type':'parent',
-        'show_login':True}</field>
+        <field name="context">{'default_partner_type': (5, 0, 0)'parent', 'show_login':True}</field>
         <field name="domain">[('partner_type','=','parent')]</field>
     </record>
 
@@ -295,8 +294,7 @@
         <field name="view_mode">tree,form</field>
         <field name="view_id" ref="view_academic_partner_tree"/>
         <field name="search_view_id" ref="view_academic_partner_filter"/>
-        <field name="context">{'default_partner_type': 'family',
-        'show_login':True}</field>
+        <field name="context">{'default_partner_type': 'family', 'show_login':True}</field>
         <field name="domain">[('partner_type','=','family')]</field>
     </record>
 
