@@ -12,7 +12,6 @@
     </record>
     <record id="group_user" model="res.groups">
         <field name="name">User</field>
-        <field name="users" eval="[(4, ref('base.user_demo'))]"/>
         <field name="category_id" ref="module_category_academic"/>
     </record>
     <record id="group_manager" model="res.groups">
