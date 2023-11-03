@@ -30,9 +30,9 @@
             </form>
 
             <!-- oculamos seleccion de compañía si es estudiante (tal vez en otros tmb lo queremos?) -->
-            <div class="o_row" position="attributes">
+            <!-- <div class="o_row" position="attributes">
                 <attribute name="attrs">{'invisible':[('partner_type','!=',False)]}</attribute>
-            </div>
+            </div> -->
 
             <!-- ocultamos pagina de contactos si no es compania -->
             <page name="contact_addresses" position="attributes">
@@ -43,14 +43,16 @@
             <field name="vat" position="attributes">
                 <attribute name="attrs">{'invisible':[('partner_type','in',['student', 'family'])]}</attribute>
             </field>
+            <!-- '|',('is_company','=',True),('parent_id','=',False) -->
             <page name="accounting_disabled" position="attributes">
-                <attribute name="attrs">{'invisible':[('partner_type','in',['student', 'family'])]}</attribute>
+                <attribute name="attrs">{'invisible':['|','|',('is_company','=',True),('parent_id','=',False),('partner_type','in',['student', 'family'])]}</attribute>
             </page>
             <page name="sales_purchases" position="attributes">
                 <attribute name="attrs">{'invisible':[('partner_type','in',['student', 'family'])]}</attribute>
             </page>
             <page name="accounting" position="attributes">
-                <attribute name="attrs">{'invisible':[('partner_type','in',['student', 'family'])]}</attribute>
+            <!-- 'invisible': [('is_company','=',False),('parent_id','!=',False)]} -->
+                <attribute name="attrs">{'invisible':['|', ('partner_type','in',['student', 'family']), '&amp;', ('is_company','=',False),('parent_id','!=',False)]}</attribute>
             </page>
 
             <page name="contact_addresses" position="before">
@@ -124,8 +126,8 @@
                 <field name="company_id" groups="base.group_multi_company" placeholder="Institution..." attrs="{'required':[('partner_type','in',['teacher','student','administrator', 'gral_administrator'])]}"/>
                 <field name="company_family_required" invisible="1"/>
                 <!-- desde un estudiante elegimos familia de misma cia o sin cia (para el estudiante si la hacemos obligatoria) -->
-                <field name="parent_id" string="Family" attrs="{'invisible': [('partner_type', '!=', 'student')], 'required':[('partner_type', '=', 'student'), ('company_family_required', '=', True)]}" domain="[('partner_type', '=', 'family'), ('company_id', 'in', [company_id, False])]" context="{'default_partner_type': 'family', 'default_company_id': company_id}"/>
                 <field name="partner_type" attrs="{'invisible': [('is_company', '=', True)]}"/>
+                <field name="parent_id" string="Family" attrs="{'invisible': [('partner_type', '!=', 'student')], 'required':[('partner_type', '=', 'student'), ('company_family_required', '=', True)]}" domain="[('partner_type', '=', 'family'), ('company_id', 'in', [company_id, False])]" context="{'default_partner_type': 'family', 'default_company_id': company_id}"/>
                 <field name="links_by_student" attrs="{'invisible': [('partner_type', '!=', 'family')]}"/>
             </xpath>
 
@@ -305,6 +307,7 @@
     <menuitem name="Students" id="menu_students" sequence="40" action="action_academic_partner_students" parent="menu_partners" groups="group_user" />
 
     <menuitem name="Teachers" id="menu_teachers" sequence="30" action="action_academic_partner_teachers" parent="menu_partners" groups="group_user" />
+
 
     <!-- portal menus -->
     <menuitem name="Students" id="menu_portal_students" sequence="20" action="action_academic_partner_students" parent="menu_portal_academic" groups="group_portal_teacher" />
