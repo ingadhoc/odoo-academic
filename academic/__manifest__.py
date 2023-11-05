@@ -55,6 +55,7 @@
         'views/login_page.xml',
         'views/sale_order_views.xml',
         'views/res_partner_link_views.xml',
+        'views/res_partner_relationship_views.xml',
         'data/res_users_data.xml',
         'data/res_partner_role_data.xml',
     ],
