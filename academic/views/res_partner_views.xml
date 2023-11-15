@@ -87,7 +87,7 @@
                     <group>
                         <field name="partner_link_ids" readonly="True" attrs="{'invisible': [('partner_type','in',[False, 'student', 'family'])]}">
                             <tree>
-                                <field name="partner_id"/>
+                                <field name="student_id"/>
                                 <field name="relationship_id" options="{'no_create':True}"/>
                                 <field name="role_ids" widget="many2many_tags" options="{'no_create':True, 'color_field': 'color'}"/>
                                 <field name="note"/>
