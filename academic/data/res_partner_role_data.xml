@@ -1,4 +1,4 @@
-<odoo>
+<odoo noupdate="1">
 
     <record id="emergency_contact_role" model="res.partner.role">
         <field name="name">Contacto de Emergencia</field>
@@ -10,6 +10,7 @@
         <field name="color">2</field>
     </record>
 
+    <!-- la idea de este rol es que se use tanto para seleccionar en suscripcion a quien se va a facturar como tambien para definir quienes pueden acceder al portal, ver facturas, pagarlas, etc. -->
     <record id="paying_role" model="res.partner.role">
         <field name="name">Responsable de Pago</field>
         <field name="color">3</field>
