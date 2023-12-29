@@ -39,10 +39,29 @@
                 <attribute name="attrs">{'invisible':[('is_company','=',False)]}</attribute>
             </page>
 
-            <!-- ocultamos paginas y campos que no queremos si es familia o estudiante de contactos si no es compania -->
-            <field name="vat" position="attributes">
+            <xpath expr="//group/group" position="after">
+                <group attrs="{'invisible':[('partner_type','not in',['student', 'family'])]}">
+                    <field name="company_id" groups="base.group_multi_company" placeholder="Institution..." attrs="{'required':[('partner_type','in',['teacher','student','administrator', 'gral_administrator'])]}"/>
+                    <field name="company_family_required" invisible="1"/>
+                    <field name="parent_id" string="Family" attrs="{'invisible': [('partner_type', '!=', 'student')], 'required':[('partner_type', '=', 'student'), ('company_family_required', '=', True)]}" domain="[('partner_type', '=', 'family'), ('company_id', 'in', [company_id, False])] if partner_type == 'student' else [('is_company', '=', True)]" context="{'default_partner_type': 'family', 'default_company_id': company_id}"/>
+                    <field name="links_by_student" attrs="{'invisible': [('partner_type', '!=', 'family')]}"/>
+                </group>
+            </xpath>
+            <field name="parent_id" position="attributes">
                 <attribute name="attrs">{'invisible':[('partner_type','in',['student', 'family'])]}</attribute>
             </field>
+            <xpath expr="//group/group" position="attributes">
+                <attribute name="attrs">{'invisible':[('partner_type','in',['student', 'family'])]}</attribute>
+            </xpath>
+
+            <xpath expr="//group/group[3]" position="attributes">
+                <attribute name="attrs">{'invisible':[('partner_type','in',['family'])]}</attribute>
+            </xpath>
+
+            <!-- ocultamos paginas y campos que no queremos si es familia o estudiante de contactos si no es compania -->
+            <!-- <field name="vat" position="attributes">
+                <attribute name="attrs">{'invisible':[('partner_type','in',['student', 'family'])]}</attribute>
+            </field> -->
             <!-- '|',('is_company','=',True),('parent_id','=',False) -->
             <page name="accounting_disabled" position="attributes">
                 <attribute name="attrs">{'invisible':['|','|',('is_company','=',True),('parent_id','=',False),('partner_type','in',['student', 'family'])]}</attribute>
@@ -122,13 +141,15 @@
                 <attribute name="invisible">1</attribute>
             </xpath>
 
+            <field name="company_type" position="before">
+                <!-- desde un estudiante elegimos familia de misma cia o sin cia (para el estudiante si la hacemos obligatoria) -->
+                <field name="partner_type"/>
+            </field>
+            <field name="company_type" position="attributes">
+                <attribute name="attrs">{'invisible': [('partner_type', '!=', False)]}</attribute>
+            </field>
             <xpath expr="//span[@name='address_name']" position="before">
                 <field name="company_id" groups="base.group_multi_company" placeholder="Institution..." attrs="{'required':[('partner_type','in',['teacher','student','administrator', 'gral_administrator'])]}"/>
-                <field name="company_family_required" invisible="1"/>
-                <!-- desde un estudiante elegimos familia de misma cia o sin cia (para el estudiante si la hacemos obligatoria) -->
-                <field name="partner_type" attrs="{'invisible': [('is_company', '=', True)]}"/>
-                <field name="parent_id" string="Family" attrs="{'invisible': [('partner_type', '!=', 'student')], 'required':[('partner_type', '=', 'student'), ('company_family_required', '=', True)]}" domain="[('partner_type', '=', 'family'), ('company_id', 'in', [company_id, False])]" context="{'default_partner_type': 'family', 'default_company_id': company_id}"/>
-                <field name="links_by_student" attrs="{'invisible': [('partner_type', '!=', 'family')]}"/>
             </xpath>
 
             <field name="parent_id" position="after">
