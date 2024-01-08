@@ -143,7 +143,7 @@
 
             <field name="company_type" position="before">
                 <!-- desde un estudiante elegimos familia de misma cia o sin cia (para el estudiante si la hacemos obligatoria) -->
-                <field name="partner_type"/>
+                <field name="partner_type" style="display: block;"/>
             </field>
             <field name="company_type" position="attributes">
                 <attribute name="attrs">{'invisible': [('partner_type', '!=', False)]}</attribute>
