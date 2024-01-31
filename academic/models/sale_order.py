@@ -13,7 +13,8 @@ class SaleOrder(models.Model):
         domain="[('type', '!=', 'private'), ('company_id', 'in', (False, company_id)), ('partner_type', '=', 'student')]")
     partner_invoice_ids = fields.Many2many('res.partner', compute='_compute_partner_invoice')
 
-    @api.depends('partner_id.student_link_ids.role_ids')
+    # dejamos solo depends a partner_id para que si cambia algo de la asignación no se re-calculen todas las ventas existentes
+    @api.depends('partner_id')
     def _compute_partner_invoice(self):
         for rec in self:
             rec.partner_invoice_ids = rec.partner_id.student_link_ids.filtered(
