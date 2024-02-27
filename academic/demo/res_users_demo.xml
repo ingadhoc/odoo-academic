@@ -20,7 +20,7 @@
         <field name="email">rmartin@academic.com</field>
         <field name="company_id" ref="res_company_los_molinos"/>
         <field name="company_ids" eval="[(4, ref('academic.res_company_los_molinos'))]"/>
-        <field name="groups_id" eval="[(6,0,[ref('academic.group_portal_administrator')])]"/>
+        <field name="groups_id" eval="[(6,0,[ref('academic.group_portal_administrator'), ref('portal_backend.group_portal_backend')])]"/>
     </record>
 
     <!-- Los Molinos Teacher -->
@@ -31,7 +31,7 @@
         <field name="password">lsali@academic.com</field>
         <field name="company_id" ref="res_company_los_molinos"/>
         <field name="company_ids" eval="[(4, ref('academic.res_company_los_molinos'))]"/>
-        <field name="groups_id" eval="[(6,0,[ref('academic.group_portal_teacher')])]"/>
+        <field name="groups_id" eval="[(6,0,[ref('academic.group_portal_teacher'), ref('portal_backend.group_portal_backend')])]"/>
     </record>
 
     <!-- Los Molinos Student -->
@@ -42,7 +42,7 @@
         <field name="password">mperez@academic.com</field>
         <field name="company_id" ref="res_company_los_molinos"/>
         <field name="company_ids" eval="[(4, ref('academic.res_company_los_molinos'))]"/>
-        <field name="groups_id" eval="[(6,0,[ref('academic.group_portal_student')])]"/>
+        <field name="groups_id" eval="[(6,0,[ref('academic.group_portal_student'), ref('portal_backend.group_portal_backend')])]"/>
     </record>
 
     <!-- Los Arroyos administrator -->
@@ -53,7 +53,7 @@
         <field name="email">jgomez@academic.com</field>
         <field name="company_id" ref="res_company_los_arroyos"/>
         <field name="company_ids" eval="[(4, ref('academic.res_company_los_arroyos'))]"/>
-        <field name="groups_id" eval="[(6,0,[ref('academic.group_portal_administrator')])]"/>
+        <field name="groups_id" eval="[(6,0,[ref('academic.group_portal_administrator'), ref('portal_backend.group_portal_backend')])]"/>
     </record>
 
     <!-- Los Arroyos Teacher -->
@@ -64,7 +64,7 @@
         <field name="password">irodriguez@academic.com</field>
         <field name="company_id" ref="res_company_los_arroyos"/>
         <field name="company_ids" eval="[(4, ref('academic.res_company_los_arroyos'))]"/>
-        <field name="groups_id" eval="[(6,0,[ref('academic.group_portal_teacher')])]"/>
+        <field name="groups_id" eval="[(6,0,[ref('academic.group_portal_teacher'), ref('portal_backend.group_portal_backend')])]"/>
     </record>
 
     <!-- Los Arroyos Student -->
@@ -75,7 +75,12 @@
         <field name="password">adiaz@academic.com</field>
         <field name="company_id" ref="res_company_los_arroyos"/>
         <field name="company_ids" eval="[(4, ref('academic.res_company_los_arroyos'))]"/>
-        <field name="groups_id" eval="[(6,0,[ref('academic.group_portal_student')])]"/>
+        <field name="groups_id" eval="[(6,0,[ref('academic.group_portal_student'), ref('portal_backend.group_portal_backend')])]"/>
+    </record>
+
+    <!-- Usuario Portal Advanced: Gral. Administrator -->
+    <record id="portal_backend.user_portal_advanced" model="res.users" context="{'no_reset_password': True}">
+        <field name="groups_id" eval="[(4, ref('academic.group_portal_gral_administrator'))]"/>
     </record>
 
 </odoo>
