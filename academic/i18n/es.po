@@ -423,8 +423,8 @@ msgstr "Otro"
 #. module: academic
 #: model:ir.model.fields.selection,name:academic.selection__academic_group__type__parent
 #: model:ir.model.fields.selection,name:academic.selection__res_partner__partner_type__parent
-msgid "Parent"
-msgstr "Padre"
+msgid "Relative"
+msgstr "Pariente"
 
 #. module: academic
 #: model:res.groups,name:academic.group_portal_parent

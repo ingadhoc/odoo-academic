@@ -1,0 +1,24 @@
+<odoo>
+
+    <!-- <record id="father_relationship" model="res.partner.relationship"> -->
+    <record id="parent_relationship" model="res.partner.relationship">
+        <field name="name">Padre/Madre</field>
+    </record>
+
+    <!-- <record id="mather_relationship" model="res.partner.relationship">
+        <field name="name">Madre</field>
+    </record> -->
+
+    <record id="relative_relationship" model="res.partner.relationship">
+        <field name="name">Pariente</field>
+    </record>
+
+    <record id="grandfather_mother_relationship" model="res.partner.relationship">
+        <field name="name">Abuelo/a</field>
+    </record>
+
+    <record id="other_relationship" model="res.partner.relationship">
+        <field name="name">Otro</field>
+    </record>
+
+</odoo>

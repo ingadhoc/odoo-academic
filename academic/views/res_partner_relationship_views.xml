@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- SEARCH VIEW -->
+    <record id="view_res_partner_relationship_filter" model="ir.ui.view">
+        <field name="name">res.partner.relationship.select</field>
+        <field name="model">res.partner.relationship</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" />
+            </search>
+        </field>
+    </record>
+
+    <!-- FORMVIEW -->
+    <record id="view_res_partner_relationship_form" model="ir.ui.view">
+        <field name="name">res.partner.relationship.form</field>
+        <field name="model">res.partner.relationship</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name" />
+                    </group>
+                </sheet>
+
+            </form>
+        </field>
+    </record>
+
+    <!-- TREEVIEW -->
+
+    <record id="view_res_partner_relationship_tree" model="ir.ui.view">
+        <field name="name">res.partner.relationship.tree</field>
+        <field name="model">res.partner.relationship</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_res_partner_relationship_levels" model="ir.actions.act_window">
+        <field name="name">Relationships</field>
+        <field name="res_model">res.partner.relationship</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_relationships" sequence="3" action="action_res_partner_relationship_levels" parent="contacts.res_partner_menu_config" groups="group_manager" />
+
+</odoo>

@@ -19,7 +19,7 @@
 ##############################################################################
 {
     'name': 'Academic',
-    'version': "16.0.1.3.0",
+    'version': "16.0.1.4.0",
     'sequence': 14,
     'summary': '',
     'author': 'ADHOC SA',
@@ -35,6 +35,7 @@
         'board',
         'sale_management',
         'account',
+        'contacts',
     ],
     'data': [
         'security/academic_security.xml',
@@ -52,9 +53,14 @@
         'views/res_users_views.xml',
         'views/res_company_views.xml',
         'views/login_page.xml',
+        'views/sale_order_views.xml',
+        'views/res_partner_link_views.xml',
+        'views/res_partner_relationship_views.xml',
         'data/res_users_data.xml',
+        'data/res_partner_role_data.xml',
     ],
     'demo': [
+        'demo/res_partner_relationship_demo.xml',
         'demo/res_partner_demo.xml',
         'demo/academic.subject.csv',
         'demo/academic.section.csv',
@@ -64,6 +70,7 @@
         'demo/res_company_demo.xml',
         'demo/res_users_demo.xml',
         'demo/academic.group.csv',
+        'demo/res.partner.link.csv',
     ],
     'installable': True,
     'auto_install': False,
