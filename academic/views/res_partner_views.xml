@@ -53,6 +53,17 @@
             <xpath expr="//group/group" position="attributes">
                 <attribute name="attrs">{'invisible':[('partner_type','in',['student', 'family'])]}</attribute>
             </xpath>
+            <field name="website" position="attributes">
+                <attribute name="attrs">{'invisible':[('partner_type','in',['student', 'parent'])]}</attribute>
+            </field>
+
+            <field name="title" position="attributes">
+                <attribute name="attrs">{'invisible':[('partner_type','in',['student', 'parent'])]}</attribute>
+            </field>
+
+            <field name="function" position="attributes">
+                <attribute name="attrs">{'invisible':[('partner_type','=','student')]}</attribute>
+            </field>
 
             <xpath expr="//group/group[3]" position="attributes">
                 <attribute name="attrs">{'invisible':[('partner_type','in',['family'])]}</attribute>
