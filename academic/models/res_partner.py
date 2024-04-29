@@ -96,6 +96,7 @@ class ResPartner(models.Model):
     # al hacerlo con mode tree nos simplfica bastante la herencia de vista porque no tenemos que agregar en el quick
     # create tantas cosas
     student_ids = fields.One2many('res.partner', 'parent_id')
+    company_id = fields.Many2one(compute='_compute_company_id', store=True)
     # company_type = fields.Selection(selection_add=[('family', 'Family')])
     # is_family = fields.Boolean()
 
@@ -147,3 +148,8 @@ class ResPartner(models.Model):
             active_model='res.partner').create({})
         wizard.user_ids.write({'in_portal': True})
         wizard.action_apply()
+
+    @api.depends('partner_type')
+    def _compute_company_id(self):
+        self.company_id = self.env.company if self.partner_type else False
+
