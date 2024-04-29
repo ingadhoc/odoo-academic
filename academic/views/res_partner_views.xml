@@ -129,7 +129,7 @@
                     <p attrs="{'invisible': ['|', ('partner_type', '!=', 'student'), ('parent_links_by_student', '=', True)]}">Los Contactos y Roles son gestionados en <button name="open_commercial_entity" type="object" string="la familia" class="oe_link"/></p>
                     <field name="student_link_ids" attrs="{'readonly': [('partner_type', '=', 'student'), ('parent_links_by_student', '=', False)]}">
                         <tree editable="bottom">
-                            <field name="partner_id"/>
+                            <field name="partner_id" context="{'default_partner_type': 'parent'}"/>
                             <field name="relationship_id" options="{'no_create':True}"/>
                             <field name="role_ids" widget="many2many_tags" options="{'no_create':True, 'color_field': 'color'}"/>
                             <field name="note"/>
