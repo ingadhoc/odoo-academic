@@ -29,14 +29,10 @@ class AcademicLevel(models.Model):
         string='Groups',
     )
 
-    def name_get(self):
-        # always return the full hierarchical name
-        res = []
+    @api.depends('name', 'section_id.name')
+    def _compute_display_name(self):
         for rec in self:
-            name = rec.name
-            name += ' - ' + rec.section_id.name
-            res.append((rec.id, name))
-        return res
+            rec.display_name = rec.name + ' - ' + rec.section_id.name
 
     @api.model
     def name_search(self, name='', args=None, operator='ilike', limit=100):
@@ -45,7 +41,7 @@ class AcademicLevel(models.Model):
         if name:
             domain = ['|', ('name', operator, name),
                       ('section_id.name', operator, name)]
-            result = self.search(args + domain, limit=limit).name_get()
+            res = super().name_search(name=name, args=args + domain, operator=operator, limit=limit)
         else:
-            result = self.search(args, limit=limit).name_get()
-        return result
+            res = super().name_search(name=name, args=args, operator=operator, limit=limit)
+        return res

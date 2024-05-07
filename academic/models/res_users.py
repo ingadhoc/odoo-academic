@@ -2,7 +2,7 @@
 # For copyright and license notices, see __manifest__.py file in module root
 # directory
 ##############################################################################
-from odoo import models
+from odoo import models, api
 
 
 class ResUsers(models.Model):
@@ -22,7 +22,8 @@ class ResUsers(models.Model):
                 (pw, uid))
         return super(ResUsers, self)._set_encrypted_password(uid, pw)
 
-    def name_get(self):
+    def _compute_display_name(self):
         if self._context.get('show_login', False):
-            return [(r.id, r.login) for r in self]
-        return super().name_get()
+            for rec in self:
+                rec.display_name = rec.login
+        super()._compute_display_name()
