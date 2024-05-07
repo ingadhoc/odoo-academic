@@ -14,7 +14,7 @@
                     <tree editable='bottom' >
                         <field name="subject_id"/>
                         <field name="level_ids" domain="[('id','in',parent.study_plan_level_ids)]" options="{'no_create_edit':True}" widget='many2many_tags'/>
-                        <field name="teacher_id" invisible='1'/>
+                        <field name="teacher_id" column_invisible="True"/>
                     </tree>
                 </field>
             </field>

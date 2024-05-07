@@ -74,13 +74,9 @@ class AcademicGroup(models.Model):
 
     sequence = fields.Integer(help='Used to order Groups', default=10)
 
-    def name_get(self):
-        # always return the full hierarchical name
-        res = []
+    def _compute_display_name(self):
         for rec in self.filtered('complete_name'):
-            name = rec.complete_name
-            res.append((rec.id, name))
-        return res
+            rec.display_name = rec.complete_name
 
     @api.depends(
         'subject_id',
@@ -113,10 +109,10 @@ class AcademicGroup(models.Model):
                 ('level_id.name', operator, name),
                 ('year', operator, name)
             ]
-            result = self.search(args + domain, limit=limit).name_get()
+            res = super().name_search(name=name, args=args + domain, operator=operator, limit=limit)
         else:
-            result = self.search(args, limit=limit).name_get()
-        return result
+            res = super().name_search(name=name, args=args, operator=operator, limit=limit)
+        return res
 
     def copy(self, default=None):
         if default is None:

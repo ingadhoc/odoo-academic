@@ -151,5 +151,5 @@ class ResPartner(models.Model):
 
     @api.depends('partner_type')
     def _compute_company_id(self):
-        self.company_id = self.env.company if self.partner_type else False
-
+        for rec in self:
+            rec.company_id = rec.env.company if rec.partner_type else False

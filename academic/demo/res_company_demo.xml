@@ -20,8 +20,8 @@
     <!-- Schools Companies  -->
     <record id="res_company_los_arroyos" model="res.company">
         <field name="partner_id" ref="res_partner_los_arroyos"/>
-        <field name="parent_id" ref="base.main_company"/>
-        <field name="currency_id" ref="base.ARS"/>
+        <!-- <field name="parent_id" ref="base.main_company"/> -->
+        <!-- <field name="currency_id" ref="base.ARS"/> -->
         <!-- para hacerlo requerido deberiamos cambiar la data demo de algunos partners -->
         <!-- <field name="family_required" eval="True"/> -->
         <field name="fiscalyear_last_day">31</field>
@@ -30,10 +30,10 @@
 
     <record id="res_company_los_molinos" model="res.company">
         <field name="partner_id" ref="res_partner_los_molinos"/>
-        <field name="parent_id" ref="base.main_company"/>
+        <!-- <field name="parent_id" ref="base.main_company"/> -->
         <!-- para hacerlo requerido deberiamos cambiar la data demo de algunos partners -->
         <!-- <field name="family_required" eval="True"/> -->
-        <field name="currency_id" ref="base.ARS"/>
+        <!-- <field name="currency_id" ref="base.ARS"/> -->
         <!-- <field name="fiscalyear_last_day">31</field> -->
         <field name="name">Colegio Los Molinos</field>
     </record>
