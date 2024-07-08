@@ -1,0 +1,8 @@
+<odoo noupdate="1">
+    <record id="sequence" model="ir.sequence">
+        <field name="name">Partner academic code</field>
+        <field name="code">partner.academic.code</field>
+        <field name="padding">4</field>
+        <field name="company_id" eval="False"/>
+    </record>
+</odoo>
