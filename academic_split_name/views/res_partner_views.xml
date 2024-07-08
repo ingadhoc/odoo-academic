@@ -1,0 +1,50 @@
+<odoo>
+    <record id="view_partner_form" model="ir.ui.view">
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="academic.view_academic_partner_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@id='individual']" position="attributes">
+                <attribute
+                    name="attrs"
+                >{'invisible':[('is_company','=',True)],
+                    'readonly': [('partner_type', 'in', ['student', 'parent', 'family'])],
+                                'required': [('partner_type', 'not in', ['student', 'parent', 'family'])]}</attribute>
+                <attribute name="force_save">1</attribute>
+            </xpath>
+            <xpath expr="//field[@id='company']" position="attributes">
+                <attribute
+                    name="attrs"
+                >{'invisible':[('is_company','=',False)],
+                    'readonly': [('partner_type', 'in', ['student', 'parent', 'family'])],
+                                'required': [('partner_type', 'not in', ['student', 'parent', 'family'])]}</attribute>
+                <attribute name="force_save">1</attribute>
+            </xpath>
+            <xpath expr="//group/group" position="after">
+                <group>
+                    <field
+                        name="lastname"
+                        attrs="{'required': [('partner_type', 'in', ['student', 'parent', 'family'])],
+                                'invisible': [('partner_type', 'not in', ['student', 'parent', 'family'])]}"
+                    />
+                    <field
+                        name="second_lastname"
+                        attrs="{'invisible': [('partner_type', 'not in', ['student', 'parent', 'family'])]}"
+                    />
+                    <field
+                        name="firstname"
+                        attrs="{'required': [('partner_type', 'in', ['student', 'parent'])],
+                                'invisible': [('partner_type', 'not in', ['student', 'parent'])]}"
+                    />
+                    <field
+                        name="middlename"
+                        attrs="{'invisible': [('partner_type', 'not in', ['student', 'parent'])]}"
+                    />
+                </group>
+            </xpath>
+            <xpath expr="//field[@name='student_link_ids']/tree//field[@name='partner_id']" position="attributes">
+                <attribute name="options">{'no_quick_create': True}</attribute>
+                <attribute name="context">{'default_partner_type': 'parent'}</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>
