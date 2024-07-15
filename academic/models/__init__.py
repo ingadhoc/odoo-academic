@@ -17,3 +17,5 @@ from . import res_users
 from . import res_partner_role
 from . import res_partner_link
 from . import sale_order
+from . import account_move
+from . import account_move_line

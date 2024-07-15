@@ -24,3 +24,8 @@ class SaleOrder(models.Model):
     def _compute_partner_invoice_id(self):
         for order in self:
             order.partner_invoice_id = order.partner_invoice_ids[:1]
+
+    def _prepare_invoice(self):
+        res = super()._prepare_invoice()
+        res["student_id"] = self.partner_id.id
+        return res
