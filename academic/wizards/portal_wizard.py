@@ -31,3 +31,9 @@ class PortalWizard(models.TransientModel):
         return super(PortalWizard, self)._default_portal()
 
     portal_id = fields.Many2one('res.groups', default=_default_portal)
+
+    def action_grant_access_all(self):
+        for wizard_user in self.user_ids:
+            if not wizard_user.is_portal and not wizard_user.is_internal and wizard_user.email_state == 'ok':
+                wizard_user.action_grant_access()
+        return self._action_open_modal()

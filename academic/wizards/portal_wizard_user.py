@@ -62,3 +62,24 @@ class PortalWizardUser(models.TransientModel):
         else:
             vals['login'] = self._clean_and_make_unique(self.partner_id.name)
         return self.env['res.users'].with_context(no_reset_password=True).create(vals)
+
+    def _get_group_by_partner_type(self):
+        group_mapping = {
+            'gral_administrator': 'academic.group_portal_gral_administrator',
+            'administrator': 'academic.group_portal_administrator',
+            'teacher': 'academic.group_portal_teacher',
+            'parent': 'academic.group_portal_parent',
+            'student': 'academic.group_portal_student',
+        }
+        group_ref = group_mapping.get(self.partner_id.partner_type)
+        if group_ref:
+            return self.env.ref(group_ref)
+        return None
+
+    def action_grant_access(self):
+        result = super().action_grant_access()
+        partner_group = self._get_group_by_partner_type()
+        portal_backend_group = self.env.ref('portal_backend.group_portal_backend')
+        if partner_group and portal_backend_group:
+            self.user_id.write({'groups_id': [(4, partner_group.id), (4, portal_backend_group.id)]})
+        return result
