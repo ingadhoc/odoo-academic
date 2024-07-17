@@ -19,13 +19,7 @@
 ##############################################################################
 {
     'name': 'Academic',
-<<<<<<< HEAD
-    'version': "17.0.1.0.0",
-||||||| parent of 1009c29 (temp)
-    'version': "16.0.1.3.0",
-=======
-    'version': "16.0.1.4.0",
->>>>>>> 1009c29 (temp)
+    'version': "17.0.1.1.0",
     'sequence': 14,
     'summary': '',
     'author': 'ADHOC SA',
@@ -63,12 +57,8 @@
         'views/res_partner_link_views.xml',
         'views/res_partner_relationship_views.xml',
         'data/res_users_data.xml',
-<<<<<<< HEAD
         'data/res_partner_role_data.xml',
-||||||| parent of 1009c29 (temp)
-=======
         'wizards/portal_wizard_views.xml',
->>>>>>> 1009c29 (temp)
     ],
     'demo': [
         'demo/res_partner_relationship_demo.xml',
