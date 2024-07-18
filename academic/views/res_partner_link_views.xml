@@ -23,6 +23,7 @@
             <form>
                 <sheet>
                     <group>
+                        <field name="company_id" invisible="1"/>
                         <field name="student_id"/>
                         <field name="partner_id"/>
                         <field name="relationship_id"/>

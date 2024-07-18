@@ -9,7 +9,10 @@ from odoo.exceptions import UserError
 class ResPartner(models.Model):
 
     _inherit = 'res.partner'
+    _check_company_auto = True
+    _check_company_domain = models.check_company_domain_parent_of
 
+    parent_id = fields.Many2one(check_company=True)
     partner_type = fields.Selection([
         ('student', 'Student'),
         ('teacher', 'Teacher'),
@@ -20,6 +23,7 @@ class ResPartner(models.Model):
         ('family', 'Family'),
     ],
         change_default=True,
+        string='Tipo de Contacto Académico',
         compute='_compute_partner_type',
         readonly=False,
         store=True,
@@ -96,7 +100,7 @@ class ResPartner(models.Model):
     # al hacerlo con mode tree nos simplfica bastante la herencia de vista porque no tenemos que agregar en el quick
     # create tantas cosas
     student_ids = fields.One2many('res.partner', 'parent_id')
-    company_id = fields.Many2one(compute='_compute_company_id', store=True)
+    company_id = fields.Many2one(compute='_compute_company_id', store=True, readonly=False)
     # company_type = fields.Selection(selection_add=[('family', 'Family')])
     # is_family = fields.Boolean()
 
@@ -149,7 +153,17 @@ class ResPartner(models.Model):
         wizard.user_ids.write({'in_portal': True})
         wizard.action_apply()
 
-    @api.depends('partner_type')
+    @api.depends('parent_id')
     def _compute_company_id(self):
+        """
+        Si soy parte de una compañía (o familia, es campo "parent_id"), queremos que todos los childs tengan misma company
+        Ahora bien, si la compañía está compartida (parent_id = False) matenemos fleixibilidad con los hijos.
+        Por defecto ponemos la company donde está parado el usuario pero permitimos sacarla o cambiarla.
+        Un padre, madre o estudiante podrían en algunos casos de uso estar compartidos entre varias instituciones
+        """
         for rec in self:
-            rec.company_id = rec.env.company if rec.partner_type else False
+            rec.company_id = rec.parent_id.company_id or rec.env.company
+
+    def _onchange_company_id(self):
+        # anulamos el onchange nativo de odoo porque ahora lo hicimos compute
+        return

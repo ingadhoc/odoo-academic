@@ -10,13 +10,16 @@ class ResPartner(models.Model):
 
     _name = 'res.partner.link'
     _description = 'res.partner.link'
+    _check_company_auto = True
+    _check_company_domain = models.check_company_domain_parent_of
 
     student_id = fields.Many2one('res.partner', 'Student or Family', required=True, ondelete='cascade')
+    company_id = fields.Many2one(related='student_id.company_id', store=True)
     # student_id = fields.Many2one('res.partner', 'Student', ondelete='cascade')
     # family_id = fields.Many2one('res.partner', 'Family', ondelete='cascade')
     relationship_id = fields.Many2one('res.partner.relationship', required=True, ondelete='restrict')
     role_ids = fields.Many2many('res.partner.role', string='Roles')
-    partner_id = fields.Many2one('res.partner', required=True, ondelete='restrict')
+    partner_id = fields.Many2one('res.partner', required=True, ondelete='restrict', check_company=True)
     note = fields.Text(string="Notas")
 
     # @api.constrains('student_id', 'family_id')
