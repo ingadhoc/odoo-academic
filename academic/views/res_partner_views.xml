@@ -27,6 +27,7 @@
         <field name="arch" type="xml">
             <form>
                 <field name="parent_links_by_student" invisible="True"/>
+                <field name="company_family_required" invisible="1"/>
             </form>
 
             <!-- oculamos seleccion de compañía si es estudiante (tal vez en otros tmb lo queremos?) -->
@@ -42,7 +43,6 @@
             <xpath expr="//group/group" position="after">
                 <group invisible="partner_type not in ['student', 'family']">
                     <field name="company_id" groups="base.group_multi_company" placeholder="Institution..." required="partner_type in ['teacher', 'student', 'administrator', 'gral_administrator']"/>
-                    <field name="company_family_required" invisible="1"/>
                     <field name="parent_id" string="Family" invisible="partner_type != 'student'" required="partner_type == 'student' and company_family_required" domain="[('partner_type', '=', 'family'), ('company_id', 'in', [company_id, False])] if partner_type == 'student' else [('is_company', '=', True)]" context="{'default_partner_type': 'family', 'default_company_id': company_id}"/>
                     <field name="links_by_student" invisible="partner_type != 'family'"/>
                 </group>
@@ -77,9 +77,10 @@
             <page name="accounting_disabled" position="attributes">
                 <attribute name="invisible">is_company or not parent_id or partner_type in ['student', 'family']</attribute>
             </page>
-            <page name="sales_purchases" position="attributes">
+            <!-- ventas y compras por ahora dejamos que respete comportamiento nativo de odoo, siempre visible. Sirve por ej. para setear comercial (Sea a nivel familia o por alumno) -->
+            <!-- <page name="sales_purchases" position="attributes">
                 <attribute name="invisible">partner_type in ['student', 'family']</attribute>
-            </page>
+            </page> -->
             <page name="accounting" position="attributes">
             <!-- 'invisible': [('is_company','=',False),('parent_id','!=',False)]} -->
                 <attribute name="invisible">partner_type in ['student', 'family'] or not is_company and parent_id</attribute>
@@ -90,6 +91,7 @@
                     <!-- context="{'default_parent_id': id, 'default_street': street, 'default_street2': street2, 'default_city': city, 'default_state_id': state_id, 'default_zip': zip, 'default_country_id': country_id, 'default_lang': lang, 'default_user_id': user_id, 'default_type': 'other'}" -->
                     <field name="student_ids" context="{'default_partner_type': 'student', 'default_type': 'contact', 'default_company_id': company_id}">
                         <tree>
+                            <field name="company_id" column_invisible="1"/>
                             <field name="name"/>
                             <field name="promotion_id"/>
                             <field name="mobile"/>
@@ -117,6 +119,7 @@
                     <group>
                         <field name="partner_link_ids" readonly="True" invisible="partner_type in [False, 'student', 'family']">
                             <tree>
+                                <field name="company_id" column_invisible="1"/>
                                 <field name="student_id"/>
                                 <field name="relationship_id" options="{'no_create':True}"/>
                                 <field name="role_ids" widget="many2many_tags" options="{'no_create':True, 'color_field': 'color'}"/>
@@ -129,6 +132,7 @@
                     <p invisible="partner_type != 'student' or parent_links_by_student">Los Contactos y Roles son gestionados en <button name="open_commercial_entity" type="object" string="la familia" class="oe_link"/></p>
                     <field name="student_link_ids" readonly="partner_type == 'student' and not parent_links_by_student">
                         <tree editable="bottom">
+                            <field name="company_id" column_invisible="1"/>
                             <field name="partner_id" context="{'default_partner_type': 'parent'}"/>
                             <field name="relationship_id" options="{'no_create':True}"/>
                             <field name="role_ids" widget="many2many_tags" options="{'no_create':True, 'color_field': 'color'}"/>
@@ -154,7 +158,12 @@
 
             <field name="company_type" position="before">
                 <!-- desde un estudiante elegimos familia de misma cia o sin cia (para el estudiante si la hacemos obligatoria) -->
-                <field name="partner_type" style="display: block;"/>
+                <!-- <field name="partner_type" style="display: block;"/> -->
+                <div>
+                    <label for="partner_type"/>
+                    <span>: </span>
+                    <field name="partner_type"/>
+                </div>
             </field>
             <field name="company_type" position="attributes">
                 <attribute name="invisible">partner_type</attribute>
