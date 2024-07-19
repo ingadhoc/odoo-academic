@@ -158,7 +158,6 @@
 
             <field name="company_type" position="before">
                 <!-- desde un estudiante elegimos familia de misma cia o sin cia (para el estudiante si la hacemos obligatoria) -->
-                <!-- <field name="partner_type" style="display: block;"/> -->
                 <div>
                     <label for="partner_type"/>
                     <span>: </span>
