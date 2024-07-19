@@ -10,4 +10,4 @@ class AccountMoveLine(models.Model):
     @api.depends('move_id.ref', 'move_id.student_id', 'move_id.student_id.name')
     def _compute_ref(self):
         for rec in self:
-            rec.ref = '- '.join(filter(None, [rec.move_id.ref, rec.move_id.student_id.name]))
+            rec.ref = ' - '.join(filter(None, [rec.move_id.ref, rec.move_id.student_id.name]))
