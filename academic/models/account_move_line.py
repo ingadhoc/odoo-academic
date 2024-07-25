@@ -4,7 +4,7 @@ from odoo import models, fields, api
 class AccountMoveLine(models.Model):
     _inherit = 'account.move.line'
 
-    # student_id = fields.Many2one(related="move_id.student_id", store=True)
+    student_id = fields.Many2one('res.partner', related='move_id.student_id', store=True, readonly=True)
     ref = fields.Char(related=False, compute="_compute_ref")
 
     @api.depends('move_id.ref', 'move_id.student_id', 'move_id.student_id.name')
