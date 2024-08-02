@@ -9,7 +9,7 @@ class AccountMove(models.Model):
     student_ids = fields.Many2many('res.partner', compute="_compute_student_ids")
     student_id = fields.Many2one('res.partner', string='Alumno', domain="[('id', 'in', student_ids), ('partner_type', '=', 'student')]")
 
-    @api.constrains('student_id')
+    @api.constrains('student_id', 'move_type')
     def _check_student(self):
         invoices_wo_student = self.filtered(lambda x: x.move_type in ["out_invoice", "out_refund"] and not x.student_id)
         if invoices_wo_student:
