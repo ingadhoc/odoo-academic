@@ -8,10 +8,7 @@ from odoo import fields, models, api
 class Partner(models.Model):
     _inherit = 'res.partner'
 
-    academic_code = fields.Char(
-        'Academic Code',
-        copy=False,
-    )
+    academic_code = fields.Char('Academic Code', copy=False, index='btree_not_null')
 
     @api.model_create_multi
     def create(self, vals_list):
