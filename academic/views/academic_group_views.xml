@@ -27,9 +27,6 @@
         <field name="model">academic.group</field>
         <field name="arch" type="xml">
             <form string="group">
-                <header>
-                    <button name="print_users" type="object" string="Print Users"/>
-                </header>
                 <sheet string="group">
                     <group>
                         <!-- Por ahora no usamos type, me parece que lo podemos borrar -->
