@@ -1,0 +1,17 @@
+<odoo>
+    <record id="sale_order_reenrollment_wizard_form" model="ir.ui.view">
+        <field name="name">sale.order.reenrollment.wizard.form</field>
+        <field name="model">sale.order.reenrollment.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="sale_order_template_id"/>
+                </group>
+                <footer>
+                    <button string="Generate" type="object" name="action_generate_reenrollment" class="oe_highlight"/>
+                    <button string="Cancel" class="oe_link" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>
