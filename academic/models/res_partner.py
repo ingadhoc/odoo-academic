@@ -121,6 +121,7 @@ class ResPartner(models.Model):
     def _check_family_student_relation(self):
         if self.filtered(lambda x: x.partner_type != 'student' and x.parent_id.partner_type == 'family'):
             raise UserError('Los contactos de una familia solo pueden ser estudiantes')
+    same_dni_partner_id = fields.Many2one('res.partner', string='Partner with same DNI', compute='_compute_same_dni_partner_id', store=False)
 
     def _compute_related_user_id(self):
         for rec in self:
@@ -163,3 +164,17 @@ class ResPartner(models.Model):
     def _onchange_company_id(self):
         # anulamos el onchange nativo de odoo porque ahora lo hicimos compute
         return
+
+    @api.depends('dni')
+    def _compute_same_dni_partner_id(self):
+        filtered_partners = self.filtered('dni')
+        for partner in filtered_partners:
+            partner_id = partner._origin.id
+            Partner = self.with_context(active_test=False).sudo()
+            domain = [
+                ('dni', '=', partner.dni),
+            ]
+            if partner_id:
+                domain += [('id', '!=', partner_id)]
+            partner.same_dni_partner_id = Partner.search(domain, limit=1)
+        (self - filtered_partners).same_dni_partner_id = False

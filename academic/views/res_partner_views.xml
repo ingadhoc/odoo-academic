@@ -33,6 +33,11 @@
             <!-- <div class="o_row" position="attributes">
                 <attribute name="attrs">{'invisible':[('partner_type','!=',False)]}</attribute>
             </div> -->
+            <xpath expr="//sheet" position="before">
+                <div class="alert alert-warning oe_edit_only" role="alert" attrs="{'invisible': [('same_dni_partner_id', '=', False)]}">
+                  A partner with the same dni already exists (<field name="same_dni_partner_id"/>)
+                </div>
+            </xpath>
 
             <!-- ocultamos pagina de contactos si no es compania -->
             <page name="contact_addresses" position="attributes">
