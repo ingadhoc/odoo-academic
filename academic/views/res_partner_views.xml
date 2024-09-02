@@ -25,6 +25,11 @@
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_form"/>
         <field name="arch" type="xml">
+            <xpath expr="//sheet" position="before">
+                <div class="alert alert-warning oe_edit_only" role="alert" attrs="{'invisible': [('same_dni_partner_id', '=', False)]}">
+                  A partner with the same dni already exists (<field name="same_dni_partner_id"/>)
+                </div>
+            </xpath>
 
             <!-- ocultamos pagina de contactos si no es compania -->
             <page position="attributes">

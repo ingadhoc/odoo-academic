@@ -74,6 +74,7 @@ class ResPartner(models.Model):
         'res.users',
         compute='_compute_related_user_id',
     )
+    same_dni_partner_id = fields.Many2one('res.partner', string='Partner with same DNI', compute='_compute_same_dni_partner_id', store=False)
 
     def _compute_related_user_id(self):
         for rec in self:
@@ -106,3 +107,17 @@ class ResPartner(models.Model):
             active_model='res.partner').create({})
         wizard.user_ids.write({'in_portal': True})
         wizard.action_apply()
+
+    @api.depends('dni')
+    def _compute_same_dni_partner_id(self):
+        filtered_partners = self.filtered(lambda partner: partner.dni)
+        for partner in filtered_partners:
+            partner_id = partner._origin.id
+            Partner = self.with_context(active_test=False).sudo()
+            domain = [
+                ('dni', '=', partner.dni),
+            ]
+            if partner_id:
+                domain += [('id', '!=', partner_id)]
+            partner.same_dni_partner_id = Partner.search(domain, limit=1)
+        (self - filtered_partners).same_dni_partner_id = False
