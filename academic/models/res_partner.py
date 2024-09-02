@@ -103,6 +103,7 @@ class ResPartner(models.Model):
     company_id = fields.Many2one(compute='_compute_company_id', store=True, readonly=False)
     # company_type = fields.Selection(selection_add=[('family', 'Family')])
     # is_family = fields.Boolean()
+    same_dni_partner_id = fields.Many2one('res.partner', string='Partner with same DNI', compute='_compute_same_dni_partner_id', store=False)
 
     # @api.depends('is_family')
     # def _compute_company_type(self):
@@ -162,3 +163,17 @@ class ResPartner(models.Model):
     def _onchange_company_id(self):
         # anulamos el onchange nativo de odoo porque ahora lo hicimos compute
         return
+
+    @api.depends('dni')
+    def _compute_same_dni_partner_id(self):
+        filtered_partners = self.filtered('dni')
+        for partner in filtered_partners:
+            partner_id = partner._origin.id
+            Partner = self.with_context(active_test=False).sudo()
+            domain = [
+                ('dni', '=', partner.dni),
+            ]
+            if partner_id:
+                domain += [('id', '!=', partner_id)]
+            partner.same_dni_partner_id = Partner.search(domain, limit=1)
+        (self - filtered_partners).same_dni_partner_id = False
