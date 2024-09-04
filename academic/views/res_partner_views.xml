@@ -35,6 +35,12 @@
                 <attribute name="attrs">{'invisible':[('partner_type','!=',False)]}</attribute>
             </div> -->
 
+            <xpath expr="//sheet" position="before">
+                <div class="alert alert-warning oe_edit_only" role="alert" invisible="not same_dni_partner_id">
+                  A partner with the same dni already exists (<field name="same_dni_partner_id"/>)
+                </div>
+            </xpath>
+
             <!-- ocultamos pagina de contactos si no es compania -->
             <page name="contact_addresses" position="attributes">
                 <attribute name="invisible">not is_company</attribute>
