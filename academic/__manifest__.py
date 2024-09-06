@@ -36,6 +36,7 @@
         'sale_management',
         'account',
         'contacts',
+        'report_aeroo',
     ],
     'data': [
         'security/academic_security.xml',
@@ -60,6 +61,7 @@
         'data/res_users_data.xml',
         'data/res_partner_role_data.xml',
         'wizards/portal_wizard_views.xml',
+        'report/ir_actions_report.xml',
     ],
     'demo': [
         'demo/res_partner_relationship_demo.xml',
