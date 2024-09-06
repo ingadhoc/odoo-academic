@@ -755,3 +755,12 @@ msgstr "Ya existe un contacto con el mismo dni ("
 msgid "Current Main Group"
 msgstr "Grupo Principal Actual"
 
+#. module: academic
+#: model:ir.actions.report,print_report_name:academic.report_certificate_regular_student
+msgid "'Certificate of Regular Student ' + object.name"
+msgstr "'Certificado de alumno regular ' + object.name"
+
+#. module: academic
+#: model:ir.actions.report,name:academic.report_certificate_regular_student
+msgid "Certificate of Regular Student"
+msgstr "Certificado de alumno regular"
