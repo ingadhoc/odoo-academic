@@ -18,6 +18,7 @@ class SaleOrder(models.Model):
         compute="_compute_renewal_state",
         store=True
     )
+    same_subscription_id = fields.Many2one('sale.order', compute='_compute_same_subscription_id', store=False)
 
     @api.depends('renewal_order_id', 'renewal_order_id.state')
     def _compute_renewal_state(self):
@@ -94,3 +95,41 @@ class SaleOrder(models.Model):
                 'res_id': self.renewal_order_id.id,
                 'target': 'current',
             }
+
+    @api.depends('order_line.product_id', 'partner_id', 'start_date', 'state')
+    def _compute_same_subscription_id(self):
+        for subscription in self:
+            recurring_lines = subscription.order_line.filtered(lambda line: line.product_id.recurring_invoice)
+
+            if recurring_lines:
+                subscription_id = subscription._origin.id
+                Subscription = self.with_context(active_test=False).sudo()
+
+                domain = [
+                    ('partner_id', '=', subscription.partner_id.id),
+                    ('order_line.product_id', 'in', recurring_lines.product_id.ids),
+                    ('state', '=', 'sale'),
+                    ('stage_id.category', '!=', 'closed')
+                ]
+
+                if subscription_id:
+                    domain += [('id', '!=', subscription_id)]
+
+                if not subscription.start_date:
+                    domain += [
+                        ('start_date', '<=', fields.Date.today()),
+                        '|',
+                        ('end_date', '=', False),
+                        ('end_date', '>=', fields.Date.today())
+                    ]
+                else:
+                    domain += [
+                        ('start_date', '<=', subscription.start_date),
+                        '|',
+                        ('end_date', '=', False),
+                        ('end_date', '>=', subscription.start_date)
+                    ]
+
+                subscription.same_subscription_id = Subscription.search(domain, limit=1)
+            else:
+                subscription.same_subscription_id = False

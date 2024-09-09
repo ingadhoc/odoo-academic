@@ -16,6 +16,11 @@
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale_subscription.sale_subscription_order_view_form"/>
         <field name="arch" type="xml">
+            <xpath expr="//sheet" position="before">
+                <div class="alert alert-warning oe_edit_only" role="alert" attrs="{'invisible': [('same_subscription_id', '=', False)]}">
+                  A subscription to this partner already exists (<field name="same_subscription_id"/>)
+                </div>
+            </xpath>
             <xpath expr="//div[hasclass('oe_button_box')]" position="inside">
                 <field name="renewal_state" invisible="1"/>
                 <field name="renewal_order_id" invisible="1"/>
