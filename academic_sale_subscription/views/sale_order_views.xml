@@ -1,0 +1,72 @@
+<odoo>
+    <record id="model_sale_order_action_reenrollment" model="ir.actions.server">
+        <field name="name">Re-enrollment</field>
+        <field name="model_id" ref="sale.model_sale_order"/>
+        <field name="binding_model_id" ref="sale.model_sale_order"/>
+        <field name="binding_view_types">list,form</field>
+        <field name="state">code</field>
+        <field name="code">
+            if records:
+                action = records.action_open_reenrollment_wizard()
+        </field>
+    </record>
+
+    <record id="sale_subscription_order_view_form" model="ir.ui.view">
+        <field name="name">sale.subscription.order.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale_subscription.sale_subscription_order_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="before">
+                <div class="alert alert-warning oe_edit_only" role="alert" attrs="{'invisible': [('same_subscription_id', '=', False)]}">
+                  A subscription to this partner already exists (<field name="same_subscription_id"/>)
+                </div>
+            </xpath>
+            <xpath expr="//div[hasclass('oe_button_box')]" position="inside">
+                <field name="renewal_state" invisible="1"/>
+                <field name="renewal_order_id" invisible="1"/>
+                <button type="object"
+                    name="action_open_renewal_order"
+                    icon="fa-refresh"
+                    attrs="{
+                        'invisible': ['|', ('is_subscription', '=', False), ('renewal_order_id', '=', False)]
+                    }"
+                    class="oe_stat_button">
+                    <div class="o_field_widget o_stat_info">
+                        <span class="o_stat_text">Re-enrollment</span>
+                        <span class="o_stat_text" attrs="{'invisible': [('renewal_state', '!=', 'r')]}">Confirmed</span>
+                        <span class="o_stat_text" attrs="{'invisible': [('renewal_state', '!=', 'er')]}">In process</span>
+                        <span class="o_stat_text" attrs="{'invisible': [('renewal_state', '!=', 'nr')]}">No</span>
+                    </div>
+                </button>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="sale_subscription_view_search" model="ir.ui.view">
+        <field name="name">sale.order.search</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale_subscription.sale_subscription_view_search"/>
+        <field name="arch" type="xml">
+            <filter name="future" position="after">
+                <separator/>
+                <filter string="Current" name="current" domain="[('start_date', '&lt;=', context_today().strftime('%Y-%m-%d'))]"/>
+                <separator/>
+                <filter string="In re-enrollment process" name="renewal_state_er" domain="[('renewal_state', '=', 'er')]"/>
+                <filter string="Re-enrolled" name="renewal_state_r" domain="[('renewal_state', '=', 'r')]"/>
+                <filter string="Not re-enrolled" name="renewal_state_nr" domain="[('renewal_state', '=', 'nr')]"/>
+                <filter string="No re-enrollment process" name="renewal_state_sr" domain="[('renewal_state', '=', 'sr')]"/>
+            </filter>
+            <group position="inside">
+                <filter string="Renewal State" name="group_by_renewal_state" context="{'group_by': 'renewal_state'}"/>
+            </group>
+        </field>
+    </record>
+
+    <record id="sale_subscription.sale_subscription_action" model="ir.actions.act_window">
+        <field name="context">{
+            'default_is_subscription': 1,
+            'search_default_current': 1,
+        }</field>
+    </record>
+
+</odoo>

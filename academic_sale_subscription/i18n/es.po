@@ -1,0 +1,270 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* academic_sale_subscription
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-08-29 17:09+0000\n"
+"PO-Revision-Date: 2024-08-29 17:09+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.sale_subscription_order_view_form
+msgid ""
+"<span class=\"o_stat_text\">Re-enrollment</span>\n"
+"                        <span class=\"o_stat_text\" attrs=\"{'invisible': [('renewal_state', '!=', 'r')]}\">Confirmed</span>\n"
+"                        <span class=\"o_stat_text\" attrs=\"{'invisible': [('renewal_state', '!=', 'er')]}\">In process</span>\n"
+"                        <span class=\"o_stat_text\" attrs=\"{'invisible': [('renewal_state', '!=', 'nr')]}\">No</span>"
+msgstr ""
+"<span class=\"o_stat_text\">Rematriculación</span>\n"
+"                        <span class=\"o_stat_text\" attrs=\"{'invisible': [('renewal_state', '!=', 'r')]}\">Confirmada</span>\n"
+"                        <span class=\"o_stat_text\" attrs=\"{'invisible': [('renewal_state', '!=', 'er')]}\">En proceso</span>\n"
+"                        <span class=\"o_stat_text\" attrs=\"{'invisible': [('renewal_state', '!=', 'nr')]}\">No</span>"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields.selection,name:academic_sale_subscription.selection__sale_order_template__start_month__4
+msgid "April"
+msgstr "Abril"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields.selection,name:academic_sale_subscription.selection__sale_order_template__start_month__8
+msgid "August"
+msgstr "Agosto"
+
+#. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.sale_order_reenrollment_wizard_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order_reenrollment_wizard__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order_reenrollment_wizard__create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.sale_subscription_view_search
+msgid "Current"
+msgstr "Vigente"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields.selection,name:academic_sale_subscription.selection__sale_order_template__start_month__12
+msgid "December"
+msgstr "Diciembre"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order_reenrollment_wizard__display_name
+msgid "Display Name"
+msgstr "Nombre para mostrar"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields.selection,name:academic_sale_subscription.selection__sale_order_template__start_month__2
+msgid "February"
+msgstr "Febrero"
+
+#. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.sale_order_reenrollment_wizard_form
+msgid "Generate"
+msgstr "Generar"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order_reenrollment_wizard__id
+msgid "ID"
+msgstr "ID"
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/models/sale_order_template.py:0
+#, python-format
+msgid "If a month is specified, a day must also be specified, and vice versa."
+msgstr "Si se especifica un mes, también se debe especificar un día, y viceversa."
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields.selection,name:academic_sale_subscription.selection__sale_order__renewal_state__er
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.sale_subscription_view_search
+msgid "In re-enrollment process"
+msgstr "En proceso de rematriculación"
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/wizard/reenrollment.py:0
+#, python-format
+msgid ""
+"It is required to have at least one recurring product and one non-recurring "
+"product."
+msgstr "Es necesario tener al menos un producto recurrente y un producto no recurrente."
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields.selection,name:academic_sale_subscription.selection__sale_order_template__start_month__1
+msgid "January"
+msgstr "Enero"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields.selection,name:academic_sale_subscription.selection__sale_order_template__start_month__7
+msgid "July"
+msgstr "Julio"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields.selection,name:academic_sale_subscription.selection__sale_order_template__start_month__6
+msgid "June"
+msgstr "Junio"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order_reenrollment_wizard____last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order_reenrollment_wizard__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order_reenrollment_wizard__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields.selection,name:academic_sale_subscription.selection__sale_order_template__start_month__3
+msgid "March"
+msgstr "Marzo"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields.selection,name:academic_sale_subscription.selection__sale_order_template__start_month__5
+msgid "May"
+msgstr "Mayo"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields.selection,name:academic_sale_subscription.selection__sale_order__renewal_state__sr
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.sale_subscription_view_search
+msgid "No re-enrollment process"
+msgstr "Sin proceso de rematriculación"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields.selection,name:academic_sale_subscription.selection__sale_order__renewal_state__nr
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.sale_subscription_view_search
+msgid "Not re-enrolled"
+msgstr "No rematriculado"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields.selection,name:academic_sale_subscription.selection__sale_order_template__start_month__11
+msgid "November"
+msgstr "Noviembre"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields.selection,name:academic_sale_subscription.selection__sale_order_template__start_month__10
+msgid "October"
+msgstr "Octubre"
+
+#. module: academic_sale_subscription
+#: model:ir.model,name:academic_sale_subscription.model_sale_order_template
+msgid "Quotation Template"
+msgstr "Plantilla de presupuesto"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields.selection,name:academic_sale_subscription.selection__sale_order__renewal_state__r
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.sale_subscription_view_search
+msgid "Re-enrolled"
+msgstr "Rematriculado"
+
+#. module: academic_sale_subscription
+#: model:ir.actions.server,name:academic_sale_subscription.model_sale_order_action_reenrollment
+msgid "Re-enrollment"
+msgstr "Rematriculación"
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/models/sale_order.py:0
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order__renewal_order_id
+#, python-format
+msgid "Renewal Order"
+msgstr "Orden de renovación"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order__renewal_state
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.sale_subscription_view_search
+msgid "Renewal State"
+msgstr "Estado de renovación"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order_reenrollment_wizard__sale_order_template_id
+msgid "Sale Order Template"
+msgstr "Plantilla de pedido de venta"
+
+#. module: academic_sale_subscription
+#: model:ir.model,name:academic_sale_subscription.model_sale_order
+msgid "Sales Order"
+msgstr "Pedido de venta"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields.selection,name:academic_sale_subscription.selection__sale_order_template__start_month__9
+msgid "September"
+msgstr "Septiembre"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order_template__start_day
+msgid "Start Day"
+msgstr "Día de inicio"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order_template__start_month
+msgid "Start Month"
+msgstr "Mes de inicio"
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/models/sale_order_template.py:0
+#, python-format
+msgid ""
+"The combination of month and day is not valid. Please enter a correct date."
+msgstr "La combinación de mes y día no es válida. Por favor, ingrese una fecha correcta."
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/wizard/reenrollment.py:0
+#, python-format
+msgid ""
+"The following subscriptions have already a linked renewal order:\n"
+"- %s\n"
+"Please follow up the renewal on those orders.\n"
+"To create the renewal for the other orders, you can filter by 'No re-enrollment process'."
+msgstr ""
+"Las siguientes suscripciones ya tienen una orden de renovación vinculada:\n"
+"- %s\n"
+"Por favor, siga el proceso de renovación en esas órdenes.\n"
+"Para crear la renovación de las otras órdenes, puede filtrar por 'Sin proceso de rematriculación'."
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/wizard/reenrollment.py:0
+#, python-format
+msgid ""
+"The selected subscription plan does not have a start day or start month."
+msgstr "El plan de suscripción seleccionado no tiene un día o mes de inicio."
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/models/sale_order.py:0
+#, python-format
+msgid ""
+"This re-enrollment sale order was generated from subscription <a href='#' "
+"data-oe-model='sale.order' data-oe-id='%d'>%s</a>."
+msgstr ""
+"Esta orden de venta de rematriculación se generó a partir de la suscripción <a href='#' "
+"data-oe-model='sale.order' data-oe-id='%d'>%s</a>."
+
+#. module: academic_sale_subscription
+#: model:ir.model,name:academic_sale_subscription.model_sale_order_reenrollment_wizard
+msgid "sale.order.reenrollment.wizard"
+msgstr "Asistente de rematriculación de pedidos de venta"

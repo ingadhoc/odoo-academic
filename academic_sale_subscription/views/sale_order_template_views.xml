@@ -1,0 +1,13 @@
+<odoo>
+    <record id="sale_subscription_template_view_form" model="ir.ui.view">
+        <field name="name">sale.order.template.form</field>
+        <field name="model">sale.order.template</field>
+        <field name="inherit_id" ref="sale_subscription.sale_subscription_template_view_form"/>
+        <field name="arch" type="xml">
+            <field name="recurrence_id" position="after">
+                <field name="start_day" attrs="{'invisible': [('recurrence_id', '=', False)]}"/>
+                <field name="start_month" attrs="{'invisible': [('recurrence_id', '=', False)]}"/>
+            </field>
+        </field>
+    </record>
+</odoo>
