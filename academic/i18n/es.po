@@ -423,8 +423,8 @@ msgstr "Otro"
 #. module: academic
 #: model:ir.model.fields.selection,name:academic.selection__academic_group__type__parent
 #: model:ir.model.fields.selection,name:academic.selection__res_partner__partner_type__parent
-msgid "Parent"
-msgstr "Padre"
+msgid "Relative"
+msgstr "Pariente"
 
 #. module: academic
 #: model:res.groups,name:academic.group_portal_parent
@@ -742,3 +742,8 @@ msgstr "asignatura"
 #: model:ir.model.fields,help:academic.field_res_users__disabled_person
 msgid "¿Alumno/a con Dificultades de aprendizaje?"
 msgstr "¿Alumno/a con Dificultades de aprendizaje?"
+
+#. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
+msgid "A partner with the same dni already exists ("
+msgstr "Ya existe un contacto con el mismo dni ("
