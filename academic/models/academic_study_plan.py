@@ -5,7 +5,7 @@ class StudyPlan(models.Model):
     _name = 'academic.study.plan'
     _description = 'Study Plan'
 
-    name = fields.Char(string='Name')
+    name = fields.Char(string='Name', required=True)
 
     level_ids = fields.Many2many(
         'academic.level',

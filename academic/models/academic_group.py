@@ -12,6 +12,13 @@ class AcademicGroup(models.Model):
     _name = 'academic.group'
     _description = 'group'
     _order = 'sequence'
+    _rec_names_search = ['level_id.name', 'level_id.section_id.name', 'division_id.name', 'year', 'subject_id.name']
+
+    _sql_constraints = [
+        ('group_unique',
+         'unique(subject_id, company_id, level_id, year, division_id)',
+         'Group should be unique per Institution, Subject,'
+         ' Course-Division and Year')]
 
     type = fields.Selection([
         ('student', 'Student'),
@@ -65,14 +72,12 @@ class AcademicGroup(models.Model):
     complete_name = fields.Char(
         compute='_compute_complete_name',
     )
-
-    _sql_constraints = [
-        ('group_unique',
-         'unique(subject_id, company_id, level_id, year, division_id)',
-         'Group should be unique per Institution, Subject,'
-         ' Course-Division and Year')]
-
     sequence = fields.Integer(help='Used to order Groups', default=10)
+    active = fields.Boolean(default=True)
+    student_ids_count = fields.Integer(
+        string='Student Count',
+        compute='_compute_student_ids_count',
+    )
 
     def _compute_display_name(self):
         for rec in self.filtered('complete_name'):
@@ -97,22 +102,6 @@ class AcademicGroup(models.Model):
             name += ' - ' + line.level_id.section_id.name
             name += ' - ' + _('Year: ') + str(line.year)
             line.complete_name = name
-
-    @api.model
-    def name_search(self, name='', args=None, operator='ilike', limit=100):
-        args = args or []
-        domain = []
-        if name:
-            domain = [
-                '|', '|', ('subject_id.name', operator, name),
-                ('company_id.name', operator, name),
-                ('level_id.name', operator, name),
-                ('year', operator, name)
-            ]
-            res = super().name_search(name=name, args=args + domain, operator=operator, limit=limit)
-        else:
-            res = super().name_search(name=name, args=args, operator=operator, limit=limit)
-        return res
 
     def copy(self, default=None):
         if default is None:
@@ -145,3 +134,8 @@ class AcademicGroup(models.Model):
             [('report_name', '=', 'academic.template_report_users')],
             limit=1).report_action(self)
         return report
+
+    @api.depends('student_ids')
+    def _compute_student_ids_count(self):
+        for group in self:
+            group.student_ids_count = len(group.student_ids)
