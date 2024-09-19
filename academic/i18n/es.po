@@ -203,7 +203,7 @@ msgstr "División"
 #: model:ir.actions.act_window,name:academic.action_academic_division_divisions
 #: model:ir.ui.menu,name:academic.menu_divisions
 msgid "Divisions"
-msgstr "Divisione"
+msgstr "División"
 
 #. module: academic
 #: model:ir.model,name:academic.model_hr_employee
@@ -518,7 +518,7 @@ msgstr "Sección..."
 #: model:ir.actions.act_window,name:academic.action_academic_section_sections
 #: model:ir.ui.menu,name:academic.menu_sections
 msgid "Sections"
-msgstr "Seccione"
+msgstr "Sección"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_level__sequence

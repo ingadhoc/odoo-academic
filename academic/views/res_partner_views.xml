@@ -10,6 +10,8 @@
                 <field name="partner_type"/>
                 <field name="promotion_id"/>
                 <field name="company_id" groups="base.group_multi_company"/>
+                <field name="student_group_ids" string="Group (Level, Section, Division, Year, Subject)"/>
+                <filter string="Student Group" name="group_by_student_group" context="{'group_by':'student_group_ids'}"/>
             </search>
             <field name="parent_id" position="attributes">
                 <attribute name="groups">base.group_no_one</attribute>
@@ -150,7 +152,7 @@
 
             <page name="internal_notes" position="before">
                 <page string="Groups" invisible="partner_type != 'student'">
-                    <field name="student_group_ids" domain="[('company_id','=',company_id)]"/>
+                    <field name="student_group_ids" domain="[('company_id', '=', company_id)]"/>
                 </page>
                 <page string="Groups" invisible="partner_type != 'teacher'">
                     <field name="teacher_group_ids" context="{'default_company_id': company_id, 'default_teacher_id': id}"/>
@@ -229,7 +231,6 @@
         <field name="inherit_id" ref="base.view_partner_tree"/>
         <field name="arch" type="xml">
             <tree position="inside">
-                <field name="company_id" groups="base.group_multi_company"/>
                 <field name="promotion_id" column_invisible="context.get('default_partner_type', False) != 'student'"/>
             </tree>
         </field>

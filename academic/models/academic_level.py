@@ -10,6 +10,7 @@ class AcademicLevel(models.Model):
     _name = 'academic.level'
     _description = 'level'
     _order = 'sequence'
+    _rec_names_search = ['name', 'section_id.name']
 
     sequence = fields.Integer(
         string='Sequence'
@@ -32,16 +33,4 @@ class AcademicLevel(models.Model):
     @api.depends('name', 'section_id.name')
     def _compute_display_name(self):
         for rec in self:
-            rec.display_name = rec.name + ' - ' + rec.section_id.name
-
-    @api.model
-    def name_search(self, name='', args=None, operator='ilike', limit=100):
-        args = args or []
-        domain = []
-        if name:
-            domain = ['|', ('name', operator, name),
-                      ('section_id.name', operator, name)]
-            res = super().name_search(name=name, args=args + domain, operator=operator, limit=limit)
-        else:
-            res = super().name_search(name=name, args=args, operator=operator, limit=limit)
-        return res
+            rec.display_name = rec.name + ' - ' + rec.section_id.name if rec.name else ''

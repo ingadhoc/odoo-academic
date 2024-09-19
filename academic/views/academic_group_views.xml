@@ -28,6 +28,11 @@
         <field name="arch" type="xml">
             <form string="group">
                 <sheet string="group">
+                     <div class="oe_button_box" name="button_box">
+                        <button name="%(action_academic_partner_students)d" type="action" class="oe_stat_button" icon="fa-users" context="{'default_student_group_ids': [id], 'default_partner_type': 'student', 'search_default_student_group_ids': id}">
+                            <field string="Students" name="student_ids_count" widget="statinfo"/>
+                        </button>
+                     </div>
                     <group>
                         <!-- Por ahora no usamos type, me parece que lo podemos borrar -->
                         <!-- <field name="type"/> -->
