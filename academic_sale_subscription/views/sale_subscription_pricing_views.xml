@@ -1,0 +1,15 @@
+<odoo>
+    <record id="view_sale_subscription_pricing" model="ir.ui.view">
+        <field name="name">sale.subscription.pricing.tree</field>
+        <field name="model">sale.subscription.pricing</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="product_template_id"/>
+                <field name="product_variant_ids" widget="many2many_tags" groups="product.group_product_variant"/>
+                <field name="pricelist_id" groups="product.group_product_pricelist"/>
+                <field name="currency_id" column_invisible="True"/>
+                <field name="price"/>
+            </tree>
+        </field>
+    </record>
+</odoo>
