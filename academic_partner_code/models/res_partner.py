@@ -17,7 +17,7 @@ class Partner(models.Model):
                 vals['academic_code'] = self.env['ir.sequence'].next_by_code('partner.academic.code')
         return super().create(vals_list)
 
-    _sql_constraints = {
-        ('academic_code_uniq', 'unique(academic_code)',
-            'Academic Code must be unique!')
-    }
+    _sql_constraints = [
+        ('academic_code_company_uniq', 'unique(academic_code, company_id)',
+            'The Academic Code must be unique within the same company!')
+    ]
