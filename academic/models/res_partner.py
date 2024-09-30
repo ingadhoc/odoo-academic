@@ -3,7 +3,8 @@
 # directory
 ##############################################################################
 from odoo import api, models, fields, _
-from odoo.exceptions import UserError
+from odoo.exceptions import UserError, ValidationError
+from datetime import date
 
 
 class ResPartner(models.Model):
@@ -104,6 +105,7 @@ class ResPartner(models.Model):
     # company_type = fields.Selection(selection_add=[('family', 'Family')])
     # is_family = fields.Boolean()
     same_dni_partner_id = fields.Many2one('res.partner', string='Partner with same DNI', compute='_compute_same_dni_partner_id', store=False)
+    current_main_group_id = fields.Many2one('academic.group', compute='_compute_current_main_group', store=True)
 
     # @api.depends('is_family')
     # def _compute_company_type(self):
@@ -177,3 +179,11 @@ class ResPartner(models.Model):
                 domain += [('id', '!=', partner_id)]
             partner.same_dni_partner_id = Partner.search(domain, limit=1)
         (self - filtered_partners).same_dni_partner_id = False
+
+    @api.depends('student_group_ids')
+    def _compute_current_main_group(self):
+        for rec in self:
+            student_group = rec.student_group_ids.filtered(lambda g: g.year == date.today().year and not g.subject_id)
+            if len(student_group) > 1:
+                raise ValidationError("There shouldn't be two groups in the same year without a subject for partner %s." % rec.name)
+            rec.current_main_group_id = student_group

@@ -1,4 +1,0 @@
-id,level_id/id,division_id/id,company_id/id,subject_id/id,teacher_id/id,year,student_ids/id
-academic_group_1,academic_course_1,academic_division_1,res_company_los_arroyos,academic_subject_1,res_partner_ignacio_rodriguez,2025,"res_partner_alvaro_diaz,res_partner_jose_martin_rodriguez,res_partner_bautista"
-academic_group_2,academic_course_2,academic_division_2,res_company_los_molinos,academic_subject_2,res_partner_laura_sali,2025,"res_partner_martin_perez,res_partner_luz,res_partner_martina"
-academic_group_3,academic_course_3,academic_division_3,base.main_company,,,2025,"res_partner_mateo,res_partner_amalia,res_partner_ignacio"

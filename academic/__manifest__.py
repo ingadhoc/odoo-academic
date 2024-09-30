@@ -19,7 +19,7 @@
 ##############################################################################
 {
     'name': 'Academic',
-    'version': "17.0.1.5.0",
+    'version': "17.0.1.6.0",
     'sequence': 14,
     'summary': '',
     'author': 'ADHOC SA',
@@ -73,7 +73,7 @@
         'demo/academic.division.csv',
         'demo/academic.study.plan.csv',
         'demo/res_company_demo.xml',
-        'demo/academic.group.csv',
+        'demo/academic_group.xml',
         'demo/res_users_demo.xml',
     ],
     'installable': True,
