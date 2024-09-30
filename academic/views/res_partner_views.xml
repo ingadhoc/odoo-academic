@@ -10,8 +10,8 @@
                 <field name="partner_type"/>
                 <field name="promotion_id"/>
                 <field name="company_id" groups="base.group_multi_company"/>
-                <field name="student_group_ids" string="Group (Level, Section, Division, Year, Subject)"/>
-                <filter string="Student Group" name="group_by_student_group" context="{'group_by':'student_group_ids'}"/>
+                <field name="current_main_group_id" string="Current Main Group"/>
+                <filter string="Current Main Group" name="group_by_main_group" context="{'group_by':'current_main_group_id'}"/>
             </search>
             <field name="parent_id" position="attributes">
                 <attribute name="groups">base.group_no_one</attribute>

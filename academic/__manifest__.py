@@ -75,7 +75,7 @@
         'demo/academic.division.csv',
         'demo/academic.study.plan.csv',
         'demo/res_company_demo.xml',
-        'demo/academic.group.csv',
+        'demo/academic_group.xml',
         'demo/res_users_demo.xml',
     ],
     'installable': True,
