@@ -747,3 +747,11 @@ msgstr "¿Alumno/a con Dificultades de aprendizaje?"
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
 msgid "A partner with the same dni already exists ("
 msgstr "Ya existe un contacto con el mismo dni ("
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_res_partner__current_main_group_id
+#: model:ir.model.fields,field_description:academic.field_res_users__current_main_group_id
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_filter
+msgid "Current Main Group"
+msgstr "Grupo Principal Actual"
+
