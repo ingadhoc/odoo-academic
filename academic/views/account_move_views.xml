@@ -1,6 +1,6 @@
 <odoo>
     <record id="academic_view_invoice_tree" model="ir.ui.view">
-        <field name="name">account.move.tree.inherit</field>
+        <field name="name">account.move.list.inherit</field>
         <field name="model">account.move</field>
         <field name="inherit_id" ref="account.view_invoice_tree"/>
         <field name="arch" type="xml">

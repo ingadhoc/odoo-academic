@@ -37,22 +37,22 @@
     <!-- TREEVIEW -->
 
     <record id="view_res_partner_link_tree" model="ir.ui.view">
-        <field name="name">res.partner.link.tree</field>
+        <field name="name">res.partner.link.list</field>
         <field name="model">res.partner.link</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="student_id"/>
                 <field name="partner_id"/>
                 <field name="relationship_id"/>
                 <field name="role_ids" widget="many2many_tags"/>
-            </tree>
+            </list>
         </field>
     </record>
 
     <record id="action_academic_partner_link" model="ir.actions.act_window">
         <field name="name">Contactos y Roles</field>
         <field name="res_model">res.partner.link</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 
     <menuitem name="Contactos y Roles" id="menu_partner_link" sequence="3" action="action_academic_partner_link" parent="contacts.res_partner_menu_config" groups="base.group_no_one" />

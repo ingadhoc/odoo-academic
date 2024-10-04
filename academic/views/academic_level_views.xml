@@ -40,21 +40,21 @@
     <!-- TREEVIEW -->
 
     <record id="view_academic_level_tree" model="ir.ui.view">
-        <field name="name">academic.level.tree</field>
+        <field name="name">academic.level.list</field>
         <field name="model">academic.level</field>
         <field name="arch" type="xml">
-            <tree string="level">
+            <list string="level">
                 <field name="sequence" widget='handle'/>
                 <field name="name"/>
                 <field name="section_id"/>
-            </tree>
+            </list>
         </field>
     </record>
 
     <record id="action_academic_level_levels" model="ir.actions.act_window">
         <field name="name">Levels</field>
         <field name="res_model">academic.level</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
         <field name="view_id" ref="view_academic_level_tree"/>
         <field name="search_view_id" ref="view_academic_level_filter"/>
         <field name="domain">[]</field>

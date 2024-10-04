@@ -37,19 +37,19 @@
     <!-- TREEVIEW -->
 
     <record id="view_academic_promotion_tree" model="ir.ui.view">
-        <field name="name">academic.promotion.tree</field>
+        <field name="name">academic.promotion.list</field>
         <field name="model">academic.promotion</field>
         <field name="arch" type="xml">
-            <tree string="promotion">
+            <list string="promotion">
                 <field name="name" />
-            </tree>
+            </list>
         </field>
     </record>
 
     <record id="action_academic_promotion_promotions" model="ir.actions.act_window">
         <field name="name">Promotions</field>
         <field name="res_model">academic.promotion</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
         <field name="view_id" ref="view_academic_promotion_tree"/>
         <field name="search_view_id" ref="view_academic_promotion_filter"/>
         <field name="domain">[]</field>

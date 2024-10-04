@@ -5,7 +5,7 @@
             <field name="name">Study Plan</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">academic.study.plan</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">list,form</field>
         </record>
 
         <record id="academic_study_plan_view_form" model="ir.ui.view">
@@ -17,10 +17,10 @@
                         <group>
                             <field name="name"/>
                             <field name="level_ids">
-                                <tree>
+                                <list>
                                     <field name="name"/>
                                     <field name="section_id" readonly='1'/>
-                                </tree>
+                                </list>
                             </field>
                         </group>
                     </sheet>
@@ -29,13 +29,13 @@
         </record>
 
         <record id="academic_study_plan_view_tree" model="ir.ui.view">
-            <field name="name">academic.study.plan.view.tree</field>
+            <field name="name">academic.study.plan.view.list</field>
             <field name="model">academic.study.plan</field>
             <field name="arch" type="xml">
-                <tree>
+                <list>
                     <field name="name"/>
                     <field name="level_ids" widget='many2many_tags'/>
-                </tree>
+                </list>
             </field>
         </record>
 

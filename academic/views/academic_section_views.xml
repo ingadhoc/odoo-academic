@@ -32,19 +32,19 @@
     <!-- TREEVIEW -->
 
     <record id="view_academic_section_tree" model="ir.ui.view">
-        <field name="name">academic.section.tree</field>
+        <field name="name">academic.section.list</field>
         <field name="model">academic.section</field>
         <field name="arch" type="xml">
-            <tree string="section">
+            <list string="section">
                 <field name="name" />
-            </tree>
+            </list>
         </field>
     </record>
 
      <record id="action_academic_section_sections" model="ir.actions.act_window">
         <field name="name">Sections</field>
         <field name="res_model">academic.section</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
         <field name="view_id" ref="view_academic_section_tree"/>
         <field name="search_view_id" ref="view_academic_section_filter"/>
         <field name="domain">[]</field>

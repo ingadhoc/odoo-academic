@@ -98,14 +98,14 @@
                 <page string="Estudiantes" invisible="partner_type != 'family'">
                     <!-- context="{'default_parent_id': id, 'default_street': street, 'default_street2': street2, 'default_city': city, 'default_state_id': state_id, 'default_zip': zip, 'default_country_id': country_id, 'default_lang': lang, 'default_user_id': user_id, 'default_type': 'other'}" -->
                     <field name="student_ids" context="{'default_partner_type': 'student', 'default_type': 'contact', 'default_company_id': company_id}">
-                        <tree>
+                        <list>
                             <field name="company_id" column_invisible="1"/>
                             <field name="name"/>
                             <field name="promotion_id"/>
                             <field name="mobile"/>
                             <field name="email"/>
                             <button type="object" name="get_formview_action" icon="fa-pencil-square-o" title="Open" help="Open"/>
-                        </tree>
+                        </list>
                     </field>
                 </page>
                 <page string="Individual Information" invisible="partner_type in [False, 'family']">
@@ -126,26 +126,26 @@
                     </group>
                     <group>
                         <field name="partner_link_ids" readonly="True" invisible="partner_type in [False, 'student', 'family']">
-                            <tree>
+                            <list>
                                 <field name="company_id" column_invisible="1"/>
                                 <field name="student_id"/>
                                 <field name="relationship_id" options="{'no_create':True}"/>
                                 <field name="role_ids" widget="many2many_tags" options="{'no_create':True, 'color_field': 'color'}"/>
                                 <field name="note"/>
-                            </tree>
+                            </list>
                         </field>
                     </group>
                 </page>
                 <page string="Contactos y Roles" invisible="links_by_student or partner_type not in ['student', 'family']">
                     <p invisible="partner_type != 'student' or parent_links_by_student">Los Contactos y Roles son gestionados en <button name="open_commercial_entity" type="object" string="la familia" class="oe_link"/></p>
                     <field name="student_link_ids" readonly="partner_type == 'student' and not parent_links_by_student">
-                        <tree editable="bottom">
+                        <list editable="bottom">
                             <field name="company_id" column_invisible="1"/>
                             <field name="partner_id" context="{'default_partner_type': 'parent'}"/>
                             <field name="relationship_id" options="{'no_create':True}"/>
                             <field name="role_ids" widget="many2many_tags" options="{'no_create':True, 'color_field': 'color'}"/>
                             <field name="note"/>
-                        </tree>
+                        </list>
                     </field>
                 </page>
             </page>
@@ -226,13 +226,13 @@
 
     <!-- INHERITED TREE -->
     <record id="view_academic_partner_tree" model="ir.ui.view">
-        <field name="name">academic.partner.tree</field>
+        <field name="name">academic.partner.list</field>
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_tree"/>
         <field name="arch" type="xml">
-            <tree position="inside">
+            <list position="inside">
                 <field name="promotion_id" column_invisible="context.get('default_partner_type', False) != 'student'"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -256,7 +256,7 @@
     <record id="action_academic_partner_administrators" model="ir.actions.act_window">
         <field name="name">Administrators</field>
         <field name="res_model">res.partner</field>
-        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_mode">kanban,list,form</field>
         <field name="view_id" ref="view_academic_partner_tree"/>
         <field name="search_view_id" ref="view_academic_partner_filter"/>
         <field name="context">{'default_partner_type':'administrator', 'show_login':True}</field>
@@ -266,7 +266,7 @@
     <record id="action_academic_company_partner_administrators" model="ir.actions.act_window">
         <field name="name">Administrators</field>
         <field name="res_model">res.partner</field>
-        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_mode">kanban,list,form</field>
         <field name="view_id" ref="view_academic_partner_tree"/>
         <field name="search_view_id" ref="view_academic_partner_filter"/>
         <field name="context">{'default_partner_type':'administrator', 'show_login':True}</field>
@@ -276,7 +276,7 @@
     <record id="action_academic_partner_students" model="ir.actions.act_window">
         <field name="name">Students</field>
         <field name="res_model">res.partner</field>
-        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_mode">kanban,list,form</field>
         <field name="view_id" ref=""/>
         <field name="search_view_id" ref="academic.view_academic_partner_filter"/>
         <field name="context">{'default_partner_type':'student', 'show_login':True}</field>
@@ -286,7 +286,7 @@
     <record id="action_academic_company_partner_students" model="ir.actions.act_window">
         <field name="name">Students</field>
         <field name="res_model">res.partner</field>
-        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_mode">kanban,list,form</field>
         <field name="view_id" ref=""/>
         <field name="search_view_id" ref="academic.view_academic_partner_filter"/>
         <field name="context">{'default_partner_type':'student', 'show_login':True}</field>
@@ -296,7 +296,7 @@
     <record id="action_academic_partner_teachers" model="ir.actions.act_window">
         <field name="name">Teachers</field>
         <field name="res_model">res.partner</field>
-        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_mode">kanban,list,form</field>
         <field name="view_id" ref=""/>
         <field name="search_view_id" ref="academic.view_academic_partner_filter"/>
         <field name="context">{'default_partner_type':'teacher', 'show_login':True}</field>
@@ -306,7 +306,7 @@
     <record id="action_academic_company_partner_teachers" model="ir.actions.act_window">
         <field name="name">Teachers</field>
         <field name="res_model">res.partner</field>
-        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_mode">kanban,list,form</field>
         <field name="view_id" ref=""/>
         <field name="search_view_id" ref="academic.view_academic_partner_filter"/>
         <field name="context">{'default_partner_type':'teacher', 'show_login':True}</field>
@@ -318,7 +318,7 @@
     <record id="action_academic_partner_gral_administrators" model="ir.actions.act_window">
         <field name="name">Gral Administrators</field>
         <field name="res_model">res.partner</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
         <field name="view_id" ref="view_academic_partner_tree"/>
         <field name="search_view_id" ref="view_academic_partner_filter"/>
         <field name="context">{'default_partner_type':'gral_administrator', 'show_login':True}</field>
@@ -328,7 +328,7 @@
     <record id="action_academic_partner_parents" model="ir.actions.act_window">
         <field name="name">Relatives</field>
         <field name="res_model">res.partner</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
         <field name="view_id" ref="view_academic_partner_tree"/>
         <field name="search_view_id" ref="view_academic_partner_filter"/>
         <field name="context">{'default_partner_type': 'parent', 'show_login':True}</field>
@@ -340,7 +340,7 @@
     <record id="action_academic_partner_families" model="ir.actions.act_window">
         <field name="name">Families</field>
         <field name="res_model">res.partner</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
         <field name="view_id" ref="view_academic_partner_tree"/>
         <field name="search_view_id" ref="view_academic_partner_filter"/>
         <field name="context">{'default_partner_type': 'family', 'show_login':True}</field>

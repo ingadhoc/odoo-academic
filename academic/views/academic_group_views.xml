@@ -60,10 +60,10 @@
     <!-- TREEVIEW -->
 
     <record id="view_academic_group_tree" model="ir.ui.view">
-        <field name="name">academic.group.tree</field>
+        <field name="name">academic.group.list</field>
         <field name="model">academic.group</field>
         <field name="arch" type="xml">
-            <tree string="group">
+            <list string="group">
                 <!-- <field name="type"/> -->
                 <field name="sequence" widget="handle"/>
                 <field name="company_id" groups="base.group_multi_company"/>
@@ -71,14 +71,14 @@
                 <field name="division_id"/>
                 <!-- <field name="subject_id"/> -->
                 <field name="year"/>
-            </tree>
+            </list>
         </field>
     </record>
 
      <record id="action_academic_group_groups" model="ir.actions.act_window">
         <field name="name">Groups</field>
         <field name="res_model">academic.group</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
         <field name="view_id" ref="view_academic_group_tree"/>
         <field name="search_view_id" ref="view_academic_group_filter"/>
         <field name="domain">[]</field>
@@ -87,7 +87,7 @@
      <record id="action_academic_company_group_groups" model="ir.actions.act_window">
         <field name="name">Groups</field>
         <field name="res_model">academic.group</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
         <field name="view_id" ref="view_academic_group_tree"/>
         <field name="search_view_id" ref="view_academic_group_filter"/>
         <field name="domain">[('company_id','=',id)]</field>
