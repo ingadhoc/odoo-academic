@@ -1,0 +1,14 @@
+<odoo>
+    <record id="report_certificate_regular_student" model="ir.actions.report">
+        <field name="name">Certificate of Regular Student</field>
+        <field name="model">res.partner</field>
+        <field name="report_name">certificate_regular_student</field>
+        <field name="print_report_name">'Certificate of Regular Student ' + object.name</field>
+        <field name="report_type">aeroo</field>
+        <field name="in_format">oo-odt</field>
+        <field name="out_format" ref="report_aeroo.report_mimetypes_doc_odt"/>
+        <field name="report_file">academic/report/certificate_regular_student.odt</field>
+        <field name="tml_source">file</field>
+        <field name="binding_model_id" ref="base.model_res_partner"/>
+    </record>
+</odoo>
