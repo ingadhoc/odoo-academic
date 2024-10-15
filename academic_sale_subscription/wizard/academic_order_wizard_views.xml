@@ -1,0 +1,47 @@
+<odoo>
+    <record id="academic_order_wizard_form" model="ir.ui.view">
+        <field name="name">academic.order.wizard.form</field>
+        <field name="model">academic.order.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="template_id"/>
+                        <field name="plan_id" options="{'no_create': 1}"/>
+                        <field name="pricelist_id" groups="product.group_product_pricelist"/>
+                        <field name="status_sale" widget="radio" options="{'horizontal': true}"/>
+                    </group>
+                    <group>
+                        <field name="validity_date" invisible="status_sale != 'draft'" required="status_sale == 'draft'"/>
+                        <field name="next_invoice_date"/>
+                        <field name="payment_term_id"/>
+                    </group>
+                </group>
+                <notebook>
+                    <page string="Lines" name="lines">
+                        <field name="order_wizard_line_ids">
+                            <tree editable="1">
+                                <field name="product_id"/>
+                                <field name="price"/>
+                                <field name="description"/>
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+                <footer>
+                    <button string="Create order" type="object" name="action_create_mass_subscription" class="oe_highlight"/>
+                    <button string="Cancel" class="oe_link" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_view_academic_order_wizard" model="ir.actions.act_window">
+        <field name="name">Create order</field>
+        <field name="res_model">academic.order.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="binding_model_id" ref="base.model_res_partner"/>
+        <field name="binding_view_types">list</field>
+        <field name="target">new</field>
+    </record>
+</odoo>
