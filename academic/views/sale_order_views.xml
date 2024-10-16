@@ -9,8 +9,12 @@
             <form>
                 <field name="partner_invoice_ids" invisible="1"/>
             </form>
+            <field name="partner_id" position="attributes">
+                <attribute name="string">Student</attribute>
+            </field>
             <field name="partner_invoice_id" position="attributes">
                 <attribute name="domain">[('id', 'in', partner_invoice_ids)]</attribute>
+                <attribute name="string">Payment responsible</attribute>
             </field>
             <field name="partner_shipping_id" position="attributes">
                 <attribute name="invisible">1</attribute>

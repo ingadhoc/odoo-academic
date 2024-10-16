@@ -9,9 +9,8 @@ class SaleOrder(models.Model):
 
     _inherit = 'sale.order'
 
-    partner_id = fields.Many2one(string='Alumno', domain="[('type', '!=', 'private'), ('company_id', 'in', (False, company_id)), ('partner_type', '=', 'student')]")
+    partner_id = fields.Many2one(domain="[('type', '!=', 'private'), ('company_id', 'in', (False, company_id)), ('partner_type', '=', 'student')]")
     partner_invoice_ids = fields.Many2many('res.partner', compute='_compute_partner_invoice')
-    partner_invoice_id = fields.Many2one(string='Responsable de pago')
 
     # dejamos solo depends a partner_id para que si cambia algo de la asignación no se re-calculen todas las ventas existentes
     @api.depends('partner_id')
