@@ -540,9 +540,19 @@ msgstr "Algunos contactos no tienen una dirección de email válida:"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_group__student_ids
+#: model:ir.model.fields,field_description:academic.field_account_bank_statement_line__student_id
+#: model:ir.model.fields,field_description:academic.field_account_bank_statement_line__student_ids
+#: model:ir.model.fields,field_description:academic.field_account_move__student_id
+#: model:ir.model.fields,field_description:academic.field_account_move__student_ids
+#: model:ir.model.fields,field_description:academic.field_account_move_line__student_id
+#: model:ir.model.fields,field_description:academic.field_account_payment__student_id
+#: model:ir.model.fields,field_description:academic.field_account_payment__student_ids
+#: model:ir.model.fields,field_description:academic.field_res_partner__student_ids
+#: model:ir.model.fields,field_description:academic.field_res_users__student_ids
 #: model:ir.model.fields.selection,name:academic.selection__academic_group__type__student
 #: model:ir.model.fields.selection,name:academic.selection__res_partner__partner_type__student
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_group_filter
+#: model_terms:ir.ui.view,arch_db:academic.view_order_form
 msgid "Student"
 msgstr "Estudiante"
 
@@ -755,3 +765,8 @@ msgstr "Ya existe un contacto con el mismo dni ("
 msgid "Current Main Group"
 msgstr "Grupo Principal Actual"
 
+#. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.academic_view_move_form
+#: model_terms:ir.ui.view,arch_db:academic.view_order_form
+msgid "Payment responsible"
+msgstr "Responsable de pago"
