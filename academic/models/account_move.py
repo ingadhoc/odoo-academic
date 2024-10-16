@@ -6,8 +6,8 @@ class AccountMove(models.Model):
     _inherit = 'account.move'
 
     # Este campo solo lo uso para calcular el dominio del student_id ya que implica una búsqueda por el rol de pago.
-    student_ids = fields.Many2many('res.partner', compute="_compute_student_ids")
-    student_id = fields.Many2one('res.partner', string='Alumno', domain="[('id', 'in', student_ids), ('partner_type', '=', 'student')]")
+    student_ids = fields.Many2many('res.partner', string="Students List", compute="_compute_student_ids")
+    student_id = fields.Many2one('res.partner', domain="[('id', 'in', student_ids), ('partner_type', '=', 'student')]")
 
     @api.constrains('student_id', 'move_type')
     def _check_student(self):
