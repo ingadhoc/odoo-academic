@@ -15,9 +15,9 @@
         <field name="inherit_id" ref="account.view_move_form"/>
         <field name="arch" type="xml">
             <label for="partner_id" position="attributes">
-                <attribute name="string">Responsable de pago</attribute>
+                <attribute name="string">Payment responsible</attribute>
             </label>
-            <field name="partner_id" position="after">
+            <field name="partner_shipping_id" position="before">
                 <field name="student_ids" invisible="1"/>
                 <field name="student_id" invisible="move_type not in ('out_invoice', 'out_refund')" readonly="state != 'draft'" options="{'no_create': True}"/>
             </field>
