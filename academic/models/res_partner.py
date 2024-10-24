@@ -184,6 +184,4 @@ class ResPartner(models.Model):
     def _compute_current_main_group(self):
         for rec in self:
             student_group = rec.student_group_ids.filtered(lambda g: g.year == date.today().year and not g.subject_id)
-            if len(student_group) > 1:
-                raise ValidationError("There shouldn't be two groups in the same year without a subject for partner %s." % rec.name)
-            rec.current_main_group_id = student_group
+            rec.current_main_group_id = student_group[:1]
