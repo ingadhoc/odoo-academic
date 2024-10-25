@@ -19,7 +19,7 @@
 ##############################################################################
 {
     'name': 'Academic',
-    'version': "17.0.1.6.0",
+    'version': "17.0.1.7.0",
     'sequence': 14,
     'summary': '',
     'author': 'ADHOC SA',
@@ -60,6 +60,7 @@
         'data/res_users_data.xml',
         'data/res_partner_role_data.xml',
         'wizards/portal_wizard_views.xml',
+        'data/mail_template_data.xml',
     ],
     'demo': [
         'demo/res_partner_relationship_demo.xml',
