@@ -3,7 +3,7 @@
 
     <!-- INHERITED TREE -->
     <record id="view_users_tree" model="ir.ui.view">
-        <field name="name">academic.user.tree</field>
+        <field name="name">academic.user.list</field>
         <field name="model">res.users</field>
         <field name="inherit_id" ref="base.view_users_tree"/>
         <field name="arch" type="xml">
