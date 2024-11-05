@@ -37,19 +37,19 @@
     <!-- TREEVIEW -->
 
     <record id="view_academic_subject_tree" model="ir.ui.view">
-        <field name="name">academic.subject.tree</field>
+        <field name="name">academic.subject.list</field>
         <field name="model">academic.subject</field>
         <field name="arch" type="xml">
-            <tree string="subject">
+            <list string="subject">
                 <field name="name" />
-            </tree>
+            </list>
         </field>
     </record>
 
      <record id="action_academic_subject_subjects" model="ir.actions.act_window">
         <field name="name">Subjects</field>
         <field name="res_model">academic.subject</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
         <field name="view_id" ref="view_academic_subject_tree"/>
         <field name="search_view_id" ref="view_academic_subject_filter"/>
         <field name="domain">[]</field>

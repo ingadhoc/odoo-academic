@@ -14,7 +14,7 @@ class ResPartner(models.Model):
     _check_company_domain = models.check_company_domain_parent_of
 
     student_id = fields.Many2one('res.partner', 'Student or Family', required=True, ondelete='cascade')
-    company_id = fields.Many2one(related='student_id.company_id', store=True)
+    company_id = fields.Many2one(related='student_id.company_id')
     # student_id = fields.Many2one('res.partner', 'Student', ondelete='cascade')
     # family_id = fields.Many2one('res.partner', 'Family', ondelete='cascade')
     relationship_id = fields.Many2one('res.partner.relationship', required=True, ondelete='restrict')
