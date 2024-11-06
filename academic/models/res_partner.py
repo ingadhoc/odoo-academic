@@ -69,7 +69,7 @@ class ResPartner(models.Model):
     medical_insurance = fields.Char(
         copy=False,
     )
-    dni = fields.Integer(
+    dni = fields.Char(
         'DNI',
     )
     related_user_id = fields.Many2one(
