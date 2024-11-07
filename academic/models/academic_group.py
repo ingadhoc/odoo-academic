@@ -139,3 +139,25 @@ class AcademicGroup(models.Model):
     def _compute_student_ids_count(self):
         for group in self:
             group.student_ids_count = len(group.student_ids)
+
+    def create_next_year_groups(self):
+        for rec in self.filtered(lambda x: x.study_plan_level_ids and x.level_id):
+            current_index = rec.study_plan_level_ids.ids.index(rec.level_id.id)
+
+            if current_index + 1 < len(rec.study_plan_level_ids):
+                next_level = rec.study_plan_level_ids[current_index + 1]
+
+                next_group = rec.env['academic.group'].search([
+                    ('year', '=', rec.year + 1),
+                    ('company_id', '=', rec.company_id.id),
+                    ('level_id', '=', next_level.id),
+                    ('division_id', '=', rec.division_id.id)
+                ], limit=1)
+
+                if not next_group:
+                    next_group = rec.env['academic.group'].create({
+                        'year': rec.year + 1,
+                        'division_id': rec.division_id.id,
+                        'level_id': next_level.id,
+                        'company_id': rec.company_id.id
+                    })

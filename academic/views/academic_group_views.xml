@@ -93,6 +93,18 @@
         <field name="domain">[('company_id','=',id)]</field>
     </record>
 
+    <record id="move_to_next_year" model="ir.actions.server">
+        <field name="name">Move to Next Year</field>
+        <field name="state">code</field>
+        <field name="model_id" ref="model_academic_group"/>
+        <field name="binding_model_id" ref="model_academic_group"/>
+        <field name="binding_type">action</field>
+        <field name="code">
+            if records:
+                action = records.create_next_year_groups()
+        </field>
+    </record>
+
     <menuitem name="Groups" id="menu_groups" sequence="10" action="action_academic_group_groups" parent="menu_data" groups="group_user" />
 
     <!-- portal menu -->
