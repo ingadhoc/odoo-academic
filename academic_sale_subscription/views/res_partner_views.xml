@@ -1,0 +1,48 @@
+<odoo>
+    <record id="view_partner_tree" model="ir.ui.view">
+        <field name="name">academic.sale.suscription.partner.tree</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_tree"/>
+        <field name="arch" type="xml">
+            <tree position="inside">
+                <header>
+                    <button name="%(academic_sale_subscription.action_view_academic_order_wizard)d"
+                            type="action"
+                            string="Create Order"
+                            class="btn-secondary"
+                            groups="academic.group_manager"/>
+                </header>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_partner_form" model="ir.ui.view">
+        <field name="name">academic.sale.suscription.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='internal_notes']" position="before">
+                <page string="Current Subscriptions" name="current_subscriptions">
+                    <button name="%(academic_sale_subscription.action_view_academic_order_wizard)d"
+                            type="action"
+                            string="Create Order"
+                            class="btn-secondary"
+                            groups="academic.group_manager"/>
+                    <field name="current_subscription_ids">
+                        <tree default_order="next_invoice_date, partner_invoice_id, payment_term_id">
+                            <field name="order_id"/>
+                            <field name="product_id"/>
+                            <field name="product_uom_qty"/>
+                            <field name="price_unit"/>
+                            <field name="plan_id"/>
+                            <field name="next_invoice_date"/>
+                            <field name="partner_invoice_id"/>
+                            <field name="payment_term_id"/>
+                            <button type="object" name="open_subscription_form" icon="fa-pencil-square-o" title="Open" help="Open Subscription"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

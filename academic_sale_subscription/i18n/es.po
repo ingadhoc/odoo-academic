@@ -1,0 +1,281 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* academic_sale_subscription
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-11-08 14:33+0000\n"
+"PO-Revision-Date: 2024-11-08 14:33+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__academic_group_id
+msgid "Academic Group"
+msgstr "Grupo Académico"
+
+#. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_order_wizard_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: academic_sale_subscription
+#: model:ir.actions.server,name:academic_sale_subscription.model_sale_order_subscription_change_customer
+msgid "Confirm sale order"
+msgstr "Confirmar pedido de venta"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields.selection,name:academic_sale_subscription.selection__academic_order_wizard__status_sale__confirmed
+msgid "Confirmed"
+msgstr "Confirmado"
+
+#. module: academic_sale_subscription
+#: model:ir.model,name:academic_sale_subscription.model_res_partner
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,help:academic_sale_subscription.field_sale_subscription_plan__duration_unit
+msgid "Contract duration"
+msgstr "Duración del contrato"
+
+#. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.view_partner_form
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.view_partner_tree
+msgid "Create Order"
+msgstr "Crear orden"
+
+#. module: academic_sale_subscription
+#: model:ir.actions.act_window,name:academic_sale_subscription.action_view_academic_order_wizard
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_order_wizard_form
+msgid "Create order"
+msgstr "Crear orden"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard_line__currency_id
+msgid "Currency"
+msgstr "Moneda"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_res_partner__current_subscription_ids
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_res_users__current_subscription_ids
+msgid "Current Subscription"
+msgstr "Suscripción actual"
+
+#. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.view_partner_form
+msgid "Current Subscriptions"
+msgstr "Suscripciones actuales"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order_line__next_invoice_date
+msgid "Date of Next Invoice"
+msgstr "Fecha de la próxima factura"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard_line__description
+msgid "Description"
+msgstr "Descripción"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__display_name
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard_line__display_name
+msgid "Display Name"
+msgstr "Nombre para mostrar"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields.selection,name:academic_sale_subscription.selection__academic_order_wizard__status_sale__draft
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_subscription_plan__duration_unit
+msgid "Duration Unit"
+msgstr "Unidad de duración"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_subscription_plan__duration_value
+msgid "End After"
+msgstr "Finaliza después de"
+
+#. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_order_wizard_form
+msgid "Lines"
+msgstr "Líneas"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields.selection,name:academic_sale_subscription.selection__sale_subscription_plan__duration_unit__month
+msgid "Months"
+msgstr "Meses"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__next_invoice_date
+msgid "Next Invoice Date"
+msgstr "Fecha de la próxima factura"
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/wizard/academic_order_wizard.py:0
+#, python-format
+msgid "No student has been selected."
+msgstr "No se ha seleccionado ningún estudiante."
+
+#. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.view_partner_form
+msgid "Open"
+msgstr "Abrir"
+
+#. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.view_partner_form
+msgid "Open Subscription"
+msgstr "Abrir suscripción"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__payment_term_id
+msgid "Payment Term"
+msgstr "Término de pago"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order_line__payment_term_id
+msgid "Payment Terms"
+msgstr "Términos de pago"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__plan_id
+msgid "Plan"
+msgstr "Plan"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard_line__price
+msgid "Price"
+msgstr "Precio"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__pricelist_id
+msgid "Pricelist"
+msgstr "Lista de precios"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard_line__product_id
+msgid "Product"
+msgstr "Producto"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard_line__quantity
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order_line__plan_id
+msgid "Recurring Plan"
+msgstr "Plan recurrente"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order_line__partner_invoice_id
+msgid "Responsable de pago"
+msgstr "Responsable de pago"
+
+#. module: academic_sale_subscription
+#: model:ir.model,name:academic_sale_subscription.model_sale_order
+msgid "Sales Order"
+msgstr "Pedido de venta"
+
+#. module: academic_sale_subscription
+#: model:ir.model,name:academic_sale_subscription.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Línea de pedido de venta"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__status_sale
+msgid "Status Sale"
+msgstr "Estado de Venta"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,help:academic_sale_subscription.field_academic_order_wizard__status_sale
+msgid "Status to be given to sales orders."
+msgstr "Estado que se asignará a los pedidos de venta."
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__student_ids
+msgid "Student"
+msgstr "Estudiante"
+
+#. module: academic_sale_subscription
+#: model:ir.model,name:academic_sale_subscription.model_sale_subscription_plan
+msgid "Subscription Plan"
+msgstr "Plan de suscripción"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__template_id
+msgid "Template"
+msgstr "Plantilla"
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/wizard/academic_order_wizard.py:0
+#, python-format
+msgid ""
+"The contacts must be of student type. The following do not meet this condition:\n"
+"%s"
+msgstr ""
+"Los contactos deben ser de tipo estudiante. Los siguientes no cumplen con esta condición:\n"
+"%s"
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/wizard/academic_order_wizard.py:0
+#, python-format
+msgid "The date of the next invoice cannot be earlier than the validity date."
+msgstr "La fecha de la próxima factura no puede ser anterior a la fecha de validez."
+
+#. module: academic_sale_subscription
+#: model:ir.model.constraint,message:academic_sale_subscription.constraint_sale_subscription_plan_check_duration_value
+msgid "The duration can't be negative or 0."
+msgstr "La duración no puede ser negativa ni 0."
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/wizard/academic_order_wizard.py:0
+#, python-format
+msgid "The product price should not be equal to or less than 0."
+msgstr "El precio del producto no debe ser igual o menor que 0."
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/wizard/academic_order_wizard.py:0
+#, python-format
+msgid "The student %s has no payment responsible for the payment set."
+msgstr "El estudiante %s no tiene un responsable de pago seteado."
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/models/sale_order.py:0
+#, python-format
+msgid ""
+"There cannot be a sale order template and a recurring plan both with a "
+"defined period."
+msgstr ""
+"No puede haber una plantilla de pedido de venta y un plan recurrente, ambos con un período definido."
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/wizard/academic_order_wizard.py:0
+#, python-format
+msgid "There must be product lines."
+msgstr "Debería haber líneas de productos."
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__validity_date
+msgid "Validity Date"
+msgstr "Fecha de validez"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields.selection,name:academic_sale_subscription.selection__sale_subscription_plan__duration_unit__year
+msgid "Years"
+msgstr "Años"

@@ -21,8 +21,12 @@ class SaleOrder(models.Model):
 
     @api.depends('partner_invoice_ids')
     def _compute_partner_invoice_id(self):
-        for order in self:
+        # si bien en el dominio solo permitimos estudiantes, para no romper demo data de odoo ni tests, si no es un estudiante
+        # dejamos compute by super
+        students_orders = self.filtered(lambda x: x.partner_id.partner_type == 'student')
+        for order in students_orders:
             order.partner_invoice_id = order.partner_invoice_ids[:1]
+        super(SaleOrder, self - students_orders)._compute_partner_invoice_id()
 
     def _prepare_invoice(self):
         res = super()._prepare_invoice()

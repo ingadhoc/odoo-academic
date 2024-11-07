@@ -1,0 +1,17 @@
+<odoo>
+    <record id="sale_subscription_plan_view_form" model="ir.ui.view">
+        <field name="name">academic.sale.subscription.plan.view.form</field>
+        <field name="model">sale.subscription.plan</field>
+        <field name="inherit_id" ref="sale_subscription.sale_subscription_plan_view_form"/>
+        <field name="arch" type="xml">
+            <field name="invoice_mail_template_id" position="after">
+                <field name="is_unlimited" options="{'horizontal': true}"/>
+                <label for="duration_value" invisible="is_unlimited"/>
+                <div invisible="is_unlimited">
+                    <field name="duration_value" style="width: 3rem;"/>
+                    <field name="duration_unit" class="oe_inline"/>
+                </div>
+            </field>
+        </field>
+    </record>
+</odoo>
