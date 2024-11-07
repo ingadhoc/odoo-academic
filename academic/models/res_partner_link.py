@@ -21,6 +21,7 @@ class ResPartner(models.Model):
     role_ids = fields.Many2many('res.partner.role', string='Roles')
     partner_id = fields.Many2one('res.partner', required=True, ondelete='restrict', check_company=True)
     note = fields.Text(string="Notas")
+    sequence = fields.Integer(default=10)
 
     # @api.constrains('student_id', 'family_id')
     # def _check_student_or_family(self):

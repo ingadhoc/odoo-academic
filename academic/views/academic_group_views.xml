@@ -6,17 +6,21 @@
         <field name="model">academic.group</field>
         <field name="arch" type="xml">
             <search string="group">
-                <group string="By Attribute">
-                    <field name="year" string="Year" />
-                    <field name="division_id" string="Division" />
-                    <field name="company_id" groups="base.group_multi_company"/>
-                </group>
-                <group string="By object">
-                    <field name="level_id" string="Level" />
-                    <!-- <field name="subject_id" string="Subject" /> -->
-                    <!-- <field name="teacher_id" string="Teacher" /> -->
-                    <field name="student_ids" string="Student" />
-                </group>
+                <field name="level_id" string="Level" />
+                <field name="division_id" string="Division" />
+                <field name="year" string="Year" />
+                <field name="company_id" groups="base.group_multi_company"/>
+                <!-- <field name="subject_id" string="Subject" /> -->
+                <!-- <field name="teacher_id" string="Teacher" /> -->
+                <field name="student_ids" string="Student" />
+                <!-- <filter string="Virtual Group" name="virtual_group" domain="[('virtual_group', '!=', False)]" />
+                <filter string="Real Group" name="real_group" domain="[('virtual_group', '=', False)]" /> -->
+                <!-- <field string="Parent Group" name="parent_id" operator="child_of"/> -->
+                <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+                <separator/>
+                <filter string="Parent Group" name="parent_group" domain="[('parent_id', '=', False)]" />
+                <filter string="Children Group" name="children_group" domain="[('parent_id', '!=', False)]" />
+                <filter string="By Parent Group" name="group_by_parent" context="{'group_by': 'parent_id'}"/>
             </search>
         </field>
     </record>
@@ -27,27 +31,50 @@
         <field name="model">academic.group</field>
         <field name="arch" type="xml">
             <form string="group">
+                <field name="company_id" invisible="1"/>
+                <field name="study_plan_level_ids" invisible='1'/>
                 <sheet string="group">
                      <div class="oe_button_box" name="button_box">
-                        <button name="%(action_academic_partner_students)d" type="action" class="oe_stat_button" icon="fa-users" context="{'default_student_group_ids': [id], 'default_partner_type': 'student', 'search_default_student_group_ids': id}">
+                        <button name="open_student_list" type="object" class="oe_stat_button" icon="fa-users">
                             <field string="Students" name="student_ids_count" widget="statinfo"/>
                         </button>
                      </div>
                     <group>
-                        <!-- Por ahora no usamos type, me parece que lo podemos borrar -->
-                        <!-- <field name="type"/> -->
-                        <field name="company_id" invisible="1"/>
-                        <field name="company_id" groups="base.group_multi_company"/>
-                        <field name="study_plan_level_ids" invisible='1'/>
-                    </group>
-                    <group col="4">
-                        <field name="level_id" domain="[('id','in',study_plan_level_ids)]"/>
-                        <field name="division_id" required="1"/>
-                        <field name="year"/>
-                        <field name="sequence"/>
+                        <group>
+                            <field name="company_id" groups="base.group_multi_company" invisible="parent_id"/>
+                            <field name="level_id" domain="[('id','in',study_plan_level_ids)]" invisible="parent_id"/>
+                            <field name="parent_id" invisible="not parent_id" readonly="True"/>
+                            <!-- <field name="virtual_group"/> -->
+                        </group>
+                        <group>
+                            <field name="division_id" invisible="not parent_id"/>
+                            <!-- <field name="shift_id" invisible="not parent_id"/> -->
+                            <field name="capacity" readonly="child_ids"/>
+                            <field name="year" invisible="parent_id"/>
+                        </group>
                     </group>
                     <notebook>
-                        <page name="students" string="Students">
+                        <page name="students" string="Students" invisible="child_ids">
+                            <field name="student_ids" domain="[('company_id','=',company_id),('partner_type','=','student')]" context="{'default_company_id':company_id,'default_partner_type':'student'}"/>
+                        </page>
+                        <page name="childs" string="Children's groups">
+                            <field name="child_ids">
+                                <tree editable="bottom" open_form_view="True">
+                                    <field name="division_id"/>
+                                    <!-- <field name="shift_id"/> -->
+                                    <field name="capacity" optional="hide"/>
+                                    <field name="student_ids_count"/>
+                                    <!-- <field name="teacher_id"/> -->
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="students" string="Students To Assign" invisible="not child_ids">
+                            <button name="%(academic.action_view_academic_group_move_student_wizard)d"
+                                type="action"
+                                string="Move Students"
+                                class="btn-secondary"
+                                invisible="not student_ids"
+                                groups="academic.group_manager"/>
                             <field name="student_ids" domain="[('company_id','=',company_id),('partner_type','=','student')]" context="{'default_company_id':company_id,'default_partner_type':'student'}"/>
                         </page>
                     </notebook>
@@ -63,14 +90,23 @@
         <field name="name">academic.group.tree</field>
         <field name="model">academic.group</field>
         <field name="arch" type="xml">
-            <tree string="group">
+            <tree>
                 <!-- <field name="type"/> -->
-                <field name="sequence" widget="handle"/>
                 <field name="company_id" groups="base.group_multi_company"/>
                 <field name="level_id"/>
                 <field name="division_id"/>
-                <!-- <field name="subject_id"/> -->
+                <field name="parent_id"/>
                 <field name="year"/>
+                <field name="capacity" optional="hide"/>
+                <field name="student_ids_count" optional="hide"/>
+                <field name="vacancy" optional="hide"/>
+                <!-- TODO revisar porque no funciona -->
+                <!-- <groupby name="parent_id">
+                    <button type="object" name="get_formview_action" icon="fa-list" title="Open"/>
+                </groupby> -->
+                <!-- <groupby name="parent_id">
+                    <button name="edit" type="edit" icon="fa-edit" title="Edit"/>
+                </groupby> -->
             </tree>
         </field>
     </record>
@@ -81,6 +117,7 @@
         <field name="view_mode">tree,form</field>
         <field name="view_id" ref="view_academic_group_tree"/>
         <field name="search_view_id" ref="view_academic_group_filter"/>
+        <field name="context">{'search_default_group_by_parent': 1, 'search_default_year': (datetime.date.today()).strftime('%Y'), 'search_default_children_group': 1}</field>
         <field name="domain">[]</field>
     </record>
 
@@ -90,6 +127,7 @@
         <field name="view_mode">tree,form</field>
         <field name="view_id" ref="view_academic_group_tree"/>
         <field name="search_view_id" ref="view_academic_group_filter"/>
+        <field name="context">{'search_default_group_by_parent': 1, 'search_default_year': (datetime.date.today()).strftime('%Y'), 'search_default_children_group': 1}</field>
         <field name="domain">[('company_id','=',id)]</field>
     </record>
 

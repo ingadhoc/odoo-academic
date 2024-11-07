@@ -32,7 +32,12 @@
                 </div>
             </div>
             <div class="o_address_format"  position='after'>
-                <field name="study_plan_id"/>
+                <label for="study_plan_id"/>
+                <div class="o_row">
+                    <field name="study_plan_id"/>
+                    <!-- <button name="create_study_plan_groups" type="object" string="Create Plan Groups" class="oe_link"/> -->
+                    <button name="create_groups_next_year" type="object" string="Create Next Years Groups" class="oe_link"/>
+                </div>
                 <field name="family_required"/>
             </div>
         </field>

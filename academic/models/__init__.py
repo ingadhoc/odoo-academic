@@ -2,6 +2,7 @@
 # For copyright and license notices, see __manifest__.py file in module root
 # directory
 ##############################################################################
+from . import academic_shift
 from . import academic_division
 from . import academic_group
 from . import academic_level

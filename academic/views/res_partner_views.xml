@@ -138,8 +138,9 @@
                 </page>
                 <page string="Contactos y Roles" invisible="links_by_student or partner_type not in ['student', 'family']">
                     <p invisible="partner_type != 'student' or parent_links_by_student">Los Contactos y Roles son gestionados en <button name="open_commercial_entity" type="object" string="la familia" class="oe_link"/></p>
-                    <field name="student_link_ids" readonly="partner_type == 'student' and not parent_links_by_student">
+                    <field name="student_link_ids" readonly="partner_type == 'student' and not parent_links_by_student" invisible="partner_type == 'student' and not parent_links_by_student">
                         <tree editable="bottom">
+                            <field name="sequence" widget="handle"/>
                             <field name="company_id" column_invisible="1"/>
                             <field name="partner_id" context="{'default_partner_type': 'parent'}"/>
                             <field name="relationship_id" options="{'no_create':True}"/>
