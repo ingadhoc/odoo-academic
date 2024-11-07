@@ -13,6 +13,8 @@ access_academic_section_manager,academic.section.manager,model_academic_section,
 access_academic_section_user,academic.section.user,model_academic_section,group_user,1,1,1,1
 access_academic_promotion_manager,academic.promotion.manager,model_academic_promotion,group_manager,1,1,1,1
 access_academic_promotion_user,academic.promotion.user,model_academic_promotion,group_user,1,1,1,1
+access_academic_shift_manager,academic.shift.manager,model_academic_shift,group_manager,1,1,1,1
+access_academic_shift_user,academic.shift.user,model_academic_shift,group_user,1,1,1,1
 access_academic_division_manager,academic.division.manager,model_academic_division,group_manager,1,1,1,1
 access_academic_division_user,academic.division.user,model_academic_division,group_user,1,1,1,1
 access_group_global,academic.group.global,model_academic_group,base.group_user,1,0,0,0
@@ -23,6 +25,7 @@ access_res_partner_category_global,academic.res_partner_category.global,base.mod
 access_academic_section_global,academic.res_partner_category.global,model_academic_section,base.group_user,1,0,0,0
 access_academic_promotion_global,academic.academic_promotion_global,model_academic_promotion,base.group_user,1,0,0,0
 access_academic_division_global,academic.academic_division_global,model_academic_division,base.group_user,1,0,0,0
+access_academic_shift_global,academic.academic_shift_global,model_academic_shift,base.group_user,1,0,0,0
 access_group_portal_administrator,academic.group.portal_administrator,academic.model_academic_group,group_portal_administrator,1,1,1,1
 access_res_partner_portal_administrator,academic.res_partner.portal_administrator,base.model_res_partner,group_portal_administrator,1,1,1,1
 access_res_partner_relationship_user,access_res_partner_relationship_user,model_res_partner_relationship,base.group_user,1,0,0,0
@@ -32,3 +35,4 @@ access_hr_employee_asignatures_system_user,hr.employee.asignatures system user,m
 academic.access_res_partner_role,access_res_partner_role,academic.model_res_partner_role,base.group_user,1,0,0,0
 academic.access_res_partner_link_all,access_res_partner_link_all,academic.model_res_partner_link,base.group_user,1,0,0,0
 academic.access_res_partner_link_user,access_res_partner_link_user,academic.model_res_partner_link,group_user,1,1,1,1
+access_academic_group_move_student_wizard,academic_group_move_student_wizard,academic.model_academic_group_move_student_wizard,academic.group_manager,1,1,1,1

@@ -183,7 +183,12 @@ class ResPartner(models.Model):
     @api.depends('student_group_ids')
     def _compute_current_main_group(self):
         for rec in self:
+            # por ahora este campo no permite el caso de un estudiante en mas de un colegio
+            # eventualmente, si es necesario, tal vez haciedno el campo company depant con la implentación json de 18+
+            # ya tengamos lo que necesitamos
             student_group = rec.student_group_ids.filtered(lambda g: g.year == date.today().year and not g.subject_id)
-            if len(student_group) > 1:
-                raise ValidationError("There shouldn't be two groups in the same year without a subject for partner %s." % rec.name)
-            rec.current_main_group_id = student_group
+            # if len(student_group) > 1:
+            #     raise ValidationError(
+            #         "There shouldn't be two groups in the same year without a subject for partner %s. (Existing groups: %s)" % (
+            #             rec.name, student_group.mapped('display_name')))
+            rec.current_main_group_id = student_group[:1]

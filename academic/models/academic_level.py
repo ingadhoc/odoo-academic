@@ -33,4 +33,7 @@ class AcademicLevel(models.Model):
     @api.depends('name', 'section_id.name')
     def _compute_display_name(self):
         for rec in self:
-            rec.display_name = rec.name + ' - ' + rec.section_id.name if rec.name else ''
+            rec.display_name = "{} - {}".format(
+                rec.name or '',
+                rec.section_id.name or ''
+            ).strip(' - ')

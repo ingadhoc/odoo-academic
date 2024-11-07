@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- SEARCH VIEW -->
+    <record id="view_academic_shift_filter" model="ir.ui.view">
+        <field name="name">academic.shift.select</field>
+        <field name="model">academic.shift</field>
+        <field name="arch" type="xml">
+            <search string="shift">
+                <group string="By Attribute">
+                    <field name="name" string="Name" />
+                </group>
+                <group string="By object">
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- FORMVIEW -->
+    <record id="view_academic_shift_form" model="ir.ui.view">
+        <field name="name">academic.shift.form</field>
+        <field name="model">academic.shift</field>
+        <field name="arch" type="xml">
+            <form string="shift">
+                <header>
+                </header>
+                <sheet string="shift">
+                    <group>
+                        <field name="name" />
+                    </group>
+                </sheet>
+
+            </form>
+        </field>
+    </record>
+
+    <!-- TREEVIEW -->
+
+    <record id="view_academic_shift_tree" model="ir.ui.view">
+        <field name="name">academic.shift.tree</field>
+        <field name="model">academic.shift</field>
+        <field name="arch" type="xml">
+            <tree string="shift">
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+
+     <record id="action_academic_shift_shifts" model="ir.actions.act_window">
+        <field name="name">Shifts</field>
+        <field name="res_model">academic.shift</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_academic_shift_tree"/>
+        <field name="search_view_id" ref="view_academic_shift_filter"/>
+        <field name="domain">[]</field>
+    </record>
+
+    <menuitem name="Shifts" id="menu_shifts" sequence="100" action="action_academic_shift_shifts" parent="menu_general_data" groups="group_manager"/>
+
+
+</odoo>
