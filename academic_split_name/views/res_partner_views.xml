@@ -33,7 +33,7 @@
                         invisible="partner_type not in ['student', 'parent']"/>
                 </group>
             </xpath>
-            <xpath expr="//field[@name='student_link_ids']/tree//field[@name='partner_id']" position="attributes">
+            <xpath expr="//field[@name='student_link_ids']/list//field[@name='partner_id']" position="attributes">
                 <attribute name="options">{'no_quick_create': True}</attribute>
                 <attribute name="context">{'default_partner_type': 'parent'}</attribute>
             </xpath>
