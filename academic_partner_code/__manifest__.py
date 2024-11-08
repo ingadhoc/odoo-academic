@@ -19,7 +19,7 @@
 ##############################################################################
 {
     'name': 'Academic Partner Code',
-    'version': "17.0.1.2.0",
+    'version': "18.0.1.0.0",
     'sequence': 14,
     'summary': '',
     'author': 'ADHOC SA',
@@ -32,7 +32,7 @@
         'data/ir_sequence_data.xml',
         'views/res_partner_views.xml'
     ],
-    'installable': False,
+    'installable': True,
     'auto_install': False,
     'application': False,
 }
