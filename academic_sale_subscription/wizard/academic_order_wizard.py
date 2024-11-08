@@ -44,20 +44,9 @@ class OrderWizard(models.TransientModel):
 
     def _create_mass_subscription(self):
         subscriptions = self.env['sale.order']
-        academic_paying_role = self.env.ref('academic.paying_role')
         for student in self.student_ids:
-            if student.parent_links_by_student:
-                paying_role = student.student_link_ids.filtered(lambda x: academic_paying_role in x.role_ids).sorted('sequence')
-            else:
-                paying_role = student.commercial_partner_id.student_link_ids.filtered(
-                    lambda x: academic_paying_role in x.role_ids).sorted('sequence')
-            if not paying_role:
-                raise ValidationError(
-                        _("The student %s has no payment responsible for the payment set." % student.name)
-                    )
             subscription = self.env['sale.order'].create({
                 'partner_id': student.id,
-                'partner_invoice_id': paying_role[0].partner_id.id,
                 'plan_id': self.plan_id.id,
                 'pricelist_id': self.pricelist_id.id,
                 'next_invoice_date': self.next_invoice_date,

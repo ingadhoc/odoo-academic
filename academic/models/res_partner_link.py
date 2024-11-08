@@ -11,6 +11,7 @@ class ResPartner(models.Model):
     _name = 'res.partner.link'
     _description = 'res.partner.link'
     _check_company_auto = True
+    _order = 'sequence'
     _check_company_domain = models.check_company_domain_parent_of
 
     student_id = fields.Many2one('res.partner', 'Student or Family', required=True, ondelete='cascade')
