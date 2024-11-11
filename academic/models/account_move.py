@@ -29,24 +29,12 @@ class AccountMove(models.Model):
             else:
                 rec.student_ids = [(5, 0, 0)]
 
-    def _message_get_default_recipients(self):
-        """ Por defecto las plantillas mandan a partner_id pero para nosotros el partners es el estudiante.
-        Cambiamos plantillas para que usen el campo "use_default_to" y luego cae en este método de python donde
-        podemos ir mejorando a medida que nos pidan y modificar la logica de recipients.
-        Por ahora lo mandamos solo al partner de facturación si está definido
-        En facturas puntulamente, odoo suscribe al parter id en el metodo post.
-        Dejamos ese feateure y decidimos agregar otros responsables de pago en el envio de email
-        """
-        default_recipients = super()._message_get_default_recipients()
-        for record in self:
-            # calculo analogo sale.order.partner_invoice_ids (Eventulamente podemos hacer un helper en student link)
-            partners_invoice = record.student_id.student_link_ids.filtered(
-                lambda x: self.env.ref('academic.paying_role') in x.role_ids).mapped('partner_id') if record.student_id else False
-            payment_responsible = record.partner_id | partners_invoice
-            if payment_responsible:
-                default_recipients[record.id] = {
-                    'email_cc': False,
-                    'email_to': False,
-                    'partner_ids': payment_responsible.ids,
-                }
-        return default_recipients
+    def _post(self, soft=True):
+        for rec in self:
+            partners_invoice = rec.student_id.get_payment_responsible() if rec.student_id else self.env['res.partner']
+            rec.message_subscribe([
+                payment_responsible.id
+                for payment_responsible in rec.partner_id | partners_invoice
+                if payment_responsible not in rec.sudo().message_partner_ids
+            ])
+        return super()._post(soft=soft)

@@ -187,3 +187,10 @@ class ResPartner(models.Model):
             if len(student_group) > 1:
                 raise ValidationError("There shouldn't be two groups in the same year without a subject for partner %s." % rec.name)
             rec.current_main_group_id = student_group
+
+    @api.model
+    def get_payment_responsible(self):
+        self.ensure_one()
+        return self.student_link_ids.filtered(
+                lambda x: self.env.ref('academic.paying_role') in x.role_ids
+            ).mapped('partner_id')

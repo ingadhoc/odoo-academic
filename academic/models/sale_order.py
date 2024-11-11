@@ -15,9 +15,10 @@ class SaleOrder(models.Model):
     # dejamos solo depends a partner_id para que si cambia algo de la asignación no se re-calculen todas las ventas existentes
     @api.depends('partner_id')
     def _compute_partner_invoice(self):
-        for rec in self:
-            rec.partner_invoice_ids = rec.partner_id.student_link_ids.filtered(
-                lambda x: self.env.ref('academic.paying_role') in x.role_ids).mapped('partner_id') if rec.partner_id else False
+        orders = self.filtered('partner_id')
+        for rec in orders:
+            rec.partner_invoice_ids = rec.partner_id.get_payment_responsible()
+        (self - orders).partner_invoice_ids = False
 
     @api.depends('partner_invoice_ids')
     def _compute_partner_invoice_id(self):
@@ -32,6 +33,15 @@ class SaleOrder(models.Model):
         res = super()._prepare_invoice()
         res["student_id"] = self.partner_id.id
         return res
+
+    def action_confirm(self):
+        for rec in self:
+            rec.message_subscribe([
+                payment_responsible.id
+                for payment_responsible in rec.partner_invoice_id | rec.partner_invoice_ids
+                if payment_responsible not in rec.sudo().message_partner_ids
+            ])
+        return super().action_confirm()
 
     def _message_get_default_recipients(self):
         """ Por defecto las plantillas mandan a partner_id pero para nosotros el partners es el estudiante.
