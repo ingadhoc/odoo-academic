@@ -4,3 +4,4 @@
 ##############################################################################
 from . import portal_wizard_user
 from . import portal_wizard
+from . import account_move_send

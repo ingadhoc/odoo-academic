@@ -39,10 +39,10 @@
         'report_aeroo',
     ],
     'data': [
-        'data/res_partner_role_data.xml',
-        'data/res_users_data.xml',
         'security/academic_security.xml',
         'security/ir.model.access.csv',
+        'data/res_partner_role_data.xml',
+        'data/res_users_data.xml',
         'views/academic_menuitem.xml',
         'views/res_partner_views.xml',
         'views/academic_group_views.xml',
@@ -81,4 +81,5 @@
     'installable': True,
     'auto_install': False,
     'application': False,
+    'post_init_hook': 'post_init_hook',
 }
