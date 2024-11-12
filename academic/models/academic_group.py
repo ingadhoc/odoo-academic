@@ -103,13 +103,6 @@ class AcademicGroup(models.Model):
             name += ' - ' + _('Year: ') + str(line.year)
             line.complete_name = name
 
-    def copy(self, default=None):
-        if default is None:
-            default = {}
-        default = default.copy()
-        default['division_id'] = False
-        return super(AcademicGroup, self).copy(default)
-
     def create_students_users(self):
         '''
         This function create users if they don't exist for students related
@@ -141,23 +134,20 @@ class AcademicGroup(models.Model):
             group.student_ids_count = len(group.student_ids)
 
     def create_next_year_groups(self):
-        for rec in self.filtered(lambda x: x.study_plan_level_ids and x.level_id):
-            current_index = rec.study_plan_level_ids.ids.index(rec.level_id.id)
+        # estamos pasando de un año a otro sin usar study plan por lo siguiente:
+        # a) hay muchos colegios que no lo tienen bien implmentado
+        # b) los study plan no pueden reflejar todos los casos todavia (por )
+        
+        for rec in self:
+            next_group = rec.env['academic.group'].search([
+                ('year', '=', rec.year + 1),
+                ('company_id', '=', rec.company_id.id),
+                ('level_id', '=', rec.level_id.id),
+                ('division_id', '=', rec.division_id.id)
+            ], limit=1)
 
-            if current_index + 1 < len(rec.study_plan_level_ids):
-                next_level = rec.study_plan_level_ids[current_index + 1]
-
-                next_group = rec.env['academic.group'].search([
-                    ('year', '=', rec.year + 1),
-                    ('company_id', '=', rec.company_id.id),
-                    ('level_id', '=', next_level.id),
-                    ('division_id', '=', rec.division_id.id)
-                ], limit=1)
-
-                if not next_group:
-                    next_group = rec.env['academic.group'].create({
-                        'year': rec.year + 1,
-                        'division_id': rec.division_id.id,
-                        'level_id': next_level.id,
-                        'company_id': rec.company_id.id
-                    })
+            if not next_group:
+                next_group = rec.copy(default={
+                    'year': rec.year + 1,
+                    'student_ids': False,
+                })
