@@ -3,35 +3,49 @@
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="academic.view_academic_partner_form" />
         <field name="arch" type="xml">
-            <xpath expr="//field[@id='individual']" position="attributes">
-                <attribute name="invisible">is_company</attribute>
-                <attribute name="readonly">partner_type in ['student', 'parent', 'family']</attribute>
-                <attribute name="required">partner_type not in ['student', 'parent', 'family']</attribute>
-                <attribute name="force_save">1</attribute>
+            <xpath expr="//h1" position="attributes">
+                <attribute name="invisible">partner_type in ['student', 'parent', 'family']</attribute>
             </xpath>
-            <xpath expr="//field[@id='company']" position="attributes">
-                <attribute name="invisible">not is_company</attribute>
-                <attribute name="readonly">partner_type in ['student', 'parent', 'family']</attribute>
-                <attribute name="required">partner_type not in ['student', 'parent', 'family']</attribute>
-                <attribute name="force_save">1</attribute>
+            <xpath expr="//div[hasclass('o_row')]" position="attributes">
+                <attribute name="invisible">partner_type in ['student', 'parent', 'family']</attribute>
             </xpath>
-            <xpath expr="//group/group" position="after">
-                <group>
-                    <field
-                        name="lastname"
-                        invisible="partner_type not in ['student', 'parent', 'family']"
-                        required="partner_type in ['student', 'parent', 'family']"/>
-                    <field
-                        name="second_lastname"
-                        invisible="partner_type not in ['student', 'parent', 'family']"/>
-                    <field
-                        name="firstname"
-                        invisible="partner_type not in ['student', 'parent']"
-                        required="partner_type in ['student', 'parent']"/>
-                    <field
-                        name="middlename"
-                        invisible="partner_type not in ['student', 'parent']"/>
-                </group>
+            <xpath expr="//div[hasclass('oe_title')]" position="inside">
+                <div class="o_row mt-3">
+                    <div>
+                        <label for="lastname"/>
+                        <field
+                            name="lastname"
+                            string="Last Name"
+                            invisible="partner_type not in ['student', 'parent', 'family']"
+                            required="partner_type in ['student', 'parent', 'family']"
+                            placeholder="Last Name"/>
+                    </div>
+                    <div>
+                        <label for="second_lastname"/>
+                        <field
+                            name="second_lastname"
+                            string="Second Last Name"
+                            invisible="partner_type not in ['student', 'parent', 'family']"
+                            placeholder="Second Last Name"/>
+                    </div>
+                    <div>
+                        <label for="firstname"/>
+                        <field
+                            name="firstname"
+                            string="First Name"
+                            invisible="partner_type not in ['student', 'parent']"
+                            required="partner_type in ['student', 'parent']"
+                            placeholder="First Name"/>
+                    </div>
+                    <div>
+                        <label for="middlename"/>
+                        <field
+                            name="middlename"
+                            string="Middle Name"
+                            invisible="partner_type not in ['student', 'parent']"
+                            placeholder="Middle Name"/>
+                    </div>
+                </div>
             </xpath>
             <xpath expr="//field[@name='student_link_ids']/list//field[@name='partner_id']" position="attributes">
                 <attribute name="options">{'no_quick_create': True}</attribute>
