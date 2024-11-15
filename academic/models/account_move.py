@@ -1,4 +1,4 @@
-from odoo import _, models, fields, api
+from odoo import models, fields, api
 from odoo.exceptions import ValidationError
 
 
@@ -15,7 +15,7 @@ class AccountMove(models.Model):
         if invoices_wo_student:
             msg = _("Las facturas de clientes y notas de debito debe tener asociado siempre un alumno.")
             if len(invoices_wo_student) > 1:
-                msg += ".\n" + _("Los siguientes documentos no cumplen esa condición:") + "\n\n - %s" % '\n - '.join(invoices_wo_student.mapped('display_name'))
+                msg += ".\n" + self.env._("Los siguientes documentos no cumplen esa condición:") + "\n\n - %s" % '\n - '.join(invoices_wo_student.mapped('display_name'))
             raise ValidationError(msg)
 
     @api.depends('partner_id')
@@ -28,3 +28,13 @@ class AccountMove(models.Model):
                 rec.student_ids = [(6, 0, student_ids)]
             else:
                 rec.student_ids = [(5, 0, 0)]
+
+    def _post(self, soft=True):
+        for rec in self:
+            partners_invoice = rec.student_id.get_payment_responsible() if rec.student_id else self.env['res.partner']
+            rec.message_subscribe([
+                payment_responsible.id
+                for payment_responsible in rec.partner_id | partners_invoice
+                if payment_responsible not in rec.sudo().message_partner_ids
+            ])
+        return super()._post(soft=soft)

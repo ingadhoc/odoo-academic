@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_academic_order_wizard,academic.order.wizard,academic_sale_subscription.model_academic_order_wizard,academic.group_manager,1,1,1,1
+access_academic_order_wizard_line,academic.order.wizard.line,academic_sale_subscription.model_academic_order_wizard_line,academic.group_manager,1,1,1,1

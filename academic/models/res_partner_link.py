@@ -11,6 +11,7 @@ class ResPartner(models.Model):
     _name = 'res.partner.link'
     _description = 'res.partner.link'
     _check_company_auto = True
+    _order = 'sequence'
     _check_company_domain = models.check_company_domain_parent_of
 
     student_id = fields.Many2one('res.partner', 'Student or Family', required=True, ondelete='cascade')
@@ -21,6 +22,7 @@ class ResPartner(models.Model):
     role_ids = fields.Many2many('res.partner.role', string='Roles')
     partner_id = fields.Many2one('res.partner', required=True, ondelete='restrict', check_company=True)
     note = fields.Text(string="Notas")
+    sequence = fields.Integer(default=10)
 
     # @api.constrains('student_id', 'family_id')
     # def _check_student_or_family(self):
