@@ -19,7 +19,7 @@
 ##############################################################################
 {
     'name': 'Academic',
-    'version': "18.0.1.0.0",
+    'version': "18.0.1.1.0",
     'sequence': 14,
     'summary': '',
     'author': 'ADHOC SA',
@@ -41,6 +41,8 @@
     'data': [
         'security/academic_security.xml',
         'security/ir.model.access.csv',
+        'data/res_partner_role_data.xml',
+        'data/res_users_data.xml',
         'views/academic_menuitem.xml',
         'views/res_partner_views.xml',
         'views/academic_group_views.xml',
@@ -58,8 +60,6 @@
         'views/res_partner_link_views.xml',
         'views/res_partner_relationship_views.xml',
         'views/account_move_views.xml',
-        'data/res_users_data.xml',
-        'data/res_partner_role_data.xml',
         'wizards/portal_wizard_views.xml',
         'report/ir_actions_report.xml',
     ],
@@ -81,4 +81,5 @@
     'installable': True,
     'auto_install': False,
     'application': False,
+    'post_init_hook': 'post_init_hook',
 }

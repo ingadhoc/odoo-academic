@@ -1,4 +1,4 @@
-from odoo import api, fields, models, _
+from odoo import api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -31,7 +31,7 @@ class EmployeeAsignatures(models.Model):
                     ('id', '!=', record.id),
                     ('subject_id', '=', record.subject_id.id),
                     ('teacher_id', '=', record.teacher_id.id)]):
-                raise ValidationError(_(
+                raise ValidationError(self.env._(
                     'There is another record that contains the same subject \
                         and teacher'))
 
@@ -39,7 +39,7 @@ class EmployeeAsignatures(models.Model):
     def _check_level_ids(self):
         for record in self:
             if not record.level_ids:
-                raise ValidationError(_(
+                raise ValidationError(self.env._(
                     'You have to add at least a level for that subject'))
 
 
