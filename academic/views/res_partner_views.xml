@@ -80,6 +80,10 @@
                 <attribute name="invisible">partner_type == 'family'</attribute>
             </xpath>
 
+            <field name="category_id" position="attributes">
+                <attribute name="options">{'no_create': True}</attribute>
+            </field>
+
             <!-- ocultamos paginas y campos que no queremos si es familia o estudiante de contactos si no es compania -->
             <!-- <field name="vat" position="attributes">
                 <attribute name="attrs">{'invisible':[('partner_type','in',['student', 'family'])]}</attribute>
@@ -235,6 +239,7 @@
         <field name="inherit_id" ref="base.view_partner_tree"/>
         <field name="arch" type="xml">
             <list position="inside">
+                <field name="company_id" invisible="1"/>
                 <field name="promotion_id" column_invisible="context.get('default_partner_type', False) != 'student'"/>
             </list>
         </field>
