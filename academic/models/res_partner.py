@@ -106,6 +106,7 @@ class ResPartner(models.Model):
     # is_family = fields.Boolean()
     same_dni_partner_id = fields.Many2one('res.partner', string='Partner with same DNI', compute='_compute_same_dni_partner_id', store=False)
     current_main_group_id = fields.Many2one('academic.group', compute='_compute_current_main_group', store=True)
+    category_id = fields.Many2many(check_company=True)
 
     # @api.depends('is_family')
     # def _compute_company_type(self):
