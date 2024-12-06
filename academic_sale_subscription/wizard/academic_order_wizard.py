@@ -122,8 +122,17 @@ class OrderWizard(models.TransientModel):
             if not rec.order_wizard_line_ids:
                 raise ValidationError(self.env._("There must be product lines."))
 
+    @api.onchange('order_wizard_line_ids')
+    def _onchange_notification_price(self):
+        for rec in self:
             if rec.order_wizard_line_ids.filtered(lambda x: x.price <= 0):
-                raise ValidationError(self.env._("The product price should not be equal to or less than 0."))
+                return {
+                    'warning': {
+                        'title': self.env._("Warning"),
+                        'message': self.env._("There are products with price 0."),
+                        'type': 'notification',
+                    }
+                }
 
 
 class AcademicOrderWizardLine(models.TransientModel):
