@@ -243,13 +243,6 @@ msgstr "La duración no puede ser negativa ni 0."
 #. odoo-python
 #: code:addons/academic_sale_subscription/wizard/academic_order_wizard.py:0
 #, python-format
-msgid "The product price should not be equal to or less than 0."
-msgstr "El precio del producto no debe ser igual o menor que 0."
-
-#. module: academic_sale_subscription
-#. odoo-python
-#: code:addons/academic_sale_subscription/wizard/academic_order_wizard.py:0
-#, python-format
 msgid "The student %s has no payment responsible for the payment set."
 msgstr "El estudiante %s no tiene un responsable de pago seteado."
 
@@ -279,3 +272,17 @@ msgstr "Fecha de validez"
 #: model:ir.model.fields.selection,name:academic_sale_subscription.selection__sale_subscription_plan__duration_unit__year
 msgid "Years"
 msgstr "Años"
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/wizard/academic_order_wizard.py:0
+#, python-format
+msgid "Warning"
+msgstr "Precaución"
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/wizard/academic_order_wizard.py:0
+#, python-format
+msgid "There are products with price 0."
+msgstr "Hay productos con precio 0."
