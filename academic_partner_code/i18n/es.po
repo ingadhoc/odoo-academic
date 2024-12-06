@@ -1,0 +1,36 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* academic_partner_code
+# 
+# Translators:
+# Juan José Scarafía <scarafia.juanjose@gmail.com>, 2024
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-12-06 00:23+0000\n"
+"PO-Revision-Date: 2024-11-15 13:26+0000\n"
+"Last-Translator: Juan José Scarafía <scarafia.juanjose@gmail.com>, 2024\n"
+"Language-Team: Spanish (https://app.transifex.com/adhoc/teams/46451/es/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: es\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+
+#. module: academic_partner_code
+#: model:ir.model.fields,field_description:academic_partner_code.field_res_partner__academic_code
+#: model:ir.model.fields,field_description:academic_partner_code.field_res_users__academic_code
+msgid "Academic Code"
+msgstr ""
+
+#. module: academic_partner_code
+#: model:ir.model,name:academic_partner_code.model_res_partner
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: academic_partner_code
+#: model:ir.model.constraint,message:academic_partner_code.constraint_res_partner_academic_code_company_uniq
+msgid "The Academic Code must be unique within the same company!"
+msgstr ""
