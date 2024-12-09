@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
     'name': 'Academic Sale Subscription',
-    'version': "17.0.1.0.0",
+    'version': "17.0.1.1.0",
     'sequence': 14,
     'summary': '',
     'author': 'ADHOC SA',
@@ -14,6 +14,7 @@
     ],
     'data': [
         'security/ir.model.access.csv',
+        'data/ir.exports.line.csv',
         'views/sale_order_template_views.xml',
         'views/sale_order_views.xml',
         'views/sale_subscription_plan_views.xml',

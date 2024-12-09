@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
     'name': 'Academic Split Name',
-    'version': "17.0.1.0.0",
+    'version': "17.0.1.1.0",
     'sequence': 14,
     'summary': '',
     'author': 'ADHOC SA',
@@ -12,6 +12,7 @@
         'academic',
     ],
     'data': [
+        'data/ir.exports.line.csv',
         'views/res_partner_views.xml',
     ],
     'installable': True,

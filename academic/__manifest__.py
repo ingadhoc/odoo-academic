@@ -19,7 +19,7 @@
 ##############################################################################
 {
     'name': 'Academic',
-    'version': "17.0.1.11.0",
+    'version': "17.0.1.12.0",
     'sequence': 14,
     'summary': '',
     'author': 'ADHOC SA',
@@ -43,6 +43,8 @@
         'security/ir.model.access.csv',
         'data/res_partner_role_data.xml',
         'data/res_users_data.xml',
+        'data/export_data.xml',
+        'data/ir.exports.line.csv',
         'security/res_partner_category.xml',
         'views/academic_menuitem.xml',
         'views/res_partner_views.xml',

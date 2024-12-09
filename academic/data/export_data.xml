@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo noupdate="1">
+    <record id="ir_exports_families" model="ir.exports">
+        <field name="name">Export Families</field>
+        <field name="resource">res.partner</field>
+    </record>
+    <record id="ir_exports_relatives" model="ir.exports">
+        <field name="name">Export Relatives</field>
+        <field name="resource">res.partner</field>
+    </record>
+    <record id="ir_exports_students" model="ir.exports">
+        <field name="name">Export Students</field>
+        <field name="resource">res.partner</field>
+    </record>
+    <record id="ir_exports_product_template" model="ir.exports">
+        <field name="name">Export Products</field>
+        <field name="resource">product.template</field>
+    </record>
+    <record id="ir_exports_product_pricelist" model="ir.exports">
+        <field name="name">Export Pricelists</field>
+        <field name="resource">product.pricelist</field>
+    </record>
+    <record id="ir_exports_sale_order_template" model="ir.exports">
+        <field name="name">Export Quotation Templates</field>
+        <field name="resource">sale.order.template</field>
+    </record>
+</odoo>
