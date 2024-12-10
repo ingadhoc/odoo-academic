@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-06 00:23+0000\n"
+"POT-Creation-Date: 2024-12-09 16:20+0000\n"
 "PO-Revision-Date: 2024-11-27 20:16+0000\n"
 "Last-Translator: Juan José Scarafía <scarafia.juanjose@gmail.com>, 2024\n"
 "Language-Team: Spanish (https://app.transifex.com/adhoc/teams/46451/es/)\n"
@@ -284,9 +284,9 @@ msgstr "La duración no puede ser negativa ni 0."
 
 #. module: academic_sale_subscription
 #. odoo-python
-#, python-format
-msgid "The student %s has no payment responsible for the payment set."
-msgstr "El estudiante %s no tiene un responsable de pago seteado."
+#: code:addons/academic_sale_subscription/wizard/academic_order_wizard.py:0
+msgid "There are products with price 0."
+msgstr "Hay productos con precio 0."
 
 #. module: academic_sale_subscription
 #. odoo-python
@@ -310,20 +310,12 @@ msgid "Validity Date"
 msgstr "Fecha de validez"
 
 #. module: academic_sale_subscription
-#: model:ir.model.fields.selection,name:academic_sale_subscription.selection__sale_subscription_plan__duration_unit__year
-msgid "Years"
-msgstr "Años"
-
-#. module: academic_sale_subscription
 #. odoo-python
 #: code:addons/academic_sale_subscription/wizard/academic_order_wizard.py:0
-#, python-format
 msgid "Warning"
 msgstr "Precaución"
 
 #. module: academic_sale_subscription
-#. odoo-python
-#: code:addons/academic_sale_subscription/wizard/academic_order_wizard.py:0
-#, python-format
-msgid "There are products with price 0."
-msgstr "Hay productos con precio 0."
+#: model:ir.model.fields.selection,name:academic_sale_subscription.selection__sale_subscription_plan__duration_unit__year
+msgid "Years"
+msgstr "Años"
