@@ -26,11 +26,6 @@ msgid "Cancel"
 msgstr "Cancelar"
 
 #. module: academic_sale_subscription
-#: model:ir.actions.server,name:academic_sale_subscription.model_sale_order_subscription_change_customer
-msgid "Confirm sale order"
-msgstr "Confirmar pedido de venta"
-
-#. module: academic_sale_subscription
 #: model:ir.model.fields.selection,name:academic_sale_subscription.selection__academic_order_wizard__status_sale__confirmed
 msgid "Confirmed"
 msgstr "Confirmado"
