@@ -13,7 +13,7 @@ class SaleOrder(models.Model):
     def _set_deferred_end_date_from_template(self):
         self.ensure_one()
         if (not self.sale_order_template_id or self.sale_order_template_id.is_unlimited) and self.plan_id and not self.plan_id.is_unlimited:
-            self.write({'end_date': self.start_date + self.plan_id.duration - relativedelta(days=1)})
+            self.write({'end_date': self.next_invoice_date + self.plan_id.duration - relativedelta(days=1)})
         else:
             super()._set_deferred_end_date_from_template()
 
