@@ -1043,3 +1043,8 @@ msgstr "asignatura"
 #: model:ir.model.fields,help:academic.field_res_users__disabled_person
 msgid "¿Alumno/a con Dificultades de aprendizaje?"
 msgstr ""
+
+#. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.report_invoice_document
+msgid "<strong>Student Information:</strong>"
+msgstr "<strong>Información de Estudiante:</strong>"
