@@ -774,3 +774,8 @@ msgstr "Certificado de Alumno Regular"
 #: model:ir.actions.report,print_report_name:academic.report_certificate_regular_student
 msgid "'Certificate of Regular Student ' + object.name"
 msgstr "'Certificado de Alumno Regular ' + object.name"
+
+#. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.report_invoice_document
+msgid "<strong>Student Information:</strong>"
+msgstr "<strong>Información de Estudiante:</strong>"
