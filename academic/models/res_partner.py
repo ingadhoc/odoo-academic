@@ -87,11 +87,27 @@ class ResPartner(models.Model):
         a) en todo el codigo solo miremos siempre hijos, lo de la familia es un asistente
         b) si se marca llevar en estudiantes ya van a tener toda la data que tenía la familia """
         for rec in self.filtered(lambda x: x.partner_type == 'student' and x.parent_id and not x.parent_links_by_student):
-            rec.student_link_ids = [(5, 0, 0)] + [(0, 0, {
-                'relationship_id': x.relationship_id.id,
-                'role_ids': x.role_ids,
-                'partner_id': x.partner_id.id,
-                'note': x.note}) for x in rec.parent_id.student_link_ids]
+            commands = []
+            for link in rec.parent_id.student_link_ids:
+                existing_link = rec.student_link_ids.filtered(lambda l: l.partner_id == link.partner_id)
+                if existing_link:
+                    existing_link.write({
+                        'relationship_id': link.relationship_id.id,
+                        'note': link.note,
+                        'role_ids': [(6, 0, link.role_ids.ids)],
+                    })
+                else:
+                    commands.append((0, 0, {
+                        'partner_id': link.partner_id.id,
+                        'relationship_id': link.relationship_id.id,
+                        'note': link.note,
+                        'role_ids': [(6, 0, link.role_ids.ids)],
+                    }))
+            parent_partner_ids = rec.parent_id.student_link_ids.mapped('partner_id')
+            obsolete_links = rec.student_link_ids.filtered(lambda l: l.partner_id not in parent_partner_ids)
+            commands += [(2, link.id) for link in obsolete_links]
+            if commands:
+                rec.student_link_ids = commands
 
     partner_link_ids = fields.One2many('res.partner.link', 'partner_id', string='Roles', copy=True)
     links_by_student = fields.Boolean(string='Contactos y Roles por Estudiante')
