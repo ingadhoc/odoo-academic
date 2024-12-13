@@ -12,7 +12,8 @@
             <xpath expr="//div[hasclass('oe_title')]" position="inside">
                 <div class="o_row mt-3">
                     <div>
-                        <label for="lastname"/>
+                        <label for="lastname"
+                            invisible="partner_type not in ['student', 'parent', 'family']"/>
                         <field
                             name="lastname"
                             string="Last Name"
@@ -21,7 +22,8 @@
                             placeholder="Last Name"/>
                     </div>
                     <div>
-                        <label for="second_lastname"/>
+                        <label for="second_lastname"
+                            invisible="partner_type not in ['student', 'parent', 'family']"/>
                         <field
                             name="second_lastname"
                             string="Second Last Name"
@@ -29,7 +31,8 @@
                             placeholder="Second Last Name"/>
                     </div>
                     <div>
-                        <label for="firstname"/>
+                        <label for="firstname"
+                            invisible="partner_type not in ['student', 'parent']"/>
                         <field
                             name="firstname"
                             string="First Name"
@@ -38,7 +41,8 @@
                             placeholder="First Name"/>
                     </div>
                     <div>
-                        <label for="middlename"/>
+                        <label for="middlename"
+                            invisible="partner_type not in ['student', 'parent']"/>
                         <field
                             name="middlename"
                             string="Middle Name"
