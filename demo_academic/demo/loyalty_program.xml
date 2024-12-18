@@ -1,0 +1,10 @@
+<odoo noupdate="1">
+    <record id="loyalty_program_discount_sibling" model="loyalty.program">
+        <field name="name">Discount 10% for Sibling</field>
+        <field name="sale_domain" eval="[( 'partner_id.category_id', '=', ref('demo_academic.partner_category_discount_sibling') )]"/>
+    </record>
+    <record id="loyalty_program_discount_official" model="loyalty.program">
+        <field name="name">Discount 20% for Official's Child</field>
+        <field name="sale_domain" eval="[( 'partner_id.category_id', '=', ref('demo_academic.partner_category_discount_official') )]"/>
+    </record>
+</odoo>

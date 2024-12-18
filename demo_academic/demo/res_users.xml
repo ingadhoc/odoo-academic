@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <record id="res_users_portal_parent_1" model="res.users" context="{'no_reset_password': True}">
+        <field name="partner_id" ref="res_partner_father_1"/>
+        <field name="login">parent_portal_1@academic.com</field>
+        <field name="password">parent_portal_1@academic.com</field>
+        <field name="groups_id" eval="[(6, 0, [ref('academic.group_portal_parent')])]"/>
+        <field name="company_ids" eval="[(6, 0, [ref('base.main_company')])]"/>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+</odoo>

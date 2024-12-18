@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo noupdate="1">
+    <record id="product_template_enrollment_pink_room" model="product.template">
+        <field name="name">Enrollment Pink Room</field>
+        <field name="detailed_type">service</field>
+        <field name="recurring_invoice" eval="True"/>
+        <field name="list_price">5000.0</field>
+        <field name="invoice_policy">order</field>
+    </record>
+    <record id="product_template_enrollment_blue_room" model="product.template">
+        <field name="name">Enrollment Blue Room</field>
+        <field name="detailed_type">service</field>
+        <field name="recurring_invoice" eval="True"/>
+        <field name="list_price">5000.0</field>
+        <field name="invoice_policy">order</field>
+    </record>
+    <record id="product_template_tuition_pink_room" model="product.template">
+        <field name="name">Tuition Pink Room</field>
+        <field name="detailed_type">service</field>
+        <field name="recurring_invoice" eval="True"/>
+        <field name="list_price">10000.0</field>
+        <field name="invoice_policy">order</field>
+    </record>
+    <record id="product_template_tuition_blue_room" model="product.template">
+        <field name="name">Tuition Blue Room</field>
+        <field name="detailed_type">service</field>
+        <field name="recurring_invoice" eval="True"/>
+        <field name="list_price">10000.0</field>
+        <field name="invoice_policy">order</field>
+    </record>
+    <record id="product_template_enrollment_primary_level" model="product.template">
+        <field name="name">Enrollment Primary Level</field>
+        <field name="detailed_type">service</field>
+        <field name="recurring_invoice" eval="True"/>
+        <field name="list_price">7000.0</field>
+        <field name="invoice_policy">order</field>
+    </record>
+    <record id="product_template_enrollment_secondary_level" model="product.template">
+        <field name="name">Enrollment Secondary Level</field>
+        <field name="detailed_type">service</field>
+        <field name="recurring_invoice" eval="True"/>
+        <field name="list_price">7500.0</field>
+        <field name="invoice_policy">order</field>
+    </record>
+    <record id="product_template_tuition_primary_level" model="product.template">
+        <field name="name">Tuition Primary Level</field>
+        <field name="detailed_type">service</field>
+        <field name="recurring_invoice" eval="True"/>
+        <field name="list_price">12000.0</field>
+        <field name="invoice_policy">order</field>
+    </record>
+    <record id="product_template_tuition_secondary_level" model="product.template">
+        <field name="name">Tuition Secondary Level</field>
+        <field name="detailed_type">service</field>
+        <field name="recurring_invoice" eval="True"/>
+        <field name="list_price">13000.0</field>
+        <field name="invoice_policy">order</field>
+    </record>
+    <record id="product_template_interest_due_debt" model="product.template">
+        <field name="name">Interest Due Debt</field>
+        <field name="detailed_type">service</field>
+        <field name="recurring_invoice" eval="True"/>
+        <field name="list_price">0.0</field>
+        <field name="invoice_policy">order</field>
+    </record>
+    <record id="product_template_late_payment_fee" model="product.template">
+        <field name="name">Late Payment Fee</field>
+        <field name="detailed_type">service</field>
+        <field name="recurring_invoice" eval="True"/>
+        <field name="list_price">500.0</field>
+        <field name="invoice_policy">order</field>
+    </record>
+    <record id="product_template_extracurricular_sports" model="product.template">
+        <field name="name">Extracurricular Sports</field>
+        <field name="detailed_type">service</field>
+        <field name="recurring_invoice" eval="True"/>
+        <field name="list_price">3000.0</field>
+        <field name="invoice_policy">order</field>
+    </record>
+    <record id="product_template_extracurricular_english" model="product.template">
+        <field name="name">Extracurricular English</field>
+        <field name="detailed_type">service</field>
+        <field name="recurring_invoice" eval="True"/>
+        <field name="list_price">4000.0</field>
+        <field name="invoice_policy">order</field>
+    </record>
+    <record id="product_template_extracurricular_swimming" model="product.template">
+        <field name="name">Extracurricular Swimming</field>
+        <field name="detailed_type">service</field>
+        <field name="recurring_invoice" eval="True"/>
+        <field name="list_price">3500.0</field>
+        <field name="invoice_policy">order</field>
+    </record>
+    <record id="product_template_official_discount" model="product.template">
+        <field name="name">Discount for Official's Child</field>
+        <field name="detailed_type">service</field>
+        <field name="recurring_invoice" eval="True"/>
+        <field name="list_price">-2000.0</field>
+        <field name="invoice_policy">order</field>
+    </record>
+    <record id="product_template_discount_sibling" model="product.template">
+        <field name="name">Discount for Sibling</field>
+        <field name="detailed_type">service</field>
+        <field name="recurring_invoice" eval="True"/>
+        <field name="list_price">-1500.0</field>
+        <field name="invoice_policy">order</field>
+    </record>
+</odoo>
