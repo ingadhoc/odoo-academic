@@ -1,0 +1,8 @@
+<odoo noupdate="1">
+    <record id="partner_category_discount_sibling" model="res.partner.category">
+        <field name="name">Sibling Discount 10%</field>
+    </record>
+    <record id="partner_category_discount_official" model="res.partner.category">
+        <field name="name">Official's Child Discount 20%</field>
+    </record>
+</odoo>
