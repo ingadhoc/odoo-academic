@@ -1,0 +1,6 @@
+<odoo noupdate="1">
+    <record id="academic_loyalty_rule" model="loyalty.rule">
+        <field name="minimum_amount">0</field>
+        <field name="product_domain">[("recurring_invoice", "=", True)]</field>
+    </record>
+</odoo>

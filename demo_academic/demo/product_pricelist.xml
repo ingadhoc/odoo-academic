@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo noupdate="1">
+    <record id="product_pricelist_los_molinos" model="product.pricelist">
+        <field name="name">Los Molinos Pricelist</field>
+    </record>
+    <record id="product_pricelist_los_arroyos" model="product.pricelist">
+        <field name="name">Los Arroyos Pricelist</field>
+    </record>
+    <record id="product_pricelist_apdes" model="product.pricelist">
+        <field name="name">APDES Pricelist</field>
+    </record>
+</odoo>
