@@ -3,21 +3,42 @@
 # 	* academic
 # 
 # Translators:
-# Juan Rivero <jr@adhoc.com.ar>, 2021
+# Juan José Scarafía <scarafia.juanjose@gmail.com>, 2024
+# bafadhoc, 2024
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 13.0\n"
+"Project-Id-Version: Odoo Server 17.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-07 09:24+0000\n"
-"PO-Revision-Date: 2021-02-07 09:24+0000\n"
-"Last-Translator: Juan Rivero <jr@adhoc.com.ar>, 2021\n"
-"Language-Team: Spanish (https://www.transifex.com/adhoc/teams/46451/es/)\n"
+"POT-Creation-Date: 2024-12-19 15:15+0000\n"
+"PO-Revision-Date: 2024-12-19 15:15+0000\n"
+"Last-Translator: bafadhoc, 2024\n"
+"Language-Team: Spanish (https://app.transifex.com/adhoc/teams/46451/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Language: es\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+
+#. module: academic
+#: model:ir.actions.report,print_report_name:academic.report_certificate_regular_student
+msgid "'Certificate of Regular Student ' + object.name"
+msgstr "'Certificado de Alumno Regular ' + object.name"
+
+#. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
+msgid "<span>: </span>"
+msgstr ""
+
+#. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.report_invoice_document
+msgid "<strong>Student Information:</strong>"
+msgstr "<strong>Información de Estudiante:</strong>"
+
+#. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
+msgid "A partner with the same dni already exists ("
+msgstr "Ya existe un contacto con el mismo dni ("
 
 #. module: academic
 #: model:ir.module.category,description:academic.module_category_academic
@@ -27,6 +48,16 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:academic.academic_link
 msgid "Academic"
 msgstr "Académico"
+
+#. module: academic
+#: model:ir.model,name:academic.model_account_move_send
+msgid "Account Move Send"
+msgstr "Enviar movimiento de cuenta"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_group__active
+msgid "Active"
+msgstr "Activo"
 
 #. module: academic
 #: model:ir.model.fields.selection,name:academic.selection__academic_group__type__administrator
@@ -94,6 +125,16 @@ msgid "By object"
 msgstr "Por objeto"
 
 #. module: academic
+#: model:ir.actions.report,name:academic.report_certificate_regular_student
+msgid "Certificate of Regular Student"
+msgstr "Certificado de Alumno Regular"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_res_partner_role__color
+msgid "Color Index"
+msgstr ""
+
+#. module: academic
 #: model:ir.actions.act_window,name:academic.action_res_company_form
 #: model:ir.model,name:academic.model_res_company
 #: model:ir.ui.menu,name:academic.menu_action_res_company_form
@@ -102,6 +143,9 @@ msgstr "Compañías"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_group__company_id
+#: model:ir.model.fields,field_description:academic.field_res_partner__company_id
+#: model:ir.model.fields,field_description:academic.field_res_partner_category__company_id
+#: model:ir.model.fields,field_description:academic.field_res_partner_link__company_id
 msgid "Company"
 msgstr "Compañia"
 
@@ -121,6 +165,21 @@ msgid "Contact"
 msgstr "Contacto"
 
 #. module: academic
+#: model:ir.actions.act_window,name:academic.action_academic_partner_link
+#: model:ir.model.fields,field_description:academic.field_res_partner__student_link_ids
+#: model:ir.model.fields,field_description:academic.field_res_users__student_link_ids
+#: model:ir.ui.menu,name:academic.menu_partner_link
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
+msgid "Contactos y Roles"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_res_partner__links_by_student
+#: model:ir.model.fields,field_description:academic.field_res_users__links_by_student
+msgid "Contactos y Roles por Estudiante"
+msgstr ""
+
+#. module: academic
 #: model:ir.ui.menu,name:academic.menu_partners
 msgid "Contacts"
 msgstr "Contactos"
@@ -131,16 +190,13 @@ msgid "Contacts Relationship"
 msgstr "Relación de los contactos"
 
 #. module: academic
-#: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
-msgid "Create User"
-msgstr "Crear Usuario"
-
-#. module: academic
 #: model_terms:ir.actions.act_window,help:academic.action_res_company_form
 msgid ""
 "Create and manage the companies that will be managed by odoo from here. "
 "Shops or subsidiaries can be created and maintained from here."
 msgstr ""
+"Cree y gestione las empresas que serán administradas por Odoo desde aquí. "
+"Tiendas o subsidiarias pueden ser creadas y mantenidas desde este lugar."
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division__create_uid
@@ -151,7 +207,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic.field_academic_study_plan__create_uid
 #: model:ir.model.fields,field_description:academic.field_academic_subject__create_uid
 #: model:ir.model.fields,field_description:academic.field_hr_employee_asignatures__create_uid
+#: model:ir.model.fields,field_description:academic.field_res_partner_link__create_uid
 #: model:ir.model.fields,field_description:academic.field_res_partner_relationship__create_uid
+#: model:ir.model.fields,field_description:academic.field_res_partner_role__create_uid
 msgid "Created by"
 msgstr "Creado por"
 
@@ -164,15 +222,35 @@ msgstr "Creado por"
 #: model:ir.model.fields,field_description:academic.field_academic_study_plan__create_date
 #: model:ir.model.fields,field_description:academic.field_academic_subject__create_date
 #: model:ir.model.fields,field_description:academic.field_hr_employee_asignatures__create_date
+#: model:ir.model.fields,field_description:academic.field_res_partner_link__create_date
 #: model:ir.model.fields,field_description:academic.field_res_partner_relationship__create_date
+#: model:ir.model.fields,field_description:academic.field_res_partner_role__create_date
 msgid "Created on"
 msgstr "Creado el"
+
+#. module: academic
+#: model:academic.level,name:academic.academic_course_11
+#: model:academic.level,name:academic.academic_course_4
+msgid "Cuarto Grado"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_res_partner__current_main_group_id
+#: model:ir.model.fields,field_description:academic.field_res_users__current_main_group_id
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_filter
+msgid "Current Main Group"
+msgstr "Grupo Principal Actual"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_sale_order__partner_id
+msgid "Customer"
+msgstr "Cliente"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_res_partner__dni
 #: model:ir.model.fields,field_description:academic.field_res_users__dni
 msgid "DNI"
-msgstr "DNI"
+msgstr ""
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_res_partner__disabled_person
@@ -189,7 +267,9 @@ msgstr "¿Dificultades de aprendizaje?"
 #: model:ir.model.fields,field_description:academic.field_academic_study_plan__display_name
 #: model:ir.model.fields,field_description:academic.field_academic_subject__display_name
 #: model:ir.model.fields,field_description:academic.field_hr_employee_asignatures__display_name
+#: model:ir.model.fields,field_description:academic.field_res_partner_link__display_name
 #: model:ir.model.fields,field_description:academic.field_res_partner_relationship__display_name
+#: model:ir.model.fields,field_description:academic.field_res_partner_role__display_name
 msgid "Display Name"
 msgstr "Mostrar Nombre"
 
@@ -204,6 +284,12 @@ msgstr "División"
 #: model:ir.ui.menu,name:academic.menu_divisions
 msgid "Divisions"
 msgstr "División"
+
+#. module: academic
+#: model:ir.model.constraint,message:academic.constraint_res_partner_link_link_unique
+msgid ""
+"El contacto debe ser agregado por unica vez en cada familia o estudiante"
+msgstr ""
 
 #. module: academic
 #: model:ir.model,name:academic.model_hr_employee
@@ -226,6 +312,18 @@ msgid "Employees Asignatures"
 msgstr "Asignaturas de los Empleados"
 
 #. module: academic
+#. odoo-python
+#: code:addons/academic/models/res_partner.py:0
+#, python-format
+msgid "Esta función se encuentra en desarrollo!"
+msgstr ""
+
+#. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
+msgid "Estudiantes"
+msgstr ""
+
+#. module: academic
 #: model:ir.ui.menu,name:academic.menu_eval_config
 msgid "Evaluations"
 msgstr "Evaluacione"
@@ -235,6 +333,25 @@ msgstr "Evaluacione"
 #: model:ir.model.fields,field_description:academic.field_res_users__exit_date
 msgid "Exit Date"
 msgstr "Fecha de Salida"
+
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_academic_partner_families
+#: model:ir.ui.menu,name:academic.menu_families
+msgid "Families"
+msgstr "Familias"
+
+#. module: academic
+#: model:ir.model.fields.selection,name:academic.selection__res_partner__partner_type__family
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
+msgid "Family"
+msgstr "Familia"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_res_company__family_required
+#: model:ir.model.fields,field_description:academic.field_res_partner__company_family_required
+#: model:ir.model.fields,field_description:academic.field_res_users__company_family_required
+msgid "Family Required"
+msgstr "Familia Requerida"
 
 #. module: academic
 #: model:ir.model.fields.selection,name:academic.selection__res_partner__sex__f
@@ -278,9 +395,14 @@ msgid "Gral Administrators"
 msgstr "Administrador General"
 
 #. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.wizard_view_inherit
+msgid "Grant Access to All"
+msgstr "Dar acceso a todos"
+
+#. module: academic
 #: model:ir.model,name:academic.model_portal_wizard
 msgid "Grant Portal Access"
-msgstr "Conceder Acceso al Portal"
+msgstr "Otorgar acceso al portal "
 
 #. module: academic
 #: model:ir.model.constraint,message:academic.constraint_academic_group_group_unique
@@ -313,9 +435,11 @@ msgstr "Grupos"
 #: model:ir.model.fields,field_description:academic.field_academic_study_plan__id
 #: model:ir.model.fields,field_description:academic.field_academic_subject__id
 #: model:ir.model.fields,field_description:academic.field_hr_employee_asignatures__id
+#: model:ir.model.fields,field_description:academic.field_res_partner_link__id
 #: model:ir.model.fields,field_description:academic.field_res_partner_relationship__id
+#: model:ir.model.fields,field_description:academic.field_res_partner_role__id
 msgid "ID"
-msgstr "ID"
+msgstr "ID (identificación)"
 
 #. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
@@ -328,17 +452,29 @@ msgid "Institution..."
 msgstr "Institución..."
 
 #. module: academic
-#: model:ir.model.fields,field_description:academic.field_academic_division____last_update
-#: model:ir.model.fields,field_description:academic.field_academic_group____last_update
-#: model:ir.model.fields,field_description:academic.field_academic_level____last_update
-#: model:ir.model.fields,field_description:academic.field_academic_promotion____last_update
-#: model:ir.model.fields,field_description:academic.field_academic_section____last_update
-#: model:ir.model.fields,field_description:academic.field_academic_study_plan____last_update
-#: model:ir.model.fields,field_description:academic.field_academic_subject____last_update
-#: model:ir.model.fields,field_description:academic.field_hr_employee_asignatures____last_update
-#: model:ir.model.fields,field_description:academic.field_res_partner_relationship____last_update
-msgid "Last Modified on"
-msgstr "Última modificación el"
+#: model:ir.model,name:academic.model_account_move
+msgid "Journal Entry"
+msgstr "Asiento contable"
+
+#. module: academic
+#: model:ir.model,name:academic.model_account_move_line
+msgid "Journal Item"
+msgstr "Apunte contable"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_res_partner__parent_links_by_student
+#: model:ir.model.fields,field_description:academic.field_res_users__parent_links_by_student
+msgid "La familia define Contactos y Roles por Estudiante"
+msgstr ""
+
+#. module: academic
+#. odoo-python
+#: code:addons/academic/models/account_move.py:0
+#, python-format
+msgid ""
+"Las facturas de clientes y notas de debito debe tener asociado siempre un "
+"alumno."
+msgstr ""
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division__write_uid
@@ -349,7 +485,9 @@ msgstr "Última modificación el"
 #: model:ir.model.fields,field_description:academic.field_academic_study_plan__write_uid
 #: model:ir.model.fields,field_description:academic.field_academic_subject__write_uid
 #: model:ir.model.fields,field_description:academic.field_hr_employee_asignatures__write_uid
+#: model:ir.model.fields,field_description:academic.field_res_partner_link__write_uid
 #: model:ir.model.fields,field_description:academic.field_res_partner_relationship__write_uid
+#: model:ir.model.fields,field_description:academic.field_res_partner_role__write_uid
 msgid "Last Updated by"
 msgstr "Última Actualización por"
 
@@ -362,7 +500,9 @@ msgstr "Última Actualización por"
 #: model:ir.model.fields,field_description:academic.field_academic_study_plan__write_date
 #: model:ir.model.fields,field_description:academic.field_academic_subject__write_date
 #: model:ir.model.fields,field_description:academic.field_hr_employee_asignatures__write_date
+#: model:ir.model.fields,field_description:academic.field_res_partner_link__write_date
 #: model:ir.model.fields,field_description:academic.field_res_partner_relationship__write_date
+#: model:ir.model.fields,field_description:academic.field_res_partner_role__write_date
 msgid "Last Updated on"
 msgstr "Última modificación el"
 
@@ -383,6 +523,18 @@ msgid "Levels"
 msgstr "Niveles"
 
 #. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
+msgid "Los Contactos y Roles son gestionados en"
+msgstr ""
+
+#. module: academic
+#. odoo-python
+#: code:addons/academic/models/account_move.py:0
+#, python-format
+msgid "Los siguientes documentos no cumplen esa condición:"
+msgstr ""
+
+#. module: academic
 #: model:ir.model.fields.selection,name:academic.selection__res_partner__sex__m
 msgid "Male"
 msgstr "Masculino"
@@ -390,13 +542,18 @@ msgstr "Masculino"
 #. module: academic
 #: model:res.groups,name:academic.group_manager
 msgid "Manager"
-msgstr "Manager"
+msgstr "Gerente"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_res_partner__medical_insurance
 #: model:ir.model.fields,field_description:academic.field_res_users__medical_insurance
 msgid "Medical Insurance"
 msgstr "Seguro médico"
+
+#. module: academic
+#: model:ir.actions.server,name:academic.move_to_next_year
+msgid "Move to Next Year"
+msgstr "Mover al Año Siguiente"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division__name
@@ -407,6 +564,7 @@ msgstr "Seguro médico"
 #: model:ir.model.fields,field_description:academic.field_academic_subject__name
 #: model:ir.model.fields,field_description:academic.field_hr_employee_asignatures__name
 #: model:ir.model.fields,field_description:academic.field_res_partner_relationship__name
+#: model:ir.model.fields,field_description:academic.field_res_partner_role__name
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_division_filter
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_level_filter
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_promotion_filter
@@ -416,20 +574,24 @@ msgid "Name"
 msgstr "Nombre"
 
 #. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_filter
+msgid "No Payment Responsible"
+msgstr "No hay Responsable de Pago"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_res_partner_link__note
+msgid "Notas"
+msgstr ""
+
+#. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
+msgid "Open"
+msgstr "Abierto"
+
+#. module: academic
 #: model:ir.model.fields.selection,name:academic.selection__res_partner__partner_type__other
 msgid "Other"
 msgstr "Otro"
-
-#. module: academic
-#: model:ir.model.fields.selection,name:academic.selection__academic_group__type__parent
-#: model:ir.model.fields.selection,name:academic.selection__res_partner__partner_type__parent
-msgid "Relative"
-msgstr "Pariente"
-
-#. module: academic
-#: model:res.groups,name:academic.group_portal_parent
-msgid "Parent's Portal"
-msgstr "Portal de Padres"
 
 #. module: academic
 #: model:res.groups,comment:academic.group_portal_parent
@@ -441,36 +603,57 @@ msgstr ""
 "                Normalmente no pertenecen a los grupos usuales de odoo."
 
 #. module: academic
-#: model:ir.actions.act_window,name:academic.action_academic_partner_parents
-#: model:ir.ui.menu,name:academic.menu_parents
-msgid "Parents"
-msgstr "Padres"
+#: model:ir.model.fields,field_description:academic.field_res_partner_link__partner_id
+msgid "Partner"
+msgstr "Contactos"
 
 #. module: academic
-#: model:ir.model.fields,field_description:academic.field_res_partner__partner_type
-#: model:ir.model.fields,field_description:academic.field_res_users__partner_type
-msgid "Partner Type"
+#: model:ir.model.fields,field_description:academic.field_sale_order__partner_invoice_ids
+msgid "Partner Invoice"
 msgstr ""
+
+#. module: academic
+#: model:ir.model,name:academic.model_res_partner_category
+msgid "Partner Tags"
+msgstr "Etiquetas del contacto"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_res_partner__same_dni_partner_id
+#: model:ir.model.fields,field_description:academic.field_res_users__same_dni_partner_id
+msgid "Partner with same DNI"
+msgstr "Contacto con mismo DNI"
+
+#. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.academic_view_move_form
+#: model_terms:ir.ui.view,arch_db:academic.view_order_form
+msgid "Payment responsible"
+msgstr "Responsable de Pago"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_res_company__study_plan_id
 msgid "Plan de Estudio"
-msgstr "Plan de Estudio"
+msgstr ""
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_portal_wizard__portal_id
 msgid "Portal"
-msgstr "Portal"
+msgstr ""
+
+#. module: academic
+#: model:ir.module.category,name:academic.category_portal_academic
+msgid "Portal Academic"
+msgstr "Portal Académico"
 
 #. module: academic
 #: model:ir.model,name:academic.model_portal_wizard_user
 msgid "Portal User Config"
-msgstr "Configuración del Usuario Portal"
+msgstr "Configuración del usuario del portal"
 
 #. module: academic
-#: model_terms:ir.ui.view,arch_db:academic.view_academic_group_form
-msgid "Print Users"
-msgstr "Imprimir Usuarios"
+#: model:academic.level,name:academic.academic_course_1
+#: model:academic.level,name:academic.academic_course_8
+msgid "Primer Grado"
+msgstr ""
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_res_partner__promotion_id
@@ -485,21 +668,72 @@ msgid "Promotions"
 msgstr "Promociones"
 
 #. module: academic
+#: model:academic.level,name:academic.academic_course_12
+#: model:academic.level,name:academic.academic_course_5
+msgid "Quinto Grado"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_account_move_line__ref
+msgid "Ref"
+msgstr "Referencia"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_res_partner__parent_id
+#: model:ir.model.fields,field_description:academic.field_res_users__parent_id
+msgid "Related Company"
+msgstr "Compañía relacionada"
+
+#. module: academic
 #: model:ir.model.fields,field_description:academic.field_res_partner__related_user_id
 #: model:ir.model.fields,field_description:academic.field_res_users__related_user_id
 msgid "Related User"
 msgstr "Usuario Relacionado"
 
 #. module: academic
-#: model:ir.model.fields,field_description:academic.field_res_partner__relationship_id
-#: model:ir.model.fields,field_description:academic.field_res_users__relationship_id
+#: model:ir.model.fields,field_description:academic.field_res_partner_link__relationship_id
 msgid "Relationship"
 msgstr "Relación"
+
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_res_partner_relationship_levels
+#: model:ir.ui.menu,name:academic.menu_relationships
+msgid "Relationships"
+msgstr "Relaciones"
+
+#. module: academic
+#: model:ir.model.fields.selection,name:academic.selection__academic_group__type__parent
+#: model:ir.model.fields.selection,name:academic.selection__res_partner__partner_type__parent
+msgid "Relative"
+msgstr "Pariente"
+
+#. module: academic
+#: model:res.groups,name:academic.group_portal_parent
+msgid "Relative's Portal"
+msgstr "Portal de Padres"
+
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_academic_partner_parents
+#: model:ir.ui.menu,name:academic.menu_parents
+msgid "Relatives"
+msgstr "Padres"
 
 #. module: academic
 #: model:ir.ui.menu,name:academic.menu_portal_reporting
 msgid "Reporting"
 msgstr "Informando"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_res_partner__partner_link_ids
+#: model:ir.model.fields,field_description:academic.field_res_partner_link__role_ids
+#: model:ir.model.fields,field_description:academic.field_res_users__partner_link_ids
+msgid "Roles"
+msgstr ""
+
+#. module: academic
+#: model:ir.model,name:academic.model_sale_order
+msgid "Sales Order"
+msgstr "Pedido de venta"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_level__section_id
@@ -521,7 +755,15 @@ msgid "Sections"
 msgstr "Sección"
 
 #. module: academic
+#: model:academic.level,name:academic.academic_course_2
+#: model:academic.level,name:academic.academic_course_9
+msgid "Segundo Grado"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_group__sequence
 #: model:ir.model.fields,field_description:academic.field_academic_level__sequence
+#: model:ir.model.fields,field_description:academic.field_res_partner_link__sequence
 msgid "Sequence"
 msgstr "Secuencia"
 
@@ -532,6 +774,13 @@ msgid "Sex"
 msgstr "Género"
 
 #. module: academic
+#: model:academic.level,name:academic.academic_course_13
+#: model:academic.level,name:academic.academic_course_6
+msgid "Sexto Grado"
+msgstr ""
+
+#. module: academic
+#. odoo-python
 #: code:addons/academic/wizards/portal_wizard_user.py:0
 #: code:addons/academic/wizards/portal_wizard_user.py:0
 #, python-format
@@ -541,12 +790,9 @@ msgstr "Algunos contactos no tienen una dirección de email válida:"
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_group__student_ids
 #: model:ir.model.fields,field_description:academic.field_account_bank_statement_line__student_id
-#: model:ir.model.fields,field_description:academic.field_account_bank_statement_line__student_ids
 #: model:ir.model.fields,field_description:academic.field_account_move__student_id
-#: model:ir.model.fields,field_description:academic.field_account_move__student_ids
 #: model:ir.model.fields,field_description:academic.field_account_move_line__student_id
 #: model:ir.model.fields,field_description:academic.field_account_payment__student_id
-#: model:ir.model.fields,field_description:academic.field_account_payment__student_ids
 #: model:ir.model.fields,field_description:academic.field_res_partner__student_ids
 #: model:ir.model.fields,field_description:academic.field_res_users__student_ids
 #: model:ir.model.fields.selection,name:academic.selection__academic_group__type__student
@@ -557,10 +803,20 @@ msgid "Student"
 msgstr "Estudiante"
 
 #. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_group__student_ids_count
+msgid "Student Count"
+msgstr "Total de Estudiantes"
+
+#. module: academic
 #: model:ir.model.fields,field_description:academic.field_res_partner__student_group_ids
 #: model:ir.model.fields,field_description:academic.field_res_users__student_group_ids
 msgid "Student Groups"
 msgstr "Grupos de Estudiantes"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_res_partner_link__student_id
+msgid "Student or Family"
+msgstr "Estudiante o Familia"
 
 #. module: academic
 #: model:res.groups,name:academic.group_portal_student
@@ -587,6 +843,13 @@ msgid "Students"
 msgstr "Estudiantes"
 
 #. module: academic
+#: model:ir.model.fields,field_description:academic.field_account_bank_statement_line__student_ids
+#: model:ir.model.fields,field_description:academic.field_account_move__student_ids
+#: model:ir.model.fields,field_description:academic.field_account_payment__student_ids
+msgid "Students List"
+msgstr "Estudiante"
+
+#. module: academic
 #: model:ir.actions.act_window,name:academic.academic_study_plan_action
 #: model:ir.model,name:academic.model_academic_study_plan
 #: model:ir.ui.menu,name:academic.menu_study_plan
@@ -604,6 +867,17 @@ msgstr "Asignatura"
 #: model:ir.ui.menu,name:academic.menu_subjects
 msgid "Subjects"
 msgstr "Asignaturas"
+
+#. module: academic
+#: model:academic.level,name:academic.academic_course_7
+msgid "Séptimo Grado"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_res_partner__category_id
+#: model:ir.model.fields,field_description:academic.field_res_users__category_id
+msgid "Tags"
+msgstr "Etiquetas"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_group__teacher_id
@@ -643,6 +917,17 @@ msgid "Teachers"
 msgstr "Profesores"
 
 #. module: academic
+#: model:academic.level,name:academic.academic_course_3
+msgid "Tercer Grado"
+msgstr ""
+
+#. module: academic
+#: model:academic.level,name:academic.academic_course_10
+msgid "Tercero Grado"
+msgstr ""
+
+#. module: academic
+#. odoo-python
 #: code:addons/academic/models/hr.py:0
 #, python-format
 msgid ""
@@ -651,30 +936,39 @@ msgid ""
 msgstr "Hay otro registro que contiene la misma asignatura y profesor"
 
 #. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.wizard_view_inherit
+msgid ""
+"This button will grant access to all contacts with a valid email address."
+msgstr ""
+"Este botón otorgará acceso a todos los contactos con una dirección de correo"
+" electrónico válida."
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_res_partner__partner_type
+#: model:ir.model.fields,field_description:academic.field_res_users__partner_type
+msgid "Tipo de Contacto Académico"
+msgstr ""
+
+#. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_group__type
 msgid "Type"
 msgstr "Tipo"
 
 #. module: academic
+#: model:ir.model.fields,help:academic.field_academic_group__sequence
+msgid "Used to order Groups"
+msgstr "Usado para ordenar Grupos"
+
+#. module: academic
+#: model:ir.model,name:academic.model_res_users
 #: model:res.groups,name:academic.group_user
 msgid "User"
 msgstr "Usuario"
 
 #. module: academic
-#: model:ir.model,name:academic.model_res_users
-msgid "Users"
-msgstr "Usuarios"
-
-#. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.login
 msgid "Usuario"
-msgstr "Usuario"
-
-#. module: academic
-#: model:ir.model.fields,field_description:academic.field_res_partner__withdraw
-#: model:ir.model.fields,field_description:academic.field_res_users__withdraw
-msgid "Withdraw"
-msgstr "Abandonar"
+msgstr ""
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_group__year
@@ -683,12 +977,14 @@ msgid "Year"
 msgstr "Año"
 
 #. module: academic
+#. odoo-python
 #: code:addons/academic/models/academic_group.py:0
 #, python-format
 msgid "Year: "
 msgstr "Año:"
 
 #. module: academic
+#. odoo-python
 #: code:addons/academic/models/hr.py:0
 #, python-format
 msgid "You have to add at least a level for that subject"
@@ -705,7 +1001,7 @@ msgstr "división"
 #. module: academic
 #: model:ir.model.fields.selection,name:academic.selection__academic_group__type__gral_administrator
 msgid "gral_administrator"
-msgstr "gral_administrator"
+msgstr ""
 
 #. module: academic
 #: model:ir.model,name:academic.model_academic_group
@@ -714,6 +1010,11 @@ msgstr "gral_administrator"
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_group_tree
 msgid "group"
 msgstr "grupo"
+
+#. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
+msgid "la familia"
+msgstr ""
 
 #. module: academic
 #: model:ir.model,name:academic.model_academic_level
@@ -730,6 +1031,16 @@ msgstr "nivel"
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_promotion_tree
 msgid "promotion"
 msgstr "promoción"
+
+#. module: academic
+#: model:ir.model,name:academic.model_res_partner_link
+msgid "res.partner.link"
+msgstr ""
+
+#. module: academic
+#: model:ir.model,name:academic.model_res_partner_role
+msgid "res.partner.role"
+msgstr ""
 
 #. module: academic
 #: model:ir.model,name:academic.model_academic_section
@@ -751,31 +1062,4 @@ msgstr "asignatura"
 #: model:ir.model.fields,help:academic.field_res_partner__disabled_person
 #: model:ir.model.fields,help:academic.field_res_users__disabled_person
 msgid "¿Alumno/a con Dificultades de aprendizaje?"
-msgstr "¿Alumno/a con Dificultades de aprendizaje?"
-
-#. module: academic
-#: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
-msgid "A partner with the same dni already exists ("
-msgstr "Ya existe un contacto con el mismo dni ("
-
-#. module: academic
-#: model:ir.model.fields,field_description:academic.field_res_partner__current_main_group_id
-#: model:ir.model.fields,field_description:academic.field_res_users__current_main_group_id
-#: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_filter
-msgid "Current Main Group"
-msgstr "Grupo Principal Actual"
-
-#. module: academic
-#: model:ir.actions.report,name:academic.report_certificate_regular_student
-msgid "Certificate of Regular Student"
-msgstr "Certificado de Alumno Regular"
-
-#. module: academic
-#: model:ir.actions.report,print_report_name:academic.report_certificate_regular_student
-msgid "'Certificate of Regular Student ' + object.name"
-msgstr "'Certificado de Alumno Regular ' + object.name"
-
-#. module: academic
-#: model_terms:ir.ui.view,arch_db:academic.report_invoice_document
-msgid "<strong>Student Information:</strong>"
-msgstr "<strong>Información de Estudiante:</strong>"
+msgstr ""

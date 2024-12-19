@@ -1,0 +1,76 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* academic_split_name
+# 
+# Translators:
+# Juan José Scarafía <scarafia.juanjose@gmail.com>, 2024
+# bafadhoc, 2024
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-12-19 15:16+0000\n"
+"PO-Revision-Date: 2024-12-19 15:16+0000\n"
+"Last-Translator: bafadhoc, 2024\n"
+"Language-Team: Spanish (https://app.transifex.com/adhoc/teams/46451/es/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: es\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+
+#. module: academic_split_name
+#: model:ir.model,name:academic_split_name.model_res_partner
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: academic_split_name
+#: model_terms:ir.ui.view,arch_db:academic_split_name.view_partner_form
+msgid "First Name"
+msgstr " Nombre"
+
+#. module: academic_split_name
+#: model_terms:ir.ui.view,arch_db:academic_split_name.view_partner_form
+msgid "Last Name"
+msgstr "Apellido"
+
+#. module: academic_split_name
+#: model_terms:ir.ui.view,arch_db:academic_split_name.view_partner_form
+msgid "Middle Name"
+msgstr "Segundo Nombre"
+
+#. module: academic_split_name
+#: model:ir.model.fields,field_description:academic_split_name.field_res_partner__name
+#: model:ir.model.fields,field_description:academic_split_name.field_res_users__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: academic_split_name
+#: model:ir.model.fields,field_description:academic_split_name.field_res_partner__lastname
+#: model:ir.model.fields,field_description:academic_split_name.field_res_users__lastname
+msgid "Primer Apellido"
+msgstr ""
+
+#. module: academic_split_name
+#: model:ir.model.fields,field_description:academic_split_name.field_res_partner__firstname
+#: model:ir.model.fields,field_description:academic_split_name.field_res_users__firstname
+msgid "Primer Nombre"
+msgstr ""
+
+#. module: academic_split_name
+#: model_terms:ir.ui.view,arch_db:academic_split_name.view_partner_form
+msgid "Second Last Name"
+msgstr "Segundo Apellido"
+
+#. module: academic_split_name
+#: model:ir.model.fields,field_description:academic_split_name.field_res_partner__second_lastname
+#: model:ir.model.fields,field_description:academic_split_name.field_res_users__second_lastname
+msgid "Segundo Apellido"
+msgstr ""
+
+#. module: academic_split_name
+#: model:ir.model.fields,field_description:academic_split_name.field_res_partner__middlename
+#: model:ir.model.fields,field_description:academic_split_name.field_res_users__middlename
+msgid "Segundo Nombre"
+msgstr ""

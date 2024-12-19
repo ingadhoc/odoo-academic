@@ -1,24 +1,40 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # 	* academic_sale_subscription
-#
+# 
+# Translators:
+# Juan José Scarafía <scarafia.juanjose@gmail.com>, 2024
+# bafadhoc, 2024
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-08 14:33+0000\n"
-"PO-Revision-Date: 2024-11-08 14:33+0000\n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2024-12-19 15:16+0000\n"
+"PO-Revision-Date: 2024-12-19 15:16+0000\n"
+"Last-Translator: bafadhoc, 2024\n"
+"Language-Team: Spanish (https://app.transifex.com/adhoc/teams/46451/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Language: es\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__academic_group_id
 msgid "Academic Group"
 msgstr "Grupo Académico"
+
+#. module: academic_sale_subscription
+#: model:ir.model,name:academic_sale_subscription.model_academic_order_wizard
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard_line__academic_order_wizard_id
+msgid "Academic Order Wizard"
+msgstr "Wizard de Órden Académico"
+
+#. module: academic_sale_subscription
+#: model:ir.model,name:academic_sale_subscription.model_academic_order_wizard_line
+msgid "Academic Order Wizard Lines"
+msgstr "Líneas del Wizard de Órdenes Académicas"
 
 #. module: academic_sale_subscription
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_order_wizard_form
@@ -53,6 +69,18 @@ msgid "Create order"
 msgstr "Crear orden"
 
 #. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__create_uid
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard_line__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__create_date
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard_line__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard_line__currency_id
 msgid "Currency"
 msgstr "Moneda"
@@ -70,7 +98,7 @@ msgstr "Suscripciones actuales"
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order_line__next_invoice_date
-msgid "Date of Next Invoice"
+msgid "Date of Next Invoice Plan"
 msgstr "Fecha de la próxima factura"
 
 #. module: academic_sale_subscription
@@ -98,6 +126,34 @@ msgstr "Unidad de duración"
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_subscription_plan__duration_value
 msgid "End After"
 msgstr "Finaliza después de"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__id
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard_line__id
+msgid "ID"
+msgstr "ID"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order_line__partner_invoice_id
+msgid "Invoice Address"
+msgstr "Responsable de pago"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_subscription_plan__is_unlimited
+msgid "Last Forever"
+msgstr "Eterno"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__write_uid
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard_line__write_uid
+msgid "Last Updated by"
+msgstr "Última Actualización por"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__write_date
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard_line__write_date
+msgid "Last Updated on"
+msgstr "Última modificación el"
 
 #. module: academic_sale_subscription
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_order_wizard_form
@@ -132,6 +188,11 @@ msgid "Open Subscription"
 msgstr "Abrir suscripción"
 
 #. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__order_wizard_line_ids
+msgid "Order Wizard Line"
+msgstr "Línea del Wizard de Órdenes "
+
+#. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__payment_term_id
 msgid "Payment Term"
 msgstr "Término de pago"
@@ -144,7 +205,7 @@ msgstr "Términos de pago"
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__plan_id
 msgid "Plan"
-msgstr "Plan"
+msgstr ""
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard_line__price
@@ -170,11 +231,6 @@ msgstr "Cantidad"
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order_line__plan_id
 msgid "Recurring Plan"
 msgstr "Plan recurrente"
-
-#. module: academic_sale_subscription
-#: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order_line__partner_invoice_id
-msgid "Responsable de pago"
-msgstr "Responsable de pago"
 
 #. module: academic_sale_subscription
 #: model:ir.model,name:academic_sale_subscription.model_sale_order
@@ -227,7 +283,8 @@ msgstr ""
 #: code:addons/academic_sale_subscription/wizard/academic_order_wizard.py:0
 #, python-format
 msgid "The date of the next invoice cannot be earlier than the validity date."
-msgstr "La fecha de la próxima factura no puede ser anterior a la fecha de validez."
+msgstr ""
+"La fecha de la próxima factura no puede ser anterior a la fecha de validez."
 
 #. module: academic_sale_subscription
 #: model:ir.model.constraint,message:academic_sale_subscription.constraint_sale_subscription_plan_check_duration_value
@@ -235,11 +292,19 @@ msgid "The duration can't be negative or 0."
 msgstr "La duración no puede ser negativa ni 0."
 
 #. module: academic_sale_subscription
+#: model:ir.model.fields,help:academic_sale_subscription.field_sale_order_line__next_invoice_date
+msgid ""
+"The next invoice will be created on this date then the period will be "
+"extended."
+msgstr ""
+"La próxima factura se creará en esta fecha y luego se extenderá el período."
+
+#. module: academic_sale_subscription
 #. odoo-python
 #: code:addons/academic_sale_subscription/wizard/academic_order_wizard.py:0
 #, python-format
-msgid "The student %s has no payment responsible for the payment set."
-msgstr "El estudiante %s no tiene un responsable de pago seteado."
+msgid "There are products with price 0."
+msgstr "Hay productos con precio 0."
 
 #. module: academic_sale_subscription
 #. odoo-python
@@ -249,7 +314,8 @@ msgid ""
 "There cannot be a sale order template and a recurring plan both with a "
 "defined period."
 msgstr ""
-"No puede haber una plantilla de pedido de venta y un plan recurrente, ambos con un período definido."
+"No puede haber una plantilla de pedido de venta y un plan recurrente, ambos "
+"con un período definido."
 
 #. module: academic_sale_subscription
 #. odoo-python
@@ -264,11 +330,6 @@ msgid "Validity Date"
 msgstr "Fecha de validez"
 
 #. module: academic_sale_subscription
-#: model:ir.model.fields.selection,name:academic_sale_subscription.selection__sale_subscription_plan__duration_unit__year
-msgid "Years"
-msgstr "Años"
-
-#. module: academic_sale_subscription
 #. odoo-python
 #: code:addons/academic_sale_subscription/wizard/academic_order_wizard.py:0
 #, python-format
@@ -276,8 +337,6 @@ msgid "Warning"
 msgstr "Precaución"
 
 #. module: academic_sale_subscription
-#. odoo-python
-#: code:addons/academic_sale_subscription/wizard/academic_order_wizard.py:0
-#, python-format
-msgid "There are products with price 0."
-msgstr "Hay productos con precio 0."
+#: model:ir.model.fields.selection,name:academic_sale_subscription.selection__sale_subscription_plan__duration_unit__year
+msgid "Years"
+msgstr "Años"
