@@ -19,7 +19,13 @@
 ##############################################################################
 {
     'name': 'Academic',
+<<<<<<< HEAD
     'version': "18.0.1.2.0",
+||||||| parent of ffbb5f4 (temp)
+    'version': "17.0.1.12.0",
+=======
+    'version': "17.0.1.13.0",
+>>>>>>> ffbb5f4 (temp)
     'sequence': 14,
     'summary': '',
     'author': 'ADHOC SA',

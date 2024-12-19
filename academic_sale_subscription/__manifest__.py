@@ -2,7 +2,13 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
     'name': 'Academic Sale Subscription',
+<<<<<<< HEAD
     'version': "18.0.1.0.0",
+||||||| parent of ffbb5f4 (temp)
+    'version': "17.0.1.2.0",
+=======
+    'version': "17.0.1.3.0",
+>>>>>>> ffbb5f4 (temp)
     'sequence': 14,
     'summary': '',
     'author': 'ADHOC SA',
