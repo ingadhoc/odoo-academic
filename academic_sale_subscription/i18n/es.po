@@ -321,3 +321,14 @@ msgstr "Precaución"
 #: model:ir.model.fields.selection,name:academic_sale_subscription.selection__sale_subscription_plan__duration_unit__year
 msgid "Years"
 msgstr "Años"
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/wizard/academic_order_wizard.py:0
+#, python-format
+msgid ""
+"The following students either have no payment responsible assigned or their payment responsible is archived:\n"
+"%s"
+msgstr ""
+"Los siguientes estudiantes no tienen un responsable de pago asignado o su responsable de pago está archivado:\n"
+"%s"
