@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
     'name': 'Academic Sale Subscription',
-    'version': "17.0.1.3.0",
+    'version': "17.0.1.4.0",
     'sequence': 14,
     'summary': '',
     'author': 'ADHOC SA',
@@ -18,6 +18,7 @@
         'views/sale_subscription_plan_views.xml',
         'wizard/academic_order_wizard_views.xml',
         'views/res_partner_views.xml',
+        'views/sale_subscription_views.xml',
     ],
     'installable': True,
     'auto_install': False,
