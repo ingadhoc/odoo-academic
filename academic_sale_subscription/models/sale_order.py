@@ -2,13 +2,15 @@
 # For copyright and license notices, see __manifest__.py file in module root
 # directory
 ##############################################################################
-from odoo import models, api
+from odoo import models, api, fields
 from dateutil.relativedelta import relativedelta
 from odoo.exceptions import UserError
 
 
 class SaleOrder(models.Model):
     _inherit = "sale.order"
+
+    current_main_group_id = fields.Many2one('academic.group', related='partner_id.current_main_group_id')
 
     def _set_deferred_end_date_from_template(self):
         self.ensure_one()
