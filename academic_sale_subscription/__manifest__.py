@@ -18,6 +18,7 @@
         'views/sale_subscription_plan_views.xml',
         'wizard/academic_order_wizard_views.xml',
         'views/res_partner_views.xml',
+        'views/sale_subscription_views.xml',
     ],
     'installable': True,
     'auto_install': False,

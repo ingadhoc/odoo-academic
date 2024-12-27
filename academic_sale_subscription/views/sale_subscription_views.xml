@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sale_subscription_template_view_search" model="ir.ui.view">
+        <field name="name">sale.order.search</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale_subscription.sale_subscription_view_search"/>
+        <field name="arch" type="xml">
+            <filter name="recurring_next_date" position="after">
+                <separator/>
+                <filter string="Current Main Group" name="group_by_main_group" context="{'group_by':'current_main_group_id'}"/>
+            </filter>
+        </field>
+    </record>
+</odoo>
