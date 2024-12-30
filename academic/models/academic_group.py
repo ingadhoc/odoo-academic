@@ -11,8 +11,7 @@ import string
 class AcademicGroup(models.Model):
     _name = 'academic.group'
     _description = 'group'
-    _order = 'sequence'
-    _rec_names_search = ['level_id.name', 'level_id.section_id.name', 'division_id.name', 'year', 'subject_id.name']
+    _order = 'name'
 
     _sql_constraints = [
         ('group_unique',
@@ -69,19 +68,15 @@ class AcademicGroup(models.Model):
         context={'default_partner_type': 'student'},
         domain=[('partner_type', '=', 'student')],
     )
-    complete_name = fields.Char(
-        compute='_compute_complete_name',
+    name = fields.Char(
+        compute='_compute_name',
+        store=True
     )
-    sequence = fields.Integer(help='Used to order Groups', default=10)
     active = fields.Boolean(default=True)
     student_ids_count = fields.Integer(
         string='Student Count',
         compute='_compute_student_ids_count',
     )
-
-    def _compute_display_name(self):
-        for rec in self.filtered('complete_name'):
-            rec.display_name = rec.complete_name
 
     @api.depends(
         'subject_id',
@@ -89,7 +84,7 @@ class AcademicGroup(models.Model):
         'level_id',
         'division_id',
         'year')
-    def _compute_complete_name(self):
+    def _compute_name(self):
         """ Forms complete name of location from parent location to
          child location.
         @return: Dictionary of values
@@ -101,7 +96,7 @@ class AcademicGroup(models.Model):
                 name += ' ' + line.division_id.name
             name += ' - ' + line.level_id.section_id.name
             name += ' - ' + _('Year: ') + str(line.year)
-            line.complete_name = name
+            line.name = name
 
     def create_students_users(self):
         '''
