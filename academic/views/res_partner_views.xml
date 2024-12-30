@@ -11,7 +11,7 @@
                 <field name="promotion_id"/>
                 <field name="company_id" groups="base.group_multi_company"/>
                 <field name="current_main_group_id" string="Current Main Group"/>
-                <filter string="Current Main Group" name="group_by_main_group" context="{'group_by':'current_main_group_id'}"/>
+                <filter string="Current Main Group" name="group_by_main_group" context="{'group_by':'current_main_group_name'}"/>
                 <filter string="No Payment Responsible"
                     name="filter_without_paying_role"
                     domain="[('links_by_student', '=', False), '!', ('student_link_ids.role_ids', 'in', [%(academic.paying_role)d])]"/>
