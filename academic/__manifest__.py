@@ -43,6 +43,7 @@
         'security/ir.model.access.csv',
         'data/res_partner_role_data.xml',
         'data/res_users_data.xml',
+        'data/ir_cron.xml',
         'security/res_partner_category.xml',
         'views/academic_menuitem.xml',
         'views/res_partner_views.xml',
