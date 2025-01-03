@@ -1063,3 +1063,14 @@ msgstr "asignatura"
 #: model:ir.model.fields,help:academic.field_res_users__disabled_person
 msgid "¿Alumno/a con Dificultades de aprendizaje?"
 msgstr ""
+
+#. module: academic
+#. odoo-python
+#: code:addons/academic/models/res_partner.py:0
+#, python-format
+msgid ""
+"The partner '%s' cannot belong to multiple groups without a subject in the "
+"same year. Conflicting year(s): %s."
+msgstr ""
+"El contacto '%s' no puede pertenecer a varios grupos sin una materia en el "
+"mismo año. Año(s) en conflicto: %s."

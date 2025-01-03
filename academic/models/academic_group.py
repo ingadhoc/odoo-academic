@@ -30,6 +30,7 @@ class AcademicGroup(models.Model):
     year = fields.Integer(
         required=True,
         default=date.today().year,
+        index=True
     )
     division_id = fields.Many2one(
         'academic.division',
@@ -52,6 +53,7 @@ class AcademicGroup(models.Model):
         'academic.subject',
         string='Subject',
         required=False,
+        index=True
     )
     teacher_id = fields.Many2one(
         'res.partner',
