@@ -197,13 +197,37 @@ class ResPartner(models.Model):
             partner.same_dni_partner_id = Partner.search(domain, limit=1)
         (self - filtered_partners).same_dni_partner_id = False
 
+    @api.constrains('current_main_group_id')
+    def _check_unique_main_group_per_year(self):
+        """La validación se realiza sobre el campo `current_main_group_id` en lugar de `student_group_ids`
+        porque, al usar un campo many2many, la validación no se activaba al agregar un estudiante
+        directamente desde un grupo.
+        """
+        for partner in self:
+            domain = [
+                ('student_ids', '=', partner.id),
+                ('subject_id', '=', False)
+            ]
+            grouped_data = self.env['academic.group'].read_group(
+                domain,
+                ['year'],
+                ['year']
+            )
+            duplicate_years = [group['year'] for group in grouped_data if group['year_count'] > 1]
+            if duplicate_years:
+                raise ValidationError(_(
+                    "The partner '%s' cannot belong to multiple groups "
+                    "without a subject in the same year. Conflicting year(s): %s."
+                ) % (
+                    partner.name,
+                    ', '.join(map(str, duplicate_years))
+                ))
+
     @api.depends('student_group_ids')
     def _compute_current_main_group(self):
         for rec in self:
             student_group = rec.student_group_ids.filtered(lambda g: g.year == date.today().year and not g.subject_id)
-            if len(student_group) > 1:
-                raise ValidationError("There shouldn't be two groups in the same year without a subject for partner %s." % rec.name)
-            rec.current_main_group_id = student_group
+            rec.current_main_group_id = student_group[:1]
 
     @api.model
     def get_payment_responsible(self):
