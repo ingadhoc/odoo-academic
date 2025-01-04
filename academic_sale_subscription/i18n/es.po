@@ -4,15 +4,15 @@
 # 
 # Translators:
 # Juan José Scarafía <scarafia.juanjose@gmail.com>, 2024
-# bafadhoc, 2024
+# bafadhoc, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-14 11:22+0000\n"
+"POT-Creation-Date: 2024-12-30 18:02+0000\n"
 "PO-Revision-Date: 2024-11-27 20:16+0000\n"
-"Last-Translator: bafadhoc, 2024\n"
+"Last-Translator: bafadhoc, 2025\n"
 "Language-Team: Spanish (https://app.transifex.com/adhoc/teams/46451/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -86,6 +86,12 @@ msgid "Currency"
 msgstr "Moneda"
 
 #. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order__current_main_group_id
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.sale_subscription_template_view_search
+msgid "Current Main Group"
+msgstr "Grupo Principal Actual"
+
+#. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_res_partner__current_subscription_ids
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_res_users__current_subscription_ids
 msgid "Current Subscription"
@@ -126,7 +132,7 @@ msgstr "Finaliza después de"
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard_line__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order_line__partner_invoice_id
@@ -199,7 +205,7 @@ msgstr "Términos de pago"
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__plan_id
 msgid "Plan"
-msgstr ""
+msgstr "Plan"
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard_line__price
