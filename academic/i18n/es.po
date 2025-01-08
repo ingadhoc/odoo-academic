@@ -3,16 +3,16 @@
 # 	* academic
 # 
 # Translators:
-# Juan José Scarafía <scarafia.juanjose@gmail.com>, 2024
 # bafadhoc, 2024
+# Juan José Scarafía <scarafia.juanjose@gmail.com>, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-14 11:21+0000\n"
+"POT-Creation-Date: 2025-01-07 18:25+0000\n"
 "PO-Revision-Date: 2024-11-15 13:26+0000\n"
-"Last-Translator: bafadhoc, 2024\n"
+"Last-Translator: Juan José Scarafía <scarafia.juanjose@gmail.com>, 2025\n"
 "Language-Team: Spanish (https://app.transifex.com/adhoc/teams/46451/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -100,6 +100,11 @@ msgid "Asignatures"
 msgstr "Asignaturas"
 
 #. module: academic
+#: model:ir.actions.server,name:academic.ir_cron_update_current_main_group_ir_actions_server
+msgid "Automatic update of current main group"
+msgstr ""
+
+#. module: academic
 #: model:ir.model.fields,field_description:academic.field_res_partner__birthdate
 #: model:ir.model.fields,field_description:academic.field_res_users__birthdate
 msgid "Birthdate"
@@ -148,11 +153,6 @@ msgstr "Compañías"
 #: model:ir.model.fields,field_description:academic.field_res_partner_link__company_id
 msgid "Company"
 msgstr "Compañia"
-
-#. module: academic
-#: model:ir.model.fields,field_description:academic.field_academic_group__complete_name
-msgid "Complete Name"
-msgstr "Nombre Completo"
 
 #. module: academic
 #: model:ir.ui.menu,name:academic.menu_configuration
@@ -554,6 +554,7 @@ msgstr "Pasar al siguiente año"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division__name
+#: model:ir.model.fields,field_description:academic.field_academic_group__name
 #: model:ir.model.fields,field_description:academic.field_academic_level__name
 #: model:ir.model.fields,field_description:academic.field_academic_promotion__name
 #: model:ir.model.fields,field_description:academic.field_academic_section__name
@@ -758,7 +759,6 @@ msgid "Segundo Grado"
 msgstr ""
 
 #. module: academic
-#: model:ir.model.fields,field_description:academic.field_academic_group__sequence
 #: model:ir.model.fields,field_description:academic.field_academic_level__sequence
 #: model:ir.model.fields,field_description:academic.field_res_partner_link__sequence
 msgid "Sequence"
@@ -921,6 +921,16 @@ msgstr ""
 
 #. module: academic
 #. odoo-python
+#: code:addons/academic/models/res_partner.py:0
+msgid ""
+"The partner '%s' cannot belong to multiple groups without a subject in the "
+"same year. Conflicting year(s): %s."
+msgstr ""
+"El contacto '%s' no puede pertenecer a varios grupos sin una materia en el "
+"mismo año. Año(s) en conflicto: %s."
+
+#. module: academic
+#. odoo-python
 #: code:addons/academic/models/hr.py:0
 msgid ""
 "There is another record that contains the same subject"
@@ -945,11 +955,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic.field_academic_group__type
 msgid "Type"
 msgstr "Tipo"
-
-#. module: academic
-#: model:ir.model.fields,help:academic.field_academic_group__sequence
-msgid "Used to order Groups"
-msgstr "Usado para ordenar los grupos"
 
 #. module: academic
 #: model:ir.model,name:academic.model_res_users
@@ -1053,14 +1058,3 @@ msgstr "asignatura"
 #: model:ir.model.fields,help:academic.field_res_users__disabled_person
 msgid "¿Alumno/a con Dificultades de aprendizaje?"
 msgstr ""
-
-#. module: academic
-#. odoo-python
-#: code:addons/academic/models/res_partner.py:0
-#, python-format
-msgid ""
-"The partner '%s' cannot belong to multiple groups without a subject in the "
-"same year. Conflicting year(s): %s."
-msgstr ""
-"El contacto '%s' no puede pertenecer a varios grupos sin una materia en el "
-"mismo año. Año(s) en conflicto: %s."
