@@ -3,16 +3,16 @@
 # 	* academic_sale_subscription
 # 
 # Translators:
-# Juan José Scarafía <scarafia.juanjose@gmail.com>, 2024
 # bafadhoc, 2025
+# Juan José Scarafía <scarafia.juanjose@gmail.com>, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-30 16:41+0000\n"
+"POT-Creation-Date: 2025-01-09 10:47+0000\n"
 "PO-Revision-Date: 2024-12-19 15:16+0000\n"
-"Last-Translator: bafadhoc, 2025\n"
+"Last-Translator: Juan José Scarafía <scarafia.juanjose@gmail.com>, 2025\n"
 "Language-Team: Spanish (https://app.transifex.com/adhoc/teams/46451/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -298,6 +298,17 @@ msgid "The duration can't be negative or 0."
 msgstr "La duración no puede ser negativa ni 0."
 
 #. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/wizard/academic_order_wizard.py:0
+#, python-format
+msgid ""
+"The following students either have no payment responsible assigned or their payment responsible is archived:\n"
+"%s"
+msgstr ""
+"Los siguientes estudiantes no tienen un responsable de pago asignado o su responsable de pago está archivado:\n"
+"%s"
+
+#. module: academic_sale_subscription
 #: model:ir.model.fields,help:academic_sale_subscription.field_sale_order_line__next_invoice_date
 msgid ""
 "The next invoice will be created on this date then the period will be "
@@ -346,14 +357,3 @@ msgstr "Precaución"
 #: model:ir.model.fields.selection,name:academic_sale_subscription.selection__sale_subscription_plan__duration_unit__year
 msgid "Years"
 msgstr "Años"
-
-#. module: academic_sale_subscription
-#. odoo-python
-#: code:addons/academic_sale_subscription/wizard/academic_order_wizard.py:0
-#, python-format
-msgid ""
-"The following students either have no payment responsible assigned or their payment responsible is archived:\n"
-"%s"
-msgstr ""
-"Los siguientes estudiantes no tienen un responsable de pago asignado o su responsable de pago está archivado:\n"
-"%s"
