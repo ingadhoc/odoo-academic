@@ -3,7 +3,7 @@
 # directory
 ##############################################################################
 from odoo import models
-
+from odoo.tools.safe_eval import safe_eval
 
 class ResCompanyInterest(models.Model):
     _inherit = 'res.company.interest'
@@ -54,27 +54,29 @@ class ResCompanyInterest(models.Model):
         # Intereses por pagos tardíos
         if self.late_payment_interest:
 
-            partials = self.env['account.partial.reconcile'].search([
+            partial_domain = [
                 # lo dejamos para NTH
                 # debit_move_id. safe eval domain
                 ('debit_move_id.partner_id.active', '=', True),
-                ('debit_move_id.date_maturity', '>=', from_date),
-                ('debit_move_id.date_maturity', '<=', to_date),
                 ('debit_move_id.parent_state', '=', 'posted'),
                 ('debit_move_id.account_id', 'in', self.receivable_account_ids.ids),
                 ('credit_move_id.date', '>=', from_date),
-                ('credit_move_id.date', '<', to_date)]).grouped('debit_move_id')
-
+                ('credit_move_id.date', '<', to_date)]
+            
+            if self.domain:
+                partial_domain.append(('debit_move_id', 'any', safe_eval(self.domain)))
+            
+            partials = self.env['account.partial.reconcile'].search(partial_domain).filtered(lambda x: x.credit_move_id.date > x.debit_move_id.date_maturity).grouped('debit_move_id')
+ 
             for move_line, parts in partials.items():
-                due_payments = parts.filtered(lambda x: x.credit_move_id.date > x.debit_move_id.date_maturity)
-                interest = 0
-                if due_payments:
-                    due_payments_amount = sum(due_payments.mapped('amount'))
-                    last_date_payment = parts.filtered(lambda x: x.credit_move_id.date > x.debit_move_id.date_maturity).sorted('max_date')[-1].max_date
-                    days = (last_date_payment - move_line.date_maturity).days
-                    interest += due_payments_amount * days * (self.rate / interest_rate[self.rule_type])
-                    self._update_deuda(deuda, move_line.student_id, 'Deuda pagos vencidos', interest)
-                    deuda[student]['partner_id'] = move_line.partner_id
+                due_date = max(from_date, parts.debit_move_id.date_maturity)
+
+                days = (parts.credit_move_id.date - due_date).days
+                interest = parts.amount * days * (self.rate / interest_rate[self.rule_type])
+                #Se debe actualiza la deuda del partner, por ello se llama al cliente metodo para su actualizacion
+                self._update_deuda(deuda, move_line.student_id, 'Deuda pagos vencidos', interest)
+                deuda[move_line.student_id]['partner_id'] = move_line.partner_id
+
 
         return deuda
 
