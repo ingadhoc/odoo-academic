@@ -39,11 +39,10 @@ class SaleOrder(models.Model):
                     )
                 )
             )
-            ''' Voy a actualizar precios siempre y cuando haya líneas para actualizar, es decir, que tenga un precio
-            definido en recurring prices.
-            Si hay líneas para actualizar precios, entonces guardo el precio de las líneas que no se tienen que
-            actualizar para luego sobreescribir.
-            '''
+            # Voy a actualizar precios siempre y cuando haya líneas para actualizar, es decir, que tenga un precio
+            # definido en recurring prices.
+            # Si hay líneas para actualizar precios, entonces guardo el precio de las líneas que no se tienen que
+            # actualizar para luego sobreescribir.
             if lines_no_recurring_pricing != self.order_line:
                 lines_price_unit = {line: line.price_unit for line in lines_no_recurring_pricing}
                 super().action_update_prices()
