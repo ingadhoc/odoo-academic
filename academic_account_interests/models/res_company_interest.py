@@ -19,7 +19,10 @@ class ResCompanyInterest(models.Model):
             })
         return res
 
-    def _calculate_debts(self, from_date, to_date, groupby=['student_id', 'partner_id']):
+    def _calculate_debts(self, from_date, to_date, groupby=None):
+        if groupby is None:
+            groupby = ['student_id', 'partner_id']
+
         deuda = {}
 
         interest_rate = {
