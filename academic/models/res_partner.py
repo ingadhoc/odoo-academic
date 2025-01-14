@@ -55,7 +55,6 @@ class ResPartner(models.Model):
     )
     sex = fields.Selection(
         [('M', 'Male'), ('F', 'Female')],
-        string='Sex',
     )
     file_number = fields.Char(
         copy=False,
