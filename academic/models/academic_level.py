@@ -13,7 +13,6 @@ class AcademicLevel(models.Model):
     _rec_names_search = ['name', 'section_id.name']
 
     sequence = fields.Integer(
-        string='Sequence'
     )
     name = fields.Char(
         required=True,
