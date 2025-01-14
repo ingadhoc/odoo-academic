@@ -161,12 +161,6 @@ class ResPartner(models.Model):
         # TODO: el metodo onchange_portal_id no existe.
         # Esto dejo de usarse pero queda el codigo por posible implementacion a futuro
         raise UserError(_("Esta función se encuentra en desarrollo!"))
-        wizard = self.env['portal.wizard'].with_context(
-            default_active_ids=self.ids, active_ids=self.ids,
-            active_id=self.ids and self.ids[0] or False,
-            active_model='res.partner').create({})
-        wizard.user_ids.write({'in_portal': True})
-        wizard.action_apply()
 
     @api.depends('parent_id')
     def _compute_company_id(self):
