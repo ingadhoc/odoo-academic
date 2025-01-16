@@ -80,25 +80,17 @@ class AcademicGroup(models.Model):
         compute='_compute_student_ids_count',
     )
 
-    @api.depends(
-        'subject_id',
-        'company_id',
-        'level_id',
-        'division_id',
-        'year')
+    @api.depends('company_id', 'level_id', 'division_id', 'year')
     def _compute_name(self):
-        """ Forms complete name of location from parent location to
-         child location.
-        @return: Dictionary of values
-        """
         for line in self:
-            name = line.company_id.name
-            name += ', ' + line.level_id.name
-            if line.division_id:
-                name += ' ' + line.division_id.name
-            name += ' - ' + line.level_id.section_id.name
-            name += ' - ' + self.env._('Year: ') + str(line.year)
-            line.name = name
+            name_parts = [
+                line.company_id.name,
+                line.level_id.name if line.level_id else None,
+                line.division_id.name if line.division_id else None,
+                line.level_id.section_id.name if line.level_id and line.level_id.section_id else None,
+                f"{self.env._('Year:')} {line.year}",
+            ]
+            line.name = ' - '.join(filter(None, name_parts))
 
     def create_students_users(self):
         '''
