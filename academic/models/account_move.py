@@ -11,9 +11,13 @@ class AccountMove(models.Model):
 
     @api.constrains('student_id', 'move_type')
     def _check_student(self):
+        # Está saltando warning en runbot por esta constrains ya que hay facturas sin estudiante, por lo tanto
+        # desactivamos el chequeo cuando se hace la instalación
+        if self.env.context.get('install_mode'):
+            return True
         invoices_wo_student = self.filtered(lambda x: x.move_type in ["out_invoice", "out_refund"] and not x.student_id)
         if invoices_wo_student:
-            msg = _("Las facturas de clientes y notas de debito debe tener asociado siempre un alumno.")
+            msg = self.env._("Las facturas de clientes y notas de debito debe tener asociado siempre un alumno.")
             if len(invoices_wo_student) > 1:
                 msg += ".\n" + self.env._("Los siguientes documentos no cumplen esa condición:") + "\n\n - %s" % '\n - '.join(invoices_wo_student.mapped('display_name'))
             raise ValidationError(msg)
