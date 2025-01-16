@@ -4,11 +4,13 @@
     <record id="res_partner_los_arroyos" model="res.partner">
         <field name="name">Colegio Los Arroyos</field>
         <field name="is_company" eval="1" />
+        <field name="company_id" eval="False"/>
     </record>
 
     <record id="res_partner_los_molinos" model="res.partner">
         <field name="name">Colegio Los Molinos</field>
         <field name="is_company" eval="1" />
+        <field name="company_id" eval="False"/>
     </record>
 
     <record id="res_partner_ignacio_rodriguez" model="res.partner">
