@@ -36,7 +36,7 @@ class ResCompanyInterest(models.Model):
             aggregates=['amount_residual:sum'],
         )
         for x in previous_grouped_lines:
-            self._update_deuda(deuda, x[0], 'Deuda periodos anteriores', x[2] * self.rate)
+            self._update_deuda(deuda, x[0], 'Deuda periodos anteriores', x[2] * self.rate * self.interval)
             deuda[x[0]]['partner_id'] = x[1]
 
         # Intereses por el último período
@@ -45,7 +45,7 @@ class ResCompanyInterest(models.Model):
         )
         for student, amls in last_period_lines.grouped('student_id').items():
             interest = sum(
-                move.amount_residual * ((to_date - move.invoice_date_due).days - 1) * (self.rate / interest_rate[self.rule_type])
+                move.amount_residual * ((to_date - move.invoice_date_due).days) * (self.rate / interest_rate[self.rule_type])
                 for move, lines in amls.grouped('move_id').items()
             )
             self._update_deuda(deuda, student, 'Deuda último periodo', interest)
