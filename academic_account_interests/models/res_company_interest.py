@@ -36,7 +36,7 @@ class ResCompanyInterest(models.Model):
             aggregates=['amount_residual:sum'],
         )
         for x in previous_grouped_lines:
-            self._update_deuda(deuda, x[0], 'Deuda periodos anteriores', x[2] * self.rate * self.interval)
+            self._update_deuda(deuda, x[0], 'Deuda periodos anteriores', x[2] * self.with_context(debt_past_period=True)._calculate_rate() * self.interval)
             deuda[x[0]]['partner_id'] = x[1]
 
         # Intereses por el último período
@@ -45,7 +45,7 @@ class ResCompanyInterest(models.Model):
         )
         for student, amls in last_period_lines.grouped('student_id').items():
             interest = sum(
-                move.amount_residual * ((to_date - move.invoice_date_due).days) * (self.rate / interest_rate[self.rule_type])
+                move.amount_residual * ((to_date - move.invoice_date_due).days) * (self._calculate_rate() / interest_rate[self.rule_type])
                 for move, lines in amls.grouped('move_id').items()
             )
             self._update_deuda(deuda, student, 'Deuda último periodo', interest)
@@ -72,7 +72,7 @@ class ResCompanyInterest(models.Model):
                 due_date = max(from_date, parts.debit_move_id.date_maturity)
 
                 days = (parts.credit_move_id.date - due_date).days
-                interest = parts.amount * days * (self.rate / interest_rate[self.rule_type])
+                interest = parts.amount * days * (self._calculate_rate() / interest_rate[self.rule_type])
                 #Se debe actualiza la deuda del partner, por ello se llama al cliente metodo para su actualizacion
                 self._update_deuda(deuda, move_line.student_id, 'Deuda pagos vencidos', interest)
                 deuda[move_line.student_id]['partner_id'] = move_line.partner_id
