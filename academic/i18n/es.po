@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-07 17:12+0000\n"
+"POT-Creation-Date: 2025-01-17 19:03+0000\n"
 "PO-Revision-Date: 2024-12-19 15:15+0000\n"
 "Last-Translator: Juan José Scarafía <scarafia.juanjose@gmail.com>, 2025\n"
 "Language-Team: Spanish (https://app.transifex.com/adhoc/teams/46451/es/)\n"
@@ -94,6 +94,12 @@ msgid "Admission Date"
 msgstr "Fecha de Admisión"
 
 #. module: academic
+#: model_terms:res.company,invoice_terms_html:academic.res_company_los_arroyos
+#: model_terms:res.company,invoice_terms_html:academic.res_company_los_molinos
+msgid "All our contractual relations will be governed exclusively by  law."
+msgstr ""
+
+#. module: academic
 #: model:ir.model.fields,field_description:academic.field_hr_employee__asignatures_ids
 #: model:ir.ui.menu,name:academic.menu_view_employees_asignatures
 msgid "Asignatures"
@@ -102,6 +108,14 @@ msgstr "Asignaturas"
 #. module: academic
 #: model:ir.actions.server,name:academic.ir_cron_update_current_main_group_ir_actions_server
 msgid "Automatic update of current main group"
+msgstr ""
+
+#. module: academic
+#: model_terms:res.company,invoice_terms_html:academic.res_company_los_arroyos
+#: model_terms:res.company,invoice_terms_html:academic.res_company_los_molinos
+msgid ""
+"Below text serves as a suggestion and doesn’t engage Odoo S.A. "
+"responsibility."
 msgstr ""
 
 #. module: academic
@@ -130,9 +144,55 @@ msgid "By object"
 msgstr "Por objeto"
 
 #. module: academic
+#: model_terms:res.company,invoice_terms_html:academic.res_company_los_arroyos
+msgid ""
+"Certain countries apply withholding at source on the amount of invoices, in "
+"accordance with their internal legislation. Any withholding at source will "
+"be paid by the client to the tax authorities. Under no circumstances can "
+"Colegio Los Arroyos become involved in costs related to a country's "
+"legislation. The amount of the invoice will therefore be due to Colegio Los "
+"Arroyos in its entirety and does not include any costs relating to the "
+"legislation of the country in which the client is located."
+msgstr ""
+
+#. module: academic
+#: model_terms:res.company,invoice_terms_html:academic.res_company_los_molinos
+msgid ""
+"Certain countries apply withholding at source on the amount of invoices, in "
+"accordance with their internal legislation. Any withholding at source will "
+"be paid by the client to the tax authorities. Under no circumstances can "
+"Colegio Los Molinos become involved in costs related to a country's "
+"legislation. The amount of the invoice will therefore be due to Colegio Los "
+"Molinos in its entirety and does not include any costs relating to the "
+"legislation of the country in which the client is located."
+msgstr ""
+
+#. module: academic
 #: model:ir.actions.report,name:academic.report_certificate_regular_student
 msgid "Certificate of Regular Student"
 msgstr "Certificado de Alumno Regular"
+
+#. module: academic
+#: model_terms:res.company,invoice_terms_html:academic.res_company_los_arroyos
+msgid ""
+"Colegio Los Arroyos undertakes to do its best to supply performant services "
+"in due time in accordance with the agreed timeframes. However, none of its "
+"obligations can be considered as being an obligation to achieve results. "
+"Colegio Los Arroyos cannot under any circumstances, be required by the "
+"client to appear as a third party in the context of any claim for damages "
+"filed against the client by an end consumer."
+msgstr ""
+
+#. module: academic
+#: model_terms:res.company,invoice_terms_html:academic.res_company_los_molinos
+msgid ""
+"Colegio Los Molinos undertakes to do its best to supply performant services "
+"in due time in accordance with the agreed timeframes. However, none of its "
+"obligations can be considered as being an obligation to achieve results. "
+"Colegio Los Molinos cannot under any circumstances, be required by the "
+"client to appear as a third party in the context of any claim for damages "
+"filed against the client by an end consumer."
+msgstr ""
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_res_partner_role__color
@@ -442,6 +502,42 @@ msgid "ID"
 msgstr "ID (identificación)"
 
 #. module: academic
+#: model_terms:res.company,invoice_terms_html:academic.res_company_los_arroyos
+msgid ""
+"If a payment is still outstanding more than sixty (60) days after the due "
+"payment date, Colegio Los Arroyos reserves the right to call on the services"
+" of a debt recovery company. All legal expenses will be payable by the "
+"client."
+msgstr ""
+
+#. module: academic
+#: model_terms:res.company,invoice_terms_html:academic.res_company_los_molinos
+msgid ""
+"If a payment is still outstanding more than sixty (60) days after the due "
+"payment date, Colegio Los Molinos reserves the right to call on the services"
+" of a debt recovery company. All legal expenses will be payable by the "
+"client."
+msgstr ""
+
+#. module: academic
+#: model_terms:res.company,invoice_terms_html:academic.res_company_los_arroyos
+msgid ""
+"In order for it to be admissible, Colegio Los Arroyos must be notified of "
+"any claim by means of a letter sent by recorded delivery to its registered "
+"office within 8 days of the delivery of the goods or the provision of the "
+"services."
+msgstr ""
+
+#. module: academic
+#: model_terms:res.company,invoice_terms_html:academic.res_company_los_molinos
+msgid ""
+"In order for it to be admissible, Colegio Los Molinos must be notified of "
+"any claim by means of a letter sent by recorded delivery to its registered "
+"office within 8 days of the delivery of the goods or the provision of the "
+"services."
+msgstr ""
+
+#. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
 msgid "Individual Information"
 msgstr "Información Individual"
@@ -595,6 +691,28 @@ msgid "Other"
 msgstr "Otro"
 
 #. module: academic
+#: model_terms:res.company,invoice_terms_html:academic.res_company_los_arroyos
+msgid ""
+"Our invoices are payable within 21 working days, unless another payment "
+"timeframe is indicated on either the invoice or the order. In the event of "
+"non-payment by the due date, Colegio Los Arroyos reserves the right to "
+"request a fixed interest payment amounting to 10% of the sum remaining due. "
+"Colegio Los Arroyos will be authorized to suspend any provision of services "
+"without prior warning in the event of late payment."
+msgstr ""
+
+#. module: academic
+#: model_terms:res.company,invoice_terms_html:academic.res_company_los_molinos
+msgid ""
+"Our invoices are payable within 21 working days, unless another payment "
+"timeframe is indicated on either the invoice or the order. In the event of "
+"non-payment by the due date, Colegio Los Molinos reserves the right to "
+"request a fixed interest payment amounting to 10% of the sum remaining due. "
+"Colegio Los Molinos will be authorized to suspend any provision of services "
+"without prior warning in the event of late payment."
+msgstr ""
+
+#. module: academic
 #: model:res.groups,comment:academic.group_portal_parent
 msgid ""
 "Parent's Portal members have specific access rights (such as record rules and restricted menus).\n"
@@ -729,6 +847,12 @@ msgstr "Informando"
 #: model:ir.model.fields,field_description:academic.field_res_partner_link__role_ids
 #: model:ir.model.fields,field_description:academic.field_res_users__partner_link_ids
 msgid "Roles"
+msgstr ""
+
+#. module: academic
+#: model_terms:res.company,invoice_terms_html:academic.res_company_los_arroyos
+#: model_terms:res.company,invoice_terms_html:academic.res_company_los_molinos
+msgid "STANDARD TERMS AND CONDITIONS OF SALE"
 msgstr ""
 
 #. module: academic
@@ -927,6 +1051,16 @@ msgid "Tercero Grado"
 msgstr ""
 
 #. module: academic
+#: model_terms:res.company,invoice_terms_html:academic.res_company_los_arroyos
+#: model_terms:res.company,invoice_terms_html:academic.res_company_los_molinos
+msgid ""
+"The client explicitly waives its own standard terms and conditions, even if "
+"these were drawn up after these standard terms and conditions of sale. In "
+"order to be valid, any derogation must be expressly agreed to in advance in "
+"writing."
+msgstr ""
+
+#. module: academic
 #. odoo-python
 #: code:addons/academic/models/res_partner.py:0
 #, python-format
@@ -984,17 +1118,16 @@ msgstr "Año"
 
 #. module: academic
 #. odoo-python
-#: code:addons/academic/models/academic_group.py:0
-#, python-format
-msgid "Year: "
-msgstr "Año:"
-
-#. module: academic
-#. odoo-python
 #: code:addons/academic/models/hr.py:0
 #, python-format
 msgid "You have to add at least a level for that subject"
 msgstr "Debe agregar al menos un nivel para esa asignatura"
+
+#. module: academic
+#: model_terms:res.company,invoice_terms_html:academic.res_company_los_arroyos
+#: model_terms:res.company,invoice_terms_html:academic.res_company_los_molinos
+msgid "You should update this document to reflect your T&amp;C."
+msgstr ""
 
 #. module: academic
 #: model:ir.model,name:academic.model_academic_division
