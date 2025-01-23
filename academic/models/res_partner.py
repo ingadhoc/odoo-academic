@@ -80,6 +80,7 @@ class ResPartner(models.Model):
     student_link_ids = fields.One2many(
         'res.partner.link', 'student_id', string='Contactos y Roles', copy=True,
         compute='_compute_student_links', readonly=False, store=True, recursive=True)
+    payment_responsible_ids = fields.Many2many('res.partner', 'payment_responsible_ids_student_id_rel', 'partner_id','student_id', compute='_compute_payment_responsible', store=True)
 
     @api.depends('parent_links_by_student', 'parent_id.student_link_ids')
     def _compute_student_links(self):
@@ -235,9 +236,10 @@ class ResPartner(models.Model):
             student_group = rec.student_group_ids.filtered(lambda g: g.year == date.today().year and not g.subject_id)
             rec.current_main_group_id = student_group[:1]
 
-    @api.model
-    def get_payment_responsible(self):
-        self.ensure_one()
-        return self.student_link_ids.filtered(
+    @api.depends('student_link_ids', 'student_link_ids.role_ids')
+    def _compute_payment_responsible(self):
+        for rec in self.filtered(lambda x: x.partner_type == 'student'):
+            partners = rec.student_link_ids.filtered(
                 lambda x: self.env.ref('academic.paying_role') in x.role_ids
             ).mapped('partner_id')
+            rec.payment_responsible_ids = [(6, 0, partners.ids)]

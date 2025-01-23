@@ -35,7 +35,7 @@ class AccountMove(models.Model):
 
     def _post(self, soft=True):
         for rec in self:
-            partners_invoice = rec.student_id.get_payment_responsible() if rec.student_id else self.env['res.partner']
+            partners_invoice = rec.student_id.payment_responsible_ids if rec.student_id else self.env['res.partner']
             rec.message_subscribe([
                 payment_responsible.id
                 for payment_responsible in rec.partner_id | partners_invoice
