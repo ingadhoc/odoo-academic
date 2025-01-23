@@ -1058,3 +1058,9 @@ msgstr "asignatura"
 #: model:ir.model.fields,help:academic.field_res_users__disabled_person
 msgid "¿Alumno/a con Dificultades de aprendizaje?"
 msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_res_partner__payment_responsible_ids
+#: model:ir.model.fields,field_description:academic.field_res_users__payment_responsible_ids
+msgid "Payment Responsible"
+msgstr "Responsables de pago"
