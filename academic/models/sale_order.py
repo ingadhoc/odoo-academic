@@ -17,7 +17,7 @@ class SaleOrder(models.Model):
     def _compute_partner_invoice(self):
         orders = self.filtered('partner_id')
         for rec in orders:
-            rec.partner_invoice_ids = rec.partner_id.get_payment_responsible()
+            rec.partner_invoice_ids = rec.partner_id.payment_responsible_ids
         (self - orders).partner_invoice_ids = False
 
     @api.depends('partner_invoice_ids')
