@@ -33,7 +33,7 @@ class OrderWizard(models.TransientModel):
             raise ValidationError(_("The contacts must be of student type. The following do not meet this condition:\n%s") % "\n".join(partners.mapped('name')))
 
         if partners := self.student_ids.filtered(
-            lambda x: not x.get_payment_responsible() or not x.get_payment_responsible().filtered('active')
+            lambda x: not x.payment_responsible_ids or not x.payment_responsible_ids.filtered('active')
         ):
             raise ValidationError(_("The following students either have no payment responsible assigned or their payment responsible is archived:\n%s") % "\n".join(partners.mapped('name')))
 
