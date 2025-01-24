@@ -176,6 +176,12 @@ class ResPartner(models.Model):
         Por defecto ponemos la company donde está parado el usuario pero permitimos sacarla o cambiarla.
         Un padre, madre o estudiante podrían en algunos casos de uso estar compartidos entre varias instituciones
         """
+        if self.env.context.get('install_mode'):
+            # salimos del método porque no queremos que se modifique el comportamiento nativo de odoo al momento de
+            # instalar ya que puede afectar registros demo de otros módulos (ejemplo: que se cree un registro
+            # de account.move para una compañía y dicho registro tiene un parter que pertenece a otra entonces
+            # tendríamos error de instalación de registros demo.
+            return
         for rec in self:
             rec.company_id = rec.parent_id.company_id or rec.env.company
 
