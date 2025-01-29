@@ -241,6 +241,14 @@
             <list position="inside">
                 <field name="company_id" invisible="1"/>
                 <field name="promotion_id" column_invisible="context.get('default_partner_type', False) != 'student'"/>
+                <groupby name="current_main_group_id">
+                    <button
+                        type="object"
+                        name="open_student_view"
+                        icon="fa-list"
+                        title="Open student view"
+                    />
+                </groupby>
             </list>
         </field>
     </record>
