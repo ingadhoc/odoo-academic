@@ -10,7 +10,8 @@ from odoo.exceptions import UserError
 class SaleOrder(models.Model):
     _inherit = "sale.order"
 
-    current_main_group_id = fields.Many2one("academic.group", related="partner_id.current_main_group_id")
+    current_main_group_id = fields.Many2one("academic.group", related="partner_id.current_main_group_id", store=True)
+    show_update_end_date = fields.Boolean(store=False)
 
     def _set_deferred_end_date_from_template(self):
         self.ensure_one()
@@ -65,3 +66,11 @@ class SaleOrder(models.Model):
                     line.price_unit = original_price
         else:
             super().action_update_prices()
+
+    @api.onchange("next_invoice_date")
+    def _onchange_next_invoice_date_show_update_end_date(self):
+        self.show_update_end_date = True
+
+    def set_deferred_end_date_from_button(self):
+        for record in self:
+            record._set_deferred_end_date_from_template()
