@@ -110,6 +110,13 @@ class OrderWizard(models.TransientModel):
         for rec in self:
             order_wizard_lines = []
 
+            # deletion of lines created from another template
+            lines_to_remove = rec.order_wizard_line_ids.filtered(
+                lambda x: x.template_id and x.template_id != rec.template_id
+            )
+            for line in lines_to_remove:
+                order_wizard_lines.append(Command.unlink(line.id))
+
             if rec.template_id:
                 for line in rec.template_id.sale_order_template_line_ids:
                     existing_line = rec.order_wizard_line_ids.filtered(lambda l: l.product_id.id == line.product_id.id)
@@ -130,6 +137,7 @@ class OrderWizard(models.TransientModel):
                             "product_id": line.product_id.id,
                             "price": pricing.price if pricing else 0.0,
                             "quantity": line.product_uom_qty,
+                            "template_id": rec.template_id,
                         }
                         order_wizard_lines.append(Command.create(order_wizard_line_vals))
 
@@ -177,6 +185,7 @@ class AcademicOrderWizardLine(models.TransientModel):
     currency_id = fields.Many2one("res.currency", default=lambda self: self.env.company.currency_id)
     description = fields.Text()
     quantity = fields.Float(default=1.0)
+    template_id = fields.Many2one("sale.order.template", store=False)
 
     @api.depends("product_id")
     def _compute_price(self):
