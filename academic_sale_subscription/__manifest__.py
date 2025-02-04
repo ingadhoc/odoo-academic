@@ -13,6 +13,7 @@
         'sale_subscription_ux'
     ],
     'data': [
+        'data/ir_actions_server.xml',
         'security/ir.model.access.csv',
         'views/sale_order_template_views.xml',
         'views/sale_subscription_plan_views.xml',

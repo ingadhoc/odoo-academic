@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<odoo>
+    <record model="ir.actions.server" id="action_show_duplicated_subscription">
+        <field name="name">Duplicated Subscriptions</field>
+        <field name="model_id" ref="sale.model_sale_order"/>
+        <field name="type">ir.actions.server</field>
+        <field name="state">code</field>
+        <field name="code">
+action = model.action_show_duplicate_subscriptions()
+        </field>
+    </record>
+</odoo>
