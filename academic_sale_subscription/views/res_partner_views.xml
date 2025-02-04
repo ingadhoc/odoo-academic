@@ -1,8 +1,8 @@
 <odoo>
-    <record id="view_partner_tree" model="ir.ui.view">
+    <record id="view_academic_partner_tree" model="ir.ui.view">
         <field name="name">academic.sale.suscription.partner.tree</field>
         <field name="model">res.partner</field>
-        <field name="inherit_id" ref="base.view_partner_tree"/>
+        <field name="inherit_id" ref="academic.view_academic_partner_tree"/>
         <field name="arch" type="xml">
             <tree position="inside">
                 <header>
@@ -13,6 +13,14 @@
                             groups="academic.group_manager"/>
                 </header>
             </tree>
+            <groupby name="current_main_group_id" position="inside">
+                <button
+                    type="object"
+                    name="open_order_wizard"
+                    icon="fa-shopping-cart"
+                    title="Open order wizard"
+                />
+            </groupby>
         </field>
     </record>
 
