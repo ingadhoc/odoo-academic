@@ -74,3 +74,50 @@ class SaleOrder(models.Model):
     def set_deferred_end_date_from_button(self):
         for record in self:
             record._set_deferred_end_date_from_template()
+
+    @api.model
+    def get_duplicate_subscription_ids(self):
+        # TODO: evaluar sacar feature
+        grouped_subs = self.read_group(
+            [("partner_id", "!=", False), ("order_line", "!=", False), ("subscription_state", "=", "3_progress")],
+            ["partner_id"],
+            ["partner_id"],
+            lazy=False,
+        )
+        partner_ids = {group["partner_id"][0] for group in grouped_subs if group["__count"] > 1}
+
+        if not partner_ids:
+            return [("id", "in", [])]
+
+        subscriptions = self.search(
+            [
+                ("partner_id", "in", list(partner_ids)),
+                ("order_line", "!=", False),
+                ("subscription_state", "=", "3_progress"),
+            ]
+        )
+
+        grouped_by_products = {}
+        duplicate_ids = set()
+
+        for sub in subscriptions:
+            product_ids = frozenset(sub.order_line.mapped("product_id.id"))
+            key = (sub.partner_id.id, product_ids)
+
+            if key in grouped_by_products:
+                duplicate_ids.add(sub.id)
+                duplicate_ids.update(grouped_by_products[key])
+            grouped_by_products.setdefault(key, set()).add(sub.id)
+
+        return [("id", "in", list(duplicate_ids))]
+
+    def action_show_duplicate_subscriptions(self):
+        # TODO: evaluac sacar feature
+        return {
+            "name": "Duplicated Subscriptions",
+            "type": "ir.actions.act_window",
+            "res_model": "sale.order",
+            "view_mode": "list,form",
+            "domain": self.get_duplicate_subscription_ids(),
+            "context": "{'search_default_customer': 1}",
+        }

@@ -29,4 +29,6 @@
             </filter>
         </field>
     </record>
+
+    <menuitem name="Duplicated Subscriptions" id="menu_duplicated_subscription" action="action_show_duplicated_subscription" parent="sale_subscription.menu_sale_subscription" sequence="90"/>
 </odoo>
