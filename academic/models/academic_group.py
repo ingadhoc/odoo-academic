@@ -140,3 +140,12 @@ class AcademicGroup(models.Model):
                     'year': rec.year + 1,
                     'student_ids': False,
                 })
+
+    def open_student_view(self):
+        action = self.env.ref('academic.action_academic_partner_students').read()[0]
+        action.update({
+            'domain': [('current_main_group_id', '=', self.id)],
+            'views': [(False, 'tree')],
+            'context': {'from_open_student_view': True}
+        })
+        return action

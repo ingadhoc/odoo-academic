@@ -249,3 +249,8 @@ class ResPartner(models.Model):
             raise UserError(
                 _('The payer must have an identification number set up. The following do not meet this condition: \n%s') % partner_names
             )
+    @api.model
+    def web_search_read(self, domain, specification, offset=0, limit=None, order=None, count_limit=None):
+        if self.env.context.get('from_open_student_view'):
+            limit = self.env['res.partner'].search_count(domain)
+        return super().web_search_read(domain, specification, offset=offset, limit=limit, order=order, count_limit=count_limit)
