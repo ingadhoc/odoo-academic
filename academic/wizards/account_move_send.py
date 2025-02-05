@@ -6,8 +6,8 @@ from odoo import models
 
 
 class AccountMoveSend(models.AbstractModel):
-    _inherit = 'account.move.send'
+    _inherit = "account.move.send"
 
     def _get_default_mail_partner_ids(self, move, mail_template, mail_lang):
-        partners_invoice = move.student_id.payment_responsible_ids if move.student_id else self.env['res.partner']
+        partners_invoice = move.student_id.payment_responsible_ids if move.student_id else self.env["res.partner"]
         return super()._get_default_mail_partner_ids(move, mail_template, mail_lang) | partners_invoice

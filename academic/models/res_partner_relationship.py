@@ -1,10 +1,9 @@
-from odoo import models, fields
+from odoo import fields, models
 
 
 class ResPartnerRelationship(models.Model):
-
-    _name = 'res.partner.relationship'
-    _description = 'Contacts Relationship'
+    _name = "res.partner.relationship"
+    _description = "Contacts Relationship"
 
     name = fields.Char(
         required=True,
