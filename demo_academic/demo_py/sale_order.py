@@ -63,7 +63,7 @@ class SaleOrder(models.Model):
         invoices[2].action_post()
 
     def _create_payment(self, invoice, amount):
-        register_wizard = self.env['account.payment.register'].with_context({
+        register_wizard = self.env['account.payment.register'].with_context(**{
                             'active_model': 'account.move',
                             'active_ids': [invoice.id],
                         })
