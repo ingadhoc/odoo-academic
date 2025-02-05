@@ -18,21 +18,16 @@
 #
 ##############################################################################
 {
-    'name': 'Academic Account Interests',
-    'version': "18.0.1.1.0",
-    'sequence': 14,
-    'summary': '',
-    'author': 'ADHOC SA',
-    'website': 'www.adhoc.com.ar',
-    'license': 'AGPL-3',
-    'depends': [
-        'academic',
-        'account_interests'
-    ],
-    'data': [
-
-    ],
-    'installable': True,
-    'auto_install': True,
-    'application': False,
+    "name": "Academic Account Interests",
+    "version": "18.0.1.1.0",
+    "sequence": 14,
+    "summary": "",
+    "author": "ADHOC SA",
+    "website": "www.adhoc.com.ar",
+    "license": "AGPL-3",
+    "depends": ["academic", "account_interests"],
+    "data": [],
+    "installable": True,
+    "auto_install": True,
+    "application": False,
 }

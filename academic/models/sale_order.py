@@ -2,29 +2,30 @@
 # For copyright and license notices, see __manifest__.py file in module root
 # directory
 ##############################################################################
-from odoo import api, models, fields, _
+from odoo import api, fields, models
 
 
 class SaleOrder(models.Model):
+    _inherit = "sale.order"
 
-    _inherit = 'sale.order'
-
-    partner_id = fields.Many2one(domain="[('type', '!=', 'private'), ('company_id', 'in', (False, company_id)), ('partner_type', '=', 'student')]")
-    partner_invoice_ids = fields.Many2many('res.partner', compute='_compute_partner_invoice')
+    partner_id = fields.Many2one(
+        domain="[('type', '!=', 'private'), ('company_id', 'in', (False, company_id)), ('partner_type', '=', 'student')]"
+    )
+    partner_invoice_ids = fields.Many2many("res.partner", compute="_compute_partner_invoice")
 
     # dejamos solo depends a partner_id para que si cambia algo de la asignación no se re-calculen todas las ventas existentes
-    @api.depends('partner_id')
+    @api.depends("partner_id")
     def _compute_partner_invoice(self):
-        orders = self.filtered('partner_id')
+        orders = self.filtered("partner_id")
         for rec in orders:
             rec.partner_invoice_ids = rec.partner_id.payment_responsible_ids
         (self - orders).partner_invoice_ids = False
 
-    @api.depends('partner_invoice_ids')
+    @api.depends("partner_invoice_ids")
     def _compute_partner_invoice_id(self):
         # si bien en el dominio solo permitimos estudiantes, para no romper demo data de odoo ni tests, si no es un estudiante
         # dejamos compute by super
-        students_orders = self.filtered(lambda x: x.partner_id.partner_type == 'student')
+        students_orders = self.filtered(lambda x: x.partner_id.partner_type == "student")
         for order in students_orders:
             order.partner_invoice_id = order.partner_invoice_ids._origin[:1]
         super(SaleOrder, self - students_orders)._compute_partner_invoice_id()
@@ -36,15 +37,17 @@ class SaleOrder(models.Model):
 
     def action_confirm(self):
         for rec in self:
-            rec.message_subscribe([
-                payment_responsible.id
-                for payment_responsible in rec.partner_invoice_id | rec.partner_invoice_ids
-                if payment_responsible not in rec.sudo().message_partner_ids
-            ])
+            rec.message_subscribe(
+                [
+                    payment_responsible.id
+                    for payment_responsible in rec.partner_invoice_id | rec.partner_invoice_ids
+                    if payment_responsible not in rec.sudo().message_partner_ids
+                ]
+            )
         return super().action_confirm()
 
     def _message_get_default_recipients(self):
-        """ Por defecto las plantillas mandan a partner_id pero para nosotros el partners es el estudiante.
+        """Por defecto las plantillas mandan a partner_id pero para nosotros el partners es el estudiante.
         Cambiamos plantillas para que usen el campo "use_default_to" y luego cae en este método de python donde
         podemos ir mejorando a medida que nos pidan y modificar la logica de recipients.
         Por ahora lo mandamos solo al partner de facturación si está definido
@@ -54,8 +57,8 @@ class SaleOrder(models.Model):
             payment_responsible = record.partner_invoice_id | record.partner_invoice_ids
             if payment_responsible:
                 default_recipients[record.id] = {
-                    'email_cc': False,
-                    'email_to': False,
-                    'partner_ids': payment_responsible.ids,
+                    "email_cc": False,
+                    "email_to": False,
+                    "partner_ids": payment_responsible.ids,
                 }
         return default_recipients
