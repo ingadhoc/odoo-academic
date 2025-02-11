@@ -135,51 +135,61 @@
         <field name="name">Ana Gonzalez</field>
         <field name="partner_type">parent</field>
         <field name="company_id" ref="base.main_company"/>
+        <field name="vat">10000041</field>
     </record>
     <record id="res_partner_mother_2" model="res.partner">
         <field name="name">Laura Rodriguez</field>
         <field name="partner_type">parent</field>
         <field name="company_id" ref="base.main_company"/>
+        <field name="vat">10000042</field>
     </record>
     <record id="res_partner_mother_3" model="res.partner">
         <field name="name">Patricia Perez</field>
         <field name="partner_type">parent</field>
         <field name="company_id" ref="base.main_company"/>
+        <field name="vat">10000042</field>
     </record>
     <record id="res_partner_mother_4" model="res.partner">
         <field name="name">Elena Lopez</field>
         <field name="partner_type">parent</field>
         <field name="company_id" ref="base.main_company"/>
+        <field name="vat">10000043</field>
     </record>
     <record id="res_partner_mother_5" model="res.partner">
         <field name="name">Clara Martinez</field>
         <field name="partner_type">parent</field>
         <field name="company_id" ref="academic.res_company_los_molinos"/>
+        <field name="vat">10000044</field>
     </record>
     <record id="res_partner_mother_6" model="res.partner">
         <field name="name">Sofia Fernandez</field>
         <field name="partner_type">parent</field>
         <field name="company_id" ref="academic.res_company_los_molinos"/>
+        <field name="vat">10000045</field>
     </record>
     <record id="res_partner_mother_7" model="res.partner">
         <field name="name">Gabriela Gomez</field>
         <field name="partner_type">parent</field>
         <field name="company_id" ref="academic.res_company_los_molinos"/>
+        <field name="vat">10000046</field>
     </record>
     <record id="res_partner_mother_8" model="res.partner">
         <field name="name">Andrea Ramirez</field>
         <field name="partner_type">parent</field>
         <field name="company_id" ref="academic.res_company_los_arroyos"/>
+        <field name="vat">10000047</field>
     </record>
     <record id="res_partner_mother_9" model="res.partner">
         <field name="name">Marta Torres</field>
         <field name="partner_type">parent</field>
         <field name="company_id" ref="academic.res_company_los_arroyos"/>
+        <field name="vat">10000048</field>
     </record>
     <record id="res_partner_mother_10" model="res.partner">
         <field name="name">Paula Diaz</field>
         <field name="partner_type">parent</field>
         <field name="company_id" ref="academic.res_company_los_arroyos"/>
+        <field name="vat">10000049</field>
     </record>
 
     <!-- Fathers -->
@@ -187,51 +197,61 @@
         <field name="name">Carlos Gonzalez</field>
         <field name="partner_type">parent</field>
         <field name="company_id" ref="base.main_company"/>
+        <field name="vat">10000031</field>
     </record>
     <record id="res_partner_father_2" model="res.partner">
         <field name="name">Javier Rodriguez</field>
         <field name="partner_type">parent</field>
         <field name="company_id" ref="base.main_company"/>
+        <field name="vat">10000032</field>
     </record>
     <record id="res_partner_father_3" model="res.partner">
         <field name="name">Fernando Perez</field>
         <field name="partner_type">parent</field>
         <field name="company_id" ref="base.main_company"/>
+        <field name="vat">10000034</field>
     </record>
     <record id="res_partner_father_4" model="res.partner">
         <field name="name">Martin Lopez</field>
         <field name="partner_type">parent</field>
         <field name="company_id" ref="base.main_company"/>
+        <field name="vat">10000034</field>
     </record>
     <record id="res_partner_father_5" model="res.partner">
         <field name="name">Jose Martinez</field>
         <field name="partner_type">parent</field>
         <field name="company_id" ref="academic.res_company_los_molinos"/>
+        <field name="vat">10000035</field>
     </record>
     <record id="res_partner_father_6" model="res.partner">
         <field name="name">Ricardo Fernandez</field>
         <field name="partner_type">parent</field>
         <field name="company_id" ref="academic.res_company_los_molinos"/>
+        <field name="vat">10000036</field>
     </record>
     <record id="res_partner_father_7" model="res.partner">
         <field name="name">Adrian Gomez</field>
         <field name="partner_type">parent</field>
         <field name="company_id" ref="academic.res_company_los_molinos"/>
+        <field name="vat">10000037</field>
     </record>
     <record id="res_partner_father_8" model="res.partner">
         <field name="name">Oscar Ramirez</field>
         <field name="partner_type">parent</field>
         <field name="company_id" ref="academic.res_company_los_arroyos"/>
+        <field name="vat">10000038</field>
     </record>
     <record id="res_partner_father_9" model="res.partner">
         <field name="name">Manuel Torres</field>
         <field name="partner_type">parent</field>
         <field name="company_id" ref="academic.res_company_los_arroyos"/>
+        <field name="vat">10000039</field>
     </record>
     <record id="res_partner_father_10" model="res.partner">
         <field name="name">Pablo Diaz</field>
         <field name="partner_type">parent</field>
         <field name="company_id" ref="academic.res_company_los_arroyos"/>
+        <field name="vat">10000040</field>
     </record>
 
     <!-- Suppliers -->

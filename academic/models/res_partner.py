@@ -257,3 +257,16 @@ class ResPartner(models.Model):
                 lambda x: self.env.ref("academic.paying_role") in x.role_ids
             ).mapped("partner_id")
             rec.payment_responsible_ids = [(6, 0, partners.ids)]
+
+    @api.constrains("student_link_ids")
+    def _check_vat_partner_paying_role(self):
+        paying_role = self.env.ref("academic.paying_role")
+        partners = self.student_link_ids.filtered(
+            lambda x: x.partner_id and paying_role in x.role_ids and not x.partner_id.vat
+        )
+        if partners:
+            partner_names = "\n".join(partners.mapped("partner_id.name"))
+            raise UserError(
+                _("The payer must have an identification number set up. The following do not meet this condition: \n%s")
+                % partner_names
+            )
