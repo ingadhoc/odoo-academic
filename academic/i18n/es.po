@@ -1275,3 +1275,27 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_group_filter
 msgid "Archived"
 msgstr "Archivado"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_account_bank_statement_line__require_student_on_invoices
+#: model:ir.model.fields,field_description:academic.field_account_move__require_student_on_invoices
+#: model:ir.model.fields,field_description:academic.field_account_payment__require_student_on_invoices
+#: model:ir.model.fields,field_description:academic.field_res_company__require_student_on_invoices
+msgid "Require Student On Invoices"
+msgstr "Requerir Estudiantes en Facturas"
+
+#. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.academic_view_move_form
+msgid "Warning: This invoice is not associated with any student"
+msgstr "Precaución: Esta factura no está asociada a ningún estudiante"
+
+#. module: academic
+#. odoo-python
+#: code:addons/academic/models/res_company.py:0
+#, python-format
+msgid ""
+"You cannot mark require student on invoices if there are already invoices "
+"without students."
+msgstr ""
+"No puedes marcar 'requerir estudiante' en las facturas si ya existen facturas "
+"sin estudiantes."

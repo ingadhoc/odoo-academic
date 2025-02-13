@@ -1,4 +1,4 @@
-from odoo import api, fields, models
+from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -10,6 +10,7 @@ class AccountMove(models.Model):
     student_id = fields.Many2one(
         "res.partner", domain="[('id', 'in', student_ids), ('partner_type', '=', 'student')]", index=True
     )
+    require_student_on_invoices = fields.Boolean(related="company_id.require_student_on_invoices")
 
     @api.constrains("student_id", "move_type")
     def _check_student(self):
@@ -17,16 +18,19 @@ class AccountMove(models.Model):
         # desactivamos el chequeo cuando se hace la instalación
         if self.env.context.get("install_mode"):
             return True
-        invoices_wo_student = self.filtered(lambda x: x.move_type in ["out_invoice", "out_refund"] and not x.student_id)
-        if invoices_wo_student:
-            msg = self.env._("Las facturas de clientes y notas de debito debe tener asociado siempre un alumno.")
-            if len(invoices_wo_student) > 1:
-                msg += (
-                    ".\n"
-                    + self.env._("Los siguientes documentos no cumplen esa condición:")
-                    + "\n\n - %s" % "\n - ".join(invoices_wo_student.mapped("display_name"))
-                )
-            raise ValidationError(msg)
+        if self.filtered("require_student_on_invoices"):
+            invoices_wo_student = self.filtered(
+                lambda x: x.move_type in ["out_invoice", "out_refund"] and not x.student_id
+            )
+            if invoices_wo_student:
+                msg = _("Las facturas de clientes y notas de debito debe tener asociado siempre un alumno.")
+                if len(invoices_wo_student) > 1:
+                    msg += (
+                        ".\n"
+                        + _("Los siguientes documentos no cumplen esa condición:")
+                        + "\n\n - %s" % "\n - ".join(invoices_wo_student.mapped("display_name"))
+                    )
+                raise ValidationError(msg)
 
     @api.depends("partner_id")
     def _compute_student_ids(self):
