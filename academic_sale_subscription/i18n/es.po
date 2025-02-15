@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-09 10:47+0000\n"
+"POT-Creation-Date: 2025-02-14 14:20+0000\n"
 "PO-Revision-Date: 2024-12-19 15:16+0000\n"
 "Last-Translator: Juan José Scarafía <scarafia.juanjose@gmail.com>, 2025\n"
 "Language-Team: Spanish (https://app.transifex.com/adhoc/teams/46451/es/)\n"
@@ -57,8 +57,8 @@ msgid "Contract duration"
 msgstr "Duración del contrato"
 
 #. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.view_academic_partner_tree
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.view_partner_form
-#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.view_partner_tree
 msgid "Create Order"
 msgstr "Crear orden"
 
@@ -194,6 +194,11 @@ msgid "Open Subscription"
 msgstr "Abrir suscripción"
 
 #. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.view_academic_partner_tree
+msgid "Open order wizard"
+msgstr ""
+
+#. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__order_wizard_line_ids
 msgid "Order Wizard Line"
 msgstr "Línea del Wizard de Órdenes "
@@ -234,6 +239,11 @@ msgid "Quantity"
 msgstr "Cantidad"
 
 #. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.sale_subscription_order_view_form
+msgid "Recompute end date based on this next invoice date"
+msgstr ""
+
+#. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order_line__plan_id
 msgid "Recurring Plan"
 msgstr "Plan recurrente"
@@ -247,6 +257,16 @@ msgstr "Pedido de venta"
 #: model:ir.model,name:academic_sale_subscription.model_sale_order_line
 msgid "Sales Order Line"
 msgstr "Línea de pedido de venta"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order__show_update_end_date
+msgid "Show Update End Date"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__start_date
+msgid "Start Date"
+msgstr ""
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__status_sale
@@ -270,6 +290,7 @@ msgstr "Plan de suscripción"
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__template_id
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard_line__template_id
 msgid "Template"
 msgstr "Plantilla"
 
@@ -342,6 +363,11 @@ msgid "There must be product lines."
 msgstr "Debería haber líneas de productos."
 
 #. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.sale_subscription_order_view_form
+msgid "Update End Date"
+msgstr ""
+
+#. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__validity_date
 msgid "Validity Date"
 msgstr "Fecha de validez"
@@ -357,3 +383,8 @@ msgstr "Precaución"
 #: model:ir.model.fields.selection,name:academic_sale_subscription.selection__sale_subscription_plan__duration_unit__year
 msgid "Years"
 msgstr "Años"
+
+#. module: academic_sale_subscription
+#: model:ir.model,name:academic_sale_subscription.model_academic_group
+msgid "group"
+msgstr "grupo"
