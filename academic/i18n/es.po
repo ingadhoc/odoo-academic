@@ -1264,3 +1264,9 @@ msgstr "asignatura"
 #: model:ir.model.fields,help:academic.field_res_users__disabled_person
 msgid "¿Alumno/a con Dificultades de aprendizaje?"
 msgstr ""
+
+#. module: academic
+#. odoo-python
+#: code:addons/academic/models/academic_group.py:0
+msgid "Year: %s"
+msgstr ""

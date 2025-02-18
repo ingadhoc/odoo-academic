@@ -81,7 +81,7 @@ class AcademicGroup(models.Model):
                 line.level_id.name if line.level_id else None,
                 line.division_id.name if line.division_id else None,
                 line.level_id.section_id.name if line.level_id and line.level_id.section_id else None,
-                f"{self.env._('Year:')} {line.year}",
+                self.env._("Year: %s", line.year),
             ]
             line.name = " - ".join(filter(None, name_parts))
 
