@@ -1270,3 +1270,8 @@ msgstr ""
 #: code:addons/academic/models/academic_group.py:0
 msgid "Year: %s"
 msgstr ""
+
+#. module: crm
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_group_filter
+msgid "Archived"
+msgstr "Archivado"
