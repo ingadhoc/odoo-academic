@@ -1260,3 +1260,8 @@ msgid ""
 msgstr ""
 "No puedes marcar 'requerir estudiante' en las facturas si ya existen facturas "
 "sin estudiantes."
+
+#. module: crm
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_group_filter
+msgid "Archived"
+msgstr "Archivado"
