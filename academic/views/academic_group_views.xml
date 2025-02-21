@@ -17,6 +17,7 @@
                     <!-- <field name="teacher_id" string="Teacher" /> -->
                     <field name="student_ids" string="Student" />
                 </group>
+                <filter name="inactive" string="Archived" domain="[('active', '=', False)]"/>
             </search>
         </field>
     </record>
