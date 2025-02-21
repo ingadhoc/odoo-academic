@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-23 19:07+0000\n"
+"POT-Creation-Date: 2025-02-19 20:42+0000\n"
 "PO-Revision-Date: 2024-12-19 15:15+0000\n"
 "Last-Translator: Juan José Scarafía <scarafia.juanjose@gmail.com>, 2025\n"
 "Language-Team: Spanish (https://app.transifex.com/adhoc/teams/46451/es/)\n"
@@ -686,6 +686,11 @@ msgid "Open"
 msgstr "Abierto"
 
 #. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_tree
+msgid "Open student view"
+msgstr ""
+
+#. module: academic
 #: model:ir.model.fields.selection,name:academic.selection__res_partner__partner_type__other
 msgid "Other"
 msgstr "Otro"
@@ -1079,6 +1084,15 @@ msgstr ""
 
 #. module: academic
 #. odoo-python
+#: code:addons/academic/models/res_partner.py:0
+#, python-format
+msgid ""
+"The payer must have an identification number set up. The following do not meet this condition: \n"
+"%s"
+msgstr ""
+
+#. module: academic
+#. odoo-python
 #: code:addons/academic/models/hr.py:0
 #, python-format
 msgid ""
@@ -1121,6 +1135,13 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_group_filter
 msgid "Year"
 msgstr "Año"
+
+#. module: academic
+#. odoo-python
+#: code:addons/academic/models/academic_group.py:0
+#, python-format
+msgid "Year: {}"
+msgstr "Año: {}"
 
 #. module: academic
 #. odoo-python
@@ -1208,10 +1229,3 @@ msgstr "asignatura"
 #: model:ir.model.fields,help:academic.field_res_users__disabled_person
 msgid "¿Alumno/a con Dificultades de aprendizaje?"
 msgstr ""
-
-#. module: academic
-#. odoo-python
-#: code:addons/academic/models/academic_group.py:0
-#, python-format
-msgid "Year: {}"
-msgstr "Año: {}"
