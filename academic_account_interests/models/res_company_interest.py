@@ -8,6 +8,11 @@ from odoo.tools.safe_eval import safe_eval
 class ResCompanyInterest(models.Model):
     _inherit = 'res.company.interest'
 
+    def _search_last_journal_for_partner(self,partner, debt):
+        partner = debt['partner_id']
+        res = super()._search_last_journal_for_partner(partner=partner, debt=debt)
+        return res
+
     def _prepare_interest_invoice(self, partner, debt, to_date, journal):
         student = partner
         partner = debt['partner_id']
