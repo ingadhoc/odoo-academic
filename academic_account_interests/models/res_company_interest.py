@@ -94,12 +94,13 @@ class ResCompanyInterest(models.Model):
             )
 
             for move_line, parts in partials.items():
-                due_date = max(from_date, parts.debit_move_id.date_maturity)
+                for part in parts:
+                    due_date = max(from_date, part.debit_move_id.date_maturity)
 
-                days = (parts.credit_move_id.date - due_date).days
-                interest = parts.amount * days * (self._calculate_rate() / interest_rate[self.rule_type])
-                # Se debe actualiza la deuda del partner, por ello se llama al cliente metodo para su actualizacion
-                self._update_deuda(deuda, move_line.student_id, "Deuda pagos vencidos", interest)
+                    days = (part.credit_move_id.date - due_date).days
+                    interest = part.amount * days * (self._calculate_rate() / interest_rate[self.rule_type])
+                    # Se debe actualiza la deuda del partner, por ello se llama al cliente metodo para su actualizacion
+                    self._update_deuda(deuda, move_line.student_id, "Deuda pagos vencidos", interest)
                 deuda[move_line.student_id]["partner_id"] = move_line.partner_id
 
         return deuda
