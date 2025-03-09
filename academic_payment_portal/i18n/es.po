@@ -1,0 +1,63 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* academic_payment_portal
+# 
+# Translators:
+# Juan José Scarafía <scarafia.juanjose@gmail.com>, 2025
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-03-07 19:06+0000\n"
+"PO-Revision-Date: 2025-03-07 19:06+0000\n"
+"Last-Translator: Juan José Scarafía <scarafia.juanjose@gmail.com>, 2025\n"
+"Language-Team: Spanish (https://app.transifex.com/adhoc/teams/46451/es/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: es\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+
+#. module: academic_payment_portal
+#: model:ir.model,name:academic_payment_portal.model_res_company
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: academic_payment_portal
+#: model:ir.model,name:academic_payment_portal.model_res_config_settings
+msgid "Config Settings"
+msgstr "Ajustes de configuración"
+
+#. module: academic_payment_portal
+#: model:ir.model,name:academic_payment_portal.model_res_partner
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: academic_payment_portal
+#: model_terms:ir.ui.view,arch_db:academic_payment_portal.res_config_settings_view_form
+msgid ""
+"If active, portal users will only see the pay button on the oldest due date "
+"invoice"
+msgstr ""
+
+#. module: academic_payment_portal
+#: model:ir.model,name:academic_payment_portal.model_account_move
+msgid "Journal Entry"
+msgstr "Asiento contable"
+
+#. module: academic_payment_portal
+#: model_terms:ir.ui.view,arch_db:academic_payment_portal.res_config_settings_view_form
+msgid "Payments in portal"
+msgstr ""
+
+#. module: academic_payment_portal
+#: model:ir.model.fields,field_description:academic_payment_portal.field_res_company__users_can_pay_only_oldest_invoice
+#: model:ir.model.fields,field_description:academic_payment_portal.field_res_config_settings__users_can_pay_only_oldest_invoice
+msgid "Users Can Pay Only Oldest Invoice"
+msgstr ""
+
+#. module: academic_payment_portal
+#: model_terms:ir.ui.view,arch_db:academic_payment_portal.res_config_settings_view_form
+msgid "Users can pay only first invoce"
+msgstr ""
