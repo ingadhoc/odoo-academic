@@ -48,6 +48,7 @@ class ResPartner(models.Model):
         'partner_id',
         'group_id',
         string='Student Groups',
+        context={'active_test': False}
     )
     disabled_person = fields.Boolean(
         'Disabled Person?',
