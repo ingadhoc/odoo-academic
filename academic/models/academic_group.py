@@ -11,7 +11,7 @@ import string
 class AcademicGroup(models.Model):
     _name = 'academic.group'
     _description = 'group'
-    _order = 'name'
+    _order = 'year desc, name'
 
     _sql_constraints = [
         ('group_unique',
