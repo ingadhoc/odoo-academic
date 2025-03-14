@@ -43,7 +43,7 @@
 
             <xpath expr="//sheet" position="before">
                 <div class="alert alert-warning oe_edit_only" role="alert" invisible="not same_dni_partner_id">
-                  A partner with the same dni already exists (<field name="same_dni_partner_id"/>)
+                  A partner with the same dni already exists (<field name="same_dni_partner_id"/> - Company: <field name="same_dni_partner_company"/>).
                 </div>
             </xpath>
 
