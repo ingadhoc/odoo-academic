@@ -144,7 +144,14 @@ class ResPartner(models.Model):
     # company_type = fields.Selection(selection_add=[('family', 'Family')])
     # is_family = fields.Boolean()
     same_dni_partner_id = fields.Many2one(
-        "res.partner", string="Partner with same DNI", compute="_compute_same_dni_partner_id", store=False
+        "res.partner",
+        string="Partner with same DNI",
+        compute="_compute_same_dni_partner_id",
+        store=False,
+        search="_search_same_dni_partner_id",
+    )
+    same_dni_partner_company = fields.Many2one(
+        "res.company", string="Company same partner", related="same_dni_partner_id.company_id"
     )
     current_main_group_id = fields.Many2one("academic.group", compute="_compute_current_main_group", store=True)
     category_id = fields.Many2many(check_company=True)
@@ -226,6 +233,9 @@ class ResPartner(models.Model):
                 domain += [("id", "!=", partner_id)]
             partner.same_dni_partner_id = Partner.search(domain, limit=1)
         (self - filtered_partners).same_dni_partner_id = False
+
+    def _search_same_dni_partner_id(self, operator, value):
+        return [("dni", operator, value)]
 
     @api.constrains("current_main_group_id")
     def _check_unique_main_group_per_year(self):
