@@ -32,3 +32,7 @@ msgstr "Contacto con mismo CI"
 msgid "A partner with the same dni already exists ("
 msgstr "Ya existe un contacto con el mismo CI ("
 
+#. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
+msgid "- Company:"
+msgstr "- Compañía:"
