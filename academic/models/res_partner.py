@@ -148,6 +148,7 @@ class ResPartner(models.Model):
     )
     current_main_group_id = fields.Many2one("academic.group", compute="_compute_current_main_group", store=True)
     category_id = fields.Many2many(check_company=True)
+    student_count = fields.Integer(compute="_compute_student_count", store=True)
 
     # @api.depends('is_family')
     # def _compute_company_type(self):
@@ -279,3 +280,8 @@ class ResPartner(models.Model):
         return super().web_search_read(
             domain, specification, offset=offset, limit=limit, order=order, count_limit=count_limit
         )
+
+    @api.depends("student_ids")
+    def _compute_student_count(self):
+        for rec in self.filtered(lambda x: x.partner_type == "family"):
+            rec.student_count = len(rec.student_ids)

@@ -1310,3 +1310,8 @@ msgstr "asignatura"
 #: model:ir.model.fields,help:academic.field_res_users__disabled_person
 msgid "¿Alumno/a con Dificultades de aprendizaje?"
 msgstr ""
+
+#. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_filter
+msgid "Families with more than one student"
+msgstr "Familias con más de un estudiante"
