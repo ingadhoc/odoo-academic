@@ -15,6 +15,7 @@
                 <filter string="No Payment Responsible"
                     name="filter_without_paying_role"
                     domain="[('links_by_student', '=', False), '!', ('student_link_ids.role_ids', 'in', [%(academic.paying_role)d])]"/>
+                <filter string="Families with more than one student" name="filter_multiple_students" domain="[('student_count', '>', 1), ('partner_type', '=', 'family')]"/>
             </search>
             <field name="parent_id" position="attributes">
                 <attribute name="groups">base.group_no_one</attribute>
@@ -238,6 +239,9 @@
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_tree"/>
         <field name="arch" type="xml">
+            <field name="complete_name" position="after">
+                <field name="student_count"/>
+            </field>
             <tree position="inside">
                 <field name="company_id" invisible="1"/>
                 <field name="promotion_id" column_invisible="context.get('default_partner_type', False) != 'student'"/>
