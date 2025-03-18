@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-12 20:11+0000\n"
+"POT-Creation-Date: 2025-03-18 15:28+0000\n"
 "PO-Revision-Date: 2024-11-15 13:26+0000\n"
 "Last-Translator: Juan José Scarafía <scarafia.juanjose@gmail.com>, 2025\n"
 "Language-Team: Spanish (https://app.transifex.com/adhoc/teams/46451/es/)\n"
@@ -436,6 +436,11 @@ msgstr "Fecha de Salida"
 #: model:ir.ui.menu,name:academic.menu_families
 msgid "Families"
 msgstr "Familias"
+
+#. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_filter
+msgid "Families with more than one student"
+msgstr "Familias con más de un estudiante"
 
 #. module: academic
 #: model:ir.model.fields.selection,name:academic.selection__res_partner__partner_type__family
@@ -1006,6 +1011,8 @@ msgstr "Estudiante"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_group__student_ids_count
+#: model:ir.model.fields,field_description:academic.field_res_partner__student_count
+#: model:ir.model.fields,field_description:academic.field_res_users__student_count
 msgid "Student Count"
 msgstr "Cantidad de Estudiantes"
 
@@ -1310,8 +1317,3 @@ msgstr "asignatura"
 #: model:ir.model.fields,help:academic.field_res_users__disabled_person
 msgid "¿Alumno/a con Dificultades de aprendizaje?"
 msgstr ""
-
-#. module: academic
-#: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_filter
-msgid "Families with more than one student"
-msgstr "Familias con más de un estudiante"
