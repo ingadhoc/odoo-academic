@@ -1317,3 +1317,12 @@ msgstr "asignatura"
 #: model:ir.model.fields,help:academic.field_res_users__disabled_person
 msgid "¿Alumno/a con Dificultades de aprendizaje?"
 msgstr ""
+
+#. module: academic
+#. odoo-python
+#: code:addons/academic/models/res_partner.py:0
+#: code:addons/academic/models/res_partner.py:0
+#: code:addons/odoo/odoo/addons/academic/models/res_partner.py:0
+#, python-format
+msgid "The student must belong to at least one academic group."
+msgstr "El estudiante debe pertenecer al menos a un grupo académico."
