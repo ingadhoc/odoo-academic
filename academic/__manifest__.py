@@ -64,6 +64,7 @@
         "wizards/portal_wizard_views.xml",
         "report/ir_actions_report.xml",
         "views/res_partner_category.xml",
+        "views/account_portal_templates.xml",
         "report/report_invoice.xml",
     ],
     "demo": [

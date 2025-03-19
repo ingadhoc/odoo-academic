@@ -1,0 +1,7 @@
+<odoo>
+    <template id="portal_my_invoices" inherit_id="account.portal_my_invoices" name="My Invoices and Payments">
+        <xpath expr="//t[@t-if='invoices']" position="before">
+            <span> <strong>Total amount due: </strong> </span> <span t-out="total_amount_due"/>
+        </xpath>
+    </template>
+</odoo>
