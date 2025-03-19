@@ -1274,3 +1274,8 @@ msgstr ""
 #, python-format
 msgid "The student must belong to at least one academic group."
 msgstr "El estudiante debe pertenecer al menos a un grupo académico."
+
+#. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.portal_my_invoices
+msgid "<span> <strong>Total amount due: </strong> </span>"
+msgstr "<span> <strong>Importe total adeudado: </strong> </span>"
