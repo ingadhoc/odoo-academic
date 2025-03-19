@@ -1328,3 +1328,8 @@ msgstr "asignatura"
 #: model:ir.model.fields,help:academic.field_res_users__disabled_person
 msgid "¿Alumno/a con Dificultades de aprendizaje?"
 msgstr ""
+
+#. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.portal_my_invoices
+msgid "<span> <strong>Total amount due: </strong> </span>"
+msgstr "<span> <strong>Importe total adeudado: </strong> </span>"
