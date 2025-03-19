@@ -29,7 +29,7 @@
     "data": [
         "wizards/res_config_setting_views.xml",
     ],
-    "installable": False,
+    "installable": True,
     "auto_install": False,
     "application": False,
 }
