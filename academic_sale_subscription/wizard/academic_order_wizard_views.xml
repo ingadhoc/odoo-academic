@@ -15,7 +15,7 @@
                         <field name="validity_date" invisible="status_sale != 'draft'" required="status_sale == 'draft'"/>
                         <field name="next_invoice_date"/>
                         <field name="payment_term_id"/>
-                        <field name="academic_group_id"/>
+                        <field name="academic_group_id" options="{'no_create': 1}"/>
                     </group>
                 </group>
                 <notebook>
@@ -27,6 +27,7 @@
                                 <field name="price"/>
                                 <field name="quantity"/>
                                 <field name="description"/>
+                                <field name="add_group"/>
                             </tree>
                         </field>
                     </page>

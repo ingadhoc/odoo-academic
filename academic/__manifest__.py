@@ -29,6 +29,7 @@
     ],
     'depends': [
         'portal_backend',
+        'crm',
         'board',
         'hr',
         'website',
@@ -59,6 +60,7 @@
         'views/res_company_views.xml',
         'views/login_page.xml',
         'views/sale_order_views.xml',
+        'views/crm_lead_view.xml',
         'views/res_partner_link_views.xml',
         'views/res_partner_relationship_views.xml',
         'views/account_move_views.xml',
@@ -66,6 +68,8 @@
         'report/ir_actions_report.xml',
         'views/res_partner_category.xml',
         'views/account_portal_templates.xml',
+        'views/academic_group_link.xml',
+        'views/product_template_views.xml',
         'report/report_invoice.xml',
     ],
     'demo': [

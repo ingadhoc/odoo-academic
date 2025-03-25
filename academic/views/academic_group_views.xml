@@ -13,9 +13,6 @@
                 </group>
                 <group string="By object">
                     <field name="level_id" string="Level" />
-                    <!-- <field name="subject_id" string="Subject" /> -->
-                    <!-- <field name="teacher_id" string="Teacher" /> -->
-                    <field name="student_ids" string="Student" />
                 </group>
                 <filter name="inactive" string="Archived" domain="[('active', '=', False)]"/>
             </search>
@@ -28,27 +25,60 @@
         <field name="model">academic.group</field>
         <field name="arch" type="xml">
             <form string="group">
+                <field name="study_plan_level_ids" invisible='1'/>
+                <field name="company_id" invisible="1"/>
                 <sheet string="group">
                      <div class="oe_button_box" name="button_box">
-                        <button name="%(action_academic_partner_students)d" type="action" class="oe_stat_button" icon="fa-users" context="{'default_student_group_ids': [id], 'default_partner_type': 'student', 'search_default_student_group_ids': id}">
-                            <field string="Students" name="student_ids_count" widget="statinfo"/>
+                        <button name="open_specific_student" type="object" class="oe_stat_button" icon="fa-user" context="{'type': 'active'}">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_text">Active</span>
+                                <span class="o_stat_value d-flex gap-1">
+                                    <field name="active_student_count" class="oe_inline"/>
+                                    /
+                                    <field name="vacancies" class="oe_inline"/>
+                                </span>
+                            </div>
+                        </button>
+                        <button name="open_specific_student" type="object" class="oe_stat_button" icon="fa-user-o" context="{'type': 'enrolling'}">
+                            <field string="Enrolling" name="enrolling_student_count" widget="statinfo"/>
+                        </button>
+                        <button name="open_specific_student" type="object" class="oe_stat_button" icon="fa-user-plus" context="{'type': 'prospect'}">
+                            <field string="Prospect" name="prospect_student_count" widget="statinfo"/>
                         </button>
                      </div>
                     <group>
-                        <!-- Por ahora no usamos type, me parece que lo podemos borrar -->
-                        <!-- <field name="type"/> -->
-                        <field name="company_id" invisible="1"/>
-                        <field name="company_id" groups="base.group_multi_company"/>
-                        <field name="study_plan_level_ids" invisible='1'/>
-                    </group>
-                    <group col="4">
-                        <field name="level_id" domain="[('id','in',study_plan_level_ids)]"/>
-                        <field name="division_id" required="1"/>
-                        <field name="year"/>
+                        <group>
+                            <!-- Por ahora no usamos type, me parece que lo podemos borrar -->
+                            <!-- <field name="type"/> -->
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="level_id" domain="[('id','in',study_plan_level_ids)]"/>
+                            <field name="division_id" required="1"/>
+                        </group>
+                        <group>
+                            <field name="year"/>
+                            <field name="capacity"/>
+                        </group>
                     </group>
                     <notebook>
-                        <page name="students" string="Students">
-                            <field name="student_ids" domain="[('company_id','=',company_id),('partner_type','=','student')]" context="{'default_company_id':company_id,'default_partner_type':'student'}"/>
+                        <page name="group_link" string="Group Link">
+                            <field name="academic_group_link_ids" readonly="True">
+                                <tree>
+                                    <field name="student_id"/>
+                                    <field name="lead_id"/>
+                                    <field name="registration_so_line_id"/>
+                                    <field name="main_so_line_id"/>
+                                    <field name="status"/>
+                                </tree>
+                                <form>
+                                    <group>
+                                        <field name="student_id"/>
+                                        <field name="lead_id"/>
+                                        <field name="registration_so_line_id"/>
+                                        <field name="main_so_line_id"/>
+                                        <field name="status"/>
+                                    </group>
+                                </form>
+                            </field>
                         </page>
                     </notebook>
                 </sheet>
@@ -70,6 +100,8 @@
                 <field name="division_id"/>
                 <!-- <field name="subject_id"/> -->
                 <field name="year"/>
+                <field name="capacity"/>
+                <field name="vacancies"/>
             </tree>
         </field>
     </record>
@@ -118,7 +150,6 @@
     </record>
 
     <menuitem name="Groups" id="menu_groups" sequence="10" action="action_academic_group_groups" parent="menu_data" groups="group_user" />
-
     <!-- portal menu -->
     <menuitem name="Groups" id="menu_portal_groups" sequence="25" action="action_academic_group_groups" parent="menu_portal_academic" groups="group_portal_teacher" />
 

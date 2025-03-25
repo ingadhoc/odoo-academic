@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="crm_lead_view_form" model="ir.ui.view">
+        <field name="name">crm.lead.form.inherit.group_id</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+        <field name="arch" type="xml">
+            <label for="email_from" position="before">
+                <field name="group_id" invisible="not partner_id" options="{'no_create': True}"/>
+            </label>
+        </field>
+    </record>
+</odoo>

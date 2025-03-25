@@ -6,7 +6,7 @@
         <field name="subject_id" ref="academic_subject_1"/>
         <field name="teacher_id" ref="res_partner_ignacio_rodriguez"/>
         <field name="year" eval="str(datetime.now().year)"/>
-        <field name="student_ids" eval="[(6, 0, [ref('res_partner_alvaro_diaz'), ref('res_partner_jose_martin_rodriguez'), ref('res_partner_bautista')])]"/>
+        <!-- <field name="student_ids" eval="[(6, 0, [ref('res_partner_alvaro_diaz'), ref('res_partner_jose_martin_rodriguez'), ref('res_partner_bautista')])]"/> -->
     </record>
 
     <record id="academic_group_2" model="academic.group">
@@ -16,7 +16,7 @@
         <field name="subject_id" ref="academic_subject_2"/>
         <field name="teacher_id" ref="res_partner_laura_sali"/>
         <field name="year" eval="str(datetime.now().year)"/>
-        <field name="student_ids" eval="[(6, 0, [ref('res_partner_martin_perez'), ref('res_partner_luz'), ref('res_partner_martina')])]"/>
+        <!-- <field name="student_ids" eval="[(6, 0, [ref('res_partner_martin_perez'), ref('res_partner_luz'), ref('res_partner_martina')])]"/> -->
     </record>
 
     <record id="academic_group_3" model="academic.group">
@@ -24,6 +24,6 @@
         <field name="division_id" ref="academic_division_3"/>
         <field name="company_id" ref="base.main_company"/>
         <field name="year" eval="str(datetime.now().year)"/>
-        <field name="student_ids" eval="[(6, 0, [ref('res_partner_mateo'), ref('res_partner_amalia'), ref('res_partner_ignacio')])]"/>
+        <!-- <field name="student_ids" eval="[(6, 0, [ref('res_partner_mateo'), ref('res_partner_amalia'), ref('res_partner_ignacio')])]"/> -->
     </record>
 </odoo>

@@ -64,12 +64,14 @@ class OrderWizard(models.TransientModel):
                         'product_uom_qty': line.quantity,
                         'price_unit': line.price,
                         **({'name': line.description} if line.description else {}),
+                        **({'group_id': self.academic_group_id.id} if self.academic_group_id else {}),
                     }) for line in self.order_wizard_line_ids
                 ]
             })
 
-            if self.academic_group_id:
-                self.academic_group_id.student_ids = [Command.link(student.id)]
+            if self.academic_group_id and not self.order_wizard_line_ids.mapped("add_group"):
+                vals = {'student_id': student.id}
+                self.academic_group_id.academic_group_link_ids = [Command.create(vals)]
 
             if self.status_sale == 'confirmed':
                 subscription.action_confirm()
@@ -128,10 +130,22 @@ class OrderWizard(models.TransientModel):
                 raise UserError(_("The date of the next invoice cannot be earlier than the validity date."))
 
     @api.constrains('order_wizard_line_ids')
-    def _check_price(self):
+    def _check_wizard_lines(self):
         for rec in self:
             if not rec.order_wizard_line_ids:
                 raise ValidationError(_("There must be product lines."))
+
+            if len(rec.order_wizard_line_ids.filtered('add_group')) > 0 and not rec.academic_group_id:
+                raise ValidationError(_(
+                    "If you have checked add group then you must choose an academic group."
+                ))
+
+            if len(lines := rec.order_wizard_line_ids.filtered('add_group')) > 1:
+                product_types = lines.mapped("product_id.academic_product_type")
+                if product_types.count("main") > 1 or product_types.count("registration") > 1:
+                    raise ValidationError(_(
+                        "Only one 'main' and one 'registration' product are allowed per group."
+                    ))
 
     @api.onchange('order_wizard_line_ids')
     def _onchange_notification_price(self):
@@ -157,6 +171,7 @@ class AcademicOrderWizardLine(models.TransientModel):
     description = fields.Text()
     quantity = fields.Float(default=1.0)
     template_id = fields.Many2one('sale.order.template', store=False)
+    add_group = fields.Boolean()
 
     @api.depends('product_id')
     def _compute_price(self):
