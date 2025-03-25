@@ -13,9 +13,6 @@
                 </group>
                 <group string="By object">
                     <field name="level_id" string="Level" />
-                    <!-- <field name="subject_id" string="Subject" /> -->
-                    <!-- <field name="teacher_id" string="Teacher" /> -->
-                    <field name="student_ids" string="Student" />
                 </group>
                 <filter name="inactive" string="Archived" domain="[('active', '=', False)]"/>
             </search>
@@ -28,27 +25,49 @@
         <field name="model">academic.group</field>
         <field name="arch" type="xml">
             <form string="group">
+                <field name="company_id" invisible="1"/>
+                <header>
+                    <button name="open_students" type="object" class="oe_stat_button" icon="fa-users">
+                        <div class="o_field_widget o_stat_info">
+                            <span class="o_stat_text">Students</span>
+                        </div>
+                    </button>
+                </header>
                 <sheet string="group">
                      <div class="oe_button_box" name="button_box">
-                        <button name="%(action_academic_partner_students)d" type="action" class="oe_stat_button" icon="fa-users" context="{'default_student_group_ids': [id], 'default_partner_type': 'student', 'search_default_student_group_ids': id}">
-                            <field string="Students" name="student_ids_count" widget="statinfo"/>
+                        <button name="open_fee_sales" type="object" class="oe_stat_button" icon="fa-usd" invisible="not manage_sale_workflow">
+                            <field string="Fee" name="fee_student_count" widget="statinfo"/>
+                        </button>
+                        <button name="open_no_fee_students" type="object" class="oe_stat_button" icon="fa-user-o" invisible="not manage_sale_workflow or no_fee_student_count &lt; 1">
+                            <field string="No Fee" name="no_fee_student_count" widget="statinfo"/>
+                        </button>
+                        <button name="open_registration_sales" type="object" class="oe_stat_button" icon="fa-plus" invisible="not manage_sale_workflow">
+                            <field string="Registration" name="registration_student_count" widget="statinfo"/>
+                        </button>
+                        <button name="open_opportunities" type="object" class="oe_stat_button" icon="fa-star" help="Opportunities linked to this group" invisible="not manage_sale_workflow">
+                            <field string="Opportunities" name="opportunities_student_count" widget="statinfo"/>
                         </button>
                      </div>
                     <group>
-                        <!-- Por ahora no usamos type, me parece que lo podemos borrar -->
-                        <!-- <field name="type"/> -->
-                        <field name="company_id" invisible="1"/>
-                        <field name="company_id" groups="base.group_multi_company"/>
-                        <field name="study_plan_level_ids" invisible='1'/>
-                    </group>
-                    <group col="4">
-                        <field name="level_id" domain="[('id','in',study_plan_level_ids)]"/>
-                        <field name="division_id" required="1"/>
-                        <field name="year"/>
+                        <group>
+                            <!-- Por ahora no usamos type, me parece que lo podemos borrar -->
+                            <!-- <field name="type"/> -->
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="section_id"/>
+                            <field name="level_id"/>
+                            <field name="division_id"/>
+                            <field name="subject_id"/>
+                            <field name="manage_sale_workflow" groups="base.group_no_one"/>
+                        </group>
+                        <group>
+                            <field name="year"/>
+                            <field name="capacity"/>
+                            <field name="vacancies"/>
+                        </group>
                     </group>
                     <notebook>
                         <page name="students" string="Students">
-                            <field name="student_ids" domain="[('company_id','=',company_id),('partner_type','=','student')]" context="{'default_company_id':company_id,'default_partner_type':'student'}"/>
+                            <field name="student_ids" domain="[('company_id','=',company_id),('partner_type','=','student')]" context="{'default_company_id':company_id,'default_partner_type':'student'}" readonly="manage_sale_workflow" force_save="1"/>
                         </page>
                     </notebook>
                 </sheet>
@@ -66,10 +85,13 @@
             <list string="group">
                 <!-- <field name="type"/> -->
                 <field name="company_id" groups="base.group_multi_company"/>
+                <field name="section_id"/>
                 <field name="level_id"/>
                 <field name="division_id"/>
-                <!-- <field name="subject_id"/> -->
+                <field name="subject_id"/>
                 <field name="year"/>
+                <field name="capacity"/>
+                <field name="vacancies"/>
             </list>
         </field>
     </record>
@@ -118,7 +140,6 @@
     </record>
 
     <menuitem name="Groups" id="menu_groups" sequence="10" action="action_academic_group_groups" parent="menu_data" groups="group_user" />
-
     <!-- portal menu -->
     <menuitem name="Groups" id="menu_portal_groups" sequence="25" action="action_academic_group_groups" parent="menu_portal_academic" groups="group_portal_teacher" />
 
