@@ -94,13 +94,6 @@
         <field name="groups" eval="[(4, ref('group_portal_teacher'))]"/>
     </record>
 
-    <record model="ir.rule" id="res_partner_group_administrator_rule">
-        <field name="name">portal administrator: only section groups</field>
-        <field name="model_id" ref="academic.model_academic_group"/>
-        <field name="domain_force">[('level_id.section_id','=',user.partner_id.section_id.id)]</field>
-        <field name="groups" eval="[(4, ref('group_portal_administrator'))]"/>
-    </record>
-
     <record model="ir.rule" id="res_partner_group_gral_administrator_rule">
         <field name="name">portal gral administrator: all groups</field>
         <field name="model_id" ref="academic.model_academic_group"/>
