@@ -43,13 +43,14 @@ class ResPartner(models.Model):
         "teacher_id",
         string="Teacher Groups",
     )
-    student_group_ids = fields.Many2many(
-        "academic.group",
-        "academic_student_group_ids_student_ids_rel",
-        "partner_id",
-        "group_id",
-        string="Student Groups",
-        context={"active_test": False},
+    academic_group_link_ids = fields.One2many(
+        'academic.group.link',
+        'student_id',
+        string='Student Groups',
+    )
+    disabled_person = fields.Boolean(
+        'Disabled Person?',
+        help='¿Alumno/a con Dificultades de aprendizaje?'
     )
     disabled_person = fields.Boolean("Disabled Person?", help="¿Alumno/a con Dificultades de aprendizaje?")
     sex = fields.Selection(
@@ -139,37 +140,15 @@ class ResPartner(models.Model):
     # creamos nuevo campo porque el child_ids como ya esta en la vista nos propaga el mode kanban
     # al hacerlo con mode tree nos simplfica bastante la herencia de vista porque no tenemos que agregar en el quick
     # create tantas cosas
-    student_ids = fields.One2many("res.partner", "parent_id")
-    company_id = fields.Many2one(compute="_compute_company_id", store=True, readonly=False)
-    # company_type = fields.Selection(selection_add=[('family', 'Family')])
-    # is_family = fields.Boolean()
-    same_dni_partner_id = fields.Many2one(
-        "res.partner",
-        string="Partner with same DNI",
-        compute="_compute_same_dni_partner_id",
-        store=False,
-        search="_search_same_dni_partner_id",
-    )
-    same_dni_partner_company = fields.Many2one(
-        "res.company", string="Company same partner", related="same_dni_partner_id.company_id"
-    )
-    current_main_group_id = fields.Many2one("academic.group", compute="_compute_current_main_group", store=True)
+    student_ids = fields.One2many('res.partner', 'parent_id')
+    company_id = fields.Many2one(compute='_compute_company_id', store=True, readonly=False)
+    same_dni_partner_id = fields.Many2one('res.partner', string='Partner with same DNI', compute='_compute_same_dni_partner_id', store=False, search='_search_same_dni_partner_id')
+    same_dni_partner_company = fields.Many2one('res.company', string="Company same partner", related='same_dni_partner_id.company_id')
+    current_main_group_id = fields.Many2one('academic.group', compute='_compute_current_main_group', store=True)
     category_id = fields.Many2many(check_company=True)
     student_count = fields.Integer(compute="_compute_student_count", store=True)
 
-    # @api.depends('is_family')
-    # def _compute_company_type(self):
-    #     families = self.filtered(lambda x: x.is_company and x.is_family)
-    #     families.company_type = 'family'
-    #     return super(ResPartner, self - families)._compute_company_type()
-
-    # def _write_company_type(self):
-    #     families = self.filtered(lambda x: x.company_type == 'family')
-    #     families.is_company = True
-    #     families.is_family = True
-    #     return super(ResPartner, self - families)._write_company_type()
-
-    @api.constrains("company_id", "partner_type", "parent_id")
+    @api.constrains('company_id', 'partner_type', 'parent_id')
     def _check_family_configured(self):
         if self.filtered(
             lambda x: x.partner_type == "student"
@@ -191,15 +170,7 @@ class ResPartner(models.Model):
     def _compute_partner_type(self):
         self.filtered(lambda x: x.is_company and x.partner_type).partner_type = False
 
-    def quickly_create_portal_user(self):
-        """Metodo que crea o activa usuario inactivo en el grupo portal que
-        se defina
-        """
-        # TODO: el metodo onchange_portal_id no existe.
-        # Esto dejo de usarse pero queda el codigo por posible implementacion a futuro
-        raise UserError(_("Esta función se encuentra en desarrollo!"))
-
-    @api.depends("parent_id")
+    @api.depends('parent_id')
     def _compute_company_id(self):
         """
         Si soy parte de una compañía (o familia, es campo "parent_id"), queremos que todos los childs tengan misma company
@@ -239,14 +210,21 @@ class ResPartner(models.Model):
 
     @api.constrains("current_main_group_id")
     def _check_unique_main_group_per_year(self):
-        """La validación se realiza sobre el campo `current_main_group_id` en lugar de `student_group_ids`
+        """La validación se realiza sobre el campo `current_main_group_id` en lugar de `academic_group_link_ids`
         porque, al usar un campo many2many, la validación no se activaba al agregar un estudiante
         directamente desde un grupo.
         """
         for partner in self:
-            domain = [("student_ids", "=", partner.id), ("subject_id", "=", False)]
-            grouped_data = self.env["academic.group"].read_group(domain, ["year"], ["year"])
-            duplicate_years = [group["year"] for group in grouped_data if group["year_count"] > 1]
+            domain = [
+                ('academic_group_link_ids.student_id', '=', partner.id),
+                ('subject_id', '=', False)
+            ]
+            grouped_data = self.env['academic.group'].read_group(
+                domain,
+                ['year'],
+                ['year']
+            )
+            duplicate_years = [group['year'] for group in grouped_data if group['year_count'] > 1]
             if duplicate_years:
                 raise ValidationError(
                     _(
@@ -256,11 +234,11 @@ class ResPartner(models.Model):
                     % (partner.name, ", ".join(map(str, duplicate_years)))
                 )
 
-    @api.depends("student_group_ids")
+    @api.depends('academic_group_link_ids')
     def _compute_current_main_group(self):
         for rec in self:
-            student_group = rec.student_group_ids.filtered(lambda g: g.year == date.today().year and not g.subject_id)
-            rec.current_main_group_id = student_group[:1]
+            academic_group_link = rec.academic_group_link_ids.filtered(lambda g: g.group_id.year == date.today().year and not g.group_id.subject_id)
+            rec.current_main_group_id = academic_group_link[:1].group_id
 
     @api.depends("student_link_ids", "student_link_ids.role_ids")
     def _compute_payment_responsible(self):
@@ -300,5 +278,5 @@ class ResPartner(models.Model):
     def _check_groups_student(self):
         if self.env.context.get("install_mode"):
             return True
-        if self.filtered(lambda x: x.partner_type == "student" and not x.student_group_ids):
-            raise UserError(_("The student must belong to at least one academic group."))
+        if self.filtered(lambda x: x.partner_type == 'student' and not x.academic_group_link_ids):
+            raise UserError(_('The student must belong to at least one academic group.'))

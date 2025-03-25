@@ -19,6 +19,10 @@
             <field name="partner_shipping_id" position="attributes">
                 <attribute name="invisible">1</attribute>
             </field>
+            <xpath expr="//field[@name='order_line']//list//field[@name='discount']" position="before">
+                <field name="academic_product_type" column_invisible="1"/>
+                <field name="group_id" options="{'no_create': 1}" readonly="not academic_product_type"/>
+            </xpath>
         </field>
     </record>
 

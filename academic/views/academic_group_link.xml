@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_academic_group_link_tree" model="ir.ui.view">
+        <field name="name">academic.group.link.tree</field>
+        <field name="model">academic.group.link</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="group_id"/>
+                <field name="display_name"/>
+                <field name="student_id" optional="show"/>
+                <field name="status"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_academic_group_link_form" model="ir.ui.view">
+        <field name="name">academic.group.link.form</field>
+        <field name="model">academic.group.link</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="status" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="group_id"/>
+                        <field name="display_name"/>
+                        <field name="student_id"/>
+                        <field name="registration_so_line_id"/>
+                        <field name="main_so_line_id"/>
+                        <field name="lead_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_academic_group_link_search" model="ir.ui.view">
+        <field name="name">academic.group.link.search</field>
+        <field name="model">academic.group.link</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="group_id"/>
+                <field name="student_id"/>
+                <field name="status"/>
+                <filter string="Status" name="group_by_status" context="{'group_by':'status'}"/>
+                <filter string="Groups" name="group_by_group_id" context="{'group_by':'group_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_academic_group_link" model="ir.actions.act_window">
+        <field name="name">Group Links</field>
+        <field name="res_model">academic.group.link</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first group link
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_academic_group_link" name="Group Links" parent="academic.menu_data" action="action_academic_group_link" groups="group_user"/>
+</odoo>

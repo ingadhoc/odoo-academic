@@ -2,7 +2,7 @@
 # For copyright and license notices, see __manifest__.py file in module root
 # directory
 ##############################################################################
-from odoo import Command, api, fields, models
+from odoo import Command, _, api, fields, models
 from odoo.exceptions import UserError, ValidationError
 
 
@@ -29,9 +29,7 @@ class OrderWizard(models.TransientModel):
     )
     validity_date = fields.Date()
     payment_term_id = fields.Many2one("account.payment.term")
-    academic_group_id = fields.Many2one(
-        "academic.group", help="If you define a group, the selected students will be added to this group."
-    )
+
 
     def action_create_mass_subscription(self):
         if not self.student_ids:
@@ -68,33 +66,24 @@ class OrderWizard(models.TransientModel):
     def _create_mass_subscription(self):
         subscriptions = self.env["sale.order"]
         for student in self.student_ids:
-            subscription = self.env["sale.order"].create(
-                {
-                    "partner_id": student.id,
-                    "plan_id": self.plan_id.id,
-                    "pricelist_id": self.pricelist_id.id,
-                    "start_date": self.next_invoice_date,
-                    "sale_order_template_id": self.template_id.id,
-                    "validity_date": self.validity_date if self.status_sale == "draft" else False,
-                    **({"payment_term_id": self.payment_term_id.id} if self.payment_term_id else {}),
-                    "order_line": [
-                        (
-                            0,
-                            0,
-                            {
-                                "product_id": line.product_id.id,
-                                "product_uom_qty": line.quantity,
-                                "price_unit": line.price,
-                                **({"name": line.description} if line.description else {}),
-                            },
-                        )
-                        for line in self.order_wizard_line_ids
-                    ],
-                }
-            )
-
-            if self.academic_group_id:
-                self.academic_group_id.student_ids = [Command.link(student.id)]
+            subscription = self.env['sale.order'].create({
+                'partner_id': student.id,
+                'plan_id': self.plan_id.id,
+                'pricelist_id': self.pricelist_id.id,
+                'start_date': self.next_invoice_date,
+                'sale_order_template_id': self.template_id.id,
+                'validity_date': self.validity_date if self.status_sale == 'draft' else False,
+                **({'payment_term_id': self.payment_term_id.id} if self.payment_term_id else {}),
+                'order_line': [
+                    (0, 0, {
+                        'product_id': line.product_id.id,
+                        'product_uom_qty': line.quantity,
+                        'price_unit': line.price,
+                        **({'name': line.description} if line.description else {}),
+                        **({'group_id': line.academic_group_id.id} if line.academic_group_id else {}),
+                    }) for line in self.order_wizard_line_ids
+                ]
+            })
 
             if self.status_sale == "confirmed":
                 subscription.action_confirm()
@@ -158,13 +147,13 @@ class OrderWizard(models.TransientModel):
             if rec.next_invoice_date < rec.validity_date:
                 raise UserError(self.env._("The date of the next invoice cannot be earlier than the validity date."))
 
-    @api.constrains("order_wizard_line_ids")
-    def _check_price(self):
+    @api.constrains('order_wizard_line_ids')
+    def _check_wizard_lines(self):
         for rec in self:
             if not rec.order_wizard_line_ids:
                 raise ValidationError(self.env._("There must be product lines."))
 
-    @api.onchange("order_wizard_line_ids")
+    @api.onchange('order_wizard_line_ids')
     def _onchange_notification_price(self):
         for rec in self:
             if rec.order_wizard_line_ids.filtered(lambda x: x.price <= 0):
@@ -187,7 +176,15 @@ class AcademicOrderWizardLine(models.TransientModel):
     currency_id = fields.Many2one("res.currency", default=lambda self: self.env.company.currency_id)
     description = fields.Text()
     quantity = fields.Float(default=1.0)
-    template_id = fields.Many2one("sale.order.template", store=False)
+    template_id = fields.Many2one('sale.order.template', store=False)
+    academic_group_id = fields.Many2one("academic.group")
+    academic_product_type = fields.Selection(
+        selection=[
+            ('main', 'Main'),
+            ('registration', 'Registration'),
+        ],
+        related='product_id.academic_product_type',
+    )
 
     @api.depends("product_id")
     def _compute_price(self):

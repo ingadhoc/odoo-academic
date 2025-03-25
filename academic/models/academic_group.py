@@ -2,11 +2,10 @@
 # For copyright and license notices, see __manifest__.py file in module root
 # directory
 ##############################################################################
-import random
-import string
 from datetime import date
 
-from odoo import api, fields, models
+from odoo import _, api, fields, models
+from odoo.exceptions import ValidationError
 
 
 class AcademicGroup(models.Model):
@@ -57,21 +56,22 @@ class AcademicGroup(models.Model):
         context={"default_partner_type": "teacher"},
         domain=[("partner_type", "=", "teacher")],
     )
-    student_ids = fields.Many2many(
-        "res.partner",
-        "academic_student_group_ids_student_ids_rel",
-        "group_id",
-        "partner_id",
-        string="Student",
-        context={"default_partner_type": "student"},
-        domain=[("partner_type", "=", "student")],
+    academic_group_link_ids = fields.One2many(
+        'academic.group.link',
+        'group_id',
+        string='Students',
+    )
+    name = fields.Char(
+        compute='_compute_name',
+        store=True
     )
     name = fields.Char(compute="_compute_name", store=True)
     active = fields.Boolean(default=True)
-    student_ids_count = fields.Integer(
-        string="Student Count",
-        compute="_compute_student_ids_count",
-    )
+    active_student_count = fields.Integer(compute='_compute_student_count')
+    enrolling_student_count = fields.Integer(compute='_compute_student_count')
+    prospect_student_count = fields.Integer(compute='_compute_student_count')
+    capacity = fields.Integer()
+    vacancies = fields.Integer(compute="_compute_vacancies", store=True)
 
     @api.depends("company_id", "level_id", "division_id", "year")
     def _compute_name(self):
@@ -85,34 +85,17 @@ class AcademicGroup(models.Model):
             ]
             line.name = " - ".join(filter(None, name_parts))
 
-    def create_students_users(self):
-        """
-        This function create users if they don't exist for students related
-         to this group.
-        """
-        self.student_ids.quickly_create_portal_user()
-        # Creamos contrasenas para todos los students que no tengan una
-        # explicita (no hashed)
-        for user in self.student_ids.mapped("user_ids").filtered(lambda x: not x.password):
-            user.password = "".join(random.choice(string.ascii_uppercase + string.digits) for _ in range(6))
-
-    def print_users(self):
-        """
-        This function prints a report with users login and password.
-        """
-        self.ensure_one()
-        self.create_students_users()
-        report = (
-            self.env["ir.actions.report"]
-            .search([("report_name", "=", "academic.template_report_users")], limit=1)
-            .report_action(self)
-        )
-        return report
-
-    @api.depends("student_ids")
-    def _compute_student_ids_count(self):
+    @api.depends('academic_group_link_ids')
+    def _compute_student_count(self):
         for group in self:
-            group.student_ids_count = len(group.student_ids)
+            group.active_student_count = len(group.academic_group_link_ids.filtered(lambda x: x.status in ['active', 'enrolled']))
+            group.enrolling_student_count = len(group.academic_group_link_ids.filtered(lambda x: x.status in ['enrolling']))
+            group.prospect_student_count = len(group.academic_group_link_ids.filtered(lambda x: x.status in ['prospect']))
+
+    @api.depends('active_student_count', 'capacity')
+    def _compute_vacancies(self):
+        for group in self:
+            group.vacancies = group.capacity - group.active_student_count
 
     def create_next_year_groups(self):
         # estamos pasando de un año a otro sin usar study plan por lo siguiente:
@@ -131,12 +114,9 @@ class AcademicGroup(models.Model):
             )
 
             if not next_group:
-                next_group = rec.copy(
-                    default={
-                        "year": rec.year + 1,
-                        "student_ids": False,
-                    }
-                )
+                next_group = rec.copy(default={
+                    'year': rec.year + 1,
+                })
 
     def open_student_view(self):
         action = self.env.ref("academic.action_academic_partner_students").read()[0]
@@ -148,3 +128,33 @@ class AcademicGroup(models.Model):
             }
         )
         return action
+
+    @api.constrains('vacancies')
+    def _check_vacancies(self):
+        if self.filtered(lambda x: x.vacancies < 0):
+            raise ValidationError(_('There can be no negative vacancies. Increase group capacity.'))
+
+    def open_specific_student(self):
+        action = self.env.ref('academic.action_academic_partner_students').read()[0]
+        domain = [('academic_group_link_ids.group_id', '=', self.id)]
+        if type := self.env.context.get('type'):
+            if type == 'active':
+                domain += [('academic_group_link_ids.status', 'in', ['active', 'enrolled'])]
+            elif type == 'enrolling':
+                domain += [('academic_group_link_ids.status', 'in', ['enrolling'])]
+            else:
+                domain += [('academic_group_link_ids.status', 'in', ['prospect'])]
+
+        action.update({
+            'domain': domain,
+            'views': [(False, 'tree'), (False, 'form')],
+            'context': {'from_open_student_view': True}
+        })
+        return action
+
+    @api.constrains('academic_group_link_ids')
+    def _check_unique_student_in_group(self):
+        for rec in self:
+            students = rec.academic_group_link_ids.mapped('student_id')
+            if len(rec.academic_group_link_ids.filtered('student_id')) != len(students):
+                raise ValidationError(_('There cannot be a repeated student in a group.'))
