@@ -14,7 +14,7 @@ class ResCompany(models.Model):
         "company_id",
         string="Groups",
     )
-    study_plan_id = fields.Many2one(comodel_name="academic.study.plan", string="Plan de Estudio")
+    section_ids = fields.Many2many("academic.section", string="Study Plans")
     family_required = fields.Boolean(default=True)  # Falta revisar la implementación con ese booleano en False
     require_student_on_invoices = fields.Boolean(default=True)
 

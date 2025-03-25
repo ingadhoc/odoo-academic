@@ -6,13 +6,11 @@
         <field name="inherit_id" ref="hr.view_employee_form"/>
         <field name="arch" type="xml">
             <field name="job_title" position="after">
-                <!-- <field name="study_plan_id"/> -->
-                <field name="study_plan_level_ids" invisible='1'/>
                 <label for="asignatures_ids" colspan='1'/>
                 <field name="asignatures_ids" nolabel='1' colspan='3'>
                     <list editable='bottom' >
                         <field name="subject_id"/>
-                        <field name="level_ids" domain="[('id','in',parent.study_plan_level_ids)]" options="{'no_create_edit':True}" widget='many2many_tags'/>
+                        <field name="level_ids" options="{'no_create_edit':True}" widget='many2many_tags'/>
                         <field name="teacher_id" column_invisible="True"/>
                     </list>
                 </field>

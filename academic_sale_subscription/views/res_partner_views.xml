@@ -6,8 +6,8 @@
         <field name="arch" type="xml">
             <list position="inside">
                 <header>
-                    <button name="%(academic_sale_subscription.action_view_academic_order_wizard)d"
-                            type="action"
+                    <button name="open_academic_order_wizard"
+                            type="object"
                             string="Create Order"
                             class="btn-secondary"
                             groups="academic.group_user"/>

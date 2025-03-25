@@ -22,3 +22,15 @@ class ResPartner(models.Model):
                     lambda line: not line.order_id.end_date or line.order_id.next_invoice_date < line.order_id.end_date
                 )
             )
+
+    def open_academic_order_wizard(self):
+        action = self.env["ir.actions.actions"]._for_xml_id(
+            "academic_sale_subscription.action_view_academic_order_wizard"
+        )
+        if academic_group := self.env.context.get("academic_group_id"):
+            action.update(
+                {
+                    "context": {"academic_group_id": academic_group},
+                }
+            )
+        return action

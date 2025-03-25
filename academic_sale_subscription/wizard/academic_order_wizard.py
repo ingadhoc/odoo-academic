@@ -29,9 +29,6 @@ class OrderWizard(models.TransientModel):
     )
     validity_date = fields.Date()
     payment_term_id = fields.Many2one("account.payment.term")
-    academic_group_id = fields.Many2one(
-        "academic.group", help="If you define a group, the selected students will be added to this group."
-    )
 
     def action_create_mass_subscription(self):
         if not self.student_ids:
@@ -86,15 +83,13 @@ class OrderWizard(models.TransientModel):
                                 "product_uom_qty": line.quantity,
                                 "price_unit": line.price,
                                 **({"name": line.description} if line.description else {}),
+                                **({"group_id": line.academic_group_id.id} if line.academic_group_id else {}),
                             },
                         )
                         for line in self.order_wizard_line_ids
                     ],
                 }
             )
-
-            if self.academic_group_id:
-                self.academic_group_id.student_ids = [Command.link(student.id)]
 
             if self.status_sale == "confirmed":
                 subscription.action_confirm()
@@ -159,7 +154,7 @@ class OrderWizard(models.TransientModel):
                 raise UserError(self.env._("The date of the next invoice cannot be earlier than the validity date."))
 
     @api.constrains("order_wizard_line_ids")
-    def _check_price(self):
+    def _check_wizard_lines(self):
         for rec in self:
             if not rec.order_wizard_line_ids:
                 raise ValidationError(self.env._("There must be product lines."))
@@ -188,6 +183,12 @@ class AcademicOrderWizardLine(models.TransientModel):
     description = fields.Text()
     quantity = fields.Float(default=1.0)
     template_id = fields.Many2one("sale.order.template", store=False)
+    academic_group_id = fields.Many2one(
+        "academic.group", compute="_compute_academic_group_id", store=True, readonly=False
+    )
+    academic_product_type = fields.Selection(
+        related="product_id.academic_product_type",
+    )
 
     @api.depends("product_id")
     def _compute_price(self):
@@ -196,3 +197,10 @@ class AcademicOrderWizardLine(models.TransientModel):
                 rec.product_id, rec.academic_order_wizard_id.plan_id, rec.academic_order_wizard_id.pricelist_id
             )
             rec.price = pricing.price if pricing else 0.0
+
+    @api.depends("academic_product_type")
+    def _compute_academic_group_id(self):
+        if academic_group := self.env.context.get("academic_group_id"):
+            academic_products = self.filtered("academic_product_type")
+            academic_products.academic_group_id = academic_group
+            (self - academic_products).academic_group_id = False
