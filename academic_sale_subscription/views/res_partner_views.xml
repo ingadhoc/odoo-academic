@@ -10,7 +10,7 @@
                             type="action"
                             string="Create Order"
                             class="btn-secondary"
-                            groups="academic.group_manager"/>
+                            groups="academic.group_user"/>
                 </header>
             </tree>
             <groupby name="current_main_group_id" position="inside">
