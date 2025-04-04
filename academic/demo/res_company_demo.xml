@@ -50,10 +50,6 @@
         <field name="company_id" ref="res_company_los_molinos"/>
     </record>
 
-    <record id="res_partner_martin_perez" model="res.partner">
-        <field name="company_id" ref="res_company_los_molinos"/>
-    </record>
-
     <record id="res_partner_roberto_martin" model="res.partner">
         <field name="company_id" ref="res_company_los_molinos"/>
     </record>
@@ -63,14 +59,6 @@
     </record>
 
     <record id="res_partner_ignacio_rodriguez" model="res.partner">
-        <field name="company_id" ref="res_company_los_arroyos"/>
-    </record>
-
-    <record id="res_partner_alvaro_diaz" model="res.partner">
-        <field name="company_id" ref="res_company_los_arroyos"/>
-    </record>
-
-    <record id="res_partner_jose_martin_rodriguez" model="res.partner">
         <field name="company_id" ref="res_company_los_arroyos"/>
     </record>
 

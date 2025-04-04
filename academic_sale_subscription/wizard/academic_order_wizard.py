@@ -15,7 +15,7 @@ class OrderWizard(models.TransientModel):
     order_wizard_line_ids = fields.One2many('academic.order.wizard.line', 'academic_order_wizard_id', compute="_compute_order_wizard_line", readonly=False, store=True)
     pricelist_id = fields.Many2one('product.pricelist')
     template_id = fields.Many2one('sale.order.template')
-    next_invoice_date = fields.Date(required=True)
+    next_invoice_date = fields.Date(string='Date of first invoice', required=True)
     status_sale = fields.Selection([
         ('draft', 'Draft'),
         ('confirmed', 'Confirmed')],
@@ -23,8 +23,7 @@ class OrderWizard(models.TransientModel):
     )
     validity_date = fields.Date()
     payment_term_id = fields.Many2one('account.payment.term')
-    academic_group_id = fields.Many2one('academic.group')
-    start_date = fields.Date(default=fields.Date.today, required=True)
+    academic_group_id = fields.Many2one('academic.group', help='If you define a group, the selected students will be added to this group.')
 
     def action_create_mass_subscription(self):
         if not self.student_ids:
@@ -55,11 +54,10 @@ class OrderWizard(models.TransientModel):
                 'partner_id': student.id,
                 'plan_id': self.plan_id.id,
                 'pricelist_id': self.pricelist_id.id,
-                'next_invoice_date': self.next_invoice_date,
+                'start_date': self.next_invoice_date,
                 'sale_order_template_id': self.template_id.id,
                 'validity_date': self.validity_date if self.status_sale == 'draft' else False,
                 **({'payment_term_id': self.payment_term_id.id} if self.payment_term_id else {}),
-                'start_date': self.start_date,
                 'order_line': [
                     (0, 0, {
                         'product_id': line.product_id.id,
