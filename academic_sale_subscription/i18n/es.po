@@ -190,11 +190,6 @@ msgid "Months"
 msgstr "Meses"
 
 #. module: academic_sale_subscription
-#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__next_invoice_date
-msgid "Next Invoice Date"
-msgstr "Fecha de la próxima factura"
-
-#. module: academic_sale_subscription
 #. odoo-python
 #: code:addons/academic_sale_subscription/wizard/academic_order_wizard.py:0
 msgid "No student has been selected."
@@ -385,3 +380,14 @@ msgstr "Años"
 #: model:ir.model,name:academic_sale_subscription.model_academic_group
 msgid "group"
 msgstr "grupo"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__next_invoice_date
+msgid "Date of first invoice"
+msgstr "Fecha de la primer factura"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,help:academic_sale_subscription.field_academic_order_wizard__academic_group_id
+msgid ""
+"If you define a group, the selected students will be added to this group."
+msgstr "Si se define un grupo, los estudiantes seleccionados serán agregados a este grupo."

@@ -161,10 +161,10 @@
 
             <page name="internal_notes" position="before">
                 <page string="Groups" invisible="partner_type != 'student'">
-                    <field name="student_group_ids" domain="[('company_id', '=', company_id)]"/>
+                    <field name="student_group_ids" domain="[('company_id', '=', company_id)]" context="{'list_view_ref': 'academic.view_academic_group_list_no_create'}"/>
                 </page>
                 <page string="Groups" invisible="partner_type != 'teacher'">
-                    <field name="teacher_group_ids" context="{'default_company_id': company_id, 'default_teacher_id': id}"/>
+                    <field name="teacher_group_ids" context="{'default_company_id': company_id, 'default_teacher_id': id, 'list_view_ref': 'academic.view_academic_group_list_no_create'}"/>
                 </page>
             </page>
 
