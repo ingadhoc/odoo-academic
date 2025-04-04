@@ -121,3 +121,14 @@ class SaleOrder(models.Model):
             "domain": self.get_duplicate_subscription_ids(),
             "context": "{'search_default_customer': 1}",
         }
+
+    def _invoice_is_considered_free(self, invoiceable_lines):
+        is_free, is_exception = super()._invoice_is_considered_free(invoiceable_lines)
+        param_enabled = (
+            self.env["ir.config_parameter"]
+            .sudo()
+            .get_param("academic_sale_subscription.enable_zero_price_subscription_invoice")
+        )
+        if is_free and param_enabled:
+            is_free = False
+        return is_free, is_exception
