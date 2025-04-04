@@ -28,6 +28,7 @@
         <field name="fiscalyear_last_day">31</field>
         <field name="name">Colegio Los Arroyos</field>
         <field name="study_plan_id" ref="academic_study_plan_2"/>
+        <field name="family_required" eval="False"/>
     </record>
 
     <record id="res_company_los_molinos" model="res.company">
@@ -39,6 +40,7 @@
         <!-- <field name="fiscalyear_last_day">31</field> -->
         <field name="name">Colegio Los Molinos</field>
         <field name="study_plan_id" ref="academic_study_plan_1"/>
+        <field name="family_required" eval="False"/>
     </record>
 
     <!-- Partners companies -->

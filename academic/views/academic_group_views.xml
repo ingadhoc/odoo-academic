@@ -74,6 +74,19 @@
         </field>
     </record>
 
+    <record id="view_academic_group_list_no_create" model="ir.ui.view">
+        <field name="name">academic.group.tree.no_create</field>
+        <field name="model">academic.group</field>
+        <field name="arch" type="xml">
+            <list string="group" create="0">
+                <field name="company_id" groups="base.group_multi_company"/>
+                <field name="level_id"/>
+                <field name="division_id"/>
+                <field name="year"/>
+            </list>
+        </field>
+    </record>
+
      <record id="action_academic_group_groups" model="ir.actions.act_window">
         <field name="name">Groups</field>
         <field name="res_model">academic.group</field>
