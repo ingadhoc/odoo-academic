@@ -12,7 +12,6 @@
                         <field name="status_sale" widget="radio" options="{'horizontal': true}"/>
                     </group>
                     <group>
-                        <field name="start_date"/>
                         <field name="validity_date" invisible="status_sale != 'draft'" required="status_sale == 'draft'"/>
                         <field name="next_invoice_date"/>
                         <field name="payment_term_id"/>

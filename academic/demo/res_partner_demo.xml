@@ -28,4 +28,8 @@
     <record id="res_partner_laura_sali" model="res.partner">
         <field name="name">Laura Sali</field>
     </record>
+
+    <record id="base.main_company" model="res.company">
+        <field name="family_required" eval="False"/>
+    </record>
 </odoo>

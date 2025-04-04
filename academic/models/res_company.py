@@ -19,7 +19,7 @@ class ResCompany(models.Model):
         comodel_name='academic.study.plan',
         string='Plan de Estudio'
     )
-    family_required = fields.Boolean()
+    family_required = fields.Boolean(default=True) # Falta revisar la implementación con ese booleano en False
     require_student_on_invoices = fields.Boolean(default=True)
 
     @api.constrains('require_student_on_invoices')
