@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-14 14:20+0000\n"
+"POT-Creation-Date: 2025-04-07 15:58+0000\n"
 "PO-Revision-Date: 2024-12-19 15:16+0000\n"
 "Last-Translator: Juan José Scarafía <scarafia.juanjose@gmail.com>, 2025\n"
 "Language-Team: Spanish (https://app.transifex.com/adhoc/teams/46451/es/)\n"
@@ -40,6 +40,11 @@ msgstr "Líneas del Wizard de Órdenes Académicas"
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_order_wizard_form
 msgid "Cancel"
 msgstr "Cancelar"
+
+#. module: academic_sale_subscription
+#: model:ir.model,name:academic_sale_subscription.model_res_config_settings
+msgid "Config Settings"
+msgstr "Ajustes de configuración"
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields.selection,name:academic_sale_subscription.selection__academic_order_wizard__status_sale__confirmed
@@ -124,9 +129,22 @@ msgid "Draft"
 msgstr "Borrador"
 
 #. module: academic_sale_subscription
+#: model:ir.actions.server,name:academic_sale_subscription.action_show_duplicated_subscription
+#: model:ir.ui.menu,name:academic_sale_subscription.menu_duplicated_subscription
+msgid "Duplicated Subscriptions"
+msgstr ""
+
+#. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_subscription_plan__duration_unit
 msgid "Duration Unit"
 msgstr "Unidad de duración"
+
+#. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.res_config_settings_view_form_inherit
+msgid ""
+"Enable this to allow invoicing subscription lines even if their total is "
+"zero."
+msgstr ""
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_subscription_plan__duration_value
@@ -143,6 +161,11 @@ msgstr "ID"
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order_line__partner_invoice_id
 msgid "Invoice Address"
 msgstr "Responsable de pago"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_res_config_settings__enable_zero_price_subscription_invoice
+msgid "Invoice subscriptions with zero total"
+msgstr ""
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_subscription_plan__is_unlimited
