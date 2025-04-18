@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-07 15:58+0000\n"
+"POT-Creation-Date: 2025-04-17 15:39+0000\n"
 "PO-Revision-Date: 2024-12-19 15:16+0000\n"
 "Last-Translator: Juan José Scarafía <scarafia.juanjose@gmail.com>, 2025\n"
 "Language-Team: Spanish (https://app.transifex.com/adhoc/teams/46451/es/)\n"
@@ -113,6 +113,11 @@ msgid "Date of Next Invoice Plan"
 msgstr "Fecha de la próxima factura"
 
 #. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__next_invoice_date
+msgid "Date of first invoice"
+msgstr "Fecha de la primer factura"
+
+#. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard_line__description
 msgid "Description"
 msgstr "Descripción"
@@ -158,6 +163,14 @@ msgid "ID"
 msgstr "ID"
 
 #. module: academic_sale_subscription
+#: model:ir.model.fields,help:academic_sale_subscription.field_academic_order_wizard__academic_group_id
+msgid ""
+"If you define a group, the selected students will be added to this group."
+msgstr ""
+"Si se define un grupo, los estudiantes seleccionados serán agregados a este "
+"grupo."
+
+#. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order_line__partner_invoice_id
 msgid "Invoice Address"
 msgstr "Responsable de pago"
@@ -193,11 +206,6 @@ msgstr "Líneas"
 #: model:ir.model.fields.selection,name:academic_sale_subscription.selection__sale_subscription_plan__duration_unit__month
 msgid "Months"
 msgstr "Meses"
-
-#. module: academic_sale_subscription
-#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__next_invoice_date
-msgid "Next Invoice Date"
-msgstr "Fecha de la próxima factura"
 
 #. module: academic_sale_subscription
 #. odoo-python
@@ -284,11 +292,6 @@ msgstr "Línea de pedido de venta"
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order__show_update_end_date
 msgid "Show Update End Date"
-msgstr ""
-
-#. module: academic_sale_subscription
-#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__start_date
-msgid "Start Date"
 msgstr ""
 
 #. module: academic_sale_subscription
@@ -411,14 +414,3 @@ msgstr "Años"
 #: model:ir.model,name:academic_sale_subscription.model_academic_group
 msgid "group"
 msgstr "grupo"
-
-#. module: academic_sale_subscription
-#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__next_invoice_date
-msgid "Date of first invoice"
-msgstr "Fecha de la primer factura"
-
-#. module: academic_sale_subscription
-#: model:ir.model.fields,help:academic_sale_subscription.field_academic_order_wizard__academic_group_id
-msgid ""
-"If you define a group, the selected students will be added to this group."
-msgstr "Si se define un grupo, los estudiantes seleccionados serán agregados a este grupo."
