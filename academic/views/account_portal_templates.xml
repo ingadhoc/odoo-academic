@@ -3,5 +3,11 @@
         <xpath expr="//t[@t-if='invoices']" position="before">
             <span> <strong>Total amount due: </strong> </span> <span t-out="total_amount_due"/>
         </xpath>
+        <xpath expr="//th[@name='status']" position="after">
+            <th name="student">Student</th>
+        </xpath>
+        <xpath expr="//td[@name='invoice_status']" position="after">
+            <td><span t-field="invoice.student_id"/></td>
+        </xpath>
     </template>
 </odoo>
