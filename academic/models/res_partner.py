@@ -243,8 +243,9 @@ class ResPartner(models.Model):
         porque, al usar un campo many2many, la validación no se activaba al agregar un estudiante
         directamente desde un grupo.
         """
+        current_year = date.today().year
         for partner in self:
-            domain = [("student_ids", "=", partner.id), ("subject_id", "=", False)]
+            domain = [("student_ids", "=", partner.id), ("subject_id", "=", False), ("year", ">=", current_year)]
             grouped_data = self.env["academic.group"].read_group(domain, ["year"], ["year"])
             duplicate_years = [group["year"] for group in grouped_data if group["year_count"] > 1]
             if duplicate_years:
