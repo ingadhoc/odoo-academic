@@ -37,6 +37,7 @@
         'account',
         'contacts',
         'report_aeroo',
+        'sale_subscription', # TODO mover esto y codigo a modulo academic_sale_subscription
     ],
     'data': [
         'security/academic_security.xml',
@@ -67,7 +68,6 @@
         'report/ir_actions_report.xml',
         'views/res_partner_category.xml',
         'views/account_portal_templates.xml',
-        'views/academic_group_link.xml',
         'views/product_template_views.xml',
         'report/report_invoice.xml',
     ],

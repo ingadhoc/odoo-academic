@@ -43,10 +43,13 @@ class ResPartner(models.Model):
         "teacher_id",
         string="Teacher Groups",
     )
-    academic_group_link_ids = fields.One2many(
-        'academic.group.link',
-        'student_id',
-        string='Student Groups',
+    student_group_ids = fields.Many2many(
+        "academic.group",
+        "academic_student_group_ids_student_ids_rel",
+        "partner_id",
+        "group_id",
+        string="Student Groups",
+        context={"active_test": False},
     )
     disabled_person = fields.Boolean(
         'Disabled Person?',
@@ -210,21 +213,14 @@ class ResPartner(models.Model):
 
     @api.constrains("current_main_group_id")
     def _check_unique_main_group_per_year(self):
-        """La validación se realiza sobre el campo `current_main_group_id` en lugar de `academic_group_link_ids`
+        """La validación se realiza sobre el campo `current_main_group_id` en lugar de `student_group_ids`
         porque, al usar un campo many2many, la validación no se activaba al agregar un estudiante
         directamente desde un grupo.
         """
         for partner in self:
-            domain = [
-                ('academic_group_link_ids.student_id', '=', partner.id),
-                ('subject_id', '=', False)
-            ]
-            grouped_data = self.env['academic.group'].read_group(
-                domain,
-                ['year'],
-                ['year']
-            )
-            duplicate_years = [group['year'] for group in grouped_data if group['year_count'] > 1]
+            domain = [("student_ids", "=", partner.id), ("subject_id", "=", False)]
+            grouped_data = self.env["academic.group"].read_group(domain, ["year"], ["year"])
+            duplicate_years = [group["year"] for group in grouped_data if group["year_count"] > 1]
             if duplicate_years:
                 raise ValidationError(
                     _(
@@ -234,11 +230,12 @@ class ResPartner(models.Model):
                     % (partner.name, ", ".join(map(str, duplicate_years)))
                 )
 
-    @api.depends('academic_group_link_ids')
+
+    @api.depends("student_group_ids")
     def _compute_current_main_group(self):
         for rec in self:
-            academic_group_link = rec.academic_group_link_ids.filtered(lambda g: g.group_id.year == date.today().year and not g.group_id.subject_id)
-            rec.current_main_group_id = academic_group_link[:1].group_id
+            student_group = rec.student_group_ids.filtered(lambda g: g.year == date.today().year and not g.subject_id)
+            rec.current_main_group_id = student_group[:1]
 
     @api.depends("student_link_ids", "student_link_ids.role_ids")
     def _compute_payment_responsible(self):

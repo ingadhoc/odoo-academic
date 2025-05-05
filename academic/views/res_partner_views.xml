@@ -161,14 +161,11 @@
 
             <page name="internal_notes" position="before">
                 <page string="Groups" invisible="partner_type != 'student'">
-                    <field name="academic_group_link_ids" readonly="True">
-                        <list>
+                    <field name="student_group_ids" readonly="True">
+                        <!-- <list>
                             <field name="group_id"/>
-                            <!-- <field name="lead_id"/>
-                            <field name="registration_so_line_id"/>
-                            <field name="main_so_line_id"/> -->
                             <field name="status"/>
-                        </list>
+                        </list> -->
                     </field>
                 </page>
                 <page string="Groups" invisible="partner_type != 'teacher'">

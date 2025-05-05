@@ -32,4 +32,3 @@ access_hr_employee_asignatures_system_user,hr.employee.asignatures system user,m
 academic.access_res_partner_role,access_res_partner_role,academic.model_res_partner_role,base.group_user,1,0,0,0
 academic.access_res_partner_link_all,access_res_partner_link_all,academic.model_res_partner_link,base.group_user,1,0,0,0
 academic.access_res_partner_link_user,access_res_partner_link_user,academic.model_res_partner_link,group_user,1,1,1,1
-academic.access_academic_group_link_user,access_academic_group_link_user,academic.model_academic_group_link,base.group_user,1,1,1,1

@@ -22,5 +22,4 @@ from . import sale_order_line
 from . import account_move
 from . import account_move_line
 from . import res_partner_category
-from . import academic_group_link
 from . import product_template
