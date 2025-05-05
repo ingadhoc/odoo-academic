@@ -17,53 +17,48 @@ class AcademicGroupLink(models.Model):
     main_so_line_id = fields.Many2one('sale.order.line')
     status = fields.Selection(
         selection=[
+            ('lost', 'Lost'),
             ('prospect', 'Prospect'),
             ('enrolling', 'Enrolling'),
             ('not_enrolled', 'Not Enrolled'),
             ('enrolled', 'Enrolled'),
             ('active', 'Active'),
-            ('inactive', 'Inactive'),
+            ('leave', 'Leave'),
         ],
         compute="_compute_status",
         store=True
     )
     display_name = fields.Char(compute='_compute_display_name')
 
-    @api.ondelete(at_uninstall=False)
-    def _unlink_check_sale_line(self):
-        for rec in self:
-            if rec.main_so_line_id:
-                raise UserError('You cannot delete the link. You must first unlink the main line.')
-            elif rec.registration_so_line_id:
-                raise UserError('You cannot delete the link. You must first unlink the registration line.')
+    # TODO revisar si queremos restringuir algunos casos
+    # @api.ondelete(at_uninstall=False)
+    # def _unlink_check_sale_line(self):
+    #     for rec in self:
+    #         if rec.main_so_line_id:
+    #             raise UserError('You cannot delete the link. You must first unlink the main line.')
+    #         elif rec.registration_so_line_id:
+    #             raise UserError('You cannot delete the link. You must first unlink the registration line.')
 
-    @api.depends('registration_so_line_id.state', 'main_so_line_id.state', 'lead_id')
+    @api.depends('registration_so_line_id.state', 'main_so_line_id.state', 'lead_id.active', 'lead_id.probability')
     def _compute_status(self):
         for rec in self:
             reg_line = rec.registration_so_line_id
             main_line = rec.main_so_line_id
             lead = rec.lead_id
 
-            if main_line:
-                state = main_line.order_id.state
-                if state == 'sale':
-                    rec.status = 'active'
-                    continue
-                elif state == 'cancel':
-                    rec.status = 'inactive'
-                    continue
-
-            if reg_line:
-                state = reg_line.order_id.state
-                if state in ['draft', 'sent']:
-                    rec.status = 'enrolling'
-                elif state == 'sale':
-                    rec.status = 'enrolled'
-                elif state == 'cancel':
-                    rec.status = 'not_enrolled'
-                continue
-
-            if lead:
+            if main_line.order_id.state == 'sale':
+                rec.status = 'active'
+            elif main_line.order_id.state == 'cancel':
+                rec.status = 'leave'
+            elif reg_line.order_id.state in ['draft', 'sent']:
+                rec.status = 'enrolling'
+            elif reg_line.order_id.state == 'sale':
+                rec.status = 'enrolled'
+            elif reg_line.order_id.state == 'cancel':
+                rec.status = 'not_enrolled'
+            elif lead and lead.active == False and lead.probability == 0:
+                rec.status = 'lost'
+            elif lead:
                 rec.status = 'prospect'
             else:
                 rec.status = False

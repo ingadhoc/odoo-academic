@@ -20,7 +20,7 @@ class CrmLead(models.Model):
                 rec.env['academic.group.link'].search([('lead_id', '=', rec.id)], limit=1).unlink()
 
             if rec.group_id:
-                link = rec.env['academic.group.link'].search([('group_id', '=', rec.group_id.id), ('student_id', '=', rec.partner_id.id)], limit=1)
+                link = rec.env['academic.group.link'].search([('group_id', '=', rec.group_id.id), ('lead_id', '=', rec.id)], limit=1)
                 if link:
                     link.group_id = rec.group_id.id
                 else:

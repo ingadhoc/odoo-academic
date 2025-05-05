@@ -29,22 +29,18 @@
                 <field name="company_id" invisible="1"/>
                 <sheet string="group">
                      <div class="oe_button_box" name="button_box">
-                        <button name="open_specific_student" type="object" class="oe_stat_button" icon="fa-user" context="{'type': 'active'}">
-                            <div class="o_field_widget o_stat_info">
-                                <span class="o_stat_text">Active</span>
-                                <span class="o_stat_value d-flex gap-1">
-                                    <field name="active_student_count" class="oe_inline"/>
-                                    /
-                                    <field name="vacancies" class="oe_inline"/>
-                                </span>
-                            </div>
+                        <button name="open_students" type="object" class="oe_stat_button" icon="fa-user" context="{'type': 'active'}">
+                            <field string="Active" name="active_student_count" widget="statinfo"/>
                         </button>
-                        <button name="open_specific_student" type="object" class="oe_stat_button" icon="fa-user-o" context="{'type': 'enrolling'}">
+                        <button name="open_enrolling_sales" type="object" class="oe_stat_button" icon="fa-user-o" context="{'type': 'enrolling'}">
                             <field string="Enrolling" name="enrolling_student_count" widget="statinfo"/>
                         </button>
-                        <button name="open_specific_student" type="object" class="oe_stat_button" icon="fa-user-plus" context="{'type': 'prospect'}">
+                        <button name="open_leads" type="object" class="oe_stat_button" icon="fa-user-plus" context="{'type': 'prospect'}" help="Opportunities linked to this group">
                             <field string="Prospect" name="prospect_student_count" widget="statinfo"/>
                         </button>
+                        <!-- <button name="open_links" type="object" class="oe_stat_button" icon="fa-user-plus">
+                            <field string="Prospect" name="prospect_student_count" widget="statinfo"/>
+                        </button> -->
                      </div>
                     <group>
                         <group>
@@ -57,10 +53,33 @@
                         <group>
                             <field name="year"/>
                             <field name="capacity"/>
+                            <field name="vacancies"/>
                         </group>
                     </group>
                     <notebook>
-                        <page name="group_link" string="Group Link">
+                        <page name="active" string="Activos">
+                            <field name="active_link_ids" readonly="True">
+                                <list>
+                                    <field name="display_name"/>
+                                    <field name="student_id"/>
+                                    <field name="lead_id"/>
+                                    <field name="registration_so_line_id"/>
+                                    <field name="main_so_line_id"/>
+                                    <field name="status"/>
+                                </list>
+                                <form>
+                                    <group>
+                                        <field name="display_name"/>
+                                        <field name="student_id"/>
+                                        <field name="lead_id"/>
+                                        <field name="registration_so_line_id"/>
+                                        <field name="main_so_line_id"/>
+                                        <field name="status"/>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                        <page name="links" string="Group Links" groups="base.group_no_one">
                             <field name="academic_group_link_ids" readonly="True">
                                 <list>
                                     <field name="display_name"/>

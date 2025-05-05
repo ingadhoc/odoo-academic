@@ -23,12 +23,16 @@
                 </header>
                 <sheet>
                     <group>
-                        <field name="group_id"/>
-                        <field name="display_name"/>
-                        <field name="student_id"/>
-                        <field name="registration_so_line_id"/>
-                        <field name="main_so_line_id"/>
-                        <field name="lead_id"/>
+                        <group>
+                            <field name="group_id"/>
+                            <field name="display_name"/>
+                            <field name="student_id"/>
+                        </group>
+                        <group>
+                            <field name="registration_so_line_id"/>
+                            <field name="main_so_line_id"/>
+                            <field name="lead_id"/>
+                        </group>
                     </group>
                 </sheet>
             </form>
@@ -61,4 +65,7 @@
     </record>
 
     <menuitem id="menu_academic_group_link" name="Group Links" parent="academic.menu_data" action="action_academic_group_link" groups="group_user"/>
+
+    <menuitem id="menu_academic_group_link" name="Students (POC)" sequence="25" parent="menu_portal_academic" action="action_academic_group_link" groups="group_user"/>
+
 </odoo>

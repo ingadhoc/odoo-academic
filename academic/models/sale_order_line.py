@@ -17,7 +17,6 @@ class SaleOrderLine(models.Model):
         related='product_id.academic_product_type',
     )
 
-
     def _compute_group(self):
         for rec in self:
             group_link = False

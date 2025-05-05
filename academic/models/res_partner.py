@@ -273,10 +273,3 @@ class ResPartner(models.Model):
     def _compute_student_count(self):
         for rec in self.filtered(lambda x: x.partner_type == "family"):
             rec.student_count = len(rec.student_ids)
-
-    @api.constrains("partner_type")
-    def _check_groups_student(self):
-        if self.env.context.get("install_mode"):
-            return True
-        if self.filtered(lambda x: x.partner_type == 'student' and not x.academic_group_link_ids):
-            raise UserError(_('The student must belong to at least one academic group.'))

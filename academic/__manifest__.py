@@ -26,17 +26,6 @@
     "website": "www.adhoc.com.ar",
     "license": "AGPL-3",
     "images": [],
-    "depends": [
-        "portal_backend",
-        "board",
-        "hr",
-        "website",
-        "board",
-        "sale_management",
-        "account",
-        "contacts",
-        "report_aeroo",
-    ],
     'depends': [
         'portal_backend',
         'crm',
