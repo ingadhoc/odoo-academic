@@ -15,6 +15,7 @@
                     <field name="level_id" string="Level" />
                 </group>
                 <filter name="inactive" string="Archived" domain="[('active', '=', False)]"/>
+                <filter string="Subject" name="group_by_subject_id" context="{'group_by': 'subject_id'}"/>
             </search>
         </field>
     </record>
@@ -76,6 +77,7 @@
                 <field name="division_id"/>
                 <field name="subject_id"/>
                 <field name="year"/>
+                <field name="subject_id"/>
                 <field name="capacity"/>
             </list>
         </field>
