@@ -73,10 +73,6 @@ class AcademicGroup(models.Model):
         'group_id',
         string='Leads',
     )
-    name = fields.Char(
-        compute='_compute_name',
-        store=True
-    )
     student_ids = fields.Many2many(
         "res.partner",
         "academic_student_group_ids_student_ids_rel",
@@ -86,10 +82,14 @@ class AcademicGroup(models.Model):
         context={"default_partner_type": "student"},
         domain=[("partner_type", "=", "student")],
     )
+    name = fields.Char(
+        compute='_compute_name',
+        store=True
+    )
     active = fields.Boolean(default=True)
-    active_student_count = fields.Integer(compute='_compute_student_count')
-    enrolling_student_count = fields.Integer(compute='_compute_student_count')
-    prospect_student_count = fields.Integer(compute='_compute_student_count')
+    active_student_count = fields.Integer(compute='_compute_active_student_count')
+    enrolling_student_count = fields.Integer(compute='_compute_enrolling_student_count')
+    prospect_student_count = fields.Integer(compute='_compute_prospect_student_count')
     capacity = fields.Integer()
     vacancies = fields.Integer(compute="_compute_vacancies", store=True)
 
@@ -105,27 +105,16 @@ class AcademicGroup(models.Model):
             ]
             line.name = " - ".join(filter(None, name_parts))
 
-    # TODO separar en 3 computos distintos
-    # por ahora como a nivel ui nunca se necesita re comptuar en imsma vista
-    # @api.depends('academic_group_link_ids')
-    def _compute_student_count(self):
-        # los estados lost y not_enrolled no los contamos, es basicamente que alguien no rematricula en un determinado grupo o no avanza la oportunidad.
-        # para verlos usamos el boton correspondiente (enrolling / prospect) y luego filtro
+    def _compute_active_student_count(self):
         for group in self:
-            # if main_line.order_id.state == 'sale':
-            #     rec.status = 'active'
-            # elif main_line.order_id.state == 'cancel':
-            #     rec.status = 'leave'
-            # elif reg_line.order_id.state in ['draft', 'sent']:
-            #     rec.status = 'enrolling'
-            # elif reg_line.order_id.state == 'sale':
-            #     rec.status = 'enrolled'
-            # elif reg_line.order_id.state == 'cancel':
-            #     rec.status = 'not_enrolled'
             group.active_student_count = len(group.main_so_line_ids.filtered(lambda x: x.order_id.state == "sale"))
-            group.enrolling_student_count = len(group.enrollment_so_line_ids.filtered(lambda x: x.order_id.state == "sale"))
-            # group.active_student_count = len(group.main_so_line_ids.filtered(lambda x: x.order_id.subscription_state == "3_progress"))
-            # group.enrolling_student_count = len(group.enrollment_so_line_ids.filtered(lambda x: x.order_id.subscription_state == "3_progress"))
+
+    def _compute_enrolling_student_count(self):
+        for group in self:
+            group.enrolling_student_count = len(group.enrollment_so_line_ids.filtered(lambda x: not x.order_id.state == "sale"))
+
+    def _compute_prospect_student_count(self):
+        for group in self:
             group.prospect_student_count = len(group.lead_ids.filtered(lambda x: x.active and not x.stage_id.is_won))
 
     @api.depends('main_so_line_ids.order_id.subscription_state', 'capacity')
@@ -152,6 +141,7 @@ class AcademicGroup(models.Model):
             if not next_group:
                 next_group = rec.copy(default={
                     'year': rec.year + 1,
+                    "student_ids": False,
                 })
 
     def open_student_view(self):
@@ -165,15 +155,14 @@ class AcademicGroup(models.Model):
         )
         return action
 
-    # @api.constrains('vacancies')
-    # def _check_vacancies(self):
-    #     if self.filtered(lambda x: x.vacancies < 0):
-    #         raise ValidationError(_('There can be no negative vacancies. Increase group capacity.'))
+    @api.constrains('vacancies')
+    def _check_vacancies(self):
+        if self.filtered(lambda x: x.vacancies < 0):
+            raise ValidationError(_('There can be no negative vacancies. Increase group capacity.'))
 
     def open_leads(self):
         action = self.env["ir.actions.actions"]._for_xml_id("crm.crm_lead_action_pipeline")
         action.update({
-            # 'domain': [('id', 'in', self.academic_group_link_ids.mapped('lead_id').ids)],
             'context': {'search_default_group_id': self.id},
         })
         return action
@@ -181,18 +170,14 @@ class AcademicGroup(models.Model):
     def open_enrolling_sales(self):
         action = self.env["ir.actions.actions"]._for_xml_id("sale.action_quotations_with_onboarding")
         action.update({
-            # 'domain': [('id', 'in', self.academic_group_link_ids.filtered('registration_so_line_id').mapped('registration_so_line_id.order_id').ids)],
-            # 'context': {'search_default_group_id': self.id},
-            'context': {'search_default_enolling_group_id': self.id},
+            'domain': [('id', 'in', self.enrollment_so_line_ids.mapped('order_id').ids)],
         })
         return action
 
     def open_students(self):
         action = self.env.ref('academic.action_academic_partner_students').read()[0]
-        # domain = [('academic_group_link_ids.group_id', '=', self.id)]
-        # domain += [('academic_group_link_ids.status', 'in', ['active', 'enrolled'])]
         action.update({
-            # 'domain': domain,
+            'domain': [('id', 'in', self.main_so_line_ids.mapped('order_id.partner_id').ids)],
             'views': [(False, 'list'), (False, 'form')],
             'context': {'from_open_student_view': True}
         })

@@ -56,52 +56,6 @@
                             <field name="vacancies"/>
                         </group>
                     </group>
-                    <notebook>
-                        <!-- <page name="active" string="Activos">
-                            <field name="active_link_ids" readonly="True">
-                                <list>
-                                    <field name="display_name"/>
-                                    <field name="student_id"/>
-                                    <field name="lead_id"/>
-                                    <field name="registration_so_line_id"/>
-                                    <field name="main_so_line_id"/>
-                                    <field name="status"/>
-                                </list>
-                                <form>
-                                    <group>
-                                        <field name="display_name"/>
-                                        <field name="student_id"/>
-                                        <field name="lead_id"/>
-                                        <field name="registration_so_line_id"/>
-                                        <field name="main_so_line_id"/>
-                                        <field name="status"/>
-                                    </group>
-                                </form>
-                            </field>
-                        </page>
-                        <page name="links" string="Group Links" groups="base.group_no_one">
-                            <field name="academic_group_link_ids" readonly="True">
-                                <list>
-                                    <field name="display_name"/>
-                                    <field name="student_id"/>
-                                    <field name="lead_id"/>
-                                    <field name="registration_so_line_id"/>
-                                    <field name="main_so_line_id"/>
-                                    <field name="status"/>
-                                </list>
-                                <form>
-                                    <group>
-                                        <field name="display_name"/>
-                                        <field name="student_id"/>
-                                        <field name="lead_id"/>
-                                        <field name="registration_so_line_id"/>
-                                        <field name="main_so_line_id"/>
-                                        <field name="status"/>
-                                    </group>
-                                </form>
-                            </field>
-                        </page> -->
-                    </notebook>
                 </sheet>
 
             </form>

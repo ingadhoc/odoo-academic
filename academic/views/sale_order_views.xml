@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <record id="view_sales_order_filter" model="ir.ui.view">
-        <field name="name">sale.order.filter</field>
-        <field name="model">sale.order</field>
-        <field name="inherit_id" ref="sale.view_sales_order_filter"/>
-        <field name="arch" type="xml">
-            <field name="user_id" position="after">
-                <field name="group_id"/>
-                <field name="enolling_group_id"/>
-            </field>
-        </field>
-    </record>
-
     <record id="view_order_form" model="ir.ui.view">
         <field name="name">sale.order.form</field>
         <field name="model">sale.order</field>
@@ -33,7 +21,7 @@
             </field>
             <xpath expr="//field[@name='order_line']//list//field[@name='discount']" position="before">
                 <field name="academic_product_type" column_invisible="1"/>
-                <field name="group_id" options="{'no_create': 1}" readonly="not academic_product_type"/>
+                <field name="group_id" options="{'no_create': 1}" readonly="not academic_product_type" required="academic_product_type"/>
             </xpath>
         </field>
     </record>

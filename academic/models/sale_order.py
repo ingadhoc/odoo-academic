@@ -12,8 +12,6 @@ class SaleOrder(models.Model):
         domain="[('type', '!=', 'private'), ('company_id', 'in', (False, company_id)), ('partner_type', '=', 'student')]"
     )
     partner_invoice_ids = fields.Many2many("res.partner", compute="_compute_partner_invoice")
-    group_id = fields.Many2one(related='order_line.group_id')
-    enolling_group_id = fields.Many2one(related='order_line.group_id', domain="[('order_line.product_id.academic_product_type', '=', 'registration')]")
 
     # dejamos solo depends a partner_id para que si cambia algo de la asignación no se re-calculen todas las ventas existentes
     @api.depends("partner_id")

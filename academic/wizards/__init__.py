@@ -5,3 +5,4 @@
 from . import portal_wizard_user
 from . import portal_wizard
 from . import account_move_send
+from . import crm_opportunity_to_quotation

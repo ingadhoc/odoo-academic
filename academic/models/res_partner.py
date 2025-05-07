@@ -51,10 +51,6 @@ class ResPartner(models.Model):
         string="Student Groups",
         context={"active_test": False},
     )
-    disabled_person = fields.Boolean(
-        'Disabled Person?',
-        help='¿Alumno/a con Dificultades de aprendizaje?'
-    )
     disabled_person = fields.Boolean("Disabled Person?", help="¿Alumno/a con Dificultades de aprendizaje?")
     sex = fields.Selection(
         [("M", "Male"), ("F", "Female")],
