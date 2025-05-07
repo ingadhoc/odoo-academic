@@ -1,7 +1,10 @@
 <odoo>
     <template id="portal_my_invoices" inherit_id="account.portal_my_invoices" name="My Invoices and Payments">
         <xpath expr="//t[@t-if='invoices']" position="before">
-            <span> <strong>Total amount due: </strong> </span> <span t-out="total_amount_due"/>
+            <div>
+                <strong>Total amount due: </strong>
+                <span t-out="total_amount_due" t-options='{"widget": "monetary", "display_currency": invoices[0].currency_id}'/>
+            </div>
         </xpath>
         <xpath expr="//th[@name='status']" position="after">
             <th name="student">Student</th>
