@@ -13,11 +13,12 @@
                 </group>
                 <group string="By object">
                     <field name="level_id" string="Level" />
-                    <!-- <field name="subject_id" string="Subject" /> -->
+                    <field name="subject_id"/>
                     <!-- <field name="teacher_id" string="Teacher" /> -->
                     <field name="student_ids" string="Student" />
                 </group>
                 <filter name="inactive" string="Archived" domain="[('active', '=', False)]"/>
+                 <filter string="Subject" name="group_by_subject_id" context="{'group_by': 'subject_id'}"/>
             </search>
         </field>
     </record>
@@ -43,8 +44,9 @@
                     </group>
                     <group col="4">
                         <field name="level_id" domain="[('id','in',study_plan_level_ids)]"/>
-                        <field name="division_id" required="1"/>
+                        <field name="division_id"/>
                         <field name="year"/>
+                        <field name="subject_id"/>
                     </group>
                     <notebook>
                         <page name="students" string="Students">
@@ -68,8 +70,8 @@
                 <field name="company_id" groups="base.group_multi_company"/>
                 <field name="level_id"/>
                 <field name="division_id"/>
-                <!-- <field name="subject_id"/> -->
                 <field name="year"/>
+                <field name="subject_id"/>
             </tree>
         </field>
     </record>
