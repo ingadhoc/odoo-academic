@@ -30,10 +30,6 @@ class ResPartner(models.Model):
         readonly=False,
         store=True,
     )
-    section_id = fields.Many2one(
-        "academic.section",
-        string="Section",
-    )
     promotion_id = fields.Many2one(
         "academic.promotion",
         string="Promotion",
@@ -139,15 +135,23 @@ class ResPartner(models.Model):
     # creamos nuevo campo porque el child_ids como ya esta en la vista nos propaga el mode kanban
     # al hacerlo con mode tree nos simplfica bastante la herencia de vista porque no tenemos que agregar en el quick
     # create tantas cosas
-    student_ids = fields.One2many('res.partner', 'parent_id')
-    company_id = fields.Many2one(compute='_compute_company_id', store=True, readonly=False)
-    same_dni_partner_id = fields.Many2one('res.partner', string='Partner with same DNI', compute='_compute_same_dni_partner_id', store=False, search='_search_same_dni_partner_id')
-    same_dni_partner_company = fields.Many2one('res.company', string="Company same partner", related='same_dni_partner_id.company_id')
-    current_main_group_id = fields.Many2one('academic.group', compute='_compute_current_main_group', store=True)
+    student_ids = fields.One2many("res.partner", "parent_id")
+    company_id = fields.Many2one(compute="_compute_company_id", store=True, readonly=False)
+    same_dni_partner_id = fields.Many2one(
+        "res.partner",
+        string="Partner with same DNI",
+        compute="_compute_same_dni_partner_id",
+        store=False,
+        search="_search_same_dni_partner_id",
+    )
+    same_dni_partner_company = fields.Many2one(
+        "res.company", string="Company same partner", related="same_dni_partner_id.company_id"
+    )
+    current_main_group_id = fields.Many2one("academic.group", compute="_compute_current_main_group", store=True)
     category_id = fields.Many2many(check_company=True)
     student_count = fields.Integer(compute="_compute_student_count", store=True)
 
-    @api.constrains('company_id', 'partner_type', 'parent_id')
+    @api.constrains("company_id", "partner_type", "parent_id")
     def _check_family_configured(self):
         if self.filtered(
             lambda x: x.partner_type == "student"
@@ -169,7 +173,7 @@ class ResPartner(models.Model):
     def _compute_partner_type(self):
         self.filtered(lambda x: x.is_company and x.partner_type).partner_type = False
 
-    @api.depends('parent_id')
+    @api.depends("parent_id")
     def _compute_company_id(self):
         """
         Si soy parte de una compañía (o familia, es campo "parent_id"), queremos que todos los childs tengan misma company
@@ -225,7 +229,6 @@ class ResPartner(models.Model):
                     )
                     % (partner.name, ", ".join(map(str, duplicate_years)))
                 )
-
 
     @api.depends("student_group_ids")
     def _compute_current_main_group(self):

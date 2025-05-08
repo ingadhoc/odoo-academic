@@ -1,3 +1,11 @@
-id,name
-academic_section_1,Primaria
-academic_section_2,Secundaria
+id,name,correlative_ids/id,level_ids/id
+academic_section_1,Nivel Inicial,,"academic_level_1"
+academic_section_2,Primario 1 a 6,academic_section_1,"academic_level_1,academic_level_2,academic_level_3,academic_level_4,academic_level_5,academic_level_6"
+academic_section_3,Primario 1 a 7,academic_section_1,"academic_level_1,academic_level_2,academic_level_3,academic_level_4,academic_level_5,academic_level_6,academic_level_7"
+academic_section_4,Secundario 1 a 5,academic_section_3,"academic_level_1,academic_level_2,academic_level_3,academic_level_4,academic_level_5"
+academic_section_5,Secundario 1 a 6,academic_section_2,"academic_level_1,academic_level_2,academic_level_3,academic_level_4,academic_level_5,academic_level_6"
+academic_section_6,Inglés Básico,,"academic_level_1,academic_level_2,academic_level_3"
+academic_section_7,Inglés Avanzado,academic_section_6,"academic_level_1,academic_level_2,academic_level_3"
+academic_section_8,Inglés Técnico,academic_section_7,"academic_level_1,academic_level_2,academic_level_3"
+academic_section_9,Ingeniería Industrial,,"academic_level_1,academic_level_2,academic_level_3,academic_level_4,academic_level_5"
+academic_section_10,Maestría en Ciencias de Datos,academic_section_9,"academic_level_1,academic_level_2"

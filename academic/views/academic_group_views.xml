@@ -25,30 +25,33 @@
         <field name="model">academic.group</field>
         <field name="arch" type="xml">
             <form string="group">
-                <field name="study_plan_level_ids" invisible='1'/>
                 <field name="company_id" invisible="1"/>
                 <sheet string="group">
                      <div class="oe_button_box" name="button_box">
-                        <button name="open_students" type="object" class="oe_stat_button" icon="fa-user" context="{'type': 'active'}">
+                        <button name="open_students" type="object" class="oe_stat_button" icon="fa-users">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_text">Students</span>
+                            </div>
+                        </button>
+                        <button name="open_active_sales" type="object" class="oe_stat_button" icon="fa-user" invisible="subject_id">
                             <field string="Active" name="active_student_count" widget="statinfo"/>
                         </button>
-                        <button name="open_enrolling_sales" type="object" class="oe_stat_button" icon="fa-user-o" context="{'type': 'enrolling'}">
-                            <field string="Enrolling" name="enrolling_student_count" widget="statinfo"/>
+                        <button name="open_enrolling_sales" type="object" class="oe_stat_button" icon="fa-user-o" invisible="subject_id">
+                            <field string="Enrolling / Enrolled" name="enrolling_student_count" widget="statinfo"/>
                         </button>
-                        <button name="open_leads" type="object" class="oe_stat_button" icon="fa-user-plus" context="{'type': 'prospect'}" help="Opportunities linked to this group">
+                        <button name="open_leads" type="object" class="oe_stat_button" icon="fa-user-plus" help="Opportunities linked to this group" invisible="subject_id">
                             <field string="Prospect" name="prospect_student_count" widget="statinfo"/>
                         </button>
-                        <!-- <button name="open_links" type="object" class="oe_stat_button" icon="fa-user-plus">
-                            <field string="Prospect" name="prospect_student_count" widget="statinfo"/>
-                        </button> -->
                      </div>
                     <group>
                         <group>
                             <!-- Por ahora no usamos type, me parece que lo podemos borrar -->
                             <!-- <field name="type"/> -->
                             <field name="company_id" groups="base.group_multi_company"/>
-                            <field name="level_id" domain="[('id','in',study_plan_level_ids)]"/>
-                            <field name="division_id" required="1"/>
+                            <field name="section_id"/>
+                            <field name="level_id"/>
+                            <field name="division_id"/>
+                            <field name="subject_id"/>
                         </group>
                         <group>
                             <field name="year"/>
@@ -56,6 +59,11 @@
                             <field name="vacancies"/>
                         </group>
                     </group>
+                    <notebook>
+                        <page name="students" string="Students">
+                            <field name="student_ids" domain="[('company_id','=',company_id),('partner_type','=','student')]" context="{'default_company_id':company_id,'default_partner_type':'student'}" readonly="not subject_id" force_save="1"/>
+                        </page>
+                    </notebook>
                 </sheet>
 
             </form>

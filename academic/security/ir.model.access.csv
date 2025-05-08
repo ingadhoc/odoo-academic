@@ -7,8 +7,6 @@ access_academic_level_manager,academic.level.manager,model_academic_level,group_
 access_academic_level_user,academic.level.user,model_academic_level,group_user,1,0,0,0
 access_academic_subject_manager,academic.subject.manager,model_academic_subject,group_manager,1,1,1,1
 access_academic_subject_user,academic.subject.user,model_academic_subject,group_user,1,1,1,1
-access_academic_study_plan_manager,academic.study_plan.manager,model_academic_study_plan,group_manager,1,1,1,1
-access_academic_study_plan_user,academic.study_plan.user,model_academic_study_plan,group_user,1,1,1,1
 access_academic_section_manager,academic.section.manager,model_academic_section,group_manager,1,1,1,1
 access_academic_section_user,academic.section.user,model_academic_section,group_user,1,0,0,0
 access_academic_promotion_manager,academic.promotion.manager,model_academic_promotion,group_manager,1,1,1,1
@@ -18,7 +16,6 @@ access_academic_division_user,academic.division.user,model_academic_division,gro
 access_group_global,academic.group.global,model_academic_group,base.group_user,1,0,0,0
 access_subject_global,academic.subject.global,model_academic_subject,base.group_user,1,0,0,0
 access_level_global,academic.level.global,model_academic_level,base.group_user,1,0,0,0
-access_study_plan_global,academic.study_plan.global,model_academic_study_plan,base.group_user,1,0,0,0
 access_res_partner_category_global,academic.res_partner_category.global,base.model_res_partner_category,base.group_user,1,0,0,0
 access_academic_section_global,academic.res_partner_category.global,model_academic_section,base.group_user,1,0,0,0
 access_academic_promotion_global,academic.academic_promotion_global,model_academic_promotion,base.group_user,1,0,0,0

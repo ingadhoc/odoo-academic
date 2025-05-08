@@ -5,7 +5,6 @@
 from . import academic_division
 from . import academic_group
 from . import academic_level
-from . import academic_study_plan
 from . import academic_promotion
 from . import academic_section
 from . import academic_subject

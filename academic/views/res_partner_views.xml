@@ -192,12 +192,6 @@
             <xpath expr="//span[@name='address_name']" position="before">
                 <field name="company_id" groups="base.group_multi_company" placeholder="Institution..." required="partner_type in ['teacher', 'student', 'administrator', 'gral_administrator']"/>
             </xpath>
-
-            <field name="parent_id" position="after">
-                <!-- <field name="company_id" groups="base.group_multi_company" placeholder="Institution..." attrs="{'required':[('partner_type','in',['teacher','student','administrator'])]}"/> -->
-                <!-- lo hacemos requerido por temas de seguridad, no se contemplan directores generales. -->
-                <field name="section_id" placeholder="Section..." invisible="partner_type != 'administrator'" required="partner_type == 'administrator'"/>
-            </field>
         </field>
     </record>
 

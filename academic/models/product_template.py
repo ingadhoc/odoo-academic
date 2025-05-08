@@ -6,7 +6,7 @@ class ProductTemplate(models.Model):
 
     academic_product_type = fields.Selection(
         selection=[
-            ('main', 'Main'),
-            ('registration', 'Registration'),
+            ("main", "Main"),
+            ("registration", "Registration"),
         ],
     )
