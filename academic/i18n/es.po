@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-21 13:56+0000\n"
+"POT-Creation-Date: 2025-05-08 16:51+0000\n"
 "PO-Revision-Date: 2024-12-19 15:15+0000\n"
 "Last-Translator: Juan José Scarafía <scarafia.juanjose@gmail.com>, 2025\n"
 "Language-Team: Spanish (https://app.transifex.com/adhoc/teams/46451/es/)\n"
@@ -31,11 +31,6 @@ msgid "- Company:"
 msgstr "- Compañía:"
 
 #. module: academic
-#: model_terms:ir.ui.view,arch_db:academic.portal_my_invoices
-msgid "<span> <strong>Total amount due: </strong> </span>"
-msgstr "<span> <strong>Importe total adeudado: </strong> </span>"
-
-#. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
 msgid "<span>: </span>"
 msgstr ""
@@ -44,6 +39,11 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:academic.report_invoice_document
 msgid "<strong>Student Information:</strong>"
 msgstr "<strong>Información de Estudiante:</strong>"
+
+#. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.portal_my_invoices
+msgid "<strong>Total amount due: </strong>"
+msgstr ""
 
 #. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
@@ -966,6 +966,7 @@ msgstr "Algunos contactos no tienen una dirección de email válida:"
 #: model:ir.model.fields,field_description:academic.field_res_users__student_ids
 #: model:ir.model.fields.selection,name:academic.selection__academic_group__type__student
 #: model:ir.model.fields.selection,name:academic.selection__res_partner__partner_type__student
+#: model_terms:ir.ui.view,arch_db:academic.portal_my_invoices
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_group_filter
 #: model_terms:ir.ui.view,arch_db:academic.view_order_form
 msgid "Student"
@@ -1233,6 +1234,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_group_filter
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_group_form
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_group_tree
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_group_tree_no_create
 msgid "group"
 msgstr "grupo"
 
