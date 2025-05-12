@@ -11,6 +11,7 @@ class AccountMove(models.Model):
         "res.partner", domain="[('id', 'in', student_ids), ('partner_type', '=', 'student')]", index=True
     )
     require_student_on_invoices = fields.Boolean(related="company_id.require_student_on_invoices")
+    is_academic_sale = fields.Boolean(compute="_compute_is_academic_sale")
 
     @api.constrains("student_id", "move_type")
     def _check_student(self):
@@ -18,7 +19,7 @@ class AccountMove(models.Model):
         # desactivamos el chequeo cuando se hace la instalación
         if self.env.context.get("install_mode"):
             return True
-        if self.filtered("require_student_on_invoices"):
+        if self.filtered(lambda x: x.require_student_on_invoices and x.is_academic_sale):
             invoices_wo_student = self.filtered(
                 lambda x: x.move_type in ["out_invoice", "out_refund"] and not x.student_id
             )
@@ -61,3 +62,9 @@ class AccountMove(models.Model):
                 ]
             )
         return super()._post(soft=soft)
+
+    def _compute_is_academic_sale(self):
+        for rec in self:
+            rec.is_academic_sale = (
+                self.env["sale.order"].search([("invoice_ids", "in", [rec.id])], limit=1).is_academic_sale
+            )

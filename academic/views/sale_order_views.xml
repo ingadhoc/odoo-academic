@@ -5,12 +5,19 @@
         <field name="name">sale.order.form</field>
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="priority" eval="10"/>
         <field name="arch" type="xml">
             <form>
                 <field name="partner_invoice_ids" invisible="1"/>
             </form>
+            <field name="validity_date" position="before">
+                <field name="is_academic_sale"/>
+            </field>
+            <field name="partner_id" position="after">
+                <field name="partner_id" domain="[('type', '!=', 'private'), ('company_id', 'in', (False, company_id)), ('partner_type', '=', 'student')]" string="Student" invisible="not is_academic_sale"/>
+            </field>
             <field name="partner_id" position="attributes">
-                <attribute name="string">Student</attribute>
+                <attribute name="invisible">is_academic_sale</attribute>
             </field>
             <field name="partner_invoice_id" position="attributes">
                 <attribute name="domain">[('id', 'in', partner_invoice_ids)]</attribute>
