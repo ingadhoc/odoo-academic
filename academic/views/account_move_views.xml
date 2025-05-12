@@ -26,7 +26,7 @@
             </field>
             <xpath expr="//sheet" position="before">
                 <field name="require_student_on_invoices" invisible="1"/>
-                <div class="alert alert-warning oe_edit_only" role="alert" invisible="student_id or not require_student_on_invoices">
+                <div class="alert alert-warning oe_edit_only" role="alert" invisible="student_id or not require_student_on_invoices or not is_academic_sale">
                   Warning: This invoice is not associated with any student
                 </div>
             </xpath>
