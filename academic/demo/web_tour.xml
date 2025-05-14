@@ -1,0 +1,47 @@
+<odoo>
+    <record id="crear_division" model="web_tour.tour">
+        <field name="name">crear_division</field>
+    </record>
+    <record id="crear_familias" model="web_tour.tour">
+        <field name="name">crear_familias</field>
+    </record>
+    <record id="crear_grupo" model="web_tour.tour">
+        <field name="name">crear_grupo</field>
+    </record>
+    <record id="crear_nivel" model="web_tour.tour">
+        <field name="name">crear_nivel</field>
+    </record>
+    <record id="crear_profesor" model="web_tour.tour">
+        <field name="name">crear_profesor</field>
+    </record>
+    <record id="crear_seccion" model="web_tour.tour">
+        <field name="name">crear_seccion</field>
+    </record>
+    <record id="descuento_lealtad" model="web_tour.tour">
+        <field name="name">descuento_lealtad</field>
+    </record>
+    <record id="etiqueta_alumno" model="web_tour.tour">
+        <field name="name">etiqueta_alumno</field>
+    </record>
+    <record id="familias_sin_resp_pago" model="web_tour.tour">
+        <field name="name">familias_sin_resp_pago</field>
+    </record>
+    <record id="etiquetas_de_cliente" model="web_tour.tour">
+        <field name="name">etiquetas_de_cliente</field>
+    </record>
+    <record id="filtrar_familias_con_mas_de_un_estudiante" model="web_tour.tour">
+        <field name="name">filtrar_familias_con_mas_de_un_estudiante</field>
+    </record>
+    <record id="responsable_de_pago" model="web_tour.tour">
+        <field name="name">responsable_de_pago</field>
+    </record>
+    <record id="generar_factura" model="web_tour.tour">
+        <field name="name">generar_factura</field>
+    </record>
+    <record id="crear_plan_de_estudios" model="web_tour.tour">
+        <field name="name">crear_plan_de_estudios</field>
+    </record>
+    <record id="crear_estudiante" model="web_tour.tour">
+        <field name="name">crear_estudiante</field>
+    </record>
+</odoo>

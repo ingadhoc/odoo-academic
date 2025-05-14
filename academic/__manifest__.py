@@ -19,7 +19,7 @@
 ##############################################################################
 {
     "name": "Academic",
-    "version": "18.0.1.12.0",
+    "version": "18.0.1.13.0",
     "sequence": 14,
     "summary": "",
     "author": "ADHOC SA",
@@ -81,9 +81,15 @@
         "demo/res_company_demo.xml",
         "demo/academic_group.xml",
         "demo/res_users_demo.xml",
+        "demo/web_tour.xml",
     ],
     "installable": True,
     "auto_install": False,
     "application": False,
     "post_init_hook": "post_init_hook",
+    "assets": {
+        "web.assets_backend": [
+            "academic/static/src/js/tours/*.js",
+        ],
+    },
 }
