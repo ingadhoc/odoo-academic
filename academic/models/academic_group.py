@@ -214,3 +214,8 @@ class AcademicGroup(models.Model):
         for group in self.filtered(lambda x: not x.subject_id):
             confirmed_lines = group.main_so_line_ids.filtered(lambda l: l.order_id.state == "sale")
             group.student_ids = confirmed_lines.mapped("order_id.partner_id")
+
+    @api.constrains("capacity")
+    def _check_capacity(self):
+        if self.filtered(lambda x: x.capacity <= 0):
+            raise ValidationError(self.env._("The capacity must be greater than 0."))

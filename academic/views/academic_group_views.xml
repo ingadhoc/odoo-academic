@@ -79,9 +79,10 @@
             <list string="group">
                 <!-- <field name="type"/> -->
                 <field name="company_id" groups="base.group_multi_company"/>
+                <field name="section_id"/>
                 <field name="level_id"/>
                 <field name="division_id"/>
-                <!-- <field name="subject_id"/> -->
+                <field name="subject_id"/>
                 <field name="year"/>
                 <field name="capacity"/>
                 <field name="vacancies"/>
