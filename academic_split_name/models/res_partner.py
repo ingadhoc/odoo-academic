@@ -13,9 +13,9 @@ class ResPartner(models.Model):
         store=True,
         readonly=False,
     )
-    firstname = fields.Char("Primer Nombre")
+    firstname = fields.Char("Primer Nombre", compute="_compute_firstname", store=True, readonly=False)
     middlename = fields.Char("Segundo Nombre")
-    lastname = fields.Char("Primer Apellido")
+    lastname = fields.Char("Primer Apellido", compute="_compute_lastname", store=True, readonly=False)
     second_lastname = fields.Char("Segundo Apellido")
 
     @api.depends("firstname", "lastname", "second_lastname", "middlename")
@@ -23,3 +23,17 @@ class ResPartner(models.Model):
         for rec in self.filtered(lambda x: x.partner_type in ("student", "family", "parent")):
             name_parts = filter(None, [rec.firstname, rec.middlename, rec.lastname, rec.second_lastname])
             rec.name = " ".join(name_parts)
+
+    @api.depends("name")
+    def _compute_firstname(self):
+        for rec in self.filtered(lambda x: x.partner_type in ("student", "parent")):
+            parts = (rec.name or "").strip().split()
+            rec.firstname = parts[0] if parts else False
+
+    @api.depends("name")
+    def _compute_lastname(self):
+        for rec in self.filtered(lambda x: x.partner_type == "family"):
+            rec.lastname = rec.name or False
+        for rec in self.filtered(lambda x: x.partner_type in ("student", "parent")):
+            parts = (rec.name or "").strip().split()
+            rec.lastname = " ".join(parts[1:]) if len(parts) > 1 else False
