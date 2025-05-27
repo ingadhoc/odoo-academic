@@ -19,7 +19,7 @@
 ##############################################################################
 {
     "name": "Academic",
-    "version": "18.0.1.13.0",
+    "version": "18.0.1.14.0",
     "sequence": 14,
     "summary": "",
     "author": "ADHOC SA",
@@ -36,6 +36,7 @@
         "account",
         "contacts",
         "report_aeroo",
+        "crm",
     ],
     "data": [
         "security/academic_security.xml",
@@ -58,6 +59,7 @@
         "views/res_company_views.xml",
         "views/login_page.xml",
         "views/sale_order_views.xml",
+        "views/crm_lead_view.xml",
         "views/res_partner_link_views.xml",
         "views/res_partner_relationship_views.xml",
         "views/account_move_views.xml",
