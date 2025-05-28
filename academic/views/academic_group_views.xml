@@ -7,7 +7,7 @@
         <field name="arch" type="xml">
             <search string="group">
                 <group string="By Attribute">
-                    <field name="year" string="Year" />
+                    <field name="year_id" />
                     <field name="division_id" string="Division" />
                     <field name="company_id" groups="base.group_multi_company"/>
                 </group>
@@ -47,7 +47,7 @@
                             <field name="subject_id"/>
                         </group>
                         <group name="col2">
-                            <field name="year"/>
+                            <field name="year_id"/>
                             <field name="capacity"/>
                         </group>
                     </group>
@@ -75,7 +75,7 @@
                 <field name="level_id"/>
                 <field name="division_id"/>
                 <field name="subject_id"/>
-                <field name="year"/>
+                <field name="year_id"/>
                 <field name="capacity"/>
             </list>
         </field>
@@ -89,7 +89,7 @@
                 <field name="company_id" groups="base.group_multi_company"/>
                 <field name="level_id"/>
                 <field name="division_id"/>
-                <field name="year"/>
+                <field name="year_id"/>
             </list>
         </field>
     </record>
@@ -110,18 +110,6 @@
         <field name="view_id" ref="view_academic_group_tree"/>
         <field name="search_view_id" ref="view_academic_group_filter"/>
         <field name="domain">[('company_id','=',id)]</field>
-    </record>
-
-    <record id="move_to_next_year" model="ir.actions.server">
-        <field name="name">Move to Next Year</field>
-        <field name="state">code</field>
-        <field name="model_id" ref="model_academic_group"/>
-        <field name="binding_model_id" ref="model_academic_group"/>
-        <field name="binding_type">action</field>
-        <field name="code">
-            if records:
-                action = records.create_next_year_groups()
-        </field>
     </record>
 
     <menuitem name="Groups" id="menu_groups" sequence="10" action="action_academic_group_groups" parent="menu_data" groups="group_user" />

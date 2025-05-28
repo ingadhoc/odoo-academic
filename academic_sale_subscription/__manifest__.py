@@ -10,6 +10,7 @@
     "license": "AGPL-3",
     "depends": [
         "academic",
+        "sale_subscription",
         "sale_subscription_ux",
         "crm",
         "sale_management",
@@ -35,7 +36,7 @@
         "report/report_invoice.xml",
     ],
     "installable": True,
-    "auto_install": False,
+    "auto_install": ["sale_subscription", "academic"],
     "application": False,
     "post_init_hook": "post_init_hook",
 }

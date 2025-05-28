@@ -2,6 +2,7 @@
 # For copyright and license notices, see __manifest__.py file in module root
 # directory
 ##############################################################################
+from collections import defaultdict
 from datetime import date
 
 from odoo import _, api, fields, models
@@ -218,11 +219,19 @@ class ResPartner(models.Model):
         porque, al usar un campo many2many, la validación no se activaba al agregar un estudiante
         directamente desde un grupo.
         """
-        current_year = date.today().year
         for partner in self:
-            domain = [("student_ids", "=", partner.id), ("subject_id", "=", False), ("year", ">=", current_year)]
-            grouped_data = self.env["academic.group"].read_group(domain, ["year"], ["year"])
-            duplicate_years = [group["year"] for group in grouped_data if group["year_count"] > 1]
+            groups = self.env["academic.group"].search(
+                [
+                    ("student_ids", "=", partner.id),
+                    ("subject_id", "=", False),
+                ]
+            )
+            year_map = defaultdict(list)
+            for group in groups:
+                year = group.year_id.date_start.year
+                year_map[year].append(group)
+
+            duplicate_years = [str(y) for y, g in year_map.items() if len(g) > 1]
             if duplicate_years:
                 raise ValidationError(
                     _(
@@ -234,9 +243,17 @@ class ResPartner(models.Model):
 
     @api.depends("student_group_ids")
     def _compute_current_main_group(self):
+        current_year_start = date(date.today().year, 1, 1)
+        current_year_end = date(date.today().year, 12, 31)
         for rec in self:
-            student_group = rec.student_group_ids.filtered(lambda g: g.year == date.today().year and not g.subject_id)
-            rec.current_main_group_id = student_group[:1]
+            groups = rec.student_group_ids.filtered_domain(
+                [
+                    ("year_id.date_start", ">=", current_year_start),
+                    ("year_id.date_start", "<=", current_year_end),
+                    ("subject_id", "=", False),
+                ]
+            )
+            rec.current_main_group_id = groups[:1] if groups else False
 
     @api.depends("student_link_ids", "student_link_ids.role_ids")
     def _compute_payment_responsible(self):

@@ -13,6 +13,9 @@ access_academic_promotion_manager,academic.promotion.manager,model_academic_prom
 access_academic_promotion_user,academic.promotion.user,model_academic_promotion,group_user,1,1,1,1
 access_academic_division_manager,academic.division.manager,model_academic_division,group_manager,1,1,1,1
 access_academic_division_user,academic.division.user,model_academic_division,group_user,1,0,0,0
+access_academic_year_manager,academic.year.manager,model_academic_year,group_manager,1,1,1,1
+access_academic_year_user,academic.year.user,model_academic_year,group_user,1,1,1,0
+access_academic_year_global,academic.year.global,model_academic_year,base.group_user,1,0,0,0
 access_group_global,academic.group.global,model_academic_group,base.group_user,1,0,0,0
 access_subject_global,academic.subject.global,model_academic_subject,base.group_user,1,0,0,0
 access_level_global,academic.level.global,model_academic_level,base.group_user,1,0,0,0

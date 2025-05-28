@@ -6,7 +6,7 @@
         <field name="company_id" ref="res_company_los_arroyos"/>
         <field name="subject_id" ref="academic_subject_1"/>
         <field name="teacher_id" ref="res_partner_ignacio_rodriguez"/>
-        <field name="year" eval="str(datetime.now().year)"/>
+        <field name="year_id" ref="academic_year_current"/>
     </record>
 
     <record id="academic_group_2" model="academic.group">
@@ -16,7 +16,7 @@
         <field name="company_id" ref="res_company_los_molinos"/>
         <field name="subject_id" ref="academic_subject_2"/>
         <field name="teacher_id" ref="res_partner_laura_sali"/>
-        <field name="year" eval="str(datetime.now().year)"/>
+        <field name="year_id" ref="academic_year_current"/>
     </record>
 
     <record id="academic_group_3" model="academic.group">
@@ -24,6 +24,6 @@
         <field name="level_id" ref="academic_level_4"/>
         <field name="division_id" ref="academic_division_3"/>
         <field name="company_id" ref="base.main_company"/>
-        <field name="year" eval="str(datetime.now().year)"/>
+        <field name="year_id" ref="academic_year_current"/>
     </record>
 </odoo>

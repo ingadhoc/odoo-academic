@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="academic_year_current" model="academic.year">
+        <field name="name">Ciclo Lectivo 2025</field>
+        <field name="date_start" eval="'2025-03-01'"/>
+        <field name="date_end" eval="'2025-12-20'"/>
+    </record>
+
+    <record id="academic_year_previous" model="academic.year">
+        <field name="name">Ciclo Lectivo 2024</field>
+        <field name="date_start" eval="'2024-03-01'"/>
+        <field name="date_end" eval="'2024-12-20'"/>
+    </record>
+
+    <record id="academic_year_next" model="academic.year">
+        <field name="name">Ciclo Lectivo 2026</field>
+        <field name="date_start" eval="'2026-03-01'"/>
+        <field name="date_end" eval="'2026-12-20'"/>
+    </record>
+</odoo>

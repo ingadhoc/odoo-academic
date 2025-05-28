@@ -2,7 +2,6 @@
 # For copyright and license notices, see __manifest__.py file in module root
 # directory
 ##############################################################################
-from datetime import date
 
 from odoo import api, fields, models
 
@@ -10,13 +9,13 @@ from odoo import api, fields, models
 class AcademicGroup(models.Model):
     _name = "academic.group"
     _description = "group"
-    _order = "year desc, name"
+    _order = "date_start desc, name"
 
     _sql_constraints = [
         (
             "group_unique",
-            "unique(subject_id, company_id, level_id, year, division_id)",
-            "Group should be unique per Institution, Subject," " Course-Division and Year",
+            "unique(subject_id, company_id, level_id, year_id, division_id)",
+            "Group should be unique per Institution, Subject," " Course-Division and Academic Year",
         )
     ]
 
@@ -29,7 +28,13 @@ class AcademicGroup(models.Model):
             ("parent", "Relative"),
         ]
     )
-    year = fields.Integer(required=True, default=date.today().year, index=True)
+    year_id = fields.Many2one(
+        "academic.year",
+        string="Academic Year",
+        required=True,
+        index=True,
+    )
+    date_start = fields.Date(related="year_id.date_start", store=True)
     division_id = fields.Many2one(
         "academic.division",
         string="Division",
@@ -76,7 +81,7 @@ class AcademicGroup(models.Model):
     active = fields.Boolean(default=True)
     capacity = fields.Integer()
 
-    @api.depends("company_id", "level_id", "division_id", "year")
+    @api.depends("company_id", "level_id", "division_id", "year_id")
     def _compute_name(self):
         for line in self:
             name_parts = [
@@ -84,33 +89,9 @@ class AcademicGroup(models.Model):
                 line.section_id.name,
                 line.level_id.name,
                 line.division_id.name if line.division_id else None,
-                self.env._("Year: %s", line.year),
+                line.year_id.name if line.year_id else None,
             ]
             line.name = " - ".join(filter(None, name_parts))
-
-    def create_next_year_groups(self):
-        # estamos pasando de un año a otro sin usar study plan por lo siguiente:
-        # a) hay muchos colegios que no lo tienen bien implmentado
-        # b) los study plan no pueden reflejar todos los casos todavia (por )
-
-        for rec in self:
-            next_group = rec.env["academic.group"].search(
-                [
-                    ("year", "=", rec.year + 1),
-                    ("company_id", "=", rec.company_id.id),
-                    ("level_id", "=", rec.level_id.id),
-                    ("division_id", "=", rec.division_id.id),
-                ],
-                limit=1,
-            )
-
-            if not next_group:
-                next_group = rec.copy(
-                    default={
-                        "year": rec.year + 1,
-                        "student_ids": False,
-                    }
-                )
 
     def open_students(self):
         action = self.env.ref("academic.action_academic_partner_students").read()[0]
