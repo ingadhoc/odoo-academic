@@ -13,10 +13,10 @@ class SaleOrderLine(models.Model):
         related="product_id.academic_product_type",
     )
 
-    @api.depends("academic_product_type")
+    @api.depends("product_id")
     def _compute_group_id(self):
         for rec in self:
-            if rec.academic_product_type and rec.order_id.opportunity_id.group_id:
+            if rec.product_id.academic_product_type and rec.order_id.opportunity_id.group_id:
                 rec.group_id = rec.order_id.opportunity_id.group_id
             else:
                 rec.group_id = False

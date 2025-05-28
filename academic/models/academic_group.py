@@ -115,6 +115,7 @@ class AcademicGroup(models.Model):
             ]
             line.name = " - ".join(filter(None, name_parts))
 
+    # TODO mejorar todos estos compute, read group? podemos simplificar calculos? query?
     def _compute_fee_student_count(self):
         for group in self:
             group.fee_student_count = len(
@@ -129,6 +130,8 @@ class AcademicGroup(models.Model):
             )
 
     def _compute_registration_student_count(self):
+        # TODO tal vez deberiamos hacer una constraint que no pueda permitir dos lineas de venta "activas" para mismo academic_product_type, student y grupo
+        # luego el mapped no seria necesario
         for group in self:
             group.registration_student_count = len(
                 group.registration_so_line_ids.filtered(lambda x: x.state in ["draft", "sent"]).mapped(
