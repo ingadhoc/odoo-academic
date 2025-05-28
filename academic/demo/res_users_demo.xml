@@ -3,15 +3,15 @@
 
 
     <record id="base.user_root" model="res.users">
-        <field name="company_ids" eval="[(6, 0, [ref('base.main_company'), ref('academic.res_company_los_molinos'), ref('academic.res_company_los_arroyos')])]"/>
+        <field name="company_ids" eval="[(6, 0, [ref('base.main_company'), ref('academic.res_company_los_molinos'), ref('academic.res_company_los_arroyos'), ref('academic.res_company_los_senderos'), ref('academic.res_company_facultad_ingenieria')])]"/>
     </record>
 
     <record id="base.user_admin" model="res.users">
-        <field name="company_ids" eval="[(6, 0, [ref('base.main_company'), ref('academic.res_company_los_molinos'), ref('academic.res_company_los_arroyos')])]"/>
+        <field name="company_ids" eval="[(6, 0, [ref('base.main_company'), ref('academic.res_company_los_molinos'), ref('academic.res_company_los_arroyos'), ref('academic.res_company_los_senderos'), ref('academic.res_company_facultad_ingenieria')])]"/>
     </record>
 
     <record id="base.user_demo" model="res.users">
-        <field name="company_ids" eval="[(6, 0, [ref('base.main_company'), ref('academic.res_company_los_molinos'), ref('academic.res_company_los_arroyos')])]"/>
+        <field name="company_ids" eval="[(6, 0, [ref('base.main_company'), ref('academic.res_company_los_molinos'), ref('academic.res_company_los_arroyos'), ref('academic.res_company_los_senderos'), ref('academic.res_company_facultad_ingenieria')])]"/>
     </record>
 
     <!-- Apdes Manger -->

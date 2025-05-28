@@ -11,6 +11,16 @@
         <field name="is_company" eval="1" />
     </record>
 
+    <record id="res_partner_facultad_ingenieria" model="res.partner">
+        <field name="name">Facultad de Ingeniería</field>
+        <field name="is_company" eval="1" />
+    </record>
+
+    <record id="res_partner_los_senderos" model="res.partner">
+        <field name="name">Jardín Los Senderos</field>
+        <field name="is_company" eval="1" />
+    </record>
+
     <record id="res_partner_ignacio_rodriguez" model="res.partner">
         <field name="name">Ignacio Rodriguez</field>
     </record>
