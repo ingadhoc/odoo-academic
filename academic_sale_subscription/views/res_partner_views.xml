@@ -51,6 +51,18 @@
                     </field>
                 </page>
             </xpath>
+
+            <page name="accounting_disabled" position="attributes">
+                <attribute name="invisible">is_company or not parent_id or partner_type in ['student', 'family']</attribute>
+            </page>
+            <!-- ventas y compras por ahora dejamos que respete comportamiento nativo de odoo, siempre visible. Sirve por ej. para setear comercial (Sea a nivel familia o por alumno) -->
+            <!-- <page name="sales_purchases" position="attributes">
+                <attribute name="invisible">partner_type in ['student', 'family']</attribute>
+            </page> -->
+            <page name="accounting" position="attributes">
+                <attribute name="invisible">partner_type in ['student', 'family'] or not is_company and parent_id</attribute>
+            </page>
+
         </field>
     </record>
 </odoo>

@@ -25,7 +25,6 @@
         <!-- <field name="currency_id" ref="base.ARS"/> -->
         <!-- para hacerlo requerido deberiamos cambiar la data demo de algunos partners -->
         <!-- <field name="family_required" eval="True"/> -->
-        <field name="fiscalyear_last_day">31</field>
         <field name="name">Colegio Los Arroyos</field>
         <field name="family_required" eval="False"/>
         <field name="section_ids" eval="[(4, ref('academic.academic_section_2'))]"/>
@@ -37,7 +36,6 @@
         <!-- para hacerlo requerido deberiamos cambiar la data demo de algunos partners -->
         <!-- <field name="family_required" eval="True"/> -->
         <!-- <field name="currency_id" ref="base.ARS"/> -->
-        <!-- <field name="fiscalyear_last_day">31</field> -->
         <field name="name">Colegio Los Molinos</field>
         <field name="family_required" eval="False"/>
         <field name="section_ids" eval="[(4, ref('academic.academic_section_2'))]"/>
