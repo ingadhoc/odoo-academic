@@ -35,21 +35,9 @@
                 </header>
                 <sheet string="group">
                      <div class="oe_button_box" name="button_box">
-                        <button name="open_fee_sales" type="object" class="oe_stat_button" icon="fa-usd" invisible="not manage_sale_workflow">
-                            <field string="Fee" name="fee_student_count" widget="statinfo"/>
-                        </button>
-                        <button name="open_no_fee_students" type="object" class="oe_stat_button" icon="fa-user-o" invisible="not manage_sale_workflow or no_fee_student_count &lt; 1">
-                            <field string="No Fee" name="no_fee_student_count" widget="statinfo"/>
-                        </button>
-                        <button name="open_registration_sales" type="object" class="oe_stat_button" icon="fa-plus" invisible="not manage_sale_workflow">
-                            <field string="Registration" name="registration_student_count" widget="statinfo"/>
-                        </button>
-                        <button name="open_opportunities" type="object" class="oe_stat_button" icon="fa-star" help="Opportunities linked to this group" invisible="not manage_sale_workflow">
-                            <field string="Opportunities" name="opportunities_student_count" widget="statinfo"/>
-                        </button>
                      </div>
                     <group>
-                        <group>
+                        <group name="col1">
                             <!-- Por ahora no usamos type, me parece que lo podemos borrar -->
                             <!-- <field name="type"/> -->
                             <field name="company_id" groups="base.group_multi_company"/>
@@ -57,17 +45,15 @@
                             <field name="level_id"/>
                             <field name="division_id"/>
                             <field name="subject_id"/>
-                            <field name="manage_sale_workflow" groups="base.group_no_one"/>
                         </group>
-                        <group>
+                        <group name="col2">
                             <field name="year"/>
                             <field name="capacity"/>
-                            <field name="vacancies"/>
                         </group>
                     </group>
                     <notebook>
                         <page name="students" string="Students">
-                            <field name="student_ids" domain="[('company_id','=',company_id),('partner_type','=','student')]" context="{'default_company_id':company_id,'default_partner_type':'student'}" readonly="manage_sale_workflow" force_save="1"/>
+                            <field name="student_ids" domain="[('company_id','=',company_id),('partner_type','=','student')]" context="{'default_company_id':company_id,'default_partner_type':'student'}" force_save="1"/>
                         </page>
                     </notebook>
                 </sheet>
@@ -91,7 +77,6 @@
                 <field name="subject_id"/>
                 <field name="year"/>
                 <field name="capacity"/>
-                <field name="vacancies"/>
             </list>
         </field>
     </record>
