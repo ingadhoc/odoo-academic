@@ -15,10 +15,4 @@ from . import res_partner
 from . import res_users
 from . import res_partner_role
 from . import res_partner_link
-from . import sale_order
-from . import crm_lead
-from . import sale_order_line
-from . import account_move
-from . import account_move_line
 from . import res_partner_category
-from . import product_template

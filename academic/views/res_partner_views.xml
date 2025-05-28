@@ -82,17 +82,6 @@
                 <attribute name="options">{'no_create': True}</attribute>
             </field>
 
-            <page name="accounting_disabled" position="attributes">
-                <attribute name="invisible">is_company or not parent_id or partner_type in ['student', 'family']</attribute>
-            </page>
-            <!-- ventas y compras por ahora dejamos que respete comportamiento nativo de odoo, siempre visible. Sirve por ej. para setear comercial (Sea a nivel familia o por alumno) -->
-            <!-- <page name="sales_purchases" position="attributes">
-                <attribute name="invisible">partner_type in ['student', 'family']</attribute>
-            </page> -->
-            <page name="accounting" position="attributes">
-                <attribute name="invisible">partner_type in ['student', 'family'] or not is_company and parent_id</attribute>
-            </page>
-
             <page name="contact_addresses" position="before">
                 <page string="Estudiantes" invisible="partner_type != 'family'">
                     <field name="student_ids" context="{'default_partner_type': 'student', 'default_type': 'contact', 'default_company_id': company_id}">
@@ -196,7 +185,7 @@
                 <groupby name="current_main_group_id">
                     <button
                         type="object"
-                        name="open_student_view"
+                        name="open_students"
                         icon="fa-list"
                         title="Open student view"
                     />

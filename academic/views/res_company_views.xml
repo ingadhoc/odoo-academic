@@ -34,7 +34,6 @@
             <div class="o_address_format"  position='after'>
                 <field name="section_ids" widget="many2many_tags"/>
                 <field name="family_required"/>
-                <field name="require_student_on_invoices"/>
             </div>
         </field>
     </record>
