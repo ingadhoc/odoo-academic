@@ -36,18 +36,15 @@
                 <field name="company_family_required" invisible="1"/>
             </form>
 
-            <!-- oculamos seleccion de compañía si es estudiante (tal vez en otros tmb lo queremos?) -->
-            <!-- <div class="o_row" position="attributes">
-                <attribute name="attrs">{'invisible':[('partner_type','!=',False)]}</attribute>
-            </div> -->
-
             <xpath expr="//sheet" position="before">
                 <div class="alert alert-warning oe_edit_only" role="alert" invisible="not same_dni_partner_id">
                   A partner with the same dni already exists (<field name="same_dni_partner_id"/> - Company: <field name="same_dni_partner_company"/>).
                 </div>
+                <div class="alert alert-warning oe_edit_only" role="alert" invisible="not context.get('show_warning')">
+                  If the partner will be responsible for payment, remember to set the identification number.
+                </div>
             </xpath>
 
-            <!-- ocultamos pagina de contactos si no es compania -->
             <page name="contact_addresses" position="attributes">
                 <attribute name="invisible">not is_company</attribute>
             </page>
@@ -85,26 +82,8 @@
                 <attribute name="options">{'no_create': True}</attribute>
             </field>
 
-            <!-- ocultamos paginas y campos que no queremos si es familia o estudiante de contactos si no es compania -->
-            <!-- <field name="vat" position="attributes">
-                <attribute name="attrs">{'invisible':[('partner_type','in',['student', 'family'])]}</attribute>
-            </field> -->
-            <!-- '|',('is_company','=',True),('parent_id','=',False) -->
-            <page name="accounting_disabled" position="attributes">
-                <attribute name="invisible">is_company or not parent_id or partner_type in ['student', 'family']</attribute>
-            </page>
-            <!-- ventas y compras por ahora dejamos que respete comportamiento nativo de odoo, siempre visible. Sirve por ej. para setear comercial (Sea a nivel familia o por alumno) -->
-            <!-- <page name="sales_purchases" position="attributes">
-                <attribute name="invisible">partner_type in ['student', 'family']</attribute>
-            </page> -->
-            <page name="accounting" position="attributes">
-            <!-- 'invisible': [('is_company','=',False),('parent_id','!=',False)]} -->
-                <attribute name="invisible">partner_type in ['student', 'family'] or not is_company and parent_id</attribute>
-            </page>
-
             <page name="contact_addresses" position="before">
                 <page string="Estudiantes" invisible="partner_type != 'family'">
-                    <!-- context="{'default_parent_id': id, 'default_street': street, 'default_street2': street2, 'default_city': city, 'default_state_id': state_id, 'default_zip': zip, 'default_country_id': country_id, 'default_lang': lang, 'default_user_id': user_id, 'default_type': 'other'}" -->
                     <field name="student_ids" context="{'default_partner_type': 'student', 'default_type': 'contact', 'default_company_id': company_id}">
                         <list>
                             <field name="company_id" column_invisible="1"/>
@@ -150,7 +129,7 @@
                         <list editable="bottom">
                             <field name="sequence" widget="handle"/>
                             <field name="company_id" column_invisible="1"/>
-                            <field name="partner_id" context="{'default_partner_type': 'parent'}"/>
+                            <field name="partner_id" context="{'default_partner_type': 'parent', 'show_warning': True}" options="{'no_quick_create': True}"/>
                             <field name="relationship_id" options="{'no_create':True}"/>
                             <field name="role_ids" widget="many2many_tags" options="{'no_create':True, 'color_field': 'color'}"/>
                             <field name="note"/>
@@ -161,7 +140,7 @@
 
             <page name="internal_notes" position="before">
                 <page string="Groups" invisible="partner_type != 'student'">
-                    <field name="student_group_ids" domain="[('company_id', '=', company_id)]" context="{'list_view_ref': 'academic.view_academic_group_list_no_create'}"/>
+                    <field name="student_group_ids" readonly="True"/>
                 </page>
                 <page string="Groups" invisible="partner_type != 'teacher'">
                     <field name="teacher_group_ids" context="{'default_company_id': company_id, 'default_teacher_id': id, 'list_view_ref': 'academic.view_academic_group_list_no_create'}"/>
@@ -187,48 +166,6 @@
             <xpath expr="//span[@name='address_name']" position="before">
                 <field name="company_id" groups="base.group_multi_company" placeholder="Institution..." required="partner_type in ['teacher', 'student', 'administrator', 'gral_administrator']"/>
             </xpath>
-
-            <field name="parent_id" position="after">
-                <!-- <field name="company_id" groups="base.group_multi_company" placeholder="Institution..." attrs="{'required':[('partner_type','in',['teacher','student','administrator'])]}"/> -->
-                <!-- lo hacemos requerido por temas de seguridad, no se contemplan directores generales. -->
-                <field name="section_id" placeholder="Section..." invisible="partner_type != 'administrator'" required="partner_type == 'administrator'"/>
-            </field>
-
-        <!-- pop up contactos -->
-            <!-- <xpath expr="//field[@name='child_ids']//form//field[@name='name']" position="before">
-                <field name="is_company" invisible="1"/>
-                <field name="partner_type" attrs="{'invisible': [('is_company', '=', True)]}"/>
-                <field name="links_by_student" attrs="{'invisible': [('is_company', '=', False)]}"/>
-                <field name="parent_links_by_student" invisible="1"/>
-            </xpath>
-
-            <xpath expr="//field[@name='child_ids']//form//group" position="inside">
-                <group>
-                    <field name="file_number" attrs="{'invisible':[('partner_type','!=','student')]}"/>
-                    <field name="sex" attrs="{'invisible':[('partner_type','=',False)], 'required':[('partner_type','=','student')]}"/>
-                    <field name="promotion_id" attrs="{'invisible':[('partner_type','!=','student')], 'required':[('partner_type','=','student')]}"/>
-                    <field name="birthdate" attrs="{'invisible':[('partner_type','=',False)]}"/>
-                    <field name="admission_date" attrs="{'invisible':[('partner_type','!=','student')]}"/>
-                    <field name="exit_date" attrs="{'invisible':[('partner_type','!=','student')]}"/>
-                    <field name="medical_insurance" attrs="{'invisible':[('partner_type','!=','student')]}"/>
-                    <field name="disabled_person" attrs="{'invisible':[('partner_type','!=','student')]}"/>
-                </group>
-            </xpath>
-            <xpath expr="//kanban//field[@name='lang']" position="after">
-                <field name="partner_type"/>
-            </xpath>
-            <xpath expr="//kanban//t[@t-name='card']//div[@t-if='record.function.raw_value']" position="after">
-                <strong><div t-if="record.partner_type.raw_value"><field name="partner_type"/></div></strong>
-            </xpath> -->
-
-            <!-- creacion de related user -->
-            <!-- <field name="website" position="after">
-                <label for="related_user_id"/>
-                <div>
-                    <field name="related_user_id" attrs="{'invisible':[('related_user_id', '=', False)]}" context="{'form_view_ref':'base.view_users_form'}"/>
-                    <button name="quickly_create_portal_user" string="Create User" type="object" class="oe_link oe_inline" groups="base.group_erp_manager" attrs="{'invisible':['|',('partner_type', '=', False),('related_user_id','!=',False)]}"/>
-                </div>
-            </field> -->
         </field>
     </record>
 
@@ -248,7 +185,7 @@
                 <groupby name="current_main_group_id">
                     <button
                         type="object"
-                        name="open_student_view"
+                        name="open_students"
                         icon="fa-list"
                         title="Open student view"
                     />

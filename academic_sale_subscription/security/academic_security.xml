@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- activamos la opción de multiples direcciones ya que la usamos en academic -->
+    <record id="base.group_user" model="res.groups">
+        <field name="implied_ids" eval="[(4, ref('account.group_delivery_invoice_address'))]"/>
+    </record>
+</odoo>

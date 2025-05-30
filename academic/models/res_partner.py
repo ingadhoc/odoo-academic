@@ -2,6 +2,7 @@
 # For copyright and license notices, see __manifest__.py file in module root
 # directory
 ##############################################################################
+from collections import defaultdict
 from datetime import date
 
 from odoo import _, api, fields, models
@@ -29,10 +30,6 @@ class ResPartner(models.Model):
         compute="_compute_partner_type",
         readonly=False,
         store=True,
-    )
-    section_id = fields.Many2one(
-        "academic.section",
-        string="Section",
     )
     promotion_id = fields.Many2one(
         "academic.promotion",
@@ -91,6 +88,7 @@ class ResPartner(models.Model):
         compute="_compute_payment_responsible",
         store=True,
     )
+    parent_id = fields.Many2one(context={"default_partner_type": "family"})
 
     @api.depends("parent_links_by_student", "parent_id.student_link_ids")
     def _compute_student_links(self):
@@ -141,8 +139,6 @@ class ResPartner(models.Model):
     # create tantas cosas
     student_ids = fields.One2many("res.partner", "parent_id")
     company_id = fields.Many2one(compute="_compute_company_id", store=True, readonly=False)
-    # company_type = fields.Selection(selection_add=[('family', 'Family')])
-    # is_family = fields.Boolean()
     same_dni_partner_id = fields.Many2one(
         "res.partner",
         string="Partner with same DNI",
@@ -156,18 +152,6 @@ class ResPartner(models.Model):
     current_main_group_id = fields.Many2one("academic.group", compute="_compute_current_main_group", store=True)
     category_id = fields.Many2many(check_company=True)
     student_count = fields.Integer(compute="_compute_student_count", store=True)
-
-    # @api.depends('is_family')
-    # def _compute_company_type(self):
-    #     families = self.filtered(lambda x: x.is_company and x.is_family)
-    #     families.company_type = 'family'
-    #     return super(ResPartner, self - families)._compute_company_type()
-
-    # def _write_company_type(self):
-    #     families = self.filtered(lambda x: x.company_type == 'family')
-    #     families.is_company = True
-    #     families.is_family = True
-    #     return super(ResPartner, self - families)._write_company_type()
 
     @api.constrains("company_id", "partner_type", "parent_id")
     def _check_family_configured(self):
@@ -190,14 +174,6 @@ class ResPartner(models.Model):
     @api.depends("is_company")
     def _compute_partner_type(self):
         self.filtered(lambda x: x.is_company and x.partner_type).partner_type = False
-
-    def quickly_create_portal_user(self):
-        """Metodo que crea o activa usuario inactivo en el grupo portal que
-        se defina
-        """
-        # TODO: el metodo onchange_portal_id no existe.
-        # Esto dejo de usarse pero queda el codigo por posible implementacion a futuro
-        raise UserError(_("Esta función se encuentra en desarrollo!"))
 
     @api.depends("parent_id")
     def _compute_company_id(self):
@@ -243,11 +219,19 @@ class ResPartner(models.Model):
         porque, al usar un campo many2many, la validación no se activaba al agregar un estudiante
         directamente desde un grupo.
         """
-        current_year = date.today().year
         for partner in self:
-            domain = [("student_ids", "=", partner.id), ("subject_id", "=", False), ("year", ">=", current_year)]
-            grouped_data = self.env["academic.group"].read_group(domain, ["year"], ["year"])
-            duplicate_years = [group["year"] for group in grouped_data if group["year_count"] > 1]
+            groups = self.env["academic.group"].search(
+                [
+                    ("student_ids", "=", partner.id),
+                    ("subject_id", "=", False),
+                ]
+            )
+            year_map = defaultdict(list)
+            for group in groups:
+                year = group.year_id.date_start.year
+                year_map[year].append(group)
+
+            duplicate_years = [str(y) for y, g in year_map.items() if len(g) > 1]
             if duplicate_years:
                 raise ValidationError(
                     _(
@@ -259,9 +243,17 @@ class ResPartner(models.Model):
 
     @api.depends("student_group_ids")
     def _compute_current_main_group(self):
+        current_year_start = date(date.today().year, 1, 1)
+        current_year_end = date(date.today().year, 12, 31)
         for rec in self:
-            student_group = rec.student_group_ids.filtered(lambda g: g.year == date.today().year and not g.subject_id)
-            rec.current_main_group_id = student_group[:1]
+            groups = rec.student_group_ids.filtered_domain(
+                [
+                    ("year_id.date_start", ">=", current_year_start),
+                    ("year_id.date_start", "<=", current_year_end),
+                    ("subject_id", "=", False),
+                ]
+            )
+            rec.current_main_group_id = groups[:1] if groups else False
 
     @api.depends("student_link_ids", "student_link_ids.role_ids")
     def _compute_payment_responsible(self):
@@ -296,10 +288,3 @@ class ResPartner(models.Model):
     def _compute_student_count(self):
         for rec in self.filtered(lambda x: x.partner_type == "family"):
             rec.student_count = len(rec.student_ids)
-
-    @api.constrains("partner_type")
-    def _check_groups_student(self):
-        if self.env.context.get("install_mode"):
-            return True
-        if self.filtered(lambda x: x.partner_type == "student" and not x.student_group_ids):
-            raise UserError(_("The student must belong to at least one academic group."))

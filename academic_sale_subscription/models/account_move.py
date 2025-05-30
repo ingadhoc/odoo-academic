@@ -8,7 +8,10 @@ class AccountMove(models.Model):
     # Este campo solo lo uso para calcular el dominio del student_id ya que implica una búsqueda por el rol de pago.
     student_ids = fields.Many2many("res.partner", string="Students List", compute="_compute_student_ids")
     student_id = fields.Many2one(
-        "res.partner", domain="[('id', 'in', student_ids), ('partner_type', '=', 'student')]", index=True
+        "res.partner",
+        domain="[('id', 'in', student_ids), ('partner_type', '=', 'student')]",
+        index=True,
+        context={"default_partner_type": "student"},
     )
     require_student_on_invoices = fields.Boolean(related="company_id.require_student_on_invoices")
     is_academic_sale = fields.Boolean(compute="_compute_is_academic_sale")

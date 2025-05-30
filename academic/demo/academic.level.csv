@@ -1,14 +1,8 @@
-id,name,section_id/id
-academic_course_1,Primer Grado,academic_section_1
-academic_course_2,Segundo Grado,academic_section_1
-academic_course_3,Tercer Grado,academic_section_1
-academic_course_4,Cuarto Grado,academic_section_1
-academic_course_5,Quinto Grado,academic_section_1
-academic_course_6,Sexto Grado,academic_section_1
-academic_course_7,Séptimo Grado,academic_section_1
-academic_course_8,Primer Grado,academic_section_2
-academic_course_9,Segundo Grado,academic_section_2
-academic_course_10,Tercero Grado,academic_section_2
-academic_course_11,Cuarto Grado,academic_section_2
-academic_course_12,Quinto Grado,academic_section_2
-academic_course_13,Sexto Grado,academic_section_2
+id,name
+academic_level_1,Primer año
+academic_level_2,Segundo año
+academic_level_3,Tercer año
+academic_level_4,Cuarto año
+academic_level_5,Quinto año
+academic_level_6,Sexto año
+academic_level_7,Séptimo año

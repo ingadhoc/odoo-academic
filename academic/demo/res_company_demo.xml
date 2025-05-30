@@ -15,7 +15,19 @@
     <record id="base.main_company" model="res.company">
         <field name="name">APDES</field>
         <field name="report_header">ASOCIACIÓN PARA LA PROMOCIÓN DEPORTIVA, EDUCATIVA Y SOCIAL</field>
-        <field name="study_plan_id" ref="academic_study_plan_2"/>
+        <field name="section_ids" eval="[(4, ref('academic.academic_section_2'))]"/>
+    </record>
+
+    <!-- Kinder Companies  -->
+    <record id="res_company_los_senderos" model="res.company">
+        <field name="partner_id" ref="res_partner_los_senderos"/>
+        <!-- <field name="parent_id" ref="base.main_company"/> -->
+        <!-- <field name="currency_id" ref="base.ARS"/> -->
+        <!-- para hacerlo requerido deberiamos cambiar la data demo de algunos partners -->
+        <!-- <field name="family_required" eval="True"/> -->
+        <field name="name">Colegio Los Senderos</field>
+        <field name="family_required" eval="True"/>
+        <field name="section_ids" eval="[(4, ref('academic.academic_section_1'))]"/>
     </record>
 
     <!-- Schools Companies  -->
@@ -25,10 +37,9 @@
         <!-- <field name="currency_id" ref="base.ARS"/> -->
         <!-- para hacerlo requerido deberiamos cambiar la data demo de algunos partners -->
         <!-- <field name="family_required" eval="True"/> -->
-        <field name="fiscalyear_last_day">31</field>
         <field name="name">Colegio Los Arroyos</field>
-        <field name="study_plan_id" ref="academic_study_plan_2"/>
         <field name="family_required" eval="False"/>
+        <field name="section_ids" eval="[(4, ref('academic.academic_section_1')), (4, ref('academic.academic_section_2')), (4, ref('academic.academic_section_5'))]"/>
     </record>
 
     <record id="res_company_los_molinos" model="res.company">
@@ -37,10 +48,22 @@
         <!-- para hacerlo requerido deberiamos cambiar la data demo de algunos partners -->
         <!-- <field name="family_required" eval="True"/> -->
         <!-- <field name="currency_id" ref="base.ARS"/> -->
-        <!-- <field name="fiscalyear_last_day">31</field> -->
         <field name="name">Colegio Los Molinos</field>
-        <field name="study_plan_id" ref="academic_study_plan_1"/>
         <field name="family_required" eval="False"/>
+        <field name="section_ids" eval="[(4, ref('academic.academic_section_3')), (4, ref('academic.academic_section_4'))]"/>
+    </record>
+
+    <!-- University companies -->
+
+    <record id="res_company_facultad_ingenieria" model="res.company">
+        <field name="partner_id" ref="res_partner_facultad_ingenieria"/>
+        <!-- <field name="parent_id" ref="base.main_company"/> -->
+        <!-- para hacerlo requerido deberiamos cambiar la data demo de algunos partners -->
+        <!-- <field name="family_required" eval="True"/> -->
+        <!-- <field name="currency_id" ref="base.ARS"/> -->
+        <field name="name">Facultad de Ingeniería</field>
+        <field name="family_required" eval="False"/>
+        <field name="section_ids" eval="[(4, ref('academic.academic_section_6')), (4, ref('academic.academic_section_7')), (4, ref('academic.academic_section_8')), (4, ref('academic.academic_section_9')), (4, ref('academic.academic_section_10'))]"/>
     </record>
 
     <!-- Partners companies -->

@@ -6,8 +6,8 @@
         <field name="arch" type="xml">
             <list position="inside">
                 <header>
-                    <button name="%(academic_sale_subscription.action_view_academic_order_wizard)d"
-                            type="action"
+                    <button name="open_academic_order_wizard"
+                            type="object"
                             string="Create Order"
                             class="btn-secondary"
                             groups="academic.group_user"/>
@@ -51,6 +51,18 @@
                     </field>
                 </page>
             </xpath>
+
+            <page name="accounting_disabled" position="attributes">
+                <attribute name="invisible">is_company or not parent_id or partner_type in ['student', 'family']</attribute>
+            </page>
+            <!-- ventas y compras por ahora dejamos que respete comportamiento nativo de odoo, siempre visible. Sirve por ej. para setear comercial (Sea a nivel familia o por alumno) -->
+            <!-- <page name="sales_purchases" position="attributes">
+                <attribute name="invisible">partner_type in ['student', 'family']</attribute>
+            </page> -->
+            <page name="accounting" position="attributes">
+                <attribute name="invisible">partner_type in ['student', 'family'] or not is_company and parent_id</attribute>
+            </page>
+
         </field>
     </record>
 </odoo>
