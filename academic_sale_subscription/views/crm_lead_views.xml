@@ -24,4 +24,17 @@
             </xpath>
         </field>
     </record>
+
+    <record id="quick_create_opportunity_form" model="ir.ui.view">
+        <field name="name">crm.lead.form.quick_create</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.quick_create_opportunity_form"/>
+        <field name="arch" type="xml">
+            <field name="name" position="attributes">
+                <attribute name="string">Student's name</attribute>
+                <attribute name="placeholder">Fill in the student's name</attribute>
+            </field>
+        </field>
+    </record>
+
 </odoo>
