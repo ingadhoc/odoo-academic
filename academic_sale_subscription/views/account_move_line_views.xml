@@ -1,0 +1,15 @@
+<odoo>
+    <record id="view_account_move_line_filter" model="ir.ui.view">
+        <field name="name">academic.account.move.line.search</field>
+        <field name="model">account.move.line</field>
+        <field name="inherit_id" ref="account.view_account_move_line_filter"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="family_id"/>
+            </field>
+            <group>
+                <filter string="Family" name="group_by_family" domain="[]" context="{'group_by': 'family_id'}"/>
+            </group>
+        </field>
+    </record>
+</odoo>
