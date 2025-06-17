@@ -13,6 +13,7 @@ class AccountMove(models.Model):
         index=True,
         context={"default_partner_type": "student"},
     )
+    family_id = fields.Many2one("res.partner", related="student_id.parent_id", store=True, string="Family")
     require_student_on_invoices = fields.Boolean(related="company_id.require_student_on_invoices")
     is_academic_sale = fields.Boolean(compute="_compute_is_academic_sale")
 
