@@ -97,6 +97,7 @@ class ResPartner(models.Model):
                         'relationship_id': link.relationship_id.id,
                         'note': link.note,
                         'role_ids': [(6, 0, link.role_ids.ids)],
+                        'sequence': link.sequence,
                     })
                 else:
                     commands.append((0, 0, {
@@ -104,6 +105,7 @@ class ResPartner(models.Model):
                         'relationship_id': link.relationship_id.id,
                         'note': link.note,
                         'role_ids': [(6, 0, link.role_ids.ids)],
+                        'sequence': link.sequence,
                     }))
             parent_partner_ids = rec.parent_id.student_link_ids.mapped('partner_id')
             obsolete_links = rec.student_link_ids.filtered(lambda l: l.partner_id not in parent_partner_ids)
