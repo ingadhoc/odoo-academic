@@ -29,7 +29,10 @@ class SaleOrder(models.Model):
     def _compute_partner_invoice(self):
         orders = self.filtered("partner_id")
         for rec in orders:
-            rec.partner_invoice_ids = rec.partner_id.payment_responsible_ids
+            student_links = rec.partner_id.student_link_ids.filtered(
+                lambda x: self.env.ref("academic.paying_role") in x.role_ids
+            ).sorted("sequence")
+            rec.partner_invoice_ids = student_links.mapped("partner_id")
         (self - orders).partner_invoice_ids = False
 
     @api.depends("partner_invoice_ids")

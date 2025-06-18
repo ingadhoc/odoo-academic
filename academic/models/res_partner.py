@@ -106,6 +106,7 @@ class ResPartner(models.Model):
                             "relationship_id": link.relationship_id.id,
                             "note": link.note,
                             "role_ids": [(6, 0, link.role_ids.ids)],
+                            "sequence": link.sequence,
                         }
                     )
                 else:
@@ -118,6 +119,7 @@ class ResPartner(models.Model):
                                 "relationship_id": link.relationship_id.id,
                                 "note": link.note,
                                 "role_ids": [(6, 0, link.role_ids.ids)],
+                                "sequence": link.sequence,
                             },
                         )
                     )
