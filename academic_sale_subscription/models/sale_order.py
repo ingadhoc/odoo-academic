@@ -47,16 +47,18 @@ class SaleOrder(models.Model):
             res["student_id"] = self.partner_id.id
         return res
 
-    def action_confirm(self):
-        for rec in self.filtered("is_academic_sale"):
-            rec.message_subscribe(
+    @api.model_create_multi
+    def create(self, vals_list):
+        orders = super().create(vals_list)
+        for order in orders.filtered("is_academic_sale"):
+            order.message_subscribe(
                 [
                     payment_responsible.id
-                    for payment_responsible in rec.partner_invoice_id | rec.partner_invoice_ids
-                    if payment_responsible not in rec.sudo().message_partner_ids
+                    for payment_responsible in order.partner_invoice_id | order.partner_invoice_ids
+                    if payment_responsible not in order.sudo().message_partner_ids
                 ]
             )
-        return super().action_confirm()
+        return orders
 
     def _message_get_default_recipients(self):
         """Por defecto las plantillas mandan a partner_id pero para nosotros el partners es el estudiante.
