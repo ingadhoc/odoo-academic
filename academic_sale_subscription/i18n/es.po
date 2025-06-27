@@ -414,3 +414,10 @@ msgstr "Años"
 #: model:ir.model,name:academic_sale_subscription.model_academic_group
 msgid "group"
 msgstr "grupo"
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/models/mail_thread.py:0
+#, python-format
+msgid "View %s"
+msgstr "Ver %s"
