@@ -57,7 +57,7 @@
         <field name="name">Juan Gonzalez</field>
         <field name="partner_type">student</field>
         <field name="parent_id" ref="res_partner_family_1"/>
-        <field name="dni">40123456</field>
+        <field name="acadmeic_identification_number">40123456</field>
         <field name="company_id" ref="base.main_company"/>
         <field name="category_id" eval="[(4, ref('partner_category_discount_sibling'))]"/>
     </record>
@@ -65,7 +65,7 @@
         <field name="name">Maria Rodriguez</field>
         <field name="partner_type">student</field>
         <field name="parent_id" ref="res_partner_family_2"/>
-        <field name="dni">41234567</field>
+        <field name="acadmeic_identification_number">41234567</field>
         <field name="company_id" ref="base.main_company"/>
         <field name="category_id" eval="[(4, ref('partner_category_discount_official'))]"/>
     </record>
@@ -73,7 +73,7 @@
         <field name="name">Luis Perez</field>
         <field name="partner_type">student</field>
         <field name="parent_id" ref="res_partner_family_3"/>
-        <field name="dni">42345678</field>
+        <field name="acadmeic_identification_number">42345678</field>
         <field name="company_id" ref="base.main_company"/>
         <field name="category_id" eval="[(4, ref('partner_category_discount_sibling')), (4, ref('partner_category_discount_official'))]"/>
     </record>
@@ -81,7 +81,7 @@
         <field name="name">Sofia Lopez</field>
         <field name="partner_type">student</field>
         <field name="parent_id" ref="res_partner_family_4"/>
-        <field name="dni">43345678</field>
+        <field name="acadmeic_identification_number">43345678</field>
         <field name="company_id" ref="base.main_company"/>
         <field name="category_id" eval="[(4, ref('partner_category_discount_sibling'))]"/>
     </record>
@@ -89,14 +89,14 @@
         <field name="name">Valentina Martinez</field>
         <field name="partner_type">student</field>
         <field name="parent_id" ref="res_partner_family_5"/>
-        <field name="dni">44345678</field>
+        <field name="acadmeic_identification_number">44345678</field>
         <field name="company_id" ref="academic.res_company_los_molinos"/>
     </record>
     <record id="res_partner_student_6" model="res.partner">
         <field name="name">Mateo Fernandez</field>
         <field name="partner_type">student</field>
         <field name="parent_id" ref="res_partner_family_6"/>
-        <field name="dni">45345678</field>
+        <field name="acadmeic_identification_number">45345678</field>
         <field name="company_id" ref="academic.res_company_los_molinos"/>
         <field name="category_id" eval="[(4, ref('partner_category_discount_sibling')), (4, ref('partner_category_discount_official'))]"/>
     </record>
@@ -104,21 +104,21 @@
         <field name="name">Lucia Gomez</field>
         <field name="partner_type">student</field>
         <field name="parent_id" ref="res_partner_family_7"/>
-        <field name="dni">46345678</field>
+        <field name="acadmeic_identification_number">46345678</field>
         <field name="company_id" ref="academic.res_company_los_molinos"/>
     </record>
     <record id="res_partner_student_8" model="res.partner">
         <field name="name">Santiago Ramirez</field>
         <field name="partner_type">student</field>
         <field name="parent_id" ref="res_partner_family_8"/>
-        <field name="dni">47345678</field>
+        <field name="acadmeic_identification_number">47345678</field>
         <field name="company_id" ref="academic.res_company_los_arroyos"/>
     </record>
     <record id="res_partner_student_9" model="res.partner">
         <field name="name">Florencia Torres</field>
         <field name="partner_type">student</field>
         <field name="parent_id" ref="res_partner_family_9"/>
-        <field name="dni">48345678</field>
+        <field name="acadmeic_identification_number">48345678</field>
         <field name="company_id" ref="academic.res_company_los_arroyos"/>
         <field name="category_id" eval="[(4, ref('partner_category_discount_sibling')), (4, ref('partner_category_discount_official'))]"/>
     </record>
@@ -126,7 +126,7 @@
         <field name="name">Tomas Diaz</field>
         <field name="partner_type">student</field>
         <field name="parent_id" ref="res_partner_family_10"/>
-        <field name="dni">49345678</field>
+        <field name="acadmeic_identification_number">49345678</field>
         <field name="company_id" ref="academic.res_company_los_arroyos"/>
     </record>
 
