@@ -37,8 +37,8 @@
             </form>
 
             <xpath expr="//sheet" position="before">
-                <div class="alert alert-warning oe_edit_only" role="alert" invisible="not same_dni_partner_id">
-                  A partner with the same dni already exists (<field name="same_dni_partner_id"/> - Company: <field name="same_dni_partner_company"/>).
+                <div class="alert alert-warning oe_edit_only" role="alert" invisible="not same_academic_identification_number_partner_id">
+                  A partner with the same Identification Number already exists (<field name="same_academic_identification_number_partner_id"/> - Company: <field name="same_academic_identification_number_partner_company"/>).
                 </div>
                 <div class="alert alert-warning oe_edit_only" role="alert" invisible="not context.get('show_warning')">
                   If the partner will be responsible for payment, remember to set the identification number.
@@ -98,7 +98,12 @@
                 <page string="Individual Information" invisible="partner_type in [False, 'family']">
                     <group>
                         <group>
-                            <field name="dni"/>
+                            <label for="academic_identification_type_id"/>
+                            <div>
+                                <field name="academic_identification_type_id" options="{'no_open': True, 'no_create': True}" placeholder="Type" class="oe_inline" domain="country_id and ['|', ('country_id', '=', False), ('country_id', '=', country_id)] or []"/>
+                                <span class="oe_read_only"> - </span>
+                                <field name="academic_identification_number" placeholder="Number" class="oe_inline ml-4"/>
+                            </div>
                             <field name="file_number" invisible="partner_type != 'student'"/>
                             <field name="sex" invisible="not partner_type"/>
                             <field name="promotion_id" invisible="partner_type != 'student'"/>
