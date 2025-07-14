@@ -51,7 +51,7 @@ class SaleOrder(models.Model):
             lines_no_recurring_pricing = self.order_line.filtered(
                 lambda line: not bool(
                     self.env["sale.subscription.pricing"]._get_first_suitable_recurring_pricing(
-                        line.product_id, line.plan_id, line.order_id.pricelist_id
+                        line.product_id, line.subscription_plan_id, line.order_id.pricelist_id
                     )
                 )
             )
