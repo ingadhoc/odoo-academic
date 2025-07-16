@@ -19,7 +19,8 @@ class ResPartner(models.Model):
                 self.env["sale.order.line"]
                 .search([("order_partner_id", "=", rec.id), ("order_id.subscription_state", "=", "3_progress")])
                 .filtered(
-                    lambda line: not line.order_id.end_date or line.order_id.next_invoice_date < line.order_id.end_date
+                    lambda line: not line.order_id.end_date
+                    or (line.order_id.next_invoice_date and line.order_id.next_invoice_date < line.order_id.end_date)
                 )
             )
 
