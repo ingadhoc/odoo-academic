@@ -62,12 +62,6 @@ class ResPartner(models.Model):
     medical_insurance = fields.Char(
         copy=False,
     )
-    academic_identification_number = fields.Char()
-    academic_identification_type_id = fields.Many2one(
-        "l10n_latam.identification.type",
-        index=True,
-        default=lambda self: self.env.ref("l10n_latam_base.it_vat", raise_if_not_found=False),
-    )
     related_user_id = fields.Many2one(
         "res.users",
         compute="_compute_related_user_id",
@@ -143,18 +137,6 @@ class ResPartner(models.Model):
     # create tantas cosas
     student_ids = fields.One2many("res.partner", "parent_id")
     company_id = fields.Many2one(compute="_compute_company_id", store=True, readonly=False)
-    same_academic_identification_number_partner_id = fields.Many2one(
-        "res.partner",
-        string="Partner with same Identification Number",
-        compute="_compute_same_academic_identification_number_partner_id",
-        store=False,
-        search="_search_same_academic_identification_number_partner_id",
-    )
-    same_academic_identification_number_partner_company = fields.Many2one(
-        "res.company",
-        string="Company same partner",
-        related="same_academic_identification_number_partner_id.company_id",
-    )
     current_main_group_id = fields.Many2one("academic.group", compute="_compute_current_main_group", store=True)
     category_id = fields.Many2many(check_company=True)
     student_count = fields.Integer(compute="_compute_student_count", store=True)
@@ -201,23 +183,6 @@ class ResPartner(models.Model):
     def _onchange_company_id(self):
         # anulamos el onchange nativo de odoo porque ahora lo hicimos compute
         return
-
-    @api.depends("academic_identification_number")
-    def _compute_same_academic_identification_number_partner_id(self):
-        filtered_partners = self.filtered("academic_identification_number")
-        for partner in filtered_partners:
-            partner_id = partner._origin.id
-            Partner = self.with_context(active_test=False).sudo()
-            domain = [
-                ("academic_identification_number", "=", partner.academic_identification_number),
-            ]
-            if partner_id:
-                domain += [("id", "!=", partner_id)]
-            partner.same_academic_identification_number_partner_id = Partner.search(domain, limit=1)
-        (self - filtered_partners).same_academic_identification_number_partner_id = False
-
-    def _search_same_academic_identification_number_partner_id(self, operator, value):
-        return [("academic_identification_number", operator, value)]
 
     @api.constrains("current_main_group_id")
     def _check_unique_main_group_per_year(self):

@@ -36,32 +36,27 @@
                 <field name="company_family_required" invisible="1"/>
             </form>
 
-            <xpath expr="//sheet" position="before">
-                <div class="alert alert-warning oe_edit_only" role="alert" invisible="not same_academic_identification_number_partner_id">
-                  A partner with the same Identification Number already exists (<field name="same_academic_identification_number_partner_id"/> - Company: <field name="same_academic_identification_number_partner_company"/>).
-                </div>
-                <div class="alert alert-warning oe_edit_only" role="alert" invisible="not context.get('show_warning')">
-                  If the partner will be responsible for payment, remember to set the identification number.
-                </div>
-            </xpath>
-
             <page name="contact_addresses" position="attributes">
                 <attribute name="invisible">not is_company</attribute>
             </page>
+
+            <xpath expr="//group/group" position="attributes">
+                <attribute name="invisible">partner_type in ['student', 'family']</attribute>
+            </xpath>
 
             <xpath expr="//group/group" position="after">
                 <group invisible="partner_type not in ['student', 'family']">
                     <field name="company_id" groups="base.group_multi_company" placeholder="Institution..." required="partner_type in ['teacher', 'student', 'administrator', 'gral_administrator']"/>
                     <field name="parent_id" string="Family" invisible="partner_type != 'student'" required="partner_type == 'student' and company_family_required" domain="[('partner_type', '=', 'family'), ('company_id', 'in', [company_id, False])] if partner_type == 'student' else [('is_company', '=', True)]" context="{'default_partner_type': 'family', 'default_company_id': company_id}"/>
                     <field name="links_by_student" invisible="partner_type != 'family'"/>
+                    <field name="vat" invisible="partner_type != 'student'"/>
                 </group>
             </xpath>
+
             <field name="parent_id" position="attributes">
                 <attribute name="invisible">partner_type in ['student', 'family']</attribute>
             </field>
-            <xpath expr="//group/group" position="attributes">
-                <attribute name="invisible">partner_type in ['student', 'family']</attribute>
-            </xpath>
+
             <field name="website" position="attributes">
                 <attribute name="invisible">partner_type in ['student', 'parent']</attribute>
             </field>
@@ -98,12 +93,6 @@
                 <page string="Individual Information" invisible="partner_type in [False, 'family']">
                     <group>
                         <group>
-                            <label for="academic_identification_type_id"/>
-                            <div>
-                                <field name="academic_identification_type_id" options="{'no_open': True, 'no_create': True}" placeholder="Type" class="oe_inline" domain="country_id and ['|', ('country_id', '=', False), ('country_id', '=', country_id)] or []"/>
-                                <span class="oe_read_only"> - </span>
-                                <field name="academic_identification_number" placeholder="Number" class="oe_inline ml-4"/>
-                            </div>
                             <field name="file_number" invisible="partner_type != 'student'"/>
                             <field name="sex" invisible="not partner_type"/>
                             <field name="promotion_id" invisible="partner_type != 'student'"/>
