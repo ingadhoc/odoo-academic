@@ -42,8 +42,10 @@ class AcademicGroup(models.Model):
     def _compute_no_fee_student_count(self):
         for group in self:
             group.no_fee_student_count = len(
-                group.registration_so_line_ids.filtered(lambda x: x.state in ["sale"]).mapped("order_id.partner_id")
-                - group.fee_so_line_ids.mapped("order_id.partner_id")
+                group.student_ids
+                - group.fee_so_line_ids.filtered(
+                    lambda x: x.order_id.state == "sale" and x.order_id.subscription_state != "6_churn"
+                ).mapped("order_id.partner_id")
             )
 
     def _compute_registration_student_count(self):
@@ -71,21 +73,14 @@ class AcademicGroup(models.Model):
         for group in self:
             group.fee_student_count = len(
                 group.fee_so_line_ids.filtered(
-                    lambda x: x.order_id.subscription_state in ["3_progress", "4_paused"]
+                    lambda x: x.order_id.state == "sale" and x.order_id.subscription_state != "6_churn"
                 ).mapped("order_id.partner_id")
             )
 
-    @api.depends("fee_so_line_ids.order_id.state", "capacity", "manage_sale_workflow")
+    @api.depends("student_ids")
     def _compute_vacancies(self):
         for group in self:
-            if group.manage_sale_workflow:
-                group.vacancies = group.capacity - len(
-                    group.registration_so_line_ids.filtered(lambda x: x.order_id.state == "sale").mapped(
-                        "order_id.partner_id"
-                    )
-                )
-            else:
-                group.vacancies = group.capacity - len(group.student_ids)
+            group.vacancies = group.capacity - len(group.student_ids)
 
     @api.constrains("vacancies")
     def _check_vacancies(self):
@@ -115,10 +110,10 @@ class AcademicGroup(models.Model):
                         "id",
                         "in",
                         (
-                            self.registration_so_line_ids.filtered(lambda x: x.state in ["sale"]).mapped(
-                                "order_id.partner_id"
-                            )
-                            - self.fee_so_line_ids.mapped("order_id.partner_id")
+                            self.student_ids
+                            - self.fee_so_line_ids.filtered(
+                                lambda x: x.order_id.state == "sale" and x.order_id.subscription_state != "6_churn"
+                            ).mapped("order_id.partner_id")
                         ).ids,
                     )
                 ],
@@ -128,14 +123,26 @@ class AcademicGroup(models.Model):
         )
         return action
 
-    @api.depends("manage_sale_workflow", "registration_so_line_ids.state", "fee_so_line_ids.state")
+    @api.depends(
+        "manage_sale_workflow",
+        "registration_so_line_ids",
+        "registration_so_line_ids.state",
+        "registration_so_line_ids.order_id.close_reason_id",
+    )
     def _compute_student_ids(self):
         for group in self.filtered("manage_sale_workflow"):
-            group.student_ids = group.fee_so_line_ids.filtered(lambda x: x.order_id.state == "sale").mapped(
-                "order_id.partner_id"
-            ) | group.registration_so_line_ids.filtered(lambda x: x.order_id.state == "sale").mapped(
-                "order_id.partner_id"
-            )
+            # Suscripciones (estudiantes) de matrícula confirmadas Y que estén en progreso o finalizada que no libere vacantes
+            group.student_ids = group.registration_so_line_ids.filtered(
+                lambda x: x.order_id.state == "sale"
+                and (
+                    x.order_id.subscription_state != "6_churn"
+                    or (
+                        x.order_id.subscription_state == "6_churn"
+                        and x.order_id.close_reason_id
+                        and not x.order_id.close_reason_id.release_vacancy
+                    )
+                )
+            ).mapped("order_id.partner_id")
 
     @api.constrains("capacity")
     def _check_capacity(self):
@@ -157,17 +164,7 @@ class AcademicGroup(models.Model):
         action = self.env["ir.actions.actions"]._for_xml_id("sale.action_quotations_with_onboarding")
         action.update(
             {
-                "domain": [
-                    (
-                        "id",
-                        "in",
-                        self.fee_so_line_ids.filtered(
-                            lambda x: x.order_id.subscription_state in ["3_progress", "4_paused"]
-                        )
-                        .mapped("order_id")
-                        .ids,
-                    )
-                ],
+                "domain": [("id", "in", self.fee_so_line_ids.mapped("order_id").ids)],
                 "context": {},
             }
         )
