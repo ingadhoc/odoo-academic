@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-10 18:21+0000\n"
+"POT-Creation-Date: 2025-07-18 16:07+0000\n"
 "PO-Revision-Date: 2024-11-27 20:16+0000\n"
 "Last-Translator: Juan José Scarafía <scarafia.juanjose@gmail.com>, 2025\n"
 "Language-Team: Spanish (https://app.transifex.com/adhoc/teams/46451/es/)\n"
@@ -173,6 +173,11 @@ msgid "Duration Unit"
 msgstr "Unidad de duración"
 
 #. module: academic_sale_subscription
+#: model:ir.model,name:academic_sale_subscription.model_mail_thread
+msgid "Email Thread"
+msgstr "Hilo de correo electrónico"
+
+#. module: academic_sale_subscription
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.res_config_settings_view_form_inherit
 msgid ""
 "Enable this to allow invoicing subscription lines even if their total is "
@@ -185,6 +190,15 @@ msgid "End After"
 msgstr "Finaliza después de"
 
 #. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_account_bank_statement_line__family_id
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_account_move__family_id
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_account_move_line__family_id
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_view_account_invoice_filter
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.view_account_move_line_filter
+msgid "Family"
+msgstr ""
+
+#. module: academic_sale_subscription
 #: model:ir.model.fields.selection,name:academic_sale_subscription.selection__product_template__academic_product_type__fee
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.view_academic_group_form
 msgid "Fee"
@@ -193,6 +207,11 @@ msgstr ""
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_group__fee_student_count
 msgid "Fee Student Count"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.quick_create_opportunity_form
+msgid "Fill in the student's name"
 msgstr ""
 
 #. module: academic_sale_subscription
@@ -335,7 +354,7 @@ msgstr ""
 #. module: academic_sale_subscription
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.view_academic_group_form
 msgid "Opportunities linked to this group"
-msgstr ""
+msgstr "Oportunidades linkeadas con este grupo"
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__order_wizard_line_ids
@@ -403,12 +422,12 @@ msgstr "Referencia"
 #: model:ir.model.fields.selection,name:academic_sale_subscription.selection__product_template__academic_product_type__registration
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.view_academic_group_form
 msgid "Registration"
-msgstr ""
+msgstr "Matrícula"
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_group__registration_so_line_ids
 msgid "Registration SO Line"
-msgstr ""
+msgstr "Línea de venta de Matrícula"
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_group__registration_student_count
@@ -459,10 +478,15 @@ msgid "Student"
 msgstr "Estudiante"
 
 #. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.quick_create_opportunity_form
+msgid "Student's name"
+msgstr "Nombre de Estudiante"
+
+#. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_bank_statement_line__student_ids
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_move__student_ids
 msgid "Students List"
-msgstr ""
+msgstr "Lista de Estudiantes"
 
 #. module: academic_sale_subscription
 #: model:ir.model,name:academic_sale_subscription.model_sale_subscription_plan
@@ -479,7 +503,7 @@ msgstr "Plantilla"
 #. odoo-python
 #: code:addons/academic_sale_subscription/models/academic_group.py:0
 msgid "The capacity must be greater than 0."
-msgstr ""
+msgstr "La capacidad tiene que ser mayor que 0"
 
 #. module: academic_sale_subscription
 #. odoo-python
@@ -558,6 +582,12 @@ msgstr "Fecha de validez"
 
 #. module: academic_sale_subscription
 #. odoo-python
+#: code:addons/academic_sale_subscription/models/mail_thread.py:0
+msgid "View %s"
+msgstr "Ver %s"
+
+#. module: academic_sale_subscription
+#. odoo-python
 #: code:addons/academic_sale_subscription/wizard/academic_order_wizard.py:0
 msgid "Warning"
 msgstr "Precaución"
@@ -584,10 +614,3 @@ msgstr ""
 #: model:ir.model,name:academic_sale_subscription.model_academic_group
 msgid "group"
 msgstr "grupo"
-
-#. module: academic_sale_subscription
-#. odoo-python
-#: code:addons/academic_sale_subscription/models/mail_thread.py:0
-#, python-format
-msgid "View %s"
-msgstr "Ver %s"
