@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-18 16:05+0000\n"
+"POT-Creation-Date: 2025-07-23 19:26+0000\n"
 "PO-Revision-Date: 2024-11-15 13:26+0000\n"
 "Last-Translator: Juan José Scarafía <scarafia.juanjose@gmail.com>, 2025\n"
 "Language-Team: Spanish (https://app.transifex.com/adhoc/teams/46451/es/)\n"
@@ -27,29 +27,14 @@ msgid "'Certificate of Regular Student ' + object.name"
 msgstr "'Certificado de Alumno Regular ' + object.name"
 
 #. module: academic
-#: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
-msgid "- Company:"
-msgstr "- Compañía:"
-
-#. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_group_form
 msgid "<span class=\"o_stat_text\">Students</span>"
 msgstr ""
 
 #. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
-msgid "<span class=\"oe_read_only\"> - </span>"
-msgstr ""
-
-#. module: academic
-#: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
 msgid "<span>: </span>"
 msgstr ""
-
-#. module: academic
-#: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
-msgid "A partner with the same Identification Number already exists ("
-msgstr "Ya existe un contacto con el mismo número de identificación ("
 
 #. module: academic
 #: model:ir.module.category,description:academic.module_category_academic
@@ -59,18 +44,6 @@ msgstr "Ya existe un contacto con el mismo número de identificación ("
 #: model_terms:ir.ui.view,arch_db:academic.academic_link
 msgid "Academic"
 msgstr "Académico"
-
-#. module: academic
-#: model:ir.model.fields,field_description:academic.field_res_partner__academic_identification_number
-#: model:ir.model.fields,field_description:academic.field_res_users__academic_identification_number
-msgid "Academic Identification Number"
-msgstr "Número de identificación"
-
-#. module: academic
-#: model:ir.model.fields,field_description:academic.field_res_partner__academic_identification_type_id
-#: model:ir.model.fields,field_description:academic.field_res_users__academic_identification_type_id
-msgid "Academic Identification Type"
-msgstr "Tipo de Identificación Académica"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_group__active
@@ -277,12 +250,6 @@ msgstr "Compañías"
 #: model:ir.model.fields,field_description:academic.field_res_partner_link__company_id
 msgid "Company"
 msgstr "Compañia"
-
-#. module: academic
-#: model:ir.model.fields,field_description:academic.field_res_partner__same_academic_identification_number_partner_company
-#: model:ir.model.fields,field_description:academic.field_res_users__same_academic_identification_number_partner_company
-msgid "Company same partner"
-msgstr ""
 
 #. module: academic
 #: model:ir.ui.menu,name:academic.menu_configuration
@@ -601,15 +568,6 @@ msgid ""
 msgstr ""
 
 #. module: academic
-#: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
-msgid ""
-"If the partner will be responsible for payment, remember to set the "
-"identification number."
-msgstr ""
-"Si el contacto será responsable del pago, recuerde establecer el número de "
-"identificación."
-
-#. module: academic
 #: model_terms:res.company,invoice_terms_html:academic.res_company_los_arroyos
 msgid ""
 "In order for it to be admissible, Colegio Los Arroyos must be notified of "
@@ -757,11 +715,6 @@ msgstr ""
 
 #. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
-msgid "Number"
-msgstr "Número"
-
-#. module: academic
-#: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
 msgid "Open"
 msgstr "Abierto"
 
@@ -837,12 +790,6 @@ msgstr "Contacto"
 #: model:ir.model,name:academic.model_res_partner_category
 msgid "Partner Tags"
 msgstr "Etiquetas del contacto"
-
-#. module: academic
-#: model:ir.model.fields,field_description:academic.field_res_partner__same_academic_identification_number_partner_id
-#: model:ir.model.fields,field_description:academic.field_res_users__same_academic_identification_number_partner_id
-msgid "Partner with same Identification Number"
-msgstr "Contacto con mismo número de identificación"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_res_partner__payment_responsible_ids
@@ -965,6 +912,7 @@ msgid "Student"
 msgstr "Estudiante"
 
 #. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_group__student_count
 #: model:ir.model.fields,field_description:academic.field_res_partner__student_count
 #: model:ir.model.fields,field_description:academic.field_res_users__student_count
 msgid "Student Count"
@@ -1135,7 +1083,6 @@ msgstr ""
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_group__type
-#: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
 msgid "Type"
 msgstr "Tipo"
 
