@@ -8,7 +8,6 @@ def migrate(env, version):
         SET vat = academic_identification_number
         WHERE (vat IS NULL OR vat = '')
         AND academic_identification_number IS NOT NULL
-        AND academic_identification_number != ''
     """)
     env.cr.execute("""
         UPDATE res_partner
