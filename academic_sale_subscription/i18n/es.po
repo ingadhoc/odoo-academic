@@ -3,16 +3,16 @@
 # 	* academic_sale_subscription
 # 
 # Translators:
-# bafadhoc, 2025
 # Juan José Scarafía <scarafia.juanjose@gmail.com>, 2025
+# bafadhoc, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-23 19:28+0000\n"
+"POT-Creation-Date: 2025-07-24 12:24+0000\n"
 "PO-Revision-Date: 2024-11-27 20:16+0000\n"
-"Last-Translator: Juan José Scarafía <scarafia.juanjose@gmail.com>, 2025\n"
+"Last-Translator: bafadhoc, 2025\n"
 "Language-Team: Spanish (https://app.transifex.com/adhoc/teams/46451/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,12 +23,12 @@ msgstr ""
 #. module: academic_sale_subscription
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.report_invoice_document
 msgid "<strong>Student Information:</strong>"
-msgstr ""
+msgstr "Información del estudiante:"
 
 #. module: academic_sale_subscription
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.portal_my_invoices
 msgid "<strong>Total amount due: </strong>"
-msgstr ""
+msgstr "<span> <strong>Importe total adeudado: </strong> </span>"
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard_line__academic_group_id
@@ -52,7 +52,7 @@ msgstr "Líneas del Wizard de Órden Académico"
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_product_template__academic_product_type
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order_line__academic_product_type
 msgid "Academic Product Type"
-msgstr ""
+msgstr "Tipo de Producto Académico"
 
 #. module: academic_sale_subscription
 #: model:ir.model,name:academic_sale_subscription.model_account_move_send
@@ -196,13 +196,13 @@ msgstr "Finaliza después de"
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_view_account_invoice_filter
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.view_account_move_line_filter
 msgid "Family"
-msgstr ""
+msgstr "Familia"
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields.selection,name:academic_sale_subscription.selection__product_template__academic_product_type__fee
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.view_academic_group_form
 msgid "Fee"
-msgstr ""
+msgstr "Cuota"
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_group__fee_student_count
@@ -212,13 +212,13 @@ msgstr ""
 #. module: academic_sale_subscription
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.quick_create_opportunity_form
 msgid "Fill in the student's name"
-msgstr ""
+msgstr "Completa en nombre de estudiante"
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_crm_lead__group_id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order_line__group_id
 msgid "Group"
-msgstr ""
+msgstr "Grupo"
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__id
@@ -247,7 +247,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_move__is_academic_sale
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order__is_academic_sale
 msgid "Is Academic Sale"
-msgstr ""
+msgstr "Es una venta académica?"
 
 #. module: academic_sale_subscription
 #: model:ir.model,name:academic_sale_subscription.model_account_move
@@ -318,7 +318,7 @@ msgstr "Meses"
 #. module: academic_sale_subscription
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.view_academic_group_form
 msgid "No Fee"
-msgstr ""
+msgstr "Sin cuota"
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_group__no_fee_student_count
@@ -350,7 +350,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_group__opportunities_ids
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.view_academic_group_form
 msgid "Opportunities"
-msgstr ""
+msgstr "Oportunidades"
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_group__opportunities_student_count
@@ -386,7 +386,7 @@ msgstr "Términos de pago"
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_view_move_form
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.view_order_form
 msgid "Payment responsible"
-msgstr ""
+msgstr "Responsable de pago"
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__plan_id
@@ -438,12 +438,12 @@ msgstr "Línea de venta de Matrícula"
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_group__registration_student_count
 msgid "Registration Student Count"
-msgstr ""
+msgstr "Cantidad de estudiantes registrados"
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order_close_reason__release_vacancy
 msgid "Release Vacancy"
-msgstr ""
+msgstr "Libera vacante"
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_bank_statement_line__require_student_on_invoices
@@ -589,7 +589,7 @@ msgstr ""
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_group__vacancies
 msgid "Vacancies"
-msgstr ""
+msgstr "Vacantes"
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__validity_date
