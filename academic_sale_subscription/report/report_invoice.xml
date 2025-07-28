@@ -10,9 +10,6 @@
                             <span t-field="o.student_id" t-options='{"widget": "contact"}'/>
                         </div>
                         <div>
-                            <span t-field="o.student_id.academic_identification_number"/>
-                        </div>
-                        <div>
                             <span t-field="o.student_id.current_main_group_id"/>
                         </div>
                     </t>
