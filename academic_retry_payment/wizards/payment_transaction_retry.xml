@@ -1,0 +1,14 @@
+<odoo>
+
+    <record id="payment_transaction_retry_view_form" model="ir.ui.view">
+        <field name="name">payment_transaction_retry.view.form</field>
+        <field name="model">payment.transaction.retry</field>
+        <field name="inherit_id" ref="payment_retry.payment_transaction_retry_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='payment_token_id']" position="attributes">
+                <attribute name="domain">[('partner_id', 'in', partner_ids), ('company_id', '=', parent.company_id)]</attribute>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
