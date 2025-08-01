@@ -1,3 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_academic_order_wizard,academic.order.wizard,academic_sale_subscription.model_academic_order_wizard,academic.group_user,1,1,1,1
 access_academic_order_wizard_line,academic.order.wizard.line,academic_sale_subscription.model_academic_order_wizard_line,academic.group_user,1,1,1,1
+access_update_payment_responsible_wizard,update.payment.responsible.wizard,academic_sale_subscription.model_update_payment_responsible_wizard,academic.group_user,1,1,1,1
+access_update_payment_responsible_line,update.payment.responsible.line,academic_sale_subscription.model_update_payment_responsible_line,academic.group_user,1,1,1,1
