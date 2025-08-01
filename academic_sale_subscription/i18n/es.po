@@ -630,3 +630,8 @@ msgstr ""
 #: model:ir.model,name:academic_sale_subscription.model_academic_group
 msgid "group"
 msgstr "grupo"
+
+#. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_view_account_invoice_filter
+msgid "Not payment responsible"
+msgstr "No es responsable de pago"
