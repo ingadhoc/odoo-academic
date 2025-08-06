@@ -4,9 +4,31 @@ from odoo.osv import expression
 
 
 class PortalAccount(PortalAccount):
+    def _get_account_searchbar_filters(self):
+        filters = super()._get_account_searchbar_filters()
+        filters = {k: v for k, v in filters.items() if k == "all"}
+        paying_role_id = request.env.ref("academic.paying_role").id
+        student_links = (
+            request.env["res.partner.link"]
+            .sudo()
+            .search(
+                [
+                    ("partner_id", "=", request.env.user.partner_id.id),
+                    ("role_ids", "in", paying_role_id),
+                ]
+            )
+        )
+        students = student_links.mapped("student_id")
+        for student in students:
+            filters[f"student_{student.id}"] = {"label": student.name, "domain": [("student_id", "=", student.id)]}
+        return filters
+
     def _prepare_my_invoices_values(
         self, page, date_begin, date_end, sortby, filterby, domain=None, url="/my/invoices"
     ):
+        searchbar_filters = self._get_account_searchbar_filters()
+        if filterby not in searchbar_filters:
+            filterby = "all"
         values = super()._prepare_my_invoices_values(page, date_begin, date_end, sortby, filterby, domain, url)
         domain = expression.AND(
             [
@@ -14,9 +36,6 @@ class PortalAccount(PortalAccount):
                 self._get_invoices_domain(),
             ]
         )
-        searchbar_filters = self._get_account_searchbar_filters()
-        if not filterby:
-            filterby = "all"
         domain += searchbar_filters[filterby]["domain"]
         invoices = request.env["account.move"].search(domain)
         total_amount_due = (

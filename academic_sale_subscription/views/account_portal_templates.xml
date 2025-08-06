@@ -7,7 +7,7 @@
                     t-out="total_amount_due"
                     t-options="{
                         'widget': 'monetary',
-                        'display_currency': (invoices and invoices[0].get('currency')) or request.env.company.currency_id
+                        'display_currency': (invoices[0].get('currency') if invoices and invoices[0].get('currency') else request.env.company.currency_id)
                     }"/>
             </div>
         </xpath>
