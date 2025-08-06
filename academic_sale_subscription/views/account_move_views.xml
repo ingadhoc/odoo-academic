@@ -7,13 +7,9 @@
             <field name="invoice_date" position="before">
                 <field name="student_id" optional="show"/>
             </field>
-            <list position="inside">
-                <header>
-                    <button name="%(academic_sale_subscription.action_update_payment_responsible)d" string="Update Payment Responsible" type="action" class="oe_highlight"/>
-                </header>
-            </list>
         </field>
     </record>
+
     <record id="academic_view_move_form" model="ir.ui.view">
         <field name="name">academic.account.move.form</field>
         <field name="model">account.move</field>
@@ -53,5 +49,15 @@
                 <filter string="Family" name="group_by_family" domain="[]" context="{'group_by': 'family_id'}"/>
             </group>
         </field>
+    </record>
+
+    <record id="action_update_payment_responsible" model="ir.actions.act_window">
+        <field name="name">Update Payment Responsible</field>
+        <field name="res_model">update.payment.responsible.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="account.model_account_move"/>
+        <field name="binding_type">action</field>
+        <field name="view_id" ref="academic_sale_subscription.view_update_payment_responsible_wizard"/>
     </record>
 </odoo>

@@ -3,15 +3,15 @@
         <field name="name">update.payment.responsible.wizard.form</field>
         <field name="model">update.payment.responsible.wizard</field>
         <field name="arch" type="xml">
-            <form string="Update Payment Responsible">
-                <group>
-                    <field name="invoice_ids" invisible="1"/>
-                    <field name="update_type"/>
-                </group>
-                <field name="line_ids" invisible="update_type != 'manual'">
-                    <list editable="bottom">
-                        <field name="invoice_id" readonly="1" force_save="1"/>
-                        <field name="current_responsible_id"/>
+            <form>
+                <div class="alert alert-warning" role="alert" style="margin-bottom: 16px;">
+                    <span>Only invoices with a newly selected payment responsible and without registered payments up to now will be modified.</span>
+                </div>
+                <field name="invoice_ids" invisible="1"/>
+                <field name="line_ids">
+                    <list editable="bottom" create="false">
+                        <field name="invoice_ids" readonly="1" force_save="1" widget="many2many_tags" optional="hide"/>
+                        <field name="current_responsible_id" readonly="1" force_save="1"/>
                         <field name="new_responsible_id"/>
                     </list>
                 </field>
@@ -21,12 +21,5 @@
                 </footer>
             </form>
         </field>
-    </record>
-
-    <record id="action_update_payment_responsible" model="ir.actions.act_window">
-        <field name="name">Update Payment Responsible</field>
-        <field name="res_model">update.payment.responsible.wizard</field>
-        <field name="view_mode">form</field>
-        <field name="target">new</field>
     </record>
 </odoo>
