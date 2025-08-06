@@ -243,3 +243,18 @@ class ResPartner(models.Model):
     def _compute_student_count(self):
         for rec in self.filtered(lambda x: x.partner_type == "family"):
             rec.student_count = len(rec.student_ids)
+
+    def _commercial_sync_to_children(self, fields_to_sync=None):
+        """Override to exclude VAT sync for student children"""
+        if fields_to_sync is None:
+            fields_to_sync = self._commercial_fields()
+
+        students = self.child_ids.filtered(lambda c: c.partner_type == "student")
+        non_students = self.child_ids - students
+
+        if non_students:
+            super(ResPartner, non_students)._commercial_sync_to_children(fields_to_sync)
+
+        if students:
+            fields_without_vat = [f for f in fields_to_sync if f != "vat"]
+            super(ResPartner, students)._commercial_sync_to_children(fields_without_vat)
