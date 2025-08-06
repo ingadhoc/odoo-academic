@@ -635,3 +635,9 @@ msgstr "grupo"
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_view_account_invoice_filter
 msgid "Not payment responsible"
 msgstr "No es responsable de pago"
+
+ 
+#. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.view_update_payment_responsible_wizard
+msgid "Only invoices with a newly selected payment responsible and without registered payments up to now will be modified."
+msgstr "Solo se modificarán aquellas facturas que tengan un nuevo responsable de pago elegido y que no posean pagos registrados hasta la fecha."
