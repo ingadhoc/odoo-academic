@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <function model="res.company" name="_onchange_country_id">
+        <value eval="[ref('academic.res_company_los_arroyos')]"/>
+    </function>
+
+    <function model="account.chart.template" name="try_loading">
+        <value eval="[]"/>
+        <value>generic_coa</value>
+        <value model="res.company" eval="obj().env.ref('academic.res_company_los_arroyos')"/>
+        <value name="install_demo" eval="True"/>
+    </function>
+</odoo>

@@ -1,6 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo noupdate="1">
-    <record id="academic_loyalty_rule" model="loyalty.rule">
+    <!-- Regla para descuento de hermanos -->
+    <record id="loyalty_rule_sibling_discount" model="loyalty.rule">
+        <field name="program_id" ref="loyalty_program_discount_sibling"/>
         <field name="minimum_amount">0</field>
         <field name="product_domain">[("recurring_invoice", "=", True)]</field>
+    </record>
+
+    <!-- Recompensa para descuento de hermanos -->
+    <record id="loyalty_reward_sibling_discount" model="loyalty.reward">
+        <field name="program_id" ref="loyalty_program_discount_sibling"/>
+        <field name="reward_type">discount</field>
+        <field name="discount_mode">percent</field>
+        <field name="discount">10</field>
+        <field name="discount_applicability">order</field>
+        <field name="description">10% de descuento por tener hermanos en el colegio</field>
+    </record>
+
+    <!-- Regla para descuento de empleados -->
+    <record id="loyalty_rule_employee_discount" model="loyalty.rule">
+        <field name="program_id" ref="loyalty_program_discount_employee"/>
+        <field name="minimum_amount">0</field>
+        <field name="product_domain">[("recurring_invoice", "=", True)]</field>
+    </record>
+
+    <!-- Recompensa para descuento de empleados -->
+    <record id="loyalty_reward_employee_discount" model="loyalty.reward">
+        <field name="program_id" ref="loyalty_program_discount_employee"/>
+        <field name="reward_type">discount</field>
+        <field name="discount_mode">percent</field>
+        <field name="discount">20</field>
+        <field name="discount_applicability">order</field>
+        <field name="description">20% de descuento para hijos de empleados</field>
+    </record>
+
+    <!-- Regla para pago anual -->
+    <record id="loyalty_rule_annual_payment" model="loyalty.rule">
+        <field name="program_id" ref="loyalty_program_annual_payment"/>
+        <field name="minimum_amount">100000</field>
+        <field name="product_domain">[("recurring_invoice", "=", True)]</field>
+    </record>
+
+    <!-- Recompensa para pago anual -->
+    <record id="loyalty_reward_annual_payment" model="loyalty.reward">
+        <field name="program_id" ref="loyalty_program_annual_payment"/>
+        <field name="reward_type">discount</field>
+        <field name="discount_mode">percent</field>
+        <field name="discount">15</field>
+        <field name="discount_applicability">order</field>
+        <field name="description">15% de descuento por pago anual adelantado</field>
+    </record>
+
+    <!-- Regla para puntos por referidos -->
+    <record id="loyalty_rule_referral_points" model="loyalty.rule">
+        <field name="program_id" ref="loyalty_program_referral"/>
+        <field name="minimum_amount">50000</field>
+    </record>
+
+    <!-- Recompensa para puntos por referidos -->
+    <record id="loyalty_reward_referral_points" model="loyalty.reward">
+        <field name="program_id" ref="loyalty_program_referral"/>
+        <field name="reward_type">discount</field>
+        <field name="discount_mode">per_order</field>
+        <field name="discount">5000</field>
+        <field name="discount_applicability">order</field>
+        <field name="required_points">10000</field>
+        <field name="description">$5000 de descuento por puntos acumulados</field>
     </record>
 </odoo>

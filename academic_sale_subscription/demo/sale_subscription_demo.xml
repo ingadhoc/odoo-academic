@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+        <!-- ======================================================================== -->
+        <!-- SUSCRIPCIÓN 1: FAMILIA GARCÍA - SOFÍA (PRIMARIA - 1ER AÑO A)          -->
+        <!-- ======================================================================== -->
+        <record id="subscription_garcia_sofia" model="sale.order">
+            <field name="partner_id" ref="academic.res_partner_sofia_garcia"/>
+            <field name="sale_order_template_id" ref="subscription_template_primaria"/>
+            <field name="plan_id" ref="subscription_plan_12_cuotas"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="state">draft</field>
+            <field name="client_order_ref">SUB-GARCIA-001</field>
+            <field name="company_id" ref="academic.res_company_los_arroyos"/>
+        </record>
+
+        <!-- Trigger para llenar automáticamente las líneas desde la plantilla -->
+        <function model="sale.order"
+                  name="_onchange_sale_order_template_id"
+                  eval="[ref('subscription_garcia_sofia')]"/>
+
+        <!-- Computar responsable de pago automáticamente -->
+        <function model="sale.order"
+                  name="_compute_partner_invoice"
+                  eval="[ref('subscription_garcia_sofia')]"/>
+
+        <!-- Agregar group_id a las líneas de suscripción García -->
+        <function model="sale.order.line"
+                  name="write"
+                  eval="[obj().env['sale.order'].browse(ref('subscription_garcia_sofia')).order_line.filtered(lambda l: not l.display_type).ids, {'group_id': obj().env.ref('academic.academic_group_1a_main').id}]"/>
+
+        <!-- Confirmar la suscripción -->
+        <function model="sale.order" name="action_confirm" eval="[[ref('subscription_garcia_sofia')]]" context="{'action_no_send_mail': True}"/>
+
+        <!-- ======================================================================== -->
+        <!-- SUSCRIPCIÓN 2: FAMILIA RODRÍGUEZ - VALENTINA (SECUNDARIA - 2DO AÑO A) -->
+        <!-- ======================================================================== -->
+        <record id="subscription_rodriguez_valentina" model="sale.order">
+            <field name="partner_id" ref="academic.res_partner_valentina_rodriguez"/>
+            <field name="sale_order_template_id" ref="subscription_template_secundaria"/>
+            <field name="plan_id" ref="subscription_plan_6_cuotas"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="state">draft</field>
+            <field name="client_order_ref">SUB-RODRIGUEZ-001</field>
+            <field name="company_id" ref="academic.res_company_los_arroyos"/>
+        </record>
+
+        <!-- Trigger para llenar automáticamente las líneas desde la plantilla -->
+        <function model="sale.order"
+                  name="_onchange_sale_order_template_id"
+                  eval="[ref('subscription_rodriguez_valentina')]"/>
+
+        <!-- Computar responsable de pago automáticamente -->
+        <function model="sale.order"
+                  name="_compute_partner_invoice"
+                  eval="[ref('subscription_rodriguez_valentina')]"/>
+
+        <!-- Agregar group_id a las líneas de suscripción Rodríguez -->
+        <function model="sale.order.line"
+                  name="write"
+                  eval="[obj().env['sale.order'].browse(ref('subscription_rodriguez_valentina')).order_line.filtered(lambda l: not l.display_type).ids, {'group_id': obj().env.ref('academic.academic_group_1b_main').id}]"/>
+
+        <!-- Confirmar la suscripción -->
+        <function model="sale.order" name="action_confirm" eval="[[ref('subscription_rodriguez_valentina')]]" context="{'action_no_send_mail': True}"/>
+
+        <!-- ======================================================================== -->
+        <!-- SUSCRIPCIÓN 3: FAMILIA LÓPEZ - MARTINA (UNIVERSIDAD - 4TO AÑO A)      -->
+        <!-- ======================================================================== -->
+        <record id="subscription_lopez_martin" model="sale.order">
+            <field name="partner_id" ref="academic.res_partner_martina_lopez"/>
+            <field name="sale_order_template_id" ref="subscription_template_universidad"/>
+            <field name="plan_id" ref="subscription_plan_3_cuotas"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="state">draft</field>
+            <field name="client_order_ref">SUB-LOPEZ-001</field>
+            <field name="company_id" ref="academic.res_company_los_arroyos"/>
+        </record>
+
+        <!-- Trigger para llenar automáticamente las líneas desde la plantilla -->
+        <function model="sale.order"
+                  name="_onchange_sale_order_template_id"
+                  eval="[ref('subscription_lopez_martin')]"/>
+
+        <!-- Computar responsable de pago automáticamente -->
+        <function model="sale.order"
+                  name="_compute_partner_invoice"
+                  eval="[ref('subscription_lopez_martin')]"/>
+
+        <!-- Agregar group_id a las líneas de suscripción López -->
+        <function model="sale.order.line"
+                  name="write"
+                  eval="[obj().env['sale.order'].browse(ref('subscription_lopez_martin')).order_line.filtered(lambda l: not l.display_type).ids, {'group_id': obj().env.ref('academic.academic_group_1b_main').id}]"/>
+
+        <!-- Confirmar la suscripción -->
+        <function model="sale.order" name="action_confirm" eval="[[ref('subscription_lopez_martin')]]" context="{'action_no_send_mail': True}"/>
+
+        <!-- ======================================================================== -->
+        <!-- SUSCRIPCIÓN 4: FAMILIA FERNÁNDEZ - CAMILA (INGLÉS AVANZADO - 1ER AÑO) -->
+        <!-- ======================================================================== -->
+        <record id="subscription_fernandez_ana" model="sale.order">
+            <field name="partner_id" ref="academic.res_partner_camila_fernandez"/>
+            <field name="sale_order_template_id" ref="subscription_template_ingles"/>
+            <field name="plan_id" ref="subscription_plan_12_cuotas"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="state">draft</field>
+            <field name="client_order_ref">SUB-FERNANDEZ-001</field>
+            <field name="company_id" ref="academic.res_company_los_arroyos"/>
+        </record>
+
+        <!-- Trigger para llenar automáticamente las líneas desde la plantilla -->
+        <function model="sale.order"
+                  name="_onchange_sale_order_template_id"
+                  eval="[ref('subscription_fernandez_ana')]"/>
+
+        <!-- Computar responsable de pago automáticamente -->
+        <function model="sale.order"
+                  name="_compute_partner_invoice"
+                  eval="[ref('subscription_fernandez_ana')]"/>
+
+        <!-- Agregar group_id a las líneas de suscripción Fernández -->
+        <function model="sale.order.line"
+                  name="write"
+                  eval="[obj().env['sale.order'].browse(ref('subscription_fernandez_ana')).order_line.filtered(lambda l: not l.display_type).ids, {'group_id': obj().env.ref('academic.academic_group_english_1a').id}]"/>
+
+        <!-- Confirmar la suscripción -->
+        <function model="sale.order" name="action_confirm" eval="[[ref('subscription_fernandez_ana')]]" context="{'action_no_send_mail': True}"/>
+
+        <!-- ======================================================================== -->
+        <!-- SUSCRIPCIÓN 5: SUSCRIPCIÓN DIRECTA SIN PLANTILLA (CURSO EXTRA BENJAMÍN) -->
+        <!-- ======================================================================== -->
+        <record id="subscription_direct_plan" model="sale.order">
+            <field name="partner_id" ref="academic.res_partner_benjamin_gonzalez"/>
+            <field name="sale_order_template_id" ref="subscription_template_ingles"/>
+            <field name="plan_id" ref="subscription_plan_1_cuota"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="state">draft</field>
+            <field name="client_order_ref">SUB-BENJAMIN-001</field>
+            <field name="company_id" ref="academic.res_company_los_arroyos"/>
+        </record>
+
+        <!-- Trigger para llenar automáticamente las líneas desde la plantilla -->
+        <function model="sale.order"
+                  name="_onchange_sale_order_template_id"
+                  eval="[ref('subscription_direct_plan')]"/>
+
+        <!-- Computar responsable de pago automáticamente -->
+        <function model="sale.order"
+                  name="_compute_partner_invoice"
+                  eval="[ref('subscription_direct_plan')]"/>
+
+        <!-- Agregar group_id a las líneas de suscripción Directa -->
+        <function model="sale.order.line"
+                  name="write"
+                  eval="[obj().env['sale.order'].browse(ref('subscription_direct_plan')).order_line.filtered(lambda l: not l.display_type).ids, {'group_id': obj().env.ref('academic.academic_group_4a_main').id}]"/>
+
+        <!-- Confirmar la suscripción -->
+        <function model="sale.order" name="action_confirm" eval="[[ref('subscription_direct_plan')]]" context="{'action_no_send_mail': True}"/>
+</odoo>

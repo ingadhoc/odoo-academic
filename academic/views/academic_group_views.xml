@@ -40,8 +40,6 @@
                      </div>
                     <group>
                         <group name="col1">
-                            <!-- Por ahora no usamos type, me parece que lo podemos borrar -->
-                            <!-- <field name="type"/> -->
                             <field name="company_id" groups="base.group_multi_company"/>
                             <field name="section_id"/>
                             <field name="level_id"/>
@@ -71,12 +69,10 @@
         <field name="model">academic.group</field>
         <field name="arch" type="xml">
             <list string="group">
-                <!-- <field name="type"/> -->
                 <field name="company_id" groups="base.group_multi_company"/>
                 <field name="section_id"/>
                 <field name="level_id"/>
                 <field name="division_id"/>
-                <field name="subject_id"/>
                 <field name="year"/>
                 <field name="subject_id"/>
                 <field name="capacity"/>

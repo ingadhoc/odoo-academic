@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+        <record id="close_reason_graduated" model="sale.order.close.reason">
+            <field name="name">Egresado/Graduado</field>
+            <field name="release_vacancy">True</field>
+            <field name="retention_message" type="html">
+                <h2>¡Felicitaciones por tu graduación!</h2>
+                <p>Nos alegra haber sido parte de tu formación académica.</p>
+                <p>Te invitamos a considerar nuestros programas de nivel superior.</p>
+            </field>
+            <field name="retention_button_text">Ver programas superiores</field>
+            <field name="retention_button_link">mailto:info@colegio.edu.ar?subject=Consulta programas superiores</field>
+        </record>
+
+        <record id="close_reason_transferred" model="sale.order.close.reason">
+            <field name="name">Transferido a otra institución</field>
+            <field name="release_vacancy">True</field>
+            <field name="retention_message" type="html">
+                <h2>Lamentamos que nos dejes</h2>
+                <p>Entendemos que a veces es necesario cambiar de institución.</p>
+                <p>¿Hay algo que podamos hacer para que reconsieres tu decisión?</p>
+            </field>
+            <field name="retention_button_text">Hablar con coordinador</field>
+            <field name="retention_button_link">mailto:coordinacion@colegio.edu.ar?subject=Retención estudiantil</field>
+        </record>
+
+        <record id="close_reason_financial" model="sale.order.close.reason">
+            <field name="name">Dificultades económicas</field>
+            <field name="release_vacancy">True</field>
+            <field name="retention_message" type="html">
+                <h2>Podemos ayudarte</h2>
+                <p>Entendemos las dificultades económicas que pueden surgir.</p>
+                <p>Tenemos programas de becas y planes de pago especiales que podrían interesarte.</p>
+            </field>
+            <field name="retention_button_text">Consultar becas</field>
+            <field name="retention_button_link">mailto:becas@colegio.edu.ar?subject=Consulta programa de becas</field>
+        </record>
+
+        <record id="close_reason_academic" model="sale.order.close.reason">
+            <field name="name">Problemas académicos</field>
+            <field name="release_vacancy">True</field>
+            <field name="retention_message" type="html">
+                <h2>Queremos ayudarte a mejorar</h2>
+                <p>Los problemas académicos pueden superarse con el apoyo adecuado.</p>
+                <p>Ofrecemos tutorías y programas de apoyo personalizado.</p>
+            </field>
+            <field name="retention_button_text">Solicitar tutoría</field>
+            <field name="retention_button_link">mailto:tutoria@colegio.edu.ar?subject=Solicitud de apoyo académico</field>
+        </record>
+
+        <record id="close_reason_disciplinary" model="sale.order.close.reason">
+            <field name="name">Motivos disciplinarios</field>
+            <field name="release_vacancy">True</field>
+            <field name="retention_message" type="html">
+                <h2>Segunda oportunidad</h2>
+                <p>Creemos en las segundas oportunidades y el crecimiento personal.</p>
+                <p>Si estás dispuesto/a a comprometerte con las normas institucionales, podemos hablar.</p>
+            </field>
+            <field name="retention_button_text">Solicitar reunión</field>
+            <field name="retention_button_link">mailto:direccion@colegio.edu.ar?subject=Solicitud de reunión</field>
+        </record>
+
+        <record id="close_reason_temporary_leave" model="sale.order.close.reason">
+            <field name="name">Licencia temporal</field>
+            <field name="release_vacancy">False</field>
+            <field name="retention_message" type="html">
+                <h2>Tu lugar te estará esperando</h2>
+                <p>Entendemos que a veces es necesario tomar un descanso temporal.</p>
+                <p>Mantén contacto con nosotros para coordinar tu regreso.</p>
+            </field>
+            <field name="retention_button_text">Mantener contacto</field>
+            <field name="retention_button_link">mailto:secretaria@colegio.edu.ar?subject=Licencia temporal</field>
+        </record>
+
+        <record id="close_reason_medical" model="sale.order.close.reason">
+            <field name="name">Motivos médicos/salud</field>
+            <field name="release_vacancy">False</field>
+            <field name="retention_message" type="html">
+                <h2>Tu salud es lo primero</h2>
+                <p>Esperamos que te recuperes pronto.</p>
+                <p>Podemos adaptar el programa académico a tus necesidades médicas.</p>
+            </field>
+            <field name="retention_button_text">Hablar sobre adaptaciones</field>
+            <field name="retention_button_link">mailto:inclusion@colegio.edu.ar?subject=Adaptaciones médicas</field>
+        </record>
+
+        <record id="close_reason_family_relocation" model="sale.order.close.reason">
+            <field name="name">Mudanza familiar</field>
+            <field name="release_vacancy">True</field>
+            <field name="retention_message" type="html">
+                <h2>¿Te mudas lejos?</h2>
+                <p>Lamentamos que tengas que mudarte.</p>
+                <p>Si es dentro de la zona, podríamos encontrar una solución de transporte.</p>
+            </field>
+            <field name="retention_button_text">Consultar transporte</field>
+            <field name="retention_button_link">mailto:transporte@colegio.edu.ar?subject=Consulta transporte escolar</field>
+        </record>
+
+        <record id="close_reason_dissatisfaction" model="sale.order.close.reason">
+            <field name="name">Insatisfacción con el servicio</field>
+            <field name="release_vacancy">True</field>
+            <field name="retention_message" type="html">
+                <h2>Valoramos tu feedback</h2>
+                <p>Lamentamos que no hayas tenido una buena experiencia.</p>
+                <p>Nos gustaría escuchar tus preocupaciones para mejorar.</p>
+            </field>
+            <field name="retention_button_text">Dar feedback</field>
+            <field name="retention_button_link">mailto:calidad@colegio.edu.ar?subject=Feedback sobre servicios</field>
+        </record>
+
+        <record id="close_reason_completed_program" model="sale.order.close.reason">
+            <field name="name">Programa completado</field>
+            <field name="release_vacancy">True</field>
+            <field name="retention_message" type="html">
+                <h2>¡Felicitaciones!</h2>
+                <p>Has completado exitosamente el programa.</p>
+                <p>¿Te interesaría continuar con programas complementarios?</p>
+            </field>
+            <field name="retention_button_text">Ver otros programas</field>
+            <field name="retention_button_link">mailto:info@colegio.edu.ar?subject=Programas complementarios</field>
+        </record>
+</odoo>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <!-- Crear facturas desde las suscripciones usando Create Invoice -->
+    <function model="sale.order"
+              name="_create_invoices"
+              eval="[ref('subscription_garcia_sofia')]"/>
+
+    <function model="sale.order"
+              name="_create_invoices"
+              eval="[ref('subscription_rodriguez_valentina')]"/>
+
+    <function model="sale.order"
+              name="_create_invoices"
+              eval="[ref('subscription_lopez_martin')]"/>
+
+    <function model="sale.order"
+              name="_create_invoices"
+              eval="[ref('subscription_fernandez_ana')]"/>
+
+    <function model="sale.order"
+              name="_create_invoices"
+              eval="[ref('subscription_direct_plan')]"/>
+
+    <!-- ======================================================================== -->
+    <!-- CONFIRMAR FACTURAS Y CREAR PAGOS USANDO MÉTODO NATIVO                  -->
+    <!-- ======================================================================== -->
+
+    <!-- Llamar método para procesar facturas y pagos -->
+    <function model="sale.order" name="_init_academic_subscription_demo"/>
+
+</odoo>

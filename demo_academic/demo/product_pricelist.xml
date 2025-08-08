@@ -1,12 +1,53 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <odoo noupdate="1">
-    <record id="product_pricelist_los_molinos" model="product.pricelist">
-        <field name="name">Los Molinos Pricelist</field>
-    </record>
+    <!-- Lista de precios principal -->
     <record id="product_pricelist_los_arroyos" model="product.pricelist">
-        <field name="name">Los Arroyos Pricelist</field>
+        <field name="name">Lista de Precios Los Arroyos</field>
+        <field name="currency_id" ref="base.ARS"/>
     </record>
-    <record id="product_pricelist_apdes" model="product.pricelist">
-        <field name="name">APDES Pricelist</field>
+
+    <!-- Lista de precios con descuento para hermanos -->
+    <record id="product_pricelist_hermanos" model="product.pricelist">
+        <field name="name">Lista Especial - Descuento Hermanos</field>
+        <field name="currency_id" ref="base.ARS"/>
+    </record>
+
+    <!-- Regla de precio para hermanos -->
+    <record id="pricelist_item_hermanos" model="product.pricelist.item">
+        <field name="pricelist_id" ref="product_pricelist_hermanos"/>
+        <field name="applied_on">3_global</field>
+        <field name="compute_price">percentage</field>
+        <field name="percent_price">10</field>
+        <field name="name">Descuento 10% hermanos</field>
+    </record>
+
+    <!-- Lista de precios para empleados -->
+    <record id="product_pricelist_empleados" model="product.pricelist">
+        <field name="name">Lista Especial - Empleados</field>
+        <field name="currency_id" ref="base.ARS"/>
+    </record>
+
+    <!-- Regla de precio para empleados -->
+    <record id="pricelist_item_empleados" model="product.pricelist.item">
+        <field name="pricelist_id" ref="product_pricelist_empleados"/>
+        <field name="applied_on">3_global</field>
+        <field name="compute_price">percentage</field>
+        <field name="percent_price">20</field>
+        <field name="name">Descuento 20% empleados</field>
+    </record>
+
+    <!-- Lista de precios para becados -->
+    <record id="product_pricelist_becados" model="product.pricelist">
+        <field name="name">Lista Especial - Estudiantes Becados</field>
+        <field name="currency_id" ref="base.ARS"/>
+    </record>
+
+    <!-- Regla de precio para becados -->
+    <record id="pricelist_item_becados" model="product.pricelist.item">
+        <field name="pricelist_id" ref="product_pricelist_becados"/>
+        <field name="applied_on">3_global</field>
+        <field name="compute_price">percentage</field>
+        <field name="percent_price">50</field>
+        <field name="name">Descuento 50% beca de estudio</field>
     </record>
 </odoo>

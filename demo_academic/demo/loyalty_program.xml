@@ -1,10 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo noupdate="1">
+    <!-- Programa de descuento para hermanos -->
     <record id="loyalty_program_discount_sibling" model="loyalty.program">
-        <field name="name">Discount 10% for Sibling</field>
-        <field name="sale_domain" eval="[( 'partner_id.category_id', '=', ref('demo_academic.partner_category_discount_sibling') )]"/>
+        <field name="name">Descuento 10% para Hermanos</field>
+        <field name="program_type">promotion</field>
+        <field name="applies_on">both</field>
+        <field name="trigger">auto</field>
+        <field name="sale_domain" eval="[('partner_id.category_id', '=', ref('demo_academic.partner_category_discount_sibling'))]"/>
+        <field name="active">True</field>
     </record>
-    <record id="loyalty_program_discount_official" model="loyalty.program">
-        <field name="name">Discount 20% for Official's Child</field>
-        <field name="sale_domain" eval="[( 'partner_id.category_id', '=', ref('demo_academic.partner_category_discount_official') )]"/>
+
+    <!-- Programa de descuento para hijos de empleados -->
+    <record id="loyalty_program_discount_employee" model="loyalty.program">
+        <field name="name">Descuento 20% para Hijos de Empleados</field>
+        <field name="program_type">promotion</field>
+        <field name="applies_on">both</field>
+        <field name="trigger">auto</field>
+        <field name="sale_domain" eval="[('partner_id.category_id', '=', ref('demo_academic.partner_category_discount_employee'))]"/>
+        <field name="active">True</field>
+    </record>
+
+    <!-- Programa de descuento por pago anual adelantado -->
+    <record id="loyalty_program_annual_payment" model="loyalty.program">
+        <field name="name">Descuento 15% por Pago Anual Adelantado</field>
+        <field name="program_type">promotion</field>
+        <field name="applies_on">both</field>
+        <field name="trigger">auto</field>
+        <field name="active">True</field>
+    </record>
+
+    <!-- Programa de puntos por referidos -->
+    <record id="loyalty_program_referral" model="loyalty.program">
+        <field name="name">Puntos por Referir Nuevos Estudiantes</field>
+        <field name="program_type">loyalty</field>
+        <field name="applies_on">current</field>
+        <field name="trigger">auto</field>
+        <field name="active">True</field>
     </record>
 </odoo>

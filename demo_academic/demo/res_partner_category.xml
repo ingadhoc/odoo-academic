@@ -1,8 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo noupdate="1">
+    <!-- Categorías para descuentos -->
     <record id="partner_category_discount_sibling" model="res.partner.category">
-        <field name="name">Sibling Discount 10%</field>
+        <field name="name">Descuento Hermanos 10%</field>
+        <field name="color">1</field>
     </record>
-    <record id="partner_category_discount_official" model="res.partner.category">
-        <field name="name">Official's Child Discount 20%</field>
+
+    <record id="partner_category_discount_employee" model="res.partner.category">
+        <field name="name">Descuento Empleados 20%</field>
+        <field name="color">2</field>
+    </record>
+
+    <record id="partner_category_annual_payment" model="res.partner.category">
+        <field name="name">Pago Anual Adelantado</field>
+        <field name="color">3</field>
+    </record>
+
+    <record id="partner_category_scholarship" model="res.partner.category">
+        <field name="name">Beca de Estudio</field>
+        <field name="color">4</field>
+    </record>
+
+    <record id="partner_category_referral" model="res.partner.category">
+        <field name="name">Cliente Referidor</field>
+        <field name="color">5</field>
+    </record>
+
+    <record id="partner_category_vip" model="res.partner.category">
+        <field name="name">Cliente VIP</field>
+        <field name="color">6</field>
     </record>
 </odoo>
