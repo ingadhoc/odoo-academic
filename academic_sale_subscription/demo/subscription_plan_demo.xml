@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+        <!-- Planes de 1 a 12 cuotas mensuales -->
+        <record id="subscription_plan_1_cuota" model="sale.subscription.plan">
+            <field name="name">1 cuota</field>
+            <field name="billing_period_value">1</field>
+            <field name="billing_period_unit">month</field>
+            <field name="user_closable">True</field>
+            <field name="user_quantity">True</field>
+            <field name="user_extend">False</field>
+            <field name="company_id" ref="academic.res_company_los_arroyos"/>
+        </record>
+
+        <record id="subscription_plan_2_cuotas" model="sale.subscription.plan">
+            <field name="name">2 cuotas</field>
+            <field name="billing_period_value">1</field>
+            <field name="billing_period_unit">month</field>
+            <field name="user_closable">True</field>
+            <field name="user_quantity">True</field>
+            <field name="user_extend">False</field>
+            <field name="company_id" ref="academic.res_company_los_arroyos"/>
+        </record>
+
+        <record id="subscription_plan_3_cuotas" model="sale.subscription.plan">
+            <field name="name">3 cuotas</field>
+            <field name="billing_period_value">1</field>
+            <field name="billing_period_unit">month</field>
+            <field name="user_closable">True</field>
+            <field name="user_quantity">True</field>
+            <field name="user_extend">False</field>
+            <field name="company_id" ref="academic.res_company_los_arroyos"/>
+        </record>
+
+        <record id="subscription_plan_4_cuotas" model="sale.subscription.plan">
+            <field name="name">4 cuotas</field>
+            <field name="billing_period_value">1</field>
+            <field name="billing_period_unit">month</field>
+            <field name="user_closable">True</field>
+            <field name="user_quantity">True</field>
+            <field name="user_extend">False</field>
+            <field name="company_id" ref="academic.res_company_los_arroyos"/>
+        </record>
+
+        <record id="subscription_plan_5_cuotas" model="sale.subscription.plan">
+            <field name="name">5 cuotas</field>
+            <field name="billing_period_value">1</field>
+            <field name="billing_period_unit">month</field>
+            <field name="user_closable">True</field>
+            <field name="user_quantity">True</field>
+            <field name="user_extend">False</field>
+            <field name="company_id" ref="academic.res_company_los_arroyos"/>
+        </record>
+
+        <record id="subscription_plan_6_cuotas" model="sale.subscription.plan">
+            <field name="name">6 cuotas</field>
+            <field name="billing_period_value">1</field>
+            <field name="billing_period_unit">month</field>
+            <field name="user_closable">True</field>
+            <field name="user_quantity">True</field>
+            <field name="user_extend">False</field>
+            <field name="company_id" ref="academic.res_company_los_arroyos"/>
+        </record>
+
+        <record id="subscription_plan_7_cuotas" model="sale.subscription.plan">
+            <field name="name">7 cuotas</field>
+            <field name="billing_period_value">1</field>
+            <field name="billing_period_unit">month</field>
+            <field name="user_closable">True</field>
+            <field name="user_quantity">True</field>
+            <field name="user_extend">False</field>
+            <field name="company_id" ref="academic.res_company_los_arroyos"/>
+        </record>
+
+        <record id="subscription_plan_8_cuotas" model="sale.subscription.plan">
+            <field name="name">8 cuotas</field>
+            <field name="billing_period_value">1</field>
+            <field name="billing_period_unit">month</field>
+            <field name="user_closable">True</field>
+            <field name="user_quantity">True</field>
+            <field name="user_extend">False</field>
+            <field name="company_id" ref="academic.res_company_los_arroyos"/>
+        </record>
+
+        <record id="subscription_plan_9_cuotas" model="sale.subscription.plan">
+            <field name="name">9 cuotas</field>
+            <field name="billing_period_value">1</field>
+            <field name="billing_period_unit">month</field>
+            <field name="user_closable">True</field>
+            <field name="user_quantity">True</field>
+            <field name="user_extend">False</field>
+            <field name="company_id" ref="academic.res_company_los_arroyos"/>
+        </record>
+
+        <record id="subscription_plan_10_cuotas" model="sale.subscription.plan">
+            <field name="name">10 cuotas</field>
+            <field name="billing_period_value">1</field>
+            <field name="billing_period_unit">month</field>
+            <field name="user_closable">True</field>
+            <field name="user_quantity">True</field>
+            <field name="user_extend">False</field>
+            <field name="company_id" ref="academic.res_company_los_arroyos"/>
+        </record>
+
+        <record id="subscription_plan_11_cuotas" model="sale.subscription.plan">
+            <field name="name">11 cuotas</field>
+            <field name="billing_period_value">1</field>
+            <field name="billing_period_unit">month</field>
+            <field name="user_closable">True</field>
+            <field name="user_quantity">True</field>
+            <field name="user_extend">False</field>
+            <field name="company_id" ref="academic.res_company_los_arroyos"/>
+        </record>
+
+        <record id="subscription_plan_12_cuotas" model="sale.subscription.plan">
+            <field name="name">12 cuotas</field>
+            <field name="billing_period_value">1</field>
+            <field name="billing_period_unit">month</field>
+            <field name="user_closable">True</field>
+            <field name="user_quantity">True</field>
+            <field name="user_extend">False</field>
+            <field name="company_id" ref="academic.res_company_los_arroyos"/>
+        </record>
+
+        <!-- Plan Anual -->
+        <record id="subscription_plan_anual" model="sale.subscription.plan">
+            <field name="name">Plan Anual</field>
+            <field name="billing_period_value">1</field>
+            <field name="billing_period_unit">year</field>
+            <field name="user_closable">True</field>
+            <field name="user_quantity">True</field>
+            <field name="user_extend">False</field>
+            <field name="company_id" ref="academic.res_company_los_arroyos"/>
+        </record>
+
+        <!-- Subscription Pricing for Academic Products -->
+        <!-- Precios para productos de Primaria -->
+        <record id="pricing_primaria_1_cuota" model="sale.subscription.pricing">
+            <field name="plan_id" ref="subscription_plan_1_cuota"/>
+            <field name="price">12000.0</field>
+            <field name="currency_id" ref="base.ARS"/>
+        </record>
+
+        <record id="pricing_primaria_3_cuotas" model="sale.subscription.pricing">
+            <field name="plan_id" ref="subscription_plan_3_cuotas"/>
+            <field name="price">12000.0</field>
+            <field name="currency_id" ref="base.ARS"/>
+        </record>
+
+        <record id="pricing_primaria_6_cuotas" model="sale.subscription.pricing">
+            <field name="plan_id" ref="subscription_plan_6_cuotas"/>
+            <field name="price">12000.0</field>
+            <field name="currency_id" ref="base.ARS"/>
+        </record>
+
+        <record id="pricing_primaria_12_cuotas" model="sale.subscription.pricing">
+            <field name="plan_id" ref="subscription_plan_12_cuotas"/>
+            <field name="price">12000.0</field>
+            <field name="currency_id" ref="base.ARS"/>
+        </record>
+
+        <record id="pricing_primaria_anual" model="sale.subscription.pricing">
+            <field name="plan_id" ref="subscription_plan_anual"/>
+            <field name="price">120000.0</field>
+            <field name="currency_id" ref="base.ARS"/>
+        </record>
+
+        <!-- Precios para productos de Secundaria -->
+        <record id="pricing_secundaria_1_cuota" model="sale.subscription.pricing">
+            <field name="plan_id" ref="subscription_plan_1_cuota"/>
+            <field name="price">15000.0</field>
+            <field name="currency_id" ref="base.ARS"/>
+        </record>
+
+        <record id="pricing_secundaria_3_cuotas" model="sale.subscription.pricing">
+            <field name="plan_id" ref="subscription_plan_3_cuotas"/>
+            <field name="price">15000.0</field>
+            <field name="currency_id" ref="base.ARS"/>
+        </record>
+
+        <record id="pricing_secundaria_6_cuotas" model="sale.subscription.pricing">
+            <field name="plan_id" ref="subscription_plan_6_cuotas"/>
+            <field name="price">15000.0</field>
+            <field name="currency_id" ref="base.ARS"/>
+        </record>
+
+        <record id="pricing_secundaria_12_cuotas" model="sale.subscription.pricing">
+            <field name="plan_id" ref="subscription_plan_12_cuotas"/>
+            <field name="price">15000.0</field>
+            <field name="currency_id" ref="base.ARS"/>
+        </record>
+
+        <record id="pricing_secundaria_anual" model="sale.subscription.pricing">
+            <field name="plan_id" ref="subscription_plan_anual"/>
+            <field name="price">150000.0</field>
+            <field name="currency_id" ref="base.ARS"/>
+        </record>
+
+        <!-- Precios para productos de Universidad -->
+        <record id="pricing_universidad_1_cuota" model="sale.subscription.pricing">
+            <field name="plan_id" ref="subscription_plan_1_cuota"/>
+            <field name="price">25000.0</field>
+            <field name="currency_id" ref="base.ARS"/>
+        </record>
+
+        <record id="pricing_universidad_3_cuotas" model="sale.subscription.pricing">
+            <field name="plan_id" ref="subscription_plan_3_cuotas"/>
+            <field name="price">25000.0</field>
+            <field name="currency_id" ref="base.ARS"/>
+        </record>
+
+        <record id="pricing_universidad_6_cuotas" model="sale.subscription.pricing">
+            <field name="plan_id" ref="subscription_plan_6_cuotas"/>
+            <field name="price">25000.0</field>
+            <field name="currency_id" ref="base.ARS"/>
+        </record>
+
+        <record id="pricing_universidad_12_cuotas" model="sale.subscription.pricing">
+            <field name="plan_id" ref="subscription_plan_12_cuotas"/>
+            <field name="price">25000.0</field>
+            <field name="currency_id" ref="base.ARS"/>
+        </record>
+
+        <record id="pricing_universidad_anual" model="sale.subscription.pricing">
+            <field name="plan_id" ref="subscription_plan_anual"/>
+            <field name="price">250000.0</field>
+            <field name="currency_id" ref="base.ARS"/>
+        </record>
+
+        <!-- Precios para productos de Inglés -->
+        <record id="pricing_ingles_1_cuota" model="sale.subscription.pricing">
+            <field name="plan_id" ref="subscription_plan_1_cuota"/>
+            <field name="price">8000.0</field>
+            <field name="currency_id" ref="base.ARS"/>
+        </record>
+
+        <record id="pricing_ingles_3_cuotas" model="sale.subscription.pricing">
+            <field name="plan_id" ref="subscription_plan_3_cuotas"/>
+            <field name="price">8000.0</field>
+            <field name="currency_id" ref="base.ARS"/>
+        </record>
+
+        <record id="pricing_ingles_6_cuotas" model="sale.subscription.pricing">
+            <field name="plan_id" ref="subscription_plan_6_cuotas"/>
+            <field name="price">8000.0</field>
+            <field name="currency_id" ref="base.ARS"/>
+        </record>
+
+        <record id="pricing_ingles_12_cuotas" model="sale.subscription.pricing">
+            <field name="plan_id" ref="subscription_plan_12_cuotas"/>
+            <field name="price">8000.0</field>
+            <field name="currency_id" ref="base.ARS"/>
+        </record>
+
+        <record id="pricing_ingles_anual" model="sale.subscription.pricing">
+            <field name="plan_id" ref="subscription_plan_anual"/>
+            <field name="price">80000.0</field>
+            <field name="currency_id" ref="base.ARS"/>
+        </record>
+
+</odoo>

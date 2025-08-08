@@ -1,29 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="academic_group_1" model="academic.group">
-        <field name="section_id" ref="academic_section_2"/>
-        <field name="level_id" ref="academic_level_4"/>
+    <!-- Grupo Principal 1er Año A -->
+    <record id="academic_group_1a_main" model="academic.group">
+        <field name="section_id" ref="academic_section_1"/>
+        <field name="level_id" ref="academic_level_1"/>
         <field name="division_id" ref="academic_division_1"/>
-        <field name="company_id" ref="res_company_los_arroyos"/>
-        <field name="subject_id" ref="academic_subject_1"/>
-        <field name="teacher_id" ref="res_partner_ignacio_rodriguez"/>
+        <field name="company_id" ref="academic.res_company_los_arroyos"/>
+        <field name="teacher_id" ref="res_partner_prof_ana_silva"/>
+        <field name="capacity">25</field>
         <field name="year" eval="str(datetime.now().year)"/>
+        <field name="student_ids" eval="[(6, 0, [ref('res_partner_sofia_garcia'), ref('res_partner_emma_martinez'), ref('res_partner_camila_fernandez')])]"/>
     </record>
 
-    <record id="academic_group_2" model="academic.group">
-        <field name="section_id" ref="academic_section_2"/>
-        <field name="level_id" ref="academic_level_4"/>
-        <field name="division_id" ref="academic_division_2"/>
-        <field name="company_id" ref="res_company_los_molinos"/>
-        <field name="subject_id" ref="academic_subject_2"/>
-        <field name="teacher_id" ref="res_partner_laura_sali"/>
+    <!-- Grupo Principal 1er Año B -->
+    <record id="academic_group_1b_main" model="academic.group">
+        <field name="section_id" ref="academic.academic_section_1"/>
+        <field name="level_id" ref="academic.academic_level_1"/>
+        <field name="division_id" ref="academic.academic_division_2"/>
+        <field name="company_id" ref="academic.res_company_los_arroyos"/>
+        <field name="teacher_id" ref="res_partner_prof_maria_torres"/>
+        <field name="capacity">25</field>
         <field name="year" eval="str(datetime.now().year)"/>
+        <field name="student_ids" eval="[(6, 0, [ref('academic.res_partner_valentina_rodriguez'), ref('academic.res_partner_martina_lopez')])]"/>
     </record>
 
-    <record id="academic_group_3" model="academic.group">
-        <field name="section_id" ref="academic_section_2"/>
-        <field name="level_id" ref="academic_level_4"/>
-        <field name="division_id" ref="academic_division_3"/>
-        <field name="company_id" ref="base.main_company"/>
+    <!-- Grupo Principal 2do Año A -->
+    <record id="academic_group_2a_main" model="academic.group">
+        <field name="section_id" ref="academic.academic_section_1"/>
+        <field name="level_id" ref="academic.academic_level_2"/>
+        <field name="division_id" ref="academic.academic_division_1"/>
+        <field name="company_id" ref="academic.res_company_los_arroyos"/>
+        <field name="teacher_id" ref="res_partner_prof_carlos_mendez"/>
+        <field name="capacity">25</field>
         <field name="year" eval="str(datetime.now().year)"/>
+        <field name="student_ids" eval="[(6, 0, [ref('academic.res_partner_mateo_garcia'), ref('academic.res_partner_thiago_martinez'), ref('academic.res_partner_isabella_gonzalez')])]"/>
+    </record>
+
+    <!-- Grupo Principal 3er Año A -->
+    <record id="academic_group_3a_main" model="academic.group">
+        <field name="section_id" ref="academic.academic_section_1"/>
+        <field name="level_id" ref="academic.academic_level_3"/>
+        <field name="division_id" ref="academic.academic_division_1"/>
+        <field name="company_id" ref="academic.res_company_los_arroyos"/>
+        <field name="teacher_id" ref="res_partner_prof_juan_perez"/>
+        <field name="capacity">30</field>
+        <field name="year" eval="str(datetime.now().year)"/>
+        <field name="student_ids" eval="[(6, 0, [ref('academic.res_partner_santiago_rodriguez'), ref('academic.res_partner_bautista_lopez'), ref('academic.res_partner_lucas_fernandez')])]"/>
+    </record>
+
+    <!-- Grupo Principal 4to Año A -->
+    <record id="academic_group_4a_main" model="academic.group">
+        <field name="section_id" ref="academic.academic_section_1"/>
+        <field name="level_id" ref="academic.academic_level_4"/>
+        <field name="division_id" ref="academic.academic_division_1"/>
+        <field name="company_id" ref="academic.res_company_los_arroyos"/>
+        <field name="teacher_id" ref="res_partner_prof_ana_silva"/>
+        <field name="capacity">30</field>
+        <field name="year" eval="str(datetime.now().year)"/>
+        <field name="student_ids" eval="[(6, 0, [ref('academic.res_partner_benjamin_gonzalez')])]"/>
+    </record>
+
+    <!-- Grupos Específicos por Materia -->
+
+    <!-- Inglés Avanzado para 1er Año -->
+    <record id="academic_group_english_1a" model="academic.group">
+        <field name="section_id" ref="academic.academic_section_1"/>
+        <field name="level_id" ref="academic.academic_level_1"/>
+        <field name="division_id" ref="academic.academic_division_1"/>
+        <field name="company_id" ref="academic.res_company_los_arroyos"/>
+        <field name="subject_id" ref="academic.academic_subject_2"/>
+        <field name="teacher_id" ref="res_partner_prof_maria_torres"/>
+        <field name="capacity">15</field>
+        <field name="year" eval="str(datetime.now().year)"/>
+        <field name="student_ids" eval="[(6, 0, [ref('academic.res_partner_sofia_garcia'), ref('academic.res_partner_emma_martinez')])]"/>
+    </record>
+
+    <!-- Matemática Avanzada para 3er Año -->
+    <record id="academic_group_math_advanced_3a" model="academic.group">
+        <field name="section_id" ref="academic.academic_section_1"/>
+        <field name="level_id" ref="academic.academic_level_3"/>
+        <field name="division_id" ref="academic.academic_division_1"/>
+        <field name="company_id" ref="academic.res_company_los_arroyos"/>
+        <field name="subject_id" ref="academic.academic_subject_4"/>
+        <field name="teacher_id" ref="res_partner_prof_carlos_mendez"/>
+        <field name="capacity">20</field>
+        <field name="year" eval="str(datetime.now().year)"/>
+        <field name="student_ids" eval="[(6, 0, [ref('academic.res_partner_santiago_rodriguez'), ref('academic.res_partner_lucas_fernandez')])]"/>
     </record>
 </odoo>

@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<odoo>
-    <function model="base.language.install" name="_init_demo_base"/>
-    <function model="sale.order" name="_init_demo_base"/>
-    <function model="sale.order.template" name="_init_demo_base"/>
-    <function model="loyalty.reward" name="_init_demo_base"/>
-    <function model="product.template" name="_init_demo_base"/>
-</odoo>

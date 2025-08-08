@@ -1,105 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo noupdate="1">
 
-    <record id="base.main_partner" model="res.partner">
-        <field name="name">APDES</field>
-        <field name="street">INTENDENTE ÁVALOS 2751</field>
-        <field name="city">MUNRO - BUENOS AIRES</field>
-        <field name="zip">1605</field>
-        <field name="phone">(011) 4762-6115</field>
-        <field name="email">info@apdes.esc.edu.ar</field>
-        <field name="website">www.apdes.esc.edu.ar</field>
-    </record>
 
-    <!-- Basic Company  -->
-    <record id="base.main_company" model="res.company">
-        <field name="name">APDES</field>
-        <field name="report_header">ASOCIACIÓN PARA LA PROMOCIÓN DEPORTIVA, EDUCATIVA Y SOCIAL</field>
-        <field name="section_ids" eval="[(4, ref('academic.academic_section_2'))]"/>
-    </record>
 
-    <!-- Kinder Companies  -->
-    <record id="res_company_los_senderos" model="res.company">
-        <field name="partner_id" ref="res_partner_los_senderos"/>
-        <!-- <field name="parent_id" ref="base.main_company"/> -->
-        <!-- <field name="currency_id" ref="base.ARS"/> -->
-        <!-- para hacerlo requerido deberiamos cambiar la data demo de algunos partners -->
-        <!-- <field name="family_required" eval="True"/> -->
-        <field name="name">Colegio Los Senderos</field>
-        <field name="family_required" eval="True"/>
-        <field name="section_ids" eval="[(4, ref('academic.academic_section_1'))]"/>
-    </record>
-
-    <!-- Schools Companies  -->
+    <!-- Colegio Los Arroyos -->
     <record id="res_company_los_arroyos" model="res.company">
+        <field name="name">Colegio Los Arroyos - Sede San Isidro</field>
         <field name="partner_id" ref="res_partner_los_arroyos"/>
-        <!-- <field name="parent_id" ref="base.main_company"/> -->
-        <!-- <field name="currency_id" ref="base.ARS"/> -->
-        <!-- para hacerlo requerido deberiamos cambiar la data demo de algunos partners -->
-        <!-- <field name="family_required" eval="True"/> -->
-        <field name="name">Colegio Los Arroyos</field>
+        <field name="currency_id" ref="base.USD"/>
+        <field name="section_ids" eval="[(4, ref('academic_section_1')), (4, ref('academic_section_2')), (4, ref('academic_section_3'))]"/>
+        <field name="country_id" ref="base.us"/>
         <field name="family_required" eval="False"/>
-        <field name="section_ids" eval="[(4, ref('academic.academic_section_1')), (4, ref('academic.academic_section_2')), (4, ref('academic.academic_section_5'))]"/>
     </record>
 
+    <!-- Colegio Los Molinos -->
     <record id="res_company_los_molinos" model="res.company">
-        <field name="partner_id" ref="res_partner_los_molinos"/>
-        <!-- <field name="parent_id" ref="base.main_company"/> -->
-        <!-- para hacerlo requerido deberiamos cambiar la data demo de algunos partners -->
-        <!-- <field name="family_required" eval="True"/> -->
-        <!-- <field name="currency_id" ref="base.ARS"/> -->
         <field name="name">Colegio Los Molinos</field>
+        <field name="partner_id" ref="res_partner_los_molinos"/>
+        <field name="currency_id" ref="base.USD"/>
+        <field name="section_ids" eval="[(4, ref('academic_section_1')), (4, ref('academic_section_2'))]"/>
+        <field name="country_id" ref="base.us"/>
         <field name="family_required" eval="False"/>
-        <field name="section_ids" eval="[(4, ref('academic.academic_section_3')), (4, ref('academic.academic_section_4'))]"/>
     </record>
 
-    <!-- University companies -->
+    <!-- Jardín Los Senderos -->
+    <record id="res_company_los_senderos" model="res.company">
+        <field name="name">Jardín Los Senderos</field>
+        <field name="partner_id" ref="res_partner_los_senderos"/>
+        <field name="currency_id" ref="base.USD"/>
+        <field name="section_ids" eval="[(4, ref('academic_section_1'))]"/>
+        <field name="country_id" ref="base.us"/>
+        <field name="family_required" eval="True"/>
+    </record>
 
+    <!-- Facultad de Ingeniería -->
     <record id="res_company_facultad_ingenieria" model="res.company">
-        <field name="partner_id" ref="res_partner_facultad_ingenieria"/>
-        <!-- <field name="parent_id" ref="base.main_company"/> -->
-        <!-- para hacerlo requerido deberiamos cambiar la data demo de algunos partners -->
-        <!-- <field name="family_required" eval="True"/> -->
-        <!-- <field name="currency_id" ref="base.ARS"/> -->
         <field name="name">Facultad de Ingeniería</field>
+        <field name="partner_id" ref="res_partner_facultad_ingenieria"/>
+        <field name="currency_id" ref="base.ARS"/>
+        <field name="section_ids" eval="[(4, ref('academic_section_9')), (4, ref('academic_section_10'))]"/>
+        <field name="country_id" ref="base.ar"/>
         <field name="family_required" eval="False"/>
-        <field name="section_ids" eval="[(4, ref('academic.academic_section_6')), (4, ref('academic.academic_section_7')), (4, ref('academic.academic_section_8')), (4, ref('academic.academic_section_9')), (4, ref('academic.academic_section_10'))]"/>
     </record>
 
-    <!-- Partners companies -->
-    <record id="res_partner_los_molinos" model="res.partner">
-        <field name="company_id" ref="res_company_los_molinos"/>
-    </record>
-
-    <record id="res_partner_laura_sali" model="res.partner">
-        <field name="company_id" ref="res_company_los_molinos"/>
-    </record>
-
-    <record id="res_partner_martin_perez" model="res.partner">
-        <field name="company_id" ref="res_company_los_molinos"/>
-    </record>
-
-    <record id="res_partner_roberto_martin" model="res.partner">
-        <field name="company_id" ref="res_company_los_molinos"/>
-    </record>
-
-    <record id="res_partner_los_arroyos" model="res.partner">
-        <field name="company_id" ref="res_company_los_arroyos"/>
-    </record>
-
-    <record id="res_partner_ignacio_rodriguez" model="res.partner">
-        <field name="company_id" ref="res_company_los_arroyos"/>
-    </record>
-
-    <record id="res_partner_alvaro_diaz" model="res.partner">
-        <field name="company_id" ref="res_company_los_arroyos"/>
-    </record>
-
-    <record id="res_partner_jose_martin_rodriguez" model="res.partner">
-        <field name="company_id" ref="res_company_los_arroyos"/>
-    </record>
-
-    <record id="res_partner_juan_gomez" model="res.partner">
-        <field name="company_id" ref="res_company_los_arroyos"/>
-    </record>
 </odoo>
