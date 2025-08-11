@@ -62,6 +62,17 @@ class ResPartner(models.Model):
     medical_insurance = fields.Char(
         copy=False,
     )
+    identification_number = fields.Char()
+    same_identification_number_partner_id = fields.Many2one(
+        "res.partner",
+        string="Partner with same identification number",
+        compute="_compute_same_identification_number_partner_id",
+        store=False,
+        search="_search_same_identification_number_partner_id",
+    )
+    same_identification_number_partner_company = fields.Many2one(
+        "res.company", string="Company same partner", related="same_identification_number_partner_id.company_id"
+    )
     related_user_id = fields.Many2one(
         "res.users",
         compute="_compute_related_user_id",
@@ -183,6 +194,23 @@ class ResPartner(models.Model):
     def _onchange_company_id(self):
         # anulamos el onchange nativo de odoo porque ahora lo hicimos compute
         return
+
+    @api.depends("identification_number")
+    def _compute_same_identification_number_partner_id(self):
+        filtered_partners = self.filtered("identification_number")
+        for partner in filtered_partners:
+            partner_id = partner._origin.id
+            Partner = self.with_context(active_test=False).sudo()
+            domain = [
+                ("identification_number", "=", partner.identification_number),
+            ]
+            if partner_id:
+                domain += [("id", "!=", partner_id)]
+            partner.same_identification_number_partner_id = Partner.search(domain, limit=1)
+        (self - filtered_partners).same_identification_number_partner_id = False
+
+    def _search_same_identification_number_partner_id(self, operator, value):
+        return [("identification_number", operator, value)]
 
     @api.constrains("current_main_group_id")
     def _check_unique_main_group_per_year(self):

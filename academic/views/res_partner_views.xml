@@ -31,6 +31,15 @@
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_form"/>
         <field name="arch" type="xml">
+            <xpath expr="//sheet" position="before">
+                <div class="alert alert-warning oe_edit_only" role="alert" invisible="not same_identification_number_partner_id">
+                  A partner with the same identification_number already exists (<field name="same_identification_number_partner_id"/> - Company: <field name="same_identification_number_partner_company"/>).
+                </div>
+                <div class="alert alert-warning oe_edit_only" role="alert" invisible="not context.get('show_warning')">
+                  If the partner will be responsible for payment, remember to set the identification number.
+                </div>
+            </xpath>
+
             <form>
                 <field name="parent_links_by_student" invisible="True"/>
                 <field name="company_family_required" invisible="1"/>
@@ -49,7 +58,6 @@
                     <field name="company_id" groups="base.group_multi_company" placeholder="Institution..." required="partner_type in ['teacher', 'student', 'administrator', 'gral_administrator']"/>
                     <field name="parent_id" string="Family" invisible="partner_type != 'student'" required="partner_type == 'student' and company_family_required" domain="[('partner_type', '=', 'family'), ('company_id', 'in', [company_id, False])] if partner_type == 'student' else [('is_company', '=', True)]" context="{'default_partner_type': 'family', 'default_company_id': company_id}"/>
                     <field name="links_by_student" invisible="partner_type != 'family'"/>
-                    <field name="vat" invisible="partner_type != 'student'"/>
                 </group>
             </xpath>
 
@@ -93,6 +101,7 @@
                 <page string="Individual Information" invisible="partner_type in [False, 'family']">
                     <group>
                         <group>
+                             <field name="identification_number"/>
                             <field name="file_number" invisible="partner_type != 'student'"/>
                             <field name="sex" invisible="not partner_type"/>
                             <field name="promotion_id" invisible="partner_type != 'student'"/>

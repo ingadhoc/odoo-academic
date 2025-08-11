@@ -19,7 +19,7 @@
 ##############################################################################
 {
     "name": "Academic",
-    "version": "18.0.1.17.0",
+    "version": "18.0.1.18.0",
     "sequence": 14,
     "summary": "",
     "author": "ADHOC SA",
@@ -35,10 +35,6 @@
         "contacts",
         "report_aeroo",
         "crm",
-        # Por ahora hacemos depender de este módulo para que se instalen los
-        # tipos de identificación, si academic llega a expandir fuera de latam
-        # habría que cambiarlo, quizás crear un módulo nuevo
-        "l10n_latam_base",
     ],
     "data": [
         "security/academic_security.xml",
