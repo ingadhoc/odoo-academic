@@ -21,17 +21,22 @@ class ResPartner(models.Model):
     @api.depends("firstname", "lastname", "second_lastname", "middlename")
     def _compute_name(self):
         for rec in self.filtered(lambda x: x.partner_type in ("student", "family", "parent")):
+            rec = rec.with_context(skip_name_split_compute=True)
             name_parts = filter(None, [rec.firstname, rec.middlename, rec.lastname, rec.second_lastname])
             rec.name = " ".join(name_parts)
 
     @api.depends("name")
     def _compute_firstname(self):
+        if self.env.context.get("skip_name_split_compute"):
+            return
         for rec in self.filtered(lambda x: x.partner_type in ("student", "parent")):
             parts = (rec.name or "").strip().split()
             rec.firstname = parts[0] if parts else False
 
     @api.depends("name")
     def _compute_lastname(self):
+        if self.env.context.get("skip_name_split_compute"):
+            return
         for rec in self.filtered(lambda x: x.partner_type == "family"):
             rec.lastname = rec.name or False
         for rec in self.filtered(lambda x: x.partner_type in ("student", "parent")):
