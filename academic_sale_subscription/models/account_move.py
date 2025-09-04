@@ -72,3 +72,59 @@ class AccountMove(models.Model):
             rec.is_academic_sale = (
                 self.env["sale.order"].search([("invoice_ids", "in", [rec.id])], limit=1).is_academic_sale
             )
+
+    def _get_suggested_responsible(self):
+        self.ensure_one()
+        paying_role = self.env.ref("academic.paying_role")
+        responsible_ids = set()
+        suggested = False
+
+        # tiene estudiante definida en factura
+        if self.student_id:
+            student_links = self.student_id.student_link_ids.filtered(lambda x: paying_role in x.role_ids)
+            if student_links:
+                suggested = student_links.sorted("sequence")[:1].partner_id
+                responsible_ids.update(student_links.mapped("partner_id").ids)
+
+        # el partner_id es estudiante
+        elif self.partner_id.partner_type == "student":
+            student_links = self.partner_id.student_link_ids.filtered(lambda x: paying_role in x.role_ids)
+            if student_links:
+                suggested = student_links.sorted("sequence")[:1].partner_id
+                responsible_ids.update(student_links.mapped("partner_id").ids)
+
+        # el partner_id es familia
+        elif self.partner_id.partner_type == "family":
+            if self.partner_id.links_by_student:
+                student = self.partner_id.child_ids.filtered(lambda x: x.partner_type == "student")[:1]
+                if student:
+                    student_links = student.student_link_ids.filtered(lambda x: paying_role in x.role_ids)
+                    if student_links:
+                        suggested = student_links.sorted("sequence")[:1].partner_id
+                        responsible_ids.update(student_links.mapped("partner_id").ids)
+            else:
+                student_links = self.partner_id.student_link_ids.filtered(lambda x: paying_role in x.role_ids)
+                if student_links:
+                    suggested = student_links.sorted("sequence")[:1].partner_id
+                    responsible_ids.update(student_links.mapped("partner_id").ids)
+
+        # el partner_id es pariente
+        elif self.partner_id.partner_type == "parent":
+            family = self.partner_id.partner_link_ids.filtered(lambda x: x.student_id.partner_type == "family").mapped(
+                "student_id"
+            )[:1]
+            if family:
+                family = family[0]
+                if family.links_by_student:
+                    student = family.child_ids.filtered(lambda x: x.partner_type == "student")[:1]
+                    if student:
+                        student_links = student.student_link_ids.filtered(lambda x: paying_role in x.role_ids)
+                        if student_links:
+                            suggested = student_links.sorted("sequence")[:1].partner_id
+                            responsible_ids.update(student_links.mapped("partner_id").ids)
+                else:
+                    student_links = family.student_link_ids.filtered(lambda x: paying_role in x.role_ids)
+                    if student_links:
+                        suggested = student_links.sorted("sequence")[:1].partner_id
+                        responsible_ids.update(student_links.mapped("partner_id").ids)
+        return suggested, list(responsible_ids)

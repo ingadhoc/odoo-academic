@@ -9,17 +9,7 @@ class PaymentTransactionRetryLines(models.TransientModel):
     @api.depends("invoice_id")
     def _compute_res_partner(self):
         for rec in self:
-            if rec.invoice_id.family_id:
-                rec.partner_ids = [Command.set(rec.invoice_id.family_id.student_link_ids.mapped("partner_id").ids)]
-            elif rec.invoice_id.partner_id.partner_type == "family":
-                rec.partner_ids = [Command.set(rec.invoice_id.partner_id.student_link_ids.mapped("partner_id").ids)]
-            elif rec.invoice_id.partner_id.partner_type == "parent":
-                family = rec.invoice_id.partner_id.partner_link_ids.filtered(
-                    lambda x: x.student_id.partner_type == "family"
-                ).mapped("student_id")
-                rec.partner_ids = [Command.set(family.student_link_ids.mapped("partner_id").ids)]
-            else:
-                rec.partner_ids = [Command.set([rec.invoice_id.partner_id.id])]
+            rec.partner_ids = [Command.set(rec.invoice_id._get_suggested_responsible()[1])]
 
     @api.depends("partner_ids")
     def _compute_payment_token_id(self):
