@@ -16,9 +16,11 @@
         <field name="model">crm.lead</field>
         <field name="inherit_id" ref="crm.crm_lead_view_form"/>
         <field name="arch" type="xml">
-            <label for="email_from" position="before">
-                <field name="group_id" options="{'no_create': True}"/>
-            </label>
+            <xpath expr="//div[hasclass('oe_title')]" position="after">
+                <group>
+                    <field name="group_id" options="{'no_create': True}"/>
+                </group>
+            </xpath>
             <xpath expr="//label[@for='expected_revenue']//.." position="attributes">
                 <attribute name="invisible">1</attribute>
             </xpath>
