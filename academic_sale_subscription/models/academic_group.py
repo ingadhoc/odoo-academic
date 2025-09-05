@@ -91,7 +91,8 @@ class AcademicGroup(models.Model):
         action = self.env["ir.actions.actions"]._for_xml_id("crm.crm_lead_action_pipeline")
         action.update(
             {
-                "context": {"search_default_group_id": self.id},
+                "domain": [("group_id", "=", self.id)],
+                "context": {},
             }
         )
         return action
