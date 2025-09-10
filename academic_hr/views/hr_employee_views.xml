@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_employee_form_academic" model="ir.ui.view">
+        <field name="name">hr.employee.form.academic</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <field name="work_email" position="before">
+                <field name="main_employee_id" invisible="not main_employee_id"/>
+            </field>
+
+            <group name="active_group" position="attributes">
+                <attribute name="invisible">main_employee_id</attribute>
+            </group>
+
+            <xpath expr="//field[@name='company_id'][@groups='base.group_multi_company']" position="attributes">
+                <attribute name="readonly">main_employee_id</attribute>
+            </xpath>
+
+            <page name="skills_resume" position="before">
+                <page string="Child Employees" name="child_employees" invisible="main_employee_id">
+                    <field name="child_employee_ids" mode="kanban" context="{'default_main_employee_id': id, 'default_company_id': company_id, 'default_user_id': user_id}">
+                        <kanban>
+                            <field name="id"/>
+                            <field name="name"/>
+                            <field name="job_id"/>
+                            <field name="department_id"/>
+                            <field name="image_128"/>
+                            <templates>
+                                <t t-name="card">
+                                    <div class="oe_kanban_card oe_kanban_global_click" style="max-width: 200px">
+                                        <div class="o_kanban_image">
+                                            <img t-att-src="kanban_image('hr.employee', 'image_128', record.id.raw_value)" alt="Employee" class="o_image_64_contain"/>
+                                        </div>
+                                        <div class="oe_kanban_details">
+                                            <strong class="o_kanban_record_title oe_partner_heading">
+                                                <field name="name"/>
+                                            </strong>
+                                            <div class="o_kanban_tags_section oe_kanban_partner_categories"/>
+                                            <ul>
+                                                <li t-if="record.job_id.raw_value" class="o_text_overflow">
+                                                    <i class="fa fa-briefcase" role="img" aria-label="Job" title="Job"></i>
+                                                    <field name="job_id"/>
+                                                </li>
+                                                <li t-if="record.department_id.raw_value" class="o_text_overflow">
+                                                    <i class="fa fa-building" role="img" aria-label="Department" title="Department"></i>
+                                                    <field name="department_id"/>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </t>
+                            </templates>
+                        </kanban>
+                    </field>
+                </page>
+            </page>
+        </field>
+    </record>
+
+    <record id="hr.open_view_employee_list_my" model="ir.actions.act_window">
+        <field name="domain">[('company_id', 'in', allowed_company_ids), ('main_employee_id', '=', False)]</field>
+    </record>
+</odoo>
