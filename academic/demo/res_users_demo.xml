@@ -6,13 +6,11 @@
     </record>
 
     <record id="base.user_admin" model="res.users">
-        <field name="company_id" ref="res_company_los_arroyos"/>
-        <field name="company_ids" eval="[(6, 0, [ref('res_company_los_arroyos'), ref('res_company_los_molinos'), ref('res_company_los_senderos'), ref('res_company_facultad_ingenieria')])]"/>
+        <field name="company_ids" eval="[(4, ref('res_company_los_arroyos')), (4, ref('res_company_los_molinos')), (4, ref('res_company_los_senderos')), (4, ref('res_company_facultad_ingenieria'))]"/>
     </record>
 
     <record id="base.user_demo" model="res.users">
-        <field name="company_id" ref="res_company_los_arroyos"/>
-        <field name="company_ids" eval="[(6, 0, [ref('res_company_los_arroyos'), ref('res_company_los_molinos'), ref('res_company_los_senderos'), ref('res_company_facultad_ingenieria')])]"/>
+        <field name="company_ids" eval="[(4, ref('res_company_los_arroyos')), (4, ref('res_company_los_molinos')), (4, ref('res_company_los_senderos')), (4, ref('res_company_facultad_ingenieria'))]"/>
     </record>
 
     <!-- Administrator Users -->
