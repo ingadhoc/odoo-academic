@@ -1,0 +1,46 @@
+<odoo>
+    <record id="timesheet_view_grid" model="ir.ui.view">
+        <field name="name">account.analytic.line.grid.project</field>
+        <field name="model">account.analytic.line</field>
+        <field name="inherit_id" ref="timesheet_grid.timesheet_view_grid"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='employee_id']" position="attributes">
+                <attribute name="invisible">0</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="hr_timesheet_line_tree" model="ir.ui.view">
+        <field name="name">account.analytic.line.list.hr_timesheet</field>
+        <field name="model">account.analytic.line</field>
+        <field name="inherit_id" ref="hr_timesheet.hr_timesheet_line_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='employee_id']" position="attributes">
+                <attribute name="column_invisible">0</attribute>
+                <attribute name="required">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="hr_timesheet_line_form" model="ir.ui.view">
+        <field name="name">account.analytic.line.form</field>
+        <field name="model">account.analytic.line</field>
+        <field name="inherit_id" ref="hr_timesheet.hr_timesheet_line_form"/>
+        <field name="arch" type="xml">
+           <xpath expr="//field[@name='project_id']" position="before">
+                <field name="employee_id" required="1"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_account_analytic_line_form" model="ir.ui.view">
+        <field name="name">account.analytic.line.form</field>
+        <field name="model">account.analytic.line</field>
+        <field name="inherit_id" ref="analytic.view_account_analytic_line_form"/>
+        <field name="arch" type="xml">
+           <xpath expr="//field[@name='name']" position="before">
+                <field name="employee_id" required="1"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
