@@ -1,0 +1,125 @@
+<odoo noupdate="1">
+    <record id="subscription_plan_anual" model="sale.subscription.plan">
+        <field name="name">Anualmente</field>
+        <field name="billing_period_value">1</field>
+        <field name="billing_period_unit">year</field>
+        <field name="duration_value">1</field>
+        <field name="duration_unit">year</field>
+    </record>
+
+    <record id="subscription_plan_1_cuota" model="sale.subscription.plan">
+        <field name="name">Plan 01 cuota</field>
+        <field name="billing_period_value">1</field>
+        <field name="billing_period_unit">month</field>
+        <field name="duration_value">1</field>
+        <field name="duration_unit">month</field>
+    </record>
+
+    <record id="subscription_plan_2_cuotas" model="sale.subscription.plan">
+        <field name="name">Plan 02 cuotas</field>
+        <field name="billing_period_value">1</field>
+        <field name="billing_period_unit">month</field>
+        <field name="duration_value">2</field>
+        <field name="duration_unit">month</field>
+    </record>
+
+    <record id="subscription_plan_3_cuotas" model="sale.subscription.plan">
+        <field name="name">Plan 03 cuotas</field>
+        <field name="billing_period_value">1</field>
+        <field name="billing_period_unit">month</field>
+        <field name="duration_value">3</field>
+        <field name="duration_unit">month</field>
+    </record>
+
+    <record id="subscription_plan_4_cuotas" model="sale.subscription.plan">
+        <field name="name">Plan 04 cuotas</field>
+        <field name="billing_period_value">1</field>
+        <field name="billing_period_unit">month</field>
+        <field name="duration_value">4</field>
+        <field name="duration_unit">month</field>
+    </record>
+
+    <record id="subscription_plan_5_cuotas" model="sale.subscription.plan">
+        <field name="name">Plan 05 cuotas</field>
+        <field name="billing_period_value">1</field>
+        <field name="billing_period_unit">month</field>
+        <field name="duration_value">5</field>
+        <field name="duration_unit">month</field>
+    </record>
+
+    <record id="subscription_plan_6_cuotas" model="sale.subscription.plan">
+        <field name="name">Plan 06 cuotas</field>
+        <field name="billing_period_value">1</field>
+        <field name="billing_period_unit">month</field>
+        <field name="duration_value">6</field>
+        <field name="duration_unit">month</field>
+    </record>
+
+    <record id="subscription_plan_7_cuotas" model="sale.subscription.plan">
+        <field name="name">Plan 07 cuotas</field>
+        <field name="billing_period_value">1</field>
+        <field name="billing_period_unit">month</field>
+        <field name="duration_value">7</field>
+        <field name="duration_unit">month</field>
+    </record>
+
+    <record id="subscription_plan_8_cuotas" model="sale.subscription.plan">
+        <field name="name">Plan 08 cuotas</field>
+        <field name="billing_period_value">1</field>
+        <field name="billing_period_unit">month</field>
+        <field name="duration_value">8</field>
+        <field name="duration_unit">month</field>
+    </record>
+
+    <record id="subscription_plan_9_cuotas" model="sale.subscription.plan">
+        <field name="name">Plan 09 cuotas</field>
+        <field name="billing_period_value">1</field>
+        <field name="billing_period_unit">month</field>
+        <field name="duration_value">9</field>
+        <field name="duration_unit">month</field>
+    </record>
+
+    <record id="subscription_plan_10_cuotas" model="sale.subscription.plan">
+        <field name="name">Plan 10 cuotas</field>
+        <field name="billing_period_value">1</field>
+        <field name="billing_period_unit">month</field>
+        <field name="duration_value">10</field>
+        <field name="duration_unit">month</field>
+    </record>
+
+    <record id="subscription_plan_11_cuotas" model="sale.subscription.plan">
+        <field name="name">Plan 11 cuotas</field>
+        <field name="billing_period_value">1</field>
+        <field name="billing_period_unit">month</field>
+        <field name="duration_value">11</field>
+        <field name="duration_unit">month</field>
+    </record>
+
+    <record id="subscription_plan_12_cuotas" model="sale.subscription.plan">
+        <field name="name">Plan 12 cuotas</field>
+        <field name="billing_period_value">1</field>
+        <field name="billing_period_unit">month</field>
+        <field name="duration_value">12</field>
+        <field name="duration_unit">month</field>
+    </record>
+
+    <record id="subscription_plan_12_cuotas" model="sale.subscription.plan">
+        <field name="name">Plan 12 cuotas</field>
+        <field name="billing_period_value">1</field>
+        <field name="billing_period_unit">month</field>
+        <field name="duration_value">12</field>
+        <field name="duration_unit">month</field>
+    </record>
+
+    <record id="sale_subscription.subscription_plan_6_month" model="sale.subscription.plan">
+        <field name="active">False</field>
+    </record>
+
+    <record id="sale_subscription.subscription_plan_year" model="sale.subscription.plan">
+        <field name="active">False</field>
+    </record>
+
+    <record id="sale_subscription.subscription_plan_month" model="sale.subscription.plan">
+        <field name="active">False</field>
+    </record>
+</odoo>

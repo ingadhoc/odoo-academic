@@ -24,6 +24,7 @@
         'demo/academic_group.xml',
         'demo/res_users.xml',
         'demo/loyalty_program.xml',
+        'demo/subscription_plan_demo.xml',
         'demo/init_demo_py.xml',
     ],
     'installable': True,
