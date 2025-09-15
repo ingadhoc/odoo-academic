@@ -14,3 +14,4 @@ from . import res_company
 from . import mail_thread
 from . import sale_order_close_reason
 from . import payment_transaction
+from . import res_partner_link

@@ -1,0 +1,70 @@
+<odoo>
+    <record id="view_update_payment_responsible_partner_wizard" model="ir.ui.view">
+        <field name="name">update.payment.responsible.partner.wizard.form</field>
+        <field name="model">update.payment.responsible.partner.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <div class="alert alert-info" role="alert" style="margin-bottom: 16px;" invisible="not warning_message">
+                    <field name="warning_message"/>
+                </div>
+
+                <group>
+                    <group>
+                        <field name="available_partner_ids" invisible="1"/>
+                        <field name="student_ids" invisible="1"/>
+                        <field name="current_partner_id"/>
+                        <field name="new_partner_id" domain="[('id', 'in', available_partner_ids)]"/>
+                    </group>
+                    <group>
+                        <field name="invoice_count"/>
+                        <field name="sale_count"/>
+                    </group>
+                </group>
+
+                <notebook invisible="not invoice_count and not sale_count">
+                    <page string="Pending Invoices" name="invoices" invisible="not invoice_count">
+                        <field name="invoice_ids" readonly="1">
+                            <list>
+                                <field name="name"/>
+                                <field name="student_id"/>
+                                <field name="invoice_date"/>
+                                <field name="amount_total"/>
+                                <field name="amount_residual"/>
+                                <field name="state"/>
+                            </list>
+                        </field>
+                    </page>
+                    <page string="Sales/Subscriptions" name="sales" invisible="not sale_count">
+                        <field name="sale_ids" readonly="1">
+                            <list>
+                                <field name="name"/>
+                                <field name="partner_id"/>
+                                <field name="date_order"/>
+                                <field name="amount_total"/>
+                                <field name="state"/>
+                                <field name="subscription_state"/>
+                            </list>
+                        </field>
+                    </page>
+                </notebook>
+
+                <footer>
+                    <button string="Update Payment Responsible"
+                            type="object"
+                            name="action_update_payment_responsible"
+                            class="btn-primary"
+                            invisible="not invoice_count and not sale_count"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_change_payment_responsible" model="ir.actions.act_window">
+        <field name="name">Change Payment Responsible</field>
+        <field name="res_model">update.payment.responsible.partner.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="view_id" ref="view_update_payment_responsible_partner_wizard"/>
+    </record>
+</odoo>
