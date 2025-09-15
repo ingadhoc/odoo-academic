@@ -1257,8 +1257,9 @@ msgstr ""
 #. module: academic_sale_subscription
 #: model:ir.actions.act_window,name:academic_sale_subscription.action_update_payment_responsible
 #: model:ir.model,name:academic_sale_subscription.model_update_payment_responsible_wizard
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.view_update_payment_responsible_partner_wizard
 msgid "Update Payment Responsible"
-msgstr ""
+msgstr "Actualizar Responsable de Pago"
 
 #. module: academic_sale_subscription
 #: model:ir.model,name:academic_sale_subscription.model_update_payment_responsible_line
@@ -1445,11 +1446,170 @@ msgstr ""
 #~ msgid "Download Certificate"
 #~ msgstr "Descargar Certificado"
 
-#~ msgid ""
-#~ "The debt free certificate for <strong t-field=\"student.name\"/> is not "
-#~ "available because some of the payment responsible persons have pending "
-#~ "debt."
-#~ msgstr ""
-#~ "El certificado de libre deuda para <strong t-field=\"student.name\"/> no "
-#~ "está disponible porque alguno de los responsables de pago tiene deuda "
-#~ "pendiente."
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/models/res_partner_link.py:0
+msgid ""
+"Cannot remove \"Payment Responsible\" role from contact %s because student %s "
+"has pending invoices."
+msgstr ""
+"No se puede quitar el rol de \"Responsable de Pago\" del contacto %s "
+"porque el estudiante %s tiene facturas pendientes de pago."
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/models/res_partner_link.py:0
+msgid ""
+"Cannot remove \"Payment Responsible\" role from contact %s because student %s "
+"has active subscriptions."
+msgstr ""
+"No se puede quitar el rol de \"Responsable de Pago\" del contacto %s "
+"porque el estudiante %s tiene suscripciones activas."
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/models/res_partner_link.py:0
+msgid ""
+"Cannot %s from contact %s because student %s has pending invoices."
+msgstr ""
+"No se puede %s del contacto %s porque el estudiante %s tiene facturas pendientes de pago."
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/models/res_partner_link.py:0
+msgid ""
+"Cannot %s from contact %s because student %s has active subscriptions."
+msgstr ""
+"No se puede %s del contacto %s porque el estudiante %s tiene suscripciones activas."
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/models/res_partner_link.py:0
+msgid "This link does not have the Payment Responsible role."
+msgstr "Este enlace no tiene el rol de Responsable de Pago."
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/wizard/update_payment_responsible_partner_wizard.py:0
+msgid "No partner selected."
+msgstr "No se seleccionó ningún contacto."
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/wizard/update_payment_responsible_partner_wizard.py:0
+msgid "Partner %s does not have the Payment Responsible role."
+msgstr "El contacto %s no tiene el rol de Responsable de Pago."
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/wizard/update_payment_responsible_partner_wizard.py:0
+msgid "%d pending invoices"
+msgstr "%d facturas pendientes"
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/wizard/update_payment_responsible_partner_wizard.py:0
+msgid "%d pending invoices (without registered payments)"
+msgstr "%d facturas pendientes (sin pagos registrados)"
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/wizard/update_payment_responsible_partner_wizard.py:0
+msgid "%d active sales/subscriptions"
+msgstr "%d ventas/suscripciones activas"
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/wizard/update_payment_responsible_partner_wizard.py:0
+msgid "This action will update the payment responsible for: %s"
+msgstr "Esta acción actualizará el responsable de pago para: %s"
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/wizard/update_payment_responsible_partner_wizard.py:0
+msgid "No records found to update."
+msgstr "No se encontraron registros para actualizar."
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/wizard/update_payment_responsible_partner_wizard.py:0
+msgid "Please select a new payment responsible."
+msgstr "Por favor seleccione un nuevo responsable de pago."
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/wizard/update_payment_responsible_partner_wizard.py:0
+msgid "New payment responsible must be different from current one."
+msgstr "El nuevo responsable de pago debe ser diferente al actual."
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/wizard/update_payment_responsible_partner_wizard.py:0
+msgid "%d invoices updated"
+msgstr "%d facturas actualizadas"
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/wizard/update_payment_responsible_partner_wizard.py:0
+msgid "%d sales/subscriptions updated"
+msgstr "%d ventas/suscripciones actualizadas"
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/wizard/update_payment_responsible_partner_wizard.py:0
+msgid "Payment responsible successfully updated for: %s"
+msgstr "Responsable de pago actualizado exitosamente para: %s"
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/wizard/update_payment_responsible_partner_wizard.py:0
+msgid "No records were updated."
+msgstr "No se actualizaron registros."
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/wizard/update_payment_responsible_partner_wizard.py:0
+msgid "Success"
+msgstr "Éxito"
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/wizard/update_payment_responsible_partner_wizard.py:0
+msgid "Payment responsible roles updated"
+msgstr "Roles de responsable de pago actualizados"
+
+#. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.view_academic_partner_form
+#: code:addons/academic_sale_subscription/models/res_partner_link.py:0
+msgid "Change Payment Responsible"
+msgstr "Cambiar Responsable de Pago"
+
+#. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.view_academic_partner_form
+msgid "Payment responsible will be changed for active sales and pending debts"
+msgstr "Se cambiará el responsable de pago de las ventas activas y deudas pendientes"
+
+#. module: academic_sale_subscription
+#: model:ir.model,name:academic_sale_subscription.model_update_payment_responsible_partner_wizard
+msgid "Update Payment Responsible from Partner"
+msgstr "Actualizar Responsable de Pago desde Contacto"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_partner_wizard__current_partner_id
+msgid "Current Payment Responsible"
+msgstr "Responsable de Pago Actual"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_partner_wizard__new_partner_id
+msgid "New Payment Responsible"
+msgstr "Nuevo Responsable de Pago"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_partner_wizard__sale_count
+msgid "Active Sales/Subscriptions"
+msgstr "Ventas/Suscripciones Activas"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_partner_wizard__sale_ids
+msgid "Sales/Subscriptions to Update"
+msgstr "Ventas/Suscripciones a Actualizar"

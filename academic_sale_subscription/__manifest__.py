@@ -30,6 +30,7 @@
         "data/mail_template.xml",
         "wizard/academic_order_wizard_views.xml",
         "wizard/update_payment_responsible_wizard_views.xml",
+        "wizard/update_payment_responsible_partner_wizard_views.xml",
         "views/sale_order_template_views.xml",
         "views/sale_subscription_plan_views.xml",
         "views/sale_order_views.xml",
