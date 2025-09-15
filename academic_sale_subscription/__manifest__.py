@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
     "name": "Academic Sale Subscription",
-    "version": "18.0.1.18.0",
+    "version": "18.0.1.19.0",
     "sequence": 14,
     "summary": "",
     "author": "ADHOC SA",
@@ -30,6 +30,7 @@
         "data/mail_template.xml",
         "wizard/academic_order_wizard_views.xml",
         "wizard/update_payment_responsible_wizard_views.xml",
+        "wizard/update_payment_responsible_partner_wizard_views.xml",
         "views/sale_order_template_views.xml",
         "views/sale_subscription_plan_views.xml",
         "views/sale_order_views.xml",
