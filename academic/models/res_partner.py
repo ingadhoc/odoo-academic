@@ -62,7 +62,7 @@ class ResPartner(models.Model):
     medical_insurance = fields.Char(
         copy=False,
     )
-    identification_number = fields.Char()
+    identification_number = fields.Char(string="Academic Identification Number")
     same_identification_number_partner_id = fields.Many2one(
         "res.partner",
         string="Partner with same identification number",
