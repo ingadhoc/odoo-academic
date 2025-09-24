@@ -55,7 +55,7 @@ class AcademicGroup(models.Model):
         required=True,
         domain="[('id', 'in', level_ids)]",
     )
-    subject_id = fields.Many2one("academic.subject", string="Subject", required=False, index=True)
+    subject_id = fields.Many2one("academic.subject", string="Subject/Course", required=False, index=True)
     teacher_id = fields.Many2one(
         "res.partner",
         string="Teacher",

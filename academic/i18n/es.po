@@ -734,14 +734,14 @@ msgstr "Sección"
 #: model:ir.model.fields,field_description:academic.field_academic_group__subject_id
 #: model:ir.model.fields,field_description:academic.field_hr_employee_asignatures__subject_id
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_group_filter
-msgid "Subject"
-msgstr "Asignatura"
+msgid "Subject/Course"
+msgstr "Asignatura/Curso"
 
 #. module: academic
 #: model:ir.actions.act_window,name:academic.action_academic_subject_subjects
 #: model:ir.ui.menu,name:academic.menu_subjects
-msgid "Subjects"
-msgstr "Asignaturas"
+msgid "Subjects/Courses"
+msgstr "Asignaturas/Cursos"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_res_partner__category_id
