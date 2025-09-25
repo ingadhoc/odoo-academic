@@ -13,7 +13,7 @@
     "data": [
         "data/dashboards.xml",
     ],
-    "installable": True,
+    'installable': False,
     "auto_install": ["academic_sale_subscription"],
     "application": False,
 }

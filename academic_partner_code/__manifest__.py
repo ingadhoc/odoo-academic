@@ -27,7 +27,7 @@
     "license": "AGPL-3",
     "depends": ["academic"],
     "data": ["data/ir_sequence_data.xml", "views/res_partner_views.xml"],
-    "installable": True,
+    'installable': False,
     "auto_install": False,
     "application": False,
 }

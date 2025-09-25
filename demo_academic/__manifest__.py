@@ -20,7 +20,7 @@
         "demo/product_pricelist.xml",
         "demo/res_partner_updates.xml",
     ],
-    "installable": True,
+    'installable': False,
     "auto_install": False,
     "application": False,
 }

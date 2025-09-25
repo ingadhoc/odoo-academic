@@ -48,7 +48,7 @@
         "demo/sale_subscription_demo.xml",
         "demo/account_move_demo.xml",
     ],
-    "installable": True,
+    'installable': False,
     "auto_install": ["sale_subscription", "academic"],
     "application": False,
     "post_init_hook": "post_init_hook",
