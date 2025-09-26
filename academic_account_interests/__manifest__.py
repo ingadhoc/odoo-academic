@@ -27,7 +27,7 @@
     "license": "AGPL-3",
     "depends": ["academic", "account_interests"],
     "data": [],
-    'installable': False,
+    "installable": False,
     "auto_install": True,
     "application": False,
 }

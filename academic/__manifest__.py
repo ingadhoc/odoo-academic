@@ -74,7 +74,7 @@
         "demo/academic_group.xml",
         "demo/res_users_demo.xml",
     ],
-    'installable': False,
+    "installable": False,
     "auto_install": False,
     "application": False,
 }

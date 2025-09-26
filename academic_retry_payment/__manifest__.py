@@ -10,7 +10,7 @@
     "data": [
         "wizards/payment_transaction_retry.xml",
     ],
-    'installable': False,
+    "installable": False,
     "auto_install": True,
     "application": False,
 }
