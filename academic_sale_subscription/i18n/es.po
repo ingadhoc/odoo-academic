@@ -252,6 +252,14 @@ msgstr "ID"
 msgid ""
 "If enabled, closing with this reason will release the associated vacancy."
 msgstr ""
+"Si está habilitado, cerrar con esta razón liberará la vacante asociada."
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,help:academic_sale_subscription.field_sale_order_close_reason__no_reopen_subscription
+msgid ""
+"If enabled, subscriptions closed with this reason will not be automatically reopened after payment."
+msgstr ""
+"Si está habilitado, las suscripciones cerradas con esta razón no se reabrirán automáticamente después del pago."
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_wizard__invoice_ids
@@ -499,6 +507,11 @@ msgstr "Cantidad de estudiantes registrados"
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order_close_reason__release_vacancy
 msgid "Release Vacancy"
 msgstr "Libera vacante"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order_close_reason__no_reopen_subscription
+msgid "Do Not Reopen Subscription"
+msgstr "No reabrir suscripción"
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_bank_statement_line__require_student_on_invoices
