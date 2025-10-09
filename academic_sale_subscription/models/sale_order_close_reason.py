@@ -8,3 +8,8 @@ class SaleOrderCloseReason(models.Model):
         help="If enabled, closing with this reason will release the associated vacancy.",
         default=False,
     )
+    no_reopen_subscription = fields.Boolean(
+        string="Do Not Reopen Subscription",
+        help="If enabled, subscriptions closed with this reason will not be automatically reopened after payment.",
+        default=False,
+    )
