@@ -199,3 +199,14 @@ class SaleOrder(models.Model):
         if is_free and param_enabled:
             is_free = False
         return is_free, is_exception
+
+    def set_open(self):
+        """Override to prevent reopening subscriptions with specific close reasons when called from payment processing."""
+        subscriptions_to_reopen = self
+        if self.env.context.get("from_payment_processing"):
+            subscriptions_to_reopen = self.filtered(
+                lambda order: not (
+                    order.is_subscription and order.close_reason_id and order.close_reason_id.no_reopen_subscription
+                )
+            )
+        return super(SaleOrder, subscriptions_to_reopen).set_open()

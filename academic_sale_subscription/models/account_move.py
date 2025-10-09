@@ -128,3 +128,6 @@ class AccountMove(models.Model):
                         suggested = student_links.sorted("sequence")[:1].partner_id
                         responsible_ids.update(student_links.mapped("partner_id").ids)
         return suggested, list(responsible_ids)
+
+    def _reopen_paid_churned_subscription(self):
+        return super(AccountMove, self.with_context(from_payment_processing=True))._reopen_paid_churned_subscription()
