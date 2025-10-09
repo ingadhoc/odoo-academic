@@ -13,3 +13,4 @@ from . import product_template
 from . import res_company
 from . import mail_thread
 from . import sale_order_close_reason
+from . import payment_transaction
