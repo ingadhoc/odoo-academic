@@ -252,6 +252,54 @@ msgstr "ID"
 msgid ""
 "If enabled, closing with this reason will release the associated vacancy."
 msgstr ""
+<<<<<<< e040313bba049f7eff9402640c14959b6986c360
+||||||| ab8ce793783252abea5bb9303d91c83a48043e64
+"Si est‚Äö√†√∂¬¨‚àû habilitado, cerrar con esta raz‚Äö√†√∂‚Äö√¢‚Ä¢n liberar‚Äö√†√∂¬¨‚àû la vacante "
+"asociada."
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,help:academic_sale_subscription.field_sale_order_close_reason__no_reopen_subscription
+msgid ""
+"If enabled, subscriptions closed with this reason will not be automatically "
+"reopened after payment."
+msgstr ""
+"Si est‚Äö√†√∂¬¨‚àû habilitado, las suscripciones cerradas con esta raz‚Äö√†√∂‚Äö√¢‚Ä¢n no se"
+" reabrir‚Äö√†√∂¬¨‚àûn autom‚Äö√†√∂¬¨‚àûticamente despu‚Äö√†√∂¬¨¬©s del pago."
+
+#. module: academic_sale_subscription
+#: model:sale.order.close.reason,name:academic_sale_subscription.close_reason_dissatisfaction
+msgid "Insatisfacci√≥n con el servicio"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:product.template,name:academic_sale_subscription.product_inscripcion_ingles_product_template
+msgid "Inscripci√≥n - Ingl√©s"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:product.template,name:academic_sale_subscription.product_inscripcion_primaria_product_template
+msgid "Inscripci√≥n - Primaria"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:product.template,name:academic_sale_subscription.product_inscripcion_secundaria_product_template
+msgid "Inscripci√≥n - Secundaria"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:product.template,name:academic_sale_subscription.product_inscripcion_universidad_product_template
+msgid "Inscripci√≥n - Universidad"
+msgstr ""
+=======
+"Si está habilitado, cerrar con esta razón liberará la vacante asociada."
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,help:academic_sale_subscription.field_sale_order_close_reason__no_reopen_subscription
+msgid ""
+"If enabled, subscriptions closed with this reason will not be automatically reopened after payment."
+msgstr ""
+"Si está habilitado, las suscripciones cerradas con esta razón no se reabrirán automáticamente después del pago."
+>>>>>>> 6f4da4a04222c3b3e993363603f3fed75223427e
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_wizard__invoice_ids
@@ -499,6 +547,11 @@ msgstr "Cantidad de estudiantes registrados"
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order_close_reason__release_vacancy
 msgid "Release Vacancy"
 msgstr "Libera vacante"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order_close_reason__no_reopen_subscription
+msgid "Do Not Reopen Subscription"
+msgstr "No reabrir suscripción"
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_bank_statement_line__require_student_on_invoices
