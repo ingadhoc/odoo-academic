@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="academic_hide_invoice_portal_fields" inherit_id="account.portal_my_details_fields" name="Academic: hide invoice portal fields">
+        <!-- Hide "Receive invoices" select by forcing the condition to False -->
+        <xpath expr="//div[@t-if='len(invoice_sending_methods) > 1']" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </xpath>
+
+        <!-- Hide "Electronic format" select by forcing the condition to False -->
+        <xpath expr="//t[@t-if='invoice_edi_formats']" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </xpath>
+    </template>
+</odoo>
