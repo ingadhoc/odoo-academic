@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
     "name": "Academic Sale Subscription",
-    "version": "18.0.1.15.0",
+    "version": "18.0.1.16.0",
     "sequence": 14,
     "summary": "",
     "author": "ADHOC SA",
@@ -16,10 +16,17 @@
         "sale_management",
         "account",
     ],
+    "assets": {
+        "web.assets_backend": [
+            "academic_sale_subscription/static/src/client_actions/multi_print.js",
+        ],
+    },
     "data": [
         "data/ir_actions_server.xml",
         "security/ir.model.access.csv",
         "security/academic_security.xml",
+        "report/report_data.xml",
+        "data/mail_template.xml",
         "wizard/academic_order_wizard_views.xml",
         "wizard/update_payment_responsible_wizard_views.xml",
         "views/sale_order_template_views.xml",
@@ -35,6 +42,7 @@
         "views/product_template_views.xml",
         "views/account_portal_templates.xml",
         "views/portal_templates.xml",
+        "views/debt_certificate_portal_templates.xml",
         "views/crm_lead_views.xml",
         "views/res_company_views.xml",
         "report/report_invoice.xml",
