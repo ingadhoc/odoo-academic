@@ -725,3 +725,193 @@ msgstr ""
 #: model:ir.model,name:academic_sale_subscription.model_academic_group
 msgid "group"
 msgstr "grupo"
+
+#. module: academic_sale_subscription
+#: model:sale.order.close.reason,retention_button_link:academic_sale_subscription.close_reason_financial
+msgid "mailto:becas@colegio.edu.ar?subject=Consulta programa de becas"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:sale.order.close.reason,retention_button_link:academic_sale_subscription.close_reason_dissatisfaction
+msgid "mailto:calidad@colegio.edu.ar?subject=Feedback sobre servicios"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:sale.order.close.reason,retention_button_link:academic_sale_subscription.close_reason_transferred
+msgid "mailto:coordinacion@colegio.edu.ar?subject=Retención estudiantil"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:sale.order.close.reason,retention_button_link:academic_sale_subscription.close_reason_disciplinary
+msgid "mailto:direccion@colegio.edu.ar?subject=Solicitud de reunión"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:sale.order.close.reason,retention_button_link:academic_sale_subscription.close_reason_medical
+msgid "mailto:inclusion@colegio.edu.ar?subject=Adaptaciones médicas"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:sale.order.close.reason,retention_button_link:academic_sale_subscription.close_reason_graduated
+msgid "mailto:info@colegio.edu.ar?subject=Consulta programas superiores"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:sale.order.close.reason,retention_button_link:academic_sale_subscription.close_reason_completed_program
+msgid "mailto:info@colegio.edu.ar?subject=Programas complementarios"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:sale.order.close.reason,retention_button_link:academic_sale_subscription.close_reason_temporary_leave
+msgid "mailto:secretaria@colegio.edu.ar?subject=Licencia temporal"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:sale.order.close.reason,retention_button_link:academic_sale_subscription.close_reason_family_relocation
+msgid "mailto:transporte@colegio.edu.ar?subject=Consulta transporte escolar"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:sale.order.close.reason,retention_button_link:academic_sale_subscription.close_reason_academic
+msgid "mailto:tutoria@colegio.edu.ar?subject=Solicitud de apoyo académico"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model_terms:sale.order.close.reason,retention_message:academic_sale_subscription.close_reason_graduated
+msgid "¡Felicitaciones por tu graduación!"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model_terms:sale.order.close.reason,retention_message:academic_sale_subscription.close_reason_completed_program
+msgid "¡Felicitaciones!"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model_terms:sale.order.close.reason,retention_message:academic_sale_subscription.close_reason_transferred
+msgid "¿Hay algo que podamos hacer para que reconsieres tu decisión?"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model_terms:sale.order.close.reason,retention_message:academic_sale_subscription.close_reason_completed_program
+msgid "¿Te interesaría continuar con programas complementarios?"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model_terms:sale.order.close.reason,retention_message:academic_sale_subscription.close_reason_family_relocation
+msgid "¿Te mudas lejos?"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:sale.order.template.line,name:academic_sale_subscription.template_section_ingles
+msgid "🇺🇸 CURSOS DE INGLÉS"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:sale.order.template.line,name:academic_sale_subscription.template_section_secundaria
+msgid "🎓 EDUCACIÓN SECUNDARIA"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:sale.order.template.line,name:academic_sale_subscription.template_section_universidad
+msgid "🏛️ EDUCACIÓN UNIVERSITARIA"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:sale.order.template.line,name:academic_sale_subscription.template_section_primaria
+msgid "📚 EDUCACIÓN PRIMARIA"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: code:addons/academic_sale_subscription/models/res_partner.py:0
+#, python-format
+msgid "The payment responsible of the following students have pending debt and certificates cannot be generated:"
+msgstr "Los responsables de pago de los siguientes estudiantes tienen deuda pendiente y no se pueden generar los certificados:"
+
+#. module: academic_sale_subscription
+#: code:addons/academic_sale_subscription/models/res_partner.py:0
+#, python-format
+msgid "The payment responsible of the following students have pending debt and certificates cannot be sent:"
+msgstr "Los responsables de pago de los siguientes estudiantes tienen deuda pendiente y no se pueden enviar los certificados:"
+
+#. module: academic_sale_subscription
+#: code:addons/academic_sale_subscription/models/res_partner.py:0
+#, python-format
+msgid "Certificate sent successfully to payment responsible."
+msgstr "Certificado enviado exitosamente a los responsables de pago."
+
+#. module: academic_sale_subscription
+#: code:addons/academic_sale_subscription/models/res_partner.py:0
+#, python-format
+msgid "%s certificates sent successfully."
+msgstr "%s certificados enviados exitosamente."
+
+#. module: academic_sale_subscription
+#: code:addons/academic_sale_subscription/models/res_partner.py:0
+#, python-format
+msgid "Certificates Sent"
+msgstr "Certificados Enviados"
+
+#. module: academic_sale_subscription
+#: model:ir.actions.server,name:academic_sale_subscription.action_generate_debt_free_certificate
+msgid "Generate Debt Free Certificate"
+msgstr "Generar Certificado de Libre Deuda"
+
+#. module: academic_sale_subscription
+#: model:ir.actions.server,name:academic_sale_subscription.action_send_debt_free_certificate_email
+msgid "Send Debt Free Certificate"
+msgstr "Enviar Certificado de Libre Deuda"
+
+#. module: academic_sale_subscription
+#: model:ir.actions.report,name:academic_sale_subscription.report_debt_free_certificate
+msgid "Debt Free Certificate"
+msgstr "Certificado de Libre Deuda"
+
+#. module: academic_sale_subscription
+#: model:mail.template,name:academic_sale_subscription.email_template_debt_free_certificate
+msgid "Debt Free Certificate - Send by Email"
+msgstr "Certificado de Libre Deuda - Enviar por Email"
+
+#. module: academic_sale_subscription
+#: model:mail.template,subject:academic_sale_subscription.email_template_debt_free_certificate
+msgid "Debt Free Certificate - {{ object.name }}"
+msgstr "Certificado de Libre Deuda - {{ object.name }}"
+
+#. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.portal_my_home_debt_certificate
+msgid "Debt Free Certificates"
+msgstr "Certificados de Libre Deuda"
+
+#. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.portal_my_home_debt_certificate
+msgid "Download certificates for students without debt"
+msgstr "Descargar certificados para estudiantes sin deuda"
+
+#. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.portal_my_debt_free_certificates
+msgid "You are not registered as payment responsible for any student."
+msgstr "No estás registrado como responsable de pago de ningún estudiante."
+
+#. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.portal_my_debt_free_certificates
+msgid "Download Certificate"
+msgstr "Descargar Certificado"
+
+#. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.debt_certificate_unavailable
+msgid "Certificate Not Available"
+msgstr "Certificado No Disponible"
+
+#. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.debt_certificate_unavailable
+msgid "The debt free certificate for <strong t-field=\"student.name\"/> is not available because some of the payment responsible persons have pending debt."
+msgstr "El certificado de libre deuda para <strong t-field=\"student.name\"/> no está disponible porque alguno de los responsables de pago tiene deuda pendiente."
+
+#. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.debt_certificate_unavailable
+msgid "View Invoices"
+msgstr "Ver Facturas"
+
+#. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.debt_certificate_unavailable
+msgid "Back to Portal"
+msgstr "Volver al Portal"

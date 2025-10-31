@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Add Debt Free Certificate card to portal home -->
+    <template id="portal_my_home_debt_certificate" name="Portal My Home: Debt Free Certificate" customize_show="True" inherit_id="portal.portal_my_home" priority="50">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="before">
+            <t t-set="portal_client_category_enable" t-value="True"/>
+        </xpath>
+        <div id="portal_client_category" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">Debt Free Certificates</t>
+                <t t-set="url" t-value="'/my/debt_free_certificates'"/>
+                <t t-set="text">Download certificates for students without debt</t>
+                <t t-set="placeholder_count" t-value="'debt_certificate_count'"/>
+            </t>
+        </div>
+    </template>
+
+    <!-- Debt Free Certificates page -->
+    <template id="portal_my_debt_free_certificates" name="My Debt Free Certificates">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Debt Free Certificates</t>
+            </t>
+
+            <div t-if="not students" class="alert alert-warning" role="alert">
+                You are not registered as payment responsible for any student.
+            </div>
+
+            <t t-if="students">
+                <div class="row">
+                    <t t-foreach="students" t-as="student">
+                        <div class="col-12 col-md-6 col-lg-4 mb-3">
+                            <div class="card h-100">
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title" t-field="student.name"/>
+                                    <div class="mt-auto">
+                                        <a t-attf-href="/my/debt_free_certificate/#{student.id}" class="btn btn-primary w-100">
+                                            <i class="fa fa-download"/> Download Certificate
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </div>
+            </t>
+        </t>
+    </template>
+
+    <!-- Template for when certificate is unavailable -->
+    <template id="debt_certificate_unavailable" name="Debt Free Certificate Unavailable">
+        <t t-call="portal.portal_layout">
+            <div class="container mt-4">
+                <div class="alert alert-warning" role="alert">
+                    <h4 class="alert-heading">Certificate Not Available</h4>
+                    <p>
+                        The debt free certificate for <strong t-esc="student.name"/> is not available
+                        because some of the payment responsible persons have pending debt.
+                    </p>
+                    <hr/>
+                    <a href="/my/invoices" class="btn btn-primary">View Invoices</a>
+                    <a href="/my" class="btn btn-secondary">Back to Portal</a>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>
