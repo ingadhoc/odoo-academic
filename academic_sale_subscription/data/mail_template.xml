@@ -1,0 +1,25 @@
+<odoo noupdate="1">
+    <!-- Email template for sending debt free certificate -->
+    <record id="email_template_debt_free_certificate" model="mail.template">
+        <field name="name">Debt Free Certificate - Send by Email</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="subject">Debt Free Certificate - {{ object.name }}</field>
+        <field name="email_from">{{ (object.company_id.email or user.email_formatted) }}</field>
+        <field name="email_to">{{ ','.join(object.payment_responsible_ids.filtered('email').mapped('email')) if object.payment_responsible_ids else '' }}</field>
+        <field name="report_template_ids" eval="[(4, ref('academic_sale_subscription.report_debt_free_certificate'))]"/>
+        <field name="auto_delete" eval="True"/>
+        <field name="lang">{{ object.lang }}</field>
+    </record>
+
+    <!-- Server action to send debt free certificate by email -->
+    <record id="action_send_debt_free_certificate_email" model="ir.actions.server">
+        <field name="name">Send Debt Free Certificate</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="binding_model_id" ref="base.model_res_partner"/>
+        <field name="binding_view_types">form,list</field>
+        <field name="state">code</field>
+        <field name="code">
+action = records.action_send_debt_free_certificate_email()
+        </field>
+    </record>
+</odoo>
