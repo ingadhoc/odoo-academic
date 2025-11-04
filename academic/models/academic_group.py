@@ -75,7 +75,7 @@ class AcademicGroup(models.Model):
     name = fields.Char(compute="_compute_name", store=True)
     active = fields.Boolean(default=True)
     capacity = fields.Integer()
-    student_count = fields.Integer(compute="_compute_student_count")
+    student_count = fields.Integer(compute="_compute_student_count", store=True)
 
     @api.depends("company_id", "level_id", "division_id", "year")
     def _compute_name(self):
@@ -124,6 +124,7 @@ class AcademicGroup(models.Model):
         )
         return action
 
+    @api.depends("student_ids")
     def _compute_student_count(self):
         for group in self:
             group.student_count = len(group.student_ids)
