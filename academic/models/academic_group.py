@@ -78,6 +78,7 @@ class AcademicGroup(models.Model):
     student_ids_count = fields.Integer(
         string='Student Count',
         compute='_compute_student_ids_count',
+        store=True
     )
 
     @api.depends('company_id', 'level_id', 'division_id', 'year')
