@@ -74,8 +74,21 @@ class AcademicGroup(models.Model):
     )
     name = fields.Char(compute="_compute_name", store=True)
     active = fields.Boolean(default=True)
+<<<<<<< 6c06d27cc1a42ad1b8c07e35463710934c614cfa
     capacity = fields.Integer()
     student_count = fields.Integer(compute="_compute_student_count")
+||||||| 047047b683076bc41a3a64944774b0de9189b263
+    student_ids_count = fields.Integer(
+        string='Student Count',
+        compute='_compute_student_ids_count',
+    )
+=======
+    student_ids_count = fields.Integer(
+        string='Student Count',
+        compute='_compute_student_ids_count',
+        store=True
+    )
+>>>>>>> 4ce1cc6f66303723a9a614f8c978c805f3f16675
 
     @api.depends("company_id", "level_id", "division_id", "year")
     def _compute_name(self):

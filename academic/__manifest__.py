@@ -18,6 +18,7 @@
 #
 ##############################################################################
 {
+<<<<<<< 6c06d27cc1a42ad1b8c07e35463710934c614cfa
     "name": "Academic",
     "version": "18.0.1.20.0",
     "sequence": 14,
@@ -35,6 +36,25 @@
         "contacts",
         "report_aeroo",
         "crm",
+||||||| 047047b683076bc41a3a64944774b0de9189b263
+    'name': 'Academic',
+    'version': "17.0.1.29.0",
+    'sequence': 14,
+    'summary': '',
+    'author': 'ADHOC SA',
+    'website': 'www.adhoc.com.ar',
+    'license': 'AGPL-3',
+    'images': [
+=======
+    'name': 'Academic',
+    'version': "17.0.1.30.0",
+    'sequence': 14,
+    'summary': '',
+    'author': 'ADHOC SA',
+    'website': 'www.adhoc.com.ar',
+    'license': 'AGPL-3',
+    'images': [
+>>>>>>> 4ce1cc6f66303723a9a614f8c978c805f3f16675
     ],
     "data": [
         "security/academic_security.xml",
