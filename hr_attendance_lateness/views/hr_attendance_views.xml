@@ -1,0 +1,67 @@
+<odoo>
+    <record id="view_attendance_tree_lateness" model="ir.ui.view">
+        <field name="name">hr.attendance.tree.lateness</field>
+        <field name="model">hr.attendance</field>
+        <field name="inherit_id" ref="hr_attendance.view_attendance_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//list" position="attributes">
+                <attribute name="decoration-danger">is_late == True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='check_in']" position="after">
+                <field
+                    name="expected_check_in"
+                    optional="show"
+                    string="Expected Check-in"
+                />
+                <field
+                    name="late_minutes"
+                    optional="show"
+                    string="Late (min)"
+                    widget="integer"
+                />
+                <field
+                    name="is_late"
+                    optional="show"
+                    string="Is Late"
+                    widget="boolean"
+                />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="hr_attendance_view_filter_lateness" model="ir.ui.view">
+        <field name="name">hr.attendance.search.lateness</field>
+        <field name="model">hr.attendance</field>
+        <field name="inherit_id" ref="hr_attendance.hr_attendance_view_filter" />
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='nocheckout']" position="after">
+                <filter
+                    string="Late Check-ins"
+                    name="late_checkins"
+                    domain="[('is_late', '=', True)]"
+                    help="Show only attendances where employee arrived late"
+                />
+            </xpath>
+            <xpath expr="//filter[@name='groupby_name']" position="after">
+                <filter
+                    string="Late Status"
+                    name="groupby_late"
+                    context="{'group_by': 'is_late'}"
+                />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="hr_attendance_view_form_lateness" model="ir.ui.view">
+        <field name="name">hr.attendance.form.lateness</field>
+        <field name="model">hr.attendance</field>
+        <field name="inherit_id" ref="hr_attendance.hr_attendance_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='check_in']" position="after">
+                <field name="expected_check_in" />
+                <field name="late_minutes" />
+                <field name="is_late" />
+            </xpath>
+        </field>
+    </record>
+</odoo>
