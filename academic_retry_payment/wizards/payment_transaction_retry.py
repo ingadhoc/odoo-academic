@@ -9,7 +9,8 @@ class PaymentTransactionRetryLines(models.TransientModel):
     @api.depends("invoice_id")
     def _compute_res_partner(self):
         for rec in self:
-            rec.partner_ids = [Command.set(rec.invoice_id._get_suggested_responsible()[1])]
+            suggested_partners = rec.invoice_id._get_suggested_responsible()[1]
+            rec.partner_ids = [Command.set(suggested_partners or [rec.invoice_id.partner_id.id])]
 
     @api.depends("partner_ids")
     def _compute_payment_token_id(self):
