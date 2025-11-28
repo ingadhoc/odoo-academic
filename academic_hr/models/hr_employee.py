@@ -36,11 +36,12 @@ class HrEmployee(models.Model):
         constraint = self.env.cr.fetchone()
         if constraint:
             constraint_name = constraint[0]
+            # pylint: disable=sql-injection - Using SQL.identifier for safe identifier composition
             self.env.cr.execute(
                 sql.SQL(
-                    "ALTER TABLE %s DROP CONSTRAINT %s",
-                    sql.SQL.identifier("hr_employee"),
-                    sql.SQL.identifier(constraint_name),
+                    "ALTER TABLE %(table)s DROP CONSTRAINT %(constraint)s",
+                    table=sql.SQL.identifier("hr_employee"),
+                    constraint=sql.SQL.identifier(constraint_name),
                 )
             )
 

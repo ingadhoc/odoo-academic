@@ -18,7 +18,7 @@
         "views/hr_employee_views.xml",
         "views/hr_leave_allocation_views.xml",
     ],
-    "installable": True,
+    "installable": False,
     "auto_install": False,
     "application": False,
 }
