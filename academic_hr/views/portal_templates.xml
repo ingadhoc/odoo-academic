@@ -1,0 +1,134 @@
+<odoo>
+    <template id="portal_my_home_menu_personal_data" name="Portal layout : Personal Data menu entry" inherit_id="portal.portal_breadcrumbs" priority="20">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li t-if="page_name == 'personal_data'" class="breadcrumb-item active">
+                Personal Data
+            </li>
+        </xpath>
+    </template>
+
+    <template id="portal_side_content_academic_hr" inherit_id="portal.side_content">
+        <xpath expr="//div[@name='portal_contact']" position="after">
+            <t t-set="current_employee" t-value="request.env['hr.employee'].sudo().search([('user_id', '=', user_id.id)], limit=1)"/>
+            <div class="o_portal_my_details mt-5" t-if="current_employee">
+                <h5 class="mb-3 pb-3 border-bottom">My Personal Data</h5>
+                <div t-if="current_employee.private_email" class="d-flex align-items-baseline mb-1">
+                    <i class="fa fa-envelope fa-fw me-1 text-600"/>
+                    <span class="text-break w-100" t-esc="current_employee.private_email"/>
+                </div>
+                <div t-if="current_employee.private_phone" class="d-flex flex-nowrap align-items-center mb-1">
+                    <i class="fa fa-phone fa-fw me-1 text-600"/>
+                    <span t-esc="current_employee.private_phone"/>
+                </div>
+                <div t-if="current_employee.private_street" class="d-flex align-items-baseline mb-1">
+                    <i class="fa fa-map-marker fa-fw me-1 text-600"/>
+                    <span class="w-100 lh-sm text-break d-block" t-esc="current_employee.private_street"/>
+                </div>
+                <div t-if="current_employee.private_city or current_employee.private_zip" class="d-flex align-items-baseline mb-1">
+                    <i class="fa fa-fw me-1 text-600"/>
+                    <span>
+                        <t t-if="current_employee.private_zip" t-esc="current_employee.private_zip"/>
+                        <t t-if="current_employee.private_zip and current_employee.private_city"> </t>
+                        <t t-if="current_employee.private_city" t-esc="current_employee.private_city"/>
+                        <t t-if="current_employee.private_country_id">, <t t-esc="current_employee.private_country_id.name"/></t>
+                    </span>
+                </div>
+                <a role="button" href="/my/personal_data" class="btn btn-link p-0 mt-3"><i class="fa fa-pencil"/> Edit information</a>
+            </div>
+        </xpath>
+    </template>
+
+    <template id="portal_my_personal_data" name="My Personal Data">
+        <t t-call="portal.portal_layout">
+            <form action="/my/personal_data/update" method="post">
+                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                <div class="row o_portal_details">
+                    <div class="col-lg-8">
+                        <div class="row">
+                            <div class="col-lg-12">
+                              <t t-if="success_message">
+                                <div class="alert alert-success" role="alert">
+                                    <t t-esc="success_message"/>
+                                </div>
+                              </t>
+                              <t t-if="error_message">
+                                <div class="alert alert-danger" role="alert">
+                                    <t t-esc="error_message"/>
+                                </div>
+                              </t>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label class="form-label" for="email">Email</label>
+                                    <input type="email" name="email" id="email" class="form-control" t-att-value="employee.private_email"/>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label class="form-label" for="phone">Phone</label>
+                                    <input type="text" name="phone" id="phone" class="form-control" t-att-value="employee.private_phone"/>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <hr/>
+                                <h6>Address</h6>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="mb-3">
+                                    <label class="form-label" for="street">Street</label>
+                                    <input type="text" name="street" id="street" class="form-control" t-att-value="employee.private_street or ''"/>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label class="form-label" for="city">City</label>
+                                    <input type="text" name="city" id="city" class="form-control" t-att-value="employee.private_city or ''"/>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label class="form-label" for="zip">Zip</label>
+                                    <input type="text" name="zip" id="zip" class="form-control" t-att-value="employee.private_zip or ''"/>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label class="form-label" for="country_id">Country</label>
+                                    <select name="country_id" id="country_id" class="form-control">
+                                        <option value="">Country...</option>
+                                        <t t-foreach="countries" t-as="c">
+                                            <option t-att-value="c.id" t-att-selected="c.id == employee.private_country_id.id">
+                                                <t t-esc="c.name"/>
+                                            </option>
+                                        </t>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label class="form-label" for="state_id">State</label>
+                                    <select name="state_id" id="state_id" class="form-control">
+                                        <option value="">State...</option>
+                                        <t t-foreach="states" t-as="s">
+                                            <option t-att-value="s.id" t-att-selected="s.id == employee.private_state_id.id">
+                                                <t t-esc="s.name"/>
+                                            </option>
+                                        </t>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"/>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <button type="submit" class="btn btn-primary float-end">
+                                    Confirm
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </t>
+    </template>
+</odoo>
