@@ -1,0 +1,15 @@
+<odoo>
+    <record id="hr_employee_rule_portal" model="ir.rule">
+        <field name="name">Portal: See own employee record</field>
+        <field name="model_id" ref="hr.model_hr_employee"/>
+        <field name="domain_force">[('user_id', '=', user.id)]</field>
+        <field name="groups" eval="[(4, ref('base.group_portal'))]"/>
+    </record>
+
+    <record id="hr_employee_public_rule_portal" model="ir.rule">
+        <field name="name">Portal: See own public employee record</field>
+        <field name="model_id" ref="hr.model_hr_employee_public"/>
+        <field name="domain_force">[('user_id', '=', user.id)]</field>
+        <field name="groups" eval="[(4, ref('base.group_portal'))]"/>
+    </record>
+</odoo>
