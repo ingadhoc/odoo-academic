@@ -6,8 +6,8 @@ class PortalWizard(models.TransientModel):
 
     @api.model
     def _default_portal(self):
-        active_model = self._context.get("active_model")
-        active_id = self._context.get("active_id")
+        active_model = self.env.context.get("active_model")
+        active_id = self.env.context.get("active_id")
         if active_model == "res.partner" and active_id:
             partner_type = self.env[active_model].browse(active_id).partner_type
             groups = self.env["res.groups"]

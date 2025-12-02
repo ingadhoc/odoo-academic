@@ -6,16 +6,14 @@
         <field name="model">academic.group</field>
         <field name="arch" type="xml">
             <search string="group">
-                <group string="By Attribute">
-                    <field name="year" string="Year" />
-                    <field name="division_id" string="Division" />
-                    <field name="company_id" groups="base.group_multi_company"/>
-                </group>
-                <group string="By object">
-                    <field name="level_id" string="Level" />
-                </group>
+                <field name="year" string="Year" />
+                <field name="division_id" string="Division" />
+                <field name="level_id" string="Level" />
+                <field name="company_id" groups="base.group_multi_company"/>
                 <filter name="inactive" string="Archived" domain="[('active', '=', False)]"/>
-                <filter string="Subject" name="group_by_subject_id" context="{'group_by': 'subject_id'}"/>
+                <group>
+                    <filter string="Subject" name="group_by_subject_id" context="{'group_by': 'subject_id'}"/>
+                </group>
             </search>
         </field>
     </record>

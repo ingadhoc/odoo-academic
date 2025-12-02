@@ -12,13 +12,10 @@ class AcademicGroup(models.Model):
     _description = "group"
     _order = "year desc, name"
 
-    _sql_constraints = [
-        (
-            "group_unique",
-            "unique(subject_id, company_id, level_id, year, division_id)",
-            "Group should be unique per Institution, Subject," " Course-Division and Year",
-        )
-    ]
+    _group_unique = models.Constraint(
+        "unique(subject_id, company_id, level_id, year, division_id)",
+        "Group should be unique per Institution, Subject, Course-Division and Year",
+    )
 
     type = fields.Selection(
         [

@@ -221,8 +221,8 @@ class ResPartner(models.Model):
         current_year = date.today().year
         for partner in self:
             domain = [("student_ids", "=", partner.id), ("subject_id", "=", False), ("year", ">=", current_year)]
-            grouped_data = self.env["academic.group"].read_group(domain, ["year"], ["year"])
-            duplicate_years = [group["year"] for group in grouped_data if group["year_count"] > 1]
+            grouped_data = self.env["academic.group"]._read_group(domain, ["year"], ["__count"])
+            duplicate_years = [year for year, count in grouped_data if count > 1]
             if duplicate_years:
                 raise ValidationError(
                     _(

@@ -7,11 +7,7 @@
         <field name="model">academic.promotion</field>
         <field name="arch" type="xml">
             <search string="promotion">
-                <group string="By Attribute">
-                    <field name="name" string="Name" />
-                </group>
-                <group string="By object">
-                </group>
+                <field name="name" string="Name" />
             </search>
         </field>
     </record>

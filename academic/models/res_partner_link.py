@@ -28,10 +28,7 @@ class ResPartner(models.Model):
     #     if recs:
     #         raise UserError('Los contactos y roles deben estar vinculados a una famila o a un estudiante')
 
-    _sql_constraints = [
-        (
-            "link_unique",
-            "unique(student_id, partner_id)",
-            "El contacto debe ser agregado por unica vez en cada familia o estudiante",
-        )
-    ]
+    _link_unique = models.Constraint(
+        "unique(student_id, partner_id)",
+        "El contacto debe ser agregado por unica vez en cada familia o estudiante",
+    )

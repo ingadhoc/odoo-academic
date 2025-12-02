@@ -69,10 +69,6 @@
                 <attribute name="invisible">partner_type in ['student', 'parent']</attribute>
             </field>
 
-            <field name="title" position="attributes">
-                <attribute name="invisible">partner_type in ['student', 'parent']</attribute>
-            </field>
-
             <field name="function" position="attributes">
                 <attribute name="invisible">partner_type == 'student'</attribute>
             </field>
@@ -92,7 +88,7 @@
                             <field name="company_id" column_invisible="1"/>
                             <field name="name"/>
                             <field name="promotion_id"/>
-                            <field name="mobile"/>
+                            <field name="phone"/>
                             <field name="email"/>
                             <button type="object" name="get_formview_action" icon="fa-pencil-square-o" title="Open" help="Open"/>
                         </list>
