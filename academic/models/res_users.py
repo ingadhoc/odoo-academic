@@ -21,7 +21,7 @@ class ResUsers(models.Model):
         return super(ResUsers, self)._set_encrypted_password(uid, pw)
 
     def _compute_display_name(self):
-        if self._context.get("show_login", False):
+        if self.env.context.get("show_login", False):
             for rec in self:
                 rec.display_name = rec.login
         super()._compute_display_name()

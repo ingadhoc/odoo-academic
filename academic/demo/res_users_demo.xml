@@ -21,7 +21,7 @@
         <field name="email">director@colegio.edu.ar</field>
         <field name="company_id" ref="res_company_los_arroyos"/>
         <field name="company_ids" eval="[(6, 0, [ref('res_company_los_arroyos')])]"/>
-        <field name="groups_id" eval="[(6,0,[ref('base.group_user'), ref('base.group_partner_manager'), ref('academic.group_manager')])]"/>
+        <field name="group_ids" eval="[(6,0,[ref('base.group_user'), ref('base.group_partner_manager'), ref('academic.group_manager')])]"/>
     </record>
 
     <record id="user_secretaria_academica" model="res.users" context="{'no_reset_password': True}">
@@ -31,7 +31,7 @@
         <field name="email">secretaria@colegio.edu.ar</field>
         <field name="company_id" ref="res_company_los_arroyos"/>
         <field name="company_ids" eval="[(6, 0, [ref('res_company_los_arroyos')])]"/>
-        <field name="groups_id" eval="[(6,0,[ref('base.group_user'), ref('academic.group_user')])]"/>
+        <field name="group_ids" eval="[(6,0,[ref('base.group_user'), ref('academic.group_user')])]"/>
     </record>
 
     <!-- Teacher Users -->
@@ -42,7 +42,7 @@
         <field name="email">ana.silva@colegio.edu.ar</field>
         <field name="company_id" ref="res_company_los_arroyos"/>
         <field name="company_ids" eval="[(6, 0, [ref('res_company_los_arroyos')])]"/>
-        <field name="groups_id" eval="[(6,0,[ref('base.group_user'), ref('academic.group_user')])]"/>
+        <field name="group_ids" eval="[(6,0,[ref('base.group_user'), ref('academic.group_user')])]"/>
     </record>
 
     <record id="user_prof_carlos_mendez" model="res.users" context="{'no_reset_password': True}">
@@ -52,7 +52,7 @@
         <field name="email">carlos.mendez@colegio.edu.ar</field>
         <field name="company_id" ref="res_company_los_arroyos"/>
         <field name="company_ids" eval="[(6, 0, [ref('res_company_los_arroyos')])]"/>
-        <field name="groups_id" eval="[(6,0,[ref('base.group_user'), ref('academic.group_user')])]"/>
+        <field name="group_ids" eval="[(6,0,[ref('base.group_user'), ref('academic.group_user')])]"/>
     </record>
 
     <!-- Parent Portal Users -->
@@ -63,7 +63,7 @@
         <field name="email">carlos.garcia@email.com</field>
         <field name="company_id" ref="res_company_los_arroyos"/>
         <field name="company_ids" eval="[(6, 0, [ref('res_company_los_arroyos')])]"/>
-        <field name="groups_id" eval="[(6,0,[ref('base.group_portal')])]"/>
+        <field name="group_ids" eval="[(6,0,[ref('base.group_portal')])]"/>
     </record>
 
     <record id="user_ana_garcia" model="res.users" context="{'no_reset_password': True}">
@@ -73,7 +73,7 @@
         <field name="email">ana.garcia@email.com</field>
         <field name="company_id" ref="res_company_los_arroyos"/>
         <field name="company_ids" eval="[(6, 0, [ref('res_company_los_arroyos')])]"/>
-        <field name="groups_id" eval="[(6,0,[ref('base.group_portal')])]"/>
+        <field name="group_ids" eval="[(6,0,[ref('base.group_portal')])]"/>
     </record>
 
     <record id="user_miguel_rodriguez" model="res.users" context="{'no_reset_password': True}">
@@ -83,7 +83,7 @@
         <field name="email">miguel.rodriguez@email.com</field>
         <field name="company_id" ref="res_company_los_arroyos"/>
         <field name="company_ids" eval="[(6, 0, [ref('res_company_los_arroyos')])]"/>
-        <field name="groups_id" eval="[(6,0,[ref('base.group_portal')])]"/>
+        <field name="group_ids" eval="[(6,0,[ref('base.group_portal')])]"/>
     </record>
 
     <record id="user_patricia_rodriguez" model="res.users" context="{'no_reset_password': True}">
@@ -93,7 +93,7 @@
         <field name="email">patricia.rodriguez@email.com</field>
         <field name="company_id" ref="res_company_los_arroyos"/>
         <field name="company_ids" eval="[(6, 0, [ref('res_company_los_arroyos')])]"/>
-        <field name="groups_id" eval="[(6,0,[ref('base.group_portal')])]"/>
+        <field name="group_ids" eval="[(6,0,[ref('base.group_portal')])]"/>
     </record>
 
     <record id="user_daniel_martinez" model="res.users" context="{'no_reset_password': True}">
@@ -103,7 +103,7 @@
         <field name="email">daniel.martinez@email.com</field>
         <field name="company_id" ref="res_company_los_arroyos"/>
         <field name="company_ids" eval="[(6, 0, [ref('res_company_los_arroyos')])]"/>
-        <field name="groups_id" eval="[(6,0,[ref('base.group_portal')])]"/>
+        <field name="group_ids" eval="[(6,0,[ref('base.group_portal')])]"/>
     </record>
 
     <record id="user_claudia_martinez" model="res.users" context="{'no_reset_password': True}">
@@ -113,7 +113,7 @@
         <field name="email">claudia.martinez@email.com</field>
         <field name="company_id" ref="res_company_los_arroyos"/>
         <field name="company_ids" eval="[(6, 0, [ref('res_company_los_arroyos')])]"/>
-        <field name="groups_id" eval="[(6,0,[ref('base.group_portal')])]"/>
+        <field name="group_ids" eval="[(6,0,[ref('base.group_portal')])]"/>
     </record>
 
     <!-- Los Molinos administrator -->
@@ -124,6 +124,6 @@
         <field name="email">rmartin@academic.com</field>
         <field name="company_id" ref="res_company_los_arroyos"/>
         <field name="company_ids" eval="[(4, ref('res_company_los_arroyos'))]"/>
-        <field name="groups_id" eval="[(6,0,[ref('base.group_user')])]"/>
+        <field name="group_ids" eval="[(6,0,[ref('base.group_user')])]"/>
     </record>
 </odoo>
