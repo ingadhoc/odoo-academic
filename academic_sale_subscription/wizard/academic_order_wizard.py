@@ -119,20 +119,38 @@ class OrderWizard(models.TransientModel):
                     existing_line = rec.order_wizard_line_ids.filtered(lambda l: l.product_id.id == line.product_id.id)
 
                     if existing_line:
-                        pricing = self.env["sale.subscription.pricing"]._get_first_suitable_recurring_pricing(
-                            existing_line.product_id, rec.plan_id, rec.pricelist_id
+                        pricing = existing_line.product_id.product_tmpl_id._get_recurring_pricing(
+                            rec.pricelist_id, variant=existing_line.product_id, plan_id=rec.plan_id.id
                         )
+                        price = 0.0
+                        if pricing:
+                            price = pricing._compute_price(
+                                existing_line.product_id,
+                                1.0,
+                                existing_line.product_id.uom_id,
+                                fields.Datetime.now(),
+                                rec.pricelist_id.currency_id or self.env.company.currency_id,
+                            )
                         order_wizard_line_vals = {
-                            "price": pricing.price if pricing else 0.0,
+                            "price": price,
                         }
                         existing_line.write(order_wizard_line_vals)
                     else:
-                        pricing = self.env["sale.subscription.pricing"]._get_first_suitable_recurring_pricing(
-                            line.product_id, rec.plan_id, rec.pricelist_id
+                        pricing = line.product_id.product_tmpl_id._get_recurring_pricing(
+                            rec.pricelist_id, variant=line.product_id, plan_id=rec.plan_id.id
                         )
+                        price = 0.0
+                        if pricing:
+                            price = pricing._compute_price(
+                                line.product_id,
+                                1.0,
+                                line.product_id.uom_id,
+                                fields.Datetime.now(),
+                                rec.pricelist_id.currency_id or self.env.company.currency_id,
+                            )
                         order_wizard_line_vals = {
                             "product_id": line.product_id.id,
-                            "price": pricing.price if pricing else 0.0,
+                            "price": price,
                             "quantity": line.product_uom_qty,
                             "template_id": rec.template_id,
                         }
@@ -142,10 +160,19 @@ class OrderWizard(models.TransientModel):
 
             products = rec.template_id.sale_order_template_line_ids.mapped("product_id")
             for wizard_line in rec.order_wizard_line_ids.filtered(lambda x: x.product_id not in products):
-                pricing = self.env["sale.subscription.pricing"]._get_first_suitable_recurring_pricing(
-                    wizard_line.product_id, rec.plan_id, rec.pricelist_id
+                pricing = wizard_line.product_id.product_tmpl_id._get_recurring_pricing(
+                    rec.pricelist_id, variant=wizard_line.product_id, plan_id=rec.plan_id.id
                 )
-                wizard_line.write({"price": pricing.price if pricing else 0.0})
+                price = 0.0
+                if pricing:
+                    price = pricing._compute_price(
+                        wizard_line.product_id,
+                        1.0,
+                        wizard_line.product_id.uom_id,
+                        fields.Datetime.now(),
+                        rec.pricelist_id.currency_id or self.env.company.currency_id,
+                    )
+                wizard_line.write({"price": price})
 
     @api.constrains("next_invoice_date", "validity_date")
     def _check_validity_date(self):
@@ -193,10 +220,21 @@ class AcademicOrderWizardLine(models.TransientModel):
     @api.depends("product_id")
     def _compute_price(self):
         for rec in self.filtered("product_id"):
-            pricing = self.env["sale.subscription.pricing"]._get_first_suitable_recurring_pricing(
-                rec.product_id, rec.academic_order_wizard_id.plan_id, rec.academic_order_wizard_id.pricelist_id
+            pricing = rec.product_id.product_tmpl_id._get_recurring_pricing(
+                rec.academic_order_wizard_id.pricelist_id,
+                variant=rec.product_id,
+                plan_id=rec.academic_order_wizard_id.plan_id.id,
             )
-            rec.price = pricing.price if pricing else 0.0
+            if pricing:
+                rec.price = pricing._compute_price(
+                    rec.product_id,
+                    1.0,
+                    rec.product_id.uom_id,
+                    fields.Datetime.now(),
+                    rec.academic_order_wizard_id.pricelist_id.currency_id or self.env.company.currency_id,
+                )
+            else:
+                rec.price = 0.0
 
     @api.depends("academic_product_type")
     def _compute_academic_group_id(self):

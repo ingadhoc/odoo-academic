@@ -1,120 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo noupdate="1">
         <!-- Productos Primaria -->
-        <record id="product_cuota_primaria" model="product.product">
+        <record id="product_cuota_primaria" model="product.template">
             <field name="name">Cuota Mensual - Primaria</field>
             <field name="type">service</field>
             <field name="recurring_invoice">True</field>
             <field name="uom_id" ref="uom.product_uom_unit"/>
-            <field name="uom_po_id" ref="uom.product_uom_unit"/>
             <field name="list_price">12000.0</field>
             <field name="standard_price">12000.0</field>
-            <field name="categ_id" ref="product.product_category_all"/>
+            <field name="categ_id" ref="product.product_category_services"/>
+            <field name="company_id" ref="academic.res_company_los_arroyos"/>
             <field name="invoice_policy">order</field>
             <field name="service_type">manual</field>
             <field name="academic_product_type">fee</field>
-            <field name="product_subscription_pricing_ids" eval="[(6,0,[ref('pricing_primaria_1_cuota'), ref('pricing_primaria_3_cuotas'), ref('pricing_primaria_6_cuotas'), ref('pricing_primaria_12_cuotas'), ref('pricing_primaria_anual')])]"/>
         </record>
 
-        <record id="product_inscripcion_primaria" model="product.product">
+        <record id="product_inscripcion_primaria" model="product.template">
             <field name="name">Inscripción - Primaria</field>
             <field name="type">service</field>
             <field name="recurring_invoice">True</field>
             <field name="uom_id" ref="uom.product_uom_unit"/>
-            <field name="uom_po_id" ref="uom.product_uom_unit"/>
             <field name="list_price">6000.0</field>
             <field name="standard_price">6000.0</field>
-            <field name="categ_id" ref="product.product_category_all"/>
+            <field name="categ_id" ref="product.product_category_services"/>
+            <field name="company_id" ref="academic.res_company_los_arroyos"/>
             <field name="invoice_policy">order</field>
             <field name="service_type">manual</field>
             <field name="academic_product_type">registration</field>
         </record>
 
         <!-- Productos Secundaria -->
-        <record id="product_cuota_secundaria" model="product.product">
+        <record id="product_cuota_secundaria" model="product.template">
             <field name="name">Cuota Mensual - Secundaria</field>
             <field name="type">service</field>
             <field name="recurring_invoice">True</field>
             <field name="uom_id" ref="uom.product_uom_unit"/>
-            <field name="uom_po_id" ref="uom.product_uom_unit"/>
             <field name="list_price">15000.0</field>
             <field name="standard_price">15000.0</field>
-            <field name="categ_id" ref="product.product_category_all"/>
+            <field name="categ_id" ref="product.product_category_services"/>
+            <field name="company_id" ref="academic.res_company_los_arroyos"/>
             <field name="invoice_policy">order</field>
             <field name="service_type">manual</field>
             <field name="academic_product_type">fee</field>
-            <field name="product_subscription_pricing_ids" eval="[(6,0,[ref('pricing_secundaria_1_cuota'), ref('pricing_secundaria_3_cuotas'), ref('pricing_secundaria_6_cuotas'), ref('pricing_secundaria_12_cuotas'), ref('pricing_secundaria_anual')])]"/>
         </record>
 
-        <record id="product_inscripcion_secundaria" model="product.product">
+        <record id="product_inscripcion_secundaria" model="product.template">
             <field name="name">Inscripción - Secundaria</field>
             <field name="type">service</field>
             <field name="recurring_invoice">True</field>
             <field name="uom_id" ref="uom.product_uom_unit"/>
-            <field name="uom_po_id" ref="uom.product_uom_unit"/>
             <field name="list_price">8000.0</field>
             <field name="standard_price">8000.0</field>
-            <field name="categ_id" ref="product.product_category_all"/>
+            <field name="categ_id" ref="product.product_category_services"/>
+            <field name="company_id" ref="academic.res_company_los_arroyos"/>
             <field name="invoice_policy">order</field>
             <field name="service_type">manual</field>
             <field name="academic_product_type">registration</field>
         </record>
 
         <!-- Productos Universidad -->
-        <record id="product_cuota_universidad" model="product.product">
+        <record id="product_cuota_universidad" model="product.template">
             <field name="name">Cuota Mensual - Universidad</field>
             <field name="type">service</field>
             <field name="recurring_invoice">True</field>
             <field name="uom_id" ref="uom.product_uom_unit"/>
-            <field name="uom_po_id" ref="uom.product_uom_unit"/>
             <field name="list_price">25000.0</field>
             <field name="standard_price">25000.0</field>
-            <field name="categ_id" ref="product.product_category_all"/>
+            <field name="categ_id" ref="product.product_category_services"/>
+            <field name="company_id" ref="academic.res_company_los_arroyos"/>
             <field name="invoice_policy">order</field>
             <field name="service_type">manual</field>
             <field name="academic_product_type">fee</field>
-            <field name="product_subscription_pricing_ids" eval="[(6,0,[ref('pricing_universidad_1_cuota'), ref('pricing_universidad_3_cuotas'), ref('pricing_universidad_6_cuotas'), ref('pricing_universidad_12_cuotas'), ref('pricing_universidad_anual')])]"/>
         </record>
 
-        <record id="product_inscripcion_universidad" model="product.product">
+        <record id="product_inscripcion_universidad" model="product.template">
             <field name="name">Inscripción - Universidad</field>
             <field name="type">service</field>
             <field name="recurring_invoice">True</field>
             <field name="uom_id" ref="uom.product_uom_unit"/>
-            <field name="uom_po_id" ref="uom.product_uom_unit"/>
             <field name="list_price">15000.0</field>
             <field name="standard_price">15000.0</field>
-            <field name="categ_id" ref="product.product_category_all"/>
+            <field name="categ_id" ref="product.product_category_services"/>
+            <field name="company_id" ref="academic.res_company_los_arroyos"/>
             <field name="invoice_policy">order</field>
             <field name="service_type">manual</field>
             <field name="academic_product_type">registration</field>
         </record>
 
         <!-- Productos Inglés -->
-        <record id="product_cuota_ingles" model="product.product">
+        <record id="product_cuota_ingles" model="product.template">
             <field name="name">Cuota Mensual - Inglés</field>
             <field name="type">service</field>
             <field name="recurring_invoice">True</field>
             <field name="uom_id" ref="uom.product_uom_unit"/>
-            <field name="uom_po_id" ref="uom.product_uom_unit"/>
             <field name="list_price">8000.0</field>
             <field name="standard_price">8000.0</field>
-            <field name="categ_id" ref="product.product_category_all"/>
+            <field name="categ_id" ref="product.product_category_services"/>
+            <field name="company_id" ref="academic.res_company_los_arroyos"/>
             <field name="invoice_policy">order</field>
             <field name="service_type">manual</field>
             <field name="academic_product_type">fee</field>
-            <field name="product_subscription_pricing_ids" eval="[(6,0,[ref('pricing_ingles_1_cuota'), ref('pricing_ingles_3_cuotas'), ref('pricing_ingles_6_cuotas'), ref('pricing_ingles_12_cuotas'), ref('pricing_ingles_anual')])]"/>
         </record>
 
-        <record id="product_inscripcion_ingles" model="product.product">
+        <record id="product_inscripcion_ingles" model="product.template">
             <field name="name">Inscripción - Inglés</field>
             <field name="type">service</field>
             <field name="recurring_invoice">True</field>
             <field name="uom_id" ref="uom.product_uom_unit"/>
-            <field name="uom_po_id" ref="uom.product_uom_unit"/>
             <field name="list_price">4000.0</field>
             <field name="standard_price">4000.0</field>
-            <field name="categ_id" ref="product.product_category_all"/>
+            <field name="categ_id" ref="product.product_category_services"/>
+            <field name="company_id" ref="academic.res_company_los_arroyos"/>
             <field name="invoice_policy">order</field>
             <field name="service_type">manual</field>
             <field name="academic_product_type">registration</field>
@@ -143,102 +139,6 @@
             <field name="name">Cotización Inglés</field>
             <field name="note">Plantilla de cotización para cursos de inglés - incluye cuota mensual e inscripción</field>
             <field name="company_id" ref="academic.res_company_los_arroyos"/>
-        </record>
-
-        <!-- Líneas de plantilla para Primaria -->
-        <record id="template_section_primaria" model="sale.order.template.line">
-            <field name="sale_order_template_id" ref="subscription_template_primaria"/>
-            <field name="display_type">line_section</field>
-            <field name="name">📚 EDUCACIÓN PRIMARIA</field>
-            <field name="sequence">1</field>
-        </record>
-
-        <record id="template_line_cuota_primaria" model="sale.order.template.line">
-            <field name="sale_order_template_id" ref="subscription_template_primaria"/>
-            <field name="product_id" ref="product_cuota_primaria"/>
-            <field name="product_uom_qty">1</field>
-            <field name="product_uom_id" ref="uom.product_uom_unit"/>
-            <field name="sequence">2</field>
-        </record>
-
-        <record id="template_line_inscripcion_primaria" model="sale.order.template.line">
-            <field name="sale_order_template_id" ref="subscription_template_primaria"/>
-            <field name="product_id" ref="product_inscripcion_primaria"/>
-            <field name="product_uom_qty">1</field>
-            <field name="product_uom_id" ref="uom.product_uom_unit"/>
-            <field name="sequence">3</field>
-        </record>
-
-        <!-- Líneas de plantilla para Secundaria -->
-        <record id="template_section_secundaria" model="sale.order.template.line">
-            <field name="sale_order_template_id" ref="subscription_template_secundaria"/>
-            <field name="display_type">line_section</field>
-            <field name="name">🎓 EDUCACIÓN SECUNDARIA</field>
-            <field name="sequence">1</field>
-        </record>
-
-        <record id="template_line_cuota_secundaria" model="sale.order.template.line">
-            <field name="sale_order_template_id" ref="subscription_template_secundaria"/>
-            <field name="product_id" ref="product_cuota_secundaria"/>
-            <field name="product_uom_qty">1</field>
-            <field name="product_uom_id" ref="uom.product_uom_unit"/>
-            <field name="sequence">2</field>
-        </record>
-
-        <record id="template_line_inscripcion_secundaria" model="sale.order.template.line">
-            <field name="sale_order_template_id" ref="subscription_template_secundaria"/>
-            <field name="product_id" ref="product_inscripcion_secundaria"/>
-            <field name="product_uom_qty">1</field>
-            <field name="product_uom_id" ref="uom.product_uom_unit"/>
-            <field name="sequence">3</field>
-        </record>
-
-        <!-- Líneas de plantilla para Universidad -->
-        <record id="template_section_universidad" model="sale.order.template.line">
-            <field name="sale_order_template_id" ref="subscription_template_universidad"/>
-            <field name="display_type">line_section</field>
-            <field name="name">🏛️ EDUCACIÓN UNIVERSITARIA</field>
-            <field name="sequence">1</field>
-        </record>
-
-        <record id="template_line_cuota_universidad" model="sale.order.template.line">
-            <field name="sale_order_template_id" ref="subscription_template_universidad"/>
-            <field name="product_id" ref="product_cuota_universidad"/>
-            <field name="product_uom_qty">1</field>
-            <field name="product_uom_id" ref="uom.product_uom_unit"/>
-            <field name="sequence">2</field>
-        </record>
-
-        <record id="template_line_inscripcion_universidad" model="sale.order.template.line">
-            <field name="sale_order_template_id" ref="subscription_template_universidad"/>
-            <field name="product_id" ref="product_inscripcion_universidad"/>
-            <field name="product_uom_qty">1</field>
-            <field name="product_uom_id" ref="uom.product_uom_unit"/>
-            <field name="sequence">3</field>
-        </record>
-
-        <!-- Líneas de plantilla para Inglés -->
-        <record id="template_section_ingles" model="sale.order.template.line">
-            <field name="sale_order_template_id" ref="subscription_template_ingles"/>
-            <field name="display_type">line_section</field>
-            <field name="name">🇺🇸 CURSOS DE INGLÉS</field>
-            <field name="sequence">1</field>
-        </record>
-
-        <record id="template_line_cuota_ingles" model="sale.order.template.line">
-            <field name="sale_order_template_id" ref="subscription_template_ingles"/>
-            <field name="product_id" ref="product_cuota_ingles"/>
-            <field name="product_uom_qty">1</field>
-            <field name="product_uom_id" ref="uom.product_uom_unit"/>
-            <field name="sequence">2</field>
-        </record>
-
-        <record id="template_line_inscripcion_ingles" model="sale.order.template.line">
-            <field name="sale_order_template_id" ref="subscription_template_ingles"/>
-            <field name="product_id" ref="product_inscripcion_ingles"/>
-            <field name="product_uom_qty">1</field>
-            <field name="product_uom_id" ref="uom.product_uom_unit"/>
-            <field name="sequence">3</field>
         </record>
 
 </odoo>

@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
     "name": "Academic Sale Subscription",
-    "version": "18.0.1.16.0",
+    "version": "19.0.1.0.0",
     "sequence": 14,
     "summary": "",
     "author": "ADHOC SA",
@@ -50,14 +50,15 @@
     "demo": [
         "demo/account_chart_demo.xml",
         "demo/account_journal_demo.xml",
-        "demo/subscription_plan_demo.xml",
         "demo/product_template_demo.xml",
+        "demo/subscription_plan_demo.xml",
+        "demo/sale_order_template_line_demo.xml",
         "demo/sale_order_close_reason_demo.xml",
         "demo/crm_lead_demo.xml",
         "demo/sale_subscription_demo.xml",
         "demo/account_move_demo.xml",
     ],
-    "installable": False,
+    "installable": True,
     "auto_install": ["sale_subscription", "academic"],
     "application": False,
     "post_init_hook": "post_init_hook",

@@ -133,127 +133,208 @@
         </record>
 
         <!-- Subscription Pricing for Academic Products -->
+        <!-- In Odoo 19, subscription pricing is handled through product.pricelist.item with plan_id -->
         <!-- Precios para productos de Primaria -->
-        <record id="pricing_primaria_1_cuota" model="sale.subscription.pricing">
+        <record id="pricing_primaria_1_cuota" model="product.pricelist.item">
             <field name="plan_id" ref="subscription_plan_1_cuota"/>
-            <field name="price">12000.0</field>
+            <field name="pricelist_id" eval="False"/>
+            <field name="product_tmpl_id" ref="product_cuota_primaria"/>
+            <field name="company_id" ref="academic.res_company_los_arroyos"/>
+            <field name="compute_price">fixed</field>
+            <field name="fixed_price">12000.0</field>
             <field name="currency_id" ref="base.ARS"/>
         </record>
 
-        <record id="pricing_primaria_3_cuotas" model="sale.subscription.pricing">
+        <record id="pricing_primaria_3_cuotas" model="product.pricelist.item">
             <field name="plan_id" ref="subscription_plan_3_cuotas"/>
-            <field name="price">12000.0</field>
+            <field name="pricelist_id" eval="False"/>
+            <field name="product_tmpl_id" ref="product_cuota_primaria"/>
+            <field name="company_id" ref="academic.res_company_los_arroyos"/>
+            <field name="compute_price">fixed</field>
+            <field name="fixed_price">12000.0</field>
             <field name="currency_id" ref="base.ARS"/>
         </record>
 
-        <record id="pricing_primaria_6_cuotas" model="sale.subscription.pricing">
+        <record id="pricing_primaria_6_cuotas" model="product.pricelist.item">
             <field name="plan_id" ref="subscription_plan_6_cuotas"/>
-            <field name="price">12000.0</field>
+            <field name="pricelist_id" eval="False"/>
+            <field name="product_tmpl_id" ref="product_cuota_primaria"/>
+            <field name="company_id" ref="academic.res_company_los_arroyos"/>
+            <field name="compute_price">fixed</field>
+            <field name="fixed_price">12000.0</field>
             <field name="currency_id" ref="base.ARS"/>
         </record>
 
-        <record id="pricing_primaria_12_cuotas" model="sale.subscription.pricing">
+        <record id="pricing_primaria_12_cuotas" model="product.pricelist.item">
             <field name="plan_id" ref="subscription_plan_12_cuotas"/>
-            <field name="price">12000.0</field>
+            <field name="pricelist_id" eval="False"/>
+            <field name="product_tmpl_id" ref="product_cuota_primaria"/>
+            <field name="company_id" ref="academic.res_company_los_arroyos"/>
+            <field name="compute_price">fixed</field>
+            <field name="fixed_price">12000.0</field>
             <field name="currency_id" ref="base.ARS"/>
         </record>
 
-        <record id="pricing_primaria_anual" model="sale.subscription.pricing">
+        <record id="pricing_primaria_anual" model="product.pricelist.item">
             <field name="plan_id" ref="subscription_plan_anual"/>
-            <field name="price">120000.0</field>
+            <field name="pricelist_id" eval="False"/>
+            <field name="product_tmpl_id" ref="product_cuota_primaria"/>
+            <field name="company_id" ref="academic.res_company_los_arroyos"/>
+            <field name="compute_price">fixed</field>
+            <field name="fixed_price">120000.0</field>
             <field name="currency_id" ref="base.ARS"/>
         </record>
 
         <!-- Precios para productos de Secundaria -->
-        <record id="pricing_secundaria_1_cuota" model="sale.subscription.pricing">
+        <record id="pricing_secundaria_1_cuota" model="product.pricelist.item">
             <field name="plan_id" ref="subscription_plan_1_cuota"/>
-            <field name="price">15000.0</field>
+            <field name="pricelist_id" eval="False"/>
+            <field name="product_tmpl_id" ref="product_cuota_secundaria"/>
+            <field name="company_id" ref="academic.res_company_los_arroyos"/>
+            <field name="compute_price">fixed</field>
+            <field name="fixed_price">15000.0</field>
             <field name="currency_id" ref="base.ARS"/>
         </record>
 
-        <record id="pricing_secundaria_3_cuotas" model="sale.subscription.pricing">
+        <record id="pricing_secundaria_3_cuotas" model="product.pricelist.item">
             <field name="plan_id" ref="subscription_plan_3_cuotas"/>
-            <field name="price">15000.0</field>
+            <field name="pricelist_id" eval="False"/>
+            <field name="product_tmpl_id" ref="product_cuota_secundaria"/>
+            <field name="company_id" ref="academic.res_company_los_arroyos"/>
+            <field name="compute_price">fixed</field>
+            <field name="fixed_price">15000.0</field>
             <field name="currency_id" ref="base.ARS"/>
         </record>
 
-        <record id="pricing_secundaria_6_cuotas" model="sale.subscription.pricing">
+        <record id="pricing_secundaria_6_cuotas" model="product.pricelist.item">
             <field name="plan_id" ref="subscription_plan_6_cuotas"/>
-            <field name="price">15000.0</field>
+            <field name="pricelist_id" eval="False"/>
+            <field name="product_tmpl_id" ref="product_cuota_secundaria"/>
+            <field name="company_id" ref="academic.res_company_los_arroyos"/>
+            <field name="compute_price">fixed</field>
+            <field name="fixed_price">15000.0</field>
             <field name="currency_id" ref="base.ARS"/>
         </record>
 
-        <record id="pricing_secundaria_12_cuotas" model="sale.subscription.pricing">
+        <record id="pricing_secundaria_12_cuotas" model="product.pricelist.item">
             <field name="plan_id" ref="subscription_plan_12_cuotas"/>
-            <field name="price">15000.0</field>
+            <field name="pricelist_id" eval="False"/>
+            <field name="product_tmpl_id" ref="product_cuota_secundaria"/>
+            <field name="company_id" ref="academic.res_company_los_arroyos"/>
+            <field name="compute_price">fixed</field>
+            <field name="fixed_price">15000.0</field>
             <field name="currency_id" ref="base.ARS"/>
         </record>
 
-        <record id="pricing_secundaria_anual" model="sale.subscription.pricing">
+        <record id="pricing_secundaria_anual" model="product.pricelist.item">
             <field name="plan_id" ref="subscription_plan_anual"/>
-            <field name="price">150000.0</field>
+            <field name="pricelist_id" eval="False"/>
+            <field name="product_tmpl_id" ref="product_cuota_secundaria"/>
+            <field name="company_id" ref="academic.res_company_los_arroyos"/>
+            <field name="compute_price">fixed</field>
+            <field name="fixed_price">150000.0</field>
             <field name="currency_id" ref="base.ARS"/>
         </record>
 
         <!-- Precios para productos de Universidad -->
-        <record id="pricing_universidad_1_cuota" model="sale.subscription.pricing">
+        <record id="pricing_universidad_1_cuota" model="product.pricelist.item">
             <field name="plan_id" ref="subscription_plan_1_cuota"/>
-            <field name="price">25000.0</field>
+            <field name="pricelist_id" eval="False"/>
+            <field name="product_tmpl_id" ref="product_cuota_universidad"/>
+            <field name="company_id" ref="academic.res_company_los_arroyos"/>
+            <field name="compute_price">fixed</field>
+            <field name="fixed_price">25000.0</field>
             <field name="currency_id" ref="base.ARS"/>
         </record>
 
-        <record id="pricing_universidad_3_cuotas" model="sale.subscription.pricing">
+        <record id="pricing_universidad_3_cuotas" model="product.pricelist.item">
             <field name="plan_id" ref="subscription_plan_3_cuotas"/>
-            <field name="price">25000.0</field>
+            <field name="pricelist_id" eval="False"/>
+            <field name="product_tmpl_id" ref="product_cuota_universidad"/>
+            <field name="company_id" ref="academic.res_company_los_arroyos"/>
+            <field name="compute_price">fixed</field>
+            <field name="fixed_price">25000.0</field>
             <field name="currency_id" ref="base.ARS"/>
         </record>
 
-        <record id="pricing_universidad_6_cuotas" model="sale.subscription.pricing">
+        <record id="pricing_universidad_6_cuotas" model="product.pricelist.item">
             <field name="plan_id" ref="subscription_plan_6_cuotas"/>
-            <field name="price">25000.0</field>
+            <field name="pricelist_id" eval="False"/>
+            <field name="product_tmpl_id" ref="product_cuota_universidad"/>
+            <field name="company_id" ref="academic.res_company_los_arroyos"/>
+            <field name="compute_price">fixed</field>
+            <field name="fixed_price">25000.0</field>
             <field name="currency_id" ref="base.ARS"/>
         </record>
 
-        <record id="pricing_universidad_12_cuotas" model="sale.subscription.pricing">
+        <record id="pricing_universidad_12_cuotas" model="product.pricelist.item">
             <field name="plan_id" ref="subscription_plan_12_cuotas"/>
-            <field name="price">25000.0</field>
+            <field name="pricelist_id" eval="False"/>
+            <field name="product_tmpl_id" ref="product_cuota_universidad"/>
+            <field name="company_id" ref="academic.res_company_los_arroyos"/>
+            <field name="compute_price">fixed</field>
+            <field name="fixed_price">25000.0</field>
             <field name="currency_id" ref="base.ARS"/>
         </record>
 
-        <record id="pricing_universidad_anual" model="sale.subscription.pricing">
+        <record id="pricing_universidad_anual" model="product.pricelist.item">
             <field name="plan_id" ref="subscription_plan_anual"/>
-            <field name="price">250000.0</field>
+            <field name="pricelist_id" eval="False"/>
+            <field name="product_tmpl_id" ref="product_cuota_universidad"/>
+            <field name="company_id" ref="academic.res_company_los_arroyos"/>
+            <field name="compute_price">fixed</field>
+            <field name="fixed_price">250000.0</field>
             <field name="currency_id" ref="base.ARS"/>
         </record>
 
         <!-- Precios para productos de Inglés -->
-        <record id="pricing_ingles_1_cuota" model="sale.subscription.pricing">
+        <record id="pricing_ingles_1_cuota" model="product.pricelist.item">
             <field name="plan_id" ref="subscription_plan_1_cuota"/>
-            <field name="price">8000.0</field>
+            <field name="pricelist_id" eval="False"/>
+            <field name="product_tmpl_id" ref="product_cuota_ingles"/>
+            <field name="company_id" ref="academic.res_company_los_arroyos"/>
+            <field name="compute_price">fixed</field>
+            <field name="fixed_price">8000.0</field>
             <field name="currency_id" ref="base.ARS"/>
         </record>
 
-        <record id="pricing_ingles_3_cuotas" model="sale.subscription.pricing">
+        <record id="pricing_ingles_3_cuotas" model="product.pricelist.item">
             <field name="plan_id" ref="subscription_plan_3_cuotas"/>
-            <field name="price">8000.0</field>
+            <field name="pricelist_id" eval="False"/>
+            <field name="product_tmpl_id" ref="product_cuota_ingles"/>
+            <field name="company_id" ref="academic.res_company_los_arroyos"/>
+            <field name="compute_price">fixed</field>
+            <field name="fixed_price">8000.0</field>
             <field name="currency_id" ref="base.ARS"/>
         </record>
 
-        <record id="pricing_ingles_6_cuotas" model="sale.subscription.pricing">
+        <record id="pricing_ingles_6_cuotas" model="product.pricelist.item">
             <field name="plan_id" ref="subscription_plan_6_cuotas"/>
-            <field name="price">8000.0</field>
+            <field name="pricelist_id" eval="False"/>
+            <field name="product_tmpl_id" ref="product_cuota_ingles"/>
+            <field name="company_id" ref="academic.res_company_los_arroyos"/>
+            <field name="compute_price">fixed</field>
+            <field name="fixed_price">8000.0</field>
             <field name="currency_id" ref="base.ARS"/>
         </record>
 
-        <record id="pricing_ingles_12_cuotas" model="sale.subscription.pricing">
+        <record id="pricing_ingles_12_cuotas" model="product.pricelist.item">
             <field name="plan_id" ref="subscription_plan_12_cuotas"/>
-            <field name="price">8000.0</field>
+            <field name="pricelist_id" eval="False"/>
+            <field name="product_tmpl_id" ref="product_cuota_ingles"/>
+            <field name="company_id" ref="academic.res_company_los_arroyos"/>
+            <field name="compute_price">fixed</field>
+            <field name="fixed_price">8000.0</field>
             <field name="currency_id" ref="base.ARS"/>
         </record>
 
-        <record id="pricing_ingles_anual" model="sale.subscription.pricing">
+        <record id="pricing_ingles_anual" model="product.pricelist.item">
             <field name="plan_id" ref="subscription_plan_anual"/>
-            <field name="price">80000.0</field>
+            <field name="pricelist_id" eval="False"/>
+            <field name="product_tmpl_id" ref="product_cuota_ingles"/>
+            <field name="company_id" ref="academic.res_company_los_arroyos"/>
+            <field name="compute_price">fixed</field>
+            <field name="fixed_price">80000.0</field>
             <field name="currency_id" ref="base.ARS"/>
         </record>
 

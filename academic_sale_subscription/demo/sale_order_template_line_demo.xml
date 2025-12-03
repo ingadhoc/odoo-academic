@@ -1,0 +1,3 @@
+<odoo noupdate="1">
+    <function model="sale.order.template" name="_init_academic_template_lines"/>
+</odoo>
