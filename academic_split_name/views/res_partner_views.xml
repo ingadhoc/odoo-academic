@@ -6,48 +6,41 @@
             <xpath expr="//h1" position="attributes">
                 <attribute name="invisible">partner_type in ['student', 'parent', 'family']</attribute>
             </xpath>
-            <xpath expr="//div[hasclass('o_row')]" position="attributes">
-                <attribute name="invisible">partner_type in ['student', 'parent', 'family']</attribute>
-            </xpath>
-            <xpath expr="//div[hasclass('oe_title')]" position="inside">
-                <div class="o_row mt-3">
-                    <div>
-                        <label for="lastname"
-                            invisible="partner_type not in ['student', 'parent', 'family']"/>
+            <xpath expr="//h1" position="after">
+                <div class="d-flex flex-wrap gap-2 w-md-75" invisible="partner_type not in ['student', 'parent', 'family']">
+                    <div class="flex-grow-1" style="min-width: 200px;">
+                        <label for="lastname" class="d-block"/>
                         <field
                             name="lastname"
                             string="Last Name"
-                            invisible="partner_type not in ['student', 'parent', 'family']"
                             required="partner_type in ['student', 'parent', 'family']"
-                            placeholder="Last Name"/>
+                            placeholder="Last Name"
+                            class="w-100"/>
                     </div>
-                    <div>
-                        <label for="second_lastname"
-                            invisible="partner_type not in ['student', 'parent', 'family']"/>
+                    <div class="flex-grow-1" style="min-width: 200px;">
+                        <label for="second_lastname" class="d-block"/>
                         <field
                             name="second_lastname"
                             string="Second Last Name"
-                            invisible="partner_type not in ['student', 'parent', 'family']"
-                            placeholder="Second Last Name"/>
+                            placeholder="Second Last Name"
+                            class="w-100"/>
                     </div>
-                    <div>
-                        <label for="firstname"
-                            invisible="partner_type not in ['student', 'parent']"/>
+                    <div class="flex-grow-1" style="min-width: 200px;" invisible="partner_type not in ['student', 'parent']">
+                        <label for="firstname" class="d-block"/>
                         <field
                             name="firstname"
                             string="First Name"
-                            invisible="partner_type not in ['student', 'parent']"
                             required="partner_type in ['student', 'parent']"
-                            placeholder="First Name"/>
+                            placeholder="First Name"
+                            class="w-100"/>
                     </div>
-                    <div>
-                        <label for="middlename"
-                            invisible="partner_type not in ['student', 'parent']"/>
+                    <div class="flex-grow-1" style="min-width: 200px;" invisible="partner_type not in ['student', 'parent']">
+                        <label for="middlename" class="d-block"/>
                         <field
                             name="middlename"
                             string="Middle Name"
-                            invisible="partner_type not in ['student', 'parent']"
-                            placeholder="Middle Name"/>
+                            placeholder="Middle Name"
+                            class="w-100"/>
                     </div>
                 </div>
             </xpath>
