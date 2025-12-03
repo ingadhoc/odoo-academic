@@ -1,6 +1,6 @@
 from odoo.addons.account.controllers.portal import PortalAccount
+from odoo.fields import Domain
 from odoo.http import request
-from odoo.osv import expression
 
 
 class PortalAccount(PortalAccount):
@@ -30,7 +30,7 @@ class PortalAccount(PortalAccount):
         if filterby not in searchbar_filters:
             filterby = "all"
         values = super()._prepare_my_invoices_values(page, date_begin, date_end, sortby, filterby, domain, url)
-        domain = expression.AND(
+        domain = Domain.AND(
             [
                 domain or [],
                 self._get_invoices_domain(),

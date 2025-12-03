@@ -10,7 +10,9 @@ class CrmLead(models.Model):
 
     group_id = fields.Many2one("academic.group")
 
-    def _create_customer(self):
+    def _create_customer(self, with_parent=None):
         if self.group_id:
-            return super(CrmLead, self.with_context(default_partner_type="student"))._create_customer()
-        return super()._create_customer()
+            return super(CrmLead, self.with_context(default_partner_type="student"))._create_customer(
+                with_parent=with_parent
+            )
+        return super()._create_customer(with_parent=with_parent)

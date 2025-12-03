@@ -114,11 +114,11 @@ class SaleOrder(models.Model):
         return grouping_keys
 
     def action_update_prices(self):
-        if self._context.get("action_update_subscription_prices"):
+        if self.env.context.get("action_update_subscription_prices"):
             lines_no_recurring_pricing = self.order_line.filtered(
                 lambda line: not bool(
-                    self.env["sale.subscription.pricing"]._get_first_suitable_recurring_pricing(
-                        line.product_id, line.subscription_plan_id, line.order_id.pricelist_id
+                    line.product_id.product_tmpl_id._get_recurring_pricing(
+                        line.order_id.pricelist_id, variant=line.product_id, plan_id=line.subscription_plan_id.id
                     )
                 )
             )

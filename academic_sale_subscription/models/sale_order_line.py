@@ -30,5 +30,5 @@ class SaleOrderLine(models.Model):
             "target": "current",
             "view_mode": "form",
             "res_id": self.order_id.id,
-            "context": dict(self._context),
+            "context": dict(self.env.context),
         }

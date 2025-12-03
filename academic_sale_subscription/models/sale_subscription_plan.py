@@ -3,15 +3,16 @@
 # directory
 ##############################################################################
 from odoo import fields, models
-from odoo.tools import get_timedelta
+from odoo.tools.date_utils import get_timedelta
 
 
 class SaleSubscriptionPlan(models.Model):
     _inherit = "sale.subscription.plan"
 
-    _sql_constraints = [
-        ("check_duration_value", "CHECK(is_unlimited OR duration_value > 0)", "The duration can't be negative or 0."),
-    ]
+    _check_duration_value = models.Constraint(
+        "CHECK(is_unlimited OR duration_value > 0)",
+        "The duration can't be negative or 0.",
+    )
 
     is_unlimited = fields.Boolean("Last Forever", default=True)
     duration_value = fields.Integer(string="End After", default=1, required=True)
