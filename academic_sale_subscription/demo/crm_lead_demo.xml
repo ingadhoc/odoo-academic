@@ -10,28 +10,28 @@
     <record id="stage_oportunidad" model="crm.stage">
         <field name="name">Oportunidad</field>
         <field name="sequence">1</field>
-        <field name="team_id" ref="crm_team_academic"/>
+        <field name="team_ids" eval="[(4, ref('crm_team_academic'))]"/>
         <field name="fold">False</field>
     </record>
 
     <record id="stage_primera_entrevista" model="crm.stage">
         <field name="name">Primera entrevista</field>
         <field name="sequence">2</field>
-        <field name="team_id" ref="crm_team_academic"/>
+        <field name="team_ids" eval="[(4, ref('crm_team_academic'))]"/>
         <field name="fold">False</field>
     </record>
 
     <record id="stage_entrevista_directivo" model="crm.stage">
         <field name="name">Entrevista Directivo</field>
         <field name="sequence">3</field>
-        <field name="team_id" ref="crm_team_academic"/>
+        <field name="team_ids" eval="[(4, ref('crm_team_academic'))]"/>
         <field name="fold">False</field>
     </record>
 
     <record id="stage_vacante_otorgada" model="crm.stage">
         <field name="name">Vacante Otorgada</field>
         <field name="sequence">4</field>
-        <field name="team_id" ref="crm_team_academic"/>
+        <field name="team_ids" eval="[(4, ref('crm_team_academic'))]"/>
         <field name="fold">False</field>
         <field name="is_won">True</field>
     </record>
@@ -39,7 +39,7 @@
     <record id="stage_lista_espera" model="crm.stage">
         <field name="name">Lista de Espera</field>
         <field name="sequence">5</field>
-        <field name="team_id" ref="crm_team_academic"/>
+        <field name="team_ids" eval="[(4, ref('crm_team_academic'))]"/>
         <field name="fold">True</field>
     </record>
 
