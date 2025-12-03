@@ -4,11 +4,9 @@
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//h1" position="after">
-                <group>
-                    <field name="academic_code" invisible="partner_type != 'family'"/>
-                </group>
-            </xpath>
+            <field name="links_by_student" position="before">
+                <field name="academic_code" invisible="partner_type != 'family'"/>
+            </field>
         </field>
     </record>
 

@@ -19,7 +19,7 @@
 ##############################################################################
 {
     "name": "Academic Partner Code",
-    "version": "18.0.1.0.0",
+    "version": "19.0.1.0.0",
     "sequence": 14,
     "summary": "",
     "author": "ADHOC SA",
@@ -27,7 +27,7 @@
     "license": "AGPL-3",
     "depends": ["academic"],
     "data": ["data/ir_sequence_data.xml", "views/res_partner_views.xml"],
-    "installable": False,
+    "installable": True,
     "auto_install": False,
     "application": False,
 }
