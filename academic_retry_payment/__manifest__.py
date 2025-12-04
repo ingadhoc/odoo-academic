@@ -1,6 +1,6 @@
 {
     "name": "Academic retry Payment",
-    "version": "18.0.1.0.0",
+    "version": "19.0.1.0.0",
     "sequence": 14,
     "summary": "",
     "author": "ADHOC SA",
@@ -10,7 +10,7 @@
     "data": [
         "wizards/payment_transaction_retry.xml",
     ],
-    "installable": False,
+    "installable": True,
     "auto_install": True,
     "application": False,
 }
