@@ -19,7 +19,7 @@
 ##############################################################################
 {
     "name": "Academic Account Interests",
-    "version": "18.0.1.1.0",
+    "version": "19.0.1.0.0",
     "sequence": 14,
     "summary": "",
     "author": "ADHOC SA",
@@ -27,7 +27,7 @@
     "license": "AGPL-3",
     "depends": ["academic", "account_interests"],
     "data": [],
-    "installable": False,
+    "installable": True,
     "auto_install": True,
     "application": False,
 }
