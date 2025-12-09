@@ -5,6 +5,10 @@
         <field name="model">hr.employee</field>
         <field name="inherit_id" ref="hr.view_employee_form"/>
         <field name="arch" type="xml">
+            <div name="button_box" position="before">
+                <widget name="web_ribbon" title="Child" bg_color="bg-warning" invisible="not main_employee_id"/>
+            </div>
+
             <field name="work_email" position="before">
                 <field name="main_employee_id" invisible="not main_employee_id"/>
             </field>
