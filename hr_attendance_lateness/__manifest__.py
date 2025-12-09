@@ -1,6 +1,6 @@
 {
     "name": "HR Attendance Lateness",
-    "version": "18.0.1.0.0",
+    "version": "19.0.1.0.0",
     "category": "Human Resources/Attendances",
     "license": "AGPL-3",
     "summary": "Track employee lateness by comparing check-in times against scheduled hours",
@@ -13,7 +13,7 @@
         "views/hr_attendance_views.xml",
         "views/res_config_settings_views.xml",
     ],
-    "installable": False,
+    "installable": True,
     "auto_install": False,
     "application": False,
 }
