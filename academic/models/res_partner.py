@@ -62,7 +62,12 @@ class ResPartner(models.Model):
     medical_insurance = fields.Char(
         copy=False,
     )
-    identification_number = fields.Char(string="Academic Identification Number")
+    identification_number = fields.Char(
+        string="Academic Identification Number",
+        compute="_compute_identification_number",
+        store=True,
+        readonly=False,
+    )
     same_identification_number_partner_id = fields.Many2one(
         "res.partner",
         string="Partner with same identification number",
@@ -94,6 +99,10 @@ class ResPartner(models.Model):
         "student_id",
         compute="_compute_payment_responsible",
         store=True,
+    )
+    self_payment_responsible = fields.Boolean(
+        help="Check if the student is an adult and responsible for their own payment",
+        default=False,
     )
     parent_id = fields.Many2one(context={"default_partner_type": "family"})
 
@@ -152,23 +161,40 @@ class ResPartner(models.Model):
     category_id = fields.Many2many(check_company=True)
     student_count = fields.Integer(compute="_compute_student_count", store=True)
 
-    @api.constrains("company_id", "partner_type", "parent_id")
+    @api.constrains("company_id", "partner_type", "parent_id", "self_payment_responsible")
     def _check_family_configured(self):
         if self.filtered(
             lambda x: x.partner_type == "student"
             and x.company_id.family_required
             and x.parent_id.partner_type != "family"
+            and not x.self_payment_responsible
         ):
-            raise UserError("En la institucion, los estudiantes deben estar vinculados a una familia")
+            raise UserError(self.env._("Students must be linked to a family at this institution"))
+
+        if self.filtered(
+            lambda x: x.partner_type == "student"
+            and x.self_payment_responsible
+            and x.parent_id
+            and x.parent_id.partner_type == "family"
+        ):
+            raise UserError(
+                self.env._("A student cannot be self payment responsible and belong to a family at the same time")
+            )
 
     @api.constrains("parent_id", "partner_type")
     def _check_family_student_relation(self):
         if self.filtered(lambda x: x.partner_type != "student" and x.parent_id.partner_type == "family"):
-            raise UserError("Los contactos de una familia solo pueden ser estudiantes")
+            raise UserError(self.env._("Family contacts can only be students"))
 
     def _compute_related_user_id(self):
         for rec in self:
             rec.related_user_id = rec.user_ids and rec.user_ids[0]
+
+    @api.depends("self_payment_responsible", "vat")
+    def _compute_identification_number(self):
+        for rec in self:
+            if rec.self_payment_responsible and not rec.parent_id and rec.vat:
+                rec.identification_number = rec.vat
 
     @api.depends("is_company")
     def _compute_partner_type(self):
@@ -238,15 +264,19 @@ class ResPartner(models.Model):
             student_group = rec.student_group_ids.filtered(lambda g: g.year == date.today().year and not g.subject_id)
             rec.current_main_group_id = student_group[:1]
 
-    @api.depends("student_link_ids", "student_link_ids.role_ids")
+    @api.depends("student_link_ids", "student_link_ids.role_ids", "self_payment_responsible")
     def _compute_payment_responsible(self):
-        for rec in self.filtered(lambda x: x.partner_type == "student"):
+        students = self.filtered(lambda x: x.partner_type == "student")
+        for rec in students:
             partners = rec.student_link_ids.filtered(
                 lambda x: self.env.ref("academic.paying_role") in x.role_ids
             ).mapped("partner_id")
+            if rec.self_payment_responsible:
+                partners |= rec
             rec.payment_responsible_ids = [(6, 0, partners.ids)]
+        (self - students).payment_responsible_ids = False
 
-    @api.constrains("student_link_ids")
+    @api.constrains("student_link_ids", "self_payment_responsible", "vat")
     def _check_vat_partner_paying_role(self):
         paying_role = self.env.ref("academic.paying_role")
         partners = self.student_link_ids.filtered(
@@ -257,6 +287,11 @@ class ResPartner(models.Model):
             raise UserError(
                 _("The payer must have an identification number set up. The following do not meet this condition: \n%s")
                 % partner_names
+            )
+
+        if self.filtered(lambda x: x.self_payment_responsible and not x.vat):
+            raise UserError(
+                _("The student must have a tax identification number configured to be their own payment responsible.")
             )
 
     @api.model

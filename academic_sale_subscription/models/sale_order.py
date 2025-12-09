@@ -24,15 +24,17 @@ class SaleOrder(models.Model):
         for rec in self:
             rec.is_academic_sale = True if not rec.partner_id else rec.partner_id.partner_type == "student"
 
-    # dejamos solo depends a partner_id para que si cambia algo de la asignación no se re-calculen todas las ventas existentes
-    @api.depends("partner_id")
+    @api.depends("partner_id", "partner_id.payment_responsible_ids")
     def _compute_partner_invoice(self):
         orders = self.filtered("partner_id")
         for rec in orders:
-            student_links = rec.partner_id.student_link_ids.filtered(
-                lambda x: self.env.ref("academic.paying_role") in x.role_ids
-            ).sorted("sequence")
-            rec.partner_invoice_ids = student_links.mapped("partner_id")
+            if rec.partner_id.self_payment_responsible:
+                rec.partner_invoice_ids = rec.partner_id
+            else:
+                student_links = rec.partner_id.student_link_ids.filtered(
+                    lambda x: self.env.ref("academic.paying_role") in x.role_ids
+                ).sorted("sequence")
+                rec.partner_invoice_ids = student_links.mapped("partner_id")
         (self - orders).partner_invoice_ids = False
 
     @api.depends("partner_invoice_ids")

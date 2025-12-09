@@ -50,13 +50,24 @@
             </page>
 
             <xpath expr="//group/group" position="attributes">
-                <attribute name="invisible">partner_type in ['student', 'family']</attribute>
+                <attribute name="invisible">partner_type in ['student', 'family'] and not self_payment_responsible</attribute>
+            </xpath>
+
+            <field name="vat" position="attributes">
+                <attribute name="invisible">partner_type == "student" and not self_payment_responsible</attribute>
+                <attribute name="required">partner_type == "student" and self_payment_responsible and not parent_id</attribute>
+            </field>
+
+            <xpath expr="//div[hasclass('oe_title')]" position="after">
+                <group>
+                    <field name="self_payment_responsible" invisible="partner_type != 'student'"/>
+                </group>
             </xpath>
 
             <xpath expr="//group/group" position="after">
-                <group invisible="partner_type not in ['student', 'family']">
+                <group invisible="partner_type not in ['student', 'family'] or partner_type == 'student' and self_payment_responsible">
                     <field name="company_id" groups="base.group_multi_company" placeholder="Institution..." required="partner_type in ['teacher', 'student', 'administrator', 'gral_administrator']"/>
-                    <field name="parent_id" string="Family" invisible="partner_type != 'student'" required="partner_type == 'student' and company_family_required" domain="[('partner_type', '=', 'family'), ('company_id', 'in', [company_id, False])] if partner_type == 'student' else [('is_company', '=', True)]" context="{'default_partner_type': 'family', 'default_company_id': company_id}"/>
+                    <field name="parent_id" string="Family" invisible="partner_type != 'student'" required="partner_type == 'student' and company_family_required and not self_payment_responsible" domain="[('partner_type', '=', 'family'), ('company_id', 'in', [company_id, False])] if partner_type == 'student' else [('is_company', '=', True)]" context="{'default_partner_type': 'family', 'default_company_id': company_id}"/>
                     <field name="links_by_student" invisible="partner_type != 'family'"/>
                 </group>
             </xpath>
@@ -87,7 +98,7 @@
 
             <page name="contact_addresses" position="before">
                 <page string="Estudiantes" invisible="partner_type != 'family'">
-                    <field name="student_ids" context="{'default_partner_type': 'student', 'default_type': 'contact', 'default_company_id': company_id}">
+                    <field name="student_ids" context="{'default_partner_type': 'student', 'default_type': 'contact', 'default_company_id': company_id, 'company_type': 'individual'}">
                         <list>
                             <field name="company_id" column_invisible="1"/>
                             <field name="name"/>
@@ -101,7 +112,7 @@
                 <page string="Individual Information" invisible="partner_type in [False, 'family']">
                     <group>
                         <group>
-                             <field name="identification_number"/>
+                             <field name="identification_number" invisible="self_payment_responsible and not parent_id"/>
                             <field name="file_number" invisible="partner_type != 'student'"/>
                             <field name="sex" invisible="not partner_type"/>
                             <field name="promotion_id" invisible="partner_type != 'student'"/>
@@ -126,7 +137,7 @@
                         </field>
                     </group>
                 </page>
-                <page string="Contactos y Roles" invisible="links_by_student or partner_type not in ['student', 'family']">
+                <page string="Contactos y Roles" invisible="links_by_student or partner_type not in ['student', 'family'] or self_payment_responsible">
                     <p invisible="partner_type != 'student' or parent_links_by_student">Los Contactos y Roles son gestionados en <button name="open_commercial_entity" type="object" string="la familia" class="oe_link"/></p>
                     <field name="student_link_ids" readonly="partner_type == 'student' and not parent_links_by_student">
                         <list editable="bottom">
