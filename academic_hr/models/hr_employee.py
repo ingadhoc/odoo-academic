@@ -45,6 +45,13 @@ class HrEmployee(models.Model):
                 )
             )
 
+    @api.model
+    def _get_contextual_employee(self):
+        """Override to support multiple employees context"""
+        if self.env.context.get("multiple_employees") and len(self.env.user.employee_ids) > 1:
+            return self.env.user.employee_ids
+        return super()._get_contextual_employee()
+
     @api.depends("main_employee_id", "main_employee_id.company_id")
     def _compute_company_id(self):
         for employee in self:

@@ -9,11 +9,14 @@
                 <widget name="web_ribbon" title="Child" bg_color="bg-warning" invisible="not main_employee_id"/>
             </div>
 
-            <field name="work_email" position="before">
-                <field name="main_employee_id" invisible="not main_employee_id"/>
-            </field>
+            <xpath expr="//field[@name='work_email']//.." position="before">
+                <h5 class="d-flex align-items-baseline mb-0" invisible="not main_employee_id">
+                    <i class="fa fa-user fa-fw me-1 text-primary" title="Main Employee"/>
+                    <field name="main_employee_id" placeholder="Main Employee" class="w-100 w-sm-75"/>
+                </h5>
+            </xpath>
 
-            <group name="active_group" position="attributes">
+            <group name="user" position="attributes">
                 <attribute name="invisible">main_employee_id</attribute>
             </group>
 
@@ -21,7 +24,7 @@
                 <attribute name="readonly">main_employee_id</attribute>
             </xpath>
 
-            <page name="skills_resume" position="before">
+            <page name="work_information" position="before">
                 <page string="Child Employees" name="child_employees" invisible="main_employee_id">
                     <field name="child_employee_ids" mode="kanban" context="{'default_main_employee_id': id, 'default_company_id': company_id, 'default_user_id': user_id}">
                         <kanban>
