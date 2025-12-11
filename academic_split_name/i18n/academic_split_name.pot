@@ -1,0 +1,81 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* academic_split_name
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-12-11 14:36+0000\n"
+"PO-Revision-Date: 2025-12-11 14:36+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: academic_split_name
+#: model:ir.model,name:academic_split_name.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: academic_split_name
+#: model:ir.model.fields,field_description:academic_split_name.field_res_partner__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: academic_split_name
+#: model_terms:ir.ui.view,arch_db:academic_split_name.view_partner_form
+msgid "First Name"
+msgstr ""
+
+#. module: academic_split_name
+#: model:ir.model.fields,field_description:academic_split_name.field_res_partner__id
+msgid "ID"
+msgstr ""
+
+#. module: academic_split_name
+#: model_terms:ir.ui.view,arch_db:academic_split_name.view_partner_form
+msgid "Last Name"
+msgstr ""
+
+#. module: academic_split_name
+#: model_terms:ir.ui.view,arch_db:academic_split_name.view_partner_form
+msgid "Middle Name"
+msgstr ""
+
+#. module: academic_split_name
+#: model:ir.model.fields,field_description:academic_split_name.field_res_partner__name
+#: model:ir.model.fields,field_description:academic_split_name.field_res_users__name
+msgid "Name"
+msgstr ""
+
+#. module: academic_split_name
+#: model:ir.model.fields,field_description:academic_split_name.field_res_partner__lastname
+#: model:ir.model.fields,field_description:academic_split_name.field_res_users__lastname
+msgid "Primer Apellido"
+msgstr ""
+
+#. module: academic_split_name
+#: model:ir.model.fields,field_description:academic_split_name.field_res_partner__firstname
+#: model:ir.model.fields,field_description:academic_split_name.field_res_users__firstname
+msgid "Primer Nombre"
+msgstr ""
+
+#. module: academic_split_name
+#: model_terms:ir.ui.view,arch_db:academic_split_name.view_partner_form
+msgid "Second Last Name"
+msgstr ""
+
+#. module: academic_split_name
+#: model:ir.model.fields,field_description:academic_split_name.field_res_partner__second_lastname
+#: model:ir.model.fields,field_description:academic_split_name.field_res_users__second_lastname
+msgid "Segundo Apellido"
+msgstr ""
+
+#. module: academic_split_name
+#: model:ir.model.fields,field_description:academic_split_name.field_res_partner__middlename
+#: model:ir.model.fields,field_description:academic_split_name.field_res_users__middlename
+msgid "Segundo Nombre"
+msgstr ""
