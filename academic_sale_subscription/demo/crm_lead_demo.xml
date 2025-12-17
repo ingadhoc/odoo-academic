@@ -6,41 +6,21 @@
         <field name="company_id" ref="academic.res_company_los_arroyos"/>
     </record>
 
-    <!-- Etapas CRM específicas para Academic -->
-    <record id="stage_oportunidad" model="crm.stage">
-        <field name="name">Oportunidad</field>
-        <field name="sequence">1</field>
-        <field name="team_ids" eval="[(4, ref('crm_team_academic'))]"/>
-        <field name="fold">False</field>
+    <!-- Actualizar nombres de etapas CRM nativas -->
+    <record id="crm.stage_lead1" model="crm.stage">
+        <field name="name">Interesado</field>
     </record>
 
-    <record id="stage_primera_entrevista" model="crm.stage">
-        <field name="name">Primera entrevista</field>
-        <field name="sequence">2</field>
-        <field name="team_ids" eval="[(4, ref('crm_team_academic'))]"/>
-        <field name="fold">False</field>
+    <record id="crm.stage_lead2" model="crm.stage">
+        <field name="name">Envío de información</field>
     </record>
 
-    <record id="stage_entrevista_directivo" model="crm.stage">
-        <field name="name">Entrevista Directivo</field>
-        <field name="sequence">3</field>
-        <field name="team_ids" eval="[(4, ref('crm_team_academic'))]"/>
-        <field name="fold">False</field>
+    <record id="crm.stage_lead3" model="crm.stage">
+        <field name="name">Preinscripcion</field>
     </record>
 
-    <record id="stage_vacante_otorgada" model="crm.stage">
+    <record id="crm.stage_lead4" model="crm.stage">
         <field name="name">Vacante Otorgada</field>
-        <field name="sequence">4</field>
-        <field name="team_ids" eval="[(4, ref('crm_team_academic'))]"/>
-        <field name="fold">False</field>
-        <field name="is_won">True</field>
-    </record>
-
-    <record id="stage_lista_espera" model="crm.stage">
-        <field name="name">Lista de Espera</field>
-        <field name="sequence">5</field>
-        <field name="team_ids" eval="[(4, ref('crm_team_academic'))]"/>
-        <field name="fold">True</field>
     </record>
 
     <!-- Leads de estudiantes -->
@@ -49,7 +29,7 @@
         <field name="contact_name">Lucía Herrera</field>
         <field name="email_from">lucia.herrera@email.com</field>
         <field name="phone">+54 11 5555-1001</field>
-        <field name="stage_id" ref="stage_oportunidad"/>
+        <field name="stage_id" ref="crm.stage_lead1"/>
         <field name="team_id" ref="crm_team_academic"/>
         <field name="user_id" ref="base.user_admin"/>
         <field name="group_id" ref="academic.academic_group_1a_main"/>
@@ -62,7 +42,7 @@
         <field name="contact_name">Tomás Molina</field>
         <field name="email_from">tomas.molina@email.com</field>
         <field name="phone">+54 11 5555-1002</field>
-        <field name="stage_id" ref="stage_primera_entrevista"/>
+        <field name="stage_id" ref="crm.stage_lead2"/>
         <field name="team_id" ref="crm_team_academic"/>
         <field name="user_id" ref="base.user_admin"/>
         <field name="group_id" ref="academic.academic_group_2a_main"/>
@@ -75,7 +55,7 @@
         <field name="contact_name">Valentín Castro</field>
         <field name="email_from">valentin.castro@email.com</field>
         <field name="phone">+54 11 5555-1003</field>
-        <field name="stage_id" ref="stage_entrevista_directivo"/>
+        <field name="stage_id" ref="crm.stage_lead3"/>
         <field name="team_id" ref="crm_team_academic"/>
         <field name="user_id" ref="base.user_admin"/>
         <field name="group_id" ref="academic.academic_group_3a_main"/>
@@ -88,7 +68,7 @@
         <field name="contact_name">Martina Suárez</field>
         <field name="email_from">martina.suarez@email.com</field>
         <field name="phone">+54 11 5555-1004</field>
-        <field name="stage_id" ref="stage_vacante_otorgada"/>
+        <field name="stage_id" ref="crm.stage_lead4"/>
         <field name="team_id" ref="crm_team_academic"/>
         <field name="user_id" ref="base.user_admin"/>
         <field name="group_id" ref="academic.academic_group_1b_main"/>
@@ -102,7 +82,7 @@
         <field name="contact_name">Franco Delgado</field>
         <field name="email_from">franco.delgado@email.com</field>
         <field name="phone">+54 11 5555-1005</field>
-        <field name="stage_id" ref="stage_lista_espera"/>
+        <field name="stage_id" ref="crm.stage_lead3"/>
         <field name="team_id" ref="crm_team_academic"/>
         <field name="user_id" ref="base.user_admin"/>
         <field name="group_id" ref="academic.academic_group_2a_main"/>
@@ -115,7 +95,7 @@
         <field name="contact_name">Agustina Romero</field>
         <field name="email_from">agustina.romero@email.com</field>
         <field name="phone">+54 11 5555-1006</field>
-        <field name="stage_id" ref="stage_primera_entrevista"/>
+        <field name="stage_id" ref="crm.stage_lead2"/>
         <field name="team_id" ref="crm_team_academic"/>
         <field name="user_id" ref="base.user_admin"/>
         <field name="group_id" ref="academic.academic_group_1a_main"/>
@@ -128,7 +108,7 @@
         <field name="contact_name">Diego Vega</field>
         <field name="email_from">diego.vega@email.com</field>
         <field name="phone">+54 11 5555-1007</field>
-        <field name="stage_id" ref="stage_oportunidad"/>
+        <field name="stage_id" ref="crm.stage_lead1"/>
         <field name="team_id" ref="crm_team_academic"/>
         <field name="user_id" ref="base.user_admin"/>
         <field name="group_id" ref="academic.academic_group_4a_main"/>
@@ -141,7 +121,7 @@
         <field name="contact_name">Camila Benítez</field>
         <field name="email_from">camila.benitez@email.com</field>
         <field name="phone">+54 11 5555-1008</field>
-        <field name="stage_id" ref="stage_vacante_otorgada"/>
+        <field name="stage_id" ref="crm.stage_lead4"/>
         <field name="team_id" ref="crm_team_academic"/>
         <field name="user_id" ref="base.user_admin"/>
         <field name="group_id" ref="academic.academic_group_3a_main"/>
