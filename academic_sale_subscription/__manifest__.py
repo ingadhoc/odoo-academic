@@ -2,7 +2,13 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
     "name": "Academic Sale Subscription",
+<<<<<<< 8facb9037eee30e010f5f6bc87bf3ae7cb71212b
     "version": "19.0.1.1.0",
+||||||| 3776734d4544e4ca0db8c6fe9510bc69f6a457f3
+    "version": "18.0.1.16.0",
+=======
+    "version": "18.0.1.17.0",
+>>>>>>> 64f469127c964c2524e101f835b582c57269a729
     "sequence": 14,
     "summary": "",
     "author": "ADHOC SA",
