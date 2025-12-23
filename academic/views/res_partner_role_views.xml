@@ -1,0 +1,49 @@
+<odoo>
+    <record id="view_res_partner_role_filter" model="ir.ui.view">
+        <field name="name">res.partner.role.search</field>
+        <field name="model">res.partner.role</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_res_partner_role_form" model="ir.ui.view">
+        <field name="name">res.partner.role.form</field>
+        <field name="model">res.partner.role</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="color" widget="color_picker"/>
+                        <field name="active" invisible="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_res_partner_role_list" model="ir.ui.view">
+        <field name="name">res.partner.role.list</field>
+        <field name="model">res.partner.role</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="color" widget="color_picker"/>
+                <field name="active" invisible="1"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_res_partner_role" model="ir.actions.act_window">
+        <field name="name">Roles</field>
+        <field name="res_model">res.partner.role</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem name="Roles" id="menu_res_partner_role" sequence="50" action="action_res_partner_role" parent="menu_general_data" groups="base.group_no_one" />
+
+</odoo>
