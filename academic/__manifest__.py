@@ -19,7 +19,7 @@
 ##############################################################################
 {
     "name": "Academic",
-    "version": "18.0.1.22.0",
+    "version": "18.0.1.23.0",
     "sequence": 14,
     "summary": "",
     "author": "ADHOC SA",
@@ -55,6 +55,7 @@
         "views/res_company_views.xml",
         "views/login_page.xml",
         "views/res_partner_link_views.xml",
+        "views/res_partner_role_views.xml",
         "views/res_partner_relationship_views.xml",
         "wizards/portal_wizard_views.xml",
         "report/ir_actions_report.xml",
