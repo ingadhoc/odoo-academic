@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-24 14:20+0000\n"
-"PO-Revision-Date: 2025-12-24 14:20+0000\n"
+"POT-Creation-Date: 2025-12-24 20:12+0000\n"
+"PO-Revision-Date: 2025-12-24 20:12+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -38,6 +38,14 @@ msgstr ""
 #. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
 msgid "A partner with the same identification_number already exists ("
+msgstr ""
+
+#. module: academic
+#. odoo-python
+#: code:addons/academic/models/res_partner.py:0
+msgid ""
+"A student cannot be self payment responsible and belong to a family at the "
+"same time"
 msgstr ""
 
 #. module: academic
@@ -125,6 +133,12 @@ msgstr ""
 #. module: academic
 #: model:ir.actions.report,name:academic.report_certificate_regular_student
 msgid "Certificate of Regular Student"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,help:academic.field_res_partner__self_payment_responsible
+#: model:ir.model.fields,help:academic.field_res_users__self_payment_responsible
+msgid "Check if the student is an adult and responsible for their own payment"
 msgstr ""
 
 #. module: academic
@@ -338,6 +352,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic.field_res_partner__company_family_required
 #: model:ir.model.fields,field_description:academic.field_res_users__company_family_required
 msgid "Family Required"
+msgstr ""
+
+#. module: academic
+#. odoo-python
+#: code:addons/academic/models/res_partner.py:0
+msgid "Family contacts can only be students"
 msgstr ""
 
 #. module: academic
@@ -673,6 +693,12 @@ msgid "Roles"
 msgstr ""
 
 #. module: academic
+#: model:ir.model.fields,field_description:academic.field_res_partner__self_payment_responsible
+#: model:ir.model.fields,field_description:academic.field_res_users__self_payment_responsible
+msgid "Self Payment Responsible"
+msgstr ""
+
+#. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_section__sequence
 #: model:ir.model.fields,field_description:academic.field_res_partner_link__sequence
 msgid "Sequence"
@@ -731,6 +757,12 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_group_form
 #: model_terms:ir.ui.view,arch_db:academic.view_company_form
 msgid "Students"
+msgstr ""
+
+#. module: academic
+#. odoo-python
+#: code:addons/academic/models/res_partner.py:0
+msgid "Students must be linked to a family at this institution"
 msgstr ""
 
 #. module: academic
@@ -835,6 +867,14 @@ msgstr ""
 msgid ""
 "The payer must have an identification number set up. The following do not meet this condition: \n"
 "%s"
+msgstr ""
+
+#. module: academic
+#. odoo-python
+#: code:addons/academic/models/res_partner.py:0
+msgid ""
+"The student must have a tax identification number configured to be their own"
+" payment responsible."
 msgstr ""
 
 #. module: academic
