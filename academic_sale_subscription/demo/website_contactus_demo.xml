@@ -1,0 +1,74 @@
+<odoo>
+    <template id="academic_contactus_form" name="Academic Contact Form" inherit_id="website.contactus">
+        <xpath expr="//div[@id='wrap']" position="replace">
+            <div id="wrap" class="oe_structure">
+                <section class="s_website_form pt96 pb96">
+                    <div class="container">
+                        <form action="/website/form/" method="post" enctype="multipart/form-data" class="s_website_form o_mark_required" data-model_name="crm.lead" data-mark="*" data-success-mode="redirect" data-success-page="/contactus-thank-you">
+                            <input type="hidden" name="name" value="Consulta desde sitio web académico"/>
+                            <div class="row s_col_no_bgcolor">
+                                <div class="s_website_form_field mb-3 col-12 s_website_form_required" data-name="Field">
+                                    <label class="col-form-label s_website_form_label" for="contact_name">
+                                        <span class="s_website_form_label_content">Nombre del estudiante</span>
+                                        <span class="s_website_form_mark"> *</span>
+                                    </label>
+                                    <input type="text" class="form-control s_website_form_input" name="contact_name" id="contact_name" placeholder="Nombre completo del estudiante" required="1"/>
+                                </div>
+                                <div class="s_website_form_field mb-3 col-12 s_website_form_required" data-name="Field">
+                                    <label class="col-form-label s_website_form_label" for="phone">
+                                        <span class="s_website_form_label_content">Número de teléfono</span>
+                                        <span class="s_website_form_mark"> *</span>
+                                    </label>
+                                    <input type="tel" class="form-control s_website_form_input" name="phone" id="phone" placeholder="+54 11 1234-5678" required="1"/>
+                                </div>
+                                <div class="s_website_form_field mb-3 col-12 s_website_form_required" data-name="Field">
+                                    <label class="col-form-label s_website_form_label" for="partner_name">
+                                        <span class="s_website_form_label_content">Nombre del adulto responsable</span>
+                                        <span class="s_website_form_mark"> *</span>
+                                    </label>
+                                    <input type="text" class="form-control s_website_form_input" name="partner_name" id="partner_name" placeholder="Nombre del padre/madre/tutor" required="1"/>
+                                </div>
+                                <div class="s_website_form_field mb-3 col-12 s_website_form_required" data-name="Field">
+                                    <label class="col-form-label s_website_form_label" for="email_from">
+                                        <span class="s_website_form_label_content">Correo electrónico</span>
+                                        <span class="s_website_form_mark"> *</span>
+                                    </label>
+                                    <input type="email" class="form-control s_website_form_input" name="email_from" id="email_from" placeholder="correo@ejemplo.com" required="1"/>
+                                </div>
+                                <div class="s_website_form_field mb-3 col-12 s_website_form_required" data-name="Field">
+                                    <label class="col-form-label s_website_form_label" for="group_id">
+                                        <span class="s_website_form_label_content">Grupo</span>
+                                        <span class="s_website_form_mark"> *</span>
+                                    </label>
+                                    <select class="form-select s_website_form_input" name="group_id" id="group_id" required="1">
+                                        <option value="">Seleccione un grupo</option>
+                                        <t t-foreach="request.env['academic.group'].sudo().search([])" t-as="group">
+                                            <option t-att-value="group.id"><t t-esc="group.name"/></option>
+                                        </t>
+                                    </select>
+                                </div>
+                                <div class="s_website_form_field mb-3 col-12" data-name="Field">
+                                    <label class="col-form-label s_website_form_label" for="mobile">
+                                        <span class="s_website_form_label_content">Teléfono/Celular</span>
+                                    </label>
+                                    <input type="tel" class="form-control s_website_form_input" name="mobile" id="mobile" placeholder="+54 9 11 1234-5678"/>
+                                </div>
+                                <div class="s_website_form_field mb-3 col-12 s_website_form_required" data-name="Field">
+                                    <label class="col-form-label s_website_form_label" for="description">
+                                        <span class="s_website_form_label_content">Comentarios</span>
+                                        <span class="s_website_form_mark"> *</span>
+                                    </label>
+                                    <textarea class="form-control s_website_form_input" name="description" id="description" rows="4" placeholder="Escriba aquí sus comentarios o consultas..." required="1"></textarea>
+                                </div>
+                                <div class="mb-3 col-12 s_website_form_submit text-end" data-name="Submit Button">
+                                    <span id="s_website_form_result"/>
+                                    <a href="#" role="button" class="btn btn-primary btn-lg s_website_form_send">Enviar</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </xpath>
+    </template>
+</odoo>

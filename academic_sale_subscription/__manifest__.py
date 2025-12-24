@@ -23,6 +23,7 @@
     },
     "data": [
         "data/ir_actions_server.xml",
+        "data/ir_model_fields_data.xml",
         "security/ir.model.access.csv",
         "security/academic_security.xml",
         "report/report_data.xml",
@@ -57,6 +58,7 @@
         "demo/crm_lead_demo.xml",
         "demo/sale_subscription_demo.xml",
         "demo/account_move_demo.xml",
+        "demo/website_contactus_demo.xml",
     ],
     "installable": True,
     "auto_install": ["sale_subscription", "academic"],
