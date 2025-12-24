@@ -1,30 +1,36 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # 	* academic
-# 
+#
 # Translators:
 # Rocio Vega, 2025
 # bafadhoc, 2025
 # Juan José Scarafía <scarafia.juanjose@gmail.com>, 2025
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-19 20:06+0000\n"
+"POT-Creation-Date: 2025-12-24 14:20+0000\n"
 "PO-Revision-Date: 2024-11-15 13:26+0000\n"
 "Last-Translator: Juan José Scarafía <scarafia.juanjose@gmail.com>, 2025\n"
 "Language-Team: Spanish (https://app.transifex.com/adhoc/teams/46451/es/)\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: es\n"
-"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
+"1 : 2;\n"
 
 #. module: academic
 #: model:ir.actions.report,print_report_name:academic.report_certificate_regular_student
 msgid "'Certificate of Regular Student ' + object.name"
 msgstr "'Certificado de Alumno Regular ' + object.name"
+
+#. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
+msgid "- Company:"
+msgstr ""
 
 #. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_group_form
@@ -37,10 +43,8 @@ msgid "<span>: </span>"
 msgstr ""
 
 #. module: academic
-#: model_terms:ir.actions.act_window,help:academic.action_res_company_form
-msgid ""
-"<span>Create and manage the companies that will be managed by odoo from "
-"here. Shops or subsidiaries can be created and maintained from here.</span>"
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
+msgid "A partner with the same identification_number already exists ("
 msgstr ""
 
 #. module: academic
@@ -48,12 +52,20 @@ msgstr ""
 #: model:ir.module.category,name:academic.module_category_academic
 #: model:ir.ui.menu,name:academic.menu_academic
 #: model:ir.ui.menu,name:academic.menu_portal_academic
+#: model:res.groups.privilege,name:academic.privilege_academic
 #: model_terms:ir.ui.view,arch_db:academic.academic_link
 msgid "Academic"
 msgstr "Académico"
 
 #. module: academic
+#: model:ir.model.fields,field_description:academic.field_res_partner__identification_number
+#: model:ir.model.fields,field_description:academic.field_res_users__identification_number
+msgid "Academic Identification Number"
+msgstr ""
+
+#. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_group__active
+#: model:ir.model.fields,field_description:academic.field_res_partner_role__active
 msgid "Active"
 msgstr "Activo"
 
@@ -71,10 +83,12 @@ msgstr "Portal del Administrador"
 #. module: academic
 #: model:res.groups,comment:academic.group_portal_administrator
 msgid ""
-"Administrator's Portal members have specific access rights (such as record rules and restricted menus).\n"
+"Administrator's Portal members have specific access rights (such as record "
+"rules and restricted menus).\n"
 "                They usually do not belong to the usual odoo groups."
 msgstr ""
-"Los miembros del Portal de Administrador tienen permisos específicos de acceso (como reglas de registro y menúes restringidos).\n"
+"Los miembros del Portal de Administrador tienen permisos específicos de "
+"acceso (como reglas de registro y menúes restringidos).\n"
 "                Normalmente no pertenecen a los grupos usuales de odoo."
 
 #. module: academic
@@ -93,6 +107,7 @@ msgstr "Fecha de Admisión"
 
 #. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_group_filter
+#: model_terms:ir.ui.view,arch_db:academic.view_res_partner_role_filter
 msgid "Archived"
 msgstr "Archivado"
 
@@ -112,22 +127,6 @@ msgstr "Actualización automática del grupo principal actual"
 #: model:ir.model.fields,field_description:academic.field_res_users__birthdate
 msgid "Birthdate"
 msgstr "Fecha de Nacimiento"
-
-#. module: academic
-#: model_terms:ir.ui.view,arch_db:academic.view_academic_division_filter
-#: model_terms:ir.ui.view,arch_db:academic.view_academic_group_filter
-#: model_terms:ir.ui.view,arch_db:academic.view_academic_promotion_filter
-#: model_terms:ir.ui.view,arch_db:academic.view_academic_subject_filter
-msgid "By Attribute"
-msgstr "Por Atributo"
-
-#. module: academic
-#: model_terms:ir.ui.view,arch_db:academic.view_academic_division_filter
-#: model_terms:ir.ui.view,arch_db:academic.view_academic_group_filter
-#: model_terms:ir.ui.view,arch_db:academic.view_academic_promotion_filter
-#: model_terms:ir.ui.view,arch_db:academic.view_academic_subject_filter
-msgid "By object"
-msgstr "Por objeto"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_group__capacity
@@ -158,6 +157,12 @@ msgstr "Compañías"
 #: model:ir.model.fields,field_description:academic.field_res_partner_link__company_id
 msgid "Company"
 msgstr "Compañia"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_res_partner__same_identification_number_partner_company
+#: model:ir.model.fields,field_description:academic.field_res_users__same_identification_number_partner_company
+msgid "Company same partner"
+msgstr ""
 
 #. module: academic
 #: model:ir.ui.menu,name:academic.menu_configuration
@@ -198,6 +203,13 @@ msgstr "Relación de los contactos"
 #: model:ir.model.fields,field_description:academic.field_academic_section__correlative_ids
 msgid "Correlative Study Plans"
 msgstr "Planes de Estudio Correlativos"
+
+#. module: academic
+#: model_terms:ir.actions.act_window,help:academic.action_res_company_form
+msgid ""
+"Create and manage the companies that will be managed by odoo from here. "
+"Shops or subsidiaries can be created and maintained from here."
+msgstr ""
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division__create_uid
@@ -247,10 +259,17 @@ msgstr "¿Dificultades de aprendizaje?"
 #: model:ir.model.fields,field_description:academic.field_academic_promotion__display_name
 #: model:ir.model.fields,field_description:academic.field_academic_section__display_name
 #: model:ir.model.fields,field_description:academic.field_academic_subject__display_name
+#: model:ir.model.fields,field_description:academic.field_hr_employee__display_name
 #: model:ir.model.fields,field_description:academic.field_hr_employee_asignatures__display_name
+#: model:ir.model.fields,field_description:academic.field_portal_wizard__display_name
+#: model:ir.model.fields,field_description:academic.field_portal_wizard_user__display_name
+#: model:ir.model.fields,field_description:academic.field_res_company__display_name
+#: model:ir.model.fields,field_description:academic.field_res_partner__display_name
+#: model:ir.model.fields,field_description:academic.field_res_partner_category__display_name
 #: model:ir.model.fields,field_description:academic.field_res_partner_link__display_name
 #: model:ir.model.fields,field_description:academic.field_res_partner_relationship__display_name
 #: model:ir.model.fields,field_description:academic.field_res_partner_role__display_name
+#: model:ir.model.fields,field_description:academic.field_res_users__display_name
 msgid "Display Name"
 msgstr "Mostrar Nombre"
 
@@ -352,10 +371,12 @@ msgstr "Administrador General"
 #. module: academic
 #: model:res.groups,comment:academic.group_portal_gral_administrator
 msgid ""
-"General Administrator's Portal members have specific access rights (such as record rules and restricted menus).\n"
+"General Administrator's Portal members have specific access rights (such as "
+"record rules and restricted menus).\n"
 "                They usually do not belong to the usual odoo groups."
 msgstr ""
-"Los miembros del Portal de Administrador General tienen permisos específicos de acceso (como reglas de registro y menúes restringidos).\n"
+"Los miembros del Portal de Administrador General tienen permisos específicos "
+"de acceso (como reglas de registro y menúes restringidos).\n"
 "                Normalmente no pertenecen a los grupos usuales de odoo."
 
 #. module: academic
@@ -389,8 +410,7 @@ msgstr "Otorgar acceso al portal "
 msgid ""
 "Group should be unique per Institution, Subject, Course-Division and Year"
 msgstr ""
-"El grupo debería ser único por Institución, Asignatura, Curso-División y "
-"Año."
+"El grupo debería ser único por Institución, Asignatura, Curso-División y Año."
 
 #. module: academic
 #: model:ir.actions.act_window,name:academic.action_academic_company_group_groups
@@ -412,11 +432,25 @@ msgstr "Grupos"
 #: model:ir.model.fields,field_description:academic.field_academic_promotion__id
 #: model:ir.model.fields,field_description:academic.field_academic_section__id
 #: model:ir.model.fields,field_description:academic.field_academic_subject__id
+#: model:ir.model.fields,field_description:academic.field_hr_employee__id
 #: model:ir.model.fields,field_description:academic.field_hr_employee_asignatures__id
+#: model:ir.model.fields,field_description:academic.field_portal_wizard__id
+#: model:ir.model.fields,field_description:academic.field_portal_wizard_user__id
+#: model:ir.model.fields,field_description:academic.field_res_company__id
+#: model:ir.model.fields,field_description:academic.field_res_partner__id
+#: model:ir.model.fields,field_description:academic.field_res_partner_category__id
 #: model:ir.model.fields,field_description:academic.field_res_partner_link__id
 #: model:ir.model.fields,field_description:academic.field_res_partner_relationship__id
 #: model:ir.model.fields,field_description:academic.field_res_partner_role__id
+#: model:ir.model.fields,field_description:academic.field_res_users__id
 msgid "ID"
+msgstr ""
+
+#. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
+msgid ""
+"If the partner will be responsible for payment, remember to set the "
+"identification number."
 msgstr ""
 
 #. module: academic
@@ -547,10 +581,12 @@ msgstr "Otro"
 #. module: academic
 #: model:res.groups,comment:academic.group_portal_parent
 msgid ""
-"Parent's Portal members have specific access rights (such as record rules and restricted menus).\n"
+"Parent's Portal members have specific access rights (such as record rules "
+"and restricted menus).\n"
 "            They usually do not belong to the usual OpenERP groups."
 msgstr ""
-"Los miembros del Portal de Padres tienen permisos específicos de acceso (como reglas de registro y menúes restringidos).\n"
+"Los miembros del Portal de Padres tienen permisos específicos de acceso "
+"(como reglas de registro y menúes restringidos).\n"
 "                Normalmente no pertenecen a los grupos usuales de odoo."
 
 #. module: academic
@@ -562,6 +598,12 @@ msgstr "Contacto"
 #: model:ir.model,name:academic.model_res_partner_category
 msgid "Partner Tags"
 msgstr "Etiquetas del contacto"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_res_partner__same_identification_number_partner_id
+#: model:ir.model.fields,field_description:academic.field_res_users__same_identification_number_partner_id
+msgid "Partner with same identification number"
+msgstr ""
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_res_partner__payment_responsible_ids
@@ -576,6 +618,7 @@ msgstr ""
 
 #. module: academic
 #: model:ir.module.category,name:academic.category_portal_academic
+#: model:res.groups.privilege,name:academic.privilege_portal_academic
 msgid "Portal Academic"
 msgstr "Portal Académico"
 
@@ -642,9 +685,11 @@ msgid "Reporting"
 msgstr "Informando"
 
 #. module: academic
+#: model:ir.actions.act_window,name:academic.action_res_partner_role
 #: model:ir.model.fields,field_description:academic.field_res_partner__partner_link_ids
 #: model:ir.model.fields,field_description:academic.field_res_partner_link__role_ids
 #: model:ir.model.fields,field_description:academic.field_res_users__partner_link_ids
+#: model:ir.ui.menu,name:academic.menu_res_partner_role
 msgid "Roles"
 msgstr ""
 
@@ -659,12 +704,6 @@ msgstr "Secuencia"
 #: model:ir.model.fields,field_description:academic.field_res_users__sex
 msgid "Sex"
 msgstr "Género"
-
-#. module: academic
-#. odoo-python
-#: code:addons/academic/wizards/portal_wizard_user.py:0
-msgid "Some contacts don't have a valid email: "
-msgstr "Algunos contactos no tienen un correo electrónico válido:"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_group__student_ids
@@ -701,10 +740,12 @@ msgstr "Portal de Estudiantes"
 #. module: academic
 #: model:res.groups,comment:academic.group_portal_student
 msgid ""
-"Student's Portal members have specific access rights (such as record rules and restricted menus).\n"
+"Student's Portal members have specific access rights (such as record rules "
+"and restricted menus).\n"
 "                They usually do not belong to the usual odoo groups."
 msgstr ""
-"Los miembros del Portal de Estudiantes tienen permisos específicos de acceso (como reglas de registro y menúes restringidos).\n"
+"Los miembros del Portal de Estudiantes tienen permisos específicos de acceso "
+"(como reglas de registro y menúes restringidos).\n"
 "                Normalmente no pertenecen a los grupos usuales de odoo."
 
 #. module: academic
@@ -731,15 +772,23 @@ msgid "Study Plans"
 msgstr "Sección"
 
 #. module: academic
-#: model:ir.model.fields,field_description:academic.field_academic_group__subject_id
 #: model:ir.model.fields,field_description:academic.field_hr_employee_asignatures__subject_id
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_group_filter
+msgid "Subject"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_group__subject_id
 msgid "Subject/Course"
 msgstr "Asignatura/Curso"
 
 #. module: academic
-#: model:ir.actions.act_window,name:academic.action_academic_subject_subjects
 #: model:ir.ui.menu,name:academic.menu_subjects
+msgid "Subjects"
+msgstr ""
+
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_academic_subject_subjects
 msgid "Subjects/Courses"
 msgstr "Asignaturas/Cursos"
 
@@ -771,10 +820,12 @@ msgstr "Portal del Profesor"
 #. module: academic
 #: model:res.groups,comment:academic.group_portal_teacher
 msgid ""
-"Teacher's Portal members have specific access rights (such as record rules and restricted menus).\n"
+"Teacher's Portal members have specific access rights (such as record rules "
+"and restricted menus).\n"
 "                They usually do not belong to the usual odoo groups."
 msgstr ""
-"Los miembros del Portal de Profesor tienen permisos específicos de acceso (como reglas de registro y menúes restringidos).\n"
+"Los miembros del Portal de Profesor tienen permisos específicos de acceso "
+"(como reglas de registro y menúes restringidos).\n"
 "                Normalmente no pertenecen a los grupos usuales de odoo."
 
 #. module: academic
@@ -785,6 +836,14 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:academic.view_company_form
 msgid "Teachers"
 msgstr "Profesores"
+
+#. module: academic
+#. odoo-python
+#: code:addons/academic/models/res_partner_role.py:0
+msgid ""
+"The 'Responsable de pago' role cannot be deactivated as it is required by "
+"the system."
+msgstr ""
 
 #. module: academic
 #: model:ir.model.constraint,message:academic.constraint_academic_level_unique_level_name
@@ -805,18 +864,20 @@ msgstr ""
 #. odoo-python
 #: code:addons/academic/models/res_partner.py:0
 msgid ""
-"The payer must have an identification number set up. The following do not meet this condition: \n"
+"The payer must have an identification number set up. The following do not "
+"meet this condition: \n"
 "%s"
 msgstr ""
-"El pagador debe tener configurado un número de identificación. Los siguientes no cumplen esta condición: \n"
+"El pagador debe tener configurado un número de identificación. Los "
+"siguientes no cumplen esta condición: \n"
 "%s"
 
 #. module: academic
 #. odoo-python
 #: code:addons/academic/models/hr.py:0
 msgid ""
-"There is another record that contains the same subject"
-"                         and teacher"
+"There is another record that contains the same "
+"subject                         and teacher"
 msgstr "Hay otro registro que contiene el mismo asunto y profesor"
 
 #. module: academic
@@ -824,8 +885,8 @@ msgstr "Hay otro registro que contiene el mismo asunto y profesor"
 msgid ""
 "This button will grant access to all contacts with a valid email address."
 msgstr ""
-"Este botón otorgará acceso a todos los contactos con una dirección de correo"
-" electrónico válida"
+"Este botón otorgará acceso a todos los contactos con una dirección de correo "
+"electrónico válida"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_res_partner__partner_type
@@ -935,3 +996,12 @@ msgstr "asignatura"
 #: model:ir.model.fields,help:academic.field_res_users__disabled_person
 msgid "¿Alumno/a con Dificultades de aprendizaje?"
 msgstr ""
+
+#~ msgid "By Attribute"
+#~ msgstr "Por Atributo"
+
+#~ msgid "By object"
+#~ msgstr "Por objeto"
+
+#~ msgid "Some contacts don't have a valid email: "
+#~ msgstr "Algunos contactos no tienen un correo electrónico válido:"
