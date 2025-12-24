@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-11 20:04+0000\n"
-"PO-Revision-Date: 2025-12-11 20:04+0000\n"
+"POT-Creation-Date: 2025-12-24 14:29+0000\n"
+"PO-Revision-Date: 2025-12-24 14:29+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -359,11 +359,6 @@ msgid "Entendemos que a veces es necesario tomar un descanso temporal."
 msgstr ""
 
 #. module: academic_sale_subscription
-#: model:crm.stage,name:academic_sale_subscription.stage_entrevista_directivo
-msgid "Entrevista Directivo"
-msgstr ""
-
-#. module: academic_sale_subscription
 #: model:crm.team,name:academic_sale_subscription.crm_team_academic
 msgid "Equipo Académico"
 msgstr ""
@@ -588,11 +583,6 @@ msgid "Lines"
 msgstr ""
 
 #. module: academic_sale_subscription
-#: model:crm.stage,name:academic_sale_subscription.stage_lista_espera
-msgid "Lista de Espera"
-msgstr ""
-
-#. module: academic_sale_subscription
 #: model_terms:sale.order.close.reason,retention_message:academic_sale_subscription.close_reason_academic
 msgid "Los problemas académicos pueden superarse con el apoyo adecuado."
 msgstr ""
@@ -697,11 +687,6 @@ msgstr ""
 #. module: academic_sale_subscription
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.view_academic_partner_tree
 msgid "Open order wizard"
-msgstr ""
-
-#. module: academic_sale_subscription
-#: model:crm.stage,name:academic_sale_subscription.stage_oportunidad
-msgid "Oportunidad"
 msgstr ""
 
 #. module: academic_sale_subscription
@@ -872,11 +857,6 @@ msgstr ""
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__pricelist_id
 msgid "Pricelist"
-msgstr ""
-
-#. module: academic_sale_subscription
-#: model:crm.stage,name:academic_sale_subscription.stage_primera_entrevista
-msgid "Primera entrevista"
 msgstr ""
 
 #. module: academic_sale_subscription
@@ -1175,11 +1155,6 @@ msgstr ""
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_group__vacancies
 msgid "Vacancies"
-msgstr ""
-
-#. module: academic_sale_subscription
-#: model:crm.stage,name:academic_sale_subscription.stage_vacante_otorgada
-msgid "Vacante Otorgada"
 msgstr ""
 
 #. module: academic_sale_subscription
