@@ -1,0 +1,6 @@
+<odoo>
+    <function model="ir.model.fields" name="formbuilder_whitelist">
+        <value>crm.lead</value>
+        <value eval="['group_id']"/>
+    </function>
+</odoo>
