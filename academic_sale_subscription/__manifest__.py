@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
     "name": "Academic Sale Subscription",
-    "version": "18.0.1.17.0",
+    "version": "18.0.1.18.0",
     "sequence": 14,
     "summary": "",
     "author": "ADHOC SA",
@@ -23,6 +23,7 @@
     },
     "data": [
         "data/ir_actions_server.xml",
+        "data/ir_model_fields_data.xml",
         "security/ir.model.access.csv",
         "security/academic_security.xml",
         "report/report_data.xml",
@@ -56,6 +57,7 @@
         "demo/crm_lead_demo.xml",
         "demo/sale_subscription_demo.xml",
         "demo/account_move_demo.xml",
+        "demo/website_contactus_demo.xml",
     ],
     "installable": True,
     "auto_install": ["sale_subscription", "academic"],
