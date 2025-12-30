@@ -1,0 +1,114 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* demo_academic
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-12-30 15:16+0000\n"
+"PO-Revision-Date: 2025-12-30 15:16+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: demo_academic
+#: model:loyalty.reward,description:demo_academic.loyalty_reward_referral_points
+msgid "$5000 de descuento por puntos acumulados"
+msgstr ""
+
+#. module: demo_academic
+#: model:loyalty.reward,description:demo_academic.loyalty_reward_sibling_discount
+msgid "10% de descuento por tener hermanos en el colegio"
+msgstr ""
+
+#. module: demo_academic
+#: model:loyalty.reward,description:demo_academic.loyalty_reward_annual_payment
+msgid "15% de descuento por pago anual adelantado"
+msgstr ""
+
+#. module: demo_academic
+#: model:loyalty.reward,description:demo_academic.loyalty_reward_employee_discount
+msgid "20% de descuento para hijos de empleados"
+msgstr ""
+
+#. module: demo_academic
+#: model:res.partner.category,name:demo_academic.partner_category_scholarship
+msgid "Beca de Estudio"
+msgstr ""
+
+#. module: demo_academic
+#: model:res.partner.category,name:demo_academic.partner_category_referral
+msgid "Cliente Referidor"
+msgstr ""
+
+#. module: demo_academic
+#: model:res.partner.category,name:demo_academic.partner_category_vip
+msgid "Cliente VIP"
+msgstr ""
+
+#. module: demo_academic
+#: model:loyalty.program,name:demo_academic.loyalty_program_discount_sibling
+msgid "Descuento 10% para Hermanos"
+msgstr ""
+
+#. module: demo_academic
+#: model:loyalty.program,name:demo_academic.loyalty_program_annual_payment
+msgid "Descuento 15% por Pago Anual Adelantado"
+msgstr ""
+
+#. module: demo_academic
+#: model:loyalty.program,name:demo_academic.loyalty_program_discount_employee
+msgid "Descuento 20% para Hijos de Empleados"
+msgstr ""
+
+#. module: demo_academic
+#: model:res.partner.category,name:demo_academic.partner_category_discount_employee
+msgid "Descuento Empleados 20%"
+msgstr ""
+
+#. module: demo_academic
+#: model:res.partner.category,name:demo_academic.partner_category_discount_sibling
+msgid "Descuento Hermanos 10%"
+msgstr ""
+
+#. module: demo_academic
+#: model:product.pricelist,name:demo_academic.product_pricelist_hermanos
+msgid "Lista Especial - Descuento Hermanos"
+msgstr ""
+
+#. module: demo_academic
+#: model:product.pricelist,name:demo_academic.product_pricelist_empleados
+msgid "Lista Especial - Empleados"
+msgstr ""
+
+#. module: demo_academic
+#: model:product.pricelist,name:demo_academic.product_pricelist_becados
+msgid "Lista Especial - Estudiantes Becados"
+msgstr ""
+
+#. module: demo_academic
+#: model:product.pricelist,name:demo_academic.product_pricelist_los_arroyos
+msgid "Lista de Precios Los Arroyos"
+msgstr ""
+
+#. module: demo_academic
+#: model:res.partner.category,name:demo_academic.partner_category_annual_payment
+msgid "Pago Anual Adelantado"
+msgstr ""
+
+#. module: demo_academic
+#: model:loyalty.program,portal_point_name:demo_academic.loyalty_program_annual_payment
+#: model:loyalty.program,portal_point_name:demo_academic.loyalty_program_discount_employee
+#: model:loyalty.program,portal_point_name:demo_academic.loyalty_program_discount_sibling
+#: model:loyalty.program,portal_point_name:demo_academic.loyalty_program_referral
+msgid "Points"
+msgstr ""
+
+#. module: demo_academic
+#: model:loyalty.program,name:demo_academic.loyalty_program_referral
+msgid "Puntos por Referir Nuevos Estudiantes"
+msgstr ""
