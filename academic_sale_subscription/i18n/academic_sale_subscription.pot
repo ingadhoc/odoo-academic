@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-24 14:29+0000\n"
-"PO-Revision-Date: 2025-12-24 14:29+0000\n"
+"POT-Creation-Date: 2025-12-30 15:29+0000\n"
+"PO-Revision-Date: 2025-12-30 15:29+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -27,8 +27,70 @@ msgid "'Debt Free Certificate - ' + object.name"
 msgstr ""
 
 #. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_contactus_form
+msgid "+54 11 1234-5678"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_contactus_form
+msgid "+54 9 11 1234-5678"
+msgstr ""
+
+#. module: academic_sale_subscription
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.portal_my_debt_free_certificates
 msgid "<i class=\"fa fa-download\"/> Download Certificate"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_contactus_form
+msgid "<option value=\"\">Seleccione un grupo</option>"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_contactus_form
+msgid ""
+"<span class=\"s_website_form_label_content\">Comentarios</span>\n"
+"                                        <span class=\"s_website_form_mark\"> *</span>"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_contactus_form
+msgid ""
+"<span class=\"s_website_form_label_content\">Correo electrónico</span>\n"
+"                                        <span class=\"s_website_form_mark\"> *</span>"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_contactus_form
+msgid ""
+"<span class=\"s_website_form_label_content\">Grupo</span>\n"
+"                                        <span class=\"s_website_form_mark\"> *</span>"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_contactus_form
+msgid ""
+"<span class=\"s_website_form_label_content\">Nombre del adulto responsable</span>\n"
+"                                        <span class=\"s_website_form_mark\"> *</span>"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_contactus_form
+msgid ""
+"<span class=\"s_website_form_label_content\">Nombre del estudiante</span>\n"
+"                                        <span class=\"s_website_form_mark\"> *</span>"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_contactus_form
+msgid ""
+"<span class=\"s_website_form_label_content\">Número de teléfono</span>\n"
+"                                        <span class=\"s_website_form_mark\"> *</span>"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_contactus_form
+msgid "<span class=\"s_website_form_label_content\">Teléfono/Celular</span>"
 msgstr ""
 
 #. module: academic_sale_subscription
@@ -359,8 +421,18 @@ msgid "Entendemos que a veces es necesario tomar un descanso temporal."
 msgstr ""
 
 #. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_contactus_form
+msgid "Enviar"
+msgstr ""
+
+#. module: academic_sale_subscription
 #: model:crm.team,name:academic_sale_subscription.crm_team_academic
 msgid "Equipo Académico"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_contactus_form
+msgid "Escriba aquí sus comentarios o consultas..."
 msgstr ""
 
 #. module: academic_sale_subscription
@@ -652,6 +724,16 @@ msgstr ""
 #. odoo-python
 #: code:addons/academic_sale_subscription/wizard/academic_order_wizard.py:0
 msgid "No student has been selected."
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_contactus_form
+msgid "Nombre completo del estudiante"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_contactus_form
+msgid "Nombre del padre/madre/tutor"
 msgstr ""
 
 #. module: academic_sale_subscription
@@ -1231,6 +1313,11 @@ msgstr ""
 msgid ""
 "You cannot mark require student on invoices if there are already invoices "
 "without students."
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_contactus_form
+msgid "correo@ejemplo.com"
 msgstr ""
 
 #. module: academic_sale_subscription
