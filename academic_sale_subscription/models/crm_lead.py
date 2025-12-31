@@ -14,3 +14,12 @@ class CrmLead(models.Model):
         if self.group_id:
             return super(CrmLead, self.with_context(default_partner_type="student"))._create_customer()
         return super()._create_customer()
+
+    def _message_post_after_hook(self, message, msg_vals):
+        """Override to prevent automatic partner assignment when posting messages through chatter.
+
+        In the standard CRM behavior, when you send a message from the chatter to a recipient
+        whose email matches the lead's email_from, it automatically assigns that partner to the lead.
+        This override disables that automatic assignment.
+        """
+        return super(models.Model, self)._message_post_after_hook(message, msg_vals)
