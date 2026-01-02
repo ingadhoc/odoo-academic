@@ -6,14 +6,38 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-30 15:29+0000\n"
-"PO-Revision-Date: 2025-12-30 15:29+0000\n"
+"POT-Creation-Date: 2026-01-02 20:25+0000\n"
+"PO-Revision-Date: 2026-01-02 20:25+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/wizard/update_payment_responsible_partner_wizard.py:0
+msgid "%d active sales/subscriptions"
+msgstr ""
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/wizard/update_payment_responsible_partner_wizard.py:0
+msgid "%d invoices updated"
+msgstr ""
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/wizard/update_payment_responsible_partner_wizard.py:0
+msgid "%d pending invoices (without registered payments)"
+msgstr ""
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/wizard/update_payment_responsible_partner_wizard.py:0
+msgid "%d sales/subscriptions updated"
+msgstr ""
 
 #. module: academic_sale_subscription
 #. odoo-python
@@ -140,14 +164,41 @@ msgid "Account Move Send"
 msgstr ""
 
 #. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_partner_wizard__sale_count
+msgid "Active Sales/Subscriptions"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_partner_wizard__available_partner_ids
+msgid "Available Partners"
+msgstr ""
+
+#. module: academic_sale_subscription
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.debt_certificate_unavailable
 msgid "Back to Portal"
 msgstr ""
 
 #. module: academic_sale_subscription
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_order_wizard_form
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.view_update_payment_responsible_partner_wizard
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.view_update_payment_responsible_wizard
 msgid "Cancel"
+msgstr ""
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/models/res_partner_link.py:0
+msgid ""
+"Cannot remove \"Payment Responsible\" role from contact %s because student "
+"%s has active subscriptions."
+msgstr ""
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/models/res_partner_link.py:0
+msgid ""
+"Cannot remove \"Payment Responsible\" role from contact %s because student "
+"%s has pending invoices."
 msgstr ""
 
 #. module: academic_sale_subscription
@@ -165,6 +216,14 @@ msgstr ""
 #. odoo-python
 #: code:addons/academic_sale_subscription/models/res_partner.py:0
 msgid "Certificates Sent"
+msgstr ""
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/models/res_partner_link.py:0
+#: model:ir.actions.act_window,name:academic_sale_subscription.action_change_payment_responsible
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.view_academic_partner_form
+msgid "Change Payment Responsible"
 msgstr ""
 
 #. module: academic_sale_subscription
@@ -223,6 +282,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__create_uid
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard_line__create_uid
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_line__create_uid
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_partner_wizard__create_uid
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_wizard__create_uid
 msgid "Created by"
 msgstr ""
@@ -231,6 +291,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__create_date
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard_line__create_date
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_line__create_date
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_partner_wizard__create_date
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_wizard__create_date
 msgid "Created on"
 msgstr ""
@@ -269,6 +330,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order__current_main_group_id
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.sale_subscription_template_view_search
 msgid "Current Main Group"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_partner_wizard__current_partner_id
+msgid "Current Payment Responsible"
 msgstr ""
 
 #. module: academic_sale_subscription
@@ -347,12 +413,14 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_res_company__display_name
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_res_config_settings__display_name
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_res_partner__display_name
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_res_partner_link__display_name
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order__display_name
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order_close_reason__display_name
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order_line__display_name
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order_template__display_name
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_subscription_plan__display_name
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_line__display_name
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_partner_wizard__display_name
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_wizard__display_name
 msgid "Display Name"
 msgstr ""
@@ -505,12 +573,14 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_res_company__id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_res_config_settings__id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_res_partner__id
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_res_partner_link__id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order__id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order_close_reason__id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order_line__id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order_template__id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_subscription_plan__id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_line__id
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_partner_wizard__id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_wizard__id
 msgid "ID"
 msgstr ""
@@ -574,6 +644,11 @@ msgid "Invoices"
 msgstr ""
 
 #. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_partner_wizard__invoice_ids
+msgid "Invoices to Update"
+msgstr ""
+
+#. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_bank_statement_line__is_academic_sale
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_move__is_academic_sale
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order__is_academic_sale
@@ -622,6 +697,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__write_uid
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard_line__write_uid
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_line__write_uid
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_partner_wizard__write_uid
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_wizard__write_uid
 msgid "Last Updated by"
 msgstr ""
@@ -630,6 +706,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__write_date
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard_line__write_date
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_line__write_date
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_partner_wizard__write_date
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_wizard__write_date
 msgid "Last Updated on"
 msgstr ""
@@ -706,8 +783,19 @@ msgid "Mudanza familiar"
 msgstr ""
 
 #. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_partner_wizard__new_partner_id
+msgid "New Payment Responsible"
+msgstr ""
+
+#. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_line__new_responsible_id
 msgid "New Responsible"
+msgstr ""
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/wizard/update_payment_responsible_partner_wizard.py:0
+msgid "New payment responsible must be different from current one."
 msgstr ""
 
 #. module: academic_sale_subscription
@@ -718,6 +806,24 @@ msgstr ""
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_group__no_fee_student_count
 msgid "No Fee Student Count"
+msgstr ""
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/wizard/update_payment_responsible_partner_wizard.py:0
+msgid "No partner selected."
+msgstr ""
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/wizard/update_payment_responsible_partner_wizard.py:0
+msgid "No records found to update."
+msgstr ""
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/wizard/update_payment_responsible_partner_wizard.py:0
+msgid "No records were updated."
 msgstr ""
 
 #. module: academic_sale_subscription
@@ -793,6 +899,12 @@ msgid "Order Wizard Line"
 msgstr ""
 
 #. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/wizard/update_payment_responsible_partner_wizard.py:0
+msgid "Partner %s does not have the Payment Responsible role."
+msgstr ""
+
+#. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order__partner_invoice_ids
 msgid "Partner Invoice"
 msgstr ""
@@ -821,6 +933,29 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_view_move_form
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.view_order_form
 msgid "Payment responsible"
+msgstr ""
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/wizard/update_payment_responsible_partner_wizard.py:0
+msgid "Payment responsible roles updated"
+msgstr ""
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/wizard/update_payment_responsible_partner_wizard.py:0
+msgid "Payment responsible successfully updated for: %s"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.view_academic_partner_form
+msgid "Payment responsible will be changed for active sales and pending debts"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_partner_wizard__invoice_count
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.view_update_payment_responsible_partner_wizard
+msgid "Pending Invoices"
 msgstr ""
 
 #. module: academic_sale_subscription
@@ -919,6 +1054,12 @@ msgstr ""
 msgid ""
 "Plantilla de cotización para nivel universitario - incluye cuota mensual e "
 "inscripción"
+msgstr ""
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/wizard/update_payment_responsible_partner_wizard.py:0
+msgid "Please select a new payment responsible."
 msgstr ""
 
 #. module: academic_sale_subscription
@@ -1021,6 +1162,16 @@ msgid "Sales Order Line"
 msgstr ""
 
 #. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.view_update_payment_responsible_partner_wizard
+msgid "Sales/Subscriptions"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_partner_wizard__sale_ids
+msgid "Sales/Subscriptions to Update"
+msgstr ""
+
+#. module: academic_sale_subscription
 #: model_terms:sale.order.close.reason,retention_message:academic_sale_subscription.close_reason_disciplinary
 msgid "Segunda oportunidad"
 msgstr ""
@@ -1074,6 +1225,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_bank_statement_line__student_id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_move__student_id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_move_line__student_id
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_partner_wizard__student_ids
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.portal_my_invoices
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.view_order_form
 msgid "Student"
@@ -1098,6 +1250,12 @@ msgstr ""
 #. module: academic_sale_subscription
 #: model:ir.model,name:academic_sale_subscription.model_sale_subscription_plan
 msgid "Subscription Plan"
+msgstr ""
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/wizard/update_payment_responsible_partner_wizard.py:0
+msgid "Success"
 msgstr ""
 
 #. module: academic_sale_subscription
@@ -1199,6 +1357,18 @@ msgid "There must be product lines."
 msgstr ""
 
 #. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/wizard/update_payment_responsible_partner_wizard.py:0
+msgid "This action will update the payment responsible for: %s"
+msgstr ""
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/models/res_partner_link.py:0
+msgid "This link does not have the Payment Responsible role."
+msgstr ""
+
+#. module: academic_sale_subscription
 #: model:sale.order.close.reason,name:academic_sale_subscription.close_reason_transferred
 msgid "Transferido a otra institución"
 msgstr ""
@@ -1226,12 +1396,18 @@ msgstr ""
 #. module: academic_sale_subscription
 #: model:ir.actions.act_window,name:academic_sale_subscription.action_update_payment_responsible
 #: model:ir.model,name:academic_sale_subscription.model_update_payment_responsible_wizard
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.view_update_payment_responsible_partner_wizard
 msgid "Update Payment Responsible"
 msgstr ""
 
 #. module: academic_sale_subscription
 #: model:ir.model,name:academic_sale_subscription.model_update_payment_responsible_line
 msgid "Update Payment Responsible Line"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:ir.model,name:academic_sale_subscription.model_update_payment_responsible_partner_wizard
+msgid "Update Payment Responsible from Partner"
 msgstr ""
 
 #. module: academic_sale_subscription
@@ -1277,8 +1453,14 @@ msgstr ""
 
 #. module: academic_sale_subscription
 #. odoo-python
+#: code:addons/academic_sale_subscription/models/res_partner_link.py:0
 #: code:addons/academic_sale_subscription/wizard/academic_order_wizard.py:0
 msgid "Warning"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_partner_wizard__warning_message
+msgid "Warning Message"
 msgstr ""
 
 #. module: academic_sale_subscription
@@ -1380,6 +1562,11 @@ msgstr ""
 #. module: academic_sale_subscription
 #: model:sale.order.close.reason,retention_button_link:academic_sale_subscription.close_reason_academic
 msgid "mailto:tutoria@colegio.edu.ar?subject=Solicitud de apoyo académico"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:ir.model,name:academic_sale_subscription.model_res_partner_link
+msgid "res.partner.link"
 msgstr ""
 
 #. module: academic_sale_subscription
