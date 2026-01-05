@@ -56,13 +56,12 @@ class SaleOrder(models.Model):
     def create(self, vals_list):
         orders = super().create(vals_list)
         for order in orders.filtered("is_academic_sale"):
-            order.message_subscribe(
-                [
-                    payment_responsible.id
-                    for payment_responsible in order.partner_invoice_id | order.partner_invoice_ids
-                    if payment_responsible not in order.sudo().message_partner_ids
-                ]
-            )
+            if order.partner_id:
+                family_partners = order.partner_id.student_link_ids.mapped("partner_id")
+                partners_to_subscribe = order.partner_invoice_id | family_partners
+                to_subscribe = partners_to_subscribe - order.sudo().message_partner_ids
+                if to_subscribe:
+                    order.message_subscribe(partner_ids=to_subscribe.ids)
         return orders
 
     def _message_get_default_recipients(self):

@@ -57,14 +57,12 @@ class AccountMove(models.Model):
 
     def _post(self, soft=True):
         for rec in self:
-            partners_invoice = rec.student_id.payment_responsible_ids if rec.student_id else self.env["res.partner"]
-            rec.message_subscribe(
-                [
-                    payment_responsible.id
-                    for payment_responsible in rec.partner_id | partners_invoice
-                    if payment_responsible not in rec.sudo().message_partner_ids
-                ]
-            )
+            if rec.student_id:
+                family_partners = rec.student_id.student_link_ids.mapped("partner_id")
+                partners_to_subscribe = rec.partner_id | family_partners
+                to_subscribe = partners_to_subscribe - rec.sudo().message_partner_ids
+                if to_subscribe:
+                    rec.message_subscribe(partner_ids=to_subscribe.ids)
         return super()._post(soft=soft)
 
     def _compute_is_academic_sale(self):
