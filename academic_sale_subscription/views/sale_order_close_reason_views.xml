@@ -7,7 +7,6 @@
         <field name="arch" type="xml">
             <field name="visible_in_portal" position="after">
                 <field name="release_vacancy"/>
-                <field name="no_reopen_subscription"/>
             </field>
         </field>
     </record>
@@ -18,7 +17,6 @@
         <field name="arch" type="xml">
             <field name="visible_in_portal" position="after">
                 <field name="release_vacancy"/>
-                <field name="no_reopen_subscription"/>
             </field>
         </field>
     </record>
