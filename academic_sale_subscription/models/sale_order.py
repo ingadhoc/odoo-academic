@@ -4,7 +4,6 @@
 ##############################################################################
 from dateutil.relativedelta import relativedelta
 from odoo import api, fields, models
-from odoo.exceptions import UserError
 
 
 class SaleOrder(models.Model):
@@ -91,19 +90,6 @@ class SaleOrder(models.Model):
             self.write({"end_date": self.next_invoice_date + self.plan_id.duration - relativedelta(days=1)})
         else:
             super()._set_deferred_end_date_from_template()
-
-    @api.constrains("sale_order_template_id", "plan_id")
-    def _check_period(self):
-        for rec in self:
-            if (
-                rec.sale_order_template_id
-                and not rec.sale_order_template_id.is_unlimited
-                and rec.plan_id
-                and not rec.plan_id.is_unlimited
-            ):
-                raise UserError(
-                    self.env._("There cannot be a sale order template and a recurring plan both with a defined period.")
-                )
 
     def _get_auto_invoice_grouping_keys(self):
         grouping_keys = super()._get_auto_invoice_grouping_keys() + [
@@ -200,14 +186,3 @@ class SaleOrder(models.Model):
         if is_free and param_enabled:
             is_free = False
         return is_free, is_exception
-
-    def set_open(self):
-        """Override to prevent reopening subscriptions with specific close reasons when called from payment processing."""
-        subscriptions_to_reopen = self
-        if self.env.context.get("from_payment_processing"):
-            subscriptions_to_reopen = self.filtered(
-                lambda order: not (
-                    order.is_subscription and order.close_reason_id and order.close_reason_id.no_reopen_subscription
-                )
-            )
-        return super(SaleOrder, subscriptions_to_reopen).set_open()
