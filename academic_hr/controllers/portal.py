@@ -7,8 +7,10 @@ class CustomerPortal(CustomerPortal):
     @http.route(["/my/personal_data"], type="http", auth="user", website=True)
     def portal_my_personal_data(self, **kw):
         user = request.env.user
-        employee = request.env["hr.employee"].search(
-            [("user_id", "=", user.id), ("main_employee_id", "=", False)], limit=1
+        employee = (
+            request.env["hr.employee"]
+            .sudo()
+            .search([("user_id", "=", user.id), ("main_employee_id", "=", False)], limit=1)
         )
 
         if not employee:
@@ -32,8 +34,10 @@ class CustomerPortal(CustomerPortal):
     @http.route(["/my/personal_data/update"], type="http", auth="user", website=True, methods=["POST"])
     def portal_update_personal_data(self, **kw):
         user = request.env.user
-        employee = request.env["hr.employee"].search(
-            [("user_id", "=", user.id), ("main_employee_id", "=", False)], limit=1
+        employee = (
+            request.env["hr.employee"]
+            .sudo()
+            .search([("user_id", "=", user.id), ("main_employee_id", "=", False)], limit=1)
         )
 
         if not employee:

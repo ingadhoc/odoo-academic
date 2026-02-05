@@ -9,7 +9,7 @@
 
     <template id="portal_side_content_academic_hr" inherit_id="portal.side_content">
         <xpath expr="//div[@name='portal_contact']" position="after">
-            <t t-set="current_employee" t-value="request.env['hr.employee'].search([('user_id', '=', user_id.id), ('main_employee_id', '=', False)], limit=1)"/>
+            <t t-set="current_employee" t-value="request.env['hr.employee'].sudo().search([('user_id', '=', user_id.id), ('main_employee_id', '=', False)], limit=1)"/>
             <div class="o_portal_my_details mt-5" t-if="current_employee">
                 <h5 class="mb-3 pb-3 border-bottom">My Personal Data</h5>
                 <div t-if="current_employee.private_email" class="d-flex align-items-baseline mb-1">
