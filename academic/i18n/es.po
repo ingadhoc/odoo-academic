@@ -428,9 +428,9 @@ msgstr "Otorgar acceso al portal "
 #. module: academic
 #: model:ir.model.constraint,message:academic.constraint_academic_group_group_unique
 msgid ""
-"Group should be unique per Institution, Subject, Course-Division and Year"
+"Group should be unique per Institution, Study Plan, Subject, Course-Division and Year"
 msgstr ""
-"El grupo debería ser único por Institución, Asignatura, Curso-División y Año."
+"El grupo debería ser único por Institución, Plan de Estudios, Asignatura, Curso-División y Año."
 
 #. module: academic
 #: model:ir.actions.act_window,name:academic.action_academic_company_group_groups
