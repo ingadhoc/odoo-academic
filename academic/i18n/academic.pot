@@ -412,7 +412,7 @@ msgstr ""
 #. module: academic
 #: model:ir.model.constraint,message:academic.constraint_academic_group_group_unique
 msgid ""
-"Group should be unique per Institution, Subject, Course-Division and Year"
+"Group should be unique per Institution, Study Plan, Subject, Course-Division and Year"
 msgstr ""
 
 #. module: academic
