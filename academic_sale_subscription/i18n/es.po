@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-02 20:25+0000\n"
+"POT-Creation-Date: 2026-02-11 14:33+0000\n"
 "PO-Revision-Date: 2024-11-27 20:16+0000\n"
 "Last-Translator: Juan José Scarafía <scarafia.juanjose@gmail.com>, 2025\n"
 "Language-Team: Spanish (https://app.transifex.com/adhoc/teams/46451/es/)\n"
@@ -170,6 +170,11 @@ msgstr "Líneas del Wizard de Órden Académico"
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order_line__academic_product_type
 msgid "Academic Product Type"
 msgstr "Tipo de Producto Académico"
+
+#. module: academic_sale_subscription
+#: model:ir.model,name:academic_sale_subscription.model_account_chart_template
+msgid "Account Chart Template"
+msgstr ""
 
 #. module: academic_sale_subscription
 #: model:ir.model,name:academic_sale_subscription.model_account_move_send
@@ -420,6 +425,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_group__display_name
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__display_name
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard_line__display_name
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_account_chart_template__display_name
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_move__display_name
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_move_line__display_name
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_move_send__display_name
@@ -580,6 +586,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_group__id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard_line__id
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_account_chart_template__id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_move__id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_move_line__id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_move_send__id
