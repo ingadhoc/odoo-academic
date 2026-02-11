@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-11 18:29+0000\n"
+"POT-Creation-Date: 2026-02-11 14:41+0000\n"
 "PO-Revision-Date: 2025-12-11 18:29+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -18,7 +18,8 @@ msgstr ""
 
 #. module: academic_hr
 #: model_terms:ir.ui.view,arch_db:academic_hr.view_employee_form_academic
-msgid "<i class=\"fa fa-briefcase\" role=\"img\" aria-label=\"Job\" title=\"Job\"/>"
+msgid ""
+"<i class=\"fa fa-briefcase\" role=\"img\" aria-label=\"Job\" title=\"Job\"/>"
 msgstr ""
 
 #. module: academic_hr
@@ -29,8 +30,29 @@ msgid ""
 msgstr ""
 
 #. module: academic_hr
+#: model_terms:ir.ui.view,arch_db:academic_hr.portal_side_content_academic_hr
+msgid "<i class=\"fa fa-pencil\"/> Edit information"
+msgstr ""
+
+#. module: academic_hr
 #: model_terms:ir.ui.view,arch_db:academic_hr.view_employee_form_academic
-msgid "<i class=\"fa fa-user fa-fw me-1 text-primary\" title=\"Main Employee\"/>"
+msgid ""
+"<i class=\"fa fa-user fa-fw me-1 text-primary\" title=\"Main Employee\"/>"
+msgstr ""
+
+#. module: academic_hr
+#: model_terms:ir.ui.view,arch_db:academic_hr.portal_my_personal_data
+msgid "<option value=\"\">Country...</option>"
+msgstr ""
+
+#. module: academic_hr
+#: model_terms:ir.ui.view,arch_db:academic_hr.portal_my_personal_data
+msgid "<option value=\"\">State...</option>"
+msgstr ""
+
+#. module: academic_hr
+#: model_terms:ir.ui.view,arch_db:academic_hr.portal_my_personal_data
+msgid "Address"
 msgstr ""
 
 #. module: academic_hr
@@ -58,8 +80,23 @@ msgid ""
 msgstr ""
 
 #. module: academic_hr
+#: model_terms:ir.ui.view,arch_db:academic_hr.portal_my_personal_data
+msgid "City"
+msgstr ""
+
+#. module: academic_hr
 #: model:ir.model.fields,field_description:academic_hr.field_hr_employee__company_id
 msgid "Company"
+msgstr ""
+
+#. module: academic_hr
+#: model_terms:ir.ui.view,arch_db:academic_hr.portal_my_personal_data
+msgid "Confirm"
+msgstr ""
+
+#. module: academic_hr
+#: model_terms:ir.ui.view,arch_db:academic_hr.portal_my_personal_data
+msgid "Country"
 msgstr ""
 
 #. module: academic_hr
@@ -68,6 +105,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic_hr.field_hr_leave_allocation__display_name
 #: model:ir.model.fields,field_description:academic_hr.field_hr_leave_type__display_name
 msgid "Display Name"
+msgstr ""
+
+#. module: academic_hr
+#: model_terms:ir.ui.view,arch_db:academic_hr.portal_my_personal_data
+msgid "Email"
 msgstr ""
 
 #. module: academic_hr
@@ -92,6 +134,31 @@ msgid "Main Employee"
 msgstr ""
 
 #. module: academic_hr
+#: model_terms:ir.ui.view,arch_db:academic_hr.portal_side_content_academic_hr
+msgid "My Personal Data"
+msgstr ""
+
+#. module: academic_hr
+#: model_terms:ir.ui.view,arch_db:academic_hr.portal_my_home_menu_personal_data
+msgid "Personal Data"
+msgstr ""
+
+#. module: academic_hr
+#: model_terms:ir.ui.view,arch_db:academic_hr.portal_my_personal_data
+msgid "Phone"
+msgstr ""
+
+#. module: academic_hr
+#: model_terms:ir.ui.view,arch_db:academic_hr.portal_my_personal_data
+msgid "State"
+msgstr ""
+
+#. module: academic_hr
+#: model_terms:ir.ui.view,arch_db:academic_hr.portal_my_personal_data
+msgid "Street"
+msgstr ""
+
+#. module: academic_hr
 #: model:ir.model,name:academic_hr.model_hr_leave_allocation
 msgid "Time Off Allocation"
 msgstr ""
@@ -105,4 +172,9 @@ msgstr ""
 #. odoo-python
 #: code:addons/academic_hr/models/hr_employee.py:0
 msgid "You cannot create circular references in the employee hierarchy."
+msgstr ""
+
+#. module: academic_hr
+#: model_terms:ir.ui.view,arch_db:academic_hr.portal_my_personal_data
+msgid "Zip"
 msgstr ""
