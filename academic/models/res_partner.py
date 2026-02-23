@@ -168,6 +168,7 @@ class ResPartner(models.Model):
             and x.company_id.family_required
             and x.parent_id.partner_type != "family"
             and not x.self_payment_responsible
+            and not self.env.context.get("skip_family_check")
         ):
             raise UserError(self.env._("Students must be linked to a family at this institution"))
 

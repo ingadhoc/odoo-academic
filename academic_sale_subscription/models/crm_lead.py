@@ -12,9 +12,9 @@ class CrmLead(models.Model):
 
     def _create_customer(self, with_parent=None):
         if self.group_id:
-            return super(CrmLead, self.with_context(default_partner_type="student"))._create_customer(
-                with_parent=with_parent
-            )
+            return super(
+                CrmLead, self.with_context(default_partner_type="student", skip_family_check=True)
+            )._create_customer(with_parent=with_parent)
         return super()._create_customer(with_parent=with_parent)
 
     def _message_post_after_hook(self, message, msg_vals):
