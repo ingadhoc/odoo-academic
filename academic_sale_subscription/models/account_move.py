@@ -67,6 +67,9 @@ class AccountMove(models.Model):
 
     def _compute_is_academic_sale(self):
         for rec in self:
+            if not isinstance(rec.id, int):
+                rec.is_academic_sale = False
+                continue
             rec.is_academic_sale = (
                 self.env["sale.order"].search([("invoice_ids", "in", [rec.id])], limit=1).is_academic_sale
             )
