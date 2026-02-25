@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-11 14:41+0000\n"
+"POT-Creation-Date: 2026-02-25 14:16+0000\n"
 "PO-Revision-Date: 2025-12-11 18:29+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -67,6 +67,8 @@ msgstr ""
 
 #. module: academic_hr
 #: model:ir.model.fields,field_description:academic_hr.field_hr_employee__child_employee_ids
+#: model_terms:ir.ui.view,arch_db:academic_hr.hr_attendance_view_filter
+#: model_terms:ir.ui.view,arch_db:academic_hr.view_employee_filter_academic
 #: model_terms:ir.ui.view,arch_db:academic_hr.view_employee_form_academic
 msgid "Child Employees"
 msgstr ""
@@ -100,7 +102,13 @@ msgid "Country"
 msgstr ""
 
 #. module: academic_hr
+#: model:ir.model,name:academic_hr.model_hr_department
+msgid "Department"
+msgstr ""
+
+#. module: academic_hr
 #: model:ir.model.fields,field_description:academic_hr.field_account_analytic_line__display_name
+#: model:ir.model.fields,field_description:academic_hr.field_hr_department__display_name
 #: model:ir.model.fields,field_description:academic_hr.field_hr_employee__display_name
 #: model:ir.model.fields,field_description:academic_hr.field_hr_leave_allocation__display_name
 #: model:ir.model.fields,field_description:academic_hr.field_hr_leave_type__display_name
@@ -121,6 +129,7 @@ msgstr ""
 
 #. module: academic_hr
 #: model:ir.model.fields,field_description:academic_hr.field_account_analytic_line__id
+#: model:ir.model.fields,field_description:academic_hr.field_hr_department__id
 #: model:ir.model.fields,field_description:academic_hr.field_hr_employee__id
 #: model:ir.model.fields,field_description:academic_hr.field_hr_leave_allocation__id
 #: model:ir.model.fields,field_description:academic_hr.field_hr_leave_type__id
@@ -131,6 +140,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic_hr.field_hr_employee__main_employee_id
 #: model_terms:ir.ui.view,arch_db:academic_hr.view_employee_form_academic
 msgid "Main Employee"
+msgstr ""
+
+#. module: academic_hr
+#: model_terms:ir.ui.view,arch_db:academic_hr.hr_attendance_view_filter
+#: model_terms:ir.ui.view,arch_db:academic_hr.view_employee_filter_academic
+msgid "Main Employees"
 msgstr ""
 
 #. module: academic_hr
