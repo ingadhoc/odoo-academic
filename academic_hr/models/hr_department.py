@@ -12,7 +12,9 @@ class HrDepartment(models.Model):
                 [
                     ("department_id", "in", self.ids),
                     ("company_id", "in", self.env.companies.ids),
+                    "|",
                     ("main_employee_id", "!=", False),
+                    ("child_employee_ids", "=", False),
                 ],
                 ["department_id"],
                 ["__count"],
