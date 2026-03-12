@@ -1,0 +1,14 @@
+<odoo>
+    <record id="academic_order_wizard_form" model="ir.ui.view">
+        <field name="name">academic.order.wizard.form</field>
+        <field name="model">academic.order.wizard</field>
+        <field name="inherit_id" ref="academic_sale_subscription.academic_order_wizard_form"/>
+        <field name="arch" type="xml">
+            <field name="payment_term_id" position="after">
+                <field name="company_id" invisible="1"/>
+                <field name="order_type_required" invisible="1"/>
+                <field name="type_id" required="order_type_required"/>
+            </field>
+        </field>
+    </record>
+</odoo>

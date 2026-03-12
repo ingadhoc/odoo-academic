@@ -62,7 +62,7 @@ class OrderWizard(models.TransientModel):
         )
         return action
 
-    def _create_mass_subscription(self):
+    def _create_mass_subscription(self, vals=None):
         subscriptions = self.env["sale.order"]
         for student in self.student_ids:
             subscription = self.env["sale.order"].create(
@@ -74,6 +74,7 @@ class OrderWizard(models.TransientModel):
                     "sale_order_template_id": self.template_id.id,
                     "validity_date": self.validity_date if self.status_sale == "draft" else False,
                     **({"payment_term_id": self.payment_term_id.id} if self.payment_term_id else {}),
+                    **(vals or {}),
                     "order_line": [
                         (
                             0,
