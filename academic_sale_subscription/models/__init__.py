@@ -13,3 +13,4 @@ from . import res_company
 from . import mail_thread
 from . import sale_order_close_reason
 from . import res_partner_link
+from . import crm_lead_family_member

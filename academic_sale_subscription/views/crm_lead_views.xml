@@ -24,6 +24,29 @@
             <xpath expr="//label[@for='expected_revenue']//.." position="attributes">
                 <attribute name="invisible">1</attribute>
             </xpath>
+            <xpath expr="//header" position="inside">
+                <button string="Create Academic Structure" type="object" name="action_create_family"
+                    class="btn-primary" invisible="not family_member_ids"/>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page string="Family Group" name="family">
+                    <field name="family_member_ids">
+                        <list editable="bottom">
+                            <field name="member_type" readonly="partner_id"/>
+                            <field name="name" readonly="partner_id"/>
+                            <field name="vat" readonly="partner_id or member_type == 'family'"/>
+                            <field name="email" readonly="partner_id or member_type == 'family'"/>
+                            <field name="relationship_id" readonly="member_type in ('family', 'student') or partner_id"
+                                required="member_type == 'parent'"/>
+                            <field name="role_ids" widget="many2many_tags"
+                                invisible="member_type == 'family'" readonly="partner_id"/>
+                            <field name="partner_id" readonly="1" optional="show"/>
+                            <button name="action_open_partner" type="object" icon="fa-external-link"
+                                invisible="not partner_id" title="Open contact"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
         </field>
     </record>
 
