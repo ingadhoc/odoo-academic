@@ -30,6 +30,14 @@
             </xpath>
             <xpath expr="//notebook" position="inside">
                 <page string="Family Group" name="family">
+                    <field name="suggested_family_count" invisible="1"/>
+                    <div class="alert alert-info d-flex align-items-center flex-wrap gap-2" role="status" invisible="not suggested_family_message">
+                        <field name="suggested_family_message" widget="html" readonly="1" nolabel="1" class="mb-0"/>
+                        <button name="action_open_suggested_family" type="object" class="btn btn-link"
+                            string="Open families" invisible="suggested_family_count &lt;= 1"/>
+                        <button name="action_link_suggested_family" type="object" class="btn btn-link" icon="fa-arrow-right"
+                            string="Link family" invisible="suggested_family_count != 1"/>
+                    </div>
                     <field name="family_member_ids">
                         <list editable="bottom">
                             <field name="member_type" readonly="partner_id"/>
@@ -40,7 +48,10 @@
                                 required="member_type == 'parent'"/>
                             <field name="role_ids" widget="many2many_tags"
                                 invisible="member_type == 'family'" readonly="partner_id"/>
-                            <field name="partner_id" readonly="1" optional="show"/>
+                            <field name="partner_id" optional="show"
+                                domain="[('partner_type', '=', 'family')]"
+                                readonly="member_type != 'family'"
+                                options="{'no_create': True}"/>
                             <button name="action_open_partner" type="object" icon="fa-external-link"
                                 invisible="not partner_id" title="Open contact"/>
                         </list>
