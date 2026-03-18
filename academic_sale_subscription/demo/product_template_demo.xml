@@ -9,7 +9,6 @@
             <field name="list_price">12000.0</field>
             <field name="standard_price">12000.0</field>
             <field name="categ_id" ref="product.product_category_services"/>
-            <field name="company_id" ref="academic.res_company_los_arroyos"/>
             <field name="invoice_policy">order</field>
             <field name="service_type">manual</field>
             <field name="academic_product_type">fee</field>
@@ -23,7 +22,6 @@
             <field name="list_price">6000.0</field>
             <field name="standard_price">6000.0</field>
             <field name="categ_id" ref="product.product_category_services"/>
-            <field name="company_id" ref="academic.res_company_los_arroyos"/>
             <field name="invoice_policy">order</field>
             <field name="service_type">manual</field>
             <field name="academic_product_type">registration</field>
@@ -38,7 +36,6 @@
             <field name="list_price">15000.0</field>
             <field name="standard_price">15000.0</field>
             <field name="categ_id" ref="product.product_category_services"/>
-            <field name="company_id" ref="academic.res_company_los_arroyos"/>
             <field name="invoice_policy">order</field>
             <field name="service_type">manual</field>
             <field name="academic_product_type">fee</field>
@@ -52,7 +49,6 @@
             <field name="list_price">8000.0</field>
             <field name="standard_price">8000.0</field>
             <field name="categ_id" ref="product.product_category_services"/>
-            <field name="company_id" ref="academic.res_company_los_arroyos"/>
             <field name="invoice_policy">order</field>
             <field name="service_type">manual</field>
             <field name="academic_product_type">registration</field>
@@ -67,7 +63,6 @@
             <field name="list_price">25000.0</field>
             <field name="standard_price">25000.0</field>
             <field name="categ_id" ref="product.product_category_services"/>
-            <field name="company_id" ref="academic.res_company_los_arroyos"/>
             <field name="invoice_policy">order</field>
             <field name="service_type">manual</field>
             <field name="academic_product_type">fee</field>
@@ -81,7 +76,6 @@
             <field name="list_price">15000.0</field>
             <field name="standard_price">15000.0</field>
             <field name="categ_id" ref="product.product_category_services"/>
-            <field name="company_id" ref="academic.res_company_los_arroyos"/>
             <field name="invoice_policy">order</field>
             <field name="service_type">manual</field>
             <field name="academic_product_type">registration</field>
@@ -96,7 +90,6 @@
             <field name="list_price">8000.0</field>
             <field name="standard_price">8000.0</field>
             <field name="categ_id" ref="product.product_category_services"/>
-            <field name="company_id" ref="academic.res_company_los_arroyos"/>
             <field name="invoice_policy">order</field>
             <field name="service_type">manual</field>
             <field name="academic_product_type">fee</field>
@@ -110,7 +103,6 @@
             <field name="list_price">4000.0</field>
             <field name="standard_price">4000.0</field>
             <field name="categ_id" ref="product.product_category_services"/>
-            <field name="company_id" ref="academic.res_company_los_arroyos"/>
             <field name="invoice_policy">order</field>
             <field name="service_type">manual</field>
             <field name="academic_product_type">registration</field>
