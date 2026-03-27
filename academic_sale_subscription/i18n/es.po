@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-11 14:33+0000\n"
+"POT-Creation-Date: 2026-03-27 18:16+0000\n"
 "PO-Revision-Date: 2024-11-27 20:16+0000\n"
 "Last-Translator: Juan José Scarafía <scarafia.juanjose@gmail.com>, 2025\n"
 "Language-Team: Spanish (https://app.transifex.com/adhoc/teams/46451/es/)\n"
@@ -279,11 +279,6 @@ msgid "Contact"
 msgstr "Contacto"
 
 #. module: academic_sale_subscription
-#: model:ir.model.fields,help:academic_sale_subscription.field_sale_subscription_plan__duration_unit
-msgid "Contract duration"
-msgstr "Duración del contrato"
-
-#. module: academic_sale_subscription
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.view_academic_partner_tree
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.view_partner_form
 msgid "Create Order"
@@ -441,17 +436,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order_close_reason__display_name
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order_line__display_name
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order_template__display_name
-#: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_subscription_plan__display_name
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_line__display_name
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_partner_wizard__display_name
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_wizard__display_name
 msgid "Display Name"
 msgstr "Nombre para mostrar"
-
-#. module: academic_sale_subscription
-#: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order_close_reason__no_reopen_subscription
-msgid "Do Not Reopen Subscription"
-msgstr "No reabrir suscripción"
 
 #. module: academic_sale_subscription
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.portal_my_home_debt_certificate
@@ -470,11 +459,6 @@ msgid "Duplicated Subscriptions"
 msgstr ""
 
 #. module: academic_sale_subscription
-#: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_subscription_plan__duration_unit
-msgid "Duration Unit"
-msgstr "Unidad de duración"
-
-#. module: academic_sale_subscription
 #: model:sale.order.close.reason,name:academic_sale_subscription.close_reason_graduated
 msgid "Egresado/Graduado"
 msgstr ""
@@ -490,11 +474,6 @@ msgid ""
 "Enable this to allow invoicing subscription lines even if their total is "
 "zero."
 msgstr ""
-
-#. module: academic_sale_subscription
-#: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_subscription_plan__duration_value
-msgid "End After"
-msgstr "Finaliza después de"
 
 #. module: academic_sale_subscription
 #: model_terms:sale.order.close.reason,retention_message:academic_sale_subscription.close_reason_financial
@@ -602,7 +581,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order_close_reason__id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order_line__id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order_template__id
-#: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_subscription_plan__id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_line__id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_partner_wizard__id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_wizard__id
@@ -615,15 +593,6 @@ msgid ""
 "If enabled, closing with this reason will release the associated vacancy."
 msgstr ""
 "Si está habilitado, cerrar con esta razón liberará la vacante asociada."
-
-#. module: academic_sale_subscription
-#: model:ir.model.fields,help:academic_sale_subscription.field_sale_order_close_reason__no_reopen_subscription
-msgid ""
-"If enabled, subscriptions closed with this reason will not be automatically "
-"reopened after payment."
-msgstr ""
-"Si está habilitado, las suscripciones cerradas con esta razón no se "
-"reabrirán automáticamente después del pago."
 
 #. module: academic_sale_subscription
 #: model:sale.order.close.reason,name:academic_sale_subscription.close_reason_dissatisfaction
@@ -716,11 +685,6 @@ msgid ""
 msgstr ""
 
 #. module: academic_sale_subscription
-#: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_subscription_plan__is_unlimited
-msgid "Last Forever"
-msgstr "Eterno"
-
-#. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__write_uid
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard_line__write_uid
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_line__write_uid
@@ -788,11 +752,6 @@ msgstr ""
 #: model_terms:sale.order.close.reason,retention_message:academic_sale_subscription.close_reason_temporary_leave
 msgid "Mantén contacto con nosotros para coordinar tu regreso."
 msgstr ""
-
-#. module: academic_sale_subscription
-#: model:ir.model.fields.selection,name:academic_sale_subscription.selection__sale_subscription_plan__duration_unit__month
-msgid "Months"
-msgstr "Meses"
 
 #. module: academic_sale_subscription
 #: model:sale.order.close.reason,name:academic_sale_subscription.close_reason_disciplinary
@@ -1276,11 +1235,6 @@ msgid "Subscription Close Reason"
 msgstr "Motivo del cierre de la suscripción"
 
 #. module: academic_sale_subscription
-#: model:ir.model,name:academic_sale_subscription.model_sale_subscription_plan
-msgid "Subscription Plan"
-msgstr "Plan de suscripción"
-
-#. module: academic_sale_subscription
 #. odoo-python
 #: code:addons/academic_sale_subscription/wizard/update_payment_responsible_partner_wizard.py:0
 msgid "Success"
@@ -1335,11 +1289,6 @@ msgid "The debt free certificate for"
 msgstr ""
 
 #. module: academic_sale_subscription
-#: model:ir.model.constraint,message:academic_sale_subscription.constraint_sale_subscription_plan_check_duration_value
-msgid "The duration can't be negative or 0."
-msgstr "La duración no puede ser negativa ni 0."
-
-#. module: academic_sale_subscription
 #. odoo-python
 #: code:addons/academic_sale_subscription/wizard/academic_order_wizard.py:0
 msgid ""
@@ -1382,16 +1331,6 @@ msgstr "Hay productos con precio 0."
 #: code:addons/academic_sale_subscription/models/academic_group.py:0
 msgid "There can be no negative vacancies. Increase group capacity."
 msgstr ""
-
-#. module: academic_sale_subscription
-#. odoo-python
-#: code:addons/academic_sale_subscription/models/sale_order.py:0
-msgid ""
-"There cannot be a sale order template and a recurring plan both with a "
-"defined period."
-msgstr ""
-"No puede haber una plantilla de pedido de venta y un plan recurrente, ambos "
-"con un período definido."
 
 #. module: academic_sale_subscription
 #. odoo-python
@@ -1517,11 +1456,6 @@ msgid "Wizard"
 msgstr ""
 
 #. module: academic_sale_subscription
-#: model:ir.model.fields.selection,name:academic_sale_subscription.selection__sale_subscription_plan__duration_unit__year
-msgid "Years"
-msgstr "Años"
-
-#. module: academic_sale_subscription
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.portal_my_debt_free_certificates
 msgid "You are not registered as payment responsible for any student."
 msgstr "No estás registrado como responsable de pago de ningún estudiante."
@@ -1637,6 +1571,47 @@ msgstr ""
 #: model_terms:sale.order.close.reason,retention_message:academic_sale_subscription.close_reason_family_relocation
 msgid "¿Te mudas lejos?"
 msgstr ""
+
+#~ msgid "Contract duration"
+#~ msgstr "Duración del contrato"
+
+#~ msgid "Do Not Reopen Subscription"
+#~ msgstr "No reabrir suscripción"
+
+#~ msgid "Duration Unit"
+#~ msgstr "Unidad de duración"
+
+#~ msgid "End After"
+#~ msgstr "Finaliza después de"
+
+#~ msgid ""
+#~ "If enabled, subscriptions closed with this reason will not be "
+#~ "automatically reopened after payment."
+#~ msgstr ""
+#~ "Si está habilitado, las suscripciones cerradas con esta razón no se "
+#~ "reabrirán automáticamente después del pago."
+
+#~ msgid "Last Forever"
+#~ msgstr "Eterno"
+
+#~ msgid "Months"
+#~ msgstr "Meses"
+
+#~ msgid "Subscription Plan"
+#~ msgstr "Plan de suscripción"
+
+#~ msgid "The duration can't be negative or 0."
+#~ msgstr "La duración no puede ser negativa ni 0."
+
+#~ msgid ""
+#~ "There cannot be a sale order template and a recurring plan both with a "
+#~ "defined period."
+#~ msgstr ""
+#~ "No puede haber una plantilla de pedido de venta y un plan recurrente, "
+#~ "ambos con un período definido."
+
+#~ msgid "Years"
+#~ msgstr "Años"
 
 #~ msgid "Lead/Opportunity"
 #~ msgstr "Lead/Oportunidad"
