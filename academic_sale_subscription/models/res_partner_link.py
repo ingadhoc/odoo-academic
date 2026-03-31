@@ -62,7 +62,7 @@ class ResPartnerLink(models.Model):
             )
 
             if active_subscriptions:
-                student_with_subscription = active_subscriptions.student_id
+                student_with_subscription = active_subscriptions.partner_id
                 raise ValidationError(
                     _(
                         'Cannot remove "Payment Responsible" role from contact %s '
