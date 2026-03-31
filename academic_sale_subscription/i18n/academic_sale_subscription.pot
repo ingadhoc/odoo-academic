@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-27 18:16+0000\n"
-"PO-Revision-Date: 2026-03-27 18:16+0000\n"
+"POT-Creation-Date: 2026-03-31 14:56+0000\n"
+"PO-Revision-Date: 2026-03-31 14:56+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -409,7 +409,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_move_send__display_name
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_crm_lead__display_name
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_mail_thread__display_name
-#: model:ir.model.fields,field_description:academic_sale_subscription.field_payment_transaction__display_name
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_product_template__display_name
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_res_company__display_name
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_res_config_settings__display_name
@@ -554,7 +553,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_move_send__id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_crm_lead__id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_mail_thread__id
-#: model:ir.model.fields,field_description:academic_sale_subscription.field_payment_transaction__id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_product_template__id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_res_company__id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_res_config_settings__id
@@ -890,11 +888,6 @@ msgstr ""
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order_line__payment_term_id
 msgid "Payment Terms"
-msgstr ""
-
-#. module: academic_sale_subscription
-#: model:ir.model,name:academic_sale_subscription.model_payment_transaction
-msgid "Payment Transaction"
 msgstr ""
 
 #. module: academic_sale_subscription
