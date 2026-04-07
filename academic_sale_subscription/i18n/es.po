@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-31 14:56+0000\n"
+"POT-Creation-Date: 2026-04-07 17:20+0000\n"
 "PO-Revision-Date: 2024-11-27 20:16+0000\n"
 "Last-Translator: Juan José Scarafía <scarafia.juanjose@gmail.com>, 2025\n"
 "Language-Team: Spanish (https://app.transifex.com/adhoc/teams/46451/es/)\n"
@@ -54,16 +54,6 @@ msgstr "%s certificados enviados exitosamente."
 #. module: academic_sale_subscription
 #: model:ir.actions.report,print_report_name:academic_sale_subscription.report_debt_free_certificate
 msgid "'Debt Free Certificate - ' + object.name"
-msgstr ""
-
-#. module: academic_sale_subscription
-#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_contactus_form
-msgid "+54 11 1234-5678"
-msgstr ""
-
-#. module: academic_sale_subscription
-#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_contactus_form
-msgid "+54 9 11 1234-5678"
 msgstr ""
 
 #. module: academic_sale_subscription
@@ -148,6 +138,22 @@ msgid "<strong>Total amount due: </strong>"
 msgstr "<span> <strong>Importe total adeudado: </strong> </span>"
 
 #. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/models/crm_lead.py:0
+msgid ""
+"A family was found for the entered parent DNI: %(family)s. You can link it "
+"in the Family line."
+msgstr ""
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/models/crm_lead.py:0
+msgid ""
+"A family was found for the entered parent DNI: <a href='%(url)s'>%(family)s</"
+"a>."
+msgstr ""
+
+#. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard_line__academic_group_id
 msgid "Academic Group"
 msgstr "Grupo Académico"
@@ -187,6 +193,24 @@ msgid "Active Sales/Subscriptions"
 msgstr "Ventas/Suscripciones Activas"
 
 #. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/models/crm_lead.py:0
+msgid "Add at least one Relative line (father/mother/tutor)."
+msgstr ""
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/models/crm_lead.py:0
+msgid "Add one Family line."
+msgstr ""
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/models/crm_lead.py:0
+msgid "Add one Student line."
+msgstr ""
+
+#. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_partner_wizard__available_partner_ids
 msgid "Available Partners"
 msgstr ""
@@ -195,6 +219,11 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.debt_certificate_unavailable
 msgid "Back to Portal"
 msgstr "Volver al Portal"
+
+#. module: academic_sale_subscription
+#: model:ir.model,name:academic_sale_subscription.model_crm_lead_family_member
+msgid "CRM Lead Family Member"
+msgstr ""
 
 #. module: academic_sale_subscription
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_order_wizard_form
@@ -254,6 +283,12 @@ msgid "Companies"
 msgstr "Compañías"
 
 #. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/models/crm_lead.py:0
+msgid "Complete the relationship on all Relative lines."
+msgstr ""
+
+#. module: academic_sale_subscription
 #: model:ir.model,name:academic_sale_subscription.model_res_config_settings
 msgid "Config Settings"
 msgstr "Ajustes de configuración"
@@ -279,6 +314,11 @@ msgid "Contact"
 msgstr "Contacto"
 
 #. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.crm_lead_view_form
+msgid "Create Academic Structure"
+msgstr ""
+
+#. module: academic_sale_subscription
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.view_academic_partner_tree
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.view_partner_form
 msgid "Create Order"
@@ -298,6 +338,7 @@ msgstr "Crear orden"
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__create_uid
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard_line__create_uid
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_crm_lead_family_member__create_uid
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_line__create_uid
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_partner_wizard__create_uid
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_wizard__create_uid
@@ -307,6 +348,7 @@ msgstr "Creado por"
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__create_date
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard_line__create_date
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_crm_lead_family_member__create_date
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_line__create_date
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_partner_wizard__create_date
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_wizard__create_date
@@ -376,6 +418,11 @@ msgid "Customer"
 msgstr "Cliente"
 
 #. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_crm_lead_family_member__vat
+msgid "DNI"
+msgstr ""
+
+#. module: academic_sale_subscription
 #: model:sale.order.close.reason,retention_button_text:academic_sale_subscription.close_reason_dissatisfaction
 msgid "Dar feedback"
 msgstr ""
@@ -425,6 +472,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_move_line__display_name
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_move_send__display_name
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_crm_lead__display_name
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_crm_lead_family_member__display_name
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_mail_thread__display_name
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_product_template__display_name
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_res_company__display_name
@@ -460,6 +508,11 @@ msgstr ""
 #. module: academic_sale_subscription
 #: model:sale.order.close.reason,name:academic_sale_subscription.close_reason_graduated
 msgid "Egresado/Graduado"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_crm_lead_family_member__email
+msgid "Email"
 msgstr ""
 
 #. module: academic_sale_subscription
@@ -513,10 +566,21 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_bank_statement_line__family_id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_move__family_id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_move_line__family_id
+#: model:ir.model.fields.selection,name:academic_sale_subscription.selection__crm_lead_family_member__member_type__family
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_view_account_invoice_filter
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.view_account_move_line_filter
 msgid "Family"
 msgstr "Familia"
+
+#. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.crm_lead_view_form
+msgid "Family Group"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_crm_lead__family_member_ids
+msgid "Family Member"
+msgstr ""
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields.selection,name:academic_sale_subscription.selection__product_template__academic_product_type__fee
@@ -569,6 +633,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_move_line__id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_move_send__id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_crm_lead__id
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_crm_lead_family_member__id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_mail_thread__id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_product_template__id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_res_company__id
@@ -685,6 +750,7 @@ msgstr ""
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__write_uid
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard_line__write_uid
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_crm_lead_family_member__write_uid
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_line__write_uid
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_partner_wizard__write_uid
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_wizard__write_uid
@@ -694,6 +760,7 @@ msgstr "Última Actualización por"
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__write_date
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard_line__write_date
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_crm_lead_family_member__write_date
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_line__write_date
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_partner_wizard__write_date
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_wizard__write_date
@@ -702,6 +769,7 @@ msgstr "Última actualización el"
 
 #. module: academic_sale_subscription
 #: model:ir.model,name:academic_sale_subscription.model_crm_lead
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_crm_lead_family_member__lead_id
 msgid "Lead"
 msgstr ""
 
@@ -719,6 +787,11 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_order_wizard_form
 msgid "Lines"
 msgstr "Líneas"
+
+#. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.crm_lead_view_form
+msgid "Link family"
+msgstr ""
 
 #. module: academic_sale_subscription
 #: model_terms:sale.order.close.reason,retention_message:academic_sale_subscription.close_reason_academic
@@ -752,6 +825,11 @@ msgid "Mantén contacto con nosotros para coordinar tu regreso."
 msgstr ""
 
 #. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_crm_lead_family_member__member_type
+msgid "Member Type"
+msgstr ""
+
+#. module: academic_sale_subscription
 #: model:sale.order.close.reason,name:academic_sale_subscription.close_reason_disciplinary
 msgid "Motivos disciplinarios"
 msgstr ""
@@ -764,6 +842,27 @@ msgstr ""
 #. module: academic_sale_subscription
 #: model:sale.order.close.reason,name:academic_sale_subscription.close_reason_family_relocation
 msgid "Mudanza familiar"
+msgstr ""
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/models/crm_lead.py:0
+msgid ""
+"Multiple families were found for the entered parent DNI values. Please "
+"select the correct Family contact in the Family line."
+msgstr ""
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/models/crm_lead.py:0
+msgid ""
+"Multiple families were found for the entered parent DNI values. Use 'Open "
+"families' to review them, then link the correct one in the Family line."
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_crm_lead_family_member__name
+msgid "Name"
 msgstr ""
 
 #. module: academic_sale_subscription
@@ -812,6 +911,12 @@ msgstr "No se actualizaron registros."
 
 #. module: academic_sale_subscription
 #. odoo-python
+#: code:addons/academic_sale_subscription/models/crm_lead.py:0
+msgid "No related family was found for the entered parent DNI."
+msgstr ""
+
+#. module: academic_sale_subscription
+#. odoo-python
 #: code:addons/academic_sale_subscription/wizard/academic_order_wizard.py:0
 msgid "No student has been selected."
 msgstr "No se ha seleccionado ningún estudiante."
@@ -857,6 +962,16 @@ msgid "Open Subscription"
 msgstr "Abrir suscripción"
 
 #. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.crm_lead_view_form
+msgid "Open contact"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.crm_lead_view_form
+msgid "Open families"
+msgstr ""
+
+#. module: academic_sale_subscription
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.view_academic_partner_tree
 msgid "Open order wizard"
 msgstr ""
@@ -881,6 +996,11 @@ msgstr "Oportunidades linkeadas con este grupo"
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__order_wizard_line_ids
 msgid "Order Wizard Line"
 msgstr "Línea del Wizard"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_crm_lead_family_member__partner_id
+msgid "Partner"
+msgstr ""
 
 #. module: academic_sale_subscription
 #. odoo-python
@@ -1120,6 +1240,16 @@ msgid "Registration Student Count"
 msgstr "Cantidad de estudiantes registrados"
 
 #. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_crm_lead_family_member__relationship_id
+msgid "Relationship"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields.selection,name:academic_sale_subscription.selection__crm_lead_family_member__member_type__parent
+msgid "Relative"
+msgstr ""
+
+#. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order_close_reason__release_vacancy
 msgid "Release Vacancy"
 msgstr "Libera vacante"
@@ -1129,6 +1259,11 @@ msgstr "Libera vacante"
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_move__require_student_on_invoices
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_res_company__require_student_on_invoices
 msgid "Require Student On Invoices"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_crm_lead_family_member__role_ids
+msgid "Role"
 msgstr ""
 
 #. module: academic_sale_subscription
@@ -1206,6 +1341,7 @@ msgstr "Estado que se asignará a los pedidos de venta."
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_move__student_id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_move_line__student_id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_partner_wizard__student_ids
+#: model:ir.model.fields.selection,name:academic_sale_subscription.selection__crm_lead_family_member__member_type__student
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.portal_my_invoices
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.view_order_form
 msgid "Student"
@@ -1232,6 +1368,33 @@ msgstr "Motivo del cierre de la suscripción"
 #: code:addons/academic_sale_subscription/wizard/update_payment_responsible_partner_wizard.py:0
 msgid "Success"
 msgstr "Éxito"
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/models/crm_lead.py:0
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_crm_lead__suggested_family_ids
+msgid "Suggested Families"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_crm_lead__suggested_family_id
+msgid "Suggested Family"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_crm_lead__suggested_family_count
+msgid "Suggested Family Count"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_crm_lead__suggested_family_message
+msgid "Suggested Family Message"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_crm_lead__suggested_family_note
+msgid "Suggested Family Note"
+msgstr ""
 
 #. module: academic_sale_subscription
 #: model_terms:sale.order.close.reason,retention_message:academic_sale_subscription.close_reason_graduated
@@ -1323,6 +1486,18 @@ msgstr "Hay productos con precio 0."
 #. odoo-python
 #: code:addons/academic_sale_subscription/models/academic_group.py:0
 msgid "There can be no negative vacancies. Increase group capacity."
+msgstr ""
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/models/crm_lead.py:0
+msgid "There can only be one Family per opportunity."
+msgstr ""
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/models/crm_lead.py:0
+msgid "There can only be one Student per opportunity."
 msgstr ""
 
 #. module: academic_sale_subscription
@@ -1461,6 +1636,21 @@ msgstr ""
 
 #. module: academic_sale_subscription
 #. odoo-python
+#: code:addons/academic_sale_subscription/models/crm_lead.py:0
+msgid ""
+"You cannot create the Academic Structure yet. Please complete Family Group "
+"data:\n"
+"- %(details)s"
+msgstr ""
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/models/crm_lead_family_member.py:0
+msgid "You cannot delete a line that is already linked to a contact."
+msgstr ""
+
+#. module: academic_sale_subscription
+#. odoo-python
 #: code:addons/academic_sale_subscription/models/res_company.py:0
 msgid ""
 "You cannot mark require student on invoices if there are already invoices "
@@ -1476,6 +1666,12 @@ msgstr ""
 #: model:ir.model,name:academic_sale_subscription.model_academic_group
 msgid "group"
 msgstr "grupo"
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/models/crm_lead.py:0
+msgid "id"
+msgstr ""
 
 #. module: academic_sale_subscription
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.debt_certificate_unavailable
