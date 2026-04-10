@@ -14,7 +14,7 @@
 Academic Sale Subscription
 ==========================
 
-This module extends the standard Odoo subscription management capabilities to cater specifically to academic institutions.
+This module extends the standard Odoo subscription management capabilities to cater specifically to academic institutions
 
 Installation
 ============
