@@ -76,7 +76,26 @@ class ResPartner(models.Model):
         search="_search_same_identification_number_partner_id",
     )
     same_identification_number_partner_company = fields.Many2one(
-        "res.company", string="Company same partner", related="same_identification_number_partner_id.company_id"
+        "res.company",
+        string="Company same partner",
+        compute="_compute_same_identification_number_partner_id",
+        store=False,
+    )
+    same_identification_number_company_email = fields.Char(
+        string="Company email same identification number partner",
+        compute="_compute_same_identification_number_partner_id",
+        store=False,
+    )
+    same_vat_company_email = fields.Char(
+        string="Company email same VAT partner",
+        compute="_compute_same_vat_partner_id",
+        store=False,
+    )
+    same_vat_partner_company_id = fields.Many2one(
+        "res.company",
+        string="Company same VAT partner",
+        compute="_compute_same_vat_partner_id",
+        store=False,
     )
     related_user_id = fields.Many2one(
         "res.users",
@@ -164,19 +183,23 @@ class ResPartner(models.Model):
     @api.constrains("company_id", "partner_type", "parent_id", "self_payment_responsible")
     def _check_family_configured(self):
         if self.filtered(
-            lambda x: x.partner_type == "student"
-            and x.company_id.family_required
-            and x.parent_id.partner_type != "family"
-            and not x.self_payment_responsible
-            and not self.env.context.get("skip_family_check")
+            lambda x: (
+                x.partner_type == "student"
+                and x.company_id.family_required
+                and x.parent_id.partner_type != "family"
+                and not x.self_payment_responsible
+                and not self.env.context.get("skip_family_check")
+            )
         ):
             raise UserError(self.env._("Students must be linked to a family at this institution"))
 
         if self.filtered(
-            lambda x: x.partner_type == "student"
-            and x.self_payment_responsible
-            and x.parent_id
-            and x.parent_id.partner_type == "family"
+            lambda x: (
+                x.partner_type == "student"
+                and x.self_payment_responsible
+                and x.parent_id
+                and x.parent_id.partner_type == "family"
+            )
         ):
             raise UserError(
                 self.env._("A student cannot be self payment responsible and belong to a family at the same time")
@@ -222,19 +245,41 @@ class ResPartner(models.Model):
         # anulamos el onchange nativo de odoo porque ahora lo hicimos compute
         return
 
+    def _compute_same_vat_partner_id(self):
+        super()._compute_same_vat_partner_id()
+        # The base method only searches within the same company. For any partner
+        # that still has no match, widen the search to all companies.
+        Partner = self.env["res.partner"].with_context(active_test=False).sudo()
+        for partner in self.filtered(
+            lambda p: not p.same_vat_partner_id and p.vat and len(p.vat) != 1 and not p.parent_id
+        ):
+            partner_id = partner._origin.id
+            domain = [("vat", "=", partner.vat)]
+            if partner_id:
+                domain += [("id", "!=", partner_id), "!", ("id", "child_of", partner_id)]
+            partner.same_vat_partner_id = Partner.search(domain, limit=1)
+        for partner in self:
+            same_vat_partner = partner.same_vat_partner_id.sudo()
+            partner.same_vat_partner_company_id = same_vat_partner.company_id
+            partner.same_vat_company_email = same_vat_partner.company_id.email or "-"
+
     @api.depends("identification_number")
     def _compute_same_identification_number_partner_id(self):
-        filtered_partners = self.filtered("identification_number")
-        for partner in filtered_partners:
-            partner_id = partner._origin.id
-            Partner = self.with_context(active_test=False).sudo()
-            domain = [
-                ("identification_number", "=", partner.identification_number),
-            ]
-            if partner_id:
-                domain += [("id", "!=", partner_id)]
-            partner.same_identification_number_partner_id = Partner.search(domain, limit=1)
-        (self - filtered_partners).same_identification_number_partner_id = False
+        Partner = self.env["res.partner"].with_context(active_test=False).sudo()
+        for partner in self:
+            same_identification_partner = Partner.browse()
+            if partner.identification_number:
+                partner_id = partner._origin.id
+                domain = [
+                    ("identification_number", "=", partner.identification_number),
+                ]
+                if partner_id:
+                    domain += [("id", "!=", partner_id)]
+                same_identification_partner = Partner.search(domain, limit=1)
+            partner.same_identification_number_partner_id = same_identification_partner
+            same_identification_partner = same_identification_partner.sudo()
+            partner.same_identification_number_partner_company = same_identification_partner.company_id
+            partner.same_identification_number_company_email = same_identification_partner.company_id.email or "-"
 
     def _search_same_identification_number_partner_id(self, operator, value):
         return [("identification_number", operator, value)]
