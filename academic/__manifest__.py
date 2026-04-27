@@ -28,13 +28,10 @@
     "images": [],
     "depends": [
         "portal_backend",
-        "board",
         "hr",
         "website",
-        "board",
         "contacts",
         "report_aeroo",
-        "crm",
     ],
     "data": [
         "security/academic_security.xml",
