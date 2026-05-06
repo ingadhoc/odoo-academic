@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_basic_group_data_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="group">
+                <t t-call="web.external_layout">
+                    <div class="page" style="text-align: center;">
+                        <table class="table table-sm" style="margin-bottom: 16px; text-align: center;">
+                            <tbody>
+                                <tr>
+                                    <td><strong>Year:</strong></td>
+                                    <td><span t-esc="group.year"/></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Study Plan:</strong></td>
+                                    <td><span t-field="group.section_id"/></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Level:</strong></td>
+                                    <td><span t-field="group.level_id"/></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Division:</strong></td>
+                                    <td><span t-field="group.division_id"/></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Total Students:</strong></td>
+                                    <td><span t-esc="len(group.student_ids)"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="table table-sm o_main_table" style="text-align: center;">
+                            <thead>
+                                <tr style="background-color: #d9e1f2;">
+                                    <th style="width: 5%; text-align: center;">#</th>
+                                    <th style="width: 40%; text-align: center;">Student Name</th>
+                                    <th style="width: 27%; text-align: center;">Identification Number</th>
+                                    <th style="width: 28%; text-align: center;">Birth Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="group.student_ids.sorted('name')" t-as="student">
+                                    <td>
+                                        <span t-esc="student_index + 1"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="student.name"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="student.identification_number"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="student.birthdate.strftime('%d/%m/%Y') if student.birthdate else ''"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

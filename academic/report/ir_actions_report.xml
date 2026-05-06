@@ -11,4 +11,14 @@
         <field name="tml_source">file</field>
         <field name="binding_model_id" ref="base.model_res_partner"/>
     </record>
+
+    <record id="report_basic_group_data" model="ir.actions.report">
+        <field name="name">Print Basic Group Data</field>
+        <field name="model">academic.group</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">academic.report_basic_group_data_document</field>
+        <field name="report_file">academic.report_basic_group_data_document</field>
+        <field name="print_report_name">'Basic Group Data - %s' % (object.name)</field>
+        <field name="binding_model_id" ref="academic.model_academic_group"/>
+    </record>
 </odoo>
