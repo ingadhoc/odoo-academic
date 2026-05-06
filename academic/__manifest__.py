@@ -56,6 +56,7 @@
         "views/res_partner_relationship_views.xml",
         "wizards/portal_wizard_views.xml",
         "report/ir_actions_report.xml",
+        "report/report_basic_group_data.xml",
         "views/res_partner_category.xml",
     ],
     "demo": [
