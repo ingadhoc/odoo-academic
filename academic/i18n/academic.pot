@@ -6,14 +6,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-12 18:42+0000\n"
-"PO-Revision-Date: 2026-02-12 18:42+0000\n"
+"POT-Creation-Date: 2026-05-12 17:27+0000\n"
+"PO-Revision-Date: 2026-05-12 17:27+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: academic
+#: model:ir.actions.report,print_report_name:academic.report_basic_group_data
+msgid "'Basic Group Data - %s' % (object.name)"
+msgstr ""
 
 #. module: academic
 #: model:ir.actions.report,print_report_name:academic.report_certificate_regular_student
@@ -33,6 +38,31 @@ msgstr ""
 #. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
 msgid "<span>: </span>"
+msgstr ""
+
+#. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.report_basic_group_data_document
+msgid "<strong>Division:</strong>"
+msgstr ""
+
+#. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.report_basic_group_data_document
+msgid "<strong>Level:</strong>"
+msgstr ""
+
+#. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.report_basic_group_data_document
+msgid "<strong>Study Plan:</strong>"
+msgstr ""
+
+#. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.report_basic_group_data_document
+msgid "<strong>Total Students:</strong>"
+msgstr ""
+
+#. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.report_basic_group_data_document
+msgid "<strong>Year:</strong>"
 msgstr ""
 
 #. module: academic
@@ -117,6 +147,11 @@ msgstr ""
 #. module: academic
 #: model:ir.actions.server,name:academic.ir_cron_update_current_main_group_ir_actions_server
 msgid "Automatic update of current main group"
+msgstr ""
+
+#. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.report_basic_group_data_document
+msgid "Birth Date"
 msgstr ""
 
 #. module: academic
@@ -451,6 +486,11 @@ msgid "ID"
 msgstr ""
 
 #. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.report_basic_group_data_document
+msgid "Identification Number"
+msgstr ""
+
+#. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
 msgid ""
 "If the partner will be responsible for payment, remember to set the "
@@ -628,6 +668,11 @@ msgid "Portal User Config"
 msgstr ""
 
 #. module: academic
+#: model:ir.actions.report,name:academic.report_basic_group_data
+msgid "Print Basic Group Data"
+msgstr ""
+
+#. module: academic
 #: model:ir.model.fields,field_description:academic.field_res_partner__promotion_id
 #: model:ir.model.fields,field_description:academic.field_res_users__promotion_id
 msgid "Promotion"
@@ -731,6 +776,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic.field_res_partner__student_group_ids
 #: model:ir.model.fields,field_description:academic.field_res_users__student_group_ids
 msgid "Student Groups"
+msgstr ""
+
+#. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.report_basic_group_data_document
+msgid "Student Name"
 msgstr ""
 
 #. module: academic
