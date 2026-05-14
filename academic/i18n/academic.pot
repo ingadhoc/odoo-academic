@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-12 17:27+0000\n"
-"PO-Revision-Date: 2026-05-12 17:27+0000\n"
+"POT-Creation-Date: 2026-05-14 16:31+0000\n"
+"PO-Revision-Date: 2026-05-14 16:31+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -27,7 +27,17 @@ msgstr ""
 
 #. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
-msgid "- Company:"
+msgid "), are you sure you want to create a new one?"
+msgstr ""
+
+#. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
+msgid ", institution email:"
+msgstr ""
+
+#. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
+msgid "- Institution:"
 msgstr ""
 
 #. module: academic
@@ -67,7 +77,12 @@ msgstr ""
 
 #. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
-msgid "A partner with the same identification_number already exists ("
+msgid "A partner with the same"
+msgstr ""
+
+#. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
+msgid "A partner with the same identification number already exists ("
 msgstr ""
 
 #. module: academic
@@ -194,6 +209,24 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic.field_res_partner_category__company_id
 #: model:ir.model.fields,field_description:academic.field_res_partner_link__company_id
 msgid "Company"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_res_partner__same_vat_company_email
+#: model:ir.model.fields,field_description:academic.field_res_users__same_vat_company_email
+msgid "Company email same VAT partner"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_res_partner__same_identification_number_company_email
+#: model:ir.model.fields,field_description:academic.field_res_users__same_identification_number_company_email
+msgid "Company email same identification number partner"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_res_partner__same_vat_partner_company_id
+#: model:ir.model.fields,field_description:academic.field_res_users__same_vat_partner_company_id
+msgid "Company same VAT partner"
 msgstr ""
 
 #. module: academic
@@ -980,6 +1013,11 @@ msgstr ""
 #. odoo-python
 #: code:addons/academic/models/hr.py:0
 msgid "You have to add at least a level for that subject"
+msgstr ""
+
+#. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
+msgid "already exists ("
 msgstr ""
 
 #. module: academic
