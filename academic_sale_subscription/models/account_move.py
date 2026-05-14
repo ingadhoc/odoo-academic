@@ -46,7 +46,7 @@ class AccountMove(models.Model):
                     .search(
                         [
                             ("partner_id", "=", rec.partner_id.id),
-                            ("role_ids", "in", self.env.ref("academic.paying_role").id),
+                            ("role_ids", "in", [self.env.ref("academic.paying_role").id]),
                         ]
                     )
                     .mapped("student_id.id")

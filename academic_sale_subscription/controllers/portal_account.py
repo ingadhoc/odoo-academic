@@ -14,7 +14,7 @@ class PortalAccount(PortalAccount):
             .search(
                 [
                     ("partner_id", "=", request.env.user.partner_id.id),
-                    ("role_ids", "in", paying_role_id),
+                    ("role_ids", "in", [paying_role_id]),
                 ]
             )
         )

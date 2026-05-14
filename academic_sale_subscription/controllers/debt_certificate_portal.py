@@ -13,7 +13,7 @@ class DebtCertificatePortal(CustomerPortal):
                 .search(
                     [
                         ("partner_id", "=", request.env.user.partner_id.id),
-                        ("role_ids", "in", paying_role_id),
+                        ("role_ids", "in", [paying_role_id]),
                     ]
                 )
             )
@@ -32,7 +32,7 @@ class DebtCertificatePortal(CustomerPortal):
             .search(
                 [
                     ("partner_id", "=", request.env.user.partner_id.id),
-                    ("role_ids", "in", paying_role_id),
+                    ("role_ids", "in", [paying_role_id]),
                 ]
             )
         )
@@ -59,7 +59,7 @@ class DebtCertificatePortal(CustomerPortal):
                 [
                     ("student_id", "=", student.id),
                     ("partner_id", "=", request.env.user.partner_id.id),
-                    ("role_ids", "in", paying_role_id),
+                    ("role_ids", "in", [paying_role_id]),
                 ]
             )
         )
