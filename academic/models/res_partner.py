@@ -123,7 +123,6 @@ class ResPartner(models.Model):
         help="Check if the student is an adult and responsible for their own payment",
         default=False,
     )
-    parent_id = fields.Many2one(context={"default_partner_type": "family"})
 
     @api.depends("parent_links_by_student", "parent_id.student_link_ids")
     def _compute_student_links(self):
