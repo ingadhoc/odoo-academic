@@ -9,6 +9,9 @@
             <search string="subject">
                 <group string="By Attribute">
                     <field name="name" string="Name" />
+                    <field name="code" string="Code" />
+                    <field name="state_id" />
+                    <field name="company_id" />
                 </group>
                 <group string="By object">
                 </group>
@@ -26,6 +29,10 @@
                 </header>
                 <sheet string="subject">
                     <group>
+                        <field name="company_id" />
+                        <field name="state_id" />
+                        <field name="template_id" options="{'no_open': False}"/>
+                        <field name="code" readonly="1"/>
                         <field name="name" />
                     </group>
                 </sheet>
@@ -41,7 +48,11 @@
         <field name="model">academic.subject</field>
         <field name="arch" type="xml">
             <list string="subject">
+                <field name="company_id" />
+                <field name="state_id" />
+                <field name="code" />
                 <field name="name" />
+                <field name="template_id" />
             </list>
         </field>
     </record>
