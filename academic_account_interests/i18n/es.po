@@ -1,25 +1,60 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # 	* academic_account_interests
-# 
+#
 # Translators:
 # Juan José Scarafía <scarafia.juanjose@gmail.com>, 2024
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-18 16:06+0000\n"
+"POT-Creation-Date: 2026-05-20 15:40+0000\n"
 "PO-Revision-Date: 2024-12-26 13:48+0000\n"
 "Last-Translator: Juan José Scarafía <scarafia.juanjose@gmail.com>, 2024\n"
 "Language-Team: Spanish (https://app.transifex.com/adhoc/teams/46451/es/)\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: es\n"
-"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
+"1 : 2;\n"
+
+#. module: academic_account_interests
+#. odoo-python
+#: code:addons/academic_account_interests/models/res_company_interest.py:0
+msgid ""
+"- Invoice %(invoice_name)s: Due %(due_date)s | Residual %(residual)s x "
+"%(days)s days -> Interest: %(interest)s"
+msgstr ""
+
+#. module: academic_account_interests
+#. odoo-python
+#: code:addons/academic_account_interests/models/res_company_interest.py:0
+msgid ""
+"- Invoice %(invoice_name)s: Residual %(residual)s x %(interval)s periods -> "
+"Interest: %(interest)s"
+msgstr ""
+
+#. module: academic_account_interests
+#. odoo-python
+#: code:addons/academic_account_interests/models/res_company_interest.py:0
+msgid ""
+"- Payment %(payment_name)s applied to %(invoice_name)s on %(payment_date)s -"
+"> Interest: %(interest)s"
+msgstr ""
 
 #. module: academic_account_interests
 #: model:ir.model,name:academic_account_interests.model_res_company_interest
 msgid "Account Interest"
 msgstr "Interés de Cuenta"
+
+#. module: academic_account_interests
+#: model:ir.model.fields,field_description:academic_account_interests.field_res_company_interest__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: academic_account_interests
+#: model:ir.model.fields,field_description:academic_account_interests.field_res_company_interest__id
+msgid "ID"
+msgstr ""
