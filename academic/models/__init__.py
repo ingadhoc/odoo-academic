@@ -7,6 +7,7 @@ from . import academic_group
 from . import academic_level
 from . import academic_promotion
 from . import academic_section
+from . import academic_subject_template
 from . import academic_subject
 from . import hr
 from . import res_company

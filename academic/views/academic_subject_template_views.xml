@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_academic_subject_template_search" model="ir.ui.view">
+        <field name="name">academic.subject.template.search</field>
+        <field name="model">academic.subject.template</field>
+        <field name="arch" type="xml">
+            <search string="Subject Templates">
+                <field name="code"/>
+                <field name="name"/>
+                <field name="area"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_academic_subject_template_tree" model="ir.ui.view">
+        <field name="name">academic.subject.template.tree</field>
+        <field name="model">academic.subject.template</field>
+        <field name="arch" type="xml">
+            <list string="Subject Templates">
+                <field name="code"/>
+                <field name="name"/>
+                <field name="area"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_academic_subject_template_form" model="ir.ui.view">
+        <field name="name">academic.subject.template.form</field>
+        <field name="model">academic.subject.template</field>
+        <field name="arch" type="xml">
+            <form string="Subject Template">
+                <sheet>
+                    <group>
+                        <field name="code"/>
+                        <field name="name"/>
+                        <field name="area"/>
+                    </group>
+                    <notebook>
+                        <page string="Subjects">
+                            <field name="subject_ids" readonly="1">
+                                <list>
+                                    <field name="company_id"/>
+                                    <field name="state_id"/>
+                                    <field name="name"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_academic_subject_templates" model="ir.actions.act_window">
+        <field name="name">Subject Templates</field>
+        <field name="res_model">academic.subject.template</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_academic_subject_template_search"/>
+    </record>
+
+    <menuitem
+        id="menu_subject_templates"
+        name="Subject Templates"
+        sequence="31"
+        action="action_academic_subject_templates"
+        parent="menu_general_data"
+        groups="group_manager"/>
+
+</odoo>

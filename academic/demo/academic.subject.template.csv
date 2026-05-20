@@ -1,0 +1,16 @@
+id,code,name,area
+academic_subject_template_1,COM-1,Comunicacion 1,Lengua
+academic_subject_template_2,HIS-1,Historia 1,Sociales
+academic_subject_template_3,GEO-1,Geografia 1,Sociales
+academic_subject_template_4,MAT-1,Matematica 1,Exactas
+academic_subject_template_5,CNA-1,Ciencias Naturales 1,Naturales
+academic_subject_template_6,EFI-1,Educacion Fisica 1,Deportes
+academic_subject_template_7,ING-1,Ingles 1,Idiomas
+academic_subject_template_8,ART-1,Arte y Plastica 1,Arte
+academic_subject_template_9,MUS-1,Musica 1,Arte
+academic_subject_template_10,INF-1,Informatica 1,Tecnologia
+academic_subject_template_11,FIS-1,Fisica 1,Exactas
+academic_subject_template_12,QUI-1,Quimica 1,Naturales
+academic_subject_template_13,BIO-1,Biologia 1,Naturales
+academic_subject_template_14,FIL-1,Filosofia 1,Humanidades
+academic_subject_template_15,CIV-1,Educacion Civica 1,Sociales

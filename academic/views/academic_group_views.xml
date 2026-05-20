@@ -44,7 +44,7 @@
                             <field name="section_id"/>
                             <field name="level_id"/>
                             <field name="division_id"/>
-                            <field name="subject_id"/>
+                            <field name="subject_id" domain="[('company_id', '=', company_id)]"/>
                         </group>
                         <group name="col2">
                             <field name="year"/>
