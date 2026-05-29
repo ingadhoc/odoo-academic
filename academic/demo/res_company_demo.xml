@@ -10,6 +10,7 @@
         <field name="currency_id" ref="base.USD"/>
         <field name="section_ids" eval="[(4, ref('academic_section_1')), (4, ref('academic_section_2')), (4, ref('academic_section_3'))]"/>
         <field name="country_id" ref="base.us"/>
+        <field name="state_id" ref="state_demo_us_ca"/>
         <field name="family_required" eval="False"/>
     </record>
 
@@ -20,6 +21,7 @@
         <field name="currency_id" ref="base.USD"/>
         <field name="section_ids" eval="[(4, ref('academic_section_1')), (4, ref('academic_section_2'))]"/>
         <field name="country_id" ref="base.us"/>
+        <field name="state_id" ref="state_demo_us_ca"/>
         <field name="family_required" eval="False"/>
     </record>
 
@@ -30,6 +32,7 @@
         <field name="currency_id" ref="base.USD"/>
         <field name="section_ids" eval="[(4, ref('academic_section_1'))]"/>
         <field name="country_id" ref="base.us"/>
+        <field name="state_id" ref="state_demo_us_ca"/>
         <field name="family_required" eval="True"/>
     </record>
 
@@ -40,6 +43,7 @@
         <field name="currency_id" ref="base.ARS"/>
         <field name="section_ids" eval="[(4, ref('academic_section_9')), (4, ref('academic_section_10'))]"/>
         <field name="country_id" ref="base.ar"/>
+        <field name="state_id" ref="state_demo_ar_ba"/>
         <field name="family_required" eval="False"/>
     </record>
 

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="state_demo_us_ca" model="res.country.state">
+        <field name="name">California (Demo)</field>
+        <field name="code">US-CA-DEMO</field>
+        <field name="country_id" ref="base.us"/>
+    </record>
+
+    <record id="state_demo_ar_ba" model="res.country.state">
+        <field name="name">Buenos Aires (Demo)</field>
+        <field name="code">AR-BA-DEMO</field>
+        <field name="country_id" ref="base.ar"/>
+    </record>
+
+</odoo>
