@@ -69,3 +69,8 @@ class Employee(models.Model):
         comodel_name="hr.employee.asignatures",
         inverse_name="teacher_id",
     )
+    group_in_charge_ids = fields.One2many(
+        comodel_name="academic.group",
+        inverse_name="employee_teacher_id",
+        string="Groups in Charge",
+    )
