@@ -18,6 +18,23 @@
         </field>
     </record>
 
+    <record id="view_employee_filter_inherit_academic" model="ir.ui.view">
+        <field name="name">hr.employee.search.inherit.academic</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_filter"/>
+        <field name="arch" type="xml">
+            <group position="inside">
+                <filter
+                    name="group_company"
+                    string="Company"
+                    domain="[]"
+                    context="{'group_by': 'company_id'}"
+                    groups="base.group_multi_company"
+                />
+            </group>
+        </field>
+    </record>
+
     <record id="hr_employee_asignatures_action" model="ir.actions.act_window">
         <field name="name">Employee's Asignatures</field>
         <field name="type">ir.actions.act_window</field>

@@ -46,6 +46,7 @@
                         </group>
                         <group name="col2">
                             <field name="year"/>
+                            <field name="employee_teacher_id" domain="[('company_id', '=', company_id)]" context="{'default_company_id': company_id}"/>
                             <field name="capacity"/>
                         </group>
                     </group>
@@ -73,6 +74,7 @@
                 <field name="division_id"/>
                 <field name="year"/>
                 <field name="subject_id"/>
+                <field name="employee_teacher_id"/>
                 <field name="capacity"/>
             </list>
         </field>

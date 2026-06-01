@@ -5,6 +5,7 @@
 from datetime import date
 
 from odoo import api, fields, models
+from odoo.exceptions import ValidationError
 
 
 class AcademicGroup(models.Model):
@@ -59,6 +60,12 @@ class AcademicGroup(models.Model):
         required=False,
         context={"default_partner_type": "teacher"},
         domain=[("partner_type", "=", "teacher")],
+    )
+    employee_teacher_id = fields.Many2one(
+        "hr.employee",
+        string="Docente a cargo",
+        required=False,
+        check_company=True,
     )
     student_ids = fields.Many2many(
         "res.partner",
@@ -125,3 +132,9 @@ class AcademicGroup(models.Model):
     def _compute_student_count(self):
         for group in self:
             group.student_count = len(group.student_ids)
+
+    @api.constrains("employee_teacher_id", "company_id")
+    def _check_employee_teacher_company(self):
+        for group in self.filtered("employee_teacher_id"):
+            if group.employee_teacher_id.company_id != group.company_id:
+                raise ValidationError(self.env._("The teacher in charge must belong to the same company as the group."))
