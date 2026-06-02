@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-14 16:31+0000\n"
+"POT-Creation-Date: 2026-06-02 15:07+0000\n"
 "PO-Revision-Date: 2024-11-15 13:26+0000\n"
 "Last-Translator: Juan José Scarafía <scarafia.juanjose@gmail.com>, 2025\n"
 "Language-Team: Spanish (https://app.transifex.com/adhoc/teams/46451/es/)\n"
@@ -165,6 +165,11 @@ msgid "Archived"
 msgstr "Archivado"
 
 #. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_subject_template__area
+msgid "Area"
+msgstr ""
+
+#. module: academic
 #: model:ir.model.fields,field_description:academic.field_hr_employee__asignatures_ids
 #: model:ir.ui.menu,name:academic.menu_view_employees_asignatures
 msgid "Asignatures"
@@ -203,6 +208,13 @@ msgid "Check if the student is an adult and responsible for their own payment"
 msgstr ""
 
 #. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_subject__code
+#: model:ir.model.fields,field_description:academic.field_academic_subject_template__code
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_subject_filter
+msgid "Code"
+msgstr ""
+
+#. module: academic
 #: model:ir.model.fields,field_description:academic.field_res_partner_role__color
 msgid "Color Index"
 msgstr "Índice de Color"
@@ -216,6 +228,8 @@ msgstr "Compañías"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_group__company_id
+#: model:ir.model.fields,field_description:academic.field_academic_subject__company_id
+#: model:ir.model.fields,field_description:academic.field_hr_employee_asignatures__teacher_company_id
 #: model:ir.model.fields,field_description:academic.field_res_partner__company_id
 #: model:ir.model.fields,field_description:academic.field_res_partner_category__company_id
 #: model:ir.model.fields,field_description:academic.field_res_partner_link__company_id
@@ -300,6 +314,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic.field_academic_promotion__create_uid
 #: model:ir.model.fields,field_description:academic.field_academic_section__create_uid
 #: model:ir.model.fields,field_description:academic.field_academic_subject__create_uid
+#: model:ir.model.fields,field_description:academic.field_academic_subject_template__create_uid
 #: model:ir.model.fields,field_description:academic.field_hr_employee_asignatures__create_uid
 #: model:ir.model.fields,field_description:academic.field_res_partner_link__create_uid
 #: model:ir.model.fields,field_description:academic.field_res_partner_relationship__create_uid
@@ -314,6 +329,7 @@ msgstr "Creado por"
 #: model:ir.model.fields,field_description:academic.field_academic_promotion__create_date
 #: model:ir.model.fields,field_description:academic.field_academic_section__create_date
 #: model:ir.model.fields,field_description:academic.field_academic_subject__create_date
+#: model:ir.model.fields,field_description:academic.field_academic_subject_template__create_date
 #: model:ir.model.fields,field_description:academic.field_hr_employee_asignatures__create_date
 #: model:ir.model.fields,field_description:academic.field_res_partner_link__create_date
 #: model:ir.model.fields,field_description:academic.field_res_partner_relationship__create_date
@@ -341,6 +357,7 @@ msgstr "¿Dificultades de aprendizaje?"
 #: model:ir.model.fields,field_description:academic.field_academic_promotion__display_name
 #: model:ir.model.fields,field_description:academic.field_academic_section__display_name
 #: model:ir.model.fields,field_description:academic.field_academic_subject__display_name
+#: model:ir.model.fields,field_description:academic.field_academic_subject_template__display_name
 #: model:ir.model.fields,field_description:academic.field_hr_employee__display_name
 #: model:ir.model.fields,field_description:academic.field_hr_employee_asignatures__display_name
 #: model:ir.model.fields,field_description:academic.field_portal_wizard__display_name
@@ -441,6 +458,12 @@ msgid "Family contacts can only be students"
 msgstr ""
 
 #. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_subject__state_id
+#: model:ir.model.fields,field_description:academic.field_hr_employee_asignatures__teacher_state_id
+msgid "Fed. State"
+msgstr ""
+
+#. module: academic
 #: model:ir.model.fields.selection,name:academic.selection__res_partner__sex__f
 msgid "Female"
 msgstr "Femenino"
@@ -522,6 +545,7 @@ msgstr "Grupos"
 #: model:ir.model.fields,field_description:academic.field_academic_promotion__id
 #: model:ir.model.fields,field_description:academic.field_academic_section__id
 #: model:ir.model.fields,field_description:academic.field_academic_subject__id
+#: model:ir.model.fields,field_description:academic.field_academic_subject_template__id
 #: model:ir.model.fields,field_description:academic.field_hr_employee__id
 #: model:ir.model.fields,field_description:academic.field_hr_employee_asignatures__id
 #: model:ir.model.fields,field_description:academic.field_portal_wizard__id
@@ -571,6 +595,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic.field_academic_promotion__write_uid
 #: model:ir.model.fields,field_description:academic.field_academic_section__write_uid
 #: model:ir.model.fields,field_description:academic.field_academic_subject__write_uid
+#: model:ir.model.fields,field_description:academic.field_academic_subject_template__write_uid
 #: model:ir.model.fields,field_description:academic.field_hr_employee_asignatures__write_uid
 #: model:ir.model.fields,field_description:academic.field_res_partner_link__write_uid
 #: model:ir.model.fields,field_description:academic.field_res_partner_relationship__write_uid
@@ -585,6 +610,7 @@ msgstr "Última Actualización por"
 #: model:ir.model.fields,field_description:academic.field_academic_promotion__write_date
 #: model:ir.model.fields,field_description:academic.field_academic_section__write_date
 #: model:ir.model.fields,field_description:academic.field_academic_subject__write_date
+#: model:ir.model.fields,field_description:academic.field_academic_subject_template__write_date
 #: model:ir.model.fields,field_description:academic.field_hr_employee_asignatures__write_date
 #: model:ir.model.fields,field_description:academic.field_res_partner_link__write_date
 #: model:ir.model.fields,field_description:academic.field_res_partner_relationship__write_date
@@ -638,6 +664,7 @@ msgstr "Pasar al siguiente año"
 #: model:ir.model.fields,field_description:academic.field_academic_promotion__name
 #: model:ir.model.fields,field_description:academic.field_academic_section__name
 #: model:ir.model.fields,field_description:academic.field_academic_subject__name
+#: model:ir.model.fields,field_description:academic.field_academic_subject_template__name
 #: model:ir.model.fields,field_description:academic.field_hr_employee_asignatures__name
 #: model:ir.model.fields,field_description:academic.field_res_partner_relationship__name
 #: model:ir.model.fields,field_description:academic.field_res_partner_role__name
@@ -889,9 +916,29 @@ msgid "Study Plans"
 msgstr "Sección"
 
 #. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_subject_template__subject_ids
 #: model:ir.model.fields,field_description:academic.field_hr_employee_asignatures__subject_id
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_group_filter
 msgid "Subject"
+msgstr ""
+
+#. module: academic
+#: model:res.groups,name:academic.group_subject_manager
+msgid "Subject Manager"
+msgstr ""
+
+#. module: academic
+#: model:ir.model,name:academic.model_academic_subject_template
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_subject_template_form
+msgid "Subject Template"
+msgstr ""
+
+#. module: academic
+#: model:ir.actions.act_window,name:academic.action_academic_subject_templates
+#: model:ir.ui.menu,name:academic.menu_subject_templates
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_subject_template_search
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_subject_template_tree
+msgid "Subject Templates"
 msgstr ""
 
 #. module: academic
@@ -901,6 +948,7 @@ msgstr "Asignatura/Curso"
 
 #. module: academic
 #: model:ir.ui.menu,name:academic.menu_subjects
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_subject_template_form
 msgid "Subjects"
 msgstr ""
 
@@ -955,11 +1003,21 @@ msgid "Teachers"
 msgstr "Profesores"
 
 #. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_subject__template_id
+msgid "Template"
+msgstr ""
+
+#. module: academic
 #. odoo-python
 #: code:addons/academic/models/res_partner_role.py:0
 msgid ""
 "The 'Responsable de pago' role cannot be deactivated as it is required by "
 "the system."
+msgstr ""
+
+#. module: academic
+#: model:ir.model.constraint,message:academic.constraint_academic_subject_template_code_unique
+msgid "The canonical code must be unique."
 msgstr ""
 
 #. module: academic
@@ -1000,10 +1058,31 @@ msgstr ""
 #. module: academic
 #. odoo-python
 #: code:addons/academic/models/hr.py:0
-msgid ""
-"There is another record that contains the same "
-"subject                         and teacher"
-msgstr "Hay otro registro que contiene el mismo asunto y profesor"
+msgid "The subject company must match the employee company."
+msgstr ""
+
+#. module: academic
+#. odoo-python
+#: code:addons/academic/models/academic_subject.py:0
+msgid "The subject jurisdiction must match the company jurisdiction."
+msgstr ""
+
+#. module: academic
+#. odoo-python
+#: code:addons/academic/models/hr.py:0
+msgid "The subject jurisdiction must match the employee company jurisdiction."
+msgstr ""
+
+#. module: academic
+#: model:ir.model.constraint,message:academic.constraint_academic_subject_subject_template_unique
+msgid "There is already a subject for this template, jurisdiction and company."
+msgstr ""
+
+#. module: academic
+#. odoo-python
+#: code:addons/academic/models/hr.py:0
+msgid "There is another record that contains the same subject and teacher"
+msgstr ""
 
 #. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.wizard_view_inherit
@@ -1126,6 +1205,11 @@ msgstr "asignatura"
 #: model:ir.model.fields,help:academic.field_res_users__disabled_person
 msgid "¿Alumno/a con Dificultades de aprendizaje?"
 msgstr ""
+
+#~ msgid ""
+#~ "There is another record that contains the same "
+#~ "subject                         and teacher"
+#~ msgstr "Hay otro registro que contiene el mismo asunto y profesor"
 
 #~ msgid "By Attribute"
 #~ msgstr "Por Atributo"
