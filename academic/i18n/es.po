@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-02 15:07+0000\n"
+"POT-Creation-Date: 2026-06-02 19:35+0000\n"
 "PO-Revision-Date: 2024-11-15 13:26+0000\n"
 "Last-Translator: Juan José Scarafía <scarafia.juanjose@gmail.com>, 2025\n"
 "Language-Team: Spanish (https://app.transifex.com/adhoc/teams/46451/es/)\n"
@@ -233,6 +233,7 @@ msgstr "Compañías"
 #: model:ir.model.fields,field_description:academic.field_res_partner__company_id
 #: model:ir.model.fields,field_description:academic.field_res_partner_category__company_id
 #: model:ir.model.fields,field_description:academic.field_res_partner_link__company_id
+#: model_terms:ir.ui.view,arch_db:academic.view_employee_filter_inherit_academic
 msgid "Company"
 msgstr "Compañia"
 
@@ -383,6 +384,11 @@ msgstr "División"
 #: model:ir.ui.menu,name:academic.menu_divisions
 msgid "Divisions"
 msgstr "División"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_group__employee_teacher_id
+msgid "Docente a cargo"
+msgstr ""
 
 #. module: academic
 #: model:ir.model.constraint,message:academic.constraint_res_partner_link_link_unique
@@ -537,6 +543,11 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:academic.view_company_form
 msgid "Groups"
 msgstr "Grupos"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_hr_employee__group_in_charge_ids
+msgid "Groups in Charge"
+msgstr ""
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division__id
@@ -1071,6 +1082,12 @@ msgstr ""
 #. odoo-python
 #: code:addons/academic/models/hr.py:0
 msgid "The subject jurisdiction must match the employee company jurisdiction."
+msgstr ""
+
+#. module: academic
+#. odoo-python
+#: code:addons/academic/models/academic_group.py:0
+msgid "The teacher in charge must belong to the same company as the group."
 msgstr ""
 
 #. module: academic
