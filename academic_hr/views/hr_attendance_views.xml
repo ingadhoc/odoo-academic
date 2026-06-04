@@ -1,0 +1,20 @@
+<odoo>
+    <record id="hr_attendance_view_filter" model="ir.ui.view">
+        <field name="name">hr.attenadance.view.filter</field>
+        <field name="model">hr.attendance</field>
+        <field name="inherit_id" ref="hr_attendance.hr_attendance_view_filter"/>
+        <field name="arch" type="xml">
+            <filter name="myattendances" position="before">
+                <filter name="main_employees" string="Main Employees"
+                        domain="[('employee_id.main_employee_id', '=', False)]"/>
+                <filter name="child_employees" string="Child Employees"
+                        domain="[('employee_id.main_employee_id', '!=', False)]"/>
+                <separator/>
+            </filter>
+        </field>
+    </record>
+
+    <record id="hr_attendance.hr_attendance_action" model="ir.actions.act_window">
+        <field name="context">{"search_default_groupby_name": 1, "search_default_employee": 2, "search_default_child_employees": 1}</field>
+    </record>
+</odoo>

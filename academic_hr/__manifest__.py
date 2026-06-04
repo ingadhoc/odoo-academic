@@ -1,6 +1,6 @@
 {
     "name": "Academic HR",
-    "version": "18.0.1.2.0",
+    "version": "18.0.1.3.0",
     "category": "Human Resources",
     "summary": "HR extensions for academic institutions with multiple employee support",
     "author": "ADHOC SA",
@@ -12,6 +12,7 @@
         "hr_timesheet",
         "timesheet_grid",
         "portal",
+        "hr_attendance",
     ],
     "data": [
         "security/academic_hr_security.xml",
@@ -20,6 +21,7 @@
         "views/hr_timesheet_views.xml",
         "views/hr_employee_views.xml",
         "views/hr_leave_allocation_views.xml",
+        "views/hr_attendance_views.xml",
         "views/portal_templates.xml",
     ],
     "assets": {
