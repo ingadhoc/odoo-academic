@@ -10,7 +10,7 @@
             </div>
 
             <field name="work_email" position="before">
-                <field name="main_employee_id" invisible="not main_employee_id"/>
+                <field name="main_employee_id" invisible="child_employee_ids"/>
             </field>
 
             <group name="active_group" position="attributes">
@@ -52,7 +52,23 @@
         </field>
     </record>
 
+    <record id="view_employee_filter_academic" model="ir.ui.view">
+        <field name="name">hr.employee.search.academic</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_filter"/>
+        <field name="arch" type="xml">
+            <filter name="my_team" position="before">
+                <filter name="main_employees" string="Main Employees"
+                        domain="[('main_employee_id', '=', False)]"/>
+                <filter name="child_employees" string="Child Employees"
+                        domain="[('main_employee_id', '!=', False)]"/>
+                <separator/>
+            </filter>
+        </field>
+    </record>
+
     <record id="hr.open_view_employee_list_my" model="ir.actions.act_window">
-        <field name="domain">[('company_id', 'in', allowed_company_ids), ('main_employee_id', '=', False)]</field>
+        <field name="domain">[('company_id', 'in', allowed_company_ids)]</field>
+        <field name="context">{'search_default_main_employees': 1}</field>
     </record>
 </odoo>
