@@ -9,12 +9,22 @@
                 <widget name="web_ribbon" title="Child" bg_color="bg-warning" invisible="not main_employee_id"/>
             </div>
 
+<<<<<<< ea1600afb14e811657cfce2c8910b924e066a408
             <xpath expr="//field[@name='work_email']//.." position="before">
                 <h5 class="d-flex align-items-baseline mb-0">
                     <i class="fa fa-user fa-fw me-1 text-primary" title="Main Employee"/>
                     <field name="main_employee_id" placeholder="Main Employee" class="w-100 w-sm-75"/>
                 </h5>
             </xpath>
+||||||| 4bf47b4a3654206a0bc23e9e1aa21a62e68cdf3d
+            <field name="work_email" position="before">
+                <field name="main_employee_id" invisible="not main_employee_id"/>
+            </field>
+=======
+            <field name="work_email" position="before">
+                <field name="main_employee_id" invisible="child_employee_ids"/>
+            </field>
+>>>>>>> c4b10c3eb62b062c84a419614bc48891b73c4282
 
             <group name="user" position="attributes">
                 <attribute name="invisible">main_employee_id</attribute>
