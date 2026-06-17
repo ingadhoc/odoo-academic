@@ -108,6 +108,19 @@
             <field name="academic_product_type">registration</field>
         </record>
 
+        <!-- Producto no recurrente (para ventas puntuales) -->
+        <record id="product_horas_extra" model="product.template">
+            <field name="name">Horas Extra</field>
+            <field name="type">service</field>
+            <field name="recurring_invoice">False</field>
+            <field name="uom_id" ref="uom.product_uom_hour"/>
+            <field name="list_price">2500.0</field>
+            <field name="standard_price">2500.0</field>
+            <field name="categ_id" ref="product.product_category_services"/>
+            <field name="invoice_policy">order</field>
+            <field name="service_type">manual</field>
+        </record>
+
         <!-- Plantillas de Suscripción Académica -->
         <record id="subscription_template_primaria" model="sale.order.template">
             <field name="name">Cotización Primaria</field>
