@@ -65,6 +65,21 @@ class ResPartner(models.Model):
         responsible_with_debt = unpaid_invoices.mapped("partner_id")
         return students.filtered(lambda s: s.payment_responsible_ids & responsible_with_debt)
 
+    def action_archive(self):
+        if not self.env.context.get("skip_debt_check"):
+            families = self.filtered(lambda p: p.partner_type == "family" and p.active)
+            families_with_debt = families.filtered(lambda f: f.student_ids._get_students_with_debt())
+            if families_with_debt:
+                return {
+                    "type": "ir.actions.act_window",
+                    "res_model": "archive.family.debt.wizard",
+                    "views": [(False, "form")],
+                    "view_mode": "form",
+                    "target": "new",
+                    "context": {"default_family_ids": [(6, 0, self.ids)]},
+                }
+        return super().action_archive()
+
     def open_academic_order_wizard(self):
         action = self.env["ir.actions.actions"]._for_xml_id(
             "academic_sale_subscription.action_view_academic_order_wizard"

@@ -1,0 +1,22 @@
+<odoo>
+    <record id="view_archive_family_debt_wizard" model="ir.ui.view">
+        <field name="name">archive.family.debt.wizard.form</field>
+        <field name="model">archive.family.debt.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="family_ids" invisible="1"/>
+                <div class="alert alert-warning" role="alert" style="margin-bottom: 16px;">
+                    <field name="student_debt_info"/>
+                </div>
+
+                <footer>
+                    <button string="Confirm and Archive"
+                            type="object"
+                            name="action_confirm"
+                            class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

@@ -351,3 +351,79 @@ class ResPartner(models.Model):
     def _compute_student_count(self):
         for rec in self.filtered(lambda x: x.partner_type == "family"):
             rec.student_count = len(rec.student_ids)
+
+    def _get_relatives_to_archive(self):
+        Link = self.env["res.partner.link"].sudo()
+        family_ids = self.ids
+        student_ids = self.student_ids.ids
+
+        relatives = self.with_context(active_test=False).student_link_ids.mapped("partner_id") | self.with_context(
+            active_test=False
+        ).student_ids.student_link_ids.mapped("partner_id")
+
+        to_archive = self.env["res.partner"]
+        for relative in relatives:
+            if not relative.active:
+                continue
+            other_family_link = Link.search(
+                [
+                    ("partner_id", "=", relative.id),
+                    ("student_id.partner_type", "=", "family"),
+                    ("student_id.active", "=", True),
+                    ("student_id", "not in", family_ids),
+                ],
+                limit=1,
+            )
+            if other_family_link:
+                continue
+            other_student_link = Link.search(
+                [
+                    ("partner_id", "=", relative.id),
+                    ("student_id.partner_type", "=", "student"),
+                    ("student_id.active", "=", True),
+                    ("student_id.parent_id.active", "=", True),
+                    ("student_id", "not in", student_ids),
+                ],
+                limit=1,
+            )
+            if other_student_link:
+                continue
+            to_archive |= relative
+
+        return to_archive
+
+    def action_archive(self):
+        families = self.filtered(lambda p: p.partner_type == "family" and p.active)
+        relatives_to_archive = families._get_relatives_to_archive()
+        students_to_archive = families.student_ids
+
+        result = super().action_archive()
+
+        if families:
+            students_to_archive.action_archive()
+            relatives_to_archive = relatives_to_archive.filtered(
+                lambda r: not r.user_ids.filtered(lambda u: not u.share and u.active)
+            )
+            portal_users_to_archive = relatives_to_archive.mapped("user_ids").filtered(lambda u: u.share)
+            portal_users_to_archive.action_archive()
+            relatives_to_archive.action_archive()
+
+        return result
+
+    def action_unarchive(self):
+        families = self.filtered(lambda p: p.partner_type == "family" and not p.active)
+
+        result = super().action_unarchive()
+
+        if families:
+            fam = families.with_context(active_test=False)
+            students = fam.student_ids
+            students.filtered(lambda s: not s.active).action_unarchive()
+            relatives = fam.student_link_ids.mapped("partner_id") | students.student_link_ids.mapped("partner_id")
+            relatives_to_unarchive = relatives.filtered(lambda r: not r.active)
+            relatives_to_unarchive.action_unarchive()
+            relatives_to_unarchive.with_context(active_test=False).mapped("user_ids").filtered(
+                lambda u: u.share and not u.active
+            ).action_unarchive()
+
+        return result
