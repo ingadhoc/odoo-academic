@@ -29,6 +29,7 @@
         "report/report_data.xml",
         "data/mail_template.xml",
         "wizard/academic_order_wizard_views.xml",
+        "wizard/archive_family_debt_wizard_views.xml",
         "wizard/update_payment_responsible_wizard_views.xml",
         "wizard/update_payment_responsible_partner_wizard_views.xml",
         "views/sale_order_template_views.xml",
