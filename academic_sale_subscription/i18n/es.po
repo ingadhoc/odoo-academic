@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-19 19:13+0000\n"
+"POT-Creation-Date: 2026-06-30 15:14+0000\n"
 "PO-Revision-Date: 2024-11-27 20:16+0000\n"
 "Last-Translator: Juan José Scarafía <scarafia.juanjose@gmail.com>, 2025\n"
 "Language-Team: Spanish (https://app.transifex.com/adhoc/teams/46451/es/)\n"
@@ -217,6 +217,11 @@ msgid "Add one Student line."
 msgstr ""
 
 #. module: academic_sale_subscription
+#: model:ir.model,name:academic_sale_subscription.model_archive_family_debt_wizard
+msgid "Archive Family — Debt Warning"
+msgstr ""
+
+#. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_partner_wizard__available_partner_ids
 msgid "Available Partners"
 msgstr ""
@@ -233,6 +238,7 @@ msgstr ""
 
 #. module: academic_sale_subscription
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_order_wizard_form
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.view_archive_family_debt_wizard
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.view_update_payment_responsible_partner_wizard
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.view_update_payment_responsible_wizard
 msgid "Cancel"
@@ -300,6 +306,11 @@ msgid "Config Settings"
 msgstr "Ajustes de configuración"
 
 #. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.view_archive_family_debt_wizard
+msgid "Confirm and Archive"
+msgstr ""
+
+#. module: academic_sale_subscription
 #: model:ir.model.fields.selection,name:academic_sale_subscription.selection__academic_order_wizard__status_sale__confirmed
 msgid "Confirmed"
 msgstr "Confirmado"
@@ -344,6 +355,7 @@ msgstr "Crear orden"
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__create_uid
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard_line__create_uid
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_archive_family_debt_wizard__create_uid
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_crm_lead_family_member__create_uid
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_line__create_uid
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_partner_wizard__create_uid
@@ -354,6 +366,7 @@ msgstr "Creado por"
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__create_date
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard_line__create_date
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_archive_family_debt_wizard__create_date
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_crm_lead_family_member__create_date
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_line__create_date
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_partner_wizard__create_date
@@ -480,6 +493,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_move__display_name
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_move_line__display_name
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_move_send__display_name
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_archive_family_debt_wizard__display_name
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_crm_lead__display_name
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_crm_lead_family_member__display_name
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_mail_thread__display_name
@@ -572,6 +586,11 @@ msgid "Esperamos que te recuperes pronto."
 msgstr ""
 
 #. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_archive_family_debt_wizard__family_ids
+msgid "Families"
+msgstr ""
+
+#. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_bank_statement_line__family_id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_move__family_id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_move_line__family_id
@@ -646,6 +665,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_move__id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_move_line__id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_move_send__id
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_archive_family_debt_wizard__id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_crm_lead__id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_crm_lead_family_member__id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_mail_thread__id
@@ -769,6 +789,7 @@ msgstr ""
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__write_uid
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard_line__write_uid
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_archive_family_debt_wizard__write_uid
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_crm_lead_family_member__write_uid
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_line__write_uid
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_partner_wizard__write_uid
@@ -779,6 +800,7 @@ msgstr "Última Actualización por"
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__write_date
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard_line__write_date
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_archive_family_debt_wizard__write_date
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_crm_lead_family_member__write_date
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_line__write_date
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_partner_wizard__write_date
@@ -1384,6 +1406,11 @@ msgid "Students List"
 msgstr "Lista de Estudiantes"
 
 #. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_archive_family_debt_wizard__student_debt_info
+msgid "Students with pending debt"
+msgstr ""
+
+#. module: academic_sale_subscription
 #: model:ir.model,name:academic_sale_subscription.model_sale_order_close_reason
 msgid "Subscription Close Reason"
 msgstr "Motivo del cierre de la suscripción"
@@ -1477,6 +1504,14 @@ msgstr ""
 
 #. module: academic_sale_subscription
 #. odoo-python
+#: code:addons/academic_sale_subscription/wizard/archive_family_debt_wizard.py:0
+msgid ""
+"The debt remains recorded in accounting and is visible in the Partner Ledger "
+"and Aged Receivable reports."
+msgstr ""
+
+#. module: academic_sale_subscription
+#. odoo-python
 #: code:addons/academic_sale_subscription/wizard/academic_order_wizard.py:0
 msgid ""
 "The following students either have no payment responsible assigned or their "
@@ -1486,6 +1521,14 @@ msgstr ""
 "Los siguientes estudiantes no tienen un responsable de pago asignado o su "
 "responsable de pago está archivado:\n"
 "%s"
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/wizard/archive_family_debt_wizard.py:0
+msgid ""
+"The following students have unpaid invoices. Their payment responsibles will "
+"be archived and will no longer receive mass communications."
+msgstr ""
 
 #. module: academic_sale_subscription
 #. odoo-python
