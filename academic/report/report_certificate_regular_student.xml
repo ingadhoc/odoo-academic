@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_certificate_regular_student_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h3 class="text-center text-uppercase mt-4 mb-5" style="color: #2e4675;">
+                            <strong>Constancia de Alumno Regular</strong>
+                        </h3>
+
+                        <p class="text-end">
+                            <strong>FECHA:</strong>
+                            <span t-out="datetime.date.today().strftime('%d/%m/%Y')"/>
+                        </p>
+
+                        <p class="mt-5" style="text-align: justify; line-height: 2;">
+                            Por medio de la presente, la Dirección del establecimiento deja constancia que
+                            <strong><span t-field="o.name"/></strong><t t-if="o.identification_number">
+                            con DNI <strong><span t-field="o.identification_number"/></strong></t>
+                            es alumno/a regular<t t-if="o.current_main_group_id">
+                            de <strong><span t-field="o.current_main_group_id.level_id.name"/></strong>
+                            del nivel <strong><span t-field="o.current_main_group_id.section_id.name"/></strong></t>.
+                            Se extiende a pedido del interesado para ser presentada ante quien corresponda.
+                        </p>
+
+                        <div class="row mt-5 pt-5 text-center">
+                            <div class="col-6">
+                                <div style="border-top: 1px solid #000; margin: 0 auto; width: 80%;"/>
+                                <span>Sello establecimiento</span>
+                            </div>
+                            <div class="col-6">
+                                <div style="border-top: 1px solid #000; margin: 0 auto; width: 80%;"/>
+                                <span>Firma y sello de la autoridad</span>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

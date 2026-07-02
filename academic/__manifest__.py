@@ -31,7 +31,6 @@
         "hr",
         "website",
         "contacts",
-        "report_aeroo",
     ],
     "data": [
         "security/academic_security.xml",
@@ -58,6 +57,7 @@
         "wizards/portal_wizard_views.xml",
         "report/ir_actions_report.xml",
         "report/report_basic_group_data.xml",
+        "report/report_certificate_regular_student.xml",
         "views/res_partner_category.xml",
     ],
     "demo": [
