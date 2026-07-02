@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_debt_free_certificate_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <t t-set="responsible" t-value="o.payment_responsible_ids[:1]"/>
+                    <div class="page">
+                        <h3 class="text-center text-uppercase text-decoration-underline mt-4 mb-5" style="color: #2e4675;">
+                            <strong>Certificado Libre de Deuda</strong>
+                        </h3>
+
+                        <p class="mt-5" style="text-align: justify; line-height: 2;">
+                            Por el presente se deja constancia que el Sr./Sra
+                            <strong><span t-field="responsible.name"/></strong>
+                            DNI <strong><span t-field="responsible.vat"/></strong>
+                            responsable del pago del alumno/a
+                            <strong><span t-field="o.name"/></strong>
+                            no presenta deuda en esta institución hasta el día
+                            <strong><span t-out="datetime.date.today().strftime('%d/%m/%Y')"/></strong>.
+                        </p>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

@@ -2,13 +2,10 @@
     <record id="report_debt_free_certificate" model="ir.actions.report">
         <field name="name">Debt Free Certificate</field>
         <field name="model">res.partner</field>
-        <field name="report_name">debt_free_certificate</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">academic_sale_subscription.report_debt_free_certificate_document</field>
+        <field name="report_file">academic_sale_subscription.report_debt_free_certificate_document</field>
         <field name="print_report_name">'Debt Free Certificate - ' + object.name</field>
-        <field name="report_type">aeroo</field>
-        <field name="in_format">oo-odt</field>
-        <field name="out_format" ref="report_aeroo.report_mimetypes_pdf_odt"/>
-        <field name="report_file">academic_sale_subscription/report/debt_free_certificate.odt</field>
-        <field name="tml_source">file</field>
         <field name="binding_model_id" ref="base.model_res_partner"/>
         <field name="binding_type">report</field>
     </record>

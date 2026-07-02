@@ -28,6 +28,7 @@
         "security/ir.model.access.csv",
         "security/academic_security.xml",
         "report/report_data.xml",
+        "report/report_debt_free_certificate.xml",
         "data/mail_template.xml",
         "wizard/academic_order_wizard_views.xml",
         "wizard/archive_family_debt_wizard_views.xml",
