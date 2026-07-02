@@ -28,6 +28,7 @@
     "images": [],
     "depends": [
         "portal_backend",
+        "portal_ux",
         "hr",
         "website",
         "contacts",
@@ -55,7 +56,6 @@
         "views/res_partner_link_views.xml",
         "views/res_partner_role_views.xml",
         "views/res_partner_relationship_views.xml",
-        "wizards/portal_wizard_views.xml",
         "report/ir_actions_report.xml",
         "report/report_basic_group_data.xml",
         "views/res_partner_category.xml",
