@@ -51,9 +51,9 @@ class ResCompanyInterest(models.Model):
         )
         past_due_rate = self.with_context(debt_past_period=True)._calculate_rate()
         for line in previous_lines:
-            student = line[groupby[0]] if groupby else line.student_id
             partner = line[groupby[1]] if groupby and len(groupby) > 1 else line.partner_id
-            if not student or not partner:
+            student = (line[groupby[0]] if groupby else line.student_id) or partner
+            if not partner:
                 continue
 
             residual_amount = line.amount_residual
@@ -74,11 +74,9 @@ class ResCompanyInterest(models.Model):
             self._get_move_line_domains()
             + [("amount_residual", ">", 0), ("date_maturity", ">=", from_date), ("date_maturity", "<", to_date)]
         )
-        for student, amls in last_period_lines.grouped("student_id").items():
-            if not student:
-                continue
+        for student, amls in last_period_lines.grouped(lambda aml: aml.student_id or aml.partner_id).items():
             partner = amls[:1].partner_id
-            if not partner:
+            if not student or not partner:
                 continue
 
             for move, lines in amls.grouped("move_id").items():
@@ -127,9 +125,9 @@ class ResCompanyInterest(models.Model):
             )
 
             for move_line, parts in partials.items():
-                student = move_line.student_id
                 partner = move_line.partner_id
-                if not student or not partner:
+                student = move_line.student_id or partner
+                if not partner:
                     continue
                 for part in parts:
                     due_date = max(from_date, part.debit_move_id.date_maturity)
