@@ -427,3 +427,86 @@ class ResPartner(models.Model):
             ).action_unarchive()
 
         return result
+
+    @api.model
+    def _academic_normalize_dni(self, vat):
+        return "".join(char for char in (vat or "") if char.isalnum()).lower()
+
+    @api.model
+    def _find_academic_family_by_parent_vats(self, vats):
+        Link = self.env["res.partner.link"].sudo()
+        for vat in vats:
+            if not vat:
+                continue
+            link = Link.search(
+                [("partner_id.vat", "=", vat), ("student_id.partner_type", "=", "family")],
+                limit=1,
+            )
+            if link:
+                return link.student_id
+        return self.env["res.partner"]
+
+    @api.model
+    def _create_academic_structure(
+        self, family_vals, student_vals, parent_vals_list, company_id=False, family=None, student=None
+    ):
+        Partner = self.env["res.partner"].with_context(skip_family_check=True)
+        created = {"family": 0, "student": 0, "parents": 0, "links": 0}
+        parents = []
+
+        if not family:
+            family = Partner.create({"name": family_vals["name"], "partner_type": "family", "company_id": company_id})
+            created["family"] += 1
+
+        if not student:
+            student_create_vals = {
+                "name": student_vals["name"],
+                "partner_type": "student",
+                "company_id": company_id,
+                "parent_id": family.id,
+            }
+            for key in ("identification_number", "email", "vat"):
+                if student_vals.get(key):
+                    student_create_vals[key] = student_vals[key]
+            if student_vals.get("category_id"):
+                student_create_vals["category_id"] = [(6, 0, student_vals["category_id"])]
+            student = Partner.create(student_create_vals)
+            created["student"] += 1
+        elif student.parent_id != family:
+            student.write({"parent_id": family.id})
+
+        existing_partners = family.student_link_ids.mapped("partner_id")
+        for pv in parent_vals_list:
+            partner = pv.get("partner_id")
+            if not partner:
+                parent_create_vals = {
+                    "name": pv["name"],
+                    "vat": pv.get("vat") or False,
+                    "email": pv.get("email") or False,
+                    "phone": pv.get("phone") or False,
+                    "partner_type": "parent",
+                    "company_id": company_id,
+                }
+                if pv.get("l10n_ar_afip_responsibility_type_id"):
+                    parent_create_vals["l10n_ar_afip_responsibility_type_id"] = pv[
+                        "l10n_ar_afip_responsibility_type_id"
+                    ]
+                partner = Partner.create(parent_create_vals)
+                created["parents"] += 1
+            parents.append(partner)
+            if partner not in existing_partners:
+                family.student_link_ids = [
+                    (
+                        0,
+                        0,
+                        {
+                            "partner_id": partner.id,
+                            "relationship_id": pv["relationship_id"],
+                            "role_ids": [(6, 0, pv.get("role_ids") or [])],
+                        },
+                    )
+                ]
+                created["links"] += 1
+                existing_partners |= partner
+
+        return {"family": family, "student": student, "parents": parents, "created": created}

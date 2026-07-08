@@ -211,76 +211,52 @@ class CrmLead(models.Model):
         self._validate_family_group_before_create()
         self._assign_suggested_family()
         company_id = self.company_id.id if self.company_id else False
-        Partner = self.env["res.partner"].with_context(skip_family_check=True)
 
         family_member = self.family_member_ids.filtered(lambda m: m.member_type == "family")[:1]
         student_member = self.family_member_ids.filtered(lambda m: m.member_type == "student")[:1]
         other_members = self.family_member_ids.filtered(lambda m: m.member_type == "parent")
 
-        family = None
-        if family_member:
-            family = family_member.partner_id or Partner.create(
-                {
-                    "name": family_member.name,
-                    "partner_type": "family",
-                    "company_id": company_id,
-                }
-            )
-            family_member.partner_id = family
-
-        if student_member:
-            student = (
-                student_member.partner_id
-                or self.partner_id
-                or Partner.create(
-                    {
-                        "name": student_member.name or self.partner_name,
-                        "partner_type": "student",
-                        "email": student_member.email or self.email_from,
-                        "vat": student_member.vat,
-                        "company_id": company_id,
-                        **(({"parent_id": family.id}) if family else {}),
-                    }
-                )
-            )
-            student_member.partner_id = student
-            if not self.partner_id:
-                self.partner_id = student
-            if family and student.parent_id != family:
-                student.write({"parent_id": family.id})
-
-        if family:
-            existing_partners = family.student_link_ids.mapped("partner_id")
-            for member in other_members:
-                partner = member.partner_id or Partner.create(
-                    {
-                        "name": member.name,
-                        "vat": member.vat,
-                        "email": member.email,
-                        "partner_type": "parent",
-                        "company_id": company_id,
-                    }
-                )
-                member.partner_id = partner
-                if partner not in existing_partners:
-                    family.student_link_ids = [
-                        (
-                            0,
-                            0,
-                            {
-                                "partner_id": partner.id,
-                                "relationship_id": member.relationship_id.id,
-                                "role_ids": [(6, 0, member.role_ids.ids)],
-                            },
-                        )
-                    ]
-            return {
-                "type": "ir.actions.act_window",
-                "res_model": "res.partner",
-                "res_id": family.id,
-                "view_mode": "form",
-                "target": "current",
+        parent_vals_list = [
+            {
+                "name": member.name,
+                "vat": member.vat,
+                "email": member.email,
+                "relationship_id": member.relationship_id.id,
+                "role_ids": member.role_ids.ids,
+                "partner_id": member.partner_id or None,
             }
+            for member in other_members
+        ]
+
+        result = self.env["res.partner"]._create_academic_structure(
+            family_vals={"name": family_member.name},
+            student_vals={
+                "name": student_member.name or self.partner_name,
+                "vat": student_member.vat,
+                "email": student_member.email or self.email_from,
+            },
+            parent_vals_list=parent_vals_list,
+            company_id=company_id,
+            family=family_member.partner_id or None,
+            student=(student_member.partner_id or self.partner_id) or None,
+        )
+
+        family = result["family"]
+        student = result["student"]
+        family_member.partner_id = family
+        student_member.partner_id = student
+        if not self.partner_id:
+            self.partner_id = student
+        for member, partner in zip(other_members, result["parents"]):
+            member.partner_id = partner
+
+        return {
+            "type": "ir.actions.act_window",
+            "res_model": "res.partner",
+            "res_id": family.id,
+            "view_mode": "form",
+            "target": "current",
+        }
 
     def _create_customer(self, with_parent=None):
         if self.group_id:

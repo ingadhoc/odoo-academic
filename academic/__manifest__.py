@@ -55,6 +55,7 @@
         "views/res_partner_link_views.xml",
         "views/res_partner_role_views.xml",
         "views/res_partner_relationship_views.xml",
+        "wizards/academic_contact_import_views.xml",
         "report/ir_actions_report.xml",
         "report/report_basic_group_data.xml",
         "report/report_certificate_regular_student.xml",
