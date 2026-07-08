@@ -33,3 +33,4 @@ academic.access_res_partner_role,access_res_partner_role,academic.model_res_part
 academic.access_res_partner_link_all,access_res_partner_link_all,academic.model_res_partner_link,base.group_user,1,0,0,0
 academic.access_res_partner_link_user,access_res_partner_link_user,academic.model_res_partner_link,group_user,1,1,1,1
 academic.access_res_partner_role_manager,access_res_partner_role,academic.model_res_partner_role,group_manager,1,1,1,0
+access_academic_contact_import_manager,academic.contact.import.manager,model_academic_contact_import,group_manager,1,1,1,1

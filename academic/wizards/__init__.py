@@ -4,3 +4,4 @@
 ##############################################################################
 from . import portal_wizard_user
 from . import portal_wizard
+from . import academic_contact_import

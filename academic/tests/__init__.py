@@ -3,3 +3,4 @@
 # directory
 ##############################################################################
 from . import test_archive_family
+from . import test_contact_import
