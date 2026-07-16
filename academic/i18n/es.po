@@ -11,17 +11,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-02 19:35+0000\n"
+"POT-Creation-Date: 2026-07-16 17:32+0000\n"
 "PO-Revision-Date: 2026-07-16 17:28+0000\n"
 "Last-Translator: BAF <baf@adhoc.inc>\n"
-"Language-Team: Spanish <https://translation.dev-adhoc.com/projects/"
-"odoo-academic-19-0/odoo-academic-19-0-academic/es/>\n"
+"Language-Team: Spanish <https://translation.dev-adhoc.com/projects/odoo-"
+"academic-19-0/odoo-academic-19-0-academic/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=3; plural=(n == 1) ? 0 : ((n != 0 && n % 1000000 == 0)"
-" ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n == 1) ? 0 : ((n != 0 && n % 1000000 == "
+"0) ? 1 : 2);\n"
 "X-Generator: Weblate 5.10.4\n"
 
 #. module: academic
@@ -50,6 +50,14 @@ msgid "- Institution:"
 msgstr "- Institución:"
 
 #. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.report_certificate_regular_student_document
+msgid ""
+".\n"
+"                            Se extiende a pedido del interesado para ser "
+"presentada ante quien corresponda."
+msgstr ""
+
+#. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_group_form
 msgid "<span class=\"o_stat_text\">Students</span>"
 msgstr "<span class=\"o_stat_text\">Estudiantes</span>"
@@ -60,9 +68,29 @@ msgid "<span>: </span>"
 msgstr ""
 
 #. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.report_certificate_regular_student_document
+msgid "<span>Firma y sello de la autoridad</span>"
+msgstr ""
+
+#. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.report_certificate_regular_student_document
+msgid "<span>Sello establecimiento</span>"
+msgstr ""
+
+#. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.report_certificate_regular_student_document
+msgid "<strong>Constancia de Alumno Regular</strong>"
+msgstr ""
+
+#. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.report_basic_group_data_document
 msgid "<strong>Division:</strong>"
 msgstr "<strong>Division:</strong>"
+
+#. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.report_certificate_regular_student_document
+msgid "<strong>FECHA:</strong>"
+msgstr ""
 
 #. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.report_basic_group_data_document
@@ -747,6 +775,13 @@ msgid "Payment Responsible"
 msgstr "Responsables de pago"
 
 #. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.report_certificate_regular_student_document
+msgid ""
+"Por medio de la presente, la Dirección del establecimiento deja constancia "
+"que"
+msgstr ""
+
+#. module: academic
 #: model:ir.model.fields,field_description:academic.field_portal_wizard__portal_id
 msgid "Portal"
 msgstr ""
@@ -1157,12 +1192,32 @@ msgid "already exists ("
 msgstr ""
 
 #. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.report_certificate_regular_student_document
+msgid "con DNI"
+msgstr ""
+
+#. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.report_certificate_regular_student_document
+msgid "de"
+msgstr ""
+
+#. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.report_certificate_regular_student_document
+msgid "del nivel"
+msgstr ""
+
+#. module: academic
 #: model:ir.model,name:academic.model_academic_division
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_division_filter
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_division_form
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_division_tree
 msgid "division"
 msgstr "división"
+
+#. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.report_certificate_regular_student_document
+msgid "es alumno/a regular"
+msgstr ""
 
 #. module: academic
 #: model:ir.model.fields.selection,name:academic.selection__academic_group__type__gral_administrator
