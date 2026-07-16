@@ -12,15 +12,17 @@ msgstr ""
 "Project-Id-Version: Odoo Server 18.0+e\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-02 19:35+0000\n"
-"PO-Revision-Date: 2024-11-15 13:26+0000\n"
-"Last-Translator: Juan José Scarafía <scarafia.juanjose@gmail.com>, 2025\n"
-"Language-Team: Spanish (https://app.transifex.com/adhoc/teams/46451/es/)\n"
+"PO-Revision-Date: 2026-07-16 17:28+0000\n"
+"Last-Translator: BAF <baf@adhoc.inc>\n"
+"Language-Team: Spanish <https://translation.dev-adhoc.com/projects/"
+"odoo-academic-19-0/odoo-academic-19-0-academic/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
-"1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=(n == 1) ? 0 : ((n != 0 && n % 1000000 == 0)"
+" ? 1 : 2);\n"
+"X-Generator: Weblate 5.10.4\n"
 
 #. module: academic
 #: model:ir.actions.report,print_report_name:academic.report_basic_group_data
@@ -35,22 +37,22 @@ msgstr "'Certificado de Alumno Regular ' + object.name"
 #. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
 msgid "), are you sure you want to create a new one?"
-msgstr ""
+msgstr "), ¿seguro que querés crear uno nuevo?"
 
 #. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
 msgid ", institution email:"
-msgstr ""
+msgstr ", correo electrónico institucional:"
 
 #. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
 msgid "- Institution:"
-msgstr ""
+msgstr "- Institución:"
 
 #. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_group_form
 msgid "<span class=\"o_stat_text\">Students</span>"
-msgstr ""
+msgstr "<span class=\"o_stat_text\">Estudiantes</span>"
 
 #. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
@@ -60,27 +62,27 @@ msgstr ""
 #. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.report_basic_group_data_document
 msgid "<strong>Division:</strong>"
-msgstr ""
+msgstr "<strong>Division:</strong>"
 
 #. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.report_basic_group_data_document
 msgid "<strong>Level:</strong>"
-msgstr ""
+msgstr "<strong>Nivel:</strong>"
 
 #. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.report_basic_group_data_document
 msgid "<strong>Study Plan:</strong>"
-msgstr ""
+msgstr "<strong>Plan de Estudios:</strong>"
 
 #. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.report_basic_group_data_document
 msgid "<strong>Total Students:</strong>"
-msgstr ""
+msgstr "<strong>Total de Estudiantes:</strong>"
 
 #. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.report_basic_group_data_document
 msgid "<strong>Year:</strong>"
-msgstr ""
+msgstr "<strong>Año:</strong>"
 
 #. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
