@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-30 15:14+0000\n"
-"PO-Revision-Date: 2026-06-30 15:14+0000\n"
+"POT-Creation-Date: 2026-07-16 17:28+0000\n"
+"PO-Revision-Date: 2026-07-16 17:28+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -112,6 +112,11 @@ msgstr ""
 msgid ""
 "<span>Only invoices with a newly selected payment responsible and without "
 "registered payments up to now will be modified.</span>"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.report_debt_free_certificate_document
+msgid "<strong>Certificado Libre de Deuda</strong>"
 msgstr ""
 
 #. module: academic_sale_subscription
@@ -424,6 +429,7 @@ msgstr ""
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_crm_lead_family_member__vat
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.report_debt_free_certificate_document
 msgid "DNI"
 msgstr ""
 
@@ -1201,6 +1207,11 @@ msgid "Podemos ayudarte"
 msgstr ""
 
 #. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.report_debt_free_certificate_document
+msgid "Por el presente se deja constancia que el Sr./Sra"
+msgstr ""
+
+#. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard_line__price
 msgid "Price"
 msgstr ""
@@ -1773,8 +1784,18 @@ msgid "mailto:tutoria@colegio.edu.ar?subject=Solicitud de apoyo académico"
 msgstr ""
 
 #. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.report_debt_free_certificate_document
+msgid "no presenta deuda en esta institución hasta el día"
+msgstr ""
+
+#. module: academic_sale_subscription
 #: model:ir.model,name:academic_sale_subscription.model_res_partner_link
 msgid "res.partner.link"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.report_debt_free_certificate_document
+msgid "responsable del pago del alumno/a"
 msgstr ""
 
 #. module: academic_sale_subscription
