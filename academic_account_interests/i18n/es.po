@@ -24,8 +24,8 @@ msgstr ""
 #. odoo-python
 #: code:addons/academic_account_interests/models/res_company_interest.py:0
 msgid ""
-"- Invoice %(invoice_name)s: Due %(due_date)s | Residual %(residual)s x "
-"%(days)s days -> Interest: %(interest)s"
+"- Invoice %(invoice_name)s: Due %(due_date)s | Residual %(residual)s x %"
+"(days)s days -> Interest: %(interest)s"
 msgstr ""
 
 #. module: academic_account_interests
@@ -40,8 +40,8 @@ msgstr ""
 #. odoo-python
 #: code:addons/academic_account_interests/models/res_company_interest.py:0
 msgid ""
-"- Payment %(payment_name)s applied to %(invoice_name)s on %(payment_date)s -"
-"> Interest: %(interest)s"
+"- Payment %(payment_name)s applied to %(invoice_name)s on %(payment_date)s "
+"-> Interest: %(interest)s"
 msgstr ""
 
 #. module: academic_account_interests

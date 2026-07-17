@@ -65,7 +65,7 @@ msgstr "<span class=\"o_stat_text\">Estudiantes</span>"
 #. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
 msgid "<span>: </span>"
-msgstr ""
+msgstr "<span>: </span>"
 
 #. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.report_certificate_regular_student_document
@@ -115,12 +115,12 @@ msgstr "<strong>Año:</strong>"
 #. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
 msgid "A partner with the same"
-msgstr ""
+msgstr "Un contacto con el mismo"
 
 #. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
 msgid "A partner with the same identification number already exists ("
-msgstr ""
+msgstr "Ya existe un contacto con el mismo número de identificación ("
 
 #. module: academic
 #. odoo-python
@@ -129,6 +129,8 @@ msgid ""
 "A student cannot be self payment responsible and belong to a family at the "
 "same time"
 msgstr ""
+"Un alumno no puede ser responsable de su propio pago y pertenecer a una "
+"familia al mismo tiempo"
 
 #. module: academic
 #: model:ir.module.category,description:academic.module_category_academic
@@ -144,7 +146,7 @@ msgstr "Académico"
 #: model:ir.model.fields,field_description:academic.field_res_partner__identification_number
 #: model:ir.model.fields,field_description:academic.field_res_users__identification_number
 msgid "Academic Identification Number"
-msgstr ""
+msgstr "Número de identificación académico"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_group__active
@@ -197,7 +199,7 @@ msgstr "Archivado"
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_subject_template__area
 msgid "Area"
-msgstr ""
+msgstr "Área"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_hr_employee__asignatures_ids
@@ -235,14 +237,14 @@ msgstr "Certificado de Alumno Regular"
 #: model:ir.model.fields,help:academic.field_res_partner__self_payment_responsible
 #: model:ir.model.fields,help:academic.field_res_users__self_payment_responsible
 msgid "Check if the student is an adult and responsible for their own payment"
-msgstr ""
+msgstr "Marque si el alumno es mayor de edad y responsable de su propio pago"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_subject__code
 #: model:ir.model.fields,field_description:academic.field_academic_subject_template__code
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_subject_filter
 msgid "Code"
-msgstr ""
+msgstr "Código"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_res_partner_role__color
@@ -271,25 +273,25 @@ msgstr "Compañia"
 #: model:ir.model.fields,field_description:academic.field_res_partner__same_vat_company_email
 #: model:ir.model.fields,field_description:academic.field_res_users__same_vat_company_email
 msgid "Company email same VAT partner"
-msgstr ""
+msgstr "Email de la compañía del contacto con mismo CUIT"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_res_partner__same_identification_number_company_email
 #: model:ir.model.fields,field_description:academic.field_res_users__same_identification_number_company_email
 msgid "Company email same identification number partner"
-msgstr ""
+msgstr "Email de la compañía del contacto con mismo número de identificación"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_res_partner__same_vat_partner_company_id
 #: model:ir.model.fields,field_description:academic.field_res_users__same_vat_partner_company_id
 msgid "Company same VAT partner"
-msgstr ""
+msgstr "Compañía del contacto con mismo CUIT"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_res_partner__same_identification_number_partner_company
 #: model:ir.model.fields,field_description:academic.field_res_users__same_identification_number_partner_company
 msgid "Company same partner"
-msgstr ""
+msgstr "Compañía del contacto con mismo número de identificación"
 
 #. module: academic
 #: model:ir.ui.menu,name:academic.menu_configuration
@@ -314,7 +316,7 @@ msgstr "Contactos y Roles"
 #: model:ir.model.fields,field_description:academic.field_res_partner__links_by_student
 #: model:ir.model.fields,field_description:academic.field_res_users__links_by_student
 msgid "Contactos y Roles por Estudiante"
-msgstr ""
+msgstr "Contactos y Roles por Estudiante"
 
 #. module: academic
 #: model:ir.ui.menu,name:academic.menu_partners
@@ -337,6 +339,8 @@ msgid ""
 "Create and manage the companies that will be managed by odoo from here. "
 "Shops or subsidiaries can be created and maintained from here."
 msgstr ""
+"Cree y gestione desde aquí las compañías que serán administradas por Odoo. "
+"Las tiendas o filiales pueden crearse y mantenerse desde aquí."
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division__create_uid
@@ -450,7 +454,7 @@ msgstr "Asignaturas de los Empleados"
 #. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
 msgid "Estudiantes"
-msgstr ""
+msgstr "Estudiantes"
 
 #. module: academic
 #: model:ir.ui.menu,name:academic.menu_eval_config
@@ -491,13 +495,13 @@ msgstr "Familia Requerida"
 #. odoo-python
 #: code:addons/academic/models/res_partner.py:0
 msgid "Family contacts can only be students"
-msgstr ""
+msgstr "Los contactos de una familia solo pueden ser alumnos"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_subject__state_id
 #: model:ir.model.fields,field_description:academic.field_hr_employee_asignatures__teacher_state_id
 msgid "Fed. State"
-msgstr ""
+msgstr "Provincia"
 
 #. module: academic
 #: model:ir.model.fields.selection,name:academic.selection__res_partner__sex__f
@@ -599,7 +603,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic.field_res_partner_role__id
 #: model:ir.model.fields,field_description:academic.field_res_users__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.report_basic_group_data_document
@@ -612,6 +616,8 @@ msgid ""
 "If the partner will be responsible for payment, remember to set the "
 "identification number."
 msgstr ""
+"Si el contacto será responsable de pago, recuerde configurar el número de "
+"identificación."
 
 #. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
@@ -627,7 +633,7 @@ msgstr "Institución..."
 #: model:ir.model.fields,field_description:academic.field_res_partner__parent_links_by_student
 #: model:ir.model.fields,field_description:academic.field_res_users__parent_links_by_student
 msgid "La familia define Contactos y Roles por Estudiante"
-msgstr ""
+msgstr "La familia define Contactos y Roles por Estudiante"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_division__write_uid
@@ -675,7 +681,7 @@ msgstr "Niveles"
 #. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
 msgid "Los Contactos y Roles son gestionados en"
-msgstr ""
+msgstr "Los Contactos y Roles son gestionados en"
 
 #. module: academic
 #: model:ir.model.fields.selection,name:academic.selection__res_partner__sex__m
@@ -724,7 +730,7 @@ msgstr "No hay Responsable de Pago"
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_res_partner_link__note
 msgid "Notas"
-msgstr ""
+msgstr "Notas"
 
 #. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
@@ -766,7 +772,7 @@ msgstr "Etiquetas del contacto"
 #: model:ir.model.fields,field_description:academic.field_res_partner__same_identification_number_partner_id
 #: model:ir.model.fields,field_description:academic.field_res_users__same_identification_number_partner_id
 msgid "Partner with same identification number"
-msgstr ""
+msgstr "Contacto con el mismo número de identificación"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_res_partner__payment_responsible_ids
@@ -784,7 +790,7 @@ msgstr ""
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_portal_wizard__portal_id
 msgid "Portal"
-msgstr ""
+msgstr "Portal"
 
 #. module: academic
 #: model:ir.module.category,name:academic.category_portal_academic
@@ -866,13 +872,13 @@ msgstr "Informando"
 #: model:ir.model.fields,field_description:academic.field_res_users__partner_link_ids
 #: model:ir.ui.menu,name:academic.menu_res_partner_role
 msgid "Roles"
-msgstr ""
+msgstr "Roles"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_res_partner__self_payment_responsible
 #: model:ir.model.fields,field_description:academic.field_res_users__self_payment_responsible
 msgid "Self Payment Responsible"
-msgstr ""
+msgstr "Responsable de su propio pago"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_section__sequence
@@ -948,7 +954,7 @@ msgstr "Estudiantes"
 #. odoo-python
 #: code:addons/academic/models/res_partner.py:0
 msgid "Students must be linked to a family at this institution"
-msgstr ""
+msgstr "Los alumnos deben estar vinculados a una familia en esta institución"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_group__section_id
@@ -973,13 +979,13 @@ msgstr ""
 #. module: academic
 #: model:res.groups,name:academic.group_subject_manager
 msgid "Subject Manager"
-msgstr ""
+msgstr "Gestor de asignaturas"
 
 #. module: academic
 #: model:ir.model,name:academic.model_academic_subject_template
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_subject_template_form
 msgid "Subject Template"
-msgstr ""
+msgstr "Plantilla de asignatura"
 
 #. module: academic
 #: model:ir.actions.act_window,name:academic.action_academic_subject_templates
@@ -987,7 +993,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_subject_template_search
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_subject_template_tree
 msgid "Subject Templates"
-msgstr ""
+msgstr "Plantillas de asignatura"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_group__subject_id
@@ -1053,7 +1059,7 @@ msgstr "Profesores"
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_subject__template_id
 msgid "Template"
-msgstr ""
+msgstr "Plantilla"
 
 #. module: academic
 #. odoo-python
@@ -1062,11 +1068,13 @@ msgid ""
 "The 'Responsable de pago' role cannot be deactivated as it is required by "
 "the system."
 msgstr ""
+"El rol 'Responsable de pago' no puede desactivarse ya que es requerido por "
+"el sistema."
 
 #. module: academic
 #: model:ir.model.constraint,message:academic.constraint_academic_subject_template_code_unique
 msgid "The canonical code must be unique."
-msgstr ""
+msgstr "El código canónico debe ser único."
 
 #. module: academic
 #: model:ir.model.constraint,message:academic.constraint_academic_level_unique_level_name
@@ -1102,24 +1110,31 @@ msgid ""
 "The student must have a tax identification number configured to be their own "
 "payment responsible."
 msgstr ""
+"El alumno debe tener configurado un número de identificación fiscal para ser "
+"responsable de su propio pago."
 
 #. module: academic
 #. odoo-python
 #: code:addons/academic/models/hr.py:0
 msgid "The subject company must match the employee company."
 msgstr ""
+"La compañía de la asignatura debe coincidir con la compañía del empleado."
 
 #. module: academic
 #. odoo-python
 #: code:addons/academic/models/academic_subject.py:0
 msgid "The subject jurisdiction must match the company jurisdiction."
 msgstr ""
+"La jurisdicción de la asignatura debe coincidir con la jurisdicción de la "
+"compañía."
 
 #. module: academic
 #. odoo-python
 #: code:addons/academic/models/hr.py:0
 msgid "The subject jurisdiction must match the employee company jurisdiction."
 msgstr ""
+"La jurisdicción de la asignatura debe coincidir con la jurisdicción de la "
+"compañía del empleado."
 
 #. module: academic
 #. odoo-python
@@ -1130,13 +1145,13 @@ msgstr ""
 #. module: academic
 #: model:ir.model.constraint,message:academic.constraint_academic_subject_subject_template_unique
 msgid "There is already a subject for this template, jurisdiction and company."
-msgstr ""
+msgstr "Ya existe una asignatura para esta plantilla, jurisdicción y compañía."
 
 #. module: academic
 #. odoo-python
 #: code:addons/academic/models/hr.py:0
 msgid "There is another record that contains the same subject and teacher"
-msgstr ""
+msgstr "Existe otro registro que contiene la misma asignatura y docente"
 
 #. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.wizard_view_inherit
@@ -1150,7 +1165,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic.field_res_partner__partner_type
 #: model:ir.model.fields,field_description:academic.field_res_users__partner_type
 msgid "Tipo de Contacto Académico"
-msgstr ""
+msgstr "Tipo de Contacto Académico"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_group__type
@@ -1166,7 +1181,7 @@ msgstr "Usuario"
 #. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.login
 msgid "Usuario"
-msgstr ""
+msgstr "Usuario"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_group__year
@@ -1189,7 +1204,7 @@ msgstr "Tienes que agregar al menos un nivel para esa asignatura"
 #. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
 msgid "already exists ("
-msgstr ""
+msgstr "ya existe ("
 
 #. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.report_certificate_regular_student_document
@@ -1236,7 +1251,7 @@ msgstr "grupo"
 #. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
 msgid "la familia"
-msgstr ""
+msgstr "la familia"
 
 #. module: academic
 #: model:ir.model,name:academic.model_academic_level
@@ -1254,12 +1269,12 @@ msgstr "promoción"
 #. module: academic
 #: model:ir.model,name:academic.model_res_partner_link
 msgid "res.partner.link"
-msgstr ""
+msgstr "res.partner.link"
 
 #. module: academic
 #: model:ir.model,name:academic.model_res_partner_role
 msgid "res.partner.role"
-msgstr ""
+msgstr "res.partner.role"
 
 #. module: academic
 #: model:ir.model,name:academic.model_academic_section
@@ -1278,18 +1293,4 @@ msgstr "asignatura"
 #: model:ir.model.fields,help:academic.field_res_partner__disabled_person
 #: model:ir.model.fields,help:academic.field_res_users__disabled_person
 msgid "¿Alumno/a con Dificultades de aprendizaje?"
-msgstr ""
-
-#~ msgid ""
-#~ "There is another record that contains the same "
-#~ "subject                         and teacher"
-#~ msgstr "Hay otro registro que contiene el mismo asunto y profesor"
-
-#~ msgid "By Attribute"
-#~ msgstr "Por Atributo"
-
-#~ msgid "By object"
-#~ msgstr "Por objeto"
-
-#~ msgid "Some contacts don't have a valid email: "
-#~ msgstr "Algunos contactos no tienen un correo electrónico válido:"
+msgstr "¿Alumno/a con Dificultades de aprendizaje?"

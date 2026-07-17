@@ -54,12 +54,12 @@ msgstr "%s certificados enviados exitosamente."
 #. module: academic_sale_subscription
 #: model:ir.actions.report,print_report_name:academic_sale_subscription.report_debt_free_certificate
 msgid "'Debt Free Certificate - ' + object.name"
-msgstr ""
+msgstr "'Certificado de libre deuda - ' + object.name"
 
 #. module: academic_sale_subscription
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.portal_my_debt_free_certificates
 msgid "<i class=\"fa fa-download\"/> Download Certificate"
-msgstr ""
+msgstr "<i class=\"fa fa-download\"/> Descargar certificado"
 
 #. module: academic_sale_subscription
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_contactus_form
@@ -126,6 +126,8 @@ msgid ""
 "<span>Only invoices with a newly selected payment responsible and without "
 "registered payments up to now will be modified.</span>"
 msgstr ""
+"<span>Solo se modificarán las facturas con un responsable de pago recién "
+"seleccionado y sin pagos registrados hasta el momento.</span>"
 
 #. module: academic_sale_subscription
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.report_debt_free_certificate_document
@@ -224,12 +226,12 @@ msgstr ""
 #. module: academic_sale_subscription
 #: model:ir.model,name:academic_sale_subscription.model_archive_family_debt_wizard
 msgid "Archive Family — Debt Warning"
-msgstr ""
+msgstr "Archivar familia — Advertencia de deuda"
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_partner_wizard__available_partner_ids
 msgid "Available Partners"
-msgstr ""
+msgstr "Contactos disponibles"
 
 #. module: academic_sale_subscription
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.debt_certificate_unavailable
@@ -313,7 +315,7 @@ msgstr "Ajustes de configuración"
 #. module: academic_sale_subscription
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.view_archive_family_debt_wizard
 msgid "Confirm and Archive"
-msgstr ""
+msgstr "Confirmar y archivar"
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields.selection,name:academic_sale_subscription.selection__academic_order_wizard__status_sale__confirmed
@@ -426,7 +428,7 @@ msgstr "Responsable de Pago Actual"
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_line__current_responsible_id
 msgid "Current Responsible"
-msgstr ""
+msgstr "Responsable actual"
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_res_partner__current_subscription_ids
@@ -532,7 +534,7 @@ msgstr "Borrador"
 #: model:ir.actions.server,name:academic_sale_subscription.action_show_duplicated_subscription
 #: model:ir.ui.menu,name:academic_sale_subscription.menu_duplicated_subscription
 msgid "Duplicated Subscriptions"
-msgstr ""
+msgstr "Suscripciones duplicadas"
 
 #. module: academic_sale_subscription
 #: model:sale.order.close.reason,name:academic_sale_subscription.close_reason_graduated
@@ -555,6 +557,8 @@ msgid ""
 "Enable this to allow invoicing subscription lines even if their total is "
 "zero."
 msgstr ""
+"Active esto para permitir facturar líneas de suscripción aunque su total sea "
+"cero."
 
 #. module: academic_sale_subscription
 #: model_terms:sale.order.close.reason,retention_message:academic_sale_subscription.close_reason_financial
@@ -594,7 +598,7 @@ msgstr ""
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_archive_family_debt_wizard__family_ids
 msgid "Families"
-msgstr ""
+msgstr "Familias"
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_bank_statement_line__family_id
@@ -625,7 +629,7 @@ msgstr "Cuota"
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_group__fee_student_count
 msgid "Fee Student Count"
-msgstr ""
+msgstr "Cantidad de alumnos con cuota"
 
 #. module: academic_sale_subscription
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.quick_create_opportunity_form
@@ -725,7 +729,7 @@ msgstr ""
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_wizard__invoice_ids
 msgid "Invoice"
-msgstr ""
+msgstr "Factura"
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order_line__partner_invoice_id
@@ -735,17 +739,17 @@ msgstr "Responsable de pago"
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_res_config_settings__enable_zero_price_subscription_invoice
 msgid "Invoice subscriptions with zero total"
-msgstr ""
+msgstr "Facturar suscripciones con total cero"
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_line__invoice_ids
 msgid "Invoices"
-msgstr ""
+msgstr "Facturas"
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_partner_wizard__invoice_ids
 msgid "Invoices to Update"
-msgstr ""
+msgstr "Facturas a actualizar"
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_bank_statement_line__is_academic_sale
@@ -791,6 +795,8 @@ msgid ""
 "Las facturas de clientes y notas de debito debe tener asociado siempre un "
 "alumno."
 msgstr ""
+"Las facturas de clientes y notas de debito debe tener asociado siempre un "
+"alumno."
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__write_uid
@@ -828,7 +834,7 @@ msgstr ""
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_wizard__line_ids
 msgid "Line"
-msgstr ""
+msgstr "Línea"
 
 #. module: academic_sale_subscription
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_order_wizard_form
@@ -849,17 +855,17 @@ msgstr ""
 #. odoo-python
 #: code:addons/academic_sale_subscription/models/account_move.py:0
 msgid "Los siguientes documentos no cumplen esa condición:"
-msgstr ""
+msgstr "Los siguientes documentos no cumplen esa condición:"
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_group__fee_so_line_ids
 msgid "Main SO Line"
-msgstr ""
+msgstr "Línea principal del pedido de venta"
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_group__manage_sale_workflow
 msgid "Manage Sale Workflow"
-msgstr ""
+msgstr "Gestionar flujo de venta"
 
 #. module: academic_sale_subscription
 #: model:sale.order.close.reason,retention_button_text:academic_sale_subscription.close_reason_temporary_leave
@@ -920,7 +926,7 @@ msgstr "Nuevo Responsable de Pago"
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_line__new_responsible_id
 msgid "New Responsible"
-msgstr ""
+msgstr "Nuevo responsable"
 
 #. module: academic_sale_subscription
 #. odoo-python
@@ -936,7 +942,7 @@ msgstr "Sin cuota"
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_group__no_fee_student_count
 msgid "No Fee Student Count"
-msgstr ""
+msgstr "Cantidad de alumnos sin cuota"
 
 #. module: academic_sale_subscription
 #. odoo-python
@@ -1021,7 +1027,7 @@ msgstr ""
 #. module: academic_sale_subscription
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.view_academic_partner_tree
 msgid "Open order wizard"
-msgstr ""
+msgstr "Abrir asistente de pedido"
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_group__opportunities_ids
@@ -1032,7 +1038,7 @@ msgstr "Oportunidades"
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_group__opportunities_student_count
 msgid "Opportunities Student Count"
-msgstr ""
+msgstr "Cantidad de alumnos en oportunidades"
 
 #. module: academic_sale_subscription
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.view_academic_group_form
@@ -1064,12 +1070,12 @@ msgstr "El contacto %s no tiene el rol de Responsable de Pago."
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order__partner_invoice_ids
 msgid "Partner Invoice"
-msgstr ""
+msgstr "Factura del contacto"
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_line__payment_responsible_ids
 msgid "Payment Responsible"
-msgstr ""
+msgstr "Responsable de pago"
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__payment_term_id
@@ -1109,7 +1115,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_partner_wizard__invoice_count
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.view_update_payment_responsible_partner_wizard
 msgid "Pending Invoices"
-msgstr ""
+msgstr "Facturas pendientes"
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__plan_id
@@ -1274,7 +1280,7 @@ msgstr ""
 #. module: academic_sale_subscription
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.sale_subscription_order_view_form
 msgid "Recompute end date based on this next invoice date"
-msgstr ""
+msgstr "Recalcular la fecha de fin en base a esta próxima fecha de factura"
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_move_line__ref
@@ -1317,7 +1323,7 @@ msgstr "Libera vacante"
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_move__require_student_on_invoices
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_res_company__require_student_on_invoices
 msgid "Require Student On Invoices"
-msgstr ""
+msgstr "Requerir alumno en facturas"
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_crm_lead_family_member__role_ids
@@ -1337,7 +1343,7 @@ msgstr "Línea de pedido de venta"
 #. module: academic_sale_subscription
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.view_update_payment_responsible_partner_wizard
 msgid "Sales/Subscriptions"
-msgstr ""
+msgstr "Ventas/Suscripciones"
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_partner_wizard__sale_ids
@@ -1357,7 +1363,7 @@ msgstr "Enviar Certificado de Libre Deuda"
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order__show_update_end_date
 msgid "Show Update End Date"
-msgstr ""
+msgstr "Mostrar actualizar fecha de fin"
 
 #. module: academic_sale_subscription
 #: model_terms:sale.order.close.reason,retention_message:academic_sale_subscription.close_reason_family_relocation
@@ -1419,7 +1425,7 @@ msgstr "Lista de Estudiantes"
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_archive_family_debt_wizard__student_debt_info
 msgid "Students with pending debt"
-msgstr ""
+msgstr "Alumnos con deuda pendiente"
 
 #. module: academic_sale_subscription
 #: model:ir.model,name:academic_sale_subscription.model_sale_order_close_reason
@@ -1511,7 +1517,7 @@ msgstr ""
 #. module: academic_sale_subscription
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.debt_certificate_unavailable
 msgid "The debt free certificate for"
-msgstr ""
+msgstr "El certificado de libre deuda de"
 
 #. module: academic_sale_subscription
 #. odoo-python
@@ -1520,6 +1526,8 @@ msgid ""
 "The debt remains recorded in accounting and is visible in the Partner Ledger "
 "and Aged Receivable reports."
 msgstr ""
+"La deuda permanece registrada en la contabilidad y es visible en los "
+"informes de Libro Mayor de Contactos y Antigüedad de Cuentas por Cobrar."
 
 #. module: academic_sale_subscription
 #. odoo-python
@@ -1540,6 +1548,8 @@ msgid ""
 "The following students have unpaid invoices. Their payment responsibles will "
 "be archived and will no longer receive mass communications."
 msgstr ""
+"Los siguientes alumnos tienen facturas impagas. Sus responsables de pago "
+"serán archivados y ya no recibirán comunicaciones masivas."
 
 #. module: academic_sale_subscription
 #. odoo-python
@@ -1571,7 +1581,7 @@ msgstr "Hay productos con precio 0."
 #. odoo-python
 #: code:addons/academic_sale_subscription/models/academic_group.py:0
 msgid "There can be no negative vacancies. Increase group capacity."
-msgstr ""
+msgstr "No puede haber vacantes negativas. Aumente la capacidad del grupo."
 
 #. module: academic_sale_subscription
 #. odoo-python
@@ -1621,12 +1631,12 @@ msgstr ""
 #. module: academic_sale_subscription
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.view_update_payment_responsible_wizard
 msgid "Update"
-msgstr ""
+msgstr "Actualizar"
 
 #. module: academic_sale_subscription
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.sale_subscription_order_view_form
 msgid "Update End Date"
-msgstr ""
+msgstr "Actualizar fecha de fin"
 
 #. module: academic_sale_subscription
 #: model:ir.actions.act_window,name:academic_sale_subscription.action_update_payment_responsible
@@ -1638,7 +1648,7 @@ msgstr "Actualizar Responsable de Pago"
 #. module: academic_sale_subscription
 #: model:ir.model,name:academic_sale_subscription.model_update_payment_responsible_line
 msgid "Update Payment Responsible Line"
-msgstr ""
+msgstr "Línea de actualización de responsable de pago"
 
 #. module: academic_sale_subscription
 #: model:ir.model,name:academic_sale_subscription.model_update_payment_responsible_partner_wizard
@@ -1696,17 +1706,17 @@ msgstr "Precaución"
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_partner_wizard__warning_message
 msgid "Warning Message"
-msgstr ""
+msgstr "Mensaje de advertencia"
 
 #. module: academic_sale_subscription
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_view_move_form
 msgid "Warning: This invoice is not associated with any student"
-msgstr ""
+msgstr "Advertencia: Esta factura no está asociada a ningún alumno"
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_line__wizard_id
 msgid "Wizard"
-msgstr ""
+msgstr "Asistente"
 
 #. module: academic_sale_subscription
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.portal_my_debt_free_certificates
@@ -1717,7 +1727,7 @@ msgstr "No estás registrado como responsable de pago de ningún estudiante."
 #. odoo-python
 #: code:addons/academic_sale_subscription/wizard/update_payment_responsible_wizard.py:0
 msgid "You can only select a maximum of %s invoices at once."
-msgstr ""
+msgstr "Solo puede seleccionar un máximo de %s facturas a la vez."
 
 #. module: academic_sale_subscription
 #. odoo-python
@@ -1741,6 +1751,8 @@ msgid ""
 "You cannot mark require student on invoices if there are already invoices "
 "without students."
 msgstr ""
+"No puede marcar requerir alumno en facturas si ya existen facturas sin "
+"alumnos."
 
 #. module: academic_sale_subscription
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_contactus_form
@@ -1766,6 +1778,9 @@ msgid ""
 "                        because some of the payment responsible persons have "
 "pending debt."
 msgstr ""
+"no está disponible\n"
+"                        porque algunos de los responsables de pago tienen "
+"deuda pendiente."
 
 #. module: academic_sale_subscription
 #: model:sale.order.close.reason,retention_button_link:academic_sale_subscription.close_reason_financial
@@ -1825,7 +1840,7 @@ msgstr ""
 #. module: academic_sale_subscription
 #: model:ir.model,name:academic_sale_subscription.model_res_partner_link
 msgid "res.partner.link"
-msgstr ""
+msgstr "res.partner.link"
 
 #. module: academic_sale_subscription
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.report_debt_free_certificate_document
@@ -1856,64 +1871,3 @@ msgstr ""
 #: model_terms:sale.order.close.reason,retention_message:academic_sale_subscription.close_reason_family_relocation
 msgid "¿Te mudas lejos?"
 msgstr ""
-
-#~ msgid "Contract duration"
-#~ msgstr "Duración del contrato"
-
-#~ msgid "Do Not Reopen Subscription"
-#~ msgstr "No reabrir suscripción"
-
-#~ msgid "Duration Unit"
-#~ msgstr "Unidad de duración"
-
-#~ msgid "End After"
-#~ msgstr "Finaliza después de"
-
-#~ msgid ""
-#~ "If enabled, subscriptions closed with this reason will not be "
-#~ "automatically reopened after payment."
-#~ msgstr ""
-#~ "Si está habilitado, las suscripciones cerradas con esta razón no se "
-#~ "reabrirán automáticamente después del pago."
-
-#~ msgid "Last Forever"
-#~ msgstr "Eterno"
-
-#~ msgid "Months"
-#~ msgstr "Meses"
-
-#~ msgid "Subscription Plan"
-#~ msgstr "Plan de suscripción"
-
-#~ msgid "The duration can't be negative or 0."
-#~ msgstr "La duración no puede ser negativa ni 0."
-
-#~ msgid ""
-#~ "There cannot be a sale order template and a recurring plan both with a "
-#~ "defined period."
-#~ msgstr ""
-#~ "No puede haber una plantilla de pedido de venta y un plan recurrente, "
-#~ "ambos con un período definido."
-
-#~ msgid "Years"
-#~ msgstr "Años"
-
-#~ msgid "Lead/Opportunity"
-#~ msgstr "Lead/Oportunidad"
-
-#~ msgid "Download Certificate"
-#~ msgstr "Descargar Certificado"
-
-#~ msgid "Cannot %s from contact %s because student %s has pending invoices."
-#~ msgstr ""
-#~ "No se puede %s del contacto %s porque el estudiante %s tiene facturas "
-#~ "pendientes de pago."
-
-#~ msgid ""
-#~ "Cannot %s from contact %s because student %s has active subscriptions."
-#~ msgstr ""
-#~ "No se puede %s del contacto %s porque el estudiante %s tiene "
-#~ "suscripciones activas."
-
-#~ msgid "%d pending invoices"
-#~ msgstr "%d facturas pendientes"
