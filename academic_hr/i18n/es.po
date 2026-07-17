@@ -1,26 +1,32 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* academic_hr
+# 	* academic_account_interests
+#
+# Translators:
+# Juan José Scarafía <scarafia.juanjose@gmail.com>, 2024
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 19.0+e\n"
+"Project-Id-Version: Odoo Server 18.0+e\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-02-25 14:16+0000\n"
-"PO-Revision-Date: 2025-12-11 18:29+0000\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2024-12-26 13:48+0000\n"
+"Last-Translator: Juan José Scarafía <scarafia.juanjose@gmail.com>, 2024\n"
+"Language-Team: Spanish (https://app.transifex.com/adhoc/teams/46451/es/)\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
+"1 : 2;\n"
 
 #. module: academic_hr
 #: model_terms:ir.ui.view,arch_db:academic_hr.view_employee_form_academic
 msgid ""
 "<i class=\"fa fa-briefcase\" role=\"img\" aria-label=\"Job\" title=\"Job\"/>"
 msgstr ""
+"<i class=\"fa fa-briefcase\" role=\"img\" aria-label=\"Puesto\" "
+"title=\"Puesto\"/>"
 
 #. module: academic_hr
 #: model_terms:ir.ui.view,arch_db:academic_hr.view_employee_form_academic
@@ -28,11 +34,13 @@ msgid ""
 "<i class=\"fa fa-building\" role=\"img\" aria-label=\"Department\" "
 "title=\"Department\"/>"
 msgstr ""
+"<i class=\"fa fa-building\" role=\"img\" aria-label=\"Departamento\" "
+"title=\"Departamento\"/>"
 
 #. module: academic_hr
 #: model_terms:ir.ui.view,arch_db:academic_hr.portal_side_content_academic_hr
 msgid "<i class=\"fa fa-pencil\"/> Edit information"
-msgstr ""
+msgstr "<i class=\"fa fa-pencil\"/> Editar información"
 
 #. module: academic_hr
 #: model_terms:ir.ui.view,arch_db:academic_hr.view_employee_form_academic
@@ -43,27 +51,27 @@ msgstr ""
 #. module: academic_hr
 #: model_terms:ir.ui.view,arch_db:academic_hr.portal_my_personal_data
 msgid "<option value=\"\">Country...</option>"
-msgstr ""
+msgstr "<option value=\"\">País...</option>"
 
 #. module: academic_hr
 #: model_terms:ir.ui.view,arch_db:academic_hr.portal_my_personal_data
 msgid "<option value=\"\">State...</option>"
-msgstr ""
+msgstr "<option value=\"\">Provincia...</option>"
 
 #. module: academic_hr
 #: model_terms:ir.ui.view,arch_db:academic_hr.portal_my_personal_data
 msgid "Address"
-msgstr ""
+msgstr "Dirección"
 
 #. module: academic_hr
 #: model:ir.model,name:academic_hr.model_account_analytic_line
 msgid "Analytic Line"
-msgstr ""
+msgstr "Línea analítica"
 
 #. module: academic_hr
 #: model_terms:ir.ui.view,arch_db:academic_hr.view_employee_form_academic
 msgid "Child"
-msgstr ""
+msgstr "Hijo"
 
 #. module: academic_hr
 #: model:ir.model.fields,field_description:academic_hr.field_hr_employee__child_employee_ids
@@ -71,7 +79,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:academic_hr.view_employee_filter_academic
 #: model_terms:ir.ui.view,arch_db:academic_hr.view_employee_form_academic
 msgid "Child Employees"
-msgstr ""
+msgstr "Empleados hijos"
 
 #. module: academic_hr
 #. odoo-python
@@ -80,31 +88,33 @@ msgid ""
 "Child employees must have the same company as their main employee. Employee "
 "'%(employee_name)s' company must be '%(company_name)s'."
 msgstr ""
+"Los empleados hijos deben tener la misma compañía que su empleado principal. "
+"La compañía del empleado '%(employee_name)s' debe ser '%(company_name)s'."
 
 #. module: academic_hr
 #: model_terms:ir.ui.view,arch_db:academic_hr.portal_my_personal_data
 msgid "City"
-msgstr ""
+msgstr "Ciudad"
 
 #. module: academic_hr
 #: model:ir.model.fields,field_description:academic_hr.field_hr_employee__company_id
 msgid "Company"
-msgstr ""
+msgstr "Compañía"
 
 #. module: academic_hr
 #: model_terms:ir.ui.view,arch_db:academic_hr.portal_my_personal_data
 msgid "Confirm"
-msgstr ""
+msgstr "Confirmar"
 
 #. module: academic_hr
 #: model_terms:ir.ui.view,arch_db:academic_hr.portal_my_personal_data
 msgid "Country"
-msgstr ""
+msgstr "País"
 
 #. module: academic_hr
 #: model:ir.model,name:academic_hr.model_hr_department
 msgid "Department"
-msgstr ""
+msgstr "Departamento"
 
 #. module: academic_hr
 #: model:ir.model.fields,field_description:academic_hr.field_account_analytic_line__display_name
@@ -118,14 +128,14 @@ msgstr ""
 #. module: academic_hr
 #: model_terms:ir.ui.view,arch_db:academic_hr.portal_my_personal_data
 msgid "Email"
-msgstr ""
+msgstr "Correo electrónico"
 
 #. module: academic_hr
 #: model:ir.model,name:academic_hr.model_hr_employee
 #: model:ir.model.fields,field_description:academic_hr.field_hr_leave_allocation__employee_id
 #: model_terms:ir.ui.view,arch_db:academic_hr.view_employee_form_academic
 msgid "Employee"
-msgstr ""
+msgstr "Empleado"
 
 #. module: academic_hr
 #: model:ir.model.fields,field_description:academic_hr.field_account_analytic_line__id
@@ -140,56 +150,56 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic_hr.field_hr_employee__main_employee_id
 #: model_terms:ir.ui.view,arch_db:academic_hr.view_employee_form_academic
 msgid "Main Employee"
-msgstr ""
+msgstr "Empleado principal"
 
 #. module: academic_hr
 #: model_terms:ir.ui.view,arch_db:academic_hr.hr_attendance_view_filter
 #: model_terms:ir.ui.view,arch_db:academic_hr.view_employee_filter_academic
 msgid "Main Employees"
-msgstr ""
+msgstr "Empleados principales"
 
 #. module: academic_hr
 #: model_terms:ir.ui.view,arch_db:academic_hr.portal_side_content_academic_hr
 msgid "My Personal Data"
-msgstr ""
+msgstr "Mis datos personales"
 
 #. module: academic_hr
 #: model_terms:ir.ui.view,arch_db:academic_hr.portal_my_home_menu_personal_data
 msgid "Personal Data"
-msgstr ""
+msgstr "Datos personales"
 
 #. module: academic_hr
 #: model_terms:ir.ui.view,arch_db:academic_hr.portal_my_personal_data
 msgid "Phone"
-msgstr ""
+msgstr "Teléfono"
 
 #. module: academic_hr
 #: model_terms:ir.ui.view,arch_db:academic_hr.portal_my_personal_data
 msgid "State"
-msgstr ""
+msgstr "Provincia"
 
 #. module: academic_hr
 #: model_terms:ir.ui.view,arch_db:academic_hr.portal_my_personal_data
 msgid "Street"
-msgstr ""
+msgstr "Calle"
 
 #. module: academic_hr
 #: model:ir.model,name:academic_hr.model_hr_leave_allocation
 msgid "Time Off Allocation"
-msgstr ""
+msgstr "Asignación de ausencias"
 
 #. module: academic_hr
 #: model:ir.model,name:academic_hr.model_hr_leave_type
 msgid "Time Off Type"
-msgstr ""
+msgstr "Tipo de ausencia"
 
 #. module: academic_hr
 #. odoo-python
 #: code:addons/academic_hr/models/hr_employee.py:0
 msgid "You cannot create circular references in the employee hierarchy."
-msgstr ""
+msgstr "No puede crear referencias circulares en la jerarquía de empleados."
 
 #. module: academic_hr
 #: model_terms:ir.ui.view,arch_db:academic_hr.portal_my_personal_data
 msgid "Zip"
-msgstr ""
+msgstr "Código postal"
