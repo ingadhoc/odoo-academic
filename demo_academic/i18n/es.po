@@ -1,104 +1,106 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # 	* demo_academic
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0+e\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-10 09:56+0000\n"
 "PO-Revision-Date: 2025-01-24 19:25+0000\n"
+"Last-Translator: \n"
 "Language-Team: Spanish (https://app.transifex.com/adhoc/teams/46451/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Language: es\n"
-"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
+"1 : 2;\n"
 
 #. module: demo_academic
 #: model:loyalty.reward,description:demo_academic.loyalty_reward_referral_points
 msgid "$5000 de descuento por puntos acumulados"
-msgstr ""
+msgstr "$5000 de descuento por puntos acumulados"
 
 #. module: demo_academic
 #: model:loyalty.reward,description:demo_academic.loyalty_reward_sibling_discount
 msgid "10% de descuento por tener hermanos en el colegio"
-msgstr ""
+msgstr "10% de descuento por tener hermanos en el colegio"
 
 #. module: demo_academic
 #: model:loyalty.reward,description:demo_academic.loyalty_reward_annual_payment
 msgid "15% de descuento por pago anual adelantado"
-msgstr ""
+msgstr "15% de descuento por pago anual adelantado"
 
 #. module: demo_academic
 #: model:loyalty.reward,description:demo_academic.loyalty_reward_employee_discount
 msgid "20% de descuento para hijos de empleados"
-msgstr ""
+msgstr "20% de descuento para hijos de empleados"
 
 #. module: demo_academic
 #: model:res.partner.category,name:demo_academic.partner_category_scholarship
 msgid "Beca de Estudio"
-msgstr ""
+msgstr "Beca de Estudio"
 
 #. module: demo_academic
 #: model:res.partner.category,name:demo_academic.partner_category_referral
 msgid "Cliente Referidor"
-msgstr ""
+msgstr "Cliente Referidor"
 
 #. module: demo_academic
 #: model:res.partner.category,name:demo_academic.partner_category_vip
 msgid "Cliente VIP"
-msgstr ""
+msgstr "Cliente VIP"
 
 #. module: demo_academic
 #: model:loyalty.program,name:demo_academic.loyalty_program_discount_sibling
 msgid "Descuento 10% para Hermanos"
-msgstr ""
+msgstr "Descuento 10% para Hermanos"
 
 #. module: demo_academic
 #: model:loyalty.program,name:demo_academic.loyalty_program_annual_payment
 msgid "Descuento 15% por Pago Anual Adelantado"
-msgstr ""
+msgstr "Descuento 15% por Pago Anual Adelantado"
 
 #. module: demo_academic
 #: model:loyalty.program,name:demo_academic.loyalty_program_discount_employee
 msgid "Descuento 20% para Hijos de Empleados"
-msgstr ""
+msgstr "Descuento 20% para Hijos de Empleados"
 
 #. module: demo_academic
 #: model:res.partner.category,name:demo_academic.partner_category_discount_employee
 msgid "Descuento Empleados 20%"
-msgstr ""
+msgstr "Descuento Empleados 20%"
 
 #. module: demo_academic
 #: model:res.partner.category,name:demo_academic.partner_category_discount_sibling
 msgid "Descuento Hermanos 10%"
-msgstr ""
+msgstr "Descuento Hermanos 10%"
 
 #. module: demo_academic
 #: model:product.pricelist,name:demo_academic.product_pricelist_hermanos
 msgid "Lista Especial - Descuento Hermanos"
-msgstr ""
+msgstr "Lista Especial - Descuento Hermanos"
 
 #. module: demo_academic
 #: model:product.pricelist,name:demo_academic.product_pricelist_empleados
 msgid "Lista Especial - Empleados"
-msgstr ""
+msgstr "Lista Especial - Empleados"
 
 #. module: demo_academic
 #: model:product.pricelist,name:demo_academic.product_pricelist_becados
 msgid "Lista Especial - Estudiantes Becados"
-msgstr ""
+msgstr "Lista Especial - Estudiantes Becados"
 
 #. module: demo_academic
 #: model:product.pricelist,name:demo_academic.product_pricelist_los_arroyos
 msgid "Lista de Precios Los Arroyos"
-msgstr ""
+msgstr "Lista de Precios Los Arroyos"
 
 #. module: demo_academic
 #: model:res.partner.category,name:demo_academic.partner_category_annual_payment
 msgid "Pago Anual Adelantado"
-msgstr ""
+msgstr "Pago Anual Adelantado"
 
 #. module: demo_academic
 #: model:loyalty.program,portal_point_name:demo_academic.loyalty_program_annual_payment
@@ -106,9 +108,9 @@ msgstr ""
 #: model:loyalty.program,portal_point_name:demo_academic.loyalty_program_discount_sibling
 #: model:loyalty.program,portal_point_name:demo_academic.loyalty_program_referral
 msgid "Points"
-msgstr ""
+msgstr "Points"
 
 #. module: demo_academic
 #: model:loyalty.program,name:demo_academic.loyalty_program_referral
 msgid "Puntos por Referir Nuevos Estudiantes"
-msgstr ""
+msgstr "Puntos por Referir Nuevos Estudiantes"
