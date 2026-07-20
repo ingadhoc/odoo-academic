@@ -19,7 +19,7 @@
 ##############################################################################
 {
     "name": "Academic Account Interests",
-    "version": "18.0.1.1.0",
+    "version": "18.0.1.2.0",
     "sequence": 14,
     "summary": "",
     "author": "ADHOC SA",

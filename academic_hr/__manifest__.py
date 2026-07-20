@@ -1,6 +1,6 @@
 {
     "name": "Academic HR",
-    "version": "18.0.1.3.0",
+    "version": "18.0.1.4.0",
     "category": "Human Resources",
     "summary": "HR extensions for academic institutions with multiple employee support",
     "author": "ADHOC SA",
