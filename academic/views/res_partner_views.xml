@@ -137,9 +137,9 @@
                         </field>
                     </group>
                 </page>
-                <page string="Contactos y Roles" invisible="links_by_student or partner_type not in ['student', 'family'] or self_payment_responsible">
-                    <p invisible="partner_type != 'student' or parent_links_by_student">Los Contactos y Roles son gestionados en <button name="open_commercial_entity" type="object" string="la familia" class="oe_link"/></p>
-                    <field name="student_link_ids" readonly="partner_type == 'student' and not parent_links_by_student">
+                <page string="Contactos y Roles" invisible="links_by_student or partner_type not in ['student', 'family']">
+                    <p invisible="partner_type != 'student' or parent_links_by_student or not parent_id">Los Contactos y Roles son gestionados en <button name="open_commercial_entity" type="object" string="la familia" class="oe_link"/></p>
+                    <field name="student_link_ids" readonly="partner_type == 'student' and parent_id and not parent_links_by_student">
                         <list editable="bottom">
                             <field name="sequence" widget="handle"/>
                             <field name="company_id" column_invisible="1"/>
