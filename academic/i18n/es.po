@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-16 17:32+0000\n"
+"POT-Creation-Date: 2026-07-22 13:50+0000\n"
 "PO-Revision-Date: 2026-07-16 17:28+0000\n"
 "Last-Translator: BAF <baf@adhoc.inc>\n"
 "Language-Team: Spanish <https://translation.dev-adhoc.com/projects/odoo-"
@@ -545,11 +545,6 @@ msgstr "Portal del Administrador General"
 #: model:ir.ui.menu,name:academic.menu_gral_administrators
 msgid "Gral Administrators"
 msgstr "Administrador General"
-
-#. module: academic
-#: model_terms:ir.ui.view,arch_db:academic.wizard_view_inherit
-msgid "Grant Access to All"
-msgstr "Otorgar acceso a todos"
 
 #. module: academic
 #: model:ir.model,name:academic.model_portal_wizard
@@ -1154,14 +1149,6 @@ msgid "There is another record that contains the same subject and teacher"
 msgstr "Existe otro registro que contiene la misma asignatura y docente"
 
 #. module: academic
-#: model_terms:ir.ui.view,arch_db:academic.wizard_view_inherit
-msgid ""
-"This button will grant access to all contacts with a valid email address."
-msgstr ""
-"Este botón otorgará acceso a todos los contactos con una dirección de correo "
-"electrónico válida"
-
-#. module: academic
 #: model:ir.model.fields,field_description:academic.field_res_partner__partner_type
 #: model:ir.model.fields,field_description:academic.field_res_users__partner_type
 msgid "Tipo de Contacto Académico"
@@ -1294,3 +1281,12 @@ msgstr "asignatura"
 #: model:ir.model.fields,help:academic.field_res_users__disabled_person
 msgid "¿Alumno/a con Dificultades de aprendizaje?"
 msgstr "¿Alumno/a con Dificultades de aprendizaje?"
+
+#~ msgid "Grant Access to All"
+#~ msgstr "Otorgar acceso a todos"
+
+#~ msgid ""
+#~ "This button will grant access to all contacts with a valid email address."
+#~ msgstr ""
+#~ "Este botón otorgará acceso a todos los contactos con una dirección de "
+#~ "correo electrónico válida"
