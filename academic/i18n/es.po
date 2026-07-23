@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-22 13:50+0000\n"
+"POT-Creation-Date: 2026-07-23 16:12+0000\n"
 "PO-Revision-Date: 2026-07-16 17:28+0000\n"
 "Last-Translator: BAF <baf@adhoc.inc>\n"
 "Language-Team: Spanish <https://translation.dev-adhoc.com/projects/odoo-"
@@ -35,6 +35,12 @@ msgid "'Certificate of Regular Student ' + object.name"
 msgstr "'Certificado de Alumno Regular ' + object.name"
 
 #. module: academic
+#. odoo-python
+#: code:addons/academic/wizards/academic_contact_import.py:0
+msgid "(empty)"
+msgstr ""
+
+#. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
 msgid "), are you sure you want to create a new one?"
 msgstr "), ¿seguro que querés crear uno nuevo?"
@@ -55,6 +61,11 @@ msgid ""
 ".\n"
 "                            Se extiende a pedido del interesado para ser "
 "presentada ante quien corresponda."
+msgstr ""
+
+#. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.academic_contact_import_view_form
+msgid "<i class=\"fa fa-download\"/> Download example file"
 msgstr ""
 
 #. module: academic
@@ -240,6 +251,11 @@ msgid "Check if the student is an adult and responsible for their own payment"
 msgstr "Marque si el alumno es mayor de edad y responsable de su propio pago"
 
 #. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.academic_contact_import_view_form
+msgid "Close"
+msgstr ""
+
+#. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_subject__code
 #: model:ir.model.fields,field_description:academic.field_academic_subject_template__code
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_subject_filter
@@ -259,6 +275,7 @@ msgid "Companies"
 msgstr "Compañías"
 
 #. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_contact_import__company_id
 #: model:ir.model.fields,field_description:academic.field_academic_group__company_id
 #: model:ir.model.fields,field_description:academic.field_academic_subject__company_id
 #: model:ir.model.fields,field_description:academic.field_hr_employee_asignatures__teacher_company_id
@@ -334,6 +351,14 @@ msgid "Correlative Study Plans"
 msgstr "Planes de Estudio Correlativos"
 
 #. module: academic
+#. odoo-python
+#: code:addons/academic/wizards/academic_contact_import.py:0
+msgid ""
+"Could not read the file. Upload a valid .xlsx/.ods/.csv spreadsheet.\n"
+"%s"
+msgstr ""
+
+#. module: academic
 #: model_terms:ir.actions.act_window,help:academic.action_res_company_form
 msgid ""
 "Create and manage the companies that will be managed by odoo from here. "
@@ -343,6 +368,7 @@ msgstr ""
 "Las tiendas o filiales pueden crearse y mantenerse desde aquí."
 
 #. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_contact_import__create_uid
 #: model:ir.model.fields,field_description:academic.field_academic_division__create_uid
 #: model:ir.model.fields,field_description:academic.field_academic_group__create_uid
 #: model:ir.model.fields,field_description:academic.field_academic_level__create_uid
@@ -358,6 +384,7 @@ msgid "Created by"
 msgstr "Creado por"
 
 #. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_contact_import__create_date
 #: model:ir.model.fields,field_description:academic.field_academic_division__create_date
 #: model:ir.model.fields,field_description:academic.field_academic_group__create_date
 #: model:ir.model.fields,field_description:academic.field_academic_level__create_date
@@ -386,6 +413,7 @@ msgid "Disabled Person?"
 msgstr "¿Dificultades de aprendizaje?"
 
 #. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_contact_import__display_name
 #: model:ir.model.fields,field_description:academic.field_academic_division__display_name
 #: model:ir.model.fields,field_description:academic.field_academic_group__display_name
 #: model:ir.model.fields,field_description:academic.field_academic_level__display_name
@@ -422,6 +450,16 @@ msgstr "División"
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_group__employee_teacher_id
 msgid "Docente a cargo"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields.selection,name:academic.selection__academic_contact_import__state__done
+msgid "Done"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields.selection,name:academic.selection__academic_contact_import__state__draft
+msgid "Draft"
 msgstr ""
 
 #. module: academic
@@ -474,6 +512,18 @@ msgid "Families"
 msgstr "Familias"
 
 #. module: academic
+#. odoo-python
+#: code:addons/academic/wizards/academic_contact_import.py:0
+msgid "Families created"
+msgstr ""
+
+#. module: academic
+#. odoo-python
+#: code:addons/academic/wizards/academic_contact_import.py:0
+msgid "Families reused"
+msgstr ""
+
+#. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_filter
 msgid "Families with more than one student"
 msgstr "Familias con más de un estudiante"
@@ -513,6 +563,11 @@ msgstr "Femenino"
 #: model:ir.model.fields,field_description:academic.field_res_users__file_number
 msgid "File Number"
 msgstr "Número de Archivo"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_contact_import__filename
+msgid "Filename"
+msgstr ""
 
 #. module: academic
 #: model:ir.model.fields.selection,name:academic.selection__res_partner__partner_type__gral_administrator
@@ -579,6 +634,7 @@ msgid "Groups in Charge"
 msgstr ""
 
 #. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_contact_import__id
 #: model:ir.model.fields,field_description:academic.field_academic_division__id
 #: model:ir.model.fields,field_description:academic.field_academic_group__id
 #: model:ir.model.fields,field_description:academic.field_academic_level__id
@@ -615,6 +671,29 @@ msgstr ""
 "identificación."
 
 #. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.academic_contact_import_view_form
+msgid "Import"
+msgstr ""
+
+#. module: academic
+#: model:ir.actions.act_window,name:academic.academic_contact_import_action
+#: model:ir.model,name:academic.model_academic_contact_import
+#: model_terms:ir.ui.view,arch_db:academic.academic_contact_import_view_form
+msgid "Import Academic Contacts"
+msgstr ""
+
+#. module: academic
+#: model:ir.ui.menu,name:academic.menu_academic_contact_import
+msgid "Import Contacts"
+msgstr ""
+
+#. module: academic
+#. odoo-python
+#: code:addons/academic/wizards/academic_contact_import.py:0
+msgid "Import finished"
+msgstr ""
+
+#. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
 msgid "Individual Information"
 msgstr "Información Individual"
@@ -631,6 +710,7 @@ msgid "La familia define Contactos y Roles por Estudiante"
 msgstr "La familia define Contactos y Roles por Estudiante"
 
 #. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_contact_import__write_uid
 #: model:ir.model.fields,field_description:academic.field_academic_division__write_uid
 #: model:ir.model.fields,field_description:academic.field_academic_group__write_uid
 #: model:ir.model.fields,field_description:academic.field_academic_level__write_uid
@@ -646,6 +726,7 @@ msgid "Last Updated by"
 msgstr "Última Actualización por"
 
 #. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_contact_import__write_date
 #: model:ir.model.fields,field_description:academic.field_academic_division__write_date
 #: model:ir.model.fields,field_description:academic.field_academic_group__write_date
 #: model:ir.model.fields,field_description:academic.field_academic_level__write_date
@@ -693,6 +774,12 @@ msgstr "Gerente"
 #: model:ir.model.fields,field_description:academic.field_res_users__medical_insurance
 msgid "Medical Insurance"
 msgstr "Seguro médico"
+
+#. module: academic
+#. odoo-python
+#: code:addons/academic/wizards/academic_contact_import.py:0
+msgid "Missing/misplaced columns: %s."
+msgstr ""
 
 #. module: academic
 #: model:ir.actions.server,name:academic.move_to_next_year
@@ -770,10 +857,22 @@ msgid "Partner with same identification number"
 msgstr "Contacto con el mismo número de identificación"
 
 #. module: academic
+#. odoo-python
+#: code:addons/academic/wizards/academic_contact_import.py:0
+msgid "Paying role not assigned (relative has no DNI)"
+msgstr ""
+
+#. module: academic
 #: model:ir.model.fields,field_description:academic.field_res_partner__payment_responsible_ids
 #: model:ir.model.fields,field_description:academic.field_res_users__payment_responsible_ids
 msgid "Payment Responsible"
 msgstr "Responsables de pago"
+
+#. module: academic
+#. odoo-python
+#: code:addons/academic/wizards/academic_contact_import.py:0
+msgid "Please upload a spreadsheet."
+msgstr ""
 
 #. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.report_certificate_regular_student_document
@@ -828,6 +927,8 @@ msgid "Related User"
 msgstr "Usuario Relacionado"
 
 #. module: academic
+#. odoo-python
+#: code:addons/academic/wizards/academic_contact_import.py:0
 #: model:ir.model.fields,field_description:academic.field_res_partner_link__relationship_id
 msgid "Relationship"
 msgstr "Relación"
@@ -839,6 +940,8 @@ msgid "Relationships"
 msgstr "Relaciones"
 
 #. module: academic
+#. odoo-python
+#: code:addons/academic/wizards/academic_contact_import.py:0
 #: model:ir.model.fields.selection,name:academic.selection__academic_group__type__parent
 #: model:ir.model.fields.selection,name:academic.selection__res_partner__partner_type__parent
 msgid "Relative"
@@ -856,9 +959,20 @@ msgid "Relatives"
 msgstr "Padres"
 
 #. module: academic
+#. odoo-python
+#: code:addons/academic/wizards/academic_contact_import.py:0
+msgid "Relatives created"
+msgstr ""
+
+#. module: academic
 #: model:ir.ui.menu,name:academic.menu_portal_reporting
 msgid "Reporting"
 msgstr "Informando"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_contact_import__result_html
+msgid "Result Html"
+msgstr ""
 
 #. module: academic
 #: model:ir.actions.act_window,name:academic.action_res_partner_role
@@ -868,6 +982,24 @@ msgstr "Informando"
 #: model:ir.ui.menu,name:academic.menu_res_partner_role
 msgid "Roles"
 msgstr "Roles"
+
+#. module: academic
+#. odoo-python
+#: code:addons/academic/wizards/academic_contact_import.py:0
+msgid "Row %(n)s (%(name)s): %(err)s"
+msgstr ""
+
+#. module: academic
+#. odoo-python
+#: code:addons/academic/wizards/academic_contact_import.py:0
+msgid "Rows processed"
+msgstr ""
+
+#. module: academic
+#. odoo-python
+#: code:addons/academic/wizards/academic_contact_import.py:0
+msgid "Rows with errors"
+msgstr ""
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_res_partner__self_payment_responsible
@@ -886,6 +1018,16 @@ msgstr "Secuencia"
 #: model:ir.model.fields,field_description:academic.field_res_users__sex
 msgid "Sex"
 msgstr "Género"
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_contact_import__file
+msgid "Spreadsheet"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_contact_import__state
+msgid "State"
+msgstr ""
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_group__student_ids
@@ -912,6 +1054,12 @@ msgstr "Grupos de Estudiantes"
 #. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.report_basic_group_data_document
 msgid "Student Name"
+msgstr ""
+
+#. module: academic
+#. odoo-python
+#: code:addons/academic/wizards/academic_contact_import.py:0
+msgid "Student name"
 msgstr ""
 
 #. module: academic
@@ -944,6 +1092,12 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:academic.view_company_form
 msgid "Students"
 msgstr "Estudiantes"
+
+#. module: academic
+#. odoo-python
+#: code:addons/academic/wizards/academic_contact_import.py:0
+msgid "Students created"
+msgstr ""
 
 #. module: academic
 #. odoo-python
@@ -1007,6 +1161,20 @@ msgid "Subjects/Courses"
 msgstr "Asignaturas/Cursos"
 
 #. module: academic
+#. odoo-python
+#: code:addons/academic/wizards/academic_contact_import.py:0
+msgid "Surname"
+msgstr ""
+
+#. module: academic
+#. odoo-python
+#: code:addons/academic/wizards/academic_contact_import.py:0
+msgid ""
+"Surname · Student name · Student DNI · Tags · Relative · Relationship · "
+"Roles · Relative DNI · AFIP responsibility type · Email · Phone"
+msgstr ""
+
+#. module: academic
 #: model:ir.model.fields,field_description:academic.field_res_partner__category_id
 #: model:ir.model.fields,field_description:academic.field_res_users__category_id
 msgid "Tags"
@@ -1067,9 +1235,48 @@ msgstr ""
 "el sistema."
 
 #. module: academic
+#. odoo-python
+#: code:addons/academic/wizards/academic_contact_import.py:0
+msgid ""
+"The Relationship column must be exactly one of: %(allowed)s.\n"
+"The following do not exist:\n"
+"%(detail)s"
+msgstr ""
+
+#. module: academic
 #: model:ir.model.constraint,message:academic.constraint_academic_subject_template_code_unique
 msgid "The canonical code must be unique."
 msgstr "El código canónico debe ser único."
+
+#. module: academic
+#. odoo-python
+#: code:addons/academic/wizards/academic_contact_import.py:0
+msgid "The file is empty."
+msgstr ""
+
+#. module: academic
+#. odoo-python
+#: code:addons/academic/wizards/academic_contact_import.py:0
+msgid ""
+"The following AFIP responsibility types do not exist:\n"
+"%(detail)s"
+msgstr ""
+
+#. module: academic
+#. odoo-python
+#: code:addons/academic/wizards/academic_contact_import.py:0
+msgid ""
+"The following roles do not exist:\n"
+"%(detail)s"
+msgstr ""
+
+#. module: academic
+#. odoo-python
+#: code:addons/academic/wizards/academic_contact_import.py:0
+msgid ""
+"The following tags do not exist:\n"
+"%(detail)s"
+msgstr ""
 
 #. module: academic
 #: model:ir.model.constraint,message:academic.constraint_academic_level_unique_level_name
@@ -1097,6 +1304,17 @@ msgstr ""
 "El pagador debe tener configurado un número de identificación. Los "
 "siguientes no cumplen esta condición: \n"
 "%s"
+
+#. module: academic
+#. odoo-python
+#: code:addons/academic/wizards/academic_contact_import.py:0
+msgid ""
+"The spreadsheet does not match the expected layout.%(extra)s\n"
+"Expected columns, in order:\n"
+"%(columns)s\n"
+"\n"
+"Download the example file from the wizard and fill it in."
+msgstr ""
 
 #. module: academic
 #. odoo-python
@@ -1158,6 +1376,32 @@ msgstr "Tipo de Contacto Académico"
 #: model:ir.model.fields,field_description:academic.field_academic_group__type
 msgid "Type"
 msgstr "Tipo"
+
+#. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.academic_contact_import_view_form
+msgid ""
+"Upload a spreadsheet (.xlsx) with one row per <b>student + relative</b>.\n"
+"                        Expected columns, in order:\n"
+"                        <i>Surname · Student name · Student DNI · Tags ·\n"
+"                        Relative · Relationship · Roles · Relative DNI ·\n"
+"                        AFIP responsibility type · Email · Phone</i>.\n"
+"                        The <b>Relationship</b> column must be exactly one "
+"of:\n"
+"                        <i>Padre/Madre · Pariente · Abuelo/a · Otro</i>.\n"
+"                        The <b>Roles</b> and <b>Tags</b> columns list one or "
+"more existing names\n"
+"                        separated by commas (e.g. <i>Responsable de "
+"Facturación, Puede Retirar</i>);\n"
+"                        they must already exist or the import fails. The "
+"paying role is only assigned\n"
+"                        to relatives that have a DNI.\n"
+"                        The <b>AFIP responsibility type</b> column is "
+"optional and only used when the\n"
+"                        Argentinian localization is installed.\n"
+"                        Families and relatives are deduplicated "
+"automatically (by relative DNI),\n"
+"                        so re-uploading does not create duplicates."
+msgstr ""
 
 #. module: academic
 #: model:ir.model,name:academic.model_res_users
