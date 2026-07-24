@@ -1,0 +1,142 @@
+<odoo>
+    <record id="academic_reenrollment_wizard_form" model="ir.ui.view">
+        <field name="name">academic.reenrollment.wizard.form</field>
+        <field name="model">academic.reenrollment.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="requires_sale_data" invisible="1"/>
+                <field name="is_recurring_mode" invisible="1"/>
+                <!-- the required fields repeat the modifier: the client does not inherit the
+                     invisibility of this group, so a required one left empty would block the
+                     wizard without being rendered -->
+                <group invisible="not requires_sale_data">
+                    <group>
+                        <field name="template_id"
+                               invisible="not requires_sale_data"
+                               required="requires_sale_data"/>
+                        <field name="plan_id" options="{'no_create': 1}"
+                               invisible="not requires_sale_data or not is_recurring_mode"
+                               required="requires_sale_data and is_recurring_mode"/>
+                        <field name="pricelist_id" groups="product.group_product_pricelist"/>
+                        <field name="status_sale" widget="radio" options="{'horizontal': true}"/>
+                    </group>
+                    <group>
+                        <field name="validity_date"
+                               invisible="not requires_sale_data or status_sale != 'draft'"
+                               required="requires_sale_data and status_sale == 'draft'"/>
+                        <field name="next_invoice_date"
+                               invisible="not requires_sale_data or not is_recurring_mode"
+                               required="requires_sale_data and is_recurring_mode"/>
+                        <field name="payment_term_id"/>
+                    </group>
+                </group>
+                <group>
+                    <field name="student_count" string="Students to Re-enroll"/>
+                </group>
+                <notebook>
+                    <page string="Groups Preview" name="groups_preview">
+                        <field name="line_ids" nolabel="1">
+                            <list create="0" delete="0" editable="bottom">
+                                <field name="level_ids" column_invisible="1"/>
+                                <field name="company_id" column_invisible="1"/>
+                                <field name="section_id" column_invisible="1"/>
+                                <field name="subject_id" column_invisible="1"/>
+                                <field name="target_year" column_invisible="1"/>
+                                <!-- force_save: the client does not send readonly fields back and this one is required -->
+                                <field name="source_group_id" readonly="1" force_save="1"/>
+                                <field name="manage_sale_workflow" optional="hide" readonly="1"/>
+                                <field name="target_group_id" options="{'no_create': 1}"/>
+                                <field name="target_level_id" options="{'no_create': 1}"
+                                       readonly="target_group_id"/>
+                                <field name="is_last_level" readonly="1" optional="show"/>
+                                <field name="will_create_group" readonly="1"/>
+                                <field name="student_count" readonly="1"/>
+                                <field name="excluded_no_responsible_ids" widget="many2many_tags" optional="show" readonly="1"/>
+                                <field name="excluded_enrolled_ids" widget="many2many_tags" optional="show" readonly="1"/>
+                            </list>
+                            <form>
+                                <group>
+                                    <group name="groups" string="Groups">
+                                        <field name="level_ids" invisible="1"/>
+                                        <field name="company_id" invisible="1"/>
+                                        <field name="section_id" invisible="1"/>
+                                        <field name="subject_id" invisible="1"/>
+                                        <field name="target_year" invisible="1"/>
+                                        <field name="source_group_id" readonly="1" force_save="1"/>
+                                        <field name="target_group_id" options="{'no_create': 1}"/>
+                                        <field name="target_level_id" options="{'no_create': 1}"
+                                               readonly="target_group_id"/>
+                                        <field name="is_last_level" readonly="1"/>
+                                        <field name="will_create_group" readonly="1"/>
+                                    </group>
+                                    <group name="summary" string="Summary">
+                                        <field name="manage_sale_workflow" readonly="1"/>
+                                        <field name="student_count" readonly="1"/>
+                                    </group>
+                                </group>
+                                <notebook>
+                                    <page string="Students to Re-enroll" name="students">
+                                        <field name="student_ids" nolabel="1" readonly="1">
+                                            <list>
+                                                <field name="display_name" string="Student"/>
+                                                <field name="parent_id" string="Family"/>
+                                            </list>
+                                        </field>
+                                    </page>
+                                    <page string="Without Payment Responsible" name="no_responsible"
+                                          invisible="not excluded_no_responsible_ids">
+                                        <div class="text-muted mb-2">
+                                            These students are excluded because they have no active payment
+                                            responsible. Assign one and reopen the wizard to include them.
+                                        </div>
+                                        <field name="excluded_no_responsible_ids" nolabel="1" readonly="1">
+                                            <list>
+                                                <field name="display_name" string="Student"/>
+                                                <field name="parent_id" string="Family"/>
+                                            </list>
+                                        </field>
+                                    </page>
+                                    <page string="Already Enrolled" name="already_enrolled"
+                                          invisible="not excluded_enrolled_ids">
+                                        <div class="text-muted mb-2">
+                                            These students are already enrolled in the next year group,
+                                            so they are left out of this re-enrollment.
+                                        </div>
+                                        <field name="excluded_enrolled_ids" nolabel="1" readonly="1">
+                                            <list>
+                                                <field name="display_name" string="Student"/>
+                                                <field name="parent_id" string="Family"/>
+                                            </list>
+                                        </field>
+                                    </page>
+                                </notebook>
+                            </form>
+                        </field>
+                        <div class="text-muted">
+                            The next year group is suggested on the level that follows in the study plan
+                            sequence, and can be changed: leave it empty to create it on the fly. Students
+                            without an active payment responsible or already enrolled in the next year group
+                            are excluded. Groups not managing the sales workflow get no order: their students
+                            are enrolled directly into the next year group.
+                        </div>
+                    </page>
+                </notebook>
+                <footer>
+                    <button string="Re-enroll" type="object" name="action_reenroll" class="oe_highlight"/>
+                    <button string="Cancel" class="oe_link" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_view_academic_reenrollment_wizard" model="ir.actions.act_window">
+        <field name="name">Re-enroll to Next Year</field>
+        <field name="res_model">academic.reenrollment.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="binding_model_id" ref="academic.model_academic_group"/>
+        <field name="binding_view_types">list</field>
+        <field name="target">new</field>
+        <!-- creating the next year group needs create on academic.group: same requirement as "Move to Next Year" -->
+        <field name="group_ids" eval="[(4, ref('academic.group_manager'))]"/>
+    </record>
+</odoo>
