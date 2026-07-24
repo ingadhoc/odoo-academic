@@ -321,6 +321,10 @@ class ResPartner(models.Model):
             rec.payment_responsible_ids = [(6, 0, partners.ids)]
         (self - students).payment_responsible_ids = False
 
+    def _filter_without_payment_responsible(self):
+        """Students that cannot be billed: no payment responsible, or all of them archived."""
+        return self.filtered(lambda x: not x.payment_responsible_ids.filtered("active"))
+
     @api.constrains("student_link_ids", "self_payment_responsible", "vat")
     def _check_vat_partner_paying_role(self):
         paying_role = self.env.ref("academic.paying_role")
