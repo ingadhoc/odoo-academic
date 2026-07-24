@@ -8,10 +8,10 @@ from odoo.exceptions import UserError, ValidationError
 
 class OrderWizard(models.TransientModel):
     _name = "academic.order.wizard"
+    _inherit = ["academic.order.params"]
     _description = "Academic Order Wizard"
 
     student_ids = fields.Many2many("res.partner", default=lambda self: self.env.context.get("active_ids", []))
-    plan_id = fields.Many2one("sale.subscription.plan", compute="_compute_plan", readonly=False, store=True)
     order_wizard_line_ids = fields.One2many(
         "academic.order.wizard.line",
         "academic_order_wizard_id",
@@ -19,14 +19,6 @@ class OrderWizard(models.TransientModel):
         readonly=False,
         store=True,
     )
-    pricelist_id = fields.Many2one("product.pricelist")
-    template_id = fields.Many2one("sale.order.template")
-    next_invoice_date = fields.Date(string="Date of first invoice")
-    status_sale = fields.Selection(
-        [("draft", "Draft"), ("confirmed", "Confirmed")], default="draft", help="Status to be given to sales orders."
-    )
-    validity_date = fields.Date()
-    payment_term_id = fields.Many2one("account.payment.term")
     is_recurring_mode = fields.Boolean(
         compute="_compute_is_recurring_mode",
         store=True,
@@ -35,11 +27,9 @@ class OrderWizard(models.TransientModel):
     @api.depends("order_wizard_line_ids.product_id")
     def _compute_is_recurring_mode(self):
         for rec in self:
-            lines_with_product = rec.order_wizard_line_ids.filtered("product_id")
-            if not lines_with_product:
-                rec.is_recurring_mode = True
-            else:
-                rec.is_recurring_mode = any(line.product_id.recurring_invoice for line in lines_with_product)
+            rec.is_recurring_mode = rec._is_recurring_products(
+                rec.order_wizard_line_ids.filtered("product_id").product_id
+            )
 
     def action_create_mass_subscription(self):
         if not self.student_ids:
@@ -51,9 +41,7 @@ class OrderWizard(models.TransientModel):
                 % "\n".join(partners.mapped("name"))
             )
 
-        if partners := self.student_ids.filtered(
-            lambda x: not x.payment_responsible_ids or not x.payment_responsible_ids.filtered("active")
-        ):
+        if partners := self.student_ids._filter_without_payment_responsible():
             raise ValidationError(
                 self.env._(
                     "The following students either have no payment responsible assigned or their payment responsible is archived:\n%s",
@@ -62,25 +50,7 @@ class OrderWizard(models.TransientModel):
             )
 
         orders = self._create_mass_subscription()
-
-        if self.is_recurring_mode:
-            action = self.env.ref("sale_subscription.sale_subscription_action").read()[0]
-            action.update(
-                {
-                    "domain": [("id", "in", orders.ids)],
-                    "views": sorted(action["views"], key=lambda v: v[1] != "list"),
-                    "context": {"default_is_subscription": 1},
-                }
-            )
-        else:
-            action = {
-                "type": "ir.actions.act_window",
-                "name": self.env._("Orders"),
-                "res_model": "sale.order",
-                "view_mode": "list,form",
-                "domain": [("id", "in", orders.ids)],
-            }
-        return action
+        return self._get_orders_action(orders)
 
     def _create_mass_subscription(self, vals=None):
         orders = self.env["sale.order"]
@@ -122,11 +92,6 @@ class OrderWizard(models.TransientModel):
             orders += order
         return orders
 
-    @api.depends("template_id")
-    def _compute_plan(self):
-        for rec in self:
-            rec.plan_id = rec.template_id.plan_id or False
-
     @api.depends("template_id", "plan_id", "pricelist_id")
     def _compute_order_wizard_line(self):
         for rec in self:
@@ -140,7 +105,8 @@ class OrderWizard(models.TransientModel):
                 order_wizard_lines.append(Command.unlink(line.id))
 
             if rec.template_id:
-                for line in rec.template_id.sale_order_template_line_ids:
+                # skip section/note lines: the wizard lines require a product
+                for line in rec.template_id.sale_order_template_line_ids.filtered("product_id"):
                     existing_line = rec.order_wizard_line_ids.filtered(lambda l: l.product_id.id == line.product_id.id)
 
                     if existing_line:
