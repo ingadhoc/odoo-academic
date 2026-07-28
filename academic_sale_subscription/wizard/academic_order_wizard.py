@@ -63,6 +63,7 @@ class OrderWizard(models.TransientModel):
 
         orders = self._create_mass_subscription()
 
+<<<<<<< c9cae2fa4fa216d9fcdd3917ab35d79dc2ebe10f
         if self.is_recurring_mode:
             action = self.env.ref("sale_subscription.sale_subscription_action").read()[0]
             action.update(
@@ -115,6 +116,98 @@ class OrderWizard(models.TransientModel):
                     }
                 )
             order = self.env["sale.order"].create(order_vals)
+||||||| 16d58564df41044e3a5430c9aacf48b0301b88fd
+        action = self.env.ref("sale_subscription.sale_subscription_action").read()[0]
+        action.update(
+            {
+                "domain": [("id", "in", subscriptions.ids)],
+                "views": sorted(action["views"], key=lambda v: v[1] != "list"),  # show list view first
+                "context": {"default_is_subscription": 1},
+            }
+        )
+        return action
+
+    def _create_mass_subscription(self):
+        subscriptions = self.env["sale.order"]
+        for student in self.student_ids:
+            subscription = self.env["sale.order"].create(
+                {
+                    "partner_id": student.id,
+                    "plan_id": self.plan_id.id,
+                    "pricelist_id": self.pricelist_id.id,
+                    "start_date": self.next_invoice_date,
+                    "sale_order_template_id": self.template_id.id,
+                    "validity_date": self.validity_date if self.status_sale == "draft" else False,
+                    **({"payment_term_id": self.payment_term_id.id} if self.payment_term_id else {}),
+                    "order_line": [
+                        (
+                            0,
+                            0,
+                            {
+                                "product_id": line.product_id.id,
+                                "product_uom_qty": line.quantity,
+                                "price_unit": line.price,
+                                **({"name": line.description} if line.description else {}),
+                                **({"group_id": line.academic_group_id.id} if line.academic_group_id else {}),
+                            },
+                        )
+                        for line in self.order_wizard_line_ids
+                    ],
+                }
+            )
+=======
+        if self.is_recurring_mode:
+            action = self.env.ref("sale_subscription.sale_subscription_action").read()[0]
+            action.update(
+                {
+                    "domain": [("id", "in", orders.ids)],
+                    "views": sorted(action["views"], key=lambda v: v[1] != "list"),  # show list view first
+                    "context": {"default_is_subscription": 1},
+                }
+            )
+        else:
+            action = {
+                "type": "ir.actions.act_window",
+                "name": self.env._("Orders"),
+                "res_model": "sale.order",
+                "view_mode": "list,form",
+                "domain": [("id", "in", orders.ids)],
+            }
+        return action
+
+    def _create_mass_subscription(self):
+        orders = self.env["sale.order"]
+        for student in self.student_ids:
+            order_vals = {
+                "partner_id": student.id,
+                "pricelist_id": self.pricelist_id.id,
+                "validity_date": self.validity_date if self.status_sale == "draft" else False,
+                **({"payment_term_id": self.payment_term_id.id} if self.payment_term_id else {}),
+                "order_line": [
+                    (
+                        0,
+                        0,
+                        {
+                            "product_id": line.product_id.id,
+                            "product_uom_qty": line.quantity,
+                            "price_unit": line.price,
+                            **({"name": line.description} if line.description else {}),
+                            **({"group_id": line.academic_group_id.id} if line.academic_group_id else {}),
+                        },
+                    )
+                    for line in self.order_wizard_line_ids
+                ],
+            }
+            if self.is_recurring_mode:
+                order_vals.update(
+                    {
+                        "plan_id": self.plan_id.id,
+                        "start_date": self.next_invoice_date,
+                        "sale_order_template_id": self.template_id.id,
+                    }
+                )
+            order = self.env["sale.order"].create(order_vals)
+>>>>>>> 92458fbeee200f05d5e9f8e1b75f260ce941b53e
 
             if self.status_sale == "confirmed":
                 order.action_confirm()
@@ -185,6 +278,7 @@ class OrderWizard(models.TransientModel):
 
             products = rec.template_id.sale_order_template_line_ids.mapped("product_id")
             for wizard_line in rec.order_wizard_line_ids.filtered(lambda x: x.product_id not in products):
+<<<<<<< c9cae2fa4fa216d9fcdd3917ab35d79dc2ebe10f
                 if wizard_line.product_id.recurring_invoice:
                     pricing = wizard_line.product_id.product_tmpl_id._get_recurring_pricing(
                         rec.pricelist_id, variant=wizard_line.product_id, plan_id=rec.plan_id.id
@@ -211,6 +305,30 @@ class OrderWizard(models.TransientModel):
                     else:
                         price = wizard_line.product_id.lst_price
                     wizard_line.write({"price": price})
+||||||| 16d58564df41044e3a5430c9aacf48b0301b88fd
+                pricing = self.env["sale.subscription.pricing"]._get_first_suitable_recurring_pricing(
+                    wizard_line.product_id, rec.plan_id, rec.pricelist_id
+                )
+                wizard_line.write({"price": pricing.price if pricing else 0.0})
+=======
+                if wizard_line.product_id.recurring_invoice:
+                    pricing = self.env["sale.subscription.pricing"]._get_first_suitable_recurring_pricing(
+                        wizard_line.product_id, rec.plan_id, rec.pricelist_id
+                    )
+                    wizard_line.write({"price": pricing.price if pricing else 0.0})
+                else:
+                    pricelist = rec.pricelist_id
+                    if pricelist:
+                        price = pricelist._get_product_price(
+                            wizard_line.product_id,
+                            1.0,
+                            currency=pricelist.currency_id,
+                            date=fields.Datetime.now(),
+                        )
+                    else:
+                        price = wizard_line.product_id.lst_price
+                    wizard_line.write({"price": price})
+>>>>>>> 92458fbeee200f05d5e9f8e1b75f260ce941b53e
 
     @api.constrains("next_invoice_date", "validity_date")
     def _check_validity_date(self):
@@ -272,6 +390,7 @@ class AcademicOrderWizardLine(models.TransientModel):
     @api.depends("product_id", "academic_order_wizard_id.plan_id", "academic_order_wizard_id.pricelist_id")
     def _compute_price(self):
         for rec in self.filtered("product_id"):
+<<<<<<< c9cae2fa4fa216d9fcdd3917ab35d79dc2ebe10f
             if rec.product_id.recurring_invoice:
                 pricing = rec.product_id.product_tmpl_id._get_recurring_pricing(
                     rec.academic_order_wizard_id.pricelist_id,
@@ -299,6 +418,29 @@ class AcademicOrderWizardLine(models.TransientModel):
                     )
                 else:
                     rec.price = rec.product_id.lst_price
+||||||| 16d58564df41044e3a5430c9aacf48b0301b88fd
+            pricing = self.env["sale.subscription.pricing"]._get_first_suitable_recurring_pricing(
+                rec.product_id, rec.academic_order_wizard_id.plan_id, rec.academic_order_wizard_id.pricelist_id
+            )
+            rec.price = pricing.price if pricing else 0.0
+=======
+            if rec.product_id.recurring_invoice:
+                pricing = self.env["sale.subscription.pricing"]._get_first_suitable_recurring_pricing(
+                    rec.product_id, rec.academic_order_wizard_id.plan_id, rec.academic_order_wizard_id.pricelist_id
+                )
+                rec.price = pricing.price if pricing else 0.0
+            else:
+                pricelist = rec.academic_order_wizard_id.pricelist_id
+                if pricelist:
+                    rec.price = pricelist._get_product_price(
+                        rec.product_id,
+                        1.0,
+                        currency=pricelist.currency_id,
+                        date=fields.Datetime.now(),
+                    )
+                else:
+                    rec.price = rec.product_id.lst_price
+>>>>>>> 92458fbeee200f05d5e9f8e1b75f260ce941b53e
 
     @api.depends("academic_product_type")
     def _compute_academic_group_id(self):

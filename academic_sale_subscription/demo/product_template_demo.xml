@@ -108,6 +108,7 @@
             <field name="academic_product_type">registration</field>
         </record>
 
+<<<<<<< c9cae2fa4fa216d9fcdd3917ab35d79dc2ebe10f
         <!-- Producto no recurrente (para ventas puntuales) -->
         <record id="product_horas_extra" model="product.template">
             <field name="name">Horas Extra</field>
@@ -121,6 +122,23 @@
             <field name="service_type">manual</field>
         </record>
 
+||||||| 16d58564df41044e3a5430c9aacf48b0301b88fd
+=======
+        <!-- Producto no recurrente (para ventas puntuales) -->
+        <record id="product_horas_extra" model="product.product">
+            <field name="name">Horas Extra</field>
+            <field name="type">service</field>
+            <field name="recurring_invoice">False</field>
+            <field name="uom_id" ref="uom.product_uom_hour"/>
+            <field name="uom_po_id" ref="uom.product_uom_hour"/>
+            <field name="list_price">2500.0</field>
+            <field name="standard_price">2500.0</field>
+            <field name="categ_id" ref="product.product_category_all"/>
+            <field name="invoice_policy">order</field>
+            <field name="service_type">manual</field>
+        </record>
+
+>>>>>>> 92458fbeee200f05d5e9f8e1b75f260ce941b53e
         <!-- Plantillas de Suscripción Académica -->
         <record id="subscription_template_primaria" model="sale.order.template">
             <field name="name">Cotización Primaria</field>
