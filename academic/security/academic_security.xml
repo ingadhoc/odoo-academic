@@ -28,6 +28,7 @@
         <field name="domain_force">['|',('company_id', 'in', company_ids),('company_id','=',False)]</field>
     </record>
 
+<<<<<<< c2aec6bf56f6392e4cd1fa4605c281056210de97
     <record model="ir.rule" id="subject_multi_company">
         <field name="name">subject multi-company</field>
         <field name="model_id" search="[('model','=','academic.subject')]" model="ir.model"/>
@@ -42,6 +43,16 @@
         <field name="domain_force">['|',('company_id', 'in', company_ids),('company_id','=',False)]</field>
     </record>
 
+||||||| 6fca8217bdbd39e5794dcdf19be082a9f3e2e0c4
+=======
+    <record model="ir.rule" id="partner_link_multi_company">
+        <field name="name">partner link multi-company</field>
+        <field name="model_id" search="[('model','=','res.partner.link')]" model="ir.model"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">['|',('company_id', 'in', company_ids),('company_id','=',False)]</field>
+    </record>
+
+>>>>>>> 46ed239ace8492f96a5aa577ea199fa773875e54
     <!-- We deactivate multicompany rule over multicompany to aboid errors -->
     <!-- <record model="ir.rule" id="base.res_company_rule">
         <field name="active" eval="False"/>
