@@ -6,14 +6,19 @@
             <form>
                 <group>
                     <group>
-                        <field name="template_id"/>
-                        <field name="plan_id" options="{'no_create': 1}"/>
+                        <field name="is_recurring_mode" invisible="1"/>
+                        <field name="template_id" invisible="not is_recurring_mode"/>
+                        <field name="plan_id" options="{'no_create': 1}"
+                               invisible="not is_recurring_mode"
+                               required="is_recurring_mode"/>
                         <field name="pricelist_id" groups="product.group_product_pricelist"/>
                         <field name="status_sale" widget="radio" options="{'horizontal': true}"/>
                     </group>
                     <group>
                         <field name="validity_date" invisible="status_sale != 'draft'" required="status_sale == 'draft'"/>
-                        <field name="next_invoice_date"/>
+                        <field name="next_invoice_date"
+                               invisible="not is_recurring_mode"
+                               required="is_recurring_mode"/>
                         <field name="payment_term_id"/>
                     </group>
                 </group>
