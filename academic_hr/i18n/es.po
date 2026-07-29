@@ -10,15 +10,17 @@ msgstr ""
 "Project-Id-Version: Odoo Server 18.0+e\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-02-25 14:16+0000\n"
-"PO-Revision-Date: 2024-12-26 13:48+0000\n"
-"Last-Translator: Juan José Scarafía <scarafia.juanjose@gmail.com>, 2024\n"
-"Language-Team: Spanish (https://app.transifex.com/adhoc/teams/46451/es/)\n"
+"PO-Revision-Date: 2026-07-29 21:54+0000\n"
+"Last-Translator: BAF <baf@adhoc.inc>\n"
+"Language-Team: Spanish <https://translation.dev-adhoc.com/projects/"
+"odoo-academic-19-0/odoo-academic-19-0-academic_hr/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
-"1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=(n == 1) ? 0 : ((n != 0 && n % 1000000 == 0)"
+" ? 1 : 2);\n"
+"X-Generator: Weblate 5.10.4\n"
 
 #. module: academic_hr
 #: model_terms:ir.ui.view,arch_db:academic_hr.view_employee_form_academic
@@ -176,7 +178,7 @@ msgstr "Teléfono"
 #. module: academic_hr
 #: model_terms:ir.ui.view,arch_db:academic_hr.portal_my_personal_data
 msgid "State"
-msgstr "Provincia"
+msgstr "Estado"
 
 #. module: academic_hr
 #: model_terms:ir.ui.view,arch_db:academic_hr.portal_my_personal_data
