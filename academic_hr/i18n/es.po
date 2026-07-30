@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 18.0+e\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-02-25 14:16+0000\n"
-"PO-Revision-Date: 2026-07-29 21:54+0000\n"
+"PO-Revision-Date: 2026-07-30 14:54+0000\n"
 "Last-Translator: BAF <baf@adhoc.inc>\n"
 "Language-Team: Spanish <https://translation.dev-adhoc.com/projects/"
 "odoo-academic-19-0/odoo-academic-19-0-academic_hr/es/>\n"
@@ -49,6 +49,8 @@ msgstr "<i class=\"fa fa-pencil\"/> Editar información"
 msgid ""
 "<i class=\"fa fa-user fa-fw me-1 text-primary\" title=\"Main Employee\"/>"
 msgstr ""
+"<i class=\"fa fa-user fa-fw me-1 text-primary\" title=\"Empleado principal\""
+"/>"
 
 #. module: academic_hr
 #: model_terms:ir.ui.view,arch_db:academic_hr.portal_my_personal_data
@@ -125,12 +127,12 @@ msgstr "Departamento"
 #: model:ir.model.fields,field_description:academic_hr.field_hr_leave_allocation__display_name
 #: model:ir.model.fields,field_description:academic_hr.field_hr_leave_type__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nombre a mostrar"
 
 #. module: academic_hr
 #: model_terms:ir.ui.view,arch_db:academic_hr.portal_my_personal_data
 msgid "Email"
-msgstr "Correo electrónico"
+msgstr ""
 
 #. module: academic_hr
 #: model:ir.model,name:academic_hr.model_hr_employee
