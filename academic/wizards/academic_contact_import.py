@@ -11,8 +11,12 @@ from odoo.exceptions import UserError
 
 COL_SURNAME, COL_STUDENT, COL_STUDENT_DNI, COL_STUDENT_TAGS = 0, 1, 2, 3
 COL_PARENT, COL_RELATION, COL_ROLES, COL_PARENT_DNI, COL_PARENT_AFIP, COL_EMAIL, COL_PHONE = 4, 5, 6, 7, 8, 9, 10
+COL_LINKS_BY_STUDENT = 11
 
 ALLOWED_RELATIONS = ["Padre/Madre", "Pariente", "Abuelo/a", "Otro"]
+
+TRUE_VALUES = {"si", "yes", "true", "verdadero", "1"}
+FALSE_VALUES = {"", "no", "false", "falso", "0"}
 
 AFIP_FIELD = "l10n_ar_afip_responsibility_type_id"
 
@@ -43,7 +47,7 @@ class AcademicContactImport(models.TransientModel):
         return re.sub(r"\D", "", str(value).split(".")[0])
 
     def _cell(self, row, idx):
-        value = row[idx] if idx < len(row) else None
+        value = row[idx] if idx is not None and idx < len(row) else None
         return "" if value is None else str(value).strip()
 
     def _get_relationship(self, raw):
@@ -70,6 +74,10 @@ class AcademicContactImport(models.TransientModel):
     def _get_tags(self, raw):
         return self._resolve_by_name("res.partner.category", raw, [("company_id", "in", [False, self.company_id.id])])
 
+    def _get_links_by_student(self, raw):
+        """Empty cell → False. Unknown values are rejected by _validate_vocabulary."""
+        return _norm(raw) in TRUE_VALUES
+
     def _afip_field_available(self):
         return AFIP_FIELD in self.env["res.partner"]._fields
 
@@ -85,7 +93,7 @@ class AcademicContactImport(models.TransientModel):
     def _layout_error(self, extra=""):
         columns = self.env._(
             "Surname · Student name · Student DNI · Tags · Relative · Relationship · Roles · "
-            "Relative DNI · AFIP responsibility type · Email · Phone"
+            "Relative DNI · AFIP responsibility type · Email · Phone · Contacts and roles per student"
         )
         return UserError(
             self.env._(
@@ -129,7 +137,26 @@ class AcademicContactImport(models.TransientModel):
             raise self._layout_error()
 
         self._check_columns(rows[header_idx])
-        return rows[header_idx + 1 :]
+        return rows[header_idx + 1 :], self._parent_side_columns(rows[header_idx])
+
+    def _parent_side_columns(self, header):
+        norm = [_norm(c) for c in header]
+        afip_present = COL_PARENT_AFIP < len(norm) and (
+            "afip" in norm[COL_PARENT_AFIP] or "responsabilidad" in norm[COL_PARENT_AFIP]
+        )
+        email_col = COL_PARENT_AFIP + (1 if afip_present else 0)
+        links_idx = email_col + 2
+        links_col = (
+            links_idx
+            if links_idx < len(norm) and ("estudiante" in norm[links_idx] or "student" in norm[links_idx])
+            else None
+        )
+        return {
+            "afip": COL_PARENT_AFIP if afip_present else None,
+            "email": email_col,
+            "phone": email_col + 1,
+            "links": links_col,
+        }
 
     def _check_columns(self, header):
         def cell(idx):
@@ -147,16 +174,22 @@ class AcademicContactImport(models.TransientModel):
         if missing:
             raise self._layout_error(self.env._("Missing/misplaced columns: %s.") % ", ".join(missing))
 
-    def _validate_vocabulary(self, data_rows):
+    def _validate_vocabulary(self, data_rows, cols):
         allowed = {r.casefold() for r in ALLOWED_RELATIONS}
         afip_available = self._afip_field_available()
-        bad_relations, bad_roles, bad_tags, bad_afip = [], [], [], []
+        paying_role = self.env.ref("academic.paying_role")
+        bad_relations, bad_roles, bad_tags, bad_afip, bad_flags = [], [], [], [], []
+        bad_paying, bad_paying_afip = [], []
         for row in data_rows:
             student_name = self._cell(row, COL_STUDENT)
             if not student_name:
                 continue
             _tags, invalid_tags = self._get_tags(self._cell(row, COL_STUDENT_TAGS))
             bad_tags += ["%s → %s" % (student_name, name) for name in invalid_tags]
+
+            flag = self._cell(row, cols["links"])
+            if _norm(flag) not in TRUE_VALUES | FALSE_VALUES:
+                bad_flags.append("%s → %s" % (student_name, flag))
 
             parent_name = self._cell(row, COL_PARENT)
             if not parent_name:
@@ -166,10 +199,14 @@ class AcademicContactImport(models.TransientModel):
                 bad_relations.append("%s → %s" % (student_name, value or self.env._("(empty)")))
             _roles, invalid = self._get_roles(self._cell(row, COL_ROLES))
             bad_roles += ["%s → %s" % (student_name, name) for name in invalid]
+            if paying_role in _roles and not self._clean_dni(self._cell(row, COL_PARENT_DNI)):
+                bad_paying.append("%s → %s" % (student_name, parent_name))
             if afip_available:
-                _afip, invalid_afip = self._get_afip_responsibility(self._cell(row, COL_PARENT_AFIP))
+                afip, invalid_afip = self._get_afip_responsibility(self._cell(row, cols["afip"]))
                 if invalid_afip:
                     bad_afip.append("%s → %s" % (student_name, invalid_afip))
+                elif paying_role in _roles and not afip:
+                    bad_paying_afip.append("%s → %s" % (student_name, parent_name))
 
         messages = []
         if bad_relations:
@@ -188,6 +225,22 @@ class AcademicContactImport(models.TransientModel):
                     detail="\n".join(bad_roles[:50]) + ("\n…" if len(bad_roles) > 50 else ""),
                 )
             )
+        if bad_paying:
+            messages.append(
+                self.env._(
+                    "The paying role (Responsable de Facturación) requires the relative's DNI.\n"
+                    "The following have it without a DNI:\n%(detail)s",
+                    detail="\n".join(bad_paying[:50]) + ("\n…" if len(bad_paying) > 50 else ""),
+                )
+            )
+        if bad_paying_afip:
+            messages.append(
+                self.env._(
+                    "The paying role (Responsable de Facturación) requires the relative's AFIP responsibility type.\n"
+                    "Check that the AFIP responsibility type column is present and filled in for:\n%(detail)s",
+                    detail="\n".join(bad_paying_afip[:50]) + ("\n…" if len(bad_paying_afip) > 50 else ""),
+                )
+            )
         if bad_tags:
             messages.append(
                 self.env._(
@@ -202,13 +255,51 @@ class AcademicContactImport(models.TransientModel):
                     detail="\n".join(bad_afip[:50]) + ("\n…" if len(bad_afip) > 50 else ""),
                 )
             )
+        if bad_flags:
+            messages.append(
+                self.env._(
+                    "The Contacts and roles per student column only accepts Yes or No.\n"
+                    "The following are not valid:\n%(detail)s",
+                    detail="\n".join(bad_flags[:50]) + ("\n…" if len(bad_flags) > 50 else ""),
+                )
+            )
         if messages:
             raise UserError("\n\n".join(messages))
 
+    def _find_family(self, student, family_name, parent_dni, parent_name, student_full_name, links_by_student):
+        """Resolve the family a row belongs to, and the student when the row identifies one.
+
+        The relative is the discriminator: two students sharing a surname but with different
+        relatives belong to different families. Falling back to the family name alone is only
+        safe when the row carries no relative, or when contacts are kept per student.
+        """
+        Partner = self.env["res.partner"]
+        if student.parent_id.partner_type == "family":
+            return student.parent_id, student
+
+        family = Partner._find_academic_family_by_parent_vats([parent_dni])
+        if family:
+            return family, student
+
+        # one indexed search feeds every remaining criterion; the rest is decided in memory
+        namesakes = Partner.search([("partner_type", "=", "family"), ("name", "=", family_name)])
+        for candidate in namesakes:
+            if parent_name and any(
+                _norm(link.partner_id.name) == _norm(parent_name) for link in candidate.student_link_ids
+            ):
+                return candidate, student
+            # same student spread over several rows (one per relative) and no DNI to match on
+            namesake_student = candidate.student_ids.filtered(lambda s: _norm(s.name) == _norm(student_full_name))
+            if namesake_student:
+                return candidate, namesake_student[:1]
+        if links_by_student or not parent_name:
+            return namesakes[:1], student
+        return Partner.browse(), student
+
     def action_import(self):
         self.ensure_one()
-        data_rows = self._read_rows()
-        self._validate_vocabulary(data_rows)
+        data_rows, cols = self._read_rows()
+        self._validate_vocabulary(data_rows, cols)
         Partner = self.env["res.partner"]
         paying_role = self.env.ref("academic.paying_role")
         company_id = self.company_id.id
@@ -228,27 +319,32 @@ class AcademicContactImport(models.TransientModel):
                 parent_dni = self._clean_dni(self._cell(row, COL_PARENT_DNI))
                 family_name = "Familia %s" % surname if surname else student_name
                 student_full_name = ("%s %s" % (surname, student_name)).strip()
-
-                family = Partner._find_academic_family_by_parent_vats([parent_dni])
-                reused = bool(family)
-                if not family and surname:
-                    family = Partner.search([("partner_type", "=", "family"), ("name", "=", family_name)], limit=1)
-                    reused = bool(family)
+                links_by_student = self._get_links_by_student(self._cell(row, cols["links"]))
 
                 student_dni = self._clean_dni(self._cell(row, COL_STUDENT_DNI))
+                student = Partner.browse()
                 if student_dni:
                     student = Partner.search(
                         [("partner_type", "=", "student"), ("identification_number", "=", student_dni)], limit=1
                     )
-                else:
-                    student = Partner.search(
-                        [
-                            ("partner_type", "=", "student"),
-                            ("name", "=", student_full_name),
-                            ("parent_id", "=", family.id if family else False),
-                        ],
-                        limit=1,
-                    )
+
+                family, student = self._find_family(
+                    student, family_name, parent_dni, parent_name, student_full_name, links_by_student
+                )
+                reused = bool(family)
+
+                if not student:
+                    if family:
+                        student = family.student_ids.filtered(lambda s: _norm(s.name) == _norm(student_full_name))[:1]
+                    else:
+                        student = Partner.search(
+                            [
+                                ("partner_type", "=", "student"),
+                                ("name", "=", student_full_name),
+                                ("parent_id", "=", False),
+                            ],
+                            limit=1,
+                        )
 
                 tags, _invalid_tags = self._get_tags(self._cell(row, COL_STUDENT_TAGS))
 
@@ -269,20 +365,20 @@ class AcademicContactImport(models.TransientModel):
                     parent_vals = {
                         "name": parent_name,
                         "vat": parent_dni,
-                        "email": self._cell(row, COL_EMAIL),
-                        "phone": self._cell(row, COL_PHONE),
+                        "email": self._cell(row, cols["email"]),
+                        "phone": self._cell(row, cols["phone"]),
                         "relationship_id": self._get_relationship(self._cell(row, COL_RELATION)).id,
                         "role_ids": roles.ids,
                         "partner_id": existing_parent or None,
                     }
                     if afip_available:
-                        afip, _invalid_afip = self._get_afip_responsibility(self._cell(row, COL_PARENT_AFIP))
+                        afip, _invalid_afip = self._get_afip_responsibility(self._cell(row, cols["afip"]))
                         if afip:
                             parent_vals[AFIP_FIELD] = afip.id
                     parent_vals_list.append(parent_vals)
 
                 result = Partner._create_academic_structure(
-                    family_vals={"name": family_name},
+                    family_vals={"name": family_name, "links_by_student": links_by_student},
                     student_vals={
                         "name": student_full_name,
                         "identification_number": student_dni,
