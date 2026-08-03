@@ -11,20 +11,32 @@
                         Expected columns, in order:
                         <i>Surname · Student name · Student DNI · Tags ·
                         Relative · Relationship · Roles · Relative DNI ·
-                        AFIP responsibility type · Email · Phone</i>.
+                        AFIP responsibility type · Email · Phone ·
+                        Contacts and roles per student</i>.
                         The <b>Relationship</b> column must be exactly one of:
                         <i>Padre/Madre · Pariente · Abuelo/a · Otro</i>.
                         The <b>Roles</b> and <b>Tags</b> columns list one or more existing names
                         separated by commas (e.g. <i>Responsable de Facturación, Puede Retirar</i>);
-                        they must already exist or the import fails. The paying role is only assigned
-                        to relatives that have a DNI.
-                        The <b>AFIP responsibility type</b> column is optional and only used when the
-                        Argentinian localization is installed.
+                        they must already exist or the import fails. The paying role (Responsable de
+                        Facturación) requires the relative's DNI: the import fails if it is missing.
+                        The <b>AFIP responsibility type</b> column is only used when the Argentinian
+                        localization is installed: there it is required for the paying role and
+                        optional for the other relatives.
+                        The <b>Contacts and roles per student</b> column is optional
+                        (<i>Yes</i> / <i>No</i>, empty means No): set it to <i>Yes</i> when students
+                        sharing a surname belong to one family but each one has its own contacts
+                        and roles.
                         Families and relatives are deduplicated automatically (by relative DNI),
-                        so re-uploading does not create duplicates.
+                        so re-uploading does not create duplicates. Students sharing a surname are
+                        only grouped in the same family when they share a relative: different
+                        relatives result in different families.
                     </p>
-                    <a href="/academic/static/src/xls/contactos_academicos_ejemplo.xlsx"
-                        download="contactos_academicos_ejemplo.xlsx"
+                    The downloaded example file already includes a sample row (in grey, delete it
+                    before importing), a help note on every column header, and dropdowns for
+                    Relationship, Roles and Contacts and roles per student. The AFIP responsibility
+                    type column (with its own dropdown) is only added when the Argentinian
+                    localization is installed.
+                    <a href="/academic/contact_import/example"
                         class="btn btn-link ps-0" role="button">
                         <i class="fa fa-download"/> Download example file
                     </a>

@@ -455,8 +455,10 @@ class ResPartner(models.Model):
         parents = []
 
         if not family:
-            family = Partner.create({"name": family_vals["name"], "partner_type": "family", "company_id": company_id})
+            family = Partner.create(dict(family_vals, partner_type="family", company_id=company_id))
             created["family"] += 1
+        elif family_vals.get("links_by_student") and not family.links_by_student:
+            family.links_by_student = True
 
         if not student:
             student_create_vals = {
@@ -475,7 +477,9 @@ class ResPartner(models.Model):
         elif student.parent_id != family:
             student.write({"parent_id": family.id})
 
-        existing_partners = family.student_link_ids.mapped("partner_id")
+        # when the family keeps contacts per student, links belong to the student instead
+        links_holder = student if family.links_by_student else family
+        existing_partners = links_holder.student_link_ids.mapped("partner_id")
         for pv in parent_vals_list:
             partner = pv.get("partner_id")
             if not partner:
@@ -495,7 +499,7 @@ class ResPartner(models.Model):
                 created["parents"] += 1
             parents.append(partner)
             if partner not in existing_partners:
-                family.student_link_ids = [
+                links_holder.student_link_ids = [
                     (
                         0,
                         0,
