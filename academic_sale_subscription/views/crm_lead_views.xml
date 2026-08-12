@@ -28,6 +28,15 @@
                 <button string="Create Academic Structure" type="object" name="action_create_family"
                     class="btn-primary" invisible="not family_member_ids"/>
             </xpath>
+            <xpath expr="//page[@name='lead']//label[@for='street_page_lead']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//page[@name='lead']//div[hasclass('o_address_format')]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//page[@name='lead']//field[@name='lang_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
             <xpath expr="//notebook" position="inside">
                 <page string="Family Group" name="family">
                     <field name="suggested_family_count" invisible="1"/>
