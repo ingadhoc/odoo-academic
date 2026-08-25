@@ -251,7 +251,9 @@ msgid "Currency"
 msgstr "Moneda"
 
 #. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_account_move__current_main_group_id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order__current_main_group_id
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_view_account_invoice_filter
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.sale_subscription_template_view_search
 msgid "Current Main Group"
 msgstr "Grupo Principal Actual"
