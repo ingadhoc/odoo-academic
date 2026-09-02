@@ -4,3 +4,4 @@
 ##############################################################################
 from . import test_archive_family
 from . import test_contact_import
+from . import test_next_year_groups
