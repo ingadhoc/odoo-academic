@@ -3,6 +3,18 @@ from odoo.http import request, route
 
 
 class AcademicPortal(CustomerPortal):
+    def _get_subscription_domain(self, partner):
+        domain = super()._get_subscription_domain(partner)
+        students = partner.sudo().partner_link_ids.student_id
+        if not students:
+            return domain
+        rest = [leaf for leaf in domain if leaf[0] != "partner_id"]
+        return [
+            "|",
+            ("partner_id", "child_of", partner.commercial_partner_id.id),
+            ("partner_id", "in", students.ids),
+        ] + rest
+
     @route()
     def subscription(
         self, order_id, access_token=None, message="", message_class="", report_type=None, download=False, **kw
