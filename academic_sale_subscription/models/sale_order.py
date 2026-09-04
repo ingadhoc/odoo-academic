@@ -79,6 +79,15 @@ class SaleOrder(models.Model):
                 }
         return default_recipients
 
+    def _get_invoice_grouping_keys(self):
+        # Estas claves se evaluan sobre los valores de la factura y no sobre la orden: el alumno viaja en
+        # student_id y el termino de pago en invoice_payment_term_id (el partner_id de la factura ya es el
+        # responsable de pago).
+        grouping_keys = super()._get_invoice_grouping_keys()
+        if any(self.mapped("is_academic_sale")):
+            grouping_keys = list(set(grouping_keys + ["student_id", "invoice_payment_term_id"]))
+        return grouping_keys
+
     def _get_auto_invoice_grouping_keys(self):
         grouping_keys = super()._get_auto_invoice_grouping_keys() + [
             "partner_id",
