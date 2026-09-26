@@ -42,11 +42,13 @@
             <field name="partner_id" position="after">
                 <field name="student_id"/>
                 <field name="family_id"/>
+                <field name="current_main_group_id"/>
                 <filter string="Not payment responsible" name="not_payment_responsible"
                     domain="['!', ('partner_id', 'any', [('partner_link_ids.role_ids', 'in', [%(academic.paying_role)d])])]"/>
             </field>
             <group>
                 <filter string="Family" name="group_by_family" domain="[]" context="{'group_by': 'family_id'}"/>
+                <filter string="Current Main Group" name="group_by_current_main_group" domain="[]" context="{'group_by': 'current_main_group_id'}"/>
             </group>
         </field>
     </record>
