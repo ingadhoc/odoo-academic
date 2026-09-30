@@ -26,8 +26,15 @@ class TestReenrollmentWizard(TransactionCase):
                 ],
             }
         )
+        cls.next_level = cls.env["academic.level"].create({"name": "Test Reenroll Next Plan Level"})
+        cls.next_section = cls.env["academic.section"].create(
+            {
+                "name": "Test Reenroll Next Plan",
+                "level_line_ids": [Command.create({"level_id": cls.next_level.id, "sequence": 10})],
+            }
+        )
         cls.company = cls.env.company
-        cls.company.section_ids = [Command.link(cls.section.id)]
+        cls.company.section_ids = [Command.link(cls.section.id), Command.link(cls.next_section.id)]
 
         relationship = cls.env["res.partner.relationship"].create({"name": "Test Reenroll Parent"})
         paying_role = cls.env.ref("academic.paying_role")
@@ -58,15 +65,16 @@ class TestReenrollmentWizard(TransactionCase):
         pay_link(cls.student_archived_payer, archived_payer)
         archived_payer.action_archive()
 
-    def _group(self, level=None, manage_sale_workflow=True, students=None):
+    def _group(self, level=None, manage_sale_workflow=True, students=None, section=None, year=2026, division=None):
         students = students or self.env["res.partner"]
+        division = self.division if division is None else division
         return self.env["academic.group"].create(
             {
-                "year": 2026,
+                "year": year,
                 "company_id": self.company.id,
-                "section_id": self.section.id,
+                "section_id": (section or self.section).id,
                 "level_id": (level or self.level_1).id,
-                "division_id": self.division.id,
+                "division_id": division.id if division else False,
                 # explicit: the compute would derive it from subject_id, and capacity has
                 # to cover the students or the vacancies constraint rejects the create
                 "manage_sale_workflow": manage_sale_workflow,
@@ -78,8 +86,8 @@ class TestReenrollmentWizard(TransactionCase):
     def _wizard(self, groups):
         return self.env["academic.reenrollment.wizard"].with_context(active_ids=groups.ids).create({})
 
-    def _next_year_groups(self, level=None):
-        domain = [("year", "=", 2027), ("section_id", "=", self.section.id)]
+    def _next_year_groups(self, level=None, section=None):
+        domain = [("year", "=", 2027), ("section_id", "=", (section or self.section).id)]
         if level:
             domain.append(("level_id", "=", level.id))
         return self.env["academic.group"].search(domain)
@@ -159,3 +167,158 @@ class TestReenrollmentWizard(TransactionCase):
         target = self._next_year_groups(level=self.level_2)
         self.assertEqual(len(target), 1)
         self.assertSameRecords(target.student_ids, self.student_ok)
+
+    def test_05_last_level_continues_into_the_next_study_plan(self):
+        """7th grade of Primary goes on to 1st year of Secondary: another study plan, and
+        the group of the new plan is created when it does not exist yet."""
+        self.section.correlative_ids = [Command.link(self.next_section.id)]
+        group = self._group(level=self.level_2, manage_sale_workflow=False, students=self.student_ok)
+
+        wizard = self._wizard(group)
+        line = wizard.line_ids
+
+        self.assertTrue(line.is_last_level)
+        self.assertFalse(line.is_graduating, "the plan has a plan after it, so nobody graduates")
+        self.assertEqual(line.target_section_id, self.next_section)
+        self.assertEqual(line.target_level_id, self.next_level, "the student starts at the first level")
+        self.assertFalse(line.target_division_id, "the target plan does not use the division of the source group")
+        self.assertTrue(line.will_create_group)
+        self.assertSameRecords(line.student_ids, self.student_ok)
+
+        wizard.action_reenroll()
+
+        target = self._next_year_groups(section=self.next_section)
+        self.assertEqual(len(target), 1)
+        self.assertEqual(target.level_id, self.next_level)
+        self.assertSameRecords(target.student_ids, self.student_ok)
+        self.assertFalse(self._next_year_groups(), "nothing must be created in the plan being left behind")
+
+    def test_06_existing_group_of_the_next_plan_is_reused(self):
+        """Schools create next year groups ahead of time, so the re-enrollment has to land
+        on the group that is already there instead of creating a second one."""
+        self.section.correlative_ids = [Command.link(self.next_section.id)]
+        existing = self._group(
+            level=self.next_level, section=self.next_section, year=2027, division=False, manage_sale_workflow=False
+        )
+        group = self._group(level=self.level_2, manage_sale_workflow=False, students=self.student_ok)
+
+        wizard = self._wizard(group)
+
+        self.assertEqual(wizard.line_ids.target_group_id, existing)
+        self.assertFalse(wizard.line_ids.will_create_group)
+
+        wizard.action_reenroll()
+
+        self.assertSameRecords(existing.student_ids, self.student_ok)
+        self.assertEqual(len(self._next_year_groups(section=self.next_section)), 1)
+
+    def test_07_two_next_study_plans_leave_the_destination_to_the_user(self):
+        """Ambiguous destination: the user picks any group of next year, from any plan."""
+        other_section = self.env["academic.section"].create({"name": "Test Reenroll Other Next Plan"})
+        self.section.correlative_ids = [Command.set((self.next_section + other_section).ids)]
+        group = self._group(level=self.level_2, manage_sale_workflow=False, students=self.student_ok)
+
+        wizard = self._wizard(group)
+        line = wizard.line_ids
+
+        self.assertTrue(line.is_last_level)
+        self.assertFalse(line.target_section_id, "two plans follow, so no destination can be guessed")
+        self.assertFalse(line.is_graduating, "a pending destination is not a graduation")
+        self.assertFalse(line.student_ids)
+
+        line.target_section_id = self.next_section
+
+        self.assertEqual(line.target_level_id, self.next_level)
+        self.assertFalse(line.is_graduating)
+        self.assertSameRecords(line.student_ids, self.student_ok)
+
+        wizard.action_reenroll()
+
+        self.assertSameRecords(self._next_year_groups(section=self.next_section).student_ids, self.student_ok)
+
+    def test_08_group_closing_a_plan_that_leads_nowhere_graduates(self):
+        """Graduating is a result, not a group left out: it is reported and it must not
+        block the rest of the run."""
+        graduating = self._group(level=self.level_2, manage_sale_workflow=False, students=self.student_ok)
+        continuing = self._group(
+            level=self.level_1, manage_sale_workflow=False, students=self.student_no_payer, division=False
+        )
+
+        wizard = self._wizard(graduating + continuing)
+        graduating_line = wizard.line_ids.filtered(lambda x: x.source_group_id == graduating)
+
+        self.assertTrue(graduating_line.is_graduating)
+        self.assertEqual(graduating_line.graduating_count, 1)
+        self.assertEqual(wizard.graduating_count, 1)
+        self.assertFalse(graduating_line.student_ids)
+
+        wizard.action_reenroll()
+
+        self.assertSameRecords(
+            self._next_year_groups(level=self.level_2).student_ids,
+            self.student_no_payer,
+            "the group that continues must be re-enrolled anyway",
+        )
+
+    def test_09_a_group_of_another_plan_can_be_picked_by_hand(self):
+        """No next plan configured at all: the user picks any group of next year of the
+        same company, whatever its study plan."""
+        target = self._group(
+            level=self.next_level, section=self.next_section, year=2027, division=False, manage_sale_workflow=False
+        )
+        group = self._group(level=self.level_2, manage_sale_workflow=False, students=self.student_ok)
+        wizard = self._wizard(group)
+        line = wizard.line_ids
+        self.assertFalse(line.student_ids)
+
+        line.target_group_id = target
+
+        self.assertSameRecords(line.student_ids, self.student_ok)
+
+        wizard.action_reenroll()
+
+        self.assertSameRecords(target.student_ids, self.student_ok)
+
+    def test_10_students_can_be_removed_and_sent_to_another_group(self):
+        """Divisions that open, merge or lose students: the preview is where that is
+        settled, one student at a time."""
+        leaving = self.student_no_payer
+        moving = self.student_archived_payer
+        students = self.student_ok + leaving + moving
+        group = self._group(manage_sale_workflow=False, students=students)
+        other_division = self.env["academic.division"].create({"name": "Test Reenroll Division B"})
+        other_group = self._group(level=self.level_2, year=2027, division=other_division, manage_sale_workflow=False)
+
+        wizard = self._wizard(group)
+        line = wizard.line_ids
+        self.assertSameRecords(line.student_ids, students)
+
+        line.student_ids = [Command.unlink(leaving.id)]
+        line.move_ids = [Command.create({"student_id": moving.id, "target_group_id": other_group.id})]
+
+        self.assertEqual(line.student_count, 2, "the count must follow the students removed by hand")
+        self.assertEqual(wizard.student_count, 2)
+
+        wizard.action_reenroll()
+
+        target = self._next_year_groups(level=self.level_2) - other_group
+        self.assertSameRecords(target.student_ids, self.student_ok, "only the students left on the line")
+        self.assertSameRecords(other_group.student_ids, moving)
+        self.assertNotIn(leaving, target.student_ids | other_group.student_ids)
+
+    def test_11_destinations_in_different_plans_warn_about_the_shared_sale_data(self):
+        """One template and one pricelist for the whole run: mixing plans is allowed, but
+        the user has to know before confirming."""
+        self.section.correlative_ids = [Command.link(self.next_section.id)]
+        continuing = self._group(level=self.level_1, manage_sale_workflow=True, students=self.student_ok)
+        changing_plan = self._group(
+            level=self.level_2, manage_sale_workflow=True, students=self.student_ok, division=False
+        )
+
+        wizard = self._wizard(continuing + changing_plan)
+
+        self.assertTrue(wizard.requires_sale_data)
+        self.assertTrue(wizard.mixed_plans_warning, "two study plans in one run must be warned about")
+        self.assertIn(self.next_section.name, wizard.mixed_plans_warning)
+
+        self.assertFalse(self._wizard(continuing).mixed_plans_warning, "a single plan needs no warning")

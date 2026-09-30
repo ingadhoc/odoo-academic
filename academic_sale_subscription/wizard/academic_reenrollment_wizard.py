@@ -22,22 +22,42 @@ class AcademicReenrollmentWizard(models.TransientModel):
     is_recurring_mode = fields.Boolean(compute="_compute_is_recurring_mode")
     requires_sale_data = fields.Boolean(compute="_compute_requires_sale_data")
     student_count = fields.Integer(compute="_compute_student_count")
+    graduating_count = fields.Integer(compute="_compute_graduating_count")
+    mixed_plans_warning = fields.Char(compute="_compute_mixed_plans_warning")
 
     @api.depends("template_id")
     def _compute_is_recurring_mode(self):
         for rec in self:
             rec.is_recurring_mode = rec._is_recurring_products(rec.template_id.sale_order_template_line_ids.product_id)
 
-    @api.depends("line_ids.manage_sale_workflow", "line_ids.student_ids")
+    @api.depends("line_ids.manage_sale_workflow", "line_ids.student_ids", "line_ids.move_ids.target_group_id")
     def _compute_requires_sale_data(self):
-        """Groups without the sales workflow get no order, so they need no sale data."""
         for rec in self:
-            rec.requires_sale_data = any(line.manage_sale_workflow and line.student_ids for line in rec.line_ids)
+            rec.requires_sale_data = any(line._requires_sale_data() for line in rec.line_ids)
 
     @api.depends("line_ids.student_ids")
     def _compute_student_count(self):
         for rec in self:
             rec.student_count = len(rec.line_ids.student_ids)
+
+    @api.depends("line_ids.graduating_count")
+    def _compute_graduating_count(self):
+        for rec in self:
+            rec.graduating_count = sum(rec.line_ids.mapped("graduating_count"))
+
+    @api.depends("line_ids.student_ids", "line_ids.target_section_id", "line_ids.move_ids.target_group_id")
+    def _compute_mixed_plans_warning(self):
+        for rec in self:
+            sections = rec.line_ids.filtered(lambda x: x._requires_sale_data())._get_target_sections()
+            rec.mixed_plans_warning = False
+            if len(sections) > 1:
+                rec.mixed_plans_warning = self.env._(
+                    "The groups of this re-enrollment go to %(count)s different study plans (%(plans)s). The"
+                    " quotation template and the pricelist below are the same for all of them: re-enroll one"
+                    " study plan at a time if they need different ones.",
+                    count=len(sections),
+                    plans=", ".join(sections.mapped("name")),
+                )
 
     def action_reenroll(self):
         self.ensure_one()
@@ -48,20 +68,17 @@ class AcademicReenrollmentWizard(models.TransientModel):
             raise ValidationError(self.env._("A quotation template is required to create the re-enrollment orders."))
 
         orders = self.env["sale.order"]
-        created_groups = self.env["academic.group"]
+        existing_groups = lines.target_group_id | lines.move_ids.target_group_id
+        target_groups = self.env["academic.group"]
         enrolled_count = 0
         for line in lines:
-            students = line.student_ids
-            target_group = line.target_group_id
-            if not target_group:
-                target_group = line.source_group_id._get_or_create_next_year_group(level=line.target_level_id)
-                line.target_group_id = target_group
-                created_groups |= target_group
-            if line.manage_sale_workflow:
-                orders |= line._create_orders(target_group, students)
-            else:
-                target_group.student_ids = [Command.link(student.id) for student in students]
-                enrolled_count += len(students)
+            for target_group, students in line._get_destinations().items():
+                target_groups |= target_group
+                if target_group.manage_sale_workflow:
+                    orders |= line._create_orders(target_group, students)
+                else:
+                    target_group.student_ids = [Command.link(student.id) for student in students]
+                    enrolled_count += len(students)
 
         return {
             "type": "ir.actions.client",
@@ -73,10 +90,10 @@ class AcademicReenrollmentWizard(models.TransientModel):
                     " in %(groups)s group(s) (%(created_groups)s new next year group(s)).",
                     orders=len(orders),
                     enrolled=enrolled_count,
-                    groups=len(lines),
-                    created_groups=len(created_groups),
+                    groups=len(target_groups),
+                    created_groups=len(target_groups - existing_groups),
                 ),
-                "next": self._get_result_action(orders, lines.target_group_id),
+                "next": self._get_result_action(orders, target_groups),
             },
         }
 
@@ -93,18 +110,37 @@ class AcademicReenrollmentWizardLine(models.TransientModel):
     source_group_id = fields.Many2one("academic.group", required=True, string="Current Group")
     manage_sale_workflow = fields.Boolean(compute="_compute_manage_sale_workflow")
     company_id = fields.Many2one(related="source_group_id.company_id")
-    section_id = fields.Many2one(related="source_group_id.section_id")
+    section_ids = fields.Many2many(related="source_group_id.section_ids")
     subject_id = fields.Many2one(related="source_group_id.subject_id")
-    level_ids = fields.Many2many(related="source_group_id.level_ids")
     target_year = fields.Integer(compute="_compute_target_year")
+    target_section_id = fields.Many2one(
+        "academic.section",
+        string="Next Study Plan",
+        compute="_compute_target_section_id",
+        readonly=False,
+        store=True,
+        domain="[('id', 'in', section_ids)]",
+        help="Study plan of the group to create. It is the current one until the group closes it,"
+        " where the plan set as next on the study plan is suggested.",
+    )
+    target_level_ids = fields.Many2many(related="target_section_id.level_ids")
     target_level_id = fields.Many2one(
         "academic.level",
         string="Next Level",
         compute="_compute_target_level_id",
         readonly=False,
         store=True,
-        domain="[('id', 'in', level_ids)]",
+        domain="[('id', 'in', target_level_ids)]",
         help="Level of the group to create, suggested from the study plan sequence.",
+    )
+    target_division_id = fields.Many2one(
+        "academic.division",
+        string="Next Division",
+        compute="_compute_target_division_id",
+        readonly=False,
+        store=True,
+        help="Division of the group to create. On a change of study plan it is only kept when the"
+        " target plan already uses it, so no division is invented.",
     )
     target_group_id = fields.Many2one(
         "academic.group",
@@ -112,34 +148,60 @@ class AcademicReenrollmentWizardLine(models.TransientModel):
         compute="_compute_target_group_id",
         readonly=False,
         store=True,
-        domain="[('year', '=', target_year), ('company_id', '=', company_id),"
-        " ('section_id', '=', section_id), ('subject_id', '=', subject_id)]",
+        domain="[('year', '=', target_year), ('company_id', '=', company_id), ('subject_id', '=', subject_id)]",
         help="Group the students are re-enrolled into. Leave it empty to create it"
-        " on the fly on the level set next to it.",
+        " on the fly on the study plan, level and division set next to it.",
     )
     is_last_level = fields.Boolean(
         compute="_compute_is_last_level",
         string="Last Level",
-        help="The group closes its study plan, so no next level is suggested and it is left out of the"
-        " re-enrollment. Set a level or a group by hand to re-enroll it anyway.",
+        help="The group closes its study plan, so the destination is looked up on the plans set as next."
+        " With more than one it cannot be guessed, and it is picked by hand.",
     )
+    is_graduating = fields.Boolean(
+        compute="_compute_is_graduating",
+        string="Graduating",
+        help="The group closes its study plan and no single plan follows it, so its students finish"
+        " their studies. Set a study plan or a group by hand to re-enroll them anyway.",
+    )
+    graduating_count = fields.Integer(compute="_compute_is_graduating", string="Graduating Students")
     will_create_group = fields.Boolean(compute="_compute_will_create_group", string="New Group")
     student_ids = fields.Many2many(
         "res.partner",
+        "academic_reenrollment_line_student_rel",
+        "line_id",
+        "partner_id",
         string="Students to Re-enroll",
         compute="_compute_students",
+        readonly=False,
+        store=True,
+        help="Remove a student to leave them out of this re-enrollment, for instance when they"
+        " are leaving the school or repeating the level.",
     )
-    student_count = fields.Integer(compute="_compute_students")
+    student_count = fields.Integer(compute="_compute_student_count", store=True)
+    move_ids = fields.One2many(
+        "academic.reenrollment.wizard.move",
+        "line_id",
+        string="Students Sent to Another Group",
+    )
     excluded_no_responsible_ids = fields.Many2many(
         "res.partner",
+        "academic_reenrollment_line_no_responsible_rel",
+        "line_id",
+        "partner_id",
         string="Without Payment Responsible",
         compute="_compute_students",
+        store=True,
         help="Students excluded because they have no active payment responsible.",
     )
     excluded_enrolled_ids = fields.Many2many(
         "res.partner",
+        "academic_reenrollment_line_enrolled_rel",
+        "line_id",
+        "partner_id",
         string="Already Enrolled",
         compute="_compute_students",
+        store=True,
         help="Students excluded because they are already enrolled in the next year group.",
     )
 
@@ -150,17 +212,33 @@ class AcademicReenrollmentWizardLine(models.TransientModel):
 
     @api.depends("source_group_id", "target_group_id")
     def _compute_manage_sale_workflow(self):
-        """The target group decides: that is where the students land, and where student_ids
-        is either computed from the orders or set by hand."""
+        """The target group decides: that is where student_ids is either computed from the
+        orders or set by hand."""
         for rec in self:
             group = rec.target_group_id or rec.source_group_id
             rec.manage_sale_workflow = group.manage_sale_workflow
 
     @api.depends("source_group_id")
+    def _compute_target_section_id(self):
+        for rec in self:
+            group = rec.source_group_id._origin
+            rec.target_section_id = group._get_next_year_section() if group else False
+
+    @api.depends("source_group_id", "target_section_id")
     def _compute_target_level_id(self):
         for rec in self:
             group = rec.source_group_id._origin
-            rec.target_level_id = group._get_next_year_level() if group else False
+            rec.target_level_id = group._get_next_year_level(rec.target_section_id) if group else False
+
+    @api.depends("source_group_id", "target_section_id")
+    def _compute_target_division_id(self):
+        """Falls back to the plan of the source group so that a level set by hand, with no
+        plan to change to, keeps the division as it did before."""
+        for rec in self:
+            group = rec.source_group_id._origin
+            rec.target_division_id = (
+                group._get_next_year_division(rec.target_section_id or group.section_id) if group else False
+            )
 
     @api.depends("source_group_id")
     def _compute_is_last_level(self):
@@ -169,19 +247,38 @@ class AcademicReenrollmentWizardLine(models.TransientModel):
             group = rec.source_group_id._origin
             rec.is_last_level = bool(group) and group.section_id._is_last_level(group.level_id)
 
-    @api.depends("source_group_id", "target_level_id")
+    @api.depends("source_group_id", "target_section_id", "target_level_id", "target_division_id")
     def _compute_target_group_id(self):
         for rec in self:
             group = rec.source_group_id._origin
             rec.target_group_id = (
-                group._get_next_year_group(level=rec.target_level_id) if group and rec.target_level_id else False
+                group._get_next_year_group(
+                    level=rec.target_level_id,
+                    section=rec.target_section_id,
+                    division=rec.target_division_id,
+                )
+                if group and rec.target_section_id and rec.target_level_id
+                else False
             )
 
     def _has_target(self):
-        """A line only re-enrolls when it has somewhere to go: the last level of a study
-        plan leaves both empty unless the user fills one by hand."""
+        """A line only re-enrolls when it has somewhere to go."""
         self.ensure_one()
         return bool(self.target_group_id or self.target_level_id)
+
+    @api.depends(
+        "target_group_id",
+        "target_level_id",
+        "source_group_id.student_count",
+        "source_group_id.section_id.correlative_ids",
+    )
+    def _compute_is_graduating(self):
+        """A plan with several plans after it is a different case: nobody graduates there,
+        the destination is just pending."""
+        for rec in self:
+            group = rec.source_group_id._origin
+            rec.is_graduating = bool(group) and group._is_graduating() and not rec._has_target()
+            rec.graduating_count = rec.source_group_id.student_count if rec.is_graduating else 0
 
     @api.depends("target_group_id", "target_level_id")
     def _compute_will_create_group(self):
@@ -190,9 +287,8 @@ class AcademicReenrollmentWizardLine(models.TransientModel):
 
     @api.depends("source_group_id", "target_group_id", "target_level_id")
     def _compute_students(self):
-        """Always recomputed from the groups: the client does not send readonly values back.
-        A line without a target re-enrolls nobody, so the whole preview stays empty and it
-        drags no student count nor sale data requirement with it."""
+        """Recomputed from the groups on every change of destination, and editable so the user
+        can leave students out. A line without a target re-enrolls nobody."""
         for rec in self:
             group = rec.source_group_id._origin
             students = group.student_ids if rec._has_target() else self.env["res.partner"]
@@ -202,15 +298,50 @@ class AcademicReenrollmentWizardLine(models.TransientModel):
             )
             already_enrolled = (students - no_responsible) & rec._get_enrolled_students()
             rec.student_ids = students - no_responsible - already_enrolled
-            rec.student_count = len(rec.student_ids)
             rec.excluded_no_responsible_ids = no_responsible
             rec.excluded_enrolled_ids = already_enrolled
+
+    @api.depends("student_ids")
+    def _compute_student_count(self):
+        # own compute: the count follows the students removed by hand, which leave the rest as it is
+        for rec in self:
+            rec.student_count = len(rec.student_ids)
 
     def _get_enrolled_students(self):
         """Students of the target group plus its pending quotations, so re-running never duplicates."""
         self.ensure_one()
         target_group = self.target_group_id._origin
         return target_group.student_ids | target_group._get_pending_registration_students()
+
+    def _get_target_sections(self):
+        return (
+            self.target_group_id.section_id
+            | self.filtered(lambda x: not x.target_group_id).target_section_id
+            | self.move_ids.target_group_id.section_id
+        )
+
+    def _requires_sale_data(self):
+        """Any destination of the line under the sales workflow needs the order data."""
+        self.ensure_one()
+        return bool(self.student_ids) and (
+            self.manage_sale_workflow or any(self.move_ids.target_group_id.mapped("manage_sale_workflow"))
+        )
+
+    def _get_destinations(self):
+        """Group each student lands in: the one of the line, plus the group picked one by one
+        for those sent somewhere else. Creates the group of the line if it does not exist."""
+        self.ensure_one()
+        moves = self.move_ids.filtered(lambda x: x.student_id in self.student_ids)
+        destinations = {group: move.student_id for group, move in moves.grouped("target_group_id").items()}
+        staying = self.student_ids - moves.student_id
+        if staying:
+            target_group = self.target_group_id or self.source_group_id._create_next_year_group(
+                level=self.target_level_id,
+                section=self.target_section_id,
+                division=self.target_division_id,
+            )
+            destinations[target_group] = destinations.get(target_group, self.env["res.partner"]) | staying
+        return destinations
 
     def _create_orders(self, target_group, students):
         self.ensure_one()
@@ -234,3 +365,32 @@ class AcademicReenrollmentWizardLine(models.TransientModel):
             )
         )
         return order_wizard._create_mass_subscription(vals={"company_id": self.source_group_id.company_id.id})
+
+
+class AcademicReenrollmentWizardMove(models.TransientModel):
+    _name = "academic.reenrollment.wizard.move"
+    _description = "Academic Re-enrollment Student Move"
+
+    _student_unique = models.Constraint(
+        "unique(line_id, student_id)",
+        "Each student can only be sent to one group.",
+    )
+
+    line_id = fields.Many2one("academic.reenrollment.wizard.line", required=True, ondelete="cascade")
+    company_id = fields.Many2one(related="line_id.company_id")
+    subject_id = fields.Many2one(related="line_id.subject_id")
+    target_year = fields.Integer(related="line_id.target_year")
+    student_ids = fields.Many2many(related="line_id.student_ids")
+    student_id = fields.Many2one(
+        "res.partner",
+        string="Student",
+        required=True,
+        domain="[('id', 'in', student_ids)]",
+    )
+    target_group_id = fields.Many2one(
+        "academic.group",
+        string="Group",
+        required=True,
+        domain="[('year', '=', target_year), ('company_id', '=', company_id), ('subject_id', '=', subject_id)]",
+        help="Group this student is re-enrolled into, instead of the one of the line.",
+    )
