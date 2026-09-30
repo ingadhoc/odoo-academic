@@ -19,7 +19,7 @@
 ##############################################################################
 {
     "name": "Academic",
-    "version": "19.0.1.15.0",
+    "version": "19.0.1.16.0",
     "sequence": 14,
     "summary": "",
     "author": "ADHOC SA",
@@ -67,6 +67,7 @@
         "demo/res_country_state_demo.xml",
         "demo/academic.level.csv",
         "demo/academic.section.csv",
+        "demo/academic_section_correlative_demo.xml",
         "demo/academic.promotion.csv",
         "demo/res.partner.csv",
         "demo/res.partner.link.csv",

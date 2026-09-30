@@ -352,11 +352,6 @@ msgid "Contacts Relationship"
 msgstr "Relación de los contactos"
 
 #. module: academic
-#: model:ir.model.fields,field_description:academic.field_academic_section__correlative_ids
-msgid "Correlative Study Plans"
-msgstr "Planes de Estudio Correlativos"
-
-#. module: academic
 #. odoo-python
 #: code:addons/academic/wizards/academic_contact_import.py:0
 msgid ""
@@ -473,6 +468,19 @@ msgstr "Hecho"
 #: model:ir.model.fields.selection,name:academic.selection__academic_contact_import__state__draft
 msgid "Draft"
 msgstr "Borrador"
+
+#. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_section_form
+msgid ""
+"Drag the levels into the order the student goes through them: the\n"
+"                                re-enrollment wizard uses it to suggest the next level of each group,\n"
+"                                and the next study plans above to suggest where the students of the\n"
+"                                last level continue."
+msgstr ""
+"Arrastre los niveles en el orden en que el alumno los cursa: el asistente de "
+"reinscripción lo usa para sugerir el nivel siguiente de cada grupo, y los "
+"planes siguientes de arriba para sugerir dónde continúan los alumnos del "
+"último nivel."
 
 #. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_section_form
@@ -845,6 +853,11 @@ msgid "Name"
 msgstr "Nombre"
 
 #. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_section__correlative_ids
+msgid "Next Study Plans"
+msgstr "Planes siguientes"
+
+#. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_filter
 msgid "No Payment Responsible"
 msgstr "No hay Responsable de Pago"
@@ -1170,6 +1183,15 @@ msgstr ""
 #: model:ir.ui.menu,name:academic.menu_sections
 msgid "Study Plans"
 msgstr "Sección"
+
+#. module: academic
+#: model:ir.model.fields,help:academic.field_academic_section__correlative_ids
+msgid ""
+"Study plans a student continues into after finishing this one, used by the "
+"re-enrollment wizard. With more than one the destination is picked by hand."
+msgstr ""
+"Planes de estudio que el alumno continúa al terminar este, que usa el "
+"asistente de reinscripción. Con más de uno, el destino se elige a mano."
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_subject_template__subject_ids
