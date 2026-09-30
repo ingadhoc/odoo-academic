@@ -6,6 +6,9 @@
             <form>
                 <field name="requires_sale_data" invisible="1"/>
                 <field name="is_recurring_mode" invisible="1"/>
+                <div class="alert alert-warning" role="alert" invisible="not mixed_plans_warning">
+                    <field name="mixed_plans_warning" nolabel="1" readonly="1"/>
+                </div>
                 <!-- the required fields repeat the modifier: the client does not inherit the
                      invisibility of this group, so a required one left empty would block the
                      wizard without being rendered -->
@@ -32,39 +35,52 @@
                 </group>
                 <group>
                     <field name="student_count" string="Students to Re-enroll"/>
+                    <field name="graduating_count" string="Graduating Students" invisible="not graduating_count"/>
                 </group>
                 <notebook>
                     <page string="Groups Preview" name="groups_preview">
                         <field name="line_ids" nolabel="1">
-                            <list create="0" delete="0" editable="bottom">
-                                <field name="level_ids" column_invisible="1"/>
+                            <!-- not editable: inside a dialog, opening a row of an editable list navigates out -->
+                            <list create="0" delete="0">
+                                <field name="section_ids" column_invisible="1"/>
+                                <field name="target_level_ids" column_invisible="1"/>
                                 <field name="company_id" column_invisible="1"/>
-                                <field name="section_id" column_invisible="1"/>
                                 <field name="subject_id" column_invisible="1"/>
                                 <field name="target_year" column_invisible="1"/>
                                 <!-- force_save: the client does not send readonly fields back and this one is required -->
                                 <field name="source_group_id" readonly="1" force_save="1"/>
                                 <field name="manage_sale_workflow" optional="hide" readonly="1"/>
-                                <field name="target_group_id" options="{'no_create': 1}"/>
-                                <field name="target_level_id" options="{'no_create': 1}"
+                                <field name="target_group_id" string="Next Group" options="{'no_create': 1}"/>
+                                <field name="target_section_id" string="Next Plan" options="{'no_create': 1}"
                                        readonly="target_group_id"/>
-                                <field name="is_last_level" readonly="1" optional="show"/>
+                                <field name="target_level_id" string="Level" options="{'no_create': 1}"
+                                       readonly="target_group_id"/>
+                                <field name="target_division_id" string="Division" options="{'no_create': 1}"
+                                       optional="hide" readonly="target_group_id"/>
+                                <field name="is_last_level" readonly="1" optional="hide"/>
+                                <field name="is_graduating" column_invisible="1"/>
+                                <field name="graduating_count" string="Graduating" readonly="1" optional="show"
+                                       decoration-warning="is_graduating"/>
                                 <field name="will_create_group" readonly="1"/>
-                                <field name="student_count" readonly="1"/>
-                                <field name="excluded_no_responsible_ids" widget="many2many_tags" optional="show" readonly="1"/>
-                                <field name="excluded_enrolled_ids" widget="many2many_tags" optional="show" readonly="1"/>
+                                <field name="student_count" string="Students" readonly="1"/>
+                                <field name="excluded_no_responsible_ids" widget="many2many_tags" optional="hide" readonly="1"/>
+                                <field name="excluded_enrolled_ids" widget="many2many_tags" optional="hide" readonly="1"/>
                             </list>
                             <form>
                                 <group>
                                     <group name="groups" string="Groups">
-                                        <field name="level_ids" invisible="1"/>
+                                        <field name="section_ids" invisible="1"/>
+                                        <field name="target_level_ids" invisible="1"/>
                                         <field name="company_id" invisible="1"/>
-                                        <field name="section_id" invisible="1"/>
                                         <field name="subject_id" invisible="1"/>
                                         <field name="target_year" invisible="1"/>
                                         <field name="source_group_id" readonly="1" force_save="1"/>
                                         <field name="target_group_id" options="{'no_create': 1}"/>
+                                        <field name="target_section_id" options="{'no_create': 1}"
+                                               readonly="target_group_id"/>
                                         <field name="target_level_id" options="{'no_create': 1}"
+                                               readonly="target_group_id"/>
+                                        <field name="target_division_id" options="{'no_create': 1}"
                                                readonly="target_group_id"/>
                                         <field name="is_last_level" readonly="1"/>
                                         <field name="will_create_group" readonly="1"/>
@@ -72,14 +88,38 @@
                                     <group name="summary" string="Summary">
                                         <field name="manage_sale_workflow" readonly="1"/>
                                         <field name="student_count" readonly="1"/>
+                                        <field name="is_graduating" readonly="1" invisible="not is_graduating"/>
+                                        <field name="graduating_count" readonly="1" invisible="not is_graduating"/>
                                     </group>
                                 </group>
                                 <notebook>
                                     <page string="Students to Re-enroll" name="students">
-                                        <field name="student_ids" nolabel="1" readonly="1">
-                                            <list>
+                                        <div class="text-muted mb-2">
+                                            Remove a student from this list to leave them out of the
+                                            re-enrollment, for instance when they are leaving the school
+                                            or repeating the level. Changing the destination above brings
+                                            the whole list back.
+                                        </div>
+                                        <field name="student_ids" nolabel="1" options="{'no_create': 1}">
+                                            <list create="0">
                                                 <field name="display_name" string="Student"/>
                                                 <field name="parent_id" string="Family"/>
+                                            </list>
+                                        </field>
+                                    </page>
+                                    <page string="Send to Another Group" name="moves">
+                                        <div class="text-muted mb-2">
+                                            Send single students to a different group of next year, to open
+                                            or merge divisions. Everyone else goes to the group of the line.
+                                        </div>
+                                        <field name="move_ids" nolabel="1">
+                                            <list editable="bottom">
+                                                <field name="student_ids" column_invisible="1"/>
+                                                <field name="company_id" column_invisible="1"/>
+                                                <field name="subject_id" column_invisible="1"/>
+                                                <field name="target_year" column_invisible="1"/>
+                                                <field name="student_id" options="{'no_create': 1}"/>
+                                                <field name="target_group_id" options="{'no_create': 1}"/>
                                             </list>
                                         </field>
                                     </page>
@@ -114,10 +154,13 @@
                         </field>
                         <div class="text-muted">
                             The next year group is suggested on the level that follows in the study plan
-                            sequence, and can be changed: leave it empty to create it on the fly. Students
-                            without an active payment responsible or already enrolled in the next year group
-                            are excluded. Groups not managing the sales workflow get no order: their students
-                            are enrolled directly into the next year group.
+                            sequence, and on the first level of the next study plan when the group closes
+                            its own. It can be changed: leave it empty to create it on the fly, or pick any
+                            group of next year. Groups closing a study plan that leads nowhere are counted
+                            as graduating. Open a line to leave students out or send them to another group.
+                            Students without an active payment responsible or already enrolled in the next
+                            year group are excluded. Groups not managing the sales workflow get no order:
+                            their students are enrolled directly into the next year group.
                         </div>
                     </page>
                 </notebook>
@@ -136,6 +179,8 @@
         <field name="binding_model_id" ref="academic.model_academic_group"/>
         <field name="binding_view_types">list</field>
         <field name="target">new</field>
+        <!-- the preview has eight columns: on the default dialog width they come out truncated -->
+        <field name="context">{'dialog_size': 'extra-large'}</field>
         <!-- creating the next year group needs create on academic.group: same requirement as "Move to Next Year" -->
         <field name="group_ids" eval="[(4, ref('academic.group_manager'))]"/>
     </record>
