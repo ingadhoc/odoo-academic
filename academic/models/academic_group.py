@@ -93,53 +93,87 @@ class AcademicGroup(models.Model):
             ]
             line.name = " - ".join(filter(None, name_parts))
 
-    def _get_next_year_group(self, level=None):
-        """`level` overrides the level to search for, to follow the study plan sequence."""
+    def _get_next_year_section(self):
+        """Its own plan while it has a level left, the single plan that follows once it closes
+        it. Empty when nothing follows, or when more than one does: there it is picked by hand."""
         self.ensure_one()
+        section = self.section_id
+        if not section._is_last_level(self.level_id):
+            return section
+        return section.correlative_ids if len(section.correlative_ids) == 1 else section.browse()
+
+    def _get_next_year_level(self, section):
+        """The next level of the sequence within the same plan, the first one when the student
+        changes plan. The same level when the plan has no sequence configured."""
+        self.ensure_one()
+        if not section:
+            return self.env["academic.level"]
+        if section != self.section_id:
+            return section._get_first_level()
+        return section._get_next_level(self.level_id) or self.level_id
+
+    def _is_graduating(self):
+        """Closes a study plan that leads nowhere: its students finish their studies."""
+        self.ensure_one()
+        return self.section_id._is_last_level(self.level_id) and not self.section_id.correlative_ids
+
+    def _get_next_year_division(self, section):
+        """The division only carries over to another study plan when that plan already uses
+        it: a Secondary without divisions must not get an invented "A" from Primary."""
+        self.ensure_one()
+        if not self.division_id or section == self.section_id:
+            return self.division_id
+        used = (
+            self.env["academic.group"]
+            .with_context(active_test=False)
+            .search_count(
+                [
+                    ("company_id", "=", self.company_id.id),
+                    ("section_id", "=", section.id),
+                    ("division_id", "=", self.division_id.id),
+                ],
+                limit=1,
+            )
+        )
+        return self.division_id if used else self.env["academic.division"]
+
+    def _get_next_year_vals(self, level=None, section=None, division=None):
+        """Where the group lands next year, each coordinate overridable. Shared by the search
+        and the copy so that both always look at the same group."""
+        self.ensure_one()
+        section = section or self.section_id
+        division = self._get_next_year_division(section) if division is None else division
+        return {
+            "year": self.year + 1,
+            "section_id": section.id,
+            "level_id": (level or self.level_id).id,
+            "division_id": division.id,
+        }
+
+    def _get_next_year_group(self, level=None, section=None, division=None):
+        self.ensure_one()
+        vals = self._get_next_year_vals(level=level, section=section, division=division)
         # active_test=False: the unique constraint ignores `active`, so an archived group
         # that is not found here makes the copy below crash on a unique violation
         return (
             self.env["academic.group"]
             .with_context(active_test=False)
             .search(
-                [
-                    ("year", "=", self.year + 1),
-                    ("company_id", "=", self.company_id.id),
-                    ("section_id", "=", self.section_id.id),
-                    ("level_id", "=", (level or self.level_id).id),
-                    ("division_id", "=", self.division_id.id),
-                    ("subject_id", "=", self.subject_id.id),
-                ],
+                [(field, "=", value) for field, value in vals.items()]
+                + [("company_id", "=", self.company_id.id), ("subject_id", "=", self.subject_id.id)],
                 limit=1,
             )
         )
 
-    def _create_next_year_group(self, level=None):
+    def _create_next_year_group(self, level=None, section=None, division=None):
         self.ensure_one()
-        return self.copy(
-            default={
-                "year": self.year + 1,
-                "level_id": (level or self.level_id).id,
-                "student_ids": False,
-            }
-        )
-
-    def _get_or_create_next_year_group(self, level=None):
-        self.ensure_one()
-        return self._get_next_year_group(level=level) or self._create_next_year_group(level=level)
+        vals = self._get_next_year_vals(level=level, section=section, division=division)
+        return self.copy(default={**vals, "student_ids": False})
 
     def _get_groups_action(self):
         action = self.env["ir.actions.actions"]._for_xml_id("academic.action_academic_group_groups")
         action.update({"domain": [("id", "in", self.ids)], "context": {}})
         return action
-
-    def _get_next_year_level(self):
-        """Next level in the study plan. Empty when the group closes the plan (its students
-        are not re-enrolled), the same level when the plan has no sequence configured."""
-        self.ensure_one()
-        if self.section_id._is_last_level(self.level_id):
-            return self.env["academic.level"]
-        return self.section_id._get_next_level(self.level_id) or self.level_id
 
     def create_next_year_groups(self):
         # estamos pasando de un año a otro sin usar study plan por lo siguiente:
