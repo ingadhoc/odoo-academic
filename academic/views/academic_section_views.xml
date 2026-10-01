@@ -21,8 +21,21 @@
                     <group>
                         <field name="name" />
                         <!-- <field name="correlative_ids" widget="many2many_tags" domain="[('id', '!=', id)]"/> -->
-                        <field name="level_ids" widget="many2many_tags"/>
                     </group>
+                    <notebook>
+                        <page string="Levels" name="levels">
+                            <div class="text-muted mb-2">
+                                Drag the levels into the order the student goes through them: the
+                                re-enrollment wizard uses it to suggest the next level of each group.
+                            </div>
+                            <field name="level_line_ids">
+                                <list editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="level_id" options="{'no_quick_create': 1}"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
@@ -32,11 +45,14 @@
         <field name="name">academic.section.list</field>
         <field name="model">academic.section</field>
         <field name="arch" type="xml">
-            <list editable="bottom">
+            <!-- open_form_view: the list is editable, so without it the form where the levels are ordered is unreachable -->
+            <list editable="bottom" open_form_view="True">
                 <field name="sequence" widget="handle"/>
                 <field name="name" />
                 <!-- <field name="correlative_ids" widget="many2many_tags"/> -->
-                <field name="level_ids" widget="many2many_tags" optional="show"/>
+                <!-- readonly: the ordered lines on the form are the only write path, so adding a
+                     level from here cannot silently append it at the end of the plan -->
+                <field name="level_ids" widget="many2many_tags" optional="show" readonly="1"/>
             </list>
         </field>
     </record>

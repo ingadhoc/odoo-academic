@@ -48,15 +48,13 @@ class AcademicGroup(models.Model):
                 ).mapped("order_id.partner_id")
             )
 
-    def _compute_registration_student_count(self):
+    def _get_pending_registration_students(self):
         # TODO tal vez deberiamos hacer una constraint que no pueda permitir dos lineas de venta "activas" para mismo academic_product_type, student y grupo
-        # luego el mapped no seria necesario
+        return self.registration_so_line_ids.filtered(lambda x: x.state in ["draft", "sent"]).order_id.partner_id
+
+    def _compute_registration_student_count(self):
         for group in self:
-            group.registration_student_count = len(
-                group.registration_so_line_ids.filtered(lambda x: x.state in ["draft", "sent"]).mapped(
-                    "order_id.partner_id"
-                )
-            )
+            group.registration_student_count = len(group._get_pending_registration_students())
 
     def _compute_opportunities_student_count(self):
         for group in self:
