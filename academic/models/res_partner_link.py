@@ -2,7 +2,7 @@
 # For copyright and license notices, see __manifest__.py file in module root
 # directory
 ##############################################################################
-from odoo import fields, models
+from odoo import api, fields, models
 
 
 class ResPartner(models.Model):
@@ -32,3 +32,33 @@ class ResPartner(models.Model):
         "unique(student_id, partner_id)",
         "El contacto debe ser agregado por unica vez en cada familia o estudiante",
     )
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        """Skip links whose pair is already there, instead of hitting _link_unique.
+
+        The same student link can reach one flush twice: the form sends back the
+        one the onchange gave it, and _compute_student_links adds its own because
+        it cannot see the pending one. Both inserts land in the same transaction
+        and the whole save is rolled back.
+        """
+        pairs = [(vals.get("student_id"), vals.get("partner_id")) for vals in vals_list]
+        wanted = {pair for pair in pairs if all(pair)}
+        already = self.browse()
+        if wanted:
+            already = self.sudo().search(
+                [
+                    ("student_id", "in", [pair[0] for pair in wanted]),
+                    ("partner_id", "in", [pair[1] for pair in wanted]),
+                ]
+            )
+            already = already.filtered(lambda link: (link.student_id.id, link.partner_id.id) in wanted)
+        seen = {(link.student_id.id, link.partner_id.id) for link in already}
+        to_create = []
+        for vals, pair in zip(vals_list, pairs):
+            if all(pair):
+                if pair in seen:
+                    continue
+                seen.add(pair)
+            to_create.append(vals)
+        return super().create(to_create) | self.browse(already.ids)
