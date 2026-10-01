@@ -29,7 +29,7 @@
             "academic_hr/static/src/css/ribbon.css",
         ],
     },
-    "installable": True,
+    "installable": False,
     "auto_install": False,
     "application": False,
 }

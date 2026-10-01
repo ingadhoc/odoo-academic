@@ -10,7 +10,7 @@
     "data": [
         "wizard/academic_order_wizard_views.xml",
     ],
-    "installable": True,
+    "installable": False,
     "auto_install": True,
     "application": False,
 }
