@@ -11,6 +11,9 @@ access_academic_subject_template_manager,academic.subject.template.manager,model
 access_academic_subject_template_user,academic.subject.template.user,model_academic_subject_template,group_user,1,0,0,0
 access_academic_section_manager,academic.section.manager,model_academic_section,group_manager,1,1,1,1
 access_academic_section_user,academic.section.user,model_academic_section,group_user,1,0,0,0
+access_academic_section_level_manager,academic.section.level.manager,model_academic_section_level,group_manager,1,1,1,1
+access_academic_section_level_user,academic.section.level.user,model_academic_section_level,group_user,1,0,0,0
+access_academic_section_level_global,academic.section.level.global,model_academic_section_level,base.group_user,1,0,0,0
 access_academic_promotion_manager,academic.promotion.manager,model_academic_promotion,group_manager,1,1,1,1
 access_academic_promotion_user,academic.promotion.user,model_academic_promotion,group_user,1,1,1,1
 access_academic_division_manager,academic.division.manager,model_academic_division,group_manager,1,1,1,1
