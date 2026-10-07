@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 18.0+e\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-26 20:22+0000\n"
-"PO-Revision-Date: 2026-07-30 14:54+0000\n"
+"PO-Revision-Date: 2026-10-07 17:55+0000\n"
 "Last-Translator: BAF <baf@adhoc.inc>\n"
 "Language-Team: Spanish <https://translation.dev-adhoc.com/projects/"
 "odoo-academic-19-0/odoo-academic-19-0-academic_retry_payment/es/>\n"
@@ -30,7 +30,7 @@ msgstr "Nombre a mostrar"
 #. module: academic_retry_payment
 #: model:ir.model.fields,field_description:academic_retry_payment.field_payment_transaction_retry_lines__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: academic_retry_payment
 #: model:ir.model.fields,field_description:academic_retry_payment.field_payment_transaction_retry_lines__partner_ids
