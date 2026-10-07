@@ -11,16 +11,16 @@ msgstr ""
 "Project-Id-Version: Odoo Server 18.0+e\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-09 19:37+0000\n"
-"PO-Revision-Date: 2026-07-30 14:54+0000\n"
+"PO-Revision-Date: 2026-10-07 17:55+0000\n"
 "Last-Translator: BAF <baf@adhoc.inc>\n"
-"Language-Team: Spanish <https://translation.dev-adhoc.com/projects/odoo-"
-"academic-19-0/odoo-academic-19-0-academic_sale_subscription/es/>\n"
+"Language-Team: Spanish <https://translation.dev-adhoc.com/projects/"
+"odoo-academic-19-0/odoo-academic-19-0-academic_sale_subscription/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=3; plural=(n == 1) ? 0 : ((n != 0 && n % 1000000 == "
-"0) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n == 1) ? 0 : ((n != 0 && n % 1000000 == 0)"
+" ? 1 : 2);\n"
 "X-Generator: Weblate 5.10.4\n"
 
 #. module: academic_sale_subscription
@@ -31,6 +31,9 @@ msgid ""
 "enrolled directly in %(groups)s group(s) (%(created_groups)s new next year "
 "group(s))."
 msgstr ""
+"Se crearon %(orders)s orden(es) de reinscripción y se inscribieron "
+"directamente %(enrolled)s alumno(s) en %(groups)s grupo(s) (%(created_groups)"
+"s grupo(s) nuevo(s) del próximo año)."
 
 #. module: academic_sale_subscription
 #. odoo-python
@@ -784,7 +787,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_partner_wizard__id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_wizard__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,help:academic_sale_subscription.field_sale_order_close_reason__release_vacancy
