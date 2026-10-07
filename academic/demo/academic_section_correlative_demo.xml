@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- separate file: the plans point forward, so they are linked after the csv is loaded -->
+    <record id="academic_section_1" model="academic.section">
+        <field name="correlative_ids" eval="[Command.set([ref('academic_section_3')])]"/>
+    </record>
+    <record id="academic_section_2" model="academic.section">
+        <field name="correlative_ids"
+               eval="[Command.set([ref('academic_section_4'), ref('academic_section_5')])]"/>
+    </record>
+    <record id="academic_section_3" model="academic.section">
+        <field name="correlative_ids" eval="[Command.set([ref('academic_section_4')])]"/>
+    </record>
+    <record id="academic_section_6" model="academic.section">
+        <field name="correlative_ids" eval="[Command.set([ref('academic_section_7')])]"/>
+    </record>
+    <record id="academic_section_7" model="academic.section">
+        <field name="correlative_ids" eval="[Command.set([ref('academic_section_8')])]"/>
+    </record>
+    <record id="academic_section_9" model="academic.section">
+        <field name="correlative_ids" eval="[Command.set([ref('academic_section_10')])]"/>
+    </record>
+</odoo>
