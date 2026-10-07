@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 18.0+e\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-11 14:36+0000\n"
-"PO-Revision-Date: 2026-07-30 14:54+0000\n"
+"PO-Revision-Date: 2026-10-07 17:55+0000\n"
 "Last-Translator: BAF <baf@adhoc.inc>\n"
 "Language-Team: Spanish <https://translation.dev-adhoc.com/projects/"
 "odoo-academic-19-0/odoo-academic-19-0-academic_split_name/es/>\n"
@@ -41,7 +41,7 @@ msgstr "Nombre"
 #. module: academic_split_name
 #: model:ir.model.fields,field_description:academic_split_name.field_res_partner__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: academic_split_name
 #: model_terms:ir.ui.view,arch_db:academic_split_name.view_partner_form
