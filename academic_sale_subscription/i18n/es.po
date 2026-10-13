@@ -10,17 +10,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-09 19:37+0000\n"
+"POT-Creation-Date: 2026-10-13 20:25+0000\n"
 "PO-Revision-Date: 2026-10-07 17:55+0000\n"
 "Last-Translator: BAF <baf@adhoc.inc>\n"
-"Language-Team: Spanish <https://translation.dev-adhoc.com/projects/"
-"odoo-academic-19-0/odoo-academic-19-0-academic_sale_subscription/es/>\n"
+"Language-Team: Spanish <https://translation.dev-adhoc.com/projects/odoo-"
+"academic-19-0/odoo-academic-19-0-academic_sale_subscription/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=3; plural=(n == 1) ? 0 : ((n != 0 && n % 1000000 == 0)"
-" ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n == 1) ? 0 : ((n != 0 && n % 1000000 == "
+"0) ? 1 : 2);\n"
 "X-Generator: Weblate 5.10.4\n"
 
 #. module: academic_sale_subscription
@@ -32,8 +32,8 @@ msgid ""
 "group(s))."
 msgstr ""
 "Se crearon %(orders)s orden(es) de reinscripción y se inscribieron "
-"directamente %(enrolled)s alumno(s) en %(groups)s grupo(s) (%(created_groups)"
-"s grupo(s) nuevo(s) del próximo año)."
+"directamente %(enrolled)s alumno(s) en %(groups)s grupo(s) "
+"(%(created_groups)s grupo(s) nuevo(s) del próximo año)."
 
 #. module: academic_sale_subscription
 #. odoo-python
@@ -354,6 +354,7 @@ msgstr "Compañías"
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_line__company_id
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_move__company_id
 msgid "Company"
 msgstr ""
 
@@ -422,6 +423,7 @@ msgstr "Crear orden"
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard_line__create_uid
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard__create_uid
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_line__create_uid
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_move__create_uid
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_archive_family_debt_wizard__create_uid
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_crm_lead_family_member__create_uid
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_line__create_uid
@@ -435,6 +437,7 @@ msgstr "Creado por"
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard_line__create_date
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard__create_date
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_line__create_date
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_move__create_date
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_archive_family_debt_wizard__create_date
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_crm_lead_family_member__create_date
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_line__create_date
@@ -514,20 +517,6 @@ msgid "Customer"
 msgstr "Cliente"
 
 #. module: academic_sale_subscription
-#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_reenrollment_wizard_form
-msgid "Division"
-msgstr "División"
-
-#. module: academic_sale_subscription
-#: model:ir.model.fields,help:academic_sale_subscription.field_academic_reenrollment_wizard_line__target_division_id
-msgid ""
-"Division of the group to create. On a change of study plan it is only kept "
-"when the target plan already uses it, so no division is invented."
-msgstr ""
-"División del grupo a crear. Al cambiar de plan de estudios solo se conserva si "
-"el plan de destino ya la usa, para no inventar una división."
-
-#. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_crm_lead_family_member__vat
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.report_debt_free_certificate_document
 msgid "DNI"
@@ -583,6 +572,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard_line__display_name
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard__display_name
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_line__display_name
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_move__display_name
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_chart_template__display_name
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_move__display_name
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_move_line__display_name
@@ -605,6 +595,20 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_wizard__display_name
 msgid "Display Name"
 msgstr "Nombre a mostrar"
+
+#. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_reenrollment_wizard_form
+msgid "Division"
+msgstr "División"
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,help:academic_sale_subscription.field_academic_reenrollment_wizard_line__target_division_id
+msgid ""
+"Division of the group to create. On a change of study plan it is only kept "
+"when the target plan already uses it, so no division is invented."
+msgstr ""
+"División del grupo a crear. Al cambiar de plan de estudios solo se conserva "
+"si el plan de destino ya la usa, para no inventar una división."
 
 #. module: academic_sale_subscription
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.portal_my_home_debt_certificate
@@ -753,6 +757,7 @@ msgid "Graduating Students"
 msgstr "Alumnos que egresan"
 
 #. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_move__target_group_id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_crm_lead__group_id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order_line__group_id
 msgid "Group"
@@ -764,15 +769,13 @@ msgid ""
 "Group the students are re-enrolled into. Leave it empty to create it on the "
 "fly on the study plan, level and division set next to it."
 msgstr ""
-"Grupo en el que se reinscribe a los alumnos. Déjelo vacío para crearlo con el "
-"plan de estudios, el nivel y la división indicados al lado."
+"Grupo en el que se reinscribe a los alumnos. Déjelo vacío para crearlo con "
+"el plan de estudios, el nivel y la división indicados al lado."
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,help:academic_sale_subscription.field_academic_reenrollment_wizard_move__target_group_id
-msgid ""
-"Group this student is re-enrolled into, instead of the one of the line."
-msgstr ""
-"Grupo en el que se reinscribe a este alumno, en lugar del de la línea."
+msgid "Group this student is re-enrolled into, instead of the one of the line."
+msgstr "Grupo en el que se reinscribe a este alumno, en lugar del de la línea."
 
 #. module: academic_sale_subscription
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_reenrollment_wizard_form
@@ -816,6 +819,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard_line__id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard__id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_line__id
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_move__id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_chart_template__id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_move__id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_move_line__id
@@ -954,6 +958,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard_line__write_uid
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard__write_uid
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_line__write_uid
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_move__write_uid
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_archive_family_debt_wizard__write_uid
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_crm_lead_family_member__write_uid
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_line__write_uid
@@ -967,6 +972,7 @@ msgstr "Última Actualización por"
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard_line__write_date
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard__write_date
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_line__write_date
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_move__write_date
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_archive_family_debt_wizard__write_date
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_crm_lead_family_member__write_date
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_line__write_date
@@ -992,7 +998,7 @@ msgid "Level of the group to create, suggested from the study plan sequence."
 msgstr ""
 
 #. module: academic_sale_subscription
-#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_line__level_ids
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_line__target_level_ids
 msgid "Levels"
 msgstr ""
 
@@ -1002,6 +1008,7 @@ msgid "Licencia temporal"
 msgstr ""
 
 #. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_move__line_id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_wizard__line_ids
 msgid "Line"
 msgstr "Línea"
@@ -1348,6 +1355,11 @@ msgid "Pending Invoices"
 msgstr "Facturas pendientes"
 
 #. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard__pending_warning
+msgid "Pending Warning"
+msgstr "Aviso de destinos pendientes"
+
+#. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_params__plan_id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__plan_id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard__plan_id
@@ -1566,13 +1578,15 @@ msgstr "Libera vacante"
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_reenrollment_wizard_form
 msgid ""
 "Remove a student from this list to leave them out of the\n"
-"                                            re-enrollment, for instance when they are leaving the school\n"
-"                                            or repeating the level. Changing the destination above brings\n"
+"                                            re-enrollment, for instance when "
+"they are leaving the school\n"
+"                                            or repeating the level. Changing "
+"the destination above brings\n"
 "                                            the whole list back."
 msgstr ""
 "Quite un alumno de esta lista para dejarlo fuera de la reinscripción, por "
-"ejemplo si se va del colegio o repite el nivel. Al cambiar el destino de arriba, "
-"la lista vuelve completa."
+"ejemplo si se va del colegio o repite el nivel. Al cambiar el destino de "
+"arriba, la lista vuelve completa."
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,help:academic_sale_subscription.field_academic_reenrollment_wizard_line__student_ids
@@ -1581,8 +1595,8 @@ msgid ""
 "Remove a student to leave them out of this re-enrollment, for instance when "
 "they are leaving the school or repeating the level."
 msgstr ""
-"Quite un alumno para dejarlo fuera de esta reinscripción, por ejemplo si se va "
-"del colegio o repite el nivel."
+"Quite un alumno para dejarlo fuera de esta reinscripción, por ejemplo si se "
+"va del colegio o repite el nivel."
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_bank_statement_line__require_student_on_invoices
@@ -1635,10 +1649,11 @@ msgstr "Enviar Certificado de Libre Deuda"
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_reenrollment_wizard_form
 msgid ""
 "Send single students to a different group of next year, to open\n"
-"                                            or merge divisions. Everyone else goes to the group of the line."
+"                                            or merge divisions. Everyone "
+"else goes to the group of the line."
 msgstr ""
-"Envíe alumnos puntuales a otro grupo del año siguiente, para abrir o fusionar "
-"divisiones. El resto va al grupo de la línea."
+"Envíe alumnos puntuales a otro grupo del año siguiente, para abrir o "
+"fusionar divisiones. El resto va al grupo de la línea."
 
 #. module: academic_sale_subscription
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_reenrollment_wizard_form
@@ -1681,9 +1696,9 @@ msgid ""
 "%(groups)s. Set a study plan or a next year group on them, or take them out "
 "of this re-enrollment."
 msgstr ""
-"Algunos grupos todavía tienen alumnos y no tienen destino para el año siguiente: "
-"%(groups)s. Indique un plan de estudios o un grupo del año siguiente en esos grupos, "
-"o sáquelos de esta reinscripción."
+"Algunos grupos todavía tienen alumnos y no tienen destino para el año "
+"siguiente: %(groups)s. Indique un plan de estudios o un grupo del año "
+"siguiente en esos grupos, o sáquelos de esta reinscripción."
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_params__status_sale
@@ -1702,6 +1717,7 @@ msgstr "Estado que se asignará a los pedidos de venta."
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_group__student_ids
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__student_ids
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_move__student_id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_bank_statement_line__student_id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_move__student_id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_move_line__student_id
@@ -1736,6 +1752,11 @@ msgid "Students List"
 msgstr "Lista de Estudiantes"
 
 #. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_line__move_ids
+msgid "Students Sent to Another Group"
+msgstr "Alumnos enviados a otro grupo"
+
+#. module: academic_sale_subscription
 #: model:ir.model.fields,help:academic_sale_subscription.field_academic_reenrollment_wizard_line__excluded_enrolled_ids
 msgid ""
 "Students excluded because they are already enrolled in the next year group."
@@ -1747,21 +1768,17 @@ msgid "Students excluded because they have no active payment responsible."
 msgstr ""
 
 #. module: academic_sale_subscription
-#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_line__move_ids
-msgid "Students Sent to Another Group"
-msgstr "Alumnos enviados a otro grupo"
-
-#. module: academic_sale_subscription
 #: model:ir.model.fields,help:academic_sale_subscription.field_academic_reenrollment_wizard_line__pending_count
 msgid ""
 "Students of the group that have nowhere to go yet. Set a study plan or a "
 "next year group on the line to re-enroll them."
 msgstr ""
-"Alumnos del grupo que todavía no tienen a dónde ir. Indique un plan de estudios "
-"o un grupo del año siguiente en la línea para reinscribirlos."
+"Alumnos del grupo que todavía no tienen a dónde ir. Indique un plan de "
+"estudios o un grupo del año siguiente en la línea para reinscribirlos."
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_line__student_ids
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_move__student_ids
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_reenrollment_wizard_form
 msgid "Students to Re-enroll"
 msgstr ""
@@ -1772,9 +1789,9 @@ msgid "Students with pending debt"
 msgstr "Alumnos con deuda pendiente"
 
 #. module: academic_sale_subscription
-#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_line__section_id
-msgid "Study Plan"
-msgstr ""
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_line__section_ids
+msgid "Study Plans"
+msgstr "Planes de Estudios"
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,help:academic_sale_subscription.field_academic_reenrollment_wizard_line__target_section_id
@@ -1782,16 +1799,13 @@ msgid ""
 "Study plan of the group to create. It is the current one until the group "
 "closes it, where the plan set as next on the study plan is suggested."
 msgstr ""
-"Plan de estudios del grupo a crear. Es el actual hasta que el grupo lo termina; "
-"ahí se sugiere el plan cargado como siguiente en el plan de estudios."
-
-#. module: academic_sale_subscription
-#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_line__section_ids
-msgid "Study Plans"
-msgstr "Planes de Estudios"
+"Plan de estudios del grupo a crear. Es el actual hasta que el grupo lo "
+"termina; ahí se sugiere el plan cargado como siguiente en el plan de "
+"estudios."
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_line__subject_id
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_move__subject_id
 msgid "Subject/Course"
 msgstr ""
 
@@ -1840,6 +1854,7 @@ msgstr ""
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_line__target_year
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_move__target_year
 msgid "Target Year"
 msgstr ""
 
@@ -1947,68 +1962,61 @@ msgstr ""
 #: model:ir.model.fields,help:academic_sale_subscription.field_academic_reenrollment_wizard_line__is_last_level
 msgid ""
 "The group closes its study plan, so the destination is looked up on the "
-"plans set as next. With more than one it cannot be guessed, and it is picked"
-" by hand."
+"plans set as next. With more than one it cannot be guessed, and it is picked "
+"by hand."
 msgstr ""
-"El grupo termina su plan de estudios, así que el destino se busca en los planes "
-"cargados como siguientes. Con más de uno no se puede deducir y se elige a mano."
-
-#. module: academic_sale_subscription
-#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard__pending_warning
-msgid "Pending Warning"
-msgstr "Aviso de destinos pendientes"
+"El grupo termina su plan de estudios, así que el destino se busca en los "
+"planes cargados como siguientes. Con más de uno no se puede deducir y se "
+"elige a mano."
 
 #. module: academic_sale_subscription
 #. odoo-python
 #: code:addons/academic_sale_subscription/wizard/academic_reenrollment_wizard.py:0
 msgid ""
 "The groups of this re-enrollment go to %(count)s different study plans "
-"(%(plans)s). The quotation template and the pricelist below are the same for"
-" all of them: re-enroll one study plan at a time if they need different "
-"ones."
+"(%(plans)s). The quotation template and the pricelist below are the same for "
+"all of them: re-enroll one study plan at a time if they need different ones."
 msgstr ""
 "Los grupos de esta reinscripción van a %(count)s planes de estudio distintos "
-"(%(plans)s). La plantilla de presupuesto y la lista de precios de abajo son las "
-"mismas para todos: reinscriba un plan de estudios por vez si necesitan distintas."
+"(%(plans)s). La plantilla de presupuesto y la lista de precios de abajo son "
+"las mismas para todos: reinscriba un plan de estudios por vez si necesitan "
+"distintas."
 
 #. module: academic_sale_subscription
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_reenrollment_wizard_form
 msgid ""
 "The next year group is suggested on the level that follows in the study "
 "plan\n"
-"                            sequence, and can be changed: leave it empty to "
-"create it on the fly. Students\n"
-"                            without an active payment responsible or already "
-"enrolled in the next year group\n"
-"                            are excluded. Groups not managing the sales "
-"workflow get no order: their students\n"
-"                            are enrolled directly into the next year group."
+"                            sequence, and on the first level of the next "
+"study plan when the group closes\n"
+"                            its own. It can be changed: leave it empty to "
+"create it on the fly, or pick any\n"
+"                            group of next year. Groups closing a study plan "
+"that leads nowhere are counted\n"
+"                            as graduating. Groups with students and no "
+"destination are listed in red as\n"
+"                            \"Without Destination\" and hold the re-"
+"enrollment until one is set.\n"
+"                            Open a line to leave students out or send them "
+"to another group.\n"
+"                            Students without an active payment responsible "
+"or already enrolled in any\n"
+"                            group of next year are excluded. Groups not "
+"managing the sales workflow get no order:\n"
+"                            their students are enrolled directly into the "
+"next year group."
 msgstr ""
-
-#. module: academic_sale_subscription
-#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_reenrollment_wizard_form
-msgid ""
-"The next year group is suggested on the level that follows in the study plan\n"
-"                            sequence, and on the first level of the next study plan when the group closes\n"
-"                            its own. It can be changed: leave it empty to create it on the fly, or pick any\n"
-"                            group of next year. Groups closing a study plan that leads nowhere are counted\n"
-"                            as graduating. Groups with students and no destination are listed in red as\n"
-"                            \"Without Destination\" and hold the re-enrollment until one is set.\n"
-"                            Open a line to leave students out or send them to another group.\n"
-"                            Students without an active payment responsible or already enrolled in any\n"
-"                            group of next year are excluded. Groups not managing the sales workflow get no order:\n"
-"                            their students are enrolled directly into the next year group."
-msgstr ""
-"El grupo del año siguiente se sugiere en el nivel que sigue en la secuencia del "
-"plan de estudios, y en el primer nivel del plan siguiente cuando el grupo termina "
-"el suyo. Se puede cambiar: déjelo vacío para crearlo, o elija cualquier grupo del "
-"año siguiente. Los grupos que terminan un plan de estudios sin continuación se "
-"cuentan como egresados. Los grupos con alumnos y sin destino se listan en rojo como "
-"«Sin destino» y frenan la reinscripción hasta que se les indique uno. Abra una línea "
-"para dejar alumnos afuera o enviarlos a otro grupo. Los alumnos sin responsable de "
-"pago activo o ya inscriptos en cualquier grupo del año siguiente quedan excluidos. "
-"Los grupos que no manejan el flujo de ventas no generan orden: sus alumnos se "
-"inscriben directamente en el grupo del año siguiente."
+"El grupo del año siguiente se sugiere en el nivel que sigue en la secuencia "
+"del plan de estudios, y en el primer nivel del plan siguiente cuando el "
+"grupo termina el suyo. Se puede cambiar: déjelo vacío para crearlo, o elija "
+"cualquier grupo del año siguiente. Los grupos que terminan un plan de "
+"estudios sin continuación se cuentan como egresados. Los grupos con alumnos "
+"y sin destino se listan en rojo como «Sin destino» y frenan la reinscripción "
+"hasta que se les indique uno. Abra una línea para dejar alumnos afuera o "
+"enviarlos a otro grupo. Los alumnos sin responsable de pago activo o ya "
+"inscriptos en cualquier grupo del año siguiente quedan excluidos. Los grupos "
+"que no manejan el flujo de ventas no generan orden: sus alumnos se inscriben "
+"directamente en el grupo del año siguiente."
 
 #. module: academic_sale_subscription
 #. odoo-python
@@ -2064,19 +2072,21 @@ msgstr "Debería haber líneas de productos."
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_reenrollment_wizard_form
 msgid ""
 "These students are already enrolled in the next year group,\n"
-"                                            so they are left out of this re-enrollment."
+"                                            so they are left out of this re-"
+"enrollment."
 msgstr ""
-"Estos alumnos ya están inscriptos en el grupo del año siguiente, así que quedan "
-"fuera de esta reinscripción."
+"Estos alumnos ya están inscriptos en el grupo del año siguiente, así que "
+"quedan fuera de esta reinscripción."
 
 #. module: academic_sale_subscription
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_reenrollment_wizard_form
 msgid ""
 "These students are excluded because they have no active payment\n"
-"                                            responsible. Assign one and reopen the wizard to include them."
+"                                            responsible. Assign one and "
+"reopen the wizard to include them."
 msgstr ""
-"Estos alumnos quedan excluidos porque no tienen un responsable de pago activo. "
-"Asígneles uno y vuelva a abrir el asistente para incluirlos."
+"Estos alumnos quedan excluidos porque no tienen un responsable de pago "
+"activo. Asígneles uno y vuelva a abrir el asistente para incluirlos."
 
 #. module: academic_sale_subscription
 #. odoo-python
