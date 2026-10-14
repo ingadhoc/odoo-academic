@@ -15,8 +15,8 @@ class AcademicGroup(models.Model):
     _sql_constraints = [
         (
             "group_unique",
-            "unique(subject_id, company_id, level_id, year, division_id)",
-            "Group should be unique per Institution, Subject," " Course-Division and Year",
+            "unique(subject_id, company_id, level_id, year, division_id, section_id)",
+            "Group should be unique per Institution, Study Plan, Subject, Course-Division and Year",
         )
     ]
 
@@ -89,29 +89,111 @@ class AcademicGroup(models.Model):
             ]
             line.name = " - ".join(filter(None, name_parts))
 
+    def _get_next_year_section(self):
+        """Its own plan while it has a level left, the single plan that follows once it closes
+        it. Empty when nothing follows, or when more than one does: there it is picked by hand."""
+        self.ensure_one()
+        section = self.section_id
+        if not section._is_last_level(self.level_id):
+            return section
+        return section.correlative_ids if len(section.correlative_ids) == 1 else section.browse()
+
+    def _get_next_year_level(self, section):
+        """The next level of the sequence within the same plan, the first one when the student
+        changes plan. The same level when the plan has no sequence configured."""
+        self.ensure_one()
+        if not section:
+            return self.env["academic.level"]
+        if section != self.section_id:
+            return section._get_first_level()
+        return section._get_next_level(self.level_id) or self.level_id
+
+    def _is_graduating(self):
+        """Closes a study plan that leads nowhere: its students finish their studies."""
+        self.ensure_one()
+        return self.section_id._is_last_level(self.level_id) and not self.section_id.correlative_ids
+
+    def _get_next_year_division(self, section):
+        """The division only carries over to another study plan when that plan already uses
+        it: a Secondary without divisions must not get an invented "A" from Primary."""
+        self.ensure_one()
+        if not self.division_id or section == self.section_id:
+            return self.division_id
+        used = (
+            self.env["academic.group"]
+            .with_context(active_test=False)
+            .search_count(
+                [
+                    ("company_id", "=", self.company_id.id),
+                    ("section_id", "=", section.id),
+                    ("division_id", "=", self.division_id.id),
+                ],
+                limit=1,
+            )
+        )
+        return self.division_id if used else self.env["academic.division"]
+
+    def _get_next_year_vals(self, level=None, section=None, division=None):
+        """Where the group lands next year, each coordinate overridable. Shared by the search
+        and the copy so that both always look at the same group."""
+        self.ensure_one()
+        section = section or self.section_id
+        division = self._get_next_year_division(section) if division is None else division
+        return {
+            "year": self.year + 1,
+            "section_id": section.id,
+            "level_id": (level or self.level_id).id,
+            "division_id": division.id,
+        }
+
+    def _get_next_year_group(self, level=None, section=None, division=None):
+        self.ensure_one()
+        vals = self._get_next_year_vals(level=level, section=section, division=division)
+        # active_test=False: the unique constraint ignores `active`, so an archived group
+        # that is not found here makes the copy below crash on a unique violation
+        return (
+            self.env["academic.group"]
+            .with_context(active_test=False)
+            .search(
+                [(field, "=", value) for field, value in vals.items()]
+                + [("company_id", "=", self.company_id.id), ("subject_id", "=", self.subject_id.id)],
+                limit=1,
+            )
+        )
+
+    def _create_next_year_group(self, level=None, section=None, division=None):
+        self.ensure_one()
+        vals = self._get_next_year_vals(level=level, section=section, division=division)
+        return self.copy(default={**vals, "student_ids": False})
+
+    def _get_groups_action(self):
+        action = self.env["ir.actions.actions"]._for_xml_id("academic.action_academic_group_groups")
+        action.update({"domain": [("id", "in", self.ids)], "context": {}})
+        return action
+
     def create_next_year_groups(self):
         # estamos pasando de un año a otro sin usar study plan por lo siguiente:
         # a) hay muchos colegios que no lo tienen bien implmentado
         # b) los study plan no pueden reflejar todos los casos todavia (por )
-
+        existing = next_groups = self.env["academic.group"]
         for rec in self:
-            next_group = rec.env["academic.group"].search(
-                [
-                    ("year", "=", rec.year + 1),
-                    ("company_id", "=", rec.company_id.id),
-                    ("level_id", "=", rec.level_id.id),
-                    ("division_id", "=", rec.division_id.id),
-                ],
-                limit=1,
-            )
+            found = rec._get_next_year_group()
+            existing |= found
+            next_groups |= found or rec._create_next_year_group()
 
-            if not next_group:
-                next_group = rec.copy(
-                    default={
-                        "year": rec.year + 1,
-                        "student_ids": False,
-                    }
-                )
+        return {
+            "type": "ir.actions.client",
+            "tag": "display_notification",
+            "params": {
+                "type": "success",
+                "message": self.env._(
+                    "%(created)s next year group(s) created, %(existing)s already existed.",
+                    created=len(next_groups - existing),
+                    existing=len(existing),
+                ),
+                "next": next_groups._get_groups_action(),
+            },
+        }
 
     def open_students(self):
         action = self.env.ref("academic.action_academic_partner_students").read()[0]
