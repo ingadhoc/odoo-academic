@@ -96,7 +96,8 @@ class SaleOrder(models.Model):
     def action_update_prices(self):
         if self.env.context.get("action_update_subscription_prices"):
             lines_no_recurring_pricing = self.order_line.filtered(
-                lambda line: not bool(
+                lambda line: not line.product_id
+                or not bool(
                     line.product_id.product_tmpl_id._get_recurring_pricing(
                         line.order_id.pricelist_id, variant=line.product_id, plan_id=line.subscription_plan_id.id
                     )
