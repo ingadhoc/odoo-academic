@@ -6,8 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0+e\n"
 "Report-Msgid-Bugs-To: \n"
+<<<<<<< 41bc5711f0d180d602b68bab5b54eeea55b43a0f
 "POT-Creation-Date: 2026-10-13 20:25+0000\n"
 "PO-Revision-Date: 2026-10-13 20:25+0000\n"
+||||||| c2aec6bf56f6392e4cd1fa4605c281056210de97
+"POT-Creation-Date: 2026-07-17 18:35+0000\n"
+"PO-Revision-Date: 2026-07-17 18:35+0000\n"
+=======
+"POT-Creation-Date: 2026-10-14 18:08+0000\n"
+"PO-Revision-Date: 2026-10-14 18:08+0000\n"
+>>>>>>> e60c72a2d402c1b519825cc0555a4fa464a705ff
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -139,6 +147,7 @@ msgid "<strong>Total amount due: </strong>"
 msgstr ""
 
 #. module: academic_sale_subscription
+<<<<<<< 41bc5711f0d180d602b68bab5b54eeea55b43a0f
 #. odoo-python
 #: code:addons/academic_sale_subscription/models/crm_lead.py:0
 msgid ""
@@ -167,6 +176,21 @@ msgid "A subscription plan is required when creating recurring orders."
 msgstr ""
 
 #. module: academic_sale_subscription
+||||||| c2aec6bf56f6392e4cd1fa4605c281056210de97
+=======
+#. odoo-python
+#: code:addons/academic_sale_subscription/wizard/academic_reenrollment_wizard.py:0
+msgid "A quotation template is required to create the re-enrollment orders."
+msgstr ""
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/wizard/academic_order_wizard.py:0
+msgid "A subscription plan is required when creating recurring orders."
+msgstr ""
+
+#. module: academic_sale_subscription
+>>>>>>> e60c72a2d402c1b519825cc0555a4fa464a705ff
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard_line__academic_group_id
 msgid "Academic Group"
 msgstr ""
@@ -196,6 +220,7 @@ msgid "Academic Product Type"
 msgstr ""
 
 #. module: academic_sale_subscription
+<<<<<<< 41bc5711f0d180d602b68bab5b54eeea55b43a0f
 #: model:ir.model,name:academic_sale_subscription.model_academic_reenrollment_wizard_move
 msgid "Academic Re-enrollment Student Move"
 msgstr ""
@@ -216,6 +241,24 @@ msgid "Account Chart Template"
 msgstr ""
 
 #. module: academic_sale_subscription
+||||||| c2aec6bf56f6392e4cd1fa4605c281056210de97
+=======
+#: model:ir.model,name:academic_sale_subscription.model_academic_reenrollment_wizard_move
+msgid "Academic Re-enrollment Student Move"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:ir.model,name:academic_sale_subscription.model_academic_reenrollment_wizard
+msgid "Academic Re-enrollment Wizard"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:ir.model,name:academic_sale_subscription.model_academic_reenrollment_wizard_line
+msgid "Academic Re-enrollment Wizard Line"
+msgstr ""
+
+#. module: academic_sale_subscription
+>>>>>>> e60c72a2d402c1b519825cc0555a4fa464a705ff
 #: model:ir.model,name:academic_sale_subscription.model_account_move_send
 msgid "Account Move Send"
 msgstr ""
@@ -226,6 +269,7 @@ msgid "Active Sales/Subscriptions"
 msgstr ""
 
 #. module: academic_sale_subscription
+<<<<<<< 41bc5711f0d180d602b68bab5b54eeea55b43a0f
 #. odoo-python
 #: code:addons/academic_sale_subscription/models/crm_lead.py:0
 msgid "Add at least one Relative line (father/mother/tutor)."
@@ -250,6 +294,15 @@ msgid "Already Enrolled"
 msgstr ""
 
 #. module: academic_sale_subscription
+||||||| c2aec6bf56f6392e4cd1fa4605c281056210de97
+=======
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_line__excluded_enrolled_ids
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_reenrollment_wizard_form
+msgid "Already Enrolled"
+msgstr ""
+
+#. module: academic_sale_subscription
+>>>>>>> e60c72a2d402c1b519825cc0555a4fa464a705ff
 #: model:ir.model,name:academic_sale_subscription.model_archive_family_debt_wizard
 msgid "Archive Family — Debt Warning"
 msgstr ""
@@ -325,6 +378,7 @@ msgid "Companies"
 msgstr ""
 
 #. module: academic_sale_subscription
+<<<<<<< 41bc5711f0d180d602b68bab5b54eeea55b43a0f
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_line__company_id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_move__company_id
 msgid "Company"
@@ -337,6 +391,15 @@ msgid "Complete the relationship on all Relative lines."
 msgstr ""
 
 #. module: academic_sale_subscription
+||||||| c2aec6bf56f6392e4cd1fa4605c281056210de97
+=======
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_line__company_id
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_move__company_id
+msgid "Company"
+msgstr ""
+
+#. module: academic_sale_subscription
+>>>>>>> e60c72a2d402c1b519825cc0555a4fa464a705ff
 #: model:ir.model,name:academic_sale_subscription.model_res_config_settings
 msgid "Config Settings"
 msgstr ""
@@ -419,6 +482,7 @@ msgid "Created on"
 msgstr ""
 
 #. module: academic_sale_subscription
+<<<<<<< 41bc5711f0d180d602b68bab5b54eeea55b43a0f
 #: model_terms:sale.order.close.reason,retention_message:academic_sale_subscription.close_reason_disciplinary
 msgid "Creemos en las segundas oportunidades y el crecimiento personal."
 msgstr ""
@@ -444,11 +508,40 @@ msgid "Cuota Mensual - Universidad"
 msgstr ""
 
 #. module: academic_sale_subscription
+||||||| c2aec6bf56f6392e4cd1fa4605c281056210de97
+=======
+#: model_terms:sale.order.close.reason,retention_message:academic_sale_subscription.close_reason_disciplinary
+msgid "Creemos en las segundas oportunidades y el crecimiento personal."
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:product.template,name:academic_sale_subscription.product_cuota_ingles_product_template
+msgid "Cuota Mensual - Inglés"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:product.template,name:academic_sale_subscription.product_cuota_primaria_product_template
+msgid "Cuota Mensual - Primaria"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:product.template,name:academic_sale_subscription.product_cuota_secundaria_product_template
+msgid "Cuota Mensual - Secundaria"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:product.template,name:academic_sale_subscription.product_cuota_universidad_product_template
+msgid "Cuota Mensual - Universidad"
+msgstr ""
+
+#. module: academic_sale_subscription
+>>>>>>> e60c72a2d402c1b519825cc0555a4fa464a705ff
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard_line__currency_id
 msgid "Currency"
 msgstr ""
 
 #. module: academic_sale_subscription
+<<<<<<< 41bc5711f0d180d602b68bab5b54eeea55b43a0f
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_line__source_group_id
 msgid "Current Group"
 msgstr ""
@@ -456,6 +549,14 @@ msgstr ""
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_bank_statement_line__current_main_group_id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_move__current_main_group_id
+||||||| c2aec6bf56f6392e4cd1fa4605c281056210de97
+=======
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_line__source_group_id
+msgid "Current Group"
+msgstr ""
+
+#. module: academic_sale_subscription
+>>>>>>> e60c72a2d402c1b519825cc0555a4fa464a705ff
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order__current_main_group_id
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_view_account_invoice_filter
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.sale_subscription_template_view_search
@@ -489,6 +590,7 @@ msgid "Customer"
 msgstr ""
 
 #. module: academic_sale_subscription
+<<<<<<< 41bc5711f0d180d602b68bab5b54eeea55b43a0f
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_crm_lead_family_member__vat
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.report_debt_free_certificate_document
 msgid "DNI"
@@ -501,6 +603,15 @@ msgstr ""
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_params__next_invoice_date
+||||||| c2aec6bf56f6392e4cd1fa4605c281056210de97
+=======
+#: model:sale.order.close.reason,retention_button_text:academic_sale_subscription.close_reason_dissatisfaction
+msgid "Dar feedback"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_params__next_invoice_date
+>>>>>>> e60c72a2d402c1b519825cc0555a4fa464a705ff
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__next_invoice_date
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard__next_invoice_date
 msgid "Date of first invoice"
@@ -533,6 +644,7 @@ msgid "Description"
 msgstr ""
 
 #. module: academic_sale_subscription
+<<<<<<< 41bc5711f0d180d602b68bab5b54eeea55b43a0f
 #: model:sale.order.close.reason,name:academic_sale_subscription.close_reason_financial
 msgid "Dificultades económicas"
 msgstr ""
@@ -540,8 +652,17 @@ msgstr ""
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_group__display_name
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_params__display_name
+||||||| c2aec6bf56f6392e4cd1fa4605c281056210de97
+=======
+#: model:sale.order.close.reason,name:academic_sale_subscription.close_reason_financial
+msgid "Dificultades económicas"
+msgstr ""
+
+#. module: academic_sale_subscription
+>>>>>>> e60c72a2d402c1b519825cc0555a4fa464a705ff
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__display_name
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard_line__display_name
+<<<<<<< 41bc5711f0d180d602b68bab5b54eeea55b43a0f
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard__display_name
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_line__display_name
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_move__display_name
@@ -549,6 +670,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_move__display_name
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_move_line__display_name
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_move_send__display_name
+||||||| c2aec6bf56f6392e4cd1fa4605c281056210de97
+=======
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard__display_name
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_line__display_name
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_move__display_name
+>>>>>>> e60c72a2d402c1b519825cc0555a4fa464a705ff
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_archive_family_debt_wizard__display_name
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_crm_lead__display_name
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_crm_lead_family_member__display_name
@@ -569,6 +696,7 @@ msgid "Display Name"
 msgstr ""
 
 #. module: academic_sale_subscription
+<<<<<<< 41bc5711f0d180d602b68bab5b54eeea55b43a0f
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_reenrollment_wizard_form
 msgid "Division"
 msgstr ""
@@ -578,6 +706,25 @@ msgstr ""
 msgid ""
 "Division of the group to create. On a change of study plan it is only kept "
 "when the target plan already uses it, so no division is invented."
+||||||| c2aec6bf56f6392e4cd1fa4605c281056210de97
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order_close_reason__no_reopen_subscription
+msgid "Do Not Reopen Subscription"
+=======
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_reenrollment_wizard_form
+msgid "Division"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,help:academic_sale_subscription.field_academic_reenrollment_wizard_line__target_division_id
+msgid ""
+"Division of the group to create. On a change of study plan it is only kept "
+"when the target plan already uses it, so no division is invented."
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_sale_order_close_reason__no_reopen_subscription
+msgid "Do Not Reopen Subscription"
+>>>>>>> e60c72a2d402c1b519825cc0555a4fa464a705ff
 msgstr ""
 
 #. module: academic_sale_subscription
@@ -611,6 +758,16 @@ msgstr ""
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_crm_lead_family_member__email
 msgid "Email"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:ir.model.constraint,message:academic_sale_subscription.constraint_academic_reenrollment_wizard_move_student_unique
+msgid "Each student can only be sent to one group."
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:sale.order.close.reason,name:academic_sale_subscription.close_reason_graduated
+msgid "Egresado/Graduado"
 msgstr ""
 
 #. module: academic_sale_subscription
@@ -661,6 +818,41 @@ msgid "Esperamos que te recuperes pronto."
 msgstr ""
 
 #. module: academic_sale_subscription
+#: model_terms:sale.order.close.reason,retention_message:academic_sale_subscription.close_reason_financial
+msgid "Entendemos las dificultades económicas que pueden surgir."
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model_terms:sale.order.close.reason,retention_message:academic_sale_subscription.close_reason_transferred
+msgid "Entendemos que a veces es necesario cambiar de institución."
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model_terms:sale.order.close.reason,retention_message:academic_sale_subscription.close_reason_temporary_leave
+msgid "Entendemos que a veces es necesario tomar un descanso temporal."
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_contactus_form
+msgid "Enviar"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:crm.team,name:academic_sale_subscription.crm_team_academic
+msgid "Equipo Académico"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_contactus_form
+msgid "Escriba aquí sus comentarios o consultas..."
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model_terms:sale.order.close.reason,retention_message:academic_sale_subscription.close_reason_medical
+msgid "Esperamos que te recuperes pronto."
+msgstr ""
+
+#. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_archive_family_debt_wizard__family_ids
 msgid "Families"
 msgstr ""
@@ -669,8 +861,13 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_bank_statement_line__family_id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_move__family_id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_move_line__family_id
+<<<<<<< 41bc5711f0d180d602b68bab5b54eeea55b43a0f
 #: model:ir.model.fields.selection,name:academic_sale_subscription.selection__crm_lead_family_member__member_type__family
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_reenrollment_wizard_form
+||||||| c2aec6bf56f6392e4cd1fa4605c281056210de97
+=======
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_reenrollment_wizard_form
+>>>>>>> e60c72a2d402c1b519825cc0555a4fa464a705ff
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_view_account_invoice_filter
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.view_account_move_line_filter
 msgid "Family"
@@ -732,6 +929,7 @@ msgid "Group"
 msgstr ""
 
 #. module: academic_sale_subscription
+<<<<<<< 41bc5711f0d180d602b68bab5b54eeea55b43a0f
 #: model:ir.model.fields,help:academic_sale_subscription.field_academic_reenrollment_wizard_line__target_group_id
 msgid ""
 "Group the students are re-enrolled into. Leave it empty to create it on the "
@@ -782,8 +980,60 @@ msgstr ""
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_group__id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_params__id
+||||||| c2aec6bf56f6392e4cd1fa4605c281056210de97
+=======
+#: model:ir.model.fields,help:academic_sale_subscription.field_academic_reenrollment_wizard_line__target_group_id
+msgid ""
+"Group the students are re-enrolled into. Leave it empty to create it on the "
+"fly on the study plan, level and division set next to it."
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,help:academic_sale_subscription.field_academic_reenrollment_wizard_move__target_group_id
+msgid ""
+"Group this student is re-enrolled into, instead of the one of the line."
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_reenrollment_wizard_form
+msgid "Groups"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_reenrollment_wizard_form
+msgid "Groups Preview"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard__line_ids
+msgid "Groups to Re-enroll"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:sale.order.close.reason,retention_button_text:academic_sale_subscription.close_reason_transferred
+msgid "Hablar con coordinador"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:sale.order.close.reason,retention_button_text:academic_sale_subscription.close_reason_medical
+msgid "Hablar sobre adaptaciones"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model_terms:sale.order.close.reason,retention_message:academic_sale_subscription.close_reason_completed_program
+msgid "Has completado exitosamente el programa."
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:product.template,name:academic_sale_subscription.product_horas_extra_product_template
+msgid "Horas Extra"
+msgstr ""
+
+#. module: academic_sale_subscription
+>>>>>>> e60c72a2d402c1b519825cc0555a4fa464a705ff
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard_line__id
+<<<<<<< 41bc5711f0d180d602b68bab5b54eeea55b43a0f
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard__id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_line__id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_move__id
@@ -791,6 +1041,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_move__id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_move_line__id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_move_send__id
+||||||| c2aec6bf56f6392e4cd1fa4605c281056210de97
+=======
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard__id
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_line__id
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_move__id
+>>>>>>> e60c72a2d402c1b519825cc0555a4fa464a705ff
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_archive_family_debt_wizard__id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_crm_lead__id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_crm_lead_family_member__id
@@ -838,6 +1094,31 @@ msgstr ""
 
 #. module: academic_sale_subscription
 #: model:product.template,name:academic_sale_subscription.product_inscripcion_universidad
+msgid "Inscripción - Universidad"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:sale.order.close.reason,name:academic_sale_subscription.close_reason_dissatisfaction
+msgid "Insatisfacción con el servicio"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:product.template,name:academic_sale_subscription.product_inscripcion_ingles_product_template
+msgid "Inscripción - Inglés"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:product.template,name:academic_sale_subscription.product_inscripcion_primaria_product_template
+msgid "Inscripción - Primaria"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:product.template,name:academic_sale_subscription.product_inscripcion_secundaria_product_template
+msgid "Inscripción - Secundaria"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:product.template,name:academic_sale_subscription.product_inscripcion_universidad_product_template
 msgid "Inscripción - Universidad"
 msgstr ""
 
@@ -918,6 +1199,11 @@ msgid "Last Level"
 msgstr ""
 
 #. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_line__is_last_level
+msgid "Last Level"
+msgstr ""
+
+#. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__write_uid
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard_line__write_uid
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard__write_uid
@@ -983,6 +1269,7 @@ msgid "Lines"
 msgstr ""
 
 #. module: academic_sale_subscription
+<<<<<<< 41bc5711f0d180d602b68bab5b54eeea55b43a0f
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.crm_lead_view_form
 msgid "Link family"
 msgstr ""
@@ -993,6 +1280,14 @@ msgid "Los problemas académicos pueden superarse con el apoyo adecuado."
 msgstr ""
 
 #. module: academic_sale_subscription
+||||||| c2aec6bf56f6392e4cd1fa4605c281056210de97
+=======
+#: model_terms:sale.order.close.reason,retention_message:academic_sale_subscription.close_reason_academic
+msgid "Los problemas académicos pueden superarse con el apoyo adecuado."
+msgstr ""
+
+#. module: academic_sale_subscription
+>>>>>>> e60c72a2d402c1b519825cc0555a4fa464a705ff
 #. odoo-python
 #: code:addons/academic_sale_subscription/models/account_move.py:0
 msgid "Los siguientes documentos no cumplen esa condición:"
@@ -1010,6 +1305,7 @@ msgid "Manage Sale Workflow"
 msgstr ""
 
 #. module: academic_sale_subscription
+<<<<<<< 41bc5711f0d180d602b68bab5b54eeea55b43a0f
 #: model:sale.order.close.reason,retention_button_text:academic_sale_subscription.close_reason_temporary_leave
 msgid "Mantener contacto"
 msgstr ""
@@ -1063,6 +1359,48 @@ msgstr ""
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_crm_lead_family_member__name
 msgid "Name"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_line__will_create_group
+msgid "New Group"
+||||||| c2aec6bf56f6392e4cd1fa4605c281056210de97
+#: model:ir.model.fields.selection,name:academic_sale_subscription.selection__sale_subscription_plan__duration_unit__month
+msgid "Months"
+=======
+#: model:sale.order.close.reason,retention_button_text:academic_sale_subscription.close_reason_temporary_leave
+msgid "Mantener contacto"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model_terms:sale.order.close.reason,retention_message:academic_sale_subscription.close_reason_temporary_leave
+msgid "Mantén contacto con nosotros para coordinar tu regreso."
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard__mixed_plans_warning
+msgid "Mixed Plans Warning"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields.selection,name:academic_sale_subscription.selection__sale_subscription_plan__duration_unit__month
+msgid "Months"
+>>>>>>> e60c72a2d402c1b519825cc0555a4fa464a705ff
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:sale.order.close.reason,name:academic_sale_subscription.close_reason_disciplinary
+msgid "Motivos disciplinarios"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:sale.order.close.reason,name:academic_sale_subscription.close_reason_medical
+msgid "Motivos médicos/salud"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:sale.order.close.reason,name:academic_sale_subscription.close_reason_family_relocation
+msgid "Mudanza familiar"
 msgstr ""
 
 #. module: academic_sale_subscription
@@ -1146,6 +1484,7 @@ msgstr ""
 
 #. module: academic_sale_subscription
 #. odoo-python
+<<<<<<< 41bc5711f0d180d602b68bab5b54eeea55b43a0f
 #: code:addons/academic_sale_subscription/models/crm_lead.py:0
 msgid "No related family was found for the entered parent DNI."
 msgstr ""
@@ -1158,6 +1497,15 @@ msgstr ""
 
 #. module: academic_sale_subscription
 #. odoo-python
+||||||| c2aec6bf56f6392e4cd1fa4605c281056210de97
+=======
+#: code:addons/academic_sale_subscription/wizard/academic_reenrollment_wizard.py:0
+msgid "No selected group has students to re-enroll into a next year group."
+msgstr ""
+
+#. module: academic_sale_subscription
+#. odoo-python
+>>>>>>> e60c72a2d402c1b519825cc0555a4fa464a705ff
 #: code:addons/academic_sale_subscription/wizard/academic_order_wizard.py:0
 msgid "No student has been selected."
 msgstr ""
@@ -1240,6 +1588,7 @@ msgstr ""
 
 #. module: academic_sale_subscription
 #. odoo-python
+<<<<<<< 41bc5711f0d180d602b68bab5b54eeea55b43a0f
 #: code:addons/academic_sale_subscription/wizard/academic_order_params.py:0
 msgid "Orders"
 msgstr ""
@@ -1251,6 +1600,16 @@ msgstr ""
 
 #. module: academic_sale_subscription
 #. odoo-python
+||||||| c2aec6bf56f6392e4cd1fa4605c281056210de97
+=======
+#: code:addons/academic_sale_subscription/wizard/academic_order_params.py:0
+#: code:addons/academic_sale_subscription/wizard/academic_order_wizard.py:0
+msgid "Orders"
+msgstr ""
+
+#. module: academic_sale_subscription
+#. odoo-python
+>>>>>>> e60c72a2d402c1b519825cc0555a4fa464a705ff
 #: code:addons/academic_sale_subscription/wizard/update_payment_responsible_partner_wizard.py:0
 msgid "Partner %s does not have the Payment Responsible role."
 msgstr ""
@@ -1423,6 +1782,7 @@ msgid "Please select a new payment responsible."
 msgstr ""
 
 #. module: academic_sale_subscription
+<<<<<<< 41bc5711f0d180d602b68bab5b54eeea55b43a0f
 #: model_terms:sale.order.close.reason,retention_message:academic_sale_subscription.close_reason_medical
 msgid "Podemos adaptar el programa académico a tus necesidades médicas."
 msgstr ""
@@ -1438,6 +1798,19 @@ msgid "Por el presente se deja constancia que el Sr./Sra"
 msgstr ""
 
 #. module: academic_sale_subscription
+||||||| c2aec6bf56f6392e4cd1fa4605c281056210de97
+=======
+#: model_terms:sale.order.close.reason,retention_message:academic_sale_subscription.close_reason_medical
+msgid "Podemos adaptar el programa académico a tus necesidades médicas."
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model_terms:sale.order.close.reason,retention_message:academic_sale_subscription.close_reason_financial
+msgid "Podemos ayudarte"
+msgstr ""
+
+#. module: academic_sale_subscription
+>>>>>>> e60c72a2d402c1b519825cc0555a4fa464a705ff
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard_line__price
 msgid "Price"
 msgstr ""
@@ -1471,6 +1844,7 @@ msgid "Quantity"
 msgstr ""
 
 #. module: academic_sale_subscription
+<<<<<<< 41bc5711f0d180d602b68bab5b54eeea55b43a0f
 #: model_terms:sale.order.close.reason,retention_message:academic_sale_subscription.close_reason_academic
 msgid "Queremos ayudarte a mejorar"
 msgstr ""
@@ -1491,6 +1865,24 @@ msgid "Re-enroll to Next Year"
 msgstr ""
 
 #. module: academic_sale_subscription
+||||||| c2aec6bf56f6392e4cd1fa4605c281056210de97
+=======
+#: model_terms:sale.order.close.reason,retention_message:academic_sale_subscription.close_reason_academic
+msgid "Queremos ayudarte a mejorar"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_reenrollment_wizard_form
+msgid "Re-enroll"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:ir.actions.act_window,name:academic_sale_subscription.action_view_academic_reenrollment_wizard
+msgid "Re-enroll to Next Year"
+msgstr ""
+
+#. module: academic_sale_subscription
+>>>>>>> e60c72a2d402c1b519825cc0555a4fa464a705ff
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.sale_subscription_order_view_form
 msgid "Recompute end date based on this next invoice date"
 msgstr ""
@@ -1556,6 +1948,7 @@ msgid "Require Student On Invoices"
 msgstr ""
 
 #. module: academic_sale_subscription
+<<<<<<< 41bc5711f0d180d602b68bab5b54eeea55b43a0f
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard__requires_sale_data
 msgid "Requires Sale Data"
 msgstr ""
@@ -1566,6 +1959,14 @@ msgid "Role"
 msgstr ""
 
 #. module: academic_sale_subscription
+||||||| c2aec6bf56f6392e4cd1fa4605c281056210de97
+=======
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard__requires_sale_data
+msgid "Requires Sale Data"
+msgstr ""
+
+#. module: academic_sale_subscription
+>>>>>>> e60c72a2d402c1b519825cc0555a4fa464a705ff
 #: model:ir.model,name:academic_sale_subscription.model_sale_order
 msgid "Sales Order"
 msgstr ""
@@ -1666,8 +2067,13 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_move__student_id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_move_line__student_id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_partner_wizard__student_ids
+<<<<<<< 41bc5711f0d180d602b68bab5b54eeea55b43a0f
 #: model:ir.model.fields.selection,name:academic_sale_subscription.selection__crm_lead_family_member__member_type__student
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_reenrollment_wizard_form
+||||||| c2aec6bf56f6392e4cd1fa4605c281056210de97
+=======
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_reenrollment_wizard_form
+>>>>>>> e60c72a2d402c1b519825cc0555a4fa464a705ff
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.portal_my_invoices
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.view_order_form
 msgid "Student"
@@ -1731,8 +2137,34 @@ msgid "Students with pending debt"
 msgstr ""
 
 #. module: academic_sale_subscription
+<<<<<<< 41bc5711f0d180d602b68bab5b54eeea55b43a0f
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_line__section_ids
 msgid "Study Plans"
+||||||| c2aec6bf56f6392e4cd1fa4605c281056210de97
+#: model:ir.model,name:academic_sale_subscription.model_sale_order_close_reason
+msgid "Subscription Close Reason"
+=======
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_line__section_ids
+msgid "Study Plans"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,help:academic_sale_subscription.field_academic_reenrollment_wizard_line__target_section_id
+msgid ""
+"Study plan of the group to create. It is the current one until the group "
+"closes it, where the plan set as next on the study plan is suggested."
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_line__subject_id
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_move__subject_id
+msgid "Subject/Course"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:ir.model,name:academic_sale_subscription.model_sale_order_close_reason
+msgid "Subscription Close Reason"
+>>>>>>> e60c72a2d402c1b519825cc0555a4fa464a705ff
 msgstr ""
 
 #. module: academic_sale_subscription
@@ -1760,6 +2192,7 @@ msgid "Success"
 msgstr ""
 
 #. module: academic_sale_subscription
+<<<<<<< 41bc5711f0d180d602b68bab5b54eeea55b43a0f
 #. odoo-python
 #: code:addons/academic_sale_subscription/models/crm_lead.py:0
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_crm_lead__suggested_family_ids
@@ -1804,6 +2237,26 @@ msgstr ""
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_params__template_id
+||||||| c2aec6bf56f6392e4cd1fa4605c281056210de97
+=======
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_reenrollment_wizard_form
+msgid "Summary"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_line__target_year
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_move__target_year
+msgid "Target Year"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model_terms:sale.order.close.reason,retention_message:academic_sale_subscription.close_reason_graduated
+msgid "Te invitamos a considerar nuestros programas de nivel superior."
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_params__template_id
+>>>>>>> e60c72a2d402c1b519825cc0555a4fa464a705ff
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard__template_id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_order_wizard_line__template_id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard__template_id
@@ -2088,9 +2541,30 @@ msgid "Warning: This invoice is not associated with any student"
 msgstr ""
 
 #. module: academic_sale_subscription
+<<<<<<< 41bc5711f0d180d602b68bab5b54eeea55b43a0f
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_line__pending_count
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_reenrollment_wizard_form
 msgid "Without Destination"
+||||||| c2aec6bf56f6392e4cd1fa4605c281056210de97
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_line__wizard_id
+msgid "Wizard"
+=======
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_line__pending_count
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_reenrollment_wizard_form
+msgid "Without Destination"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_line__excluded_no_responsible_ids
+#: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_reenrollment_wizard_form
+msgid "Without Payment Responsible"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_line__wizard_id
+#: model:ir.model.fields,field_description:academic_sale_subscription.field_update_payment_responsible_line__wizard_id
+msgid "Wizard"
+>>>>>>> e60c72a2d402c1b519825cc0555a4fa464a705ff
 msgstr ""
 
 #. module: academic_sale_subscription
@@ -2163,6 +2637,7 @@ msgid ""
 msgstr ""
 
 #. module: academic_sale_subscription
+<<<<<<< 41bc5711f0d180d602b68bab5b54eeea55b43a0f
 #: model:sale.order.close.reason,retention_button_link:academic_sale_subscription.close_reason_financial
 msgid "mailto:becas@colegio.edu.ar?subject=Consulta programa de becas"
 msgstr ""
@@ -2218,9 +2693,63 @@ msgid "no presenta deuda en esta institución hasta el día"
 msgstr ""
 
 #. module: academic_sale_subscription
+||||||| c2aec6bf56f6392e4cd1fa4605c281056210de97
+=======
+#: model:sale.order.close.reason,retention_button_link:academic_sale_subscription.close_reason_financial
+msgid "mailto:becas@colegio.edu.ar?subject=Consulta programa de becas"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:sale.order.close.reason,retention_button_link:academic_sale_subscription.close_reason_dissatisfaction
+msgid "mailto:calidad@colegio.edu.ar?subject=Feedback sobre servicios"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:sale.order.close.reason,retention_button_link:academic_sale_subscription.close_reason_transferred
+msgid "mailto:coordinacion@colegio.edu.ar?subject=Retención estudiantil"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:sale.order.close.reason,retention_button_link:academic_sale_subscription.close_reason_disciplinary
+msgid "mailto:direccion@colegio.edu.ar?subject=Solicitud de reunión"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:sale.order.close.reason,retention_button_link:academic_sale_subscription.close_reason_medical
+msgid "mailto:inclusion@colegio.edu.ar?subject=Adaptaciones médicas"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:sale.order.close.reason,retention_button_link:academic_sale_subscription.close_reason_graduated
+msgid "mailto:info@colegio.edu.ar?subject=Consulta programas superiores"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:sale.order.close.reason,retention_button_link:academic_sale_subscription.close_reason_completed_program
+msgid "mailto:info@colegio.edu.ar?subject=Programas complementarios"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:sale.order.close.reason,retention_button_link:academic_sale_subscription.close_reason_temporary_leave
+msgid "mailto:secretaria@colegio.edu.ar?subject=Licencia temporal"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:sale.order.close.reason,retention_button_link:academic_sale_subscription.close_reason_family_relocation
+msgid "mailto:transporte@colegio.edu.ar?subject=Consulta transporte escolar"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:sale.order.close.reason,retention_button_link:academic_sale_subscription.close_reason_academic
+msgid "mailto:tutoria@colegio.edu.ar?subject=Solicitud de apoyo académico"
+msgstr ""
+
+#. module: academic_sale_subscription
+>>>>>>> e60c72a2d402c1b519825cc0555a4fa464a705ff
 #: model:ir.model,name:academic_sale_subscription.model_res_partner_link
 msgid "res.partner.link"
 msgstr ""
+<<<<<<< 41bc5711f0d180d602b68bab5b54eeea55b43a0f
 
 #. module: academic_sale_subscription
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.report_debt_free_certificate_document
@@ -2251,3 +2780,51 @@ msgstr ""
 #: model_terms:sale.order.close.reason,retention_message:academic_sale_subscription.close_reason_family_relocation
 msgid "¿Te mudas lejos?"
 msgstr ""
+||||||| c2aec6bf56f6392e4cd1fa4605c281056210de97
+=======
+
+#. module: academic_sale_subscription
+#: model_terms:sale.order.close.reason,retention_message:academic_sale_subscription.close_reason_graduated
+msgid "¡Felicitaciones por tu graduación!"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model_terms:sale.order.close.reason,retention_message:academic_sale_subscription.close_reason_completed_program
+msgid "¡Felicitaciones!"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model_terms:sale.order.close.reason,retention_message:academic_sale_subscription.close_reason_transferred
+msgid "¿Hay algo que podamos hacer para que reconsieres tu decisión?"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model_terms:sale.order.close.reason,retention_message:academic_sale_subscription.close_reason_completed_program
+msgid "¿Te interesaría continuar con programas complementarios?"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model_terms:sale.order.close.reason,retention_message:academic_sale_subscription.close_reason_family_relocation
+msgid "¿Te mudas lejos?"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:sale.order.template.line,name:academic_sale_subscription.template_section_ingles
+msgid "🇺🇸 CURSOS DE INGLÉS"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:sale.order.template.line,name:academic_sale_subscription.template_section_secundaria
+msgid "🎓 EDUCACIÓN SECUNDARIA"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:sale.order.template.line,name:academic_sale_subscription.template_section_universidad
+msgid "🏛️ EDUCACIÓN UNIVERSITARIA"
+msgstr ""
+
+#. module: academic_sale_subscription
+#: model:sale.order.template.line,name:academic_sale_subscription.template_section_primaria
+msgid "📚 EDUCACIÓN PRIMARIA"
+msgstr ""
+>>>>>>> e60c72a2d402c1b519825cc0555a4fa464a705ff

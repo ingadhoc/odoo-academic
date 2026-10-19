@@ -11,11 +11,23 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0+e\n"
 "Report-Msgid-Bugs-To: \n"
+<<<<<<< 41bc5711f0d180d602b68bab5b54eeea55b43a0f
 "POT-Creation-Date: 2026-10-13 20:24+0000\n"
 "PO-Revision-Date: 2026-10-07 17:55+0000\n"
 "Last-Translator: BAF <baf@adhoc.inc>\n"
 "Language-Team: Spanish <https://translation.dev-adhoc.com/projects/odoo-"
 "academic-19-0/odoo-academic-19-0-academic/es/>\n"
+||||||| c2aec6bf56f6392e4cd1fa4605c281056210de97
+"POT-Creation-Date: 2026-07-17 18:34+0000\n"
+"PO-Revision-Date: 2024-11-15 13:26+0000\n"
+"Last-Translator: Juan José Scarafía <scarafia.juanjose@gmail.com>, 2025\n"
+"Language-Team: Spanish (https://app.transifex.com/adhoc/teams/46451/es/)\n"
+=======
+"POT-Creation-Date: 2026-10-14 18:08+0000\n"
+"PO-Revision-Date: 2024-11-15 13:26+0000\n"
+"Last-Translator: Juan José Scarafía <scarafia.juanjose@gmail.com>, 2025\n"
+"Language-Team: Spanish (https://app.transifex.com/adhoc/teams/46451/es/)\n"
+>>>>>>> e60c72a2d402c1b519825cc0555a4fa464a705ff
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,6 +47,13 @@ msgstr ""
 #: model:ir.actions.report,print_report_name:academic.report_basic_group_data
 msgid "'Basic Group Data - %s' % (object.name)"
 msgstr "'Datos básicos del grupo - %s' % (object.name)"
+
+#. module: academic
+#. odoo-python
+#: code:addons/academic/models/academic_group.py:0
+msgid "%(created)s next year group(s) created, %(existing)s already existed."
+msgstr ""
+"%(created)s grupo(s) del próximo año creado(s), %(existing)s ya existía(n)."
 
 #. module: academic
 #: model:ir.actions.report,print_report_name:academic.report_certificate_regular_student
@@ -353,6 +372,7 @@ msgid "Contacts Relationship"
 msgstr "Relación de los contactos"
 
 #. module: academic
+<<<<<<< 41bc5711f0d180d602b68bab5b54eeea55b43a0f
 #. odoo-python
 #: code:addons/academic/wizards/academic_contact_import.py:0
 msgid ""
@@ -364,6 +384,14 @@ msgstr ""
 "%s"
 
 #. module: academic
+||||||| c2aec6bf56f6392e4cd1fa4605c281056210de97
+#: model:ir.model.fields,field_description:academic.field_academic_section__correlative_ids
+msgid "Correlative Study Plans"
+msgstr "Planes de Estudio Correlativos"
+
+#. module: academic
+=======
+>>>>>>> e60c72a2d402c1b519825cc0555a4fa464a705ff
 #: model_terms:ir.actions.act_window,help:academic.action_res_company_form
 msgid ""
 "Create and manage the companies that will be managed by odoo from here. "
@@ -456,6 +484,7 @@ msgid "Divisions"
 msgstr "División"
 
 #. module: academic
+<<<<<<< 41bc5711f0d180d602b68bab5b54eeea55b43a0f
 #: model:ir.model.fields,field_description:academic.field_academic_group__employee_teacher_id
 msgid "Docente a cargo"
 msgstr ""
@@ -491,6 +520,29 @@ msgid "Each level can only be added once per study plan."
 msgstr "Cada nivel se puede agregar una sola vez por plan de estudios."
 
 #. module: academic
+||||||| c2aec6bf56f6392e4cd1fa4605c281056210de97
+=======
+#: model_terms:ir.ui.view,arch_db:academic.view_academic_section_form
+msgid ""
+"Drag the levels into the order the student goes through them: the\n"
+"                                re-enrollment wizard uses it to suggest the "
+"next level of each group,\n"
+"                                and the next study plans above to suggest "
+"where the students of the\n"
+"                                last level continue."
+msgstr ""
+"Arrastre los niveles en el orden en que el alumno los cursa: el asistente de "
+"reinscripción lo usa para sugerir el nivel siguiente de cada grupo, y los "
+"planes siguientes de arriba para sugerir dónde continúan los alumnos del "
+"último nivel."
+
+#. module: academic
+#: model:ir.model.constraint,message:academic.constraint_academic_section_level_level_unique
+msgid "Each level can only be added once per study plan."
+msgstr "Cada nivel se puede agregar una sola vez por plan de estudios."
+
+#. module: academic
+>>>>>>> e60c72a2d402c1b519825cc0555a4fa464a705ff
 #: model:ir.model.constraint,message:academic.constraint_res_partner_link_link_unique
 msgid ""
 "El contacto debe ser agregado por unica vez en cada familia o estudiante"
@@ -788,6 +840,7 @@ msgid "Levels"
 msgstr "Niveles"
 
 #. module: academic
+<<<<<<< 41bc5711f0d180d602b68bab5b54eeea55b43a0f
 #: model:ir.model.fields,field_description:academic.field_academic_section__level_line_ids
 msgid "Levels Sequence"
 msgstr "Secuencia del Nivel"
@@ -798,6 +851,19 @@ msgid "Levels of the study plan, in the order the student goes through them."
 msgstr "Niveles del plan de estudios, en el orden en que el alumno los cursa."
 
 #. module: academic
+||||||| c2aec6bf56f6392e4cd1fa4605c281056210de97
+=======
+#: model:ir.model.fields,field_description:academic.field_academic_section__level_line_ids
+msgid "Levels Sequence"
+msgstr "Secuencia de niveles"
+
+#. module: academic
+#: model:ir.model.fields,help:academic.field_academic_section__level_line_ids
+msgid "Levels of the study plan, in the order the student goes through them."
+msgstr "Niveles del plan de estudios, en el orden en que el alumno los cursa."
+
+#. module: academic
+>>>>>>> e60c72a2d402c1b519825cc0555a4fa464a705ff
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
 msgid "Los Contactos y Roles son gestionados en"
 msgstr "Los Contactos y Roles son gestionados en"
