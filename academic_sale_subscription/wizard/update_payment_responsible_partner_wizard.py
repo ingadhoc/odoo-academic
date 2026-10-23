@@ -80,8 +80,6 @@ class UpdatePaymentResponsiblePartnerWizard(models.TransientModel):
             ]
         )
 
-        invoices_without_payments = pending_invoices.filtered(lambda inv: not inv.matched_payment_ids)
-
         active_sales = self.env["sale.order"].search(
             [
                 ("partner_invoice_id", "=", active_id),
@@ -93,18 +91,16 @@ class UpdatePaymentResponsiblePartnerWizard(models.TransientModel):
 
         res.update(
             {
-                "invoice_count": len(invoices_without_payments),
-                "invoice_ids": [(6, 0, invoices_without_payments.ids)],
+                "invoice_count": len(pending_invoices),
+                "invoice_ids": [(6, 0, pending_invoices.ids)],
                 "sale_count": len(active_sales),
                 "sale_ids": [(6, 0, active_sales.ids)],
             }
         )
 
         warning_parts = []
-        if invoices_without_payments:
-            warning_parts.append(
-                _("%d pending invoices (without registered payments)") % len(invoices_without_payments)
-            )
+        if pending_invoices:
+            warning_parts.append(_("%d pending invoices") % len(pending_invoices))
         if active_sales:
             warning_parts.append(_("%d active sales/subscriptions") % len(active_sales))
 
