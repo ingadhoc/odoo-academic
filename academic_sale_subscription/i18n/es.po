@@ -49,8 +49,8 @@ msgstr "%d facturas actualizadas"
 #. module: academic_sale_subscription
 #. odoo-python
 #: code:addons/academic_sale_subscription/wizard/update_payment_responsible_partner_wizard.py:0
-msgid "%d pending invoices (without registered payments)"
-msgstr "%d facturas pendientes (sin pagos registrados)"
+msgid "%d pending invoices"
+msgstr "%d facturas pendientes"
 
 #. module: academic_sale_subscription
 #. odoo-python
