@@ -60,7 +60,7 @@ class UpdatePaymentResponsibleWizard(models.TransientModel):
 
     def action_update_responsible(self):
         for line in self.line_ids.filtered("new_responsible_id"):
-            invoices = line.invoice_ids.filtered(lambda inv: not inv.matched_payment_ids)
+            invoices = line.invoice_ids.filtered(lambda inv: inv.amount_residual > 0)
             if invoices and line.current_responsible_id != line.new_responsible_id:
                 invoices.with_context(skip_readonly_check=True).write({"partner_id": line.new_responsible_id.id})
 
