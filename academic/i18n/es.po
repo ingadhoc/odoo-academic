@@ -549,7 +549,7 @@ msgstr "Familias creadas"
 #. odoo-python
 #: code:addons/academic/wizards/academic_contact_import.py:0
 msgid "Families reused"
-msgstr "Familias rechazadas"
+msgstr "Familias reutilizadas"
 
 #. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_filter

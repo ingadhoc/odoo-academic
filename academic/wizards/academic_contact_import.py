@@ -5,6 +5,7 @@
 import base64
 import re
 import unicodedata
+from collections import defaultdict
 
 from odoo import fields, models
 from odoo.exceptions import UserError
@@ -42,9 +43,13 @@ class AcademicContactImport(models.TransientModel):
     result_html = fields.Html(readonly=True)
 
     def _clean_dni(self, value):
-        if value is None or str(value).strip() == "":
-            return ""
-        return re.sub(r"\D", "", str(value).split(".")[0])
+        """Digits of the DNI, or "" when there are none: a DNI of only zeros is a placeholder."""
+        digits = re.sub(r"\D", "", str(value or "").split(".")[0])
+        return digits if digits.strip("0") else ""
+
+    def _starts_with_surname(self, name, surname):
+        surname = _norm(surname)
+        return bool(surname) and re.match(r"%s\b" % re.escape(surname), _norm(name)) is not None
 
     def _cell(self, row, idx):
         value = row[idx] if idx is not None and idx < len(row) else None
@@ -263,8 +268,55 @@ class AcademicContactImport(models.TransientModel):
                     detail="\n".join(bad_flags[:50]) + ("\n…" if len(bad_flags) > 50 else ""),
                 )
             )
+        messages += self._identity_messages(data_rows)
         if messages:
             raise UserError("\n\n".join(messages))
+
+    def _identity_messages(self, data_rows):
+        """Rows that would merge different people: a DNI shared by different names, or a
+        student name that repeats the surname."""
+        # DNI -> {normalized name: name as written}, per partner type
+        names_by_dni = {"student": defaultdict(dict), "parent": defaultdict(dict)}
+        bad_surname = []
+        for row in data_rows:
+            student_name = self._cell(row, COL_STUDENT)
+            if not student_name:
+                continue
+            surname = self._cell(row, COL_SURNAME)
+            if self._starts_with_surname(student_name, surname):
+                bad_surname.append("%s → %s" % (surname, student_name))
+            student_dni = self._clean_dni(self._cell(row, COL_STUDENT_DNI))
+            if student_dni:
+                full_name = ("%s %s" % (surname, student_name)).strip()
+                names_by_dni["student"][student_dni].setdefault(_norm(full_name), full_name)
+            parent_name = self._cell(row, COL_PARENT)
+            parent_dni = self._clean_dni(self._cell(row, COL_PARENT_DNI))
+            if parent_name and parent_dni:
+                names_by_dni["parent"][parent_dni].setdefault(_norm(parent_name), parent_name)
+
+        bad_dnis = [
+            "%s → %s" % (dni, " / ".join(names.values()))
+            for by_dni in names_by_dni.values()
+            for dni, names in by_dni.items()
+            if len(names) > 1
+        ]
+        messages = []
+        if bad_dnis:
+            messages.append(
+                self.env._(
+                    "The same DNI is used for people with different names:\n%(detail)s",
+                    detail="\n".join(bad_dnis[:50]) + ("\n…" if len(bad_dnis) > 50 else ""),
+                )
+            )
+        if bad_surname:
+            messages.append(
+                self.env._(
+                    "The Student name column must hold only the name: the surname goes in the Surname column.\n"
+                    "The following start with the surname:\n%(detail)s",
+                    detail="\n".join(bad_surname[:50]) + ("\n…" if len(bad_surname) > 50 else ""),
+                )
+            )
+        return messages
 
     def _find_family(self, student, family_name, parent_dni, parent_name, student_full_name, links_by_student):
         """Resolve the family a row belongs to, and the student when the row identifies one.

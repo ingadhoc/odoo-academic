@@ -42,13 +42,16 @@ class AcademicContactImportController(http.Controller):
                 "header": "NOMBRE ALUMNO",
                 "width": 16,
                 "example": "Simón",
-                "help": "Nombre del alumno (sin apellido). Cargá una fila por cada alumno y responsable.",
+                "help": "Solo el nombre del alumno, sin apellido (ej.: Simón, no SUÁREZ, Simón): el apellido va en la "
+                "columna APELLIDO. Si el nombre empieza con el apellido, la importación falla. Cargá una fila "
+                "por cada alumno y responsable.",
             },
             {
                 "header": "DNI ALUMNO",
                 "width": 12,
                 "example": "45123456",
-                "help": "DNI del alumno (opcional). Se usa para no duplicar alumnos al reimportar.",
+                "help": "DNI del alumno (opcional). Se usa para no duplicar alumnos al reimportar. Dejalo vacío si no "
+                "lo tenés: un DNI 0 se toma como vacío.",
             },
             {
                 "header": "ETIQUETAS",
@@ -85,7 +88,8 @@ class AcademicContactImportController(http.Controller):
                 "width": 16,
                 "example": "27333444",
                 "help": "DNI del responsable. Obligatorio para el Responsable de Facturación; opcional para el resto "
-                "de los parientes. Se usa para deduplicar familias y responsables al reimportar.",
+                "de los parientes. Se usa para deduplicar familias y responsables al reimportar. Un DNI 0 se toma "
+                "como vacío.",
             },
         ]
         if afip_available:

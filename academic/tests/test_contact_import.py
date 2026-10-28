@@ -362,3 +362,78 @@ class TestContactImport(TransactionCase):
         self._run(rows)
         c2 = self.Partner.search_count([("partner_type", "in", ("family", "student", "parent"))])
         self.assertEqual(c1, c2)
+
+    def test_zero_student_dni_creates_one_student_per_row(self):
+        rows = [
+            _row("ACOSTA", "JULIETA", "ACOSTA PEDRO", student_dni="0", relative_dni="20111222"),
+            _row("BRITOS", "MATEO", "LUNA ANA", student_dni="0", relative_dni="20333444"),
+            _row("CABRAL", "ZOE", "CABRAL LUIS", student_dni="000", relative_dni="20555666"),
+        ]
+        self._run(rows)
+
+        students = self._imported("student")
+        self.assertEqual(len(students), 3)
+        self.assertFalse(any(students.mapped("identification_number")))
+        for surname, relative in (("ACOSTA", "ACOSTA PEDRO"), ("BRITOS", "LUNA ANA"), ("CABRAL", "CABRAL LUIS")):
+            family = self._imported("family", "Familia %s" % surname)
+            self.assertEqual(len(family.student_ids), 1)
+            self.assertEqual(family.student_link_ids.partner_id.name, relative)
+
+    def test_zero_relative_dni_creates_one_relative_per_row(self):
+        rows = [
+            _row("DIAZ", "LUCAS", "DIAZ MARTA", relative_dni="0"),
+            _row("ESPINOSA", "ANA", "ROJAS ELENA", relative_dni="0"),
+        ]
+        self._run(rows)
+
+        self.assertEqual(len(self._imported("parent")), 2)
+        for surname, relative in (("DIAZ", "DIAZ MARTA"), ("ESPINOSA", "ROJAS ELENA")):
+            family = self._imported("family", "Familia %s" % surname)
+            self.assertEqual(len(family.student_ids), 1)
+            self.assertEqual(family.student_link_ids.partner_id.name, relative)
+            self.assertFalse(family.student_link_ids.partner_id.vat)
+
+    def test_paying_role_with_zero_dni_raises(self):
+        rows = [
+            _row(
+                "FARIAS",
+                "BRUNO",
+                "FARIAS JOSE",
+                roles="Responsable de Facturación",
+                relative_dni="0",
+                afip=self.afip_name,
+            )
+        ]
+        with self.assertRaises(UserError):
+            self._run(rows)
+        self.assertFalse(self._imported("family", "Familia FARIAS"))
+
+    def test_same_dni_different_names_raises(self):
+        rows = [
+            _row("GOMEZ", "PILAR", "GOMEZ RAUL", student_dni="61000001"),
+            _row("HERRERA", "TOBIAS", "HERRERA ANA", student_dni="61000001"),
+        ]
+        with self.assertRaises(UserError) as error:
+            self._run(rows)
+        self.assertIn("61000001", str(error.exception))
+        self.assertFalse(self._imported("family"))
+
+        rows = [
+            _row("IBARRA", "SOFIA", "GARCIA ROSA", relative_dni="27000999"),
+            _row("JUAREZ", "TEO", "PEREZ JUAN", relative_dni="27000999"),
+        ]
+        with self.assertRaises(UserError) as error:
+            self._run(rows)
+        self.assertIn("27000999", str(error.exception))
+        self.assertFalse(self._imported("family"))
+
+    def test_student_name_with_surname_raises(self):
+        rows = [_row("ACOSTA", "ACOSTA, JULIETA", "ACOSTA PEDRO", student_dni="61000003")]
+        with self.assertRaises(UserError):
+            self._run(rows)
+        self.assertFalse(self._imported("family", "Familia ACOSTA"))
+
+    def test_student_name_sharing_surname_prefix_is_imported(self):
+        """Only the surname as a whole word counts: ROSARIO does not start with the surname ROS."""
+        self._run([_row("ROS", "ROSARIO", "ROS ELSA", student_dni="61000004")])
+        self.assertEqual(self._imported("student").name, "ROS ROSARIO")
