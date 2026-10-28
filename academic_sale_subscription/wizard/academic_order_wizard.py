@@ -2,6 +2,9 @@
 # For copyright and license notices, see __manifest__.py file in module root
 # directory
 ##############################################################################
+import copy
+import json
+
 from odoo import Command, api, fields, models
 from odoo.exceptions import UserError, ValidationError
 
@@ -49,48 +52,70 @@ class OrderWizard(models.TransientModel):
                 )
             )
 
+        if len(self.student_ids) > self._get_background_threshold():
+            return self._enqueue_mass_subscription()[0]
         orders = self._create_mass_subscription()
         return self._get_orders_action(orders)
 
     def _create_mass_subscription(self, vals=None):
         orders = self.env["sale.order"]
+        order_vals = self._prepare_order_vals(vals=vals)
         for student in self.student_ids:
-            order_vals = {
-                "partner_id": student.id,
-                "pricelist_id": self.pricelist_id.id,
-                "validity_date": self.validity_date if self.status_sale == "draft" else False,
-                **({"payment_term_id": self.payment_term_id.id} if self.payment_term_id else {}),
-                **(vals or {}),
-                "order_line": [
-                    (
-                        0,
-                        0,
-                        {
-                            "product_id": line.product_id.id,
-                            "product_uom_qty": line.quantity,
-                            "price_unit": line.price,
-                            **({"name": line.description} if line.description else {}),
-                            **({"group_id": line.academic_group_id.id} if line.academic_group_id else {}),
-                        },
-                    )
-                    for line in self.order_wizard_line_ids
-                ],
-            }
-            if self.is_recurring_mode:
-                order_vals.update(
-                    {
-                        "plan_id": self.plan_id.id,
-                        "start_date": self.next_invoice_date,
-                        "sale_order_template_id": self.template_id.id,
-                    }
-                )
-            order = self.env["sale.order"].create(order_vals)
-
+            order = self.env["sale.order"].create({**copy.deepcopy(order_vals), "partner_id": student.id})
             if self.status_sale == "confirmed":
                 order.action_confirm()
-
             orders += order
         return orders
+
+    def _prepare_order_vals(self, vals=None):
+        """Values of the order of every student, but its partner."""
+        order_vals = {
+            "pricelist_id": self.pricelist_id.id,
+            "validity_date": self.validity_date if self.status_sale == "draft" else False,
+            **({"payment_term_id": self.payment_term_id.id} if self.payment_term_id else {}),
+            **(vals or {}),
+            "order_line": [
+                (
+                    0,
+                    0,
+                    {
+                        "product_id": line.product_id.id,
+                        "product_uom_qty": line.quantity,
+                        "price_unit": line.price,
+                        **({"name": line.description} if line.description else {}),
+                        **({"group_id": line.academic_group_id.id} if line.academic_group_id else {}),
+                    },
+                )
+                for line in self.order_wizard_line_ids
+            ],
+        }
+        if self.is_recurring_mode:
+            order_vals.update(
+                {
+                    "plan_id": self.plan_id.id,
+                    "start_date": self.next_invoice_date,
+                    "sale_order_template_id": self.template_id.id,
+                }
+            )
+        return order_vals
+
+    def _enqueue_mass_subscription(self, vals=None):
+        """Same orders as `_create_mass_subscription`, created by a background job of base_bg."""
+        # only what the orders need: the wizard context carries active ids and defaults
+        context = {k: v for k, v in self.env.context.items() if k in ("lang", "tz", "allowed_company_ids")}
+        return (
+            self.env["base.bg"]
+            .with_env(self.env(context=context))
+            .bg_enqueue_records(
+                self.student_ids,
+                "_create_academic_orders",
+                threshold=self._get_background_threshold(),
+                # dates go as strings, which create() reads back the same
+                order_vals=json.loads(json.dumps(self._prepare_order_vals(vals=vals), default=str)),
+                confirm=self.status_sale == "confirmed",
+                name=self.env._("Academic orders for %(count)s student(s)", count=len(self.student_ids)),
+            )
+        )
 
     @api.depends("template_id", "plan_id", "pricelist_id")
     def _compute_order_wizard_line(self):

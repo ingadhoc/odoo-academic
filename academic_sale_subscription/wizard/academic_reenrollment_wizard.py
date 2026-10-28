@@ -91,14 +91,40 @@ class AcademicReenrollmentWizard(models.TransientModel):
         existing_groups = lines.target_group_id | lines.move_ids.target_group_id
         target_groups = self.env["academic.group"]
         enrolled_count = 0
+        to_order = []
         for line in lines:
             for target_group, students in line._get_destinations().items():
                 target_groups |= target_group
                 if target_group.manage_sale_workflow:
-                    orders |= line._create_orders(target_group, students)
+                    to_order.append((line, target_group, students))
                 else:
                     target_group.student_ids = [Command.link(student.id) for student in students]
                     enrolled_count += len(students)
+
+        to_order_count = sum(len(students) for __, __, students in to_order)
+        if to_order_count > self._get_background_threshold():
+            for line, target_group, students in to_order:
+                line._enqueue_orders(target_group, students)
+            return {
+                "type": "ir.actions.client",
+                "tag": "display_notification",
+                "params": {
+                    "type": "info",
+                    "sticky": True,
+                    "message": self.env._(
+                        "%(orders)s re-enrollment order(s) will be created in the background: you will get a"
+                        " message when they are done. %(enrolled)s student(s) enrolled directly in %(groups)s"
+                        " group(s) (%(created_groups)s new next year group(s)).",
+                        orders=to_order_count,
+                        enrolled=enrolled_count,
+                        groups=len(target_groups),
+                        created_groups=len(target_groups - existing_groups),
+                    ),
+                    "next": target_groups._get_groups_action(),
+                },
+            }
+        for line, target_group, students in to_order:
+            orders |= line._create_orders(target_group, students)
 
         return {
             "type": "ir.actions.client",
@@ -398,9 +424,21 @@ class AcademicReenrollmentWizardLine(models.TransientModel):
 
     def _create_orders(self, target_group, students):
         self.ensure_one()
+        return self._get_order_wizard(target_group, students)._create_mass_subscription(
+            vals={"company_id": self.source_group_id.company_id.id}
+        )
+
+    def _enqueue_orders(self, target_group, students):
+        self.ensure_one()
+        return self._get_order_wizard(target_group, students)._enqueue_mass_subscription(
+            vals={"company_id": self.source_group_id.company_id.id}
+        )
+
+    def _get_order_wizard(self, target_group, students):
+        self.ensure_one()
         wizard = self.wizard_id
         # the order belongs to the group's school company, not the one active in the session
-        order_wizard = (
+        return (
             self.env["academic.order.wizard"]
             .with_company(self.source_group_id.company_id)
             .with_context(academic_group_id=target_group.id)
@@ -417,7 +455,6 @@ class AcademicReenrollmentWizardLine(models.TransientModel):
                 }
             )
         )
-        return order_wizard._create_mass_subscription(vals={"company_id": self.source_group_id.company_id.id})
 
 
 class AcademicReenrollmentWizardMove(models.TransientModel):

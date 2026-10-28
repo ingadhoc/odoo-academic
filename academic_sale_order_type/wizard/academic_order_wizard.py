@@ -27,8 +27,8 @@ class OrderWizard(models.TransientModel):
         for wizard in self.filtered("type_id.payment_term_id"):
             wizard.payment_term_id = wizard.type_id.payment_term_id
 
-    def _create_mass_subscription(self, vals=None):
-        vals = vals or {}
+    def _prepare_order_vals(self, vals=None):
+        order_vals = super()._prepare_order_vals(vals=vals)
         if self.type_id:
-            vals["type_id"] = self.type_id.id
-        return super()._create_mass_subscription(vals=vals)
+            order_vals["type_id"] = self.type_id.id
+        return order_vals

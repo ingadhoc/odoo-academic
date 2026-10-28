@@ -50,7 +50,32 @@ class AcademicGroup(models.Model):
 
     def _get_pending_registration_students(self):
         # TODO tal vez deberiamos hacer una constraint que no pueda permitir dos lineas de venta "activas" para mismo academic_product_type, student y grupo
-        return self.registration_so_line_ids.filtered(lambda x: x.state in ["draft", "sent"]).order_id.partner_id
+        return (
+            self.registration_so_line_ids.filtered(lambda x: x.state in ["draft", "sent"]).order_id.partner_id
+            | self._get_queued_registration_students()
+        )
+
+    def _get_queued_registration_students(self):
+        """Students whose orders for these groups wait in a background job. Sudo: groups are
+        read by users that can not read jobs, and a job of another user still counts."""
+        jobs = (
+            self.env["bg.job"]
+            .sudo()
+            .search(
+                [
+                    ("model", "=", "res.partner"),
+                    ("method", "=", "_create_academic_orders"),
+                    ("state", "in", ["enqueued", "waiting", "running"]),
+                ]
+            )
+        )
+        student_ids = set()
+        for job in jobs:
+            kwargs = job.kwargs_json or {}
+            lines = (kwargs.get("order_vals") or {}).get("order_line") or []
+            if any(line[2].get("group_id") in self.ids for line in lines):
+                student_ids.update(kwargs.get("_record_ids") or [])
+        return self.env["res.partner"].browse(student_ids)
 
     def _compute_registration_student_count(self):
         for group in self:
