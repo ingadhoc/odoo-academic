@@ -2376,3 +2376,36 @@ msgstr ""
 #: model_terms:sale.order.close.reason,retention_message:academic_sale_subscription.close_reason_family_relocation
 msgid "¿Te mudas lejos?"
 msgstr ""
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/models/res_partner.py:0
+msgid "%(count)s academic order(s) created."
+msgstr "Se crearon %(count)s pedido(s) académico(s)."
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/wizard/academic_reenrollment_wizard.py:0
+msgid ""
+"%(orders)s re-enrollment order(s) will be created in the background: you "
+"will get a message when they are done. %(enrolled)s student(s) enrolled "
+"directly in %(groups)s group(s) (%(created_groups)s new next year group(s))."
+msgstr ""
+"Se van a crear %(orders)s pedido(s) de reinscripción en segundo plano: "
+"recibirá un mensaje cuando terminen. Se inscribieron directamente "
+"%(enrolled)s alumno(s) en %(groups)s grupo(s) (%(created_groups)s grupo(s) "
+"nuevo(s) del próximo año)."
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/wizard/academic_order_wizard.py:0
+msgid "Academic orders for %(count)s student(s)"
+msgstr "Pedidos académicos de %(count)s alumno(s)"
+
+#. module: academic_sale_subscription
+#. odoo-python
+#: code:addons/academic_sale_subscription/models/res_partner.py:0
+msgid "These students failed: once fixed, run the wizard again for them."
+msgstr ""
+"Estos alumnos fallaron: una vez corregido, vuelva a ejecutar el asistente "
+"para ellos."

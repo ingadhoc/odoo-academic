@@ -15,6 +15,7 @@
         "crm",
         "sale_management",
         "account",
+        "base_bg",
     ],
     "assets": {
         "web.assets_backend": [
