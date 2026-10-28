@@ -32,8 +32,8 @@ msgid ""
 "group(s))."
 msgstr ""
 "Se crearon %(orders)s orden(es) de reinscripción y se inscribieron "
-"directamente %(enrolled)s alumno(s) en %(groups)s grupo(s) "
-"(%(created_groups)s grupo(s) nuevo(s) del próximo año)."
+"directamente %(enrolled)s alumno(s) en %(groups)s grupo(s) (%"
+"(created_groups)s grupo(s) nuevo(s) del próximo año)."
 
 #. module: academic_sale_subscription
 #. odoo-python
@@ -175,8 +175,8 @@ msgid ""
 "A family was found for the entered parent DNI: <a href='%(url)s'>%(family)s</"
 "a>."
 msgstr ""
-"Se encontró una familia para el DNI del familiar ingresado: <a "
-"href='%(url)s'>%(family)s</a>."
+"Se encontró una familia para el DNI del familiar ingresado: <a href='%"
+"(url)s'>%(family)s</a>."
 
 #. module: academic_sale_subscription
 #. odoo-python
@@ -1692,8 +1692,8 @@ msgstr ""
 #. odoo-python
 #: code:addons/academic_sale_subscription/wizard/academic_reenrollment_wizard.py:0
 msgid ""
-"Some groups still have students and no destination for next year: "
-"%(groups)s. Set a study plan or a next year group on them, or take them out "
+"Some groups still have students and no destination for next year: %"
+"(groups)s. Set a study plan or a next year group on them, or take them out "
 "of this re-enrollment."
 msgstr ""
 "Algunos grupos todavía tienen alumnos y no tienen destino para el año "
@@ -1973,8 +1973,8 @@ msgstr ""
 #. odoo-python
 #: code:addons/academic_sale_subscription/wizard/academic_reenrollment_wizard.py:0
 msgid ""
-"The groups of this re-enrollment go to %(count)s different study plans "
-"(%(plans)s). The quotation template and the pricelist below are the same for "
+"The groups of this re-enrollment go to %(count)s different study plans (%"
+"(plans)s). The quotation template and the pricelist below are the same for "
 "all of them: re-enroll one study plan at a time if they need different ones."
 msgstr ""
 "Los grupos de esta reinscripción van a %(count)s planes de estudio distintos "
