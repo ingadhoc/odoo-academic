@@ -91,14 +91,39 @@ class AcademicReenrollmentWizard(models.TransientModel):
         existing_groups = lines.target_group_id | lines.move_ids.target_group_id
         target_groups = self.env["academic.group"]
         enrolled_count = 0
+        to_order = []
         for line in lines:
             for target_group, students in line._get_destinations().items():
                 target_groups |= target_group
                 if target_group.manage_sale_workflow:
-                    orders |= line._create_orders(target_group, students)
+                    to_order.append((line, target_group, students))
                 else:
                     target_group.student_ids = [Command.link(student.id) for student in students]
                     enrolled_count += len(students)
+
+        to_order_count = sum(len(students) for __, __, students in to_order)
+        if to_order_count > self._get_background_threshold():
+            self._enqueue_orders(to_order)
+            return {
+                "type": "ir.actions.client",
+                "tag": "display_notification",
+                "params": {
+                    "type": "info",
+                    "sticky": True,
+                    "message": self.env._(
+                        "%(orders)s re-enrollment order(s) will be created in the background: you will get a"
+                        " message when they are done. %(enrolled)s student(s) enrolled directly in %(groups)s"
+                        " group(s) (%(created_groups)s new next year group(s)).",
+                        orders=to_order_count,
+                        enrolled=enrolled_count,
+                        groups=len(target_groups),
+                        created_groups=len(target_groups - existing_groups),
+                    ),
+                    "next": target_groups._get_groups_action(),
+                },
+            }
+        for line, target_group, students in to_order:
+            orders |= line._create_orders(target_group, students)
 
         return {
             "type": "ir.actions.client",
@@ -120,6 +145,26 @@ class AcademicReenrollmentWizard(models.TransientModel):
     def _get_result_action(self, orders, target_groups):
         # no order created at all: land on the target groups instead
         return self._get_orders_action(orders) if orders else target_groups._get_groups_action()
+
+    def _enqueue_orders(self, to_order):
+        """One base_bg batch per school company for the whole run, not one per group, so the
+        user gets one message per job and not one per group. Per company because the job runs
+        with one company, the one of the orders."""
+        by_company = {}
+        for line, target_group, students in to_order:
+            by_company.setdefault(line.source_group_id.company_id, []).append((line, target_group, students))
+        for company, items in by_company.items():
+            students = self.env["res.partner"].union(*(students for __, __, students in items))
+            self.env["academic.order.wizard"].with_company(company)._enqueue_academic_orders(
+                students,
+                [
+                    line._get_order_wizard(target_group, group_students)._prepare_background_order(
+                        vals={"company_id": company.id}
+                    )
+                    for line, target_group, group_students in items
+                ],
+                self.status_sale == "confirmed",
+            )
 
 
 class AcademicReenrollmentWizardLine(models.TransientModel):
@@ -316,11 +361,12 @@ class AcademicReenrollmentWizardLine(models.TransientModel):
     def _compute_is_pending(self):
         """Students to place and nowhere to place them. Not a graduation: there the plan ends
         on purpose, here the destination is only missing."""
+        enrolled = self._get_enrolled_students_by_line()
         for rec in self:
             group = rec.source_group_id._origin
             pending = self.env["res.partner"]
             if group and not rec._has_target() and not group._is_graduating():
-                pending = group.student_ids - rec._get_enrolled_students()
+                pending = group.student_ids - enrolled[rec]
             rec.pending_count = len(pending)
             rec.is_pending = bool(pending)
 
@@ -333,6 +379,7 @@ class AcademicReenrollmentWizardLine(models.TransientModel):
     def _compute_students(self):
         """Recomputed from the groups on every change of destination, and editable so the user
         can leave students out. A line without a target re-enrolls nobody."""
+        enrolled = self._get_enrolled_students_by_line()
         for rec in self:
             group = rec.source_group_id._origin
             students = group.student_ids if rec._has_target() else self.env["res.partner"]
@@ -340,7 +387,7 @@ class AcademicReenrollmentWizardLine(models.TransientModel):
             no_responsible = (
                 students._filter_without_payment_responsible() if rec.manage_sale_workflow else self.env["res.partner"]
             )
-            already_enrolled = (students - no_responsible) & rec._get_enrolled_students()
+            already_enrolled = (students - no_responsible) & enrolled[rec]
             rec.student_ids = students - no_responsible - already_enrolled
             rec.excluded_no_responsible_ids = no_responsible
             rec.excluded_enrolled_ids = already_enrolled
@@ -351,20 +398,29 @@ class AcademicReenrollmentWizardLine(models.TransientModel):
         for rec in self:
             rec.student_count = len(rec.student_ids)
 
-    def _get_enrolled_students(self):
-        """Students already placed for next year, plus the pending quotations, so re-running
-        never duplicates. Every group of next year counts, not only the one of the line: a
-        student sent to another division was proposed again, and the second order only failed
-        on confirmation."""
-        self.ensure_one()
-        groups = self.env["academic.group"].search(
-            [
-                ("year", "=", self.target_year),
-                ("company_id", "=", self.company_id.id),
-                ("subject_id", "=", self.subject_id.id),
-            ]
-        )
-        return groups.student_ids | groups._get_pending_registration_students()
+    def _get_enrolled_students_by_line(self):
+        """Students already placed for next year, plus the pending quotations and the orders
+        waiting in a job, so re-running never duplicates. Every group of next year counts, not
+        only the one of the line: a student sent to another division was proposed again, and
+        the second order only failed on confirmation. By line, for all the lines at once: the
+        computes run it on every change of the wizard, and the jobs are scanned only once."""
+        groups_by_key = {}
+        for rec in self:
+            key = (rec.target_year, rec.company_id.id, rec.subject_id.id)
+            if key not in groups_by_key:
+                groups_by_key[key] = self.env["academic.group"].search(
+                    [
+                        ("year", "=", rec.target_year),
+                        ("company_id", "=", rec.company_id.id),
+                        ("subject_id", "=", rec.subject_id.id),
+                    ]
+                )
+        queued = self.env["academic.group"].union(*groups_by_key.values())._get_queued_registration_students()
+        enrolled_by_key = {
+            key: groups.student_ids | groups._get_pending_registration_students(queued=queued)
+            for key, groups in groups_by_key.items()
+        }
+        return {rec: enrolled_by_key[(rec.target_year, rec.company_id.id, rec.subject_id.id)] for rec in self}
 
     def _get_target_sections(self):
         return (
@@ -398,9 +454,15 @@ class AcademicReenrollmentWizardLine(models.TransientModel):
 
     def _create_orders(self, target_group, students):
         self.ensure_one()
+        return self._get_order_wizard(target_group, students)._create_mass_subscription(
+            vals={"company_id": self.source_group_id.company_id.id}
+        )
+
+    def _get_order_wizard(self, target_group, students):
+        self.ensure_one()
         wizard = self.wizard_id
         # the order belongs to the group's school company, not the one active in the session
-        order_wizard = (
+        return (
             self.env["academic.order.wizard"]
             .with_company(self.source_group_id.company_id)
             .with_context(academic_group_id=target_group.id)
@@ -417,7 +479,6 @@ class AcademicReenrollmentWizardLine(models.TransientModel):
                 }
             )
         )
-        return order_wizard._create_mass_subscription(vals={"company_id": self.source_group_id.company_id.id})
 
 
 class AcademicReenrollmentWizardMove(models.TransientModel):

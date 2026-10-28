@@ -28,7 +28,11 @@ Configuration
 
 To configure this module, you need to:
 
-#. Nothing to configure
+#. Optionally, set the system parameter ``academic_sale_subscription.background_order_threshold``
+   (50 by default). When the re-enrollment wizard or the mass order wizard has to create more
+   orders than this, they are created in background jobs of up to that many students each, and
+   the user gets a message with the result of each job. Students whose orders wait in a job are
+   not proposed again by a new run of the wizards.
 
 Usage
 =====
