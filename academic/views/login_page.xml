@@ -7,7 +7,7 @@
     </template>
 
     <template id="academic_link" name="Link to backend" inherit_id="portal.user_dropdown">
-        <xpath expr="//a[@id='o_logout']" position="before">
+        <xpath expr="//div[@id='o_logout_divider']" position="after">
             <a href="/web" class="dropdown-item" groups="academic.group_portal_student" role="menuitem">Academic</a>
         </xpath>
     </template>

@@ -105,7 +105,7 @@
                             <field name="promotion_id"/>
                             <field name="phone"/>
                             <field name="email"/>
-                            <button type="object" name="get_formview_action" icon="edit_square" title="Open" help="Open"/>
+                            <button type="object" name="get_record_default_action" icon="edit_square" title="Open" help="Open"/>
                         </list>
                     </field>
                 </page>
@@ -166,17 +166,14 @@
                 <attribute name="invisible">1</attribute>
             </xpath>
 
-            <field name="company_type" position="before">
+            <xpath expr="//h1[field[@name='name']]" position="before">
                 <!-- desde un estudiante elegimos familia de misma cia o sin cia (para el estudiante si la hacemos obligatoria) -->
                 <div>
                     <label for="partner_type"/>
                     <span>: </span>
                     <field name="partner_type"/>
                 </div>
-            </field>
-            <field name="company_type" position="attributes">
-                <attribute name="invisible">partner_type</attribute>
-            </field>
+            </xpath>
             <xpath expr="//span[@name='address_name']" position="before">
                 <field name="company_id" groups="base.group_multi_company" placeholder="Institution..." required="partner_type in ['teacher', 'student', 'administrator', 'gral_administrator']"/>
             </xpath>
