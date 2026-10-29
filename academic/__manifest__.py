@@ -19,7 +19,7 @@
 ##############################################################################
 {
     "name": "Academic",
-    "version": "19.0.1.16.0",
+    "version": "20.0.1.0.0",
     "sequence": 14,
     "summary": "",
     "author": "ADHOC SA",
@@ -78,7 +78,7 @@
         "demo/academic_group.xml",
         "demo/res_users_demo.xml",
     ],
-    "installable": False,
+    "installable": True,
     "auto_install": False,
     "application": False,
 }
