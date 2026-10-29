@@ -2,7 +2,6 @@
 # For copyright and license notices, see __manifest__.py file in module root
 # directory
 ##############################################################################
-import base64
 import re
 import unicodedata
 
@@ -111,7 +110,7 @@ class AcademicContactImport(models.TransientModel):
         importer = self.env["base_import.import"].create(
             {
                 "res_model": "res.partner",
-                "file": base64.b64decode(self.file),
+                "file": self.file,
                 "file_name": self.filename or "import.xlsx",
                 "file_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
             }

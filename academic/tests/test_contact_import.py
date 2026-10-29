@@ -111,7 +111,7 @@ def _build_csv(rows, header=None):
     writer.writerow(header or HEADER)
     for r in rows:
         writer.writerow(r)
-    return base64.b64encode(buf.getvalue().encode("utf-8-sig"))
+    return base64.b64encode(buf.getvalue().encode("utf-8-sig")).decode()
 
 
 @tagged("post_install", "-at_install")

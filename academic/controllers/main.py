@@ -7,7 +7,8 @@ import io
 import xlsxwriter
 from odoo import http
 from odoo.exceptions import AccessError
-from odoo.http import content_disposition, request
+from odoo.http import request
+from odoo.http.stream import content_disposition
 from xlsxwriter.utility import xl_col_to_name
 
 from ..wizards.academic_contact_import import AFIP_FIELD, ALLOWED_RELATIONS

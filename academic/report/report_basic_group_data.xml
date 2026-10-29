@@ -9,7 +9,7 @@
                             <tbody>
                                 <tr>
                                     <td><strong>Year:</strong></td>
-                                    <td><span t-esc="group.year"/></td>
+                                    <td><span t-out="group.year"/></td>
                                 </tr>
                                 <tr>
                                     <td><strong>Study Plan:</strong></td>
@@ -25,7 +25,7 @@
                                 </tr>
                                 <tr>
                                     <td><strong>Total Students:</strong></td>
-                                    <td><span t-esc="len(group.student_ids)"/></td>
+                                    <td><span t-out="len(group.student_ids)"/></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -42,7 +42,7 @@
                             <tbody>
                                 <tr t-foreach="group.student_ids.sorted('name')" t-as="student">
                                     <td>
-                                        <span t-esc="student_index + 1"/>
+                                        <span t-out="student_index + 1"/>
                                     </td>
                                     <td>
                                         <span t-field="student.name"/>
@@ -51,7 +51,7 @@
                                         <span t-field="student.identification_number"/>
                                     </td>
                                     <td>
-                                        <span t-esc="student.birthdate.strftime('%d/%m/%Y') if student.birthdate else ''"/>
+                                        <span t-out="student.birthdate.strftime('%d/%m/%Y') if student.birthdate else ''"/>
                                     </td>
                                 </tr>
                             </tbody>

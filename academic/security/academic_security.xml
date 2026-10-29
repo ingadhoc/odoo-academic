@@ -26,11 +26,6 @@
         <field name="implied_ids" eval="[(4,ref('group_manager'))]"/>
     </record>
 
-    <!-- We deactivate multicompany rule over multicompany to aboid errors -->
-    <!-- <record model="ir.rule" id="base.res_company_rule">
-        <field name="active" eval="False"/>
-    </record> -->
-
     <!-- Technical features and multi company for adminsitrator -->
     <record id="base.user_root" model="res.users">
         <field name="group_ids" eval="[(4,ref('base.group_multi_company')),(4,ref('base.group_no_one'))]"/>
