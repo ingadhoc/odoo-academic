@@ -38,7 +38,7 @@
                     localization is installed.
                     <a href="/academic/contact_import/example"
                         class="btn btn-link ps-0" role="button">
-                        <i class="fa fa-download"/> Download example file
+                        <i class="oi" data-icon="download"/> Download example file
                     </a>
                 </div>
                 <group invisible="state == 'done'">
