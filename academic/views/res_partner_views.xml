@@ -105,7 +105,7 @@
                             <field name="promotion_id"/>
                             <field name="phone"/>
                             <field name="email"/>
-                            <button type="object" name="get_formview_action" icon="fa-pencil-square-o" title="Open" help="Open"/>
+                            <button type="object" name="get_formview_action" icon="edit_square" title="Open" help="Open"/>
                         </list>
                     </field>
                 </page>
@@ -200,7 +200,7 @@
                     <button
                         type="object"
                         name="open_students"
-                        icon="fa-list"
+                        icon="format_list_bulleted"
                         title="Open student view"
                     />
                 </groupby>
