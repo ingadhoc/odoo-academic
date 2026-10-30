@@ -7,6 +7,7 @@ res_partner_group_gral_administrator_rule,portal gral administrator: all groups,
 group_multi_company,group multi-company,academic.group,,crud,"['|',('company_id', 'in', company_ids),('company_id','=',False)]"
 access_res_partner_user,res.partner.user,res.partner,academic.group_user,crud,
 res_partner_portal_administrator_rule,res_partner: portal administrator: full access all partners,res.partner,academic.group_portal_administrator,crud,
+res_partner_portal_teacher_rule,res_partner: portal teacher: read access all partners,res.partner,academic.group_portal_teacher,r,
 access_academic_level_manager,academic.level.manager,academic.level,academic.group_manager,crud,
 access_academic_level_user,academic.level.user,academic.level,academic.group_user,r,
 access_level_global,academic.level.global,academic.level,base.group_user,r,

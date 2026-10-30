@@ -26,9 +26,6 @@ class ResPartner(models.Model):
         ],
         change_default=True,
         string="Tipo de Contacto Académico",
-        compute="_compute_partner_type",
-        readonly=False,
-        store=True,
     )
     promotion_id = fields.Many2one(
         "academic.promotion",
@@ -218,10 +215,6 @@ class ResPartner(models.Model):
         for rec in self:
             if rec.self_payment_responsible and not rec.parent_id and rec.vat:
                 rec.identification_number = rec.vat
-
-    @api.depends("is_company")
-    def _compute_partner_type(self):
-        self.filtered(lambda x: x.is_company and x.partner_type).partner_type = False
 
     @api.depends("parent_id")
     def _compute_company_id(self):
