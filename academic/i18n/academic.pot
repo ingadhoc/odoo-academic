@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 19.0+e\n"
+"Project-Id-Version: Odoo Server 20.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-09 19:41+0000\n"
-"PO-Revision-Date: 2026-09-09 19:41+0000\n"
+"POT-Creation-Date: 2026-10-30 16:54+0000\n"
+"PO-Revision-Date: 2026-10-30 16:54+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -60,8 +60,102 @@ msgid ""
 msgstr ""
 
 #. module: academic
+#: model:ir.module.module,description:base.module_academic
+msgid ""
+".. |company| replace:: ADHOC SA\n"
+"\n"
+".. |company_logo| image:: https://raw.githubusercontent.com/ingadhoc/maintainer-tools/master/resources/adhoc-logo.png\n"
+"   :alt: ADHOC SA\n"
+"   :target: https://www.adhoc.com.ar\n"
+"\n"
+".. |icon| image:: https://raw.githubusercontent.com/ingadhoc/maintainer-tools/master/resources/adhoc-icon.png\n"
+"\n"
+".. image:: https://img.shields.io/badge/license-AGPL--3-blue.png\n"
+"   :target: https://www.gnu.org/licenses/agpl\n"
+"   :alt: License: AGPL-3\n"
+"\n"
+"========\n"
+"Academic\n"
+"========\n"
+"\n"
+"Academic management on top of contacts: it turns ``res.partner`` into students,\n"
+"relatives, teachers, administrators and families, and adds the academic\n"
+"structure they belong to (study plans, levels, divisions, subjects and groups),\n"
+"plus portal access per academic role.\n"
+"\n"
+"Installation\n"
+"============\n"
+"\n"
+"To install this module, you need to:\n"
+"\n"
+"#. Just install this module.\n"
+"\n"
+"\n"
+"Configuration\n"
+"=============\n"
+"\n"
+"To configure this module, you need to:\n"
+"\n"
+"#. Go to *Academic / Configuration / General Data* and define the study plans,\n"
+"   levels, divisions, subjects and roles the institution uses.\n"
+"#. On each company, set the *Study Plans* available to it, and whether a family\n"
+"   is required for its students.\n"
+"\n"
+"Usage\n"
+"=====\n"
+"\n"
+"To use this module, you need to:\n"
+"\n"
+"#. Go to *Academic / Contacts* and register students, relatives, teachers and\n"
+"   administrators. Each contact has an academic type, and students are grouped\n"
+"   into families.\n"
+"#. Go to *Academic / Groups* to create the groups of a year, and use *Create\n"
+"   next year groups* to carry them over to the following one.\n"
+"#. To load many contacts at once, use the contact import wizard: it reads an\n"
+"   xlsx/ods/csv spreadsheet and creates the students, their relatives, the\n"
+"   links between them and their families. The wizard offers an example file to\n"
+"   download, available to Academic managers.\n"
+"#. Grant portal access from the contact itself: the portal wizard assigns the\n"
+"   portal group that matches the academic type of the contact.\n"
+"#. Print the *Certificate of Regular Student* from a student, and *Print Basic\n"
+"   Group Data* from a group.\n"
+"\n"
+".. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas\n"
+"   :alt: Try me on Runbot\n"
+"   :target: http://runbot.adhoc.com.ar/\n"
+"\n"
+"Bug Tracker\n"
+"===========\n"
+"\n"
+"Bugs are tracked on `GitHub Issues\n"
+"<https://github.com/ingadhoc/odoo-academic/issues>`_. In case of trouble, please\n"
+"check there if your issue has already been reported. If you spotted it first,\n"
+"help us smashing it by providing a detailed and welcomed feedback.\n"
+"\n"
+"Credits\n"
+"=======\n"
+"\n"
+"Images\n"
+"------\n"
+"\n"
+"* |company| |icon|\n"
+"\n"
+"Contributors\n"
+"------------\n"
+"\n"
+"Maintainer\n"
+"----------\n"
+"\n"
+"|company_logo|\n"
+"\n"
+"This module is maintained by the |company|.\n"
+"\n"
+"To contribute to this module, please visit https://www.adhoc.com.ar.\n"
+msgstr ""
+
+#. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.academic_contact_import_view_form
-msgid "<i class=\"fa fa-download\"/> Download example file"
+msgid "<i class=\"oi\" data-icon=\"download\"/> Download example file"
 msgstr ""
 
 #. module: academic
@@ -140,6 +234,7 @@ msgstr ""
 #. module: academic
 #: model:ir.module.category,description:academic.module_category_academic
 #: model:ir.module.category,name:academic.module_category_academic
+#: model:ir.module.module,shortdesc:base.module_academic
 #: model:ir.ui.menu,name:academic.menu_academic
 #: model:ir.ui.menu,name:academic.menu_portal_academic
 #: model:res.groups.privilege,name:academic.privilege_academic
@@ -259,12 +354,12 @@ msgstr ""
 
 #. module: academic
 #: model:ir.actions.act_window,name:academic.action_res_company_form
-#: model:ir.model,name:academic.model_res_company
 #: model:ir.ui.menu,name:academic.menu_action_res_company_form
 msgid "Companies"
 msgstr ""
 
 #. module: academic
+#: model:ir.model,name:academic.model_res_company
 #: model:ir.model.fields,field_description:academic.field_academic_contact_import__company_id
 #: model:ir.model.fields,field_description:academic.field_academic_group__company_id
 #: model:ir.model.fields,field_description:academic.field_academic_subject__company_id
@@ -333,11 +428,6 @@ msgstr ""
 #. module: academic
 #: model:ir.model,name:academic.model_res_partner_relationship
 msgid "Contacts Relationship"
-msgstr ""
-
-#. module: academic
-#: model:ir.model.fields,field_description:academic.field_academic_section__correlative_ids
-msgid "Correlative Study Plans"
 msgstr ""
 
 #. module: academic
@@ -457,7 +547,9 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_section_form
 msgid ""
 "Drag the levels into the order the student goes through them: the\n"
-"                                re-enrollment wizard uses it to suggest the next level of each group."
+"                                re-enrollment wizard uses it to suggest the next level of each group,\n"
+"                                and the next study plans above to suggest where the students of the\n"
+"                                last level continue."
 msgstr ""
 
 #. module: academic
@@ -814,6 +906,17 @@ msgid "Name"
 msgstr ""
 
 #. module: academic
+#: model:ir.model.fields,field_description:academic.field_academic_section__correlative_ids
+msgid "Next Study Plans"
+msgstr ""
+
+#. module: academic
+#: model:res.groups.privilege,placeholder:academic.privilege_academic
+#: model:res.groups.privilege,placeholder:academic.privilege_portal_academic
+msgid "No"
+msgstr ""
+
+#. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_filter
 msgid "No Payment Responsible"
 msgstr ""
@@ -858,7 +961,7 @@ msgstr ""
 
 #. module: academic
 #: model:ir.model,name:academic.model_res_partner_category
-msgid "Partner Tags"
+msgid "Partner Tag"
 msgstr ""
 
 #. module: academic
@@ -1130,6 +1233,13 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic.field_res_company__section_ids
 #: model:ir.ui.menu,name:academic.menu_sections
 msgid "Study Plans"
+msgstr ""
+
+#. module: academic
+#: model:ir.model.fields,help:academic.field_academic_section__correlative_ids
+msgid ""
+"Study plans a student continues into after finishing this one, used by the "
+"re-enrollment wizard. With more than one the destination is picked by hand."
 msgstr ""
 
 #. module: academic

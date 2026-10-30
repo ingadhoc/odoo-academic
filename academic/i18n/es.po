@@ -9,19 +9,17 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 18.0+e\n"
+"Project-Id-Version: Odoo Server 20.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-09 19:41+0000\n"
-"PO-Revision-Date: 2026-07-30 14:54+0000\n"
+"POT-Creation-Date: 2026-10-30 18:19+0000\n"
+"PO-Revision-Date: 2026-10-30 18:19+0000\n"
 "Last-Translator: BAF <baf@adhoc.inc>\n"
-"Language-Team: Spanish <https://translation.dev-adhoc.com/projects/odoo-"
-"academic-19-0/odoo-academic-19-0-academic/es/>\n"
+"Language-Team: Spanish <https://translation.dev-adhoc.com/projects/odoo-academic-20-0/odoo-academic-20-0-academic/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=3; plural=(n == 1) ? 0 : ((n != 0 && n % 1000000 == "
-"0) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n == 1) ? 0 : ((n != 0 && n % 1000000 == 0) ? 1 : 2);\n"
 "X-Generator: Weblate 5.10.4\n"
 
 #. module: academic
@@ -29,6 +27,7 @@ msgstr ""
 #: code:addons/academic/models/academic_group.py:0
 msgid "%(created)s next year group(s) created, %(existing)s already existed."
 msgstr ""
+"%(created)s grupo(s) del próximo año creado(s), %(existing)s ya existía(n)."
 
 #. module: academic
 #: model:ir.actions.report,print_report_name:academic.report_basic_group_data
@@ -44,7 +43,7 @@ msgstr "'Certificado de Alumno Regular ' + object.name"
 #. odoo-python
 #: code:addons/academic/wizards/academic_contact_import.py:0
 msgid "(empty)"
-msgstr ""
+msgstr "(vacío)"
 
 #. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
@@ -65,14 +64,107 @@ msgstr "- Institución:"
 #: model_terms:ir.ui.view,arch_db:academic.report_certificate_regular_student_document
 msgid ""
 ".\n"
-"                            Se extiende a pedido del interesado para ser "
-"presentada ante quien corresponda."
+"                            Se extiende a pedido del interesado para ser presentada ante quien corresponda."
+msgstr ""
+
+#. module: academic
+#: model:ir.module.module,description:base.module_academic
+msgid ""
+".. |company| replace:: ADHOC SA\n"
+"\n"
+".. |company_logo| image:: https://raw.githubusercontent.com/ingadhoc/maintainer-tools/master/resources/adhoc-logo.png\n"
+"   :alt: ADHOC SA\n"
+"   :target: https://www.adhoc.com.ar\n"
+"\n"
+".. |icon| image:: https://raw.githubusercontent.com/ingadhoc/maintainer-tools/master/resources/adhoc-icon.png\n"
+"\n"
+".. image:: https://img.shields.io/badge/license-AGPL--3-blue.png\n"
+"   :target: https://www.gnu.org/licenses/agpl\n"
+"   :alt: License: AGPL-3\n"
+"\n"
+"========\n"
+"Academic\n"
+"========\n"
+"\n"
+"Academic management on top of contacts: it turns ``res.partner`` into students,\n"
+"relatives, teachers, administrators and families, and adds the academic\n"
+"structure they belong to (study plans, levels, divisions, subjects and groups),\n"
+"plus portal access per academic role.\n"
+"\n"
+"Installation\n"
+"============\n"
+"\n"
+"To install this module, you need to:\n"
+"\n"
+"#. Just install this module.\n"
+"\n"
+"\n"
+"Configuration\n"
+"=============\n"
+"\n"
+"To configure this module, you need to:\n"
+"\n"
+"#. Go to *Academic / Configuration / General Data* and define the study plans,\n"
+"   levels, divisions, subjects and roles the institution uses.\n"
+"#. On each company, set the *Study Plans* available to it, and whether a family\n"
+"   is required for its students.\n"
+"\n"
+"Usage\n"
+"=====\n"
+"\n"
+"To use this module, you need to:\n"
+"\n"
+"#. Go to *Academic / Contacts* and register students, relatives, teachers and\n"
+"   administrators. Each contact has an academic type, and students are grouped\n"
+"   into families.\n"
+"#. Go to *Academic / Groups* to create the groups of a year, and use *Create\n"
+"   next year groups* to carry them over to the following one.\n"
+"#. To load many contacts at once, use the contact import wizard: it reads an\n"
+"   xlsx/ods/csv spreadsheet and creates the students, their relatives, the\n"
+"   links between them and their families. The wizard offers an example file to\n"
+"   download, available to Academic managers.\n"
+"#. Grant portal access from the contact itself: the portal wizard assigns the\n"
+"   portal group that matches the academic type of the contact.\n"
+"#. Print the *Certificate of Regular Student* from a student, and *Print Basic\n"
+"   Group Data* from a group.\n"
+"\n"
+".. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas\n"
+"   :alt: Try me on Runbot\n"
+"   :target: http://runbot.adhoc.com.ar/\n"
+"\n"
+"Bug Tracker\n"
+"===========\n"
+"\n"
+"Bugs are tracked on `GitHub Issues\n"
+"<https://github.com/ingadhoc/odoo-academic/issues>`_. In case of trouble, please\n"
+"check there if your issue has already been reported. If you spotted it first,\n"
+"help us smashing it by providing a detailed and welcomed feedback.\n"
+"\n"
+"Credits\n"
+"=======\n"
+"\n"
+"Images\n"
+"------\n"
+"\n"
+"* |company| |icon|\n"
+"\n"
+"Contributors\n"
+"------------\n"
+"\n"
+"Maintainer\n"
+"----------\n"
+"\n"
+"|company_logo|\n"
+"\n"
+"This module is maintained by the |company|.\n"
+"\n"
+"To contribute to this module, please visit https://www.adhoc.com.ar.\n"
 msgstr ""
 
 #. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.academic_contact_import_view_form
-msgid "<i class=\"fa fa-download\"/> Download example file"
-msgstr "<i class=\"fa fa-download\"/> Descargar archivo de ejemplo"
+msgid "<i class=\"oi\" data-icon=\"download\"/> Download example file"
+msgstr "<i class=\"oi\" data-icon=\"download\"/> Descargar archivo de ejemplo"
 
 #. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_group_form
@@ -152,6 +244,7 @@ msgstr ""
 #. module: academic
 #: model:ir.module.category,description:academic.module_category_academic
 #: model:ir.module.category,name:academic.module_category_academic
+#: model:ir.module.module,shortdesc:base.module_academic
 #: model:ir.ui.menu,name:academic.menu_academic
 #: model:ir.ui.menu,name:academic.menu_portal_academic
 #: model:res.groups.privilege,name:academic.privilege_academic
@@ -185,8 +278,7 @@ msgstr "Portal del Administrador"
 #. module: academic
 #: model:res.groups,comment:academic.group_portal_administrator
 msgid ""
-"Administrator's Portal members have specific access rights (such as record "
-"rules and restricted menus).\n"
+"Administrator's Portal members have specific access rights (such as record rules and restricted menus).\n"
 "                They usually do not belong to the usual odoo groups."
 msgstr ""
 "Los miembros del Portal de Administrador tienen permisos específicos de "
@@ -275,12 +367,12 @@ msgstr "Índice de Color"
 
 #. module: academic
 #: model:ir.actions.act_window,name:academic.action_res_company_form
-#: model:ir.model,name:academic.model_res_company
 #: model:ir.ui.menu,name:academic.menu_action_res_company_form
 msgid "Companies"
 msgstr "Compañías"
 
 #. module: academic
+#: model:ir.model,name:academic.model_res_company
 #: model:ir.model.fields,field_description:academic.field_academic_contact_import__company_id
 #: model:ir.model.fields,field_description:academic.field_academic_group__company_id
 #: model:ir.model.fields,field_description:academic.field_academic_subject__company_id
@@ -290,7 +382,7 @@ msgstr "Compañías"
 #: model:ir.model.fields,field_description:academic.field_res_partner_link__company_id
 #: model_terms:ir.ui.view,arch_db:academic.view_employee_filter_inherit_academic
 msgid "Company"
-msgstr "Compañia"
+msgstr "Empresa"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_res_partner__same_vat_company_email
@@ -440,7 +532,7 @@ msgstr "¿Dificultades de aprendizaje?"
 #: model:ir.model.fields,field_description:academic.field_res_partner_role__display_name
 #: model:ir.model.fields,field_description:academic.field_res_users__display_name
 msgid "Display Name"
-msgstr "Nombre a mostrar"
+msgstr "Mostrar nombre"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_group__division_id
@@ -483,17 +575,9 @@ msgstr ""
 "último nivel."
 
 #. module: academic
-#: model_terms:ir.ui.view,arch_db:academic.view_academic_section_form
-msgid ""
-"Drag the levels into the order the student goes through them: the\n"
-"                                re-enrollment wizard uses it to suggest the "
-"next level of each group."
-msgstr ""
-
-#. module: academic
 #: model:ir.model.constraint,message:academic.constraint_academic_section_level_level_unique
 msgid "Each level can only be added once per study plan."
-msgstr ""
+msgstr "Cada nivel se puede agregar una sola vez por plan de estudios."
 
 #. module: academic
 #: model:ir.model.constraint,message:academic.constraint_res_partner_link_link_unique
@@ -610,8 +694,7 @@ msgstr "Administrador General"
 #. module: academic
 #: model:res.groups,comment:academic.group_portal_gral_administrator
 msgid ""
-"General Administrator's Portal members have specific access rights (such as "
-"record rules and restricted menus).\n"
+"General Administrator's Portal members have specific access rights (such as record rules and restricted menus).\n"
 "                They usually do not belong to the usual odoo groups."
 msgstr ""
 "Los miembros del Portal de Administrador General tienen permisos específicos "
@@ -637,13 +720,13 @@ msgstr "Administrador General"
 #. module: academic
 #: model:ir.model,name:academic.model_portal_wizard
 msgid "Grant Portal Access"
-msgstr "Otorgar acceso al portal "
+msgstr "Otorgar acceso al portal"
 
 #. module: academic
 #: model:ir.model.constraint,message:academic.constraint_academic_group_group_unique
 msgid ""
-"Group should be unique per Institution, Study Plan, Subject, Course-Division "
-"and Year"
+"Group should be unique per Institution, Study Plan, Subject, Course-Division"
+" and Year"
 msgstr ""
 "El grupo debería ser único por Institución, Plan de Estudios, Asignatura, "
 "Curso-División y Año."
@@ -688,7 +771,7 @@ msgstr "Grupos a cargo"
 #: model:ir.model.fields,field_description:academic.field_res_partner_role__id
 #: model:ir.model.fields,field_description:academic.field_res_users__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.report_basic_group_data_document
@@ -795,12 +878,12 @@ msgstr "Niveles"
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_academic_section__level_line_ids
 msgid "Levels Sequence"
-msgstr ""
+msgstr "Secuencia del Nivel"
 
 #. module: academic
 #: model:ir.model.fields,help:academic.field_academic_section__level_line_ids
 msgid "Levels of the study plan, in the order the student goes through them."
-msgstr ""
+msgstr "Niveles del plan de estudios, en el orden en que el alumno los cursa."
 
 #. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
@@ -858,6 +941,12 @@ msgid "Next Study Plans"
 msgstr "Planes siguientes"
 
 #. module: academic
+#: model:res.groups.privilege,placeholder:academic.privilege_academic
+#: model:res.groups.privilege,placeholder:academic.privilege_portal_academic
+msgid "No"
+msgstr "No"
+
+#. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_filter
 msgid "No Payment Responsible"
 msgstr "No hay Responsable de Pago"
@@ -872,6 +961,8 @@ msgstr "Notas"
 #: code:addons/academic/controllers/main.py:0
 msgid "Only Academic managers can download the import example."
 msgstr ""
+"Solo los administradores académicos pueden descargar el ejemplo de "
+"importación."
 
 #. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.view_academic_partner_form
@@ -891,8 +982,7 @@ msgstr "Otro"
 #. module: academic
 #: model:res.groups,comment:academic.group_portal_parent
 msgid ""
-"Parent's Portal members have specific access rights (such as record rules "
-"and restricted menus).\n"
+"Parent's Portal members have specific access rights (such as record rules and restricted menus).\n"
 "            They usually do not belong to the usual OpenERP groups."
 msgstr ""
 "Los miembros del Portal de Padres tienen permisos específicos de acceso "
@@ -906,8 +996,8 @@ msgstr "Contacto"
 
 #. module: academic
 #: model:ir.model,name:academic.model_res_partner_category
-msgid "Partner Tags"
-msgstr "Etiquetas del contacto"
+msgid "Partner Tag"
+msgstr "Etiqueta del contacto"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_res_partner__same_identification_number_partner_id
@@ -954,7 +1044,7 @@ msgstr "Portal Académico"
 #. module: academic
 #: model:ir.model,name:academic.model_portal_wizard_user
 msgid "Portal User Config"
-msgstr "Configuración del usuario del portal"
+msgstr "Configuración del portal del usuario"
 
 #. module: academic
 #: model:ir.actions.report,name:academic.report_basic_group_data
@@ -977,7 +1067,7 @@ msgstr "Promociones"
 #: model:ir.model.fields,field_description:academic.field_res_partner__parent_id
 #: model:ir.model.fields,field_description:academic.field_res_users__parent_id
 msgid "Related Company"
-msgstr "Compañía relacionada"
+msgstr "Empresa relacionada"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_res_partner__related_user_id
@@ -1135,8 +1225,7 @@ msgstr "Portal de Estudiantes"
 #. module: academic
 #: model:res.groups,comment:academic.group_portal_student
 msgid ""
-"Student's Portal members have specific access rights (such as record rules "
-"and restricted menus).\n"
+"Student's Portal members have specific access rights (such as record rules and restricted menus).\n"
 "                They usually do not belong to the usual odoo groups."
 msgstr ""
 "Los miembros del Portal de Estudiantes tienen permisos específicos de acceso "
@@ -1174,7 +1263,7 @@ msgstr "Plan de Estudios"
 #. module: academic
 #: model:ir.model,name:academic.model_academic_section_level
 msgid "Study Plan Level"
-msgstr ""
+msgstr "Nivel del plan de estudios"
 
 #. module: academic
 #: model:ir.actions.act_window,name:academic.action_academic_section_sections
@@ -1249,6 +1338,9 @@ msgid ""
 "Roles · Relative DNI · AFIP responsibility type · Email · Phone · Contacts "
 "and roles per student"
 msgstr ""
+"Apellido · Nombre del alumno · DNI del alumno · Etiquetas · Familiar · "
+"Parentesco · Roles · DNI del familiar · Tipo de responsabilidad AFIP · "
+"Correo electrónico · Teléfono · Contactos y roles por alumno"
 
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_res_partner__category_id
@@ -1278,8 +1370,7 @@ msgstr "Portal del Profesor"
 #. module: academic
 #: model:res.groups,comment:academic.group_portal_teacher
 msgid ""
-"Teacher's Portal members have specific access rights (such as record rules "
-"and restricted menus).\n"
+"Teacher's Portal members have specific access rights (such as record rules and restricted menus).\n"
 "                They usually do not belong to the usual odoo groups."
 msgstr ""
 "Los miembros del Portal de Profesor tienen permisos específicos de acceso "
@@ -1318,6 +1409,9 @@ msgid ""
 "The following are not valid:\n"
 "%(detail)s"
 msgstr ""
+"La columna Contactos y roles por alumno solo acepta Sí o No.\n"
+"Los siguientes valores no son válidos:\n"
+"%(detail)s"
 
 #. module: academic
 #. odoo-python
@@ -1339,22 +1433,23 @@ msgstr "El código canónico debe ser único."
 #. module: academic
 #: model_terms:ir.ui.view,arch_db:academic.academic_contact_import_view_form
 msgid ""
-"The downloaded example file already includes a sample row (in grey, delete "
-"it\n"
-"                    before importing), a help note on every column header, "
-"and dropdowns for\n"
-"                    Relationship, Roles and Contacts and roles per student. "
-"The AFIP responsibility\n"
-"                    type column (with its own dropdown) is only added when "
-"the Argentinian\n"
+"The downloaded example file already includes a sample row (in grey, delete it\n"
+"                    before importing), a help note on every column header, and dropdowns for\n"
+"                    Relationship, Roles and Contacts and roles per student. The AFIP responsibility\n"
+"                    type column (with its own dropdown) is only added when the Argentinian\n"
 "                    localization is installed."
 msgstr ""
+"El archivo de ejemplo que se descarga ya trae una fila de muestra (en gris, borrala \n"
+"                                            antes de importar), una nota de ayuda en el encabezado de cada columna y listas desplegables para \n"
+"                                           Parentesco, Roles y Contactos y roles por alumno. La columna Tipo de responsabilidad AFIP \n"
+"                                           (con su propia lista desplegable)\n"
+"                                            solo se agrega cuando está instalada la localización argentina."
 
 #. module: academic
 #. odoo-python
 #: code:addons/academic/wizards/academic_contact_import.py:0
 msgid "The file is empty."
-msgstr "La fila está vacía."
+msgstr "El archivo está vacío."
 
 #. module: academic
 #. odoo-python
@@ -1405,24 +1500,23 @@ msgstr ""
 #. odoo-python
 #: code:addons/academic/models/res_partner.py:0
 msgid ""
-"The payer must have an identification number set up. The following do not "
-"meet this condition: \n"
+"The payer must have an identification number set up. The following do not meet this condition: \n"
 "%s"
 msgstr ""
-"El pagador debe tener configurado un número de identificación. Los "
-"siguientes no cumplen esta condición: \n"
+"El pagador debe tener configurado un número de identificación. Los siguientes no cumplen esta condición: \n"
 "%s"
 
 #. module: academic
 #. odoo-python
 #: code:addons/academic/wizards/academic_contact_import.py:0
 msgid ""
-"The paying role (Responsable de Facturación) requires the relative's AFIP "
-"responsibility type.\n"
-"Check that the AFIP responsibility type column is present and filled in "
-"for:\n"
+"The paying role (Responsable de Facturación) requires the relative's AFIP responsibility type.\n"
+"Check that the AFIP responsibility type column is present and filled in for:\n"
 "%(detail)s"
 msgstr ""
+"El rol que paga (Responsable de Facturación) requiere el tipo de responsabilidad AFIP del familiar.\n"
+"Verificá que la columna Tipo de responsabilidad AFIP esté presente y completa para:\n"
+"%(detail)s"
 
 #. module: academic
 #. odoo-python
@@ -1432,6 +1526,9 @@ msgid ""
 "The following have it without a DNI:\n"
 "%(detail)s"
 msgstr ""
+"El rol que paga (Responsable de Facturación) requiere el DNI del familiar.\n"
+"Los siguientes tienen ese rol asignado pero no tienen DNI:\n"
+"%(detail)s"
 
 #. module: academic
 #. odoo-python
@@ -1453,8 +1550,8 @@ msgstr ""
 #. odoo-python
 #: code:addons/academic/models/res_partner.py:0
 msgid ""
-"The student must have a tax identification number configured to be their own "
-"payment responsible."
+"The student must have a tax identification number configured to be their own"
+" payment responsible."
 msgstr ""
 "El alumno debe tener configurado un número de identificación fiscal para ser "
 "responsable de su propio pago."
@@ -1490,7 +1587,8 @@ msgstr "El docente a cargo debe pertenecer a la misma compañía que el grupo."
 
 #. module: academic
 #: model:ir.model.constraint,message:academic.constraint_academic_subject_subject_template_unique
-msgid "There is already a subject for this template, jurisdiction and company."
+msgid ""
+"There is already a subject for this template, jurisdiction and company."
 msgstr "Ya existe una asignatura para esta plantilla, jurisdicción y compañía."
 
 #. module: academic
@@ -1519,37 +1617,47 @@ msgid ""
 "                        Relative · Relationship · Roles · Relative DNI ·\n"
 "                        AFIP responsibility type · Email · Phone ·\n"
 "                        Contacts and roles per student</i>.\n"
-"                        The <b>Relationship</b> column must be exactly one "
-"of:\n"
+"                        The <b>Relationship</b> column must be exactly one of:\n"
 "                        <i>Padre/Madre · Pariente · Abuelo/a · Otro</i>.\n"
-"                        The <b>Roles</b> and <b>Tags</b> columns list one or "
-"more existing names\n"
-"                        separated by commas (e.g. <i>Responsable de "
-"Facturación, Puede Retirar</i>);\n"
-"                        they must already exist or the import fails. The "
-"paying role (Responsable de\n"
-"                        Facturación) requires the relative's DNI: the import "
-"fails if it is missing.\n"
-"                        The <b>AFIP responsibility type</b> column is only "
-"used when the Argentinian\n"
-"                        localization is installed: there it is required for "
-"the paying role and\n"
+"                        The <b>Roles</b> and <b>Tags</b> columns list one or more existing names\n"
+"                        separated by commas (e.g. <i>Responsable de Facturación, Puede Retirar</i>);\n"
+"                        they must already exist or the import fails. The paying role (Responsable de\n"
+"                        Facturación) requires the relative's DNI: the import fails if it is missing.\n"
+"                        The <b>AFIP responsibility type</b> column is only used when the Argentinian\n"
+"                        localization is installed: there it is required for the paying role and\n"
 "                        optional for the other relatives.\n"
-"                        The <b>Contacts and roles per student</b> column is "
-"optional\n"
-"                        (<i>Yes</i> / <i>No</i>, empty means No): set it to "
-"<i>Yes</i> when students\n"
-"                        sharing a surname belong to one family but each one "
-"has its own contacts\n"
+"                        The <b>Contacts and roles per student</b> column is optional\n"
+"                        (<i>Yes</i> / <i>No</i>, empty means No): set it to <i>Yes</i> when students\n"
+"                        sharing a surname belong to one family but each one has its own contacts\n"
 "                        and roles.\n"
-"                        Families and relatives are deduplicated "
-"automatically (by relative DNI),\n"
-"                        so re-uploading does not create duplicates. Students "
-"sharing a surname are\n"
-"                        only grouped in the same family when they share a "
-"relative: different\n"
+"                        Families and relatives are deduplicated automatically (by relative DNI),\n"
+"                        so re-uploading does not create duplicates. Students sharing a surname are\n"
+"                        only grouped in the same family when they share a relative: different\n"
 "                        relatives result in different families."
 msgstr ""
+"Subí una planilla (.xlsx) con una fila por <b>alumno + familiar</b>.\n"
+"                        Columnas esperadas, en este orden:\n"
+"                        <i>Apellido · Nombre del alumno · DNI del alumno · Etiquetas ·\n"
+"                        Familiar · Parentesco · Roles · DNI del familiar ·\n"
+"                        Tipo de responsabilidad AFIP · Correo electrónico · Teléfono ·\n"
+"                        Contactos y roles por alumno</i>.\n"
+"                        La columna <b>Parentesco</b> tiene que tener exactamente uno de estos valores:\n"
+"                        <i>Padre/Madre · Pariente · Abuelo/a · Otro</i>.\n"
+"                        Las columnas <b>Roles</b> y <b>Etiquetas</b> llevan uno o más nombres existentes\n"
+"                        separados por comas (por ejemplo, <i>Responsable de Facturación, Puede Retirar</i>);\n"
+"                        tienen que existir de antemano o la importación falla. El rol que paga (Responsable de\n"
+"                        Facturación) requiere el DNI del familiar: si falta, la importación falla.\n"
+"                        La columna <b>Tipo de responsabilidad AFIP</b> solo se usa cuando está instalada la\n"
+"                        localización argentina: en ese caso es obligatoria para el rol que paga y\n"
+"                        opcional para el resto de los familiares.\n"
+"                        La columna <b>Contactos y roles por alumno</b> es opcional\n"
+"                        (<i>Sí</i> / <i>No</i>; vacía equivale a No): poné <i>Sí</i> cuando los alumnos\n"
+"                        que comparten apellido son de una misma familia pero cada uno tiene sus propios contactos\n"
+"                        y roles.\n"
+"                        Las familias y los familiares se deduplican automáticamente (por DNI del familiar),\n"
+"                        así que volver a subir la planilla no crea duplicados. Los alumnos que comparten apellido\n"
+"                        solo se agrupan en la misma familia cuando tienen un familiar en común: si los\n"
+"                        familiares son distintos, quedan en familias distintas."
 
 #. module: academic
 #: model:ir.model,name:academic.model_res_users
@@ -1673,68 +1781,3 @@ msgstr "asignatura"
 #: model:ir.model.fields,help:academic.field_res_users__disabled_person
 msgid "¿Alumno/a con Dificultades de aprendizaje?"
 msgstr "¿Alumno/a con Dificultades de aprendizaje?"
-
-#~ msgid ""
-#~ "Surname · Student name · Student DNI · Tags · Relative · Relationship · "
-#~ "Roles · Relative DNI · AFIP responsibility type · Email · Phone"
-#~ msgstr ""
-#~ "Apellido · Nombre del alumno · DNI del alumno · Etiquetas · Familiar · "
-#~ "Vínculo · Roles · DNI del familiar · Tipo de responsabilidad AFIP · Email "
-#~ "· Teléfono"
-
-#~ msgid ""
-#~ "Upload a spreadsheet (.xlsx) with one row per <b>student + relative</b>.\n"
-#~ "                        Expected columns, in order:\n"
-#~ "                        <i>Surname · Student name · Student DNI · Tags ·\n"
-#~ "                        Relative · Relationship · Roles · Relative DNI ·\n"
-#~ "                        AFIP responsibility type · Email · Phone</i>.\n"
-#~ "                        The <b>Relationship</b> column must be exactly "
-#~ "one of:\n"
-#~ "                        <i>Padre/Madre · Pariente · Abuelo/a · Otro</i>.\n"
-#~ "                        The <b>Roles</b> and <b>Tags</b> columns list one "
-#~ "or more existing names\n"
-#~ "                        separated by commas (e.g. <i>Responsable de "
-#~ "Facturación, Puede Retirar</i>);\n"
-#~ "                        they must already exist or the import fails. The "
-#~ "paying role is only assigned\n"
-#~ "                        to relatives that have a DNI.\n"
-#~ "                        The <b>AFIP responsibility type</b> column is "
-#~ "optional and only used when the\n"
-#~ "                        Argentinian localization is installed.\n"
-#~ "                        Families and relatives are deduplicated "
-#~ "automatically (by relative DNI),\n"
-#~ "                        so re-uploading does not create duplicates."
-#~ msgstr ""
-#~ "Subí una hoja de cálculo (.xlsx) con una fila por <b>alumno + familiar</"
-#~ "b>.\n"
-#~ "                    Columnas esperadas, en orden:\n"
-#~ "                    <i>Apellido · Nombre del alumno · DNI del alumno · "
-#~ "Etiquetas ·\n"
-#~ "                    Familiar · Vínculo · Roles · DNI del familiar ·\n"
-#~ "                    Tipo de responsabilidad AFIP · Email · Teléfono</i>.\n"
-#~ "                    La columna <b>Vínculo</b> debe ser exactamente uno "
-#~ "de:\n"
-#~ "                    <i>Padre/Madre · Pariente · Abuelo/a · Otro</i>.\n"
-#~ "                    Las columnas <b>Roles</b> y <b>Etiquetas</b> listan "
-#~ "uno o más nombres existentes\n"
-#~ "                    separados por comas (ej. <i>Responsable de "
-#~ "Facturación, Puede Retirar</i>);\n"
-#~ "                    tienen que existir previamente o la importación "
-#~ "falla. El rol de pagador se asigna\n"
-#~ "                    únicamente a los familiares que tienen DNI.\n"
-#~ "                    La columna <b>Tipo de responsabilidad AFIP</b> es "
-#~ "opcional y solo se usa cuando está\n"
-#~ "                    instalada la localización argentina.\n"
-#~ "                    Las familias y los familiares se deduplican "
-#~ "automáticamente (por DNI del familiar),\n"
-#~ "                    así que volver a subir el archivo no genera "
-#~ "duplicados."
-
-#~ msgid "Grant Access to All"
-#~ msgstr "Otorgar acceso a todos"
-
-#~ msgid ""
-#~ "This button will grant access to all contacts with a valid email address."
-#~ msgstr ""
-#~ "Este botón otorgará acceso a todos los contactos con una dirección de "
-#~ "correo electrónico válida"
