@@ -119,8 +119,8 @@ class OrderWizard(models.TransientModel):
                                 existing_line.product_id,
                                 1.0,
                                 existing_line.product_id.uom_id,
-                                fields.Datetime.now(),
-                                rec.pricelist_id.currency_id or self.env.company.currency_id,
+                                date=fields.Datetime.now(),
+                                currency=rec.pricelist_id.currency_id or self.env.company.currency_id,
                             )
                         order_wizard_line_vals = {
                             "price": price,
@@ -136,8 +136,8 @@ class OrderWizard(models.TransientModel):
                                 line.product_id,
                                 1.0,
                                 line.product_id.uom_id,
-                                fields.Datetime.now(),
-                                rec.pricelist_id.currency_id or self.env.company.currency_id,
+                                date=fields.Datetime.now(),
+                                currency=rec.pricelist_id.currency_id or self.env.company.currency_id,
                             )
                         order_wizard_line_vals = {
                             "product_id": line.product_id.id,
@@ -161,8 +161,8 @@ class OrderWizard(models.TransientModel):
                             wizard_line.product_id,
                             1.0,
                             wizard_line.product_id.uom_id,
-                            fields.Datetime.now(),
-                            rec.pricelist_id.currency_id or self.env.company.currency_id,
+                            date=fields.Datetime.now(),
+                            currency=rec.pricelist_id.currency_id or self.env.company.currency_id,
                         )
                     wizard_line.write({"price": price})
                 else:
@@ -249,8 +249,8 @@ class AcademicOrderWizardLine(models.TransientModel):
                         rec.product_id,
                         1.0,
                         rec.product_id.uom_id,
-                        fields.Datetime.now(),
-                        rec.academic_order_wizard_id.pricelist_id.currency_id or self.env.company.currency_id,
+                        date=fields.Datetime.now(),
+                        currency=rec.academic_order_wizard_id.pricelist_id.currency_id or self.env.company.currency_id,
                     )
                 else:
                     rec.price = 0.0
