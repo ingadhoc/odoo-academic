@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo noupdate="1">
+    <record id="portal_entry_debt_certificate" model="portal.entry">
+        <field name="name">Debt Free Certificates</field>
+        <field name="description">Download certificates for students without debt</field>
+        <field name="url">/my/debt_free_certificates</field>
+        <field name="placeholder_count">debt_certificate_count</field>
+        <field name="category">client_category</field>
+    </record>
+</odoo>

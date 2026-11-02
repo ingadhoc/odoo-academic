@@ -93,8 +93,8 @@ class OrderWizard(models.TransientModel):
             product,
             1.0,
             product.uom_id,
-            fields.Datetime.now(),
-            self.pricelist_id.currency_id or self.env.company.currency_id,
+            date=fields.Datetime.now(),
+            currency=self.pricelist_id.currency_id or self.env.company.currency_id,
         )
 
     @api.depends("template_id", "plan_id", "pricelist_id")
@@ -153,8 +153,8 @@ class OrderWizard(models.TransientModel):
                             wizard_line.product_id,
                             1.0,
                             wizard_line.product_id.uom_id,
-                            fields.Datetime.now(),
-                            rec.pricelist_id.currency_id or self.env.company.currency_id,
+                            date=fields.Datetime.now(),
+                            currency=rec.pricelist_id.currency_id or self.env.company.currency_id,
                         )
                     wizard_line.write({"price": price})
                 else:
@@ -274,8 +274,8 @@ class AcademicOrderWizardLine(models.TransientModel):
                         rec.product_id,
                         1.0,
                         rec.product_id.uom_id,
-                        fields.Datetime.now(),
-                        rec.academic_order_wizard_id.pricelist_id.currency_id or self.env.company.currency_id,
+                        date=fields.Datetime.now(),
+                        currency=rec.academic_order_wizard_id.pricelist_id.currency_id or self.env.company.currency_id,
                     )
                 else:
                     rec.price = 0.0
