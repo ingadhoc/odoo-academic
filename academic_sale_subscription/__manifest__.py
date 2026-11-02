@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
     "name": "Academic Sale Subscription",
-    "version": "19.0.1.15.0",
+    "version": "20.0.1.0.0",
     "sequence": 14,
     "summary": "",
     "author": "ADHOC SA",
@@ -63,7 +63,7 @@
         "demo/account_move_demo.xml",
         "demo/website_contactus_demo.xml",
     ],
-    "installable": False,
+    "installable": True,
     "auto_install": ["sale_subscription", "academic"],
     "application": False,
     "post_init_hook": "post_init_hook",
