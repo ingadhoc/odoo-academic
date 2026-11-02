@@ -6,23 +6,19 @@
             <t t-set="portal_client_category_enable" t-value="True"/>
         </xpath>
         <div id="portal_client_category" position="inside">
-            <t t-call="portal.portal_docs_entry">
-                <t t-set="title">Debt Free Certificates</t>
-                <t t-set="url" t-value="'/my/debt_free_certificates'"/>
-                <t t-set="text">Download certificates for students without debt</t>
-                <t t-set="placeholder_count" t-value="'debt_certificate_count'"/>
-            </t>
+            <t t-call="portal.portal_docs_entry"
+                title.translate="Debt Free Certificates"
+                url.f="/my/debt_free_certificates"
+                text.translate="Download certificates for students without debt"
+                placeholder_count.f="debt_certificate_count"/>
         </div>
     </template>
 
     <!-- Debt Free Certificates page -->
     <template id="portal_my_debt_free_certificates" name="My Debt Free Certificates">
-        <t t-call="portal.portal_layout">
-            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+        <t t-call="portal.portal_layout" breadcrumbs_searchbar="True">
 
-            <t t-call="portal.portal_searchbar">
-                <t t-set="title">Debt Free Certificates</t>
-            </t>
+            <t t-call="portal.portal_searchbar" title.translate="Debt Free Certificates"/>
 
             <div t-if="not students" class="alert alert-warning" role="alert">
                 You are not registered as payment responsible for any student.
