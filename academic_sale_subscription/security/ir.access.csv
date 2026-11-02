@@ -1,0 +1,11 @@
+id,name,model_id,group_id/id,operation,domain
+access_academic_order_wizard,academic.order.wizard,academic.order.wizard,academic.group_user,crud,
+access_academic_order_wizard_line,academic.order.wizard.line,academic.order.wizard.line,academic.group_user,crud,
+access_academic_reenrollment_wizard,academic.reenrollment.wizard,academic.reenrollment.wizard,academic.group_manager,crud,
+access_academic_reenrollment_wizard_line,academic.reenrollment.wizard.line,academic.reenrollment.wizard.line,academic.group_manager,crud,
+access_academic_reenrollment_wizard_move,academic.reenrollment.wizard.move,academic.reenrollment.wizard.move,academic.group_manager,crud,
+access_update_payment_responsible_wizard,update.payment.responsible.wizard,update.payment.responsible.wizard,academic.group_user,crud,
+access_update_payment_responsible_line,update.payment.responsible.line,update.payment.responsible.line,academic.group_user,crud,
+access_update_payment_responsible_partner_wizard,update.payment.responsible.partner.wizard,update.payment.responsible.partner.wizard,academic.group_user,crud,
+access_crm_lead_family_member,crm.lead.family.member,crm.lead.family.member,academic.group_user,crud,
+access_archive_family_debt_wizard,access_archive_family_debt_wizard,archive.family.debt.wizard,academic.group_user,crud,
