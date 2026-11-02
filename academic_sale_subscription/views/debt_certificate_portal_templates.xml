@@ -33,7 +33,7 @@
                                     <h5 class="card-title" t-field="student.name"/>
                                     <div class="mt-auto">
                                         <a t-attf-href="/my/debt_free_certificate/#{student.id}" class="btn btn-primary w-100">
-                                            <i class="fa fa-download"/> Download Certificate
+                                            <i class="oi" data-icon="download"/> Download Certificate
                                         </a>
                                     </div>
                                 </div>

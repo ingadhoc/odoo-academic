@@ -44,7 +44,7 @@
                         <field name="suggested_family_message" widget="html" readonly="1" nolabel="1" class="mb-0"/>
                         <button name="action_open_suggested_family" type="object" class="btn btn-link"
                             string="Open families" invisible="suggested_family_count &lt;= 1"/>
-                        <button name="action_link_suggested_family" type="object" class="btn btn-link" icon="fa-arrow-right"
+                        <button name="action_link_suggested_family" type="object" class="btn btn-link" icon="arrow_forward"
                             string="Link family" invisible="suggested_family_count != 1"/>
                     </div>
                     <field name="family_member_ids">
@@ -61,7 +61,7 @@
                                 domain="[('partner_type', '=', 'family')]"
                                 readonly="member_type != 'family'"
                                 options="{'no_create': True}"/>
-                            <button name="action_open_partner" type="object" icon="fa-external-link"
+                            <button name="action_open_partner" type="object" icon="open_in_new"
                                 invisible="not partner_id" title="Open contact"/>
                         </list>
                     </field>
