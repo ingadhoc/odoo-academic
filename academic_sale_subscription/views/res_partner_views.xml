@@ -17,7 +17,7 @@
                 <button
                     type="object"
                     name="open_order_wizard"
-                    icon="fa-shopping-cart"
+                    icon="shopping_cart"
                     title="Open order wizard"
                 />
             </groupby>
@@ -46,7 +46,7 @@
                             <field name="next_invoice_date"/>
                             <field name="partner_invoice_id"/>
                             <field name="payment_term_id"/>
-                            <button type="object" name="open_subscription_form" icon="fa-pencil-square-o" title="Open" help="Open Subscription"/>
+                            <button type="object" name="open_subscription_form" icon="edit_square" title="Open" help="Open Subscription"/>
                         </list>
                     </field>
                 </page>
@@ -74,7 +74,7 @@
             <xpath expr="//field[@name='student_link_ids']//list//field[@name='note']" position="after">
                 <button name="action_change_payment_responsible"
                         type="object"
-                        icon="fa-exchange"
+                        icon="swap_horiz"
                         title="Change Payment Responsible"
                         help="Payment responsible will be changed for active sales and pending debts"
                         class="btn-secondary btn-sm"/>
