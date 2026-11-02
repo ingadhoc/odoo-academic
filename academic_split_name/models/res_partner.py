@@ -12,6 +12,7 @@ class ResPartner(models.Model):
         compute="_compute_name",
         store=True,
         readonly=False,
+        copy=True,
     )
     firstname = fields.Char("Primer Nombre", compute="_compute_firstname", store=True, readonly=False)
     middlename = fields.Char("Segundo Nombre")
