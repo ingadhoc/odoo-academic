@@ -1,0 +1,124 @@
+##############################################################################
+# For copyright and license notices, see __manifest__.py file in module root
+# directory
+##############################################################################
+from odoo.tests import Form
+from odoo.tests.common import TransactionCase, tagged
+
+
+@tagged("post_install", "-at_install")
+class TestSplitName(TransactionCase):
+    """The module splits the name of the academic contacts in four parts.
+
+    Through the form the only way in is the parts: the module hides the name
+    for students, relatives and families. The other way round -- a name that
+    arrives whole and has to be split -- happens on an import or over RPC, so
+    those cases go through create/write.
+    """
+
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.Partner = cls.env["res.partner"]
+        cls.family = cls.Partner.create({"name": "García", "partner_type": "family"})
+
+    def _student_form(self):
+        form = Form(self.Partner)
+        form.partner_type = "student"
+        form.parent_id = self.family
+        return form
+
+    def test_the_form_builds_the_name_from_the_four_parts(self):
+        form = self._student_form()
+        form.firstname = "Sofía"
+        form.middlename = "Ana"
+        form.lastname = "García"
+        form.second_lastname = "Pérez"
+        student = form.save()
+        self.assertEqual(student.name, "Sofía Ana García Pérez")
+
+    def test_the_parts_that_are_empty_leave_no_double_space(self):
+        form = self._student_form()
+        form.firstname = "Sofía"
+        form.lastname = "García"
+        student = form.save()
+        self.assertEqual(student.name, "Sofía García")
+
+    def test_editing_a_part_over_the_orm_rebuilds_the_name(self):
+        """Over the ORM -- an import, a server action -- the guard holds and the
+        parts survive. The form does not: see the test at the end."""
+        form = self._student_form()
+        form.firstname = "Sofía"
+        form.lastname = "García"
+        student = form.save()
+        student.second_lastname = "Pérez"
+        self.assertEqual(student.name, "Sofía García Pérez")
+        self.assertEqual(student.lastname, "García")
+
+    def test_a_name_that_arrives_whole_is_split_on_a_student(self):
+        student = self.Partner.create(
+            {"name": "Sofía García Pérez", "partner_type": "student", "parent_id": self.family.id}
+        )
+        self.assertEqual(student.firstname, "Sofía")
+        self.assertEqual(student.lastname, "García Pérez")
+
+    def test_a_single_word_name_leaves_no_last_name(self):
+        relative = self.Partner.create({"name": "Carlos", "partner_type": "parent"})
+        self.assertEqual(relative.firstname, "Carlos")
+        self.assertFalse(relative.lastname)
+
+    def test_on_a_family_the_whole_name_is_the_last_name(self):
+        self.assertEqual(self.family.lastname, "García")
+        self.assertFalse(self.family.firstname)
+
+    def test_a_contact_that_is_not_academic_keeps_its_name(self):
+        other = self.Partner.create({"name": "Proveedor SA"})
+        self.assertEqual(other.name, "Proveedor SA")
+        self.assertFalse(other.firstname)
+        self.assertFalse(other.lastname)
+
+    def test_duplicating_a_student_does_not_add_the_copy_suffix(self):
+        """From 20 on, a Char called `name` is copied with " (copy)" at the end
+        unless the field declares `copy`. Here the name comes from the parts, so
+        the suffix would leave it out of sync with them."""
+        form = self._student_form()
+        form.firstname = "Sofía"
+        form.lastname = "García"
+        student = form.save()
+        copy = student.copy()
+        self.assertEqual(copy.name, "Sofía García")
+        self.assertEqual(copy.firstname, "Sofía")
+        self.assertEqual(copy.lastname, "García")
+
+    def test_editing_a_part_through_the_form_overwrites_the_last_name(self):
+        """Known bug, NOT from the 19 -> 20 jump: measured the same on both.
+
+        `_compute_name` guards the cycle with `skip_name_split_compute` in the
+        context, and that holds over the ORM. Through the form the client
+        recomputes on its own, so rebuilding the name fires `_compute_lastname`
+        again and the last name swallows everything after the first word:
+        adding "Ana" to "Sofía García" leaves the last name as
+        "Ana García Pérez".
+
+        It is pinned here so nobody reads the test above as covering what a
+        person does on screen. The fix is a decision for the dev and the PO, so
+        the migration did not touch it.
+        """
+        form = self._student_form()
+        form.firstname = "Sofía"
+        form.lastname = "García"
+        student = form.save()
+
+        with Form(student) as editing:
+            editing.middlename = "Ana"
+            editing.second_lastname = "Pérez"
+
+        self.assertEqual(student.name, "Sofía Ana García Pérez")
+        self.assertEqual(student.firstname, "Sofía")
+        self.assertEqual(student.middlename, "Ana")
+        self.assertEqual(student.second_lastname, "Pérez")
+        self.assertEqual(
+            student.lastname,
+            "Ana García Pérez",
+            "if this ever says García, the bug is fixed and the test has to say so",
+        )
