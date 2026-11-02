@@ -129,10 +129,9 @@ class SaleOrder(models.Model):
         grouped_subs = self.read_group(
             [("partner_id", "!=", False), ("order_line", "!=", False), ("subscription_state", "=", "3_progress")],
             ["partner_id"],
-            ["partner_id"],
-            lazy=False,
+            ["__count"],
         )
-        partner_ids = {group["partner_id"][0] for group in grouped_subs if group["__count"] > 1}
+        partner_ids = {partner_id for partner_id, count in grouped_subs if count > 1}
 
         if not partner_ids:
             return [("id", "in", [])]
