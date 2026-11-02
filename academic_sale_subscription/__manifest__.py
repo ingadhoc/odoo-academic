@@ -25,7 +25,7 @@
         "data/ir_actions_server.xml",
         "data/ir_model_fields_data.xml",
         "data/subscription_plan_data.xml",
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/academic_security.xml",
         "report/report_data.xml",
         "report/report_debt_free_certificate.xml",
