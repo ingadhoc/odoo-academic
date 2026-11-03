@@ -6,3 +6,4 @@ from . import test_archive_family
 from . import test_contact_import
 from . import test_next_year_groups
 from . import test_student_link_duplication
+from . import test_student_links_propagation
