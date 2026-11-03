@@ -52,7 +52,7 @@
             </form>
 
             <page name="contact_addresses" position="attributes">
-                <attribute name="invisible">not is_company</attribute>
+                <attribute name="invisible">partner_type</attribute>
             </page>
 
             <xpath expr="//group/group" position="attributes">
