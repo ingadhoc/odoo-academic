@@ -3,6 +3,7 @@ access_academic_group_manager,academic.group.manager,academic.group,academic.gro
 access_academic_group_user,academic.group.user,academic.group,academic.group_user,ru,
 access_group_global,academic.group.global,academic.group,base.group_user,r,
 res_partner_group_teacher_rule,portal techaer: only teacher groups,academic.group,academic.group_portal_administrator,crud,"[('id','in',user.teacher_group_ids.ids)]"
+access_academic_group_portal_teacher,portal teacher: read only teacher groups,academic.group,academic.group_portal_teacher,r,"[('id','in',user.teacher_group_ids.ids)]"
 res_partner_group_gral_administrator_rule,portal gral administrator: all groups,academic.group,academic.group_portal_gral_administrator,crud,
 group_multi_company,group multi-company,academic.group,,crud,"['|',('company_id', 'in', company_ids),('company_id','=',False)]"
 access_res_partner_user,res.partner.user,res.partner,academic.group_user,crud,
