@@ -1,5 +1,5 @@
 # © 2016 ADHOC SA
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+# License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 {
     "name": "Spreadsheet Dashboard Academic",
     "version": "20.0.1.0.0",
@@ -7,7 +7,7 @@
     "summary": "Academic Spreadsheet Dashboard for Invoice Tracking",
     "author": "ADHOC SA",
     "website": "www.adhoc.com.ar",
-    "license": "AGPL-3",
+    "license": "LGPL-3",
     "category": "Academic",
     "depends": ["academic_sale_subscription", "spreadsheet_dashboard"],
     "data": [
