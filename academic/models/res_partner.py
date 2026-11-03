@@ -121,7 +121,15 @@ class ResPartner(models.Model):
         default=False,
     )
 
-    @api.depends("parent_links_by_student", "parent_id.student_link_ids")
+    @api.depends(
+        "parent_links_by_student",
+        "parent_id.student_link_ids",
+        "parent_id.student_link_ids.partner_id",
+        "parent_id.student_link_ids.relationship_id",
+        "parent_id.student_link_ids.role_ids",
+        "parent_id.student_link_ids.note",
+        "parent_id.student_link_ids.sequence",
+    )
     def _compute_student_links(self):
         """Si se confirugan los contactos en la flia, los propagamos a los hijos. Lo hacemos así para que:
         a) en todo el codigo solo miremos siempre hijos, lo de la familia es un asistente
