@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 20.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-30 16:54+0000\n"
-"PO-Revision-Date: 2026-10-30 16:54+0000\n"
+"POT-Creation-Date: 2026-11-04 14:36+0000\n"
+"PO-Revision-Date: 2026-11-04 14:36+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -398,6 +398,14 @@ msgstr ""
 #. module: academic
 #: model:ir.ui.menu,name:academic.menu_configuration
 msgid "Configuration"
+msgstr ""
+
+#. module: academic
+#: model:res.company,pay_later_label:academic.res_company_facultad_ingenieria
+#: model:res.company,pay_later_label:academic.res_company_los_arroyos
+#: model:res.company,pay_later_label:academic.res_company_los_molinos
+#: model:res.company,pay_later_label:academic.res_company_los_senderos
+msgid "Confirm"
 msgstr ""
 
 #. module: academic
@@ -968,6 +976,14 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic.field_res_partner__same_identification_number_partner_id
 #: model:ir.model.fields,field_description:academic.field_res_users__same_identification_number_partner_id
 msgid "Partner with same identification number"
+msgstr ""
+
+#. module: academic
+#: model:res.company,pay_now_label:academic.res_company_facultad_ingenieria
+#: model:res.company,pay_now_label:academic.res_company_los_arroyos
+#: model:res.company,pay_now_label:academic.res_company_los_molinos
+#: model:res.company,pay_now_label:academic.res_company_los_senderos
+msgid "Pay now"
 msgstr ""
 
 #. module: academic
