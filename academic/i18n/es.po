@@ -1111,7 +1111,7 @@ msgstr "Padres"
 #. odoo-python
 #: code:addons/academic/wizards/academic_contact_import.py:0
 msgid "Relatives created"
-msgstr "Parientes creados"
+msgstr "Responsables creados"
 
 #. module: academic
 #: model:ir.ui.menu,name:academic.menu_portal_reporting
@@ -1246,7 +1246,7 @@ msgstr "Estudiantes"
 #. odoo-python
 #: code:addons/academic/wizards/academic_contact_import.py:0
 msgid "Students created"
-msgstr "Alumno creado"
+msgstr "Alumnos creados"
 
 #. module: academic
 #. odoo-python
