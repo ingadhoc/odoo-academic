@@ -5,7 +5,7 @@
     "summary": "HR extensions for academic institutions with multiple employee support",
     "author": "ADHOC SA",
     "website": "https://www.adhoc.inc",
-    "license": "AGPL-3",
+    "license": "LGPL-3",
     "depends": [
         "academic",
         "hr_holidays",

@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 19.0+e\n"
+"Project-Id-Version: Odoo Server 20.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-25 14:16+0000\n"
-"PO-Revision-Date: 2026-02-25 14:16+0000\n"
+"POT-Creation-Date: 2026-11-04 15:06+0000\n"
+"PO-Revision-Date: 2026-11-04 15:06+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,35 +16,122 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: academic_hr
-#: model_terms:ir.ui.view,arch_db:academic_hr.view_employee_form_academic
-msgid "<i class=\"fa fa-briefcase\" role=\"img\" aria-label=\"Job\" title=\"Job\"/>"
+#: model:ir.module.module,description:base.module_academic_hr
+msgid ""
+".. |company| replace:: ADHOC SA\n"
+"\n"
+".. |company_logo| image:: https://raw.githubusercontent.com/ingadhoc/maintainer-tools/master/resources/adhoc-logo.png\n"
+"   :alt: ADHOC SA\n"
+"   :target: https://www.adhoc.com.ar\n"
+"\n"
+".. |icon| image:: https://raw.githubusercontent.com/ingadhoc/maintainer-tools/master/resources/adhoc-icon.png\n"
+"\n"
+".. image:: https://img.shields.io/badge/license-LGPL--3-blue.png\n"
+"   :target: https://www.gnu.org/licenses/lgpl\n"
+"   :alt: License: LGPL-3\n"
+"\n"
+"===========\n"
+"Academic HR\n"
+"===========\n"
+"\n"
+"This module extends Odoo's HR functionality to support academic institutions with specific requirements:\n"
+"\n"
+"* **Multiple Employees per User**: Allows a single user to manage multiple employee records across different companies\n"
+"* **Parent-Child Employee Relationships**: Enables hierarchical employee structures with main and child employees\n"
+"* **Enhanced Leave Management**: Supports leave requests and allocations for users with multiple employee records\n"
+"* **Timesheet Integration**: Provides better timesheet management for academic staff with multiple roles\n"
+"\n"
+"Installation\n"
+"============\n"
+"\n"
+"To install this module, you need to:\n"
+"\n"
+"#. Just install.\n"
+"\n"
+"Configuration\n"
+"=============\n"
+"\n"
+"To configure users with multiple employees:\n"
+"\n"
+"#. Go to *Employees > Employees*\n"
+"#. Create or edit a main employee record\n"
+"#. In the \"Child Employees\" tab, add additional employee records for the same user\n"
+"#. The system will automatically link them and propagate user/company information\n"
+"\n"
+"\n"
+"Usage\n"
+"=====\n"
+"\n"
+"Managing Multiple Employees\n"
+"---------------------------\n"
+"\n"
+"When a user has multiple employee records:\n"
+"\n"
+"#. Leave requests will show a combined view with employee names\n"
+"#. Timesheet entries can be created for any of the user's employees\n"
+"#. The system automatically selects the first employee as default\n"
+"\n"
+"\n"
+".. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas\n"
+"   :alt: Try me on Runbot\n"
+"   :target: http://runbot.adhoc.com.ar/\n"
+"\n"
+"Bug Tracker\n"
+"===========\n"
+"\n"
+"Bugs are tracked on `GitHub Issues\n"
+"<https://github.com/ingadhoc/odoo-academic/issues>`_. In case of trouble, please\n"
+"check there if your issue has already been reported. If you spotted it first,\n"
+"help us smashing it by providing a detailed and welcomed feedback.\n"
+"\n"
+"Credits\n"
+"=======\n"
+"\n"
+"Images\n"
+"------\n"
+"\n"
+"* |company| |icon|\n"
+"\n"
+"Contributors\n"
+"------------\n"
+"\n"
+"Maintainer\n"
+"----------\n"
+"\n"
+"|company_logo|\n"
+"\n"
+"This module is maintained by the |company|.\n"
+"\n"
+"To contribute to this module, please visit https://www.adhoc.com.ar.\n"
+msgstr ""
+
+#. module: academic_hr
+#: model_terms:ir.ui.view,arch_db:academic_hr.portal_side_content_academic_hr
+msgid "<i class=\"oi oi-filled\" data-icon=\"edit\"/> Edit information"
 msgstr ""
 
 #. module: academic_hr
 #: model_terms:ir.ui.view,arch_db:academic_hr.view_employee_form_academic
 msgid ""
-"<i class=\"fa fa-building\" role=\"img\" aria-label=\"Department\" "
-"title=\"Department\"/>"
-msgstr ""
-
-#. module: academic_hr
-#: model_terms:ir.ui.view,arch_db:academic_hr.portal_side_content_academic_hr
-msgid "<i class=\"fa fa-pencil\"/> Edit information"
+"<i class=\"oi oi-fw oi-filled me-1 text-primary\" data-icon=\"person\" "
+"title=\"Main Employee\"/>"
 msgstr ""
 
 #. module: academic_hr
 #: model_terms:ir.ui.view,arch_db:academic_hr.view_employee_form_academic
-msgid "<i class=\"fa fa-user fa-fw me-1 text-primary\" title=\"Main Employee\"/>"
+msgid ""
+"<i class=\"oi\" data-icon=\"business\" role=\"img\" aria-"
+"label=\"Department\" title=\"Department\"/>"
 msgstr ""
 
 #. module: academic_hr
-#: model_terms:ir.ui.view,arch_db:academic_hr.portal_my_personal_data
-msgid "<option value=\"\">Country...</option>"
+#: model_terms:ir.ui.view,arch_db:academic_hr.view_employee_form_academic
+msgid "<i class=\"oi\" data-icon=\"work\" role=\"img\" aria-label=\"Job\" title=\"Job\"/>"
 msgstr ""
 
 #. module: academic_hr
-#: model_terms:ir.ui.view,arch_db:academic_hr.portal_my_personal_data
-msgid "<option value=\"\">State...</option>"
+#: model:ir.module.module,shortdesc:base.module_academic_hr
+msgid "Academic HR"
 msgstr ""
 
 #. module: academic_hr
@@ -84,11 +171,6 @@ msgid "City"
 msgstr ""
 
 #. module: academic_hr
-#: model:ir.model.fields,field_description:academic_hr.field_hr_employee__company_id
-msgid "Company"
-msgstr ""
-
-#. module: academic_hr
 #: model_terms:ir.ui.view,arch_db:academic_hr.portal_my_personal_data
 msgid "Confirm"
 msgstr ""
@@ -96,6 +178,11 @@ msgstr ""
 #. module: academic_hr
 #: model_terms:ir.ui.view,arch_db:academic_hr.portal_my_personal_data
 msgid "Country"
+msgstr ""
+
+#. module: academic_hr
+#: model_terms:ir.ui.view,arch_db:academic_hr.portal_my_personal_data
+msgid "Country..."
 msgstr ""
 
 #. module: academic_hr
@@ -108,7 +195,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic_hr.field_hr_department__display_name
 #: model:ir.model.fields,field_description:academic_hr.field_hr_employee__display_name
 #: model:ir.model.fields,field_description:academic_hr.field_hr_leave_allocation__display_name
-#: model:ir.model.fields,field_description:academic_hr.field_hr_leave_type__display_name
+#: model:ir.model.fields,field_description:academic_hr.field_hr_work_entry_type__display_name
 msgid "Display Name"
 msgstr ""
 
@@ -125,11 +212,16 @@ msgid "Employee"
 msgstr ""
 
 #. module: academic_hr
+#: model:ir.module.module,summary:base.module_academic_hr
+msgid "HR extensions for academic institutions with multiple employee support"
+msgstr ""
+
+#. module: academic_hr
 #: model:ir.model.fields,field_description:academic_hr.field_account_analytic_line__id
 #: model:ir.model.fields,field_description:academic_hr.field_hr_department__id
 #: model:ir.model.fields,field_description:academic_hr.field_hr_employee__id
 #: model:ir.model.fields,field_description:academic_hr.field_hr_leave_allocation__id
-#: model:ir.model.fields,field_description:academic_hr.field_hr_leave_type__id
+#: model:ir.model.fields,field_description:academic_hr.field_hr_work_entry_type__id
 msgid "ID"
 msgstr ""
 
@@ -167,6 +259,11 @@ msgstr ""
 
 #. module: academic_hr
 #: model_terms:ir.ui.view,arch_db:academic_hr.portal_my_personal_data
+msgid "State..."
+msgstr ""
+
+#. module: academic_hr
+#: model_terms:ir.ui.view,arch_db:academic_hr.portal_my_personal_data
 msgid "Street"
 msgstr ""
 
@@ -176,8 +273,8 @@ msgid "Time Off Allocation"
 msgstr ""
 
 #. module: academic_hr
-#: model:ir.model,name:academic_hr.model_hr_leave_type
-msgid "Time Off Type"
+#: model:ir.model,name:academic_hr.model_hr_work_entry_type
+msgid "Time Type"
 msgstr ""
 
 #. module: academic_hr
