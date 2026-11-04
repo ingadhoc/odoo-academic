@@ -1,0 +1,3 @@
+id,name,model_id,group_id/id,operation,domain
+hr_employee_rule_portal,Portal: See own employee record,hr.employee,base.group_portal,r,"[('user_id', '=', user.id)]"
+hr_employee_public_rule_portal,Portal: See own public employee record,hr.employee.public,base.group_portal,r,"[('user_id', '=', user.id)]"
