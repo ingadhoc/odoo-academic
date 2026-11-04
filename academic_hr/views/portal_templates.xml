@@ -28,7 +28,7 @@
                     <i class="fa fa-fw me-1 text-600"/>
                     <span>
                         <t t-if="current_employee.private_zip" t-esc="current_employee.private_zip"/>
-                        <t t-if="current_employee.private_zip and current_employee.private_city"> </t>
+                        <t t-if="current_employee.private_zip and current_employee.private_city"/>
                         <t t-if="current_employee.private_city" t-esc="current_employee.private_city"/>
                         <t t-if="current_employee.private_country_id">, <t t-esc="current_employee.private_country_id.name"/></t>
                     </span>
