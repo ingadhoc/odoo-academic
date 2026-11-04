@@ -1,6 +1,6 @@
 {
     "name": "Academic HR",
-    "version": "19.0.1.2.0",
+    "version": "20.0.1.0.0",
     "category": "Human Resources",
     "summary": "HR extensions for academic institutions with multiple employee support",
     "author": "ADHOC SA",
@@ -29,7 +29,7 @@
             "academic_hr/static/src/css/ribbon.css",
         ],
     },
-    "installable": False,
+    "installable": True,
     "auto_install": False,
     "application": False,
 }
