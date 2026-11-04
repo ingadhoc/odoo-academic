@@ -1,18 +1,18 @@
 from odoo import api, models
 
 
-class HrLeaveType(models.Model):
-    _inherit = "hr.leave.type"
+class HrWorkEntryType(models.Model):
+    _inherit = "hr.work.entry.type"
 
     @api.model
-    def get_allocation_data_request(self, target_date=None, hidden_allocations=True):
+    def get_allocation_data_request(self, target_date=None, hidden_allocations=True, same_year_only=False):
         employee = self.env["hr.employee"].with_context(multiple_employees=True)._get_contextual_employee()
 
         if employee and len(employee) > 1:
             combined_data = []
             for emp in employee:
-                emp_data = super(HrLeaveType, self.with_context(employee_id=emp.id)).get_allocation_data_request(
-                    target_date, hidden_allocations
+                emp_data = super(HrWorkEntryType, self.with_context(employee_id=emp.id)).get_allocation_data_request(
+                    target_date, hidden_allocations, same_year_only
                 )
                 # Modify each entry to have unique keys and include employee name
                 for entry in emp_data:
@@ -27,4 +27,4 @@ class HrLeaveType(models.Model):
                         combined_data.append(entry)
             return combined_data
 
-        return super().get_allocation_data_request(target_date, hidden_allocations)
+        return super().get_allocation_data_request(target_date, hidden_allocations, same_year_only)

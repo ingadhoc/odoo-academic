@@ -15,11 +15,6 @@ class HrEmployee(models.Model):
         "main_employee_id",
         string="Child Employees",
     )
-    company_id = fields.Many2one(
-        compute="_compute_company_id",
-        store=True,
-        readonly=False,
-    )
 
     def init(self):
         """Remove the unique constraint on user_id and company_id"""
@@ -51,14 +46,6 @@ class HrEmployee(models.Model):
         if self.env.context.get("multiple_employees") and len(self.env.user.employee_ids) > 1:
             return self.env.user.employee_ids
         return super()._get_contextual_employee()
-
-    @api.depends("main_employee_id", "main_employee_id.company_id")
-    def _compute_company_id(self):
-        for employee in self:
-            if employee.main_employee_id:
-                employee.company_id = employee.main_employee_id.company_id
-            elif not employee.company_id:
-                employee.company_id = self.env.company
 
     @api.constrains("main_employee_id")
     def _check_main_employee_recursion(self):
