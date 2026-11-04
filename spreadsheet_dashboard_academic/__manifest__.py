@@ -9,7 +9,11 @@
     "website": "www.adhoc.com.ar",
     "license": "LGPL-3",
     "category": "Academic",
-    "depends": ["academic_sale_subscription", "spreadsheet_dashboard"],
+    "depends": [
+        "academic_sale_subscription",
+        "account_internal_transfer",
+        "spreadsheet_dashboard",
+    ],
     "data": [
         "data/dashboards.xml",
     ],
