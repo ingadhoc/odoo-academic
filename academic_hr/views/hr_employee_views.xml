@@ -60,7 +60,7 @@
         <field name="model">hr.employee</field>
         <field name="inherit_id" ref="hr.view_employee_filter"/>
         <field name="arch" type="xml">
-            <filter name="my_team" position="before">
+            <filter name="permanent_contract" position="before">
                 <filter name="main_employees" string="Main Employees"
                         domain="[('main_employee_id', '=', False)]"/>
                 <filter name="child_employees" string="Child Employees"
