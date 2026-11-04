@@ -2,6 +2,7 @@
 # For copyright and license notices, see __manifest__.py file in module root
 # directory
 ##############################################################################
+from odoo import fields
 from odoo.exceptions import UserError
 from odoo.tests.common import TransactionCase, tagged
 
@@ -85,7 +86,7 @@ class TestMultipleEmployees(TransactionCase):
         self.assertEqual(len(employees), 2)
         self.assertEqual(set(employees.ids), {self.main.id, self.child.id})
 
-    def test_without_the_context_the_core_cannot_pick_one_employee(self):
+    def test_the_main_employee_wins_when_the_core_picks_one(self):
         """FROM THE JUMP, measured on both versions. Odoo 20 hardened an
         assumption this module breaks on purpose.
 
@@ -98,12 +99,19 @@ class TestMultipleEmployees(TransactionCase):
         both records, which raises. Its docstring now states "A user has at most
         one employee per company".
 
-        Anything reading `user.employee_id` for such a user therefore breaks on
-        20. Deciding which of the employees should win is a product call, so the
-        migration did not invent one; this test pins what happens today.
+        The override keeps a single record, and picks the main employee instead
+        of 19's accidental last one.
         """
-        with self.assertRaises(ValueError):
-            self.Employee.with_user(self.user)._get_contextual_employee()
+        self.assertEqual(self.Employee.with_user(self.user)._get_contextual_employee(), self.main)
+        self.assertEqual(self.user.with_company(self.company_a).employee_id, self.main)
+
+    def test_a_user_with_several_employees_can_still_be_written_to(self):
+        """Signing in writes `login_date` on res.users, which recomputes
+        `employee_id`: without the override the write raises and the person
+        cannot get in at all.
+        """
+        self.user.with_company(self.company_a).write({"login_date": fields.Datetime.now()})
+        self.assertEqual(self.user.with_company(self.company_a).employee_id, self.main)
 
     def test_the_time_off_balances_add_up_every_employee(self):
         """`get_allocation_data_request` lives on hr.work.entry.type in 20; in 19

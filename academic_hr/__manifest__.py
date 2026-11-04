@@ -13,6 +13,7 @@
         "timesheet_grid",
         "portal",
         "hr_attendance",
+        "hr_attendance_gantt",
     ],
     "data": [
         "security/ir.access.csv",
