@@ -11,7 +11,7 @@
 
             <xpath expr="//field[@name='work_email']//.." position="before">
                 <h5 class="d-flex align-items-baseline mb-0">
-                    <i class="fa fa-user fa-fw me-1 text-primary" title="Main Employee"/>
+                    <i class="oi oi-fw oi-filled me-1 text-primary" data-icon="person" title="Main Employee"/>
                     <field name="main_employee_id" placeholder="Main Employee" class="w-100 w-sm-75"/>
                 </h5>
             </xpath>
@@ -38,11 +38,11 @@
                                     <main class="ps-2 ps-md-0">
                                         <field name="name" class="fw-bold"/>
                                         <div t-if="record.job_id.raw_value">
-                                            <i class="fa fa-briefcase" role="img" aria-label="Job" title="Job"></i>
+                                            <i class="oi" data-icon="work" role="img" aria-label="Job" title="Job"></i>
                                             <field name="job_id"/>
                                         </div>
                                         <div t-if="record.department_id.raw_value">
-                                            <i class="fa fa-building" role="img" aria-label="Department" title="Department"></i>
+                                            <i class="oi" data-icon="business" role="img" aria-label="Department" title="Department"></i>
                                             <field name="department_id"/>
                                         </div>
                                     </main>

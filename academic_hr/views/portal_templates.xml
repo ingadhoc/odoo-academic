@@ -13,15 +13,15 @@
             <div class="o_portal_my_details mt-5" t-if="current_employee">
                 <h5 class="mb-3 pb-3 border-bottom">My Personal Data</h5>
                 <div t-if="current_employee.private_email" class="d-flex align-items-baseline mb-1">
-                    <i class="fa fa-envelope fa-fw me-1 text-600"/>
+                    <i class="oi oi-fw oi-filled me-1 text-600" data-icon="mail"/>
                     <span class="text-break w-100" t-esc="current_employee.private_email"/>
                 </div>
                 <div t-if="current_employee.private_phone" class="d-flex flex-nowrap align-items-center mb-1">
-                    <i class="fa fa-phone fa-fw me-1 text-600"/>
+                    <i class="oi oi-fw oi-filled me-1 text-600" data-icon="phone"/>
                     <span t-esc="current_employee.private_phone"/>
                 </div>
                 <div t-if="current_employee.private_street" class="d-flex align-items-baseline mb-1">
-                    <i class="fa fa-map-marker fa-fw me-1 text-600"/>
+                    <i class="oi oi-fw me-1 text-600" data-icon="location_on"/>
                     <span class="w-100 lh-sm text-break d-block" t-esc="current_employee.private_street"/>
                 </div>
                 <div t-if="current_employee.private_city or current_employee.private_zip" class="d-flex align-items-baseline mb-1">
@@ -33,7 +33,7 @@
                         <t t-if="current_employee.private_country_id">, <t t-esc="current_employee.private_country_id.name"/></t>
                     </span>
                 </div>
-                <a role="button" href="/my/personal_data" class="btn btn-link p-0 mt-3"><i class="fa fa-pencil"/> Edit information</a>
+                <a role="button" href="/my/personal_data" class="btn btn-link p-0 mt-3"><i class="oi oi-filled" data-icon="edit"/> Edit information</a>
             </div>
         </xpath>
     </template>
