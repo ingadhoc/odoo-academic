@@ -14,6 +14,7 @@
     "data": [
         "views/res_partner_views.xml",
     ],
+    "post_init_hook": "post_init_hook",
     "installable": True,
     "auto_install": False,
     "application": False,

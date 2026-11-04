@@ -45,8 +45,7 @@ class TestSplitName(TransactionCase):
         self.assertEqual(student.name, "Sofía García")
 
     def test_editing_a_part_over_the_orm_rebuilds_the_name(self):
-        """Over the ORM -- an import, a server action -- the guard holds and the
-        parts survive. The form does not: see the test at the end."""
+        """Over the ORM -- an import, a server action -- the parts survive."""
         form = self._student_form()
         form.firstname = "Sofía"
         form.lastname = "García"
@@ -90,19 +89,16 @@ class TestSplitName(TransactionCase):
         self.assertEqual(copy.firstname, "Sofía")
         self.assertEqual(copy.lastname, "García")
 
-    def test_editing_a_part_through_the_form_overwrites_the_last_name(self):
-        """Known bug, NOT from the 19 -> 20 jump: measured the same on both.
+    def test_editing_a_part_through_the_form_keeps_the_last_name(self):
+        """Used to be a bug, and not from the 19 -> 20 jump: it behaved the same
+        on both.
 
-        `_compute_name` guards the cycle with `skip_name_split_compute` in the
-        context, and that holds over the ORM. Through the form the client
-        recomputes on its own, so rebuilding the name fires `_compute_lastname`
-        again and the last name swallows everything after the first word:
-        adding "Ana" to "Sofía García" leaves the last name as
-        "Ana García Pérez".
-
-        It is pinned here so nobody reads the test above as covering what a
-        person does on screen. The fix is a decision for the dev and the PO, so
-        the migration did not touch it.
+        The cycle between the name and its parts was guarded with
+        `skip_name_split_compute` in the context, which holds over the ORM but
+        not through the form, where the client recomputes on its own: rebuilding
+        the name fired `_compute_lastname` again and the last name swallowed
+        everything after the first word. The guard is now a consistency check,
+        so it holds whichever way in.
         """
         form = self._student_form()
         form.firstname = "Sofía"
@@ -116,9 +112,5 @@ class TestSplitName(TransactionCase):
         self.assertEqual(student.name, "Sofía Ana García Pérez")
         self.assertEqual(student.firstname, "Sofía")
         self.assertEqual(student.middlename, "Ana")
+        self.assertEqual(student.lastname, "García")
         self.assertEqual(student.second_lastname, "Pérez")
-        self.assertEqual(
-            student.lastname,
-            "Ana García Pérez",
-            "if this ever says García, the bug is fixed and the test has to say so",
-        )
