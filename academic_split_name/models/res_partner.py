@@ -13,6 +13,7 @@ class ResPartner(models.Model):
     name = fields.Char(
         compute="_compute_name",
         store=True,
+        precompute=True,
         readonly=False,
     )
     firstname = fields.Char("Primer Nombre")

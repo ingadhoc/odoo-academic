@@ -76,6 +76,17 @@ class TestSplitName(TransactionCase):
         self.assertEqual(student.firstname, "Mateo")
         self.assertEqual(student.lastname, "Sosa")
 
+    def test_a_student_created_only_with_the_parts_gets_its_name(self):
+        """An import of a roll brings a column per part and no name column.
+
+        The name is built from the parts, so it has to be there before the
+        INSERT: the database requires a contact to have one.
+        """
+        student = self.Partner.with_context(default_partner_type="student").create(
+            {"parent_id": self.family.id, "firstname": "Juan", "lastname": "Pérez"}
+        )
+        self.assertEqual(student.name, "Juan Pérez")
+
     def test_a_name_that_arrives_whole_is_split_with_the_type_from_the_context(self):
         """Importing from a list, the type arrives as a default in the context."""
         student = self.Partner.with_context(default_partner_type="student").create(
