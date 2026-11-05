@@ -2,6 +2,7 @@
 # For copyright and license notices, see __manifest__.py file in module root
 # directory
 ##############################################################################
+from odoo.addons.academic_split_name import post_init_hook
 from odoo.tests import Form
 from odoo.tests.common import TransactionCase, tagged
 
@@ -88,6 +89,30 @@ class TestSplitName(TransactionCase):
         self.assertEqual(copy.name, "Sofía García")
         self.assertEqual(copy.firstname, "Sofía")
         self.assertEqual(copy.lastname, "García")
+
+    def test_the_install_hook_fills_a_contact_that_already_has_one_part(self):
+        """Installing fills the parts of the contacts that are already there.
+
+        The parts are emptied over SQL because that is the state the install
+        finds: columns that have just been created. A contact carrying one of
+        them and no last name has to be filled too -- the form requires the
+        last name -- and its name has to come out untouched.
+        """
+        student = self.Partner.create({"name": "Juan Pérez", "partner_type": "student", "parent_id": self.family.id})
+        student.flush_recordset()
+        self.env.cr.execute(
+            "UPDATE res_partner SET firstname=NULL, lastname=NULL, second_lastname=NULL, middlename='Carlos'"
+            " WHERE id=%s",
+            (student.id,),
+        )
+        self.env.invalidate_all()
+
+        post_init_hook(self.env)
+
+        self.assertEqual(student.name, "Juan Pérez")
+        self.assertEqual(student.firstname, "Juan")
+        self.assertEqual(student.lastname, "Pérez")
+        self.assertFalse(student.middlename)
 
     def test_a_student_created_only_with_the_parts_gets_its_name(self):
         """An import of a roll brings a column per part and no name column.
