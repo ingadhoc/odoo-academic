@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 20.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-05 14:19+0000\n"
-"PO-Revision-Date: 2026-11-05 14:19+0000\n"
+"POT-Creation-Date: 2026-11-05 17:17+0000\n"
+"PO-Revision-Date: 2026-11-05 17:17+0000\n"
 "Last-Translator: BAF <baf@adhoc.inc>\n"
 "Language-Team: Spanish <https://translation.dev-adhoc.com/projects/odoo-academic-20-0/odoo-academic-20-0-hr_attendance_lateness/es/>\n"
 "Language: es\n"
@@ -45,7 +45,10 @@ msgid ""
 "Features:\n"
 "\n"
 "#. Adds three new fields to attendance records: **Expected Check-in**, **Late Minutes**, and **Is Late**.\n"
-"#. Automatically calculates lateness based on the employee's working hours (resource calendar): the expected check-in is the start of the first working slot of the day, for fixed and variable schedules. Flexible schedules have no expected check-in.\n"
+"#. Automatically calculates lateness based on the employee's working hours (resource calendar): the expected check-in is the start of the first working slot of the day, for fixed and variable schedules, using the schedule and timezone in effect that day.\n"
+"#. Public holidays and time off are deducted: on a day off there is no expected check-in, and after a partial time off the expected check-in is when it ends.\n"
+"#. Flexible schedules and duration based slots (no start time) have no expected check-in. Refused attendances and the ones produced by time rules are never late.\n"
+"#. Lateness is recomputed when the threshold, the schedule slots or the time off change.\n"
 "#. Configurable tolerance threshold per company in the Attendances settings (default: 0 minutes).\n"
 "#. Visual indicator: Late attendances appear in **red** in the list view.\n"
 "#. New filter \"Late Check-ins\" to quickly view only late attendances.\n"
@@ -142,6 +145,9 @@ msgstr "Ajustes de configuración"
 #: model:ir.model.fields,field_description:hr_attendance_lateness.field_hr_attendance__display_name
 #: model:ir.model.fields,field_description:hr_attendance_lateness.field_res_company__display_name
 #: model:ir.model.fields,field_description:hr_attendance_lateness.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:hr_attendance_lateness.field_resource_calendar__display_name
+#: model:ir.model.fields,field_description:hr_attendance_lateness.field_resource_calendar_attendance__display_name
+#: model:ir.model.fields,field_description:hr_attendance_lateness.field_resource_calendar_leaves__display_name
 msgid "Display Name"
 msgstr "Mostrar nombre"
 
@@ -160,6 +166,9 @@ msgstr "Tardanzas en asistencias de RR. HH."
 #: model:ir.model.fields,field_description:hr_attendance_lateness.field_hr_attendance__id
 #: model:ir.model.fields,field_description:hr_attendance_lateness.field_res_company__id
 #: model:ir.model.fields,field_description:hr_attendance_lateness.field_res_config_settings__id
+#: model:ir.model.fields,field_description:hr_attendance_lateness.field_resource_calendar__id
+#: model:ir.model.fields,field_description:hr_attendance_lateness.field_resource_calendar_attendance__id
+#: model:ir.model.fields,field_description:hr_attendance_lateness.field_resource_calendar_leaves__id
 msgid "ID"
 msgstr "ID"
 
@@ -195,6 +204,16 @@ msgid "Lateness Control"
 msgstr "Control de tardanzas"
 
 #. module: hr_attendance_lateness
+#: model:ir.model,name:hr_attendance_lateness.model_resource_calendar_leaves
+msgid "Resource Time Off Detail"
+msgstr "Detalle de la pausa del recurso"
+
+#. module: hr_attendance_lateness
+#: model:ir.model,name:hr_attendance_lateness.model_resource_calendar
+msgid "Resource Working Time"
+msgstr "Tiempo de trabajo de recursos"
+
+#. module: hr_attendance_lateness
 #: model_terms:ir.ui.view,arch_db:hr_attendance_lateness.res_config_settings_view_form_inherit_lateness
 msgid ""
 "Set the tolerance time in minutes before marking an employee as late. Set to"
@@ -216,3 +235,8 @@ msgid ""
 msgstr ""
 "Registre las tardanzas de los empleados comparando la hora de entrada con el "
 "horario de trabajo"
+
+#. module: hr_attendance_lateness
+#: model:ir.model,name:hr_attendance_lateness.model_resource_calendar_attendance
+msgid "Work Detail"
+msgstr "Detalle del trabajo"
