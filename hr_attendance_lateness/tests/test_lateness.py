@@ -52,11 +52,12 @@ class TestAttendanceLateness(TransactionCase):
         return datetime.combine(day, time(hour, minute), tzinfo=self.tz).astimezone(UTC).replace(tzinfo=None)
 
     def _assert_invariants(self, attendance):
-        threshold = attendance.employee_id.company_id.attendance_lateness_threshold
+        # Checks independent from the computation: no lateness without minutes late or without an expected time
         self.assertGreaterEqual(attendance.late_minutes, 0)
-        self.assertEqual(attendance.is_late, attendance.late_minutes > threshold)
-        if not attendance.expected_check_in:
-            self.assertEqual(attendance.late_minutes, 0)
+        if attendance.is_late:
+            self.assertGreater(attendance.late_minutes, 0)
+        if attendance.late_minutes:
+            self.assertTrue(attendance.expected_check_in)
 
     def test_lateness_against_fixed_schedule(self):
         cases = [
@@ -120,12 +121,19 @@ class TestAttendanceLateness(TransactionCase):
             self.assertRecordValues(attendance, [{"expected_check_in": False, "late_minutes": 0, "is_late": False}])
             self._assert_invariants(attendance)
 
-    def test_new_version_keeps_past_lateness(self):
-        # Timezone and schedule are per version: a new version must not rewrite the past
+    def test_new_version_recomputes_only_its_period(self):
+        # Timezone and schedule are per version: a new version rewrites its own period, not the past
         early_calendar = self.fixed_calendar.copy({"name": "Lateness early"})
         early_calendar.attendance_ids.filtered(lambda a: a.hour_from == 9).hour_from = 7
         employee = self._employee(self.fixed_calendar)
-        attendance = self._check_in(employee, self.monday, 9, 30)
+        wednesday = self.monday + timedelta(days=2)
+        before = self._check_in(employee, self.monday, 9, 30)
+        after = self._check_in(employee, wednesday, 9, 30)
+        self.assertRecordValues(after, [{"expected_check_in": self._utc(wednesday, 9), "late_minutes": 30}])
+        # Mark the stored value outside the new period: it must not be recomputed
+        self.env.flush_all()
+        self.env.cr.execute("UPDATE hr_attendance SET late_minutes = 999 WHERE id = %s", [before.id])
+        before.invalidate_recordset()
         employee.create_version(
             {
                 "date_version": self.monday + timedelta(days=1),
@@ -134,11 +142,27 @@ class TestAttendanceLateness(TransactionCase):
             }
         )
         self.assertEqual(employee.resource_calendar_id, early_calendar)
-        attendance._compute_lateness_metrics()
-        self.assertRecordValues(
-            attendance,
-            [{"expected_check_in": self._utc(self.monday, 9), "late_minutes": 30, "is_late": True}],
+        self.assertRecordValues(before, [{"expected_check_in": self._utc(self.monday, 9), "late_minutes": 999}])
+        madrid_start = (
+            datetime.combine(wednesday, time(7), tzinfo=ZoneInfo("Europe/Madrid")).astimezone(UTC).replace(tzinfo=None)
         )
+        self.assertRecordValues(
+            after,
+            [
+                {
+                    "expected_check_in": madrid_start,
+                    "late_minutes": int((after.check_in - madrid_start).total_seconds() / 60),
+                    "is_late": True,
+                }
+            ],
+        )
+        self._assert_invariants(after)
+
+    def test_negative_threshold_needs_minutes_late(self):
+        self.env.company.attendance_lateness_threshold = -5
+        saturday = self.monday + timedelta(days=5)
+        attendance = self._check_in(self._employee(self.fixed_calendar), saturday, 11)
+        self.assertRecordValues(attendance, [{"late_minutes": 0, "is_late": False}])
         self._assert_invariants(attendance)
 
     def test_time_rule_attendance_is_not_a_check_in(self):

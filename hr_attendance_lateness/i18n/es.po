@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 20.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-05 18:20+0000\n"
-"PO-Revision-Date: 2026-11-05 18:20+0000\n"
+"POT-Creation-Date: 2026-11-05 19:23+0000\n"
+"PO-Revision-Date: 2026-11-05 19:23+0000\n"
 "Last-Translator: BAF <baf@adhoc.inc>\n"
 "Language-Team: Spanish <https://translation.dev-adhoc.com/projects/odoo-academic-20-0/odoo-academic-20-0-hr_attendance_lateness/es/>\n"
 "Language: es\n"
@@ -48,7 +48,7 @@ msgid ""
 "#. Automatically calculates lateness based on the employee's working hours (resource calendar): the expected check-in is the start of the first working slot of the day, for fixed and variable schedules, using the schedule and timezone in effect that day.\n"
 "#. Public holidays and time off are deducted: on a day off there is no expected check-in, and after a partial time off the expected check-in is when it ends.\n"
 "#. Flexible schedules and duration based slots (no start time) have no expected check-in. Refused attendances and the ones produced by time rules are never late.\n"
-"#. Lateness is recomputed when the threshold or the time off change. A change in the schedule slots applies to new attendances, as in core work entries.\n"
+"#. Lateness is recomputed when the threshold or the time off change, and when an employee's version (schedule, timezone, effective date) changes, only for the period of that version. A change in the schedule slots applies to new attendances, as in core work entries.\n"
 "#. Configurable tolerance threshold per company in the Attendances settings (default: 0 minutes).\n"
 "#. Visual indicator: Late attendances appear in **red** in the list view.\n"
 "#. New filter \"Late Check-ins\" to quickly view only late attendances.\n"
@@ -143,11 +143,17 @@ msgstr "Ajustes de configuración"
 
 #. module: hr_attendance_lateness
 #: model:ir.model.fields,field_description:hr_attendance_lateness.field_hr_attendance__display_name
+#: model:ir.model.fields,field_description:hr_attendance_lateness.field_hr_version__display_name
 #: model:ir.model.fields,field_description:hr_attendance_lateness.field_res_company__display_name
 #: model:ir.model.fields,field_description:hr_attendance_lateness.field_res_config_settings__display_name
 #: model:ir.model.fields,field_description:hr_attendance_lateness.field_resource_calendar_leaves__display_name
 msgid "Display Name"
 msgstr "Mostrar nombre"
+
+#. module: hr_attendance_lateness
+#: model:ir.model,name:hr_attendance_lateness.model_hr_version
+msgid "Employee Record"
+msgstr "Contrato del empleado"
 
 #. module: hr_attendance_lateness
 #: model:ir.model.fields,field_description:hr_attendance_lateness.field_hr_attendance__expected_check_in
@@ -162,6 +168,7 @@ msgstr "Tardanzas en asistencias de RR. HH."
 
 #. module: hr_attendance_lateness
 #: model:ir.model.fields,field_description:hr_attendance_lateness.field_hr_attendance__id
+#: model:ir.model.fields,field_description:hr_attendance_lateness.field_hr_version__id
 #: model:ir.model.fields,field_description:hr_attendance_lateness.field_res_company__id
 #: model:ir.model.fields,field_description:hr_attendance_lateness.field_res_config_settings__id
 #: model:ir.model.fields,field_description:hr_attendance_lateness.field_resource_calendar_leaves__id
