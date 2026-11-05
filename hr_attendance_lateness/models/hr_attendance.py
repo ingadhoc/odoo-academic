@@ -30,22 +30,25 @@ class HrAttendance(models.Model):
             attendance.late_minutes = 0
             attendance.is_late = False
 
-            if not attendance.check_in or not attendance.employee_id:
+            # Attendances produced by a time rule are not check-ins, as in core's validation
+            if not attendance.check_in or not attendance.employee_id or attendance.time_rule_id:
                 continue
 
             employee = attendance.employee_id
-            calendar = employee.resource_calendar_id or employee.company_id.resource_calendar_id
-            # A flexible schedule has no start time to compare against
-            if not calendar or calendar._is_flexible():
-                continue
-
+            # Timezone and schedule live on hr.version: use the ones in effect that day
             try:
-                tz = ZoneInfo(employee._get_tz())
+                tz = ZoneInfo(employee._get_tz(date=attendance.check_in))
             except ZoneInfoNotFoundError:
                 tz = UTC
 
             check_in_local = attendance.check_in.replace(tzinfo=UTC).astimezone(tz)
             day_start = datetime.combine(check_in_local.date(), time.min, tzinfo=tz)
+
+            version = employee.sudo()._get_version(check_in_local.date())
+            calendar = version.resource_calendar_id or employee.company_id.resource_calendar_id
+            # A flexible schedule has no start time to compare against
+            if not calendar or calendar._is_flexible():
+                continue
 
             # Works for fixed (weekly) and variable (dated, recurrent) schedules
             intervals = calendar._attendance_intervals_batch(day_start, day_start + timedelta(days=1))[False]
