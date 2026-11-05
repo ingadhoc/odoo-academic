@@ -19,8 +19,8 @@ This module extends the HR Attendance module to automatically calculate and trac
 Features:
 
 #. Adds three new fields to attendance records: **Expected Check-in**, **Late Minutes**, and **Is Late**.
-#. Automatically calculates lateness based on the employee's working hours (resource calendar).
-#. Configurable tolerance threshold via system parameter ``hr_attendance.lateness_threshold`` (default: 0 minutes).
+#. Automatically calculates lateness based on the employee's working hours (resource calendar): the expected check-in is the start of the first working slot of the day, for fixed and variable schedules. Flexible schedules have no expected check-in.
+#. Configurable tolerance threshold per company in the Attendances settings (default: 0 minutes).
 #. Visual indicator: Late attendances appear in **red** in the list view.
 #. New filter "Late Check-ins" to quickly view only late attendances.
 #. New grouping option "Late Status" to group attendances by lateness.
@@ -54,7 +54,7 @@ To use this module, you need to:
 #. Go to Attendances > Attendances
 #. View the new columns: Expected Check-in, Late (min), and Is Late
 #. Use the "Late Check-ins" filter to view only late attendances
-#. Late attendances appear in bold for easy identification
+#. Late attendances appear in red for easy identification
 #. Group by "Late Status" to separate late from on-time attendances
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
