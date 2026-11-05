@@ -25,7 +25,7 @@
     "author": "ADHOC SA",
     "website": "www.adhoc.com.ar",
     "license": "AGPL-3",
-    "depends": ["academic", "account_interests"],
+    "depends": ["academic", "academic_sale_subscription", "account_interests"],
     "data": [],
     "installable": True,
     "auto_install": True,
