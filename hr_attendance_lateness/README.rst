@@ -19,7 +19,10 @@ This module extends the HR Attendance module to automatically calculate and trac
 Features:
 
 #. Adds three new fields to attendance records: **Expected Check-in**, **Late Minutes**, and **Is Late**.
-#. Automatically calculates lateness based on the employee's working hours (resource calendar): the expected check-in is the start of the first working slot of the day, for fixed and variable schedules. Flexible schedules have no expected check-in.
+#. Automatically calculates lateness based on the employee's working hours (resource calendar): the expected check-in is the start of the first working slot of the day, for fixed and variable schedules, using the schedule and timezone in effect that day.
+#. Public holidays and time off are deducted: on a day off there is no expected check-in, and after a partial time off the expected check-in is when it ends.
+#. Flexible schedules and duration based slots (no start time) have no expected check-in. Refused attendances and the ones produced by time rules are never late.
+#. Lateness is recomputed when the threshold, the schedule slots or the time off change.
 #. Configurable tolerance threshold per company in the Attendances settings (default: 0 minutes).
 #. Visual indicator: Late attendances appear in **red** in the list view.
 #. New filter "Late Check-ins" to quickly view only late attendances.
