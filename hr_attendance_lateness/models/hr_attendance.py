@@ -24,7 +24,6 @@ class HrAttendance(models.Model):
     @api.depends(
         "check_in",
         "employee_id",
-        "employee_id.resource_calendar_id",
         "state",
         "time_rule_id",
     )
@@ -82,8 +81,10 @@ class HrAttendance(models.Model):
     @api.depends("late_minutes", "employee_id.company_id.attendance_lateness_threshold")
     def _compute_is_late(self):
         for attendance in self:
+            late_minutes = attendance.late_minutes
+            # Never late without minutes late, even with a negative threshold
             attendance.is_late = (
-                attendance.late_minutes > attendance.employee_id.company_id.attendance_lateness_threshold
+                late_minutes > 0 and late_minutes > attendance.employee_id.company_id.attendance_lateness_threshold
             )
 
     def _recompute_lateness(self):
