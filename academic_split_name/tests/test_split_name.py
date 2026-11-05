@@ -76,6 +76,38 @@ class TestSplitName(TransactionCase):
         self.assertEqual(student.firstname, "Mateo")
         self.assertEqual(student.lastname, "Sosa")
 
+    def test_a_name_that_arrives_whole_is_split_with_the_type_from_the_context(self):
+        """Importing from a list, the type arrives as a default in the context."""
+        student = self.Partner.with_context(default_partner_type="student").create(
+            {"name": "Lucía Sosa", "parent_id": self.family.id}
+        )
+        self.assertEqual(student.partner_type, "student")
+        self.assertEqual(student.firstname, "Lucía")
+        self.assertEqual(student.lastname, "Sosa")
+
+    def test_a_family_created_from_the_context_gets_its_last_name(self):
+        """The last name is required on a family: empty, the form cannot save."""
+        family = self.Partner.with_context(default_partner_type="family").create({"name": "Quiroga"})
+        self.assertEqual(family.partner_type, "family")
+        self.assertEqual(family.lastname, "Quiroga")
+
+    def test_a_name_that_arrives_whole_replaces_every_part(self):
+        """An import that fixes a name has to leave the old parts behind."""
+        form = self._student_form()
+        form.firstname = "Sofía"
+        form.middlename = "Ana"
+        form.lastname = "García"
+        form.second_lastname = "Pérez"
+        student = form.save()
+
+        student.write({"name": "Mateo Sosa"})
+
+        self.assertEqual(student.name, "Mateo Sosa")
+        self.assertEqual(student.firstname, "Mateo")
+        self.assertEqual(student.lastname, "Sosa")
+        self.assertFalse(student.middlename)
+        self.assertFalse(student.second_lastname)
+
     def test_on_a_family_the_whole_name_is_the_last_name(self):
         self.assertEqual(self.family.lastname, "García")
 
