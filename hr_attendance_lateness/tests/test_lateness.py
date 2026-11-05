@@ -12,8 +12,9 @@ class TestAttendanceLateness(TransactionCase):
         super().setUpClass()
         cls.tz_name = "America/Argentina/Buenos_Aires"
         cls.tz = ZoneInfo(cls.tz_name)
-        # Anchor the scenario on the last Monday, so weekdays are known
-        cls.monday = fields.Date.today() + relativedelta(weekday=MO(-1))
+        # Anchor on a Monday at least a week ago: weekdays are known and the
+        # version created the next day is already in effect today
+        cls.monday = fields.Date.today() + relativedelta(weekday=MO(-2))
         cls.env.company.attendance_lateness_threshold = 5
         # Morning and afternoon slots: the expected check-in is the first one
         cls.fixed_calendar = cls.env["resource.calendar"].create(
@@ -30,8 +31,14 @@ class TestAttendanceLateness(TransactionCase):
         )
 
     def _employee(self, calendar):
+        # The first version starts before the scenario, so later versions become current
         return self.env["hr.employee"].create(
-            {"name": "Lateness employee", "resource_calendar_id": calendar.id, "tz": self.tz_name}
+            {
+                "name": "Lateness employee",
+                "resource_calendar_id": calendar.id,
+                "tz": self.tz_name,
+                "date_version": self.monday - relativedelta(months=1),
+            }
         )
 
     def _check_in(self, employee, day, hour, minute=0):
@@ -112,3 +119,41 @@ class TestAttendanceLateness(TransactionCase):
             attendance = self._check_in(employee, next_monday, 10, 30)
             self.assertRecordValues(attendance, [{"expected_check_in": False, "late_minutes": 0, "is_late": False}])
             self._assert_invariants(attendance)
+
+    def test_new_version_keeps_past_lateness(self):
+        # Timezone and schedule are per version: a new version must not rewrite the past
+        early_calendar = self.fixed_calendar.copy({"name": "Lateness early"})
+        early_calendar.attendance_ids.filtered(lambda a: a.hour_from == 9).hour_from = 7
+        employee = self._employee(self.fixed_calendar)
+        attendance = self._check_in(employee, self.monday, 9, 30)
+        employee.create_version(
+            {
+                "date_version": self.monday + timedelta(days=1),
+                "resource_calendar_id": early_calendar.id,
+                "tz": "Europe/Madrid",
+            }
+        )
+        self.assertEqual(employee.resource_calendar_id, early_calendar)
+        attendance._compute_lateness_metrics()
+        self.assertRecordValues(
+            attendance,
+            [{"expected_check_in": self._utc(self.monday, 9), "late_minutes": 30, "is_late": True}],
+        )
+        self._assert_invariants(attendance)
+
+    def test_time_rule_attendance_is_not_a_check_in(self):
+        # Time rules split attendances: their outputs do not start at the employee's arrival
+        employee = self._employee(self.fixed_calendar)
+        attendances = self.env["hr.attendance"].with_context(skip_time_rules=True)
+        source = attendances.create(
+            {"employee_id": employee.id, "check_in": self._utc(self.monday, 9), "check_out": self._utc(self.monday, 18)}
+        )
+        rule = self.env.ref("hr_work_entry.hr_time_rule_employee_schedule")
+        output = attendances.create(
+            rule._get_output_attendance_vals(employee, self._utc(self.monday, 18), self._utc(self.monday, 21), source)
+        )
+        self.assertRecordValues(output, [{"expected_check_in": False, "late_minutes": 0, "is_late": False}])
+        self.assertRecordValues(
+            source, [{"expected_check_in": self._utc(self.monday, 9), "late_minutes": 0, "is_late": False}]
+        )
+        self._assert_invariants(output)
