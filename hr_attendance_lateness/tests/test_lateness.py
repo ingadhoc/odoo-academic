@@ -213,20 +213,24 @@ class TestAttendanceLateness(TransactionCase):
         self.assertRecordValues(attendance, [{"state": "refused", "late_minutes": 0, "is_late": False}])
         self._assert_invariants(attendance)
 
-    def test_recompute_on_threshold_and_schedule_changes(self):
+    def test_recompute_on_threshold_not_on_schedule_change(self):
         attendance = self._check_in(self._employee(self.fixed_calendar), self.monday, 9, 30)
         self.assertTrue(attendance.is_late)
         with self.subTest("threshold"):
             self.env.company.attendance_lateness_threshold = 60
             self.assertRecordValues(attendance, [{"late_minutes": 30, "is_late": False}])
             self._assert_invariants(attendance)
-        with self.subTest("schedule slot"):
+        with self.subTest("an edited schedule slot applies from now on, as core work entries"):
             monday_slots = self.fixed_calendar.attendance_ids.filtered(
                 lambda slot: slot.dayofweek == "0" and slot.hour_from == 9
             )
             monday_slots.hour_from = 8
             self.assertRecordValues(
                 attendance,
-                [{"expected_check_in": self._utc(self.monday, 8), "late_minutes": 90, "is_late": True}],
+                [{"expected_check_in": self._utc(self.monday, 9), "late_minutes": 30, "is_late": False}],
             )
             self._assert_invariants(attendance)
+            new_attendance = self._check_in(self._employee(self.fixed_calendar), self.monday, 9, 30)
+            self.assertRecordValues(
+                new_attendance, [{"expected_check_in": self._utc(self.monday, 8), "late_minutes": 90}]
+            )
