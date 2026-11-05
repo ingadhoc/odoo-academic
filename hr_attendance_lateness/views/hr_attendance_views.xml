@@ -42,7 +42,7 @@
                     help="Show only attendances where employee arrived late"
                 />
             </xpath>
-            <xpath expr="//filter[@name='groupby_name']" position="after">
+            <xpath expr="//filter[@name='groupby_month']" position="after">
                 <filter
                     string="Late Status"
                     name="groupby_late"

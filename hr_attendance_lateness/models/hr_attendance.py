@@ -1,7 +1,7 @@
-from datetime import datetime
+from datetime import UTC, datetime, time, timedelta
 
-import pytz
 from odoo import api, fields, models
+from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
 
 class HrAttendance(models.Model):
@@ -33,52 +33,27 @@ class HrAttendance(models.Model):
             if not attendance.check_in or not attendance.employee_id:
                 continue
 
-            calendar = (
-                attendance.employee_id.resource_calendar_id or attendance.employee_id.company_id.resource_calendar_id
-            )
-            if not calendar:
+            employee = attendance.employee_id
+            calendar = employee.resource_calendar_id or employee.company_id.resource_calendar_id
+            # A flexible schedule has no start time to compare against
+            if not calendar or calendar._is_flexible():
                 continue
-
-            tz_name = attendance.employee_id.tz or calendar.tz or "UTC"
 
             try:
-                tz = pytz.timezone(tz_name)
-            except pytz.UnknownTimeZoneError:
-                tz = pytz.UTC
+                tz = ZoneInfo(employee._get_tz())
+            except ZoneInfoNotFoundError:
+                tz = UTC
 
-            check_in_utc = pytz.UTC.localize(attendance.check_in)
-            check_in_local = check_in_utc.astimezone(tz)
+            check_in_local = attendance.check_in.replace(tzinfo=UTC).astimezone(tz)
+            day_start = datetime.combine(check_in_local.date(), time.min, tzinfo=tz)
 
-            # Get the day of the week (0 = Monday, 6 = Sunday)
-            weekday = str(check_in_local.weekday())
-
-            # Find the calendar attendance for this day
-            calendar_attendances = calendar.attendance_ids.filtered(lambda a: a.dayofweek == weekday)
-
-            if not calendar_attendances:
+            # Works for fixed (weekly) and variable (dated, recurrent) schedules
+            intervals = calendar._attendance_intervals_batch(day_start, day_start + timedelta(days=1))[False]
+            if not intervals:
                 continue
 
-            first_attendance = calendar_attendances.sorted(key=lambda a: a.hour_from)[0]
-
-            start_hour = first_attendance.hour_from
-
-            hours = int(start_hour)
-            minutes = int((start_hour % 1) * 60)
-
-            expected_check_in_naive = datetime(
-                check_in_local.year,
-                check_in_local.month,
-                check_in_local.day,
-                hours,
-                minutes,
-                0,
-            )
-
-            expected_check_in_local = tz.localize(expected_check_in_naive)
-
-            expected_check_in_utc = expected_check_in_local.astimezone(pytz.UTC)
-
-            attendance.expected_check_in = expected_check_in_utc.replace(tzinfo=None)
+            expected_check_in_local = min(start for start, _stop, _attendance in intervals)
+            attendance.expected_check_in = expected_check_in_local.astimezone(UTC).replace(tzinfo=None)
 
             delta = attendance.check_in - attendance.expected_check_in
 
