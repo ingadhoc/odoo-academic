@@ -157,3 +157,76 @@ class TestAttendanceLateness(TransactionCase):
             source, [{"expected_check_in": self._utc(self.monday, 9), "late_minutes": 0, "is_late": False}]
         )
         self._assert_invariants(output)
+
+    def test_time_off_is_not_expected_work(self):
+        employee = self._employee(self.fixed_calendar)
+        with self.subTest("holiday loaded after the check-in"):
+            attendance = self._check_in(employee, self.monday, 11)
+            self.assertTrue(attendance.is_late)
+            self.env["resource.calendar.leaves"].create(
+                {
+                    "name": "Holiday",
+                    "calendar_id": self.fixed_calendar.id,
+                    "date_from": self._utc(self.monday, 0),
+                    "date_to": self._utc(self.monday, 23, 59),
+                }
+            )
+            self.assertRecordValues(attendance, [{"expected_check_in": False, "late_minutes": 0, "is_late": False}])
+            self._assert_invariants(attendance)
+        with self.subTest("partial time off: expected when it ends"):
+            tuesday = self.monday + timedelta(days=1)
+            self.env["resource.calendar.leaves"].create(
+                {
+                    "name": "Doctor",
+                    "resource_id": employee.resource_id.id,
+                    "date_from": self._utc(tuesday, 9),
+                    "date_to": self._utc(tuesday, 11),
+                }
+            )
+            attendance = self._check_in(employee, tuesday, 11, 10)
+            self.assertRecordValues(
+                attendance,
+                [{"expected_check_in": self._utc(tuesday, 11), "late_minutes": 10, "is_late": True}],
+            )
+            self._assert_invariants(attendance)
+
+    def test_no_expected_check_in_with_duration_based_schedule(self):
+        calendar = self.env["resource.calendar"].create(
+            {
+                "name": "Lateness duration",
+                "calendar_type": "fixed",
+                "attendance_ids": [Command.clear()]
+                + [
+                    Command.create({"dayofweek": str(day), "hour_from": 0, "hour_to": 0, "duration_hours": 6})
+                    for day in range(5)
+                ],
+            }
+        )
+        attendance = self._check_in(self._employee(calendar), self.monday, 11)
+        self.assertRecordValues(attendance, [{"expected_check_in": False, "late_minutes": 0, "is_late": False}])
+        self._assert_invariants(attendance)
+
+    def test_refused_attendance_is_not_late(self):
+        attendance = self._check_in(self._employee(self.fixed_calendar), self.monday, 9, 30)
+        self.assertTrue(attendance.is_late)
+        attendance.action_refuse()
+        self.assertRecordValues(attendance, [{"state": "refused", "late_minutes": 0, "is_late": False}])
+        self._assert_invariants(attendance)
+
+    def test_recompute_on_threshold_and_schedule_changes(self):
+        attendance = self._check_in(self._employee(self.fixed_calendar), self.monday, 9, 30)
+        self.assertTrue(attendance.is_late)
+        with self.subTest("threshold"):
+            self.env.company.attendance_lateness_threshold = 60
+            self.assertRecordValues(attendance, [{"late_minutes": 30, "is_late": False}])
+            self._assert_invariants(attendance)
+        with self.subTest("schedule slot"):
+            monday_slots = self.fixed_calendar.attendance_ids.filtered(
+                lambda slot: slot.dayofweek == "0" and slot.hour_from == 9
+            )
+            monday_slots.hour_from = 8
+            self.assertRecordValues(
+                attendance,
+                [{"expected_check_in": self._utc(self.monday, 8), "late_minutes": 90, "is_late": True}],
+            )
+            self._assert_invariants(attendance)
