@@ -17,7 +17,7 @@ class HrAttendance(models.Model):
         store=True,
     )
     is_late = fields.Boolean(
-        compute="_compute_lateness_metrics",
+        compute="_compute_is_late",
         store=True,
     )
 
@@ -25,17 +25,13 @@ class HrAttendance(models.Model):
         "check_in",
         "employee_id",
         "employee_id.resource_calendar_id",
-        "employee_id.company_id.attendance_lateness_threshold",
         "state",
         "time_rule_id",
     )
     def _compute_lateness_metrics(self):
         for attendance in self:
-            lateness_threshold = attendance.employee_id.company_id.attendance_lateness_threshold
-
             attendance.expected_check_in = False
             attendance.late_minutes = 0
-            attendance.is_late = False
 
             # Time rule outputs are not check-ins (as in core's validation), and refused ones do not count
             if (
@@ -80,11 +76,15 @@ class HrAttendance(models.Model):
             delta = attendance.check_in - attendance.expected_check_in
 
             if delta.total_seconds() > 0:
-                late_minutes = int(delta.total_seconds() / 60)
-                attendance.late_minutes = late_minutes
+                attendance.late_minutes = int(delta.total_seconds() / 60)
 
-                if late_minutes > lateness_threshold:
-                    attendance.is_late = True
+    # Apart from the schedule: a new threshold only compares numbers, it does not read schedules
+    @api.depends("late_minutes", "employee_id.company_id.attendance_lateness_threshold")
+    def _compute_is_late(self):
+        for attendance in self:
+            attendance.is_late = (
+                attendance.late_minutes > attendance.employee_id.company_id.attendance_lateness_threshold
+            )
 
     def _recompute_lateness(self):
         for field_name in ("expected_check_in", "late_minutes", "is_late"):
