@@ -21,7 +21,14 @@ class HrAttendance(models.Model):
         store=True,
     )
 
-    @api.depends("check_in", "employee_id", "employee_id.resource_calendar_id")
+    @api.depends(
+        "check_in",
+        "employee_id",
+        "employee_id.resource_calendar_id",
+        "employee_id.company_id.attendance_lateness_threshold",
+        "state",
+        "time_rule_id",
+    )
     def _compute_lateness_metrics(self):
         for attendance in self:
             lateness_threshold = attendance.employee_id.company_id.attendance_lateness_threshold
@@ -30,8 +37,13 @@ class HrAttendance(models.Model):
             attendance.late_minutes = 0
             attendance.is_late = False
 
-            # Attendances produced by a time rule are not check-ins, as in core's validation
-            if not attendance.check_in or not attendance.employee_id or attendance.time_rule_id:
+            # Time rule outputs are not check-ins (as in core's validation), and refused ones do not count
+            if (
+                not attendance.check_in
+                or not attendance.employee_id
+                or attendance.time_rule_id
+                or attendance.state == "refused"
+            ):
                 continue
 
             employee = attendance.employee_id
@@ -50,13 +62,20 @@ class HrAttendance(models.Model):
             if not calendar or calendar._is_flexible():
                 continue
 
-            # Works for fixed (weekly) and variable (dated, recurrent) schedules
-            intervals = calendar._attendance_intervals_batch(day_start, day_start + timedelta(days=1))[False]
-            if not intervals:
+            # Work intervals of the day: fixed and variable slots, minus holidays and time off
+            resource = employee.sudo().resource_id
+            intervals = calendar._work_intervals_batch(
+                day_start,
+                day_start + timedelta(days=1),
+                resources_per_tz={tz: resource},
+                domain=[("company_id", "in", [False, employee.company_id.id]), ("count_as", "=", "absence")],
+            )[resource.id]
+            # Duration based slots have no start time
+            starts = [start for start, _stop, slot in intervals if not slot.duration_based]
+            if not starts:
                 continue
 
-            expected_check_in_local = min(start for start, _stop, _attendance in intervals)
-            attendance.expected_check_in = expected_check_in_local.astimezone(UTC).replace(tzinfo=None)
+            attendance.expected_check_in = min(starts).astimezone(UTC).replace(tzinfo=None)
 
             delta = attendance.check_in - attendance.expected_check_in
 
@@ -66,3 +85,7 @@ class HrAttendance(models.Model):
 
                 if late_minutes > lateness_threshold:
                     attendance.is_late = True
+
+    def _recompute_lateness(self):
+        for field_name in ("expected_check_in", "late_minutes", "is_late"):
+            self.env.add_to_compute(self._fields[field_name], self)
