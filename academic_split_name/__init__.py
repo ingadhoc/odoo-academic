@@ -8,14 +8,16 @@ def post_init_hook(env):
 
     The parts used to be computed fields, so installing the module filled them
     on its own; now they are plain columns and the split only runs on write.
+
+    It takes the contacts without a last name -- the part the form requires for
+    the three academic types -- and not only the ones with the four parts
+    empty, which leaves out a contact that already carries one of the other
+    two. The four parts are written from the name, so the name never changes.
     """
     partners = env["res.partner"].search(
         [
             ("partner_type", "in", ["student", "parent", "family"]),
-            ("firstname", "=", False),
-            ("middlename", "=", False),
             ("lastname", "=", False),
-            ("second_lastname", "=", False),
             ("name", "!=", False),
         ]
     )
