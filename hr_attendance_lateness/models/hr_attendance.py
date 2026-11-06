@@ -90,3 +90,9 @@ class HrAttendance(models.Model):
     def _recompute_lateness(self):
         for field_name in ("expected_check_in", "late_minutes", "is_late"):
             self.env.add_to_compute(self._fields[field_name], self)
+
+    @api.model
+    def _recompute_lateness_matching(self, domain):
+        """Mark the attendances matching ``domain``, for a trigger outside this model."""
+        if not domain.is_false():
+            self.sudo().search(domain)._recompute_lateness()
