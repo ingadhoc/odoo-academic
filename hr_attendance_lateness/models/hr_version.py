@@ -13,25 +13,28 @@ class HrVersion(models.Model):
     @api.model_create_multi
     def create(self, vals_list):
         versions = super().create(vals_list)
-        versions._recompute_attendance_lateness()
+        self.env["hr.attendance"]._recompute_lateness_matching(versions._lateness_domain())
         return versions
 
     def write(self, vals):
-        recompute = bool(LATENESS_FIELDS & set(vals))
-        if recompute:
-            # Before and after: date_version may move the period
-            self._recompute_attendance_lateness()
+        if not LATENESS_FIELDS & set(vals):
+            return super().write(vals)
+        # date_version may move the period: the old one and the new one both need it
+        before = self._lateness_domain()
         res = super().write(vals)
-        if recompute:
-            self._recompute_attendance_lateness()
+        self.env["hr.attendance"]._recompute_lateness_matching(Domain.OR([before, self._lateness_domain()]))
         return res
 
     def unlink(self):
-        self._recompute_attendance_lateness()
-        return super().unlink()
+        # The domain is read before the rows go and marked after they are gone:
+        # unlink() flushes the pending computations before deleting
+        domain = self._lateness_domain()
+        res = super().unlink()
+        self.env["hr.attendance"]._recompute_lateness_matching(domain)
+        return res
 
-    def _recompute_attendance_lateness(self):
-        """Recompute the attendances of the period each version is in effect, not the whole history."""
+    def _lateness_domain(self):
+        """The attendances of the period each version is in effect, not the whole history."""
         domains = []
         for version in self.sudo():
             versions = version.employee_id.version_ids
@@ -44,8 +47,7 @@ class HrVersion(models.Model):
                 following = min(later, key=lambda other: other.date_version)
                 domain &= Domain("check_in", "<", following._lateness_day_start(following.date_version))
             domains.append(domain)
-        if domains:
-            self.env["hr.attendance"].sudo().search(Domain.OR(domains))._recompute_lateness()
+        return Domain.OR(domains) if domains else Domain.FALSE
 
     def _lateness_day_start(self, day):
         """Start of a local day of this version, as the naive UTC datetime check-ins are stored in."""

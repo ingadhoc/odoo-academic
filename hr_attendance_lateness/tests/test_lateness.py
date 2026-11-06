@@ -158,6 +158,23 @@ class TestAttendanceLateness(TransactionCase):
         )
         self._assert_invariants(after)
 
+    def test_deleted_version_recomputes_its_period(self):
+        early_calendar = self.fixed_calendar.copy({"name": "Lateness early on delete"})
+        early_calendar.attendance_ids.filtered(lambda a: a.hour_from == 9).hour_from = 7
+        employee = self._employee(self.fixed_calendar)
+        wednesday = self.monday + timedelta(days=2)
+        version = employee.create_version(
+            {"date_version": self.monday + timedelta(days=1), "resource_calendar_id": early_calendar.id}
+        )
+        attendance = self._check_in(employee, wednesday, 9, 30)
+        self.assertRecordValues(attendance, [{"expected_check_in": self._utc(wednesday, 7), "late_minutes": 150}])
+        version.unlink()
+        self.assertRecordValues(
+            attendance,
+            [{"expected_check_in": self._utc(wednesday, 9), "late_minutes": 30, "is_late": True}],
+        )
+        self._assert_invariants(attendance)
+
     def test_negative_threshold_needs_minutes_late(self):
         self.env.company.attendance_lateness_threshold = -5
         saturday = self.monday + timedelta(days=5)
@@ -184,10 +201,10 @@ class TestAttendanceLateness(TransactionCase):
 
     def test_time_off_is_not_expected_work(self):
         employee = self._employee(self.fixed_calendar)
+        monday_attendance = self._check_in(employee, self.monday, 11)
         with self.subTest("holiday loaded after the check-in"):
-            attendance = self._check_in(employee, self.monday, 11)
-            self.assertTrue(attendance.is_late)
-            self.env["resource.calendar.leaves"].create(
+            self.assertTrue(monday_attendance.is_late)
+            holiday = self.env["resource.calendar.leaves"].create(
                 {
                     "name": "Holiday",
                     "calendar_id": self.fixed_calendar.id,
@@ -195,11 +212,20 @@ class TestAttendanceLateness(TransactionCase):
                     "date_to": self._utc(self.monday, 23, 59),
                 }
             )
-            self.assertRecordValues(attendance, [{"expected_check_in": False, "late_minutes": 0, "is_late": False}])
-            self._assert_invariants(attendance)
+            self.assertRecordValues(
+                monday_attendance, [{"expected_check_in": False, "late_minutes": 0, "is_late": False}]
+            )
+            self._assert_invariants(monday_attendance)
+        with self.subTest("holiday removed: the lateness comes back"):
+            holiday.unlink()
+            self.assertRecordValues(
+                monday_attendance,
+                [{"expected_check_in": self._utc(self.monday, 9), "late_minutes": 120, "is_late": True}],
+            )
+            self._assert_invariants(monday_attendance)
+        tuesday = self.monday + timedelta(days=1)
         with self.subTest("partial time off: expected when it ends"):
-            tuesday = self.monday + timedelta(days=1)
-            self.env["resource.calendar.leaves"].create(
+            time_off = self.env["resource.calendar.leaves"].create(
                 {
                     "name": "Doctor",
                     "resource_id": employee.resource_id.id,
@@ -211,6 +237,14 @@ class TestAttendanceLateness(TransactionCase):
             self.assertRecordValues(
                 attendance,
                 [{"expected_check_in": self._utc(tuesday, 11), "late_minutes": 10, "is_late": True}],
+            )
+            self._assert_invariants(attendance)
+        with self.subTest("time off moved to another day"):
+            wednesday = self.monday + timedelta(days=2)
+            time_off.write({"date_from": self._utc(wednesday, 9), "date_to": self._utc(wednesday, 11)})
+            self.assertRecordValues(
+                attendance,
+                [{"expected_check_in": self._utc(tuesday, 9), "late_minutes": 130, "is_late": True}],
             )
             self._assert_invariants(attendance)
 
