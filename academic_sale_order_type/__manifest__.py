@@ -1,6 +1,6 @@
 {
     "name": "Academic Sale Order Type",
-    "version": "19.0.1.0.0",
+    "version": "20.0.1.0.0",
     "sequence": 14,
     "summary": "",
     "author": "ADHOC SA",
@@ -10,7 +10,7 @@
     "data": [
         "wizard/academic_order_wizard_views.xml",
     ],
-    "installable": False,
+    "installable": True,
     "auto_install": True,
     "application": False,
 }
