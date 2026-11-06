@@ -5,7 +5,7 @@
     "summary": "",
     "author": "ADHOC SA",
     "website": "www.adhoc.com.ar",
-    "license": "AGPL-3",
+    "license": "LGPL-3",
     "depends": ["academic_sale_subscription", "payment_retry"],
     "data": [
         "wizards/payment_transaction_retry.xml",
