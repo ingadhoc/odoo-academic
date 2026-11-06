@@ -62,18 +62,7 @@ class OrderWizard(models.TransientModel):
                 **({"payment_term_id": self.payment_term_id.id} if self.payment_term_id else {}),
                 **(vals or {}),
                 "order_line": [
-                    (
-                        0,
-                        0,
-                        {
-                            "product_id": line.product_id.id,
-                            "product_uom_qty": line.quantity,
-                            "price_unit": line.price,
-                            **({"name": line.description} if line.description else {}),
-                            **({"group_id": line.academic_group_id.id} if line.academic_group_id else {}),
-                        },
-                    )
-                    for line in self.order_wizard_line_ids
+                    Command.create(line._prepare_order_line_values()) for line in self.order_wizard_line_ids
                 ],
             }
             if self.is_recurring_mode:
@@ -92,6 +81,22 @@ class OrderWizard(models.TransientModel):
             orders += order
         return orders
 
+    def _get_recurring_price(self, product):
+        """Price of a product under this wizard's plan and pricelist."""
+        self.ensure_one()
+        pricing = product.product_tmpl_id._get_recurring_pricing(
+            self.pricelist_id, variant=product, plan_id=self.plan_id.id
+        )
+        if not pricing:
+            return 0.0
+        return pricing._compute_price(
+            product,
+            1.0,
+            product.uom_id,
+            fields.Datetime.now(),
+            self.pricelist_id.currency_id or self.env.company.currency_id,
+        )
+
     @api.depends("template_id", "plan_id", "pricelist_id")
     def _compute_order_wizard_line(self):
         for rec in self:
@@ -105,52 +110,39 @@ class OrderWizard(models.TransientModel):
                 order_wizard_lines.append(Command.unlink(line.id))
 
             if rec.template_id:
-                # skip section/note lines: the wizard lines require a product
-                for line in rec.template_id.sale_order_template_line_ids.filtered("product_id"):
-                    existing_line = rec.order_wizard_line_ids.filtered(lambda l: l.product_id.id == line.product_id.id)
+                # one wizard line per template line, so a product repeated under several
+                # sections keeps one row per section instead of collapsing into one
+                for line in rec.template_id.sale_order_template_line_ids:
+                    existing_line = rec.order_wizard_line_ids.filtered(lambda l: l.template_line_id == line)
 
                     if existing_line:
-                        pricing = existing_line.product_id.product_tmpl_id._get_recurring_pricing(
-                            rec.pricelist_id, variant=existing_line.product_id, plan_id=rec.plan_id.id
+                        if not line.display_type:
+                            existing_line.write({"price": rec._get_recurring_price(existing_line.product_id)})
+                        continue
+
+                    order_wizard_line_vals = {
+                        "sequence": line.sequence,
+                        "name": line.name,
+                        "display_type": line.display_type,
+                        "template_id": rec.template_id.id,
+                        "template_line_id": line.id,
+                    }
+                    if not line.display_type:
+                        order_wizard_line_vals.update(
+                            {
+                                "product_id": line.product_id.id,
+                                "price": rec._get_recurring_price(line.product_id),
+                                "quantity": line.product_uom_qty,
+                            }
                         )
-                        price = 0.0
-                        if pricing:
-                            price = pricing._compute_price(
-                                existing_line.product_id,
-                                1.0,
-                                existing_line.product_id.uom_id,
-                                fields.Datetime.now(),
-                                rec.pricelist_id.currency_id or self.env.company.currency_id,
-                            )
-                        order_wizard_line_vals = {
-                            "price": price,
-                        }
-                        existing_line.write(order_wizard_line_vals)
-                    else:
-                        pricing = line.product_id.product_tmpl_id._get_recurring_pricing(
-                            rec.pricelist_id, variant=line.product_id, plan_id=rec.plan_id.id
-                        )
-                        price = 0.0
-                        if pricing:
-                            price = pricing._compute_price(
-                                line.product_id,
-                                1.0,
-                                line.product_id.uom_id,
-                                fields.Datetime.now(),
-                                rec.pricelist_id.currency_id or self.env.company.currency_id,
-                            )
-                        order_wizard_line_vals = {
-                            "product_id": line.product_id.id,
-                            "price": price,
-                            "quantity": line.product_uom_qty,
-                            "template_id": rec.template_id,
-                        }
-                        order_wizard_lines.append(Command.create(order_wizard_line_vals))
+                    order_wizard_lines.append(Command.create(order_wizard_line_vals))
 
             rec.order_wizard_line_ids = order_wizard_lines
 
-            products = rec.template_id.sale_order_template_line_ids.mapped("product_id")
-            for wizard_line in rec.order_wizard_line_ids.filtered(lambda x: x.product_id not in products):
+            products = rec.template_id.sale_order_template_line_ids.product_id
+            for wizard_line in rec.order_wizard_line_ids.filtered(
+                lambda x: x.product_id and x.product_id not in products
+            ):
                 if wizard_line.product_id.recurring_invoice:
                     pricing = wizard_line.product_id.product_tmpl_id._get_recurring_pricing(
                         rec.pricelist_id, variant=wizard_line.product_id, plan_id=rec.plan_id.id
@@ -187,7 +179,7 @@ class OrderWizard(models.TransientModel):
     @api.constrains("order_wizard_line_ids")
     def _check_wizard_lines(self):
         for rec in self:
-            if not rec.order_wizard_line_ids:
+            if not rec.order_wizard_line_ids.filtered("product_id"):
                 raise ValidationError(self.env._("There must be product lines."))
 
     @api.constrains("plan_id", "next_invoice_date", "order_wizard_line_ids")
@@ -207,7 +199,7 @@ class OrderWizard(models.TransientModel):
     @api.onchange("order_wizard_line_ids")
     def _onchange_notification_price(self):
         for rec in self:
-            if rec.order_wizard_line_ids.filtered(lambda x: x.price <= 0):
+            if rec.order_wizard_line_ids.filtered(lambda x: x.product_id and x.price <= 0):
                 return {
                     "warning": {
                         "title": self.env._("Warning"),
@@ -220,20 +212,53 @@ class OrderWizard(models.TransientModel):
 class AcademicOrderWizardLine(models.TransientModel):
     _name = "academic.order.wizard.line"
     _description = "Academic Order Wizard Lines"
+    _order = "sequence, id"
 
     academic_order_wizard_id = fields.Many2one("academic.order.wizard")
-    product_id = fields.Many2one("product.product", required=True)
+    sequence = fields.Integer(default=10)
+    display_type = fields.Selection(
+        [("line_section", "Section"), ("line_note", "Note")],
+        help="Technical field for UX purpose.",
+    )
+    product_id = fields.Many2one("product.product")
     price = fields.Monetary(compute="_compute_price", readonly=False, store=True)
     currency_id = fields.Many2one("res.currency", default=lambda self: self.env.company.currency_id)
-    description = fields.Text()
+    name = fields.Text(string="Description")
     quantity = fields.Float(default=1.0)
-    template_id = fields.Many2one("sale.order.template", store=False)
+    template_id = fields.Many2one("sale.order.template")
+    template_line_id = fields.Many2one("sale.order.template.line")
     academic_group_id = fields.Many2one(
         "academic.group", compute="_compute_academic_group_id", store=True, readonly=False
     )
     academic_product_type = fields.Selection(
         related="product_id.academic_product_type",
     )
+
+    @api.constrains("product_id", "display_type")
+    def _check_product_required(self):
+        for rec in self:
+            if not rec.display_type and not rec.product_id:
+                raise ValidationError(self.env._("A line that is not a section or a note needs a product."))
+
+    def _prepare_order_line_values(self):
+        """Values for the sale order line this wizard line creates."""
+        self.ensure_one()
+        if self.display_type:
+            return {
+                "sequence": self.sequence,
+                "display_type": self.display_type,
+                "name": self.name or "",
+                "product_uom_qty": 0.0,
+                "price_unit": 0.0,
+            }
+        return {
+            "sequence": self.sequence,
+            "product_id": self.product_id.id,
+            "product_uom_qty": self.quantity,
+            "price_unit": self.price,
+            **({"name": self.name} if self.name else {}),
+            **({"group_id": self.academic_group_id.id} if self.academic_group_id else {}),
+        }
 
     @api.depends("product_id", "academic_order_wizard_id.plan_id", "academic_order_wizard_id.pricelist_id")
     def _compute_price(self):

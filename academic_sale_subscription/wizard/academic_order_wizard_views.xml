@@ -24,14 +24,17 @@
                 </group>
                 <notebook>
                     <page string="Lines" name="lines">
-                        <field name="order_wizard_line_ids">
+                        <field name="order_wizard_line_ids" widget="section_and_note_one2many">
                             <list editable="bottom">
+                                <field name="sequence" widget="handle"/>
+                                <field name="display_type" column_invisible="1"/>
                                 <field name="template_id" column_invisible="1"/>
+                                <field name="template_line_id" column_invisible="1"/>
                                 <field name="academic_product_type" column_invisible="1"/>
-                                <field name="product_id"/>
+                                <field name="product_id" required="not display_type"/>
                                 <field name="price"/>
                                 <field name="quantity"/>
-                                <field name="description"/>
+                                <field name="name" widget="section_and_note_text"/>
                                 <field name="academic_group_id" options="{'no_create': 1}" readonly="not academic_product_type" required="academic_product_type"/>
                             </list>
                         </field>
