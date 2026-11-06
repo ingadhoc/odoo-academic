@@ -93,7 +93,7 @@ class SaleOrder(models.Model):
         grouping_keys = list(set(grouping_keys))
         return grouping_keys
 
-    def action_update_prices(self):
+    def _recompute_prices(self):
         if self.env.context.get("action_update_subscription_prices"):
             lines_no_recurring_pricing = self.order_line.filtered(
                 lambda line: not line.product_id
@@ -109,11 +109,11 @@ class SaleOrder(models.Model):
             # actualizar para luego sobreescribir.
             if lines_no_recurring_pricing != self.order_line:
                 lines_price_unit = {line: line.price_unit for line in lines_no_recurring_pricing}
-                super().action_update_prices()
+                super()._recompute_prices()
                 for line, original_price in lines_price_unit.items():
                     line.price_unit = original_price
         else:
-            super().action_update_prices()
+            super()._recompute_prices()
 
     @api.onchange("next_invoice_date")
     def _onchange_next_invoice_date_show_update_end_date(self):
@@ -129,10 +129,9 @@ class SaleOrder(models.Model):
         grouped_subs = self.read_group(
             [("partner_id", "!=", False), ("order_line", "!=", False), ("subscription_state", "=", "3_progress")],
             ["partner_id"],
-            ["partner_id"],
-            lazy=False,
+            ["__count"],
         )
-        partner_ids = {group["partner_id"][0] for group in grouped_subs if group["__count"] > 1}
+        partner_ids = {partner_id for partner_id, count in grouped_subs if count > 1}
 
         if not partner_ids:
             return [("id", "in", [])]
@@ -175,7 +174,7 @@ class SaleOrder(models.Model):
         param_enabled = (
             self.env["ir.config_parameter"]
             .sudo()
-            .get_param("academic_sale_subscription.enable_zero_price_subscription_invoice")
+            .get_str("academic_sale_subscription.enable_zero_price_subscription_invoice")
         )
         if is_free and param_enabled:
             is_free = False

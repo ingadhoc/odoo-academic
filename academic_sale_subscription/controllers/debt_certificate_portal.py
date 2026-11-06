@@ -1,24 +1,21 @@
 from odoo.addons.portal.controllers.portal import CustomerPortal
-from odoo.http import content_disposition, request, route
+from odoo.http import request, route
+from odoo.http.stream import content_disposition
 
 
 class DebtCertificatePortal(CustomerPortal):
-    def _prepare_home_portal_values(self, counters):
-        values = super()._prepare_home_portal_values(counters)
-        if "debt_certificate_count" in counters:
+    def _prepare_portal_counter_values(self, counter):
+        if counter == "debt_certificate_count":
             paying_role_id = request.env.ref("academic.paying_role").id
-            student_links = (
-                request.env["res.partner.link"]
-                .sudo()
-                .search(
-                    [
-                        ("partner_id", "=", request.env.user.partner_id.id),
-                        ("role_ids", "in", paying_role_id),
-                    ]
-                )
+            return (
+                "res.partner.link",
+                [
+                    ("partner_id", "=", request.env.user.partner_id.id),
+                    ("role_ids", "in", paying_role_id),
+                ],
+                "sudo",
             )
-            values["debt_certificate_count"] = len(student_links)
-        return values
+        return super()._prepare_portal_counter_values(counter)
 
     @route(["/my/debt_free_certificates"], type="http", auth="user", website=True)
     def portal_my_debt_free_certificates(self, **kwargs):
