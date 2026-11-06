@@ -5,7 +5,7 @@
     "summary": "",
     "author": "ADHOC SA",
     "website": "www.adhoc.inc",
-    "license": "AGPL-3",
+    "license": "LGPL-3",
     "depends": ["academic_sale_subscription", "sale_order_type_ux"],
     "data": [
         "wizard/academic_order_wizard_views.xml",
