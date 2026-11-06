@@ -1,13 +1,13 @@
 # © 2016 ADHOC SA
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+# License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 {
     "name": "Academic Sale Subscription",
-    "version": "19.0.1.15.0",
+    "version": "20.0.1.0.0",
     "sequence": 14,
     "summary": "",
     "author": "ADHOC SA",
     "website": "www.adhoc.com.ar",
-    "license": "AGPL-3",
+    "license": "LGPL-3",
     "depends": [
         "academic",
         "sale_subscription",
@@ -25,7 +25,8 @@
         "data/ir_actions_server.xml",
         "data/ir_model_fields_data.xml",
         "data/subscription_plan_data.xml",
-        "security/ir.model.access.csv",
+        "data/portal_entry_data.xml",
+        "security/ir.access.csv",
         "security/academic_security.xml",
         "report/report_data.xml",
         "report/report_debt_free_certificate.xml",
@@ -63,7 +64,7 @@
         "demo/account_move_demo.xml",
         "demo/website_contactus_demo.xml",
     ],
-    "installable": False,
+    "installable": True,
     "auto_install": ["sale_subscription", "academic"],
     "application": False,
     "post_init_hook": "post_init_hook",

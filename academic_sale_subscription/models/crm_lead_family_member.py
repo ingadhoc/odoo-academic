@@ -17,7 +17,7 @@ class CrmLeadFamilyMember(models.Model):
         required=True,
         default="parent",
     )
-    name = fields.Char(required=True)
+    name = fields.Char(required=True, copy=True)
     relationship_id = fields.Many2one("res.partner.relationship")
     vat = fields.Char(string="DNI")
     email = fields.Char()

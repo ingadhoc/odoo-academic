@@ -16,7 +16,8 @@ class UpdatePaymentResponsibleWizard(models.TransientModel):
             max_invoices = int(
                 self.env["ir.config_parameter"]
                 .sudo()
-                .get_param("academic_sale_subscription.max_invoices_update_payment_responsible", default="200")
+                .get_str("academic_sale_subscription.max_invoices_update_payment_responsible")
+                or "200"
             )
             if max_invoices <= 0:
                 max_invoices = 200

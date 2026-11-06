@@ -5,16 +5,16 @@
         <field name="inherit_id" ref="academic.view_academic_group_form"/>
         <field name="arch" type="xml">
             <div name="button_box" position="inside">
-                <button name="open_fee_sales" type="object" class="oe_stat_button" icon="fa-usd" invisible="not manage_sale_workflow">
+                <button name="open_fee_sales" type="object" class="oe_stat_button" icon="attach_money" invisible="not manage_sale_workflow">
                     <field string="Fee" name="fee_student_count" widget="statinfo"/>
                 </button>
-                <button name="open_no_fee_students" type="object" class="oe_stat_button" icon="fa-user-o" invisible="not manage_sale_workflow or no_fee_student_count &lt; 1" context='{"academic_group_id": id}'>
+                <button name="open_no_fee_students" type="object" class="oe_stat_button" icon="person" invisible="not manage_sale_workflow or no_fee_student_count &lt; 1" context='{"academic_group_id": id}'>
                     <field string="No Fee" name="no_fee_student_count" widget="statinfo"/>
                 </button>
-                <button name="open_registration_sales" type="object" class="oe_stat_button" icon="fa-plus" invisible="not manage_sale_workflow">
+                <button name="open_registration_sales" type="object" class="oe_stat_button" icon="add" invisible="not manage_sale_workflow">
                     <field string="Registration" name="registration_student_count" widget="statinfo"/>
                 </button>
-                <button name="open_opportunities" type="object" class="oe_stat_button" icon="fa-star" help="Opportunities linked to this group" invisible="not manage_sale_workflow">
+                <button name="open_opportunities" type="object" class="oe_stat_button" icon="star" icon_class="oi-filled" help="Opportunities linked to this group" invisible="not manage_sale_workflow">
                     <field string="Opportunities" name="opportunities_student_count" widget="statinfo"/>
                 </button>
             </div>
