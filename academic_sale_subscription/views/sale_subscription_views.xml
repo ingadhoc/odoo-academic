@@ -11,7 +11,7 @@
                     <button name="set_deferred_end_date_from_button" type="object"
                         string="Update End Date"
                         help="Recompute end date based on this next invoice date"
-                        class="btn-link" icon="fa-refresh"
+                        class="btn-link" icon="refresh"
                         invisible="not show_update_end_date"/>
                 </div>
             </xpath>
