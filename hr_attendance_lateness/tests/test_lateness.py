@@ -1,4 +1,5 @@
 from datetime import UTC, datetime, time, timedelta
+from unittest.mock import patch
 
 from dateutil.relativedelta import MO, relativedelta
 from odoo import Command, fields
@@ -174,6 +175,81 @@ class TestAttendanceLateness(TransactionCase):
             [{"expected_check_in": self._utc(wednesday, 9), "late_minutes": 30, "is_late": True}],
         )
         self._assert_invariants(attendance)
+
+    def test_schedule_read_once_for_many_attendances(self):
+        employees = self._employee(self.fixed_calendar) | self._employee(self.fixed_calendar)
+        days = [self.monday + timedelta(days=offset) for offset in (0, 1, 2, 7, 8)]
+        calendar_class = type(self.env["resource.calendar"])
+        original = calendar_class._work_intervals_batch
+        calls = []
+
+        def counted(calendar, *args, **kwargs):
+            calls.append(calendar)
+            return original(calendar, *args, **kwargs)
+
+        with patch.object(calendar_class, "_work_intervals_batch", counted):
+            attendances = self.env["hr.attendance"].create(
+                [
+                    {
+                        "employee_id": employee.id,
+                        "check_in": self._utc(day, 9, 30),
+                        "check_out": self._utc(day, 17),
+                    }
+                    for employee in employees
+                    for day in days
+                ]
+            )
+            self.env.flush_all()
+        self.assertEqual(len(calls), 1)
+        self.assertRecordValues(
+            attendances,
+            [
+                {"expected_check_in": self._utc(day, 9), "late_minutes": 30, "is_late": True}
+                for _employee in employees
+                for day in days
+            ],
+        )
+
+    def test_flexible_before_the_range_does_not_leak(self):
+        # The range starts on another employee's day, when this one still had a flexible schedule
+        flexible = self.env["resource.calendar"].create(
+            {"name": "Lateness flexible before", "calendar_type": "undefined", "attendance_ids": [Command.clear()]}
+        )
+        employee = self.env["hr.employee"].create(
+            {
+                "name": "Lateness employee, flexible before",
+                "resource_calendar_id": flexible.id,
+                "tz": self.tz_name,
+                "date_version": self.monday - relativedelta(months=1),
+                "contract_date_start": self.monday - relativedelta(months=1),
+            }
+        )
+        employee.create_version(
+            {"date_version": self.monday + timedelta(days=1), "resource_calendar_id": self.fixed_calendar.id}
+        )
+        wednesday = self.monday + timedelta(days=2)
+        attendances = self.env["hr.attendance"].create(
+            [
+                {
+                    "employee_id": self._employee(self.fixed_calendar).id,
+                    "check_in": self._utc(self.monday, 9, 30),
+                    "check_out": self._utc(self.monday, 17),
+                },
+                {
+                    "employee_id": employee.id,
+                    "check_in": self._utc(wednesday, 9, 30),
+                    "check_out": self._utc(wednesday, 17),
+                },
+            ]
+        )
+        self.assertRecordValues(
+            attendances,
+            [
+                {"expected_check_in": self._utc(self.monday, 9), "late_minutes": 30, "is_late": True},
+                {"expected_check_in": self._utc(wednesday, 9), "late_minutes": 30, "is_late": True},
+            ],
+        )
+        self._assert_invariants(attendances[1])
 
     def test_negative_threshold_needs_minutes_late(self):
         self.env.company.attendance_lateness_threshold = -5
