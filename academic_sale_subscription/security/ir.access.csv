@@ -1,0 +1,13 @@
+id,name,model_id,group_id/id,operation,domain
+access_academic_order_wizard,academic.order.wizard,academic.order.wizard,academic.group_user,crud,
+access_academic_order_wizard_line,academic.order.wizard.line,academic.order.wizard.line,academic.group_user,crud,
+access_academic_reenrollment_wizard,academic.reenrollment.wizard,academic.reenrollment.wizard,academic.group_manager,crud,
+access_academic_reenrollment_wizard_line,academic.reenrollment.wizard.line,academic.reenrollment.wizard.line,academic.group_manager,crud,
+access_academic_reenrollment_wizard_move,academic.reenrollment.wizard.move,academic.reenrollment.wizard.move,academic.group_manager,crud,
+access_update_payment_responsible_wizard,update.payment.responsible.wizard,update.payment.responsible.wizard,academic.group_user,crud,
+access_update_payment_responsible_line,update.payment.responsible.line,update.payment.responsible.line,academic.group_user,crud,
+access_update_payment_responsible_partner_wizard,update.payment.responsible.partner.wizard,update.payment.responsible.partner.wizard,academic.group_user,crud,
+access_crm_lead_family_member,crm.lead.family.member,crm.lead.family.member,academic.group_user,crud,
+access_archive_family_debt_wizard,access_archive_family_debt_wizard,archive.family.debt.wizard,academic.group_user,crud,
+account_invoice_rule_portal_academic_follower,Portal: invoices academic (follower / payment responsible),account.move,base.group_portal,r,"[('state', 'not in', ('cancel', 'draft')), ('move_type', 'in', ('out_invoice', 'out_refund', 'in_invoice', 'in_refund')), '|', ('message_partner_ids', 'in', [user.partner_id.id]), ('student_id.payment_responsible_ids', 'in', [user.partner_id.id])]"
+sale_order_rule_portal_academic_student,Portal: subscriptions of linked students,sale.order,base.group_portal,r,"[('partner_id.student_link_ids.partner_id', 'in', [user.partner_id.id])]"
