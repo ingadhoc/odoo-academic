@@ -35,6 +35,8 @@ class ResPartnerLink(models.Model):
             pending_invoices = self.env["account.move"].search(
                 [
                     ("student_id", "in", [s.id for s in students_to_check]),
+                    # only the debt of this responsible blocks them, as in the subscriptions check below
+                    ("partner_id", "=", link.partner_id.id),
                     ("move_type", "in", ["out_invoice", "out_refund"]),
                     ("state", "=", "posted"),
                     ("amount_residual", ">", 0),
