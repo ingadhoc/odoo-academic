@@ -437,3 +437,50 @@ class TestContactImport(TransactionCase):
         """Only the surname as a whole word counts: ROSARIO does not start with the surname ROS."""
         self._run([_row("ROS", "ROSARIO", "ROS ELSA", student_dni="61000004")])
         self.assertEqual(self._imported("student").name, "ROS ROSARIO")
+
+    def test_student_name_with_surname_and_extra_spaces_raises(self):
+        rows = [_row("ACOSTA  PEREZ", "ACOSTA PEREZ, JULIETA", "ACOSTA PEDRO", student_dni="61000005")]
+        with self.assertRaises(UserError):
+            self._run(rows)
+        self.assertFalse(self._imported("family"))
+
+    def test_zero_dni_students_sharing_a_surname(self):
+        rows = [
+            _row("ACOSTA", "JULIETA", "ACOSTA PEDRO", student_dni="0"),
+            _row("ACOSTA", "MATEO", "LUNA ANA", student_dni="0"),
+            _row("ACOSTA", "ZOE", "CABRAL LUIS", student_dni="0"),
+        ]
+        self._run(rows)
+
+        self.assertEqual(len(self._imported("student")), 3)
+        families = self._imported("family", "Familia ACOSTA")
+        self.assertEqual(len(families), 3)
+        for family in families:
+            self.assertEqual(len(family.student_ids), 1)
+
+    def test_homonymous_relatives_without_dni_are_not_merged(self):
+        rows = [
+            _row("DIAZ", "LUCAS", "GONZALEZ MARIA"),
+            _row("ESPINOSA", "ANA", "GONZALEZ MARIA"),
+        ]
+        self._run(rows)
+
+        self.assertEqual(len(self._imported("parent")), 2)
+        diaz = self._imported("family", "Familia DIAZ").student_link_ids.partner_id
+        espinosa = self._imported("family", "Familia ESPINOSA").student_link_ids.partner_id
+        self.assertNotEqual(diaz, espinosa)
+
+        self._run(rows)
+        self.assertEqual(len(self._imported("parent")), 2)
+
+    def test_dni_with_thousand_separators_or_read_as_float(self):
+        rows = [
+            _row("GOMEZ", "PILAR", "GOMEZ RAUL", student_dni="45.111.111"),
+            _row("HERRERA", "TOBIAS", "HERRERA ANA", student_dni="45.222.222"),
+            _row("IBARRA", "SOFIA", "IBARRA ROSA", student_dni="45333333.0"),
+        ]
+        self._run(rows)
+        self.assertEqual(
+            sorted(self._imported("student").mapped("identification_number")),
+            ["45111111", "45222222", "45333333"],
+        )
