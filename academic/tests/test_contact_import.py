@@ -484,3 +484,22 @@ class TestContactImport(TransactionCase):
             sorted(self._imported("student").mapped("identification_number")),
             ["45111111", "45222222", "45333333"],
         )
+
+    def test_dni_leading_zeros_are_ignored(self):
+        rows = [
+            _row("IBARRA", "SOFIA", "IBARRA ROSA", student_dni="0045123456", relative_dni="0027123456"),
+            _row("IBARRA", "SOFIA", "IBARRA JUAN", student_dni="45123456", relative_dni="28123456"),
+        ]
+        self._run(rows)
+        student = self._imported("student")
+        self.assertEqual(len(student), 1)
+        self.assertEqual(student.identification_number, "45123456")
+        self.assertEqual(self._imported("parent", "IBARRA ROSA").vat, "27123456")
+
+        rows = [
+            _row("JUAREZ", "TEO", "JUAREZ ANA", student_dni="0061000006"),
+            _row("KRAUSE", "LIA", "KRAUSE LUIS", student_dni="61000006"),
+        ]
+        with self.assertRaises(UserError) as error:
+            self._run(rows)
+        self.assertIn("61000006", str(error.exception))
