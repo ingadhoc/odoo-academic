@@ -43,12 +43,12 @@ class AcademicContactImport(models.TransientModel):
     result_html = fields.Html(readonly=True)
 
     def _clean_dni(self, value):
-        """Digits of the DNI, or "" when there are none: a DNI of only zeros is a placeholder."""
+        """Digits of the DNI without leading zeros, or "" when there are none: a DNI of only
+        zeros is a placeholder."""
         raw = str(value or "").strip()
         if re.fullmatch(r"\d+\.0+", raw):  # a number cell read as a float
             raw = raw.split(".")[0]
-        digits = re.sub(r"\D", "", raw)
-        return digits if digits.strip("0") else ""
+        return re.sub(r"\D", "", raw).lstrip("0")
 
     def _starts_with_surname(self, name, surname):
         surname = _norm(surname)
