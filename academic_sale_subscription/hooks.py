@@ -8,6 +8,7 @@ from odoo.tools import convert_file
 def post_init_hook(env):
     _set_sale_templates_default_to(env)
     _load_subscription_plans(env)
+    _set_grouped_invoice_notice_template(env)
 
 
 def _set_sale_templates_default_to(env):
@@ -32,4 +33,11 @@ def _load_subscription_plans(env):
         None,
         mode="init",
         noupdate=True,
+    )
+
+
+def _set_grouped_invoice_notice_template(env):
+    companies = env["res.company"].search([("academic_grouped_invoice_notice_template_id", "=", False)])
+    companies.academic_grouped_invoice_notice_template_id = env.ref(
+        "academic_sale_subscription.email_template_grouped_invoice_notice"
     )

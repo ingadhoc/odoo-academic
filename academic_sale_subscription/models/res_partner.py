@@ -2,8 +2,13 @@
 # For copyright and license notices, see __manifest__.py file in module root
 # directory
 ##############################################################################
-from odoo import fields, models
+import logging
+from collections import defaultdict
+
+from odoo import api, fields, models
 from odoo.exceptions import UserError
+
+_logger = logging.getLogger(__name__)
 
 
 class ResPartner(models.Model):
@@ -64,6 +69,95 @@ class ResPartner(models.Model):
         )
         responsible_with_debt = unpaid_invoices.mapped("partner_id")
         return students.filtered(lambda s: s.payment_responsible_ids & responsible_with_debt)
+
+    @api.model
+    def _cron_send_grouped_invoice_notice(self):
+        for company in self.env["res.company"].search([("academic_grouped_invoice_notice", "=", True)]):
+            self.with_company(company)._send_grouped_invoice_notice()
+
+    @api.model
+    def _get_grouped_invoice_notice_domain(self):
+        return [
+            ("company_id", "=", self.env.company.id),
+            ("move_type", "=", "out_invoice"),
+            ("state", "=", "posted"),
+            ("is_move_sent", "=", False),
+            ("student_id", "!=", False),
+        ]
+
+    def _get_grouped_invoice_notice_moves(self):
+        """Invoices of this notice. The mail template only displays what this method returns."""
+        self.ensure_one()
+        return self.env["account.move"].browse(self.env.context.get("grouped_invoice_notice_move_ids", []))
+
+    def _get_grouped_invoice_notice_total_due(self):
+        """What the students of this responsible still owe, including what is not in this notice. Invoices are
+        billed to a single responsible, but every responsible of a student sees the whole debt."""
+        self.ensure_one()
+        moves = self.env["account.move"].search(
+            [
+                ("company_id", "=", self.env.company.id),
+                ("student_id.payment_responsible_ids", "in", self.ids),
+                ("move_type", "in", ["out_invoice", "out_refund"]),
+                ("state", "=", "posted"),
+                ("payment_state", "in", ["not_paid", "partial"]),
+            ]
+        )
+        return sum(moves.mapped("amount_residual_signed"))
+
+    @api.model
+    def _send_grouped_invoice_notice(self):
+        moves = self.env["account.move"].search(self._get_grouped_invoice_notice_domain())
+        if not moves:
+            return
+        template = self.env.company.academic_grouped_invoice_notice_template_id
+        if not template:
+            _logger.warning(
+                "No grouped invoice notice template set on company %s, skipping it.", self.env.company.display_name
+            )
+            return
+
+        moves_by_responsible = defaultdict(lambda: self.env["account.move"])
+        for move in moves:
+            for responsible in move.student_id.payment_responsible_ids:
+                moves_by_responsible[responsible] |= move
+
+        for responsible in [responsible for responsible in moves_by_responsible if not responsible.email]:
+            body = self.env._(
+                "The grouped invoice notice was not sent: %s has no email address.", responsible.display_name
+            )
+            for move in moves_by_responsible.pop(responsible):
+                move.message_post(body=body, subtype_xmlid="mail.mt_note")
+        if not moves_by_responsible:
+            return
+
+        # The legal PDF comes from Odoo's own sending mechanism; the manual method generates and links it
+        # without mailing one invoice at a time. One call for every invoice going out, because Odoo renders
+        # the pdfs in batches and a call per responsible would render a batch for each of them.
+        to_notice = self.env["account.move"].union(*moves_by_responsible.values())
+        self.env["account.move.send"]._generate_and_send_invoices(
+            to_notice, allow_raising=False, allow_fallback_pdf=True, sending_methods={"manual"}
+        )
+        for responsible, responsible_moves in moves_by_responsible.items():
+            responsible._send_grouped_invoice_notice_mail(template, responsible_moves)
+
+    def _send_grouped_invoice_notice_mail(self, template, moves):
+        self.ensure_one()
+        # A copy of each pdf, so that deleting the notice mail never reaches the invoice attachment
+        attachments = self.env["ir.attachment"].create(
+            [
+                {"name": attachment.name, "raw": attachment.raw, "mimetype": attachment.mimetype}
+                for attachment in self.env["account.move.send"]._get_invoice_extra_attachments(moves)
+            ]
+        )
+        template.with_context(grouped_invoice_notice_move_ids=moves.ids).send_mail(
+            self.id, email_values={"attachment_ids": attachments.ids}
+        )
+        # Odoo only marks the move when it creates the pdf, so a move that already had one would be noticed again
+        moves.is_move_sent = True
+        body = self.env._("Grouped invoice notice sent to %s.", self.display_name)
+        for move in moves:
+            move.message_post(body=body, subtype_xmlid="mail.mt_note")
 
     def action_archive(self):
         if not self.env.context.get("skip_debt_check"):

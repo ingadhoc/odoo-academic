@@ -11,6 +11,56 @@
         <field name="lang">{{ object.lang }}</field>
     </record>
 
+    <!-- Email template for the grouped invoice notice -->
+    <record id="email_template_grouped_invoice_notice" model="mail.template">
+        <field name="name">Grouped Invoice Notice - Send by Email</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="subject">{{ object.env.company.name }}: aviso de facturación</field>
+        <field name="email_from">{{ (object.env.company.email or user.email_formatted) }}</field>
+        <field name="use_default_to" eval="True"/>
+        <field name="lang">{{ object.lang }}</field>
+        <field name="body_html" type="html">
+            <div style="margin: 0px; padding: 0px;">
+                <p>Hola <t t-out="object.name or ''">Juan Pérez</t>,</p>
+                <p>Te enviamos el detalle de la facturación de este mes. Adjuntamos cada comprobante en PDF.</p>
+                <t t-set="moves" t-value="object._get_grouped_invoice_notice_moves()"/>
+                <table width="100%" style="border-collapse: collapse; margin: 16px 0px;">
+                    <tr>
+                        <th align="left" style="border-bottom: 1px solid #dee2e6; padding: 8px;">Alumno</th>
+                        <th align="left" style="border-bottom: 1px solid #dee2e6; padding: 8px;">Comprobante</th>
+                        <th align="left" style="border-bottom: 1px solid #dee2e6; padding: 8px;">Fecha</th>
+                        <th align="left" style="border-bottom: 1px solid #dee2e6; padding: 8px;">Vencimiento</th>
+                        <th align="right" style="border-bottom: 1px solid #dee2e6; padding: 8px;">Importe</th>
+                    </tr>
+                    <tr t-foreach="moves" t-as="move">
+                        <td style="padding: 8px;"><t t-out="move.student_id.name or ''">Ana Pérez</t></td>
+                        <td style="padding: 8px;"><t t-out="move.name or ''">FA-0001</t></td>
+                        <td style="padding: 8px;"><t t-out="format_date(move.invoice_date)">01/03/2026</t></td>
+                        <td style="padding: 8px;"><t t-out="format_date(move.invoice_date_due)">10/03/2026</t></td>
+                        <td align="right" style="padding: 8px;">
+                            <t t-out="format_amount(move.amount_total, move.currency_id)">$ 100,00</t>
+                        </td>
+                    </tr>
+                </table>
+                <p>
+                    Total de este aviso:
+                    <strong t-out="format_amount(sum(moves.mapped('amount_total')), object.currency_id)">$ 200,00</strong>
+                    <br/>
+                    Total adeudado:
+                    <strong t-out="format_amount(object._get_grouped_invoice_notice_total_due(), object.currency_id)">$ 350,00</strong>
+                </p>
+                <div style="margin: 16px 0px;">
+                    <a t-att-href="object.get_base_url() + '/my/invoices'"
+                       style="background-color: #875A7B; padding: 8px 16px; text-decoration: none; color: #fff; border-radius: 5px;">
+                        Ver y pagar en el portal
+                    </a>
+                </div>
+                <p>Saludos,<br/><t t-out="object.env.company.name or ''">Colegio</t></p>
+            </div>
+        </field>
+        <field name="auto_delete" eval="True"/>
+    </record>
+
     <!-- Server action to send debt free certificate by email -->
     <record id="action_send_debt_free_certificate_email" model="ir.actions.server">
         <field name="name">Send Debt Free Certificate</field>
