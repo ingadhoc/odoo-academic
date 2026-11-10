@@ -6,15 +6,21 @@
 
 .. |icon| image:: https://raw.githubusercontent.com/ingadhoc/maintainer-tools/master/resources/adhoc-icon.png
 
-.. image:: https://img.shields.io/badge/license-AGPL--3-blue.png
-   :target: https://www.gnu.org/licenses/agpl
-   :alt: License: AGPL-3
+.. image:: https://img.shields.io/badge/license-LGPL--3-blue.png
+   :target: https://www.gnu.org/licenses/lgpl
+   :alt: License: LGPL-3
 
 =============
 Demo Academic
 =============
 
+Demo data for the academic subscription flow. It only loads demo records:
 
+#. Partner tags for the discount cases (siblings, employees' children, annual payment, scholarship, referral, VIP).
+#. Automatic promotions for siblings (10%) and employees' children (20%), applied by the partner tag, and for annual payment (15%), on recurring products.
+#. A loyalty program that gives points to referrers, with a $5000 discount for 10000 points.
+#. Pricelists with a global discount rule for siblings (10%), employees (20%) and scholarship students (50%). The rules have no subscription plan, so they do not apply to recurring products.
+#. The tags and pricelists set on the demo families of the academic module.
 
 Installation
 ============
@@ -45,7 +51,7 @@ Bug Tracker
 ===========
 
 Bugs are tracked on `GitHub Issues
-<https://github.com/ingadhoc/{project_repo}/issues>`_. In case of trouble, please
+<https://github.com/ingadhoc/odoo-academic/issues>`_. In case of trouble, please
 check there if your issue has already been reported. If you spotted it first,
 help us smashing it by providing a detailed and welcomed feedback.
 
