@@ -911,13 +911,6 @@ msgstr "Etiquetas del contacto"
 #: model:ir.model.fields,field_description:academic.field_res_users__same_identification_number_partner_id
 msgid "Partner with same identification number"
 msgstr "Contacto con el mismo número de identificación"
-
-#. module: academic
-#. odoo-python
-#: code:addons/academic/wizards/academic_contact_import.py:0
-msgid "Paying role not assigned (relative has no DNI)"
-msgstr "Rol de pagador no asignado (el familiar no tiene DNI)"
-
 #. module: academic
 #: model:ir.model.fields,field_description:academic.field_res_partner__payment_responsible_ids
 #: model:ir.model.fields,field_description:academic.field_res_users__payment_responsible_ids

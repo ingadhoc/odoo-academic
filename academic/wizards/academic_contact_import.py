@@ -24,7 +24,7 @@ AFIP_FIELD = "l10n_ar_afip_responsibility_type_id"
 
 def _norm(text):
     text = "".join(c for c in unicodedata.normalize("NFKD", str(text or "")) if not unicodedata.combining(c))
-    return text.strip().lower()
+    return " ".join(text.split()).lower()
 
 
 class AcademicContactImport(models.TransientModel):
@@ -44,7 +44,10 @@ class AcademicContactImport(models.TransientModel):
 
     def _clean_dni(self, value):
         """Digits of the DNI, or "" when there are none: a DNI of only zeros is a placeholder."""
-        digits = re.sub(r"\D", "", str(value or "").split(".")[0])
+        raw = str(value or "").strip()
+        if re.fullmatch(r"\d+\.0+", raw):  # a number cell read as a float
+            raw = raw.split(".")[0]
+        digits = re.sub(r"\D", "", raw)
         return digits if digits.strip("0") else ""
 
     def _starts_with_surname(self, name, surname):
@@ -353,12 +356,11 @@ class AcademicContactImport(models.TransientModel):
         data_rows, cols = self._read_rows()
         self._validate_vocabulary(data_rows, cols)
         Partner = self.env["res.partner"]
-        paying_role = self.env.ref("academic.paying_role")
         company_id = self.company_id.id
         afip_available = self._afip_field_available()
 
         stats = {"rows": 0, "families_new": 0, "families_reused": 0, "students": 0, "parents": 0}
-        no_dni, errors = [], []
+        errors = []
 
         for line_no, row in enumerate(data_rows, start=1):
             student_name = self._cell(row, COL_STUDENT)
@@ -403,17 +405,16 @@ class AcademicContactImport(models.TransientModel):
                 parent_vals_list = []
                 if parent_name:
                     roles, _invalid = self._get_roles(self._cell(row, COL_ROLES))
-                    if paying_role in roles and not parent_dni:
-                        roles -= paying_role
-                        no_dni.append("%s (%s)" % (parent_name, student_name))
                     if parent_dni:
                         existing_parent = Partner.search(
                             [("partner_type", "=", "parent"), ("vat", "=", parent_dni)], limit=1
                         )
                     else:
-                        existing_parent = Partner.search(
-                            [("partner_type", "=", "parent"), ("name", "=", parent_name)], limit=1
-                        )
+                        # without a DNI, a name only identifies a relative inside the family already resolved
+                        known = family.student_link_ids.partner_id | family.student_ids.student_link_ids.partner_id
+                        existing_parent = known.filtered(
+                            lambda p: p.partner_type == "parent" and _norm(p.name) == _norm(parent_name)
+                        )[:1]
                     parent_vals = {
                         "name": parent_name,
                         "vat": parent_dni,
@@ -449,7 +450,7 @@ class AcademicContactImport(models.TransientModel):
                 errors.append(self.env._("Row %(n)s (%(name)s): %(err)s", n=line_no, name=student_name, err=exc))
 
         self.state = "done"
-        self.result_html = self._build_summary(stats, no_dni, errors)
+        self.result_html = self._build_summary(stats, errors)
         return {
             "type": "ir.actions.act_window",
             "res_model": self._name,
@@ -458,7 +459,7 @@ class AcademicContactImport(models.TransientModel):
             "target": "new",
         }
 
-    def _build_summary(self, stats, no_dni, errors):
+    def _build_summary(self, stats, errors):
         rows = [
             (self.env._("Rows processed"), stats["rows"]),
             (self.env._("Families created"), stats["families_new"]),
@@ -469,12 +470,6 @@ class AcademicContactImport(models.TransientModel):
         html = "<h4>%s</h4><ul>" % self.env._("Import finished")
         html += "".join("<li>%s: <b>%s</b></li>" % (label, value) for label, value in rows)
         html += "</ul>"
-        if no_dni:
-            html += "<div class='alert alert-warning'>%s (%s):<br/>%s</div>" % (
-                self.env._("Paying role not assigned (relative has no DNI)"),
-                len(no_dni),
-                "<br/>".join(no_dni[:50]) + ("…" if len(no_dni) > 50 else ""),
-            )
         if errors:
             html += "<div class='alert alert-danger'><b>%s (%s)</b><br/>%s</div>" % (
                 self.env._("Rows with errors"),
