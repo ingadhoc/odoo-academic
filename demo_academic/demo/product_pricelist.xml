@@ -16,8 +16,8 @@
     <record id="pricelist_item_hermanos" model="product.pricelist.item">
         <field name="pricelist_id" ref="product_pricelist_hermanos"/>
         <field name="applied_on">3_global</field>
-        <field name="compute_price">percentage</field>
-        <field name="percent_price">10</field>
+        <field name="compute_price">discount</field>
+        <field name="price_discount">10</field>
         <field name="name">Descuento 10% hermanos</field>
     </record>
 
@@ -31,8 +31,8 @@
     <record id="pricelist_item_empleados" model="product.pricelist.item">
         <field name="pricelist_id" ref="product_pricelist_empleados"/>
         <field name="applied_on">3_global</field>
-        <field name="compute_price">percentage</field>
-        <field name="percent_price">20</field>
+        <field name="compute_price">discount</field>
+        <field name="price_discount">20</field>
         <field name="name">Descuento 20% empleados</field>
     </record>
 
@@ -46,8 +46,8 @@
     <record id="pricelist_item_becados" model="product.pricelist.item">
         <field name="pricelist_id" ref="product_pricelist_becados"/>
         <field name="applied_on">3_global</field>
-        <field name="compute_price">percentage</field>
-        <field name="percent_price">50</field>
+        <field name="compute_price">discount</field>
+        <field name="price_discount">50</field>
         <field name="name">Descuento 50% beca de estudio</field>
     </record>
 </odoo>
