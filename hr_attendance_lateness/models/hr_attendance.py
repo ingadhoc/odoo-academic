@@ -29,7 +29,7 @@ class HrAttendance(models.Model):
         "time_rule_id",
     )
     def _compute_lateness_metrics(self):
-        # Work intervals are read once per schedule, timezone and company, for the whole range of days
+        # Work intervals are read once per schedule and timezone, for the whole range of days
         groups = defaultdict(list)
         for attendance in self:
             attendance.expected_check_in = False
@@ -59,21 +59,18 @@ class HrAttendance(models.Model):
                 continue
 
             day_start = datetime.combine(check_in_local.date(), time.min, tzinfo=tz)
-            groups[calendar, tz, employee.company_id].append((attendance, employee.sudo().resource_id, day_start))
+            groups[calendar, tz].append((attendance, employee.sudo().resource_id, day_start))
 
-        for (calendar, tz, company), items in groups.items():
-            domain = [("company_id", "in", [False, company.id]), ("count_as", "=", "absence")]
+        for (calendar, tz), items in groups.items():
             resources = self.env["resource.resource"].sudo().browse({resource.id for _att, resource, _day in items})
             days = [day_start for _att, _resource, day_start in items]
-            starts = self._lateness_first_starts(
-                calendar, tz, resources, min(days), max(days) + timedelta(days=1), domain
-            )
+            starts = self._lateness_first_starts(calendar, tz, resources, min(days), max(days) + timedelta(days=1))
             for attendance, resource, day_start in items:
                 day_starts = starts.get(resource.id)
                 if day_starts is None:
                     # Flexible on the first day of the range: core fills it with synthetic slots, so ask for its day only
                     day_starts = self._lateness_first_starts(
-                        calendar, tz, resource, day_start, day_start + timedelta(days=1), domain
+                        calendar, tz, resource, day_start, day_start + timedelta(days=1)
                     ).get(resource.id, {})
                 expected = day_starts.get(day_start.date())
                 if not expected:
@@ -87,15 +84,14 @@ class HrAttendance(models.Model):
                     attendance.late_minutes = int(delta.total_seconds() / 60)
 
     @api.model
-    def _lateness_first_starts(self, calendar, tz, resources, start, stop, domain):
+    def _lateness_first_starts(self, calendar, tz, resources, start, stop):
         """Start of the first working slot of each local day, as ``{resource_id: {date: datetime}}``.
 
-        Work intervals are the fixed and variable slots minus holidays and time off. A resource that
-        got core's synthetic slots of a flexible schedule is left out.
+        Work intervals are the fixed and variable slots minus holidays and time off, with core's
+        default leave domain: it already matches global leaves to each resource's company. A resource
+        that got core's synthetic slots of a flexible schedule is left out.
         """
-        intervals_per_resource = calendar._work_intervals_batch(
-            start, stop, resources_per_tz={tz: resources}, domain=domain
-        )
+        intervals_per_resource = calendar._work_intervals_batch(start, stop, resources_per_tz={tz: resources})
         result = {}
         for resource in resources:
             intervals = list(intervals_per_resource[resource.id])
