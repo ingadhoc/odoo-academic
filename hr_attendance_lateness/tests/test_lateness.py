@@ -324,6 +324,40 @@ class TestAttendanceLateness(TransactionCase):
             )
             self._assert_invariants(attendance)
 
+    def test_time_off_on_a_parent_company_schedule(self):
+        # The time off takes the schedule's company, the parent one, while the employee is in the child
+        child = self.env["res.company"].create({"name": "Lateness child", "parent_id": self.env.company.id})
+        employee = (
+            self.env["hr.employee"]
+            .with_company(child)
+            .create(
+                {
+                    "name": "Lateness employee, child company",
+                    "company_id": child.id,
+                    "resource_calendar_id": self.fixed_calendar.id,
+                    "tz": self.tz_name,
+                    "date_version": self.monday - relativedelta(months=1),
+                }
+            )
+        )
+        tuesday = self.monday + timedelta(days=1)
+        time_off = self.env["resource.calendar.leaves"].create(
+            {
+                "name": "Doctor",
+                "resource_id": employee.resource_id.id,
+                "calendar_id": self.fixed_calendar.id,
+                "date_from": self._utc(tuesday, 9),
+                "date_to": self._utc(tuesday, 11),
+            }
+        )
+        self.assertEqual(time_off.company_id, self.env.company)
+        attendance = self._check_in(employee, tuesday, 11, 10)
+        self.assertRecordValues(
+            attendance,
+            [{"expected_check_in": self._utc(tuesday, 11), "late_minutes": 10, "is_late": True}],
+        )
+        self._assert_invariants(attendance)
+
     def test_no_expected_check_in_with_duration_based_schedule(self):
         calendar = self.env["resource.calendar"].create(
             {
