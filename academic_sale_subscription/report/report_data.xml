@@ -4,7 +4,6 @@
         <field name="model">res.partner</field>
         <field name="report_type">qweb-pdf</field>
         <field name="report_name">academic_sale_subscription.report_debt_free_certificate_document</field>
-        <field name="report_file">academic_sale_subscription.report_debt_free_certificate_document</field>
         <field name="print_report_name">'Debt Free Certificate - ' + object.name</field>
         <field name="binding_model_id" ref="base.model_res_partner"/>
         <field name="binding_type">report</field>
