@@ -10,6 +10,17 @@ class ResCompany(models.Model):
     _inherit = "res.company"
 
     require_student_on_invoices = fields.Boolean(default=True)
+    academic_grouped_invoice_notice = fields.Boolean(
+        string="Group invoice notice by payment responsible",
+        help="Academic invoices are no longer sent one by one with the subscription plan template. A daily "
+        "scheduled action sends each payment responsible a single notice with every pending invoice of the "
+        "students they are responsible for.",
+    )
+    academic_grouped_invoice_notice_template_id = fields.Many2one(
+        "mail.template",
+        string="Grouped Invoice Notice Template",
+        domain="[('model', '=', 'res.partner')]",
+    )
 
     @api.constrains("require_student_on_invoices")
     def _check_invoices_with_student(self):

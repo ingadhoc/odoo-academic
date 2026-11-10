@@ -28,7 +28,14 @@ Configuration
 
 To configure this module, you need to:
 
-#. Nothing to configure
+#. Nothing to configure for the standard behaviour.
+#. To group the invoice notice by payment responsible, go to Settings / Sales / Subscriptions and enable
+   "Group invoice notice by payment responsible", choosing the mail template of the notice. With it enabled,
+   academic invoices stop using the subscription plan mail template: they stay posted and unsent, and the
+   "Grouped Invoice Notice by Payment Responsible" scheduled action sends each payment responsible a single
+   mail, once a day, with the pending invoices of their students, the detail per student, the total of the
+   notice, the total due, a link to the portal and the invoices attached. Set the hour of that scheduled
+   action after the recurring invoicing one.
 
 Usage
 =====

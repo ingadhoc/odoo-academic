@@ -13,3 +13,8 @@ def post_init_hook(env):
     """
     templates = env["mail.template"].search([("model_id.model", "=", "sale.order")])
     templates.use_default_to = True
+
+    companies = env["res.company"].search([("academic_grouped_invoice_notice_template_id", "=", False)])
+    companies.academic_grouped_invoice_notice_template_id = env.ref(
+        "academic_sale_subscription.email_template_grouped_invoice_notice"
+    )
