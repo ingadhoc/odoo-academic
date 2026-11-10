@@ -1,5 +1,5 @@
 # © 2016 ADHOC SA
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+# License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 {
     "name": "Demo Academic",
     "version": "20.0.1.0.0",
@@ -7,7 +7,7 @@
     "summary": "",
     "author": "ADHOC SA",
     "website": "www.adhoc.com.ar",
-    "license": "AGPL-3",
+    "license": "LGPL-3",
     "depends": [
         "academic_sale_subscription",
         "sale_subscription_loyalty_ux",
