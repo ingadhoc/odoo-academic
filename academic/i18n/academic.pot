@@ -1246,6 +1246,16 @@ msgid ""
 msgstr ""
 
 #. module: academic
+#: model_terms:ir.ui.view,arch_db:academic.academic_contact_import_view_form
+msgid ""
+"The <b>Student name</b> column holds only the name, without the surname\n"
+"                        (the surname goes in the <b>Surname</b> column): the import fails if the\n"
+"                        name starts with the surname. An empty DNI or a DNI of only zeros counts as\n"
+"                        no DNI, and the import fails if the same DNI is used for people with\n"
+"                        different names."
+msgstr ""
+
+#. module: academic
 #. odoo-python
 #: code:addons/academic/wizards/academic_contact_import.py:0
 msgid ""
@@ -1260,6 +1270,15 @@ msgstr ""
 msgid ""
 "The Relationship column must be exactly one of: %(allowed)s.\n"
 "The following do not exist:\n"
+"%(detail)s"
+msgstr ""
+
+#. module: academic
+#. odoo-python
+#: code:addons/academic/wizards/academic_contact_import.py:0
+msgid ""
+"The Student name column must hold only the name: the surname goes in the Surname column.\n"
+"The following start with the surname:\n"
 "%(detail)s"
 msgstr ""
 
@@ -1344,6 +1363,14 @@ msgstr ""
 msgid ""
 "The paying role (Responsable de Facturación) requires the relative's DNI.\n"
 "The following have it without a DNI:\n"
+"%(detail)s"
+msgstr ""
+
+#. module: academic
+#. odoo-python
+#: code:addons/academic/wizards/academic_contact_import.py:0
+msgid ""
+"The same DNI is used for people with different names:\n"
 "%(detail)s"
 msgstr ""
 
