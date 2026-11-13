@@ -11,6 +11,19 @@
                     help="Enable this to allow invoicing subscription lines even if their total is zero.">
                     <field name="enable_zero_price_subscription_invoice"/>
                 </setting>
+                <setting
+                    id="academic_grouped_invoice_notice"
+                    help="Academic invoices stop using the subscription plan mail template. Once a day each payment responsible gets a single notice with every pending invoice of their students, with the invoices attached.">
+                    <field name="academic_grouped_invoice_notice"/>
+                    <div class="content-group" invisible="not academic_grouped_invoice_notice">
+                        <div class="mt16">
+                            <field
+                                name="academic_grouped_invoice_notice_template_id"
+                                class="o_light_label"
+                                placeholder="Grouped Invoice Notice Template"/>
+                        </div>
+                    </div>
+                </setting>
             </setting>
         </field>
     </record>
