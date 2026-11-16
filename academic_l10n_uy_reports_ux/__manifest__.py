@@ -19,7 +19,7 @@
 ##############################################################################
 {
     "name": "Academic - Uruguay Accounting Reports UX",
-    "version": "19.0.1.0.0",
+    "version": "20.0.1.0.0",
     "summary": "Count the students of each payment responsible on the Uruguayan form 3150",
     "author": "ADHOC SA",
     "website": "www.adhoc.com.ar",
