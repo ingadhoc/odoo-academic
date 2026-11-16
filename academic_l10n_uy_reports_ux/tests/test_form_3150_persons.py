@@ -65,6 +65,7 @@ class TestForm3150Persons(TestForm3150):
         moves = self.env["account.move"].search([("partner_id", "=", self.over.id)])
         before = wizard._get_form_3150_partner_problems(self.over, moves)
 
-        moves[0].student_id = self.student_a
+        # The student goes on an invoice: on a credit note alone it would not be billed anything
+        moves.filtered(lambda move: move.move_type == "out_invoice")[0].student_id = self.student_a
         after = wizard._get_form_3150_partner_problems(self.over, moves)
         self.assertEqual(len(after), len(before) - 1, before)
