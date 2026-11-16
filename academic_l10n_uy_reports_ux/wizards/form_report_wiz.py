@@ -13,14 +13,14 @@ class FormReportWiz(models.TransientModel):
 
         The amount of the record is reported net of credit notes, and so is this count: a student whose
         invoices were all credited was not billed anything, and one that only shows up on a credit note
-        was not billed either.
+        was not billed either, so only the ones left with something billed count.
         """
         amount_per_student = {}
         for move in moves.filtered("student_id"):
             student = move.student_id
             amount_per_student[student] = amount_per_student.get(student, 0.0) + move.amount_total_signed
         currency = self.company_id.currency_id
-        return [student for student, amount in amount_per_student.items() if not currency.is_zero(amount)]
+        return [student for student, amount in amount_per_student.items() if currency.compare_amounts(amount, 0) > 0]
 
     def _get_form_3150_persons(self, moves):
         return len(self._get_form_3150_students(moves)) or super()._get_form_3150_persons(moves)
