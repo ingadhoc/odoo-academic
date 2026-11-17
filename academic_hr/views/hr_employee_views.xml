@@ -6,7 +6,7 @@
         <field name="inherit_id" ref="hr.view_employee_form"/>
         <field name="arch" type="xml">
             <div name="button_box" position="before">
-                <widget name="web_ribbon" title="Child" bg_color="bg-warning" invisible="not main_employee_id"/>
+                <widget name="web_ribbon" title="Child" bg_color="bg-warning" invisible="not main_employee_id" groups="hr.group_hr_user"/>
             </div>
 
             <xpath expr="//field[@name='work_email']//.." position="before">
@@ -20,12 +20,8 @@
                 <attribute name="invisible">main_employee_id</attribute>
             </group>
 
-            <xpath expr="//field[@name='company_id'][@groups='base.group_multi_company']" position="attributes">
-                <attribute name="readonly">main_employee_id</attribute>
-            </xpath>
-
             <page name="work_information" position="before">
-                <page string="Child Employees" name="child_employees" invisible="main_employee_id">
+                <page string="Child Employees" name="child_employees" invisible="main_employee_id" groups="hr.group_hr_user">
                     <field name="child_employee_ids" mode="kanban" context="{'default_main_employee_id': id, 'default_company_id': company_id, 'default_user_id': user_id}">
                         <kanban>
                             <field name="job_id"/>

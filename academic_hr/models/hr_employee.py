@@ -9,11 +9,13 @@ class HrEmployee(models.Model):
     main_employee_id = fields.Many2one(
         "hr.employee",
         string="Main Employee",
+        groups="hr.group_hr_user",
     )
     child_employee_ids = fields.One2many(
         "hr.employee",
         "main_employee_id",
         string="Child Employees",
+        groups="hr.group_hr_user",
     )
 
     def init(self):
