@@ -24,7 +24,6 @@
     "data": [
         "data/ir_actions_server.xml",
         "data/ir_model_fields_data.xml",
-        "data/subscription_plan_data.xml",
         "security/ir.model.access.csv",
         "security/academic_security.xml",
         "report/report_data.xml",
@@ -52,6 +51,8 @@
         "report/report_invoice.xml",
     ],
     "demo": [
+        # Default plans come from the post_init_hook, which runs after demo, so demo loads them itself.
+        "data/subscription_plan_data.xml",
         "demo/account_chart_demo.xml",
         "demo/account_journal_demo.xml",
         "demo/product_template_demo.xml",
