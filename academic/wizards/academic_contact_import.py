@@ -4,6 +4,7 @@
 ##############################################################################
 import re
 import unicodedata
+from collections import defaultdict
 
 from odoo import fields, models
 from odoo.exceptions import UserError
@@ -22,7 +23,7 @@ AFIP_FIELD = "l10n_ar_afip_responsibility_type_id"
 
 def _norm(text):
     text = "".join(c for c in unicodedata.normalize("NFKD", str(text or "")) if not unicodedata.combining(c))
-    return text.strip().lower()
+    return " ".join(text.split()).lower()
 
 
 class AcademicContactImport(models.TransientModel):
@@ -41,9 +42,16 @@ class AcademicContactImport(models.TransientModel):
     result_html = fields.Html(readonly=True)
 
     def _clean_dni(self, value):
-        if value is None or str(value).strip() == "":
-            return ""
-        return re.sub(r"\D", "", str(value).split(".")[0])
+        """Digits of the DNI without leading zeros, or "" when there are none: a DNI of only
+        zeros is a placeholder."""
+        raw = str(value or "").strip()
+        if re.fullmatch(r"\d+\.0+", raw):  # a number cell read as a float
+            raw = raw.split(".")[0]
+        return re.sub(r"\D", "", raw).lstrip("0")
+
+    def _starts_with_surname(self, name, surname):
+        surname = _norm(surname)
+        return bool(surname) and re.match(r"%s\b" % re.escape(surname), _norm(name)) is not None
 
     def _cell(self, row, idx):
         value = row[idx] if idx is not None and idx < len(row) else None
@@ -262,8 +270,55 @@ class AcademicContactImport(models.TransientModel):
                     detail="\n".join(bad_flags[:50]) + ("\n…" if len(bad_flags) > 50 else ""),
                 )
             )
+        messages += self._identity_messages(data_rows)
         if messages:
             raise UserError("\n\n".join(messages))
+
+    def _identity_messages(self, data_rows):
+        """Rows that would merge different people: a DNI shared by different names, or a
+        student name that repeats the surname."""
+        # DNI -> {normalized name: name as written}, per partner type
+        names_by_dni = {"student": defaultdict(dict), "parent": defaultdict(dict)}
+        bad_surname = []
+        for row in data_rows:
+            student_name = self._cell(row, COL_STUDENT)
+            if not student_name:
+                continue
+            surname = self._cell(row, COL_SURNAME)
+            if self._starts_with_surname(student_name, surname):
+                bad_surname.append("%s → %s" % (surname, student_name))
+            student_dni = self._clean_dni(self._cell(row, COL_STUDENT_DNI))
+            if student_dni:
+                full_name = ("%s %s" % (surname, student_name)).strip()
+                names_by_dni["student"][student_dni].setdefault(_norm(full_name), full_name)
+            parent_name = self._cell(row, COL_PARENT)
+            parent_dni = self._clean_dni(self._cell(row, COL_PARENT_DNI))
+            if parent_name and parent_dni:
+                names_by_dni["parent"][parent_dni].setdefault(_norm(parent_name), parent_name)
+
+        bad_dnis = [
+            "%s → %s" % (dni, " / ".join(names.values()))
+            for by_dni in names_by_dni.values()
+            for dni, names in by_dni.items()
+            if len(names) > 1
+        ]
+        messages = []
+        if bad_dnis:
+            messages.append(
+                self.env._(
+                    "The same DNI is used for people with different names:\n%(detail)s",
+                    detail="\n".join(bad_dnis[:50]) + ("\n…" if len(bad_dnis) > 50 else ""),
+                )
+            )
+        if bad_surname:
+            messages.append(
+                self.env._(
+                    "The Student name column must hold only the name: the surname goes in the Surname column.\n"
+                    "The following start with the surname:\n%(detail)s",
+                    detail="\n".join(bad_surname[:50]) + ("\n…" if len(bad_surname) > 50 else ""),
+                )
+            )
+        return messages
 
     def _find_family(self, student, family_name, parent_dni, parent_name, student_full_name, links_by_student):
         """Resolve the family a row belongs to, and the student when the row identifies one.
@@ -300,12 +355,11 @@ class AcademicContactImport(models.TransientModel):
         data_rows, cols = self._read_rows()
         self._validate_vocabulary(data_rows, cols)
         Partner = self.env["res.partner"]
-        paying_role = self.env.ref("academic.paying_role")
         company_id = self.company_id.id
         afip_available = self._afip_field_available()
 
         stats = {"rows": 0, "families_new": 0, "families_reused": 0, "students": 0, "parents": 0}
-        no_dni, errors = [], []
+        errors = []
 
         for line_no, row in enumerate(data_rows, start=1):
             student_name = self._cell(row, COL_STUDENT)
@@ -350,17 +404,16 @@ class AcademicContactImport(models.TransientModel):
                 parent_vals_list = []
                 if parent_name:
                     roles, _invalid = self._get_roles(self._cell(row, COL_ROLES))
-                    if paying_role in roles and not parent_dni:
-                        roles -= paying_role
-                        no_dni.append("%s (%s)" % (parent_name, student_name))
                     if parent_dni:
                         existing_parent = Partner.search(
                             [("partner_type", "=", "parent"), ("vat", "=", parent_dni)], limit=1
                         )
                     else:
-                        existing_parent = Partner.search(
-                            [("partner_type", "=", "parent"), ("name", "=", parent_name)], limit=1
-                        )
+                        # without a DNI, a name only identifies a relative inside the family already resolved
+                        known = family.student_link_ids.partner_id | family.student_ids.student_link_ids.partner_id
+                        existing_parent = known.filtered(
+                            lambda p: p.partner_type == "parent" and _norm(p.name) == _norm(parent_name)
+                        )[:1]
                     parent_vals = {
                         "name": parent_name,
                         "vat": parent_dni,
@@ -396,7 +449,7 @@ class AcademicContactImport(models.TransientModel):
                 errors.append(self.env._("Row %(n)s (%(name)s): %(err)s", n=line_no, name=student_name, err=exc))
 
         self.state = "done"
-        self.result_html = self._build_summary(stats, no_dni, errors)
+        self.result_html = self._build_summary(stats, errors)
         return {
             "type": "ir.actions.act_window",
             "res_model": self._name,
@@ -405,7 +458,7 @@ class AcademicContactImport(models.TransientModel):
             "target": "new",
         }
 
-    def _build_summary(self, stats, no_dni, errors):
+    def _build_summary(self, stats, errors):
         rows = [
             (self.env._("Rows processed"), stats["rows"]),
             (self.env._("Families created"), stats["families_new"]),
@@ -416,12 +469,6 @@ class AcademicContactImport(models.TransientModel):
         html = "<h4>%s</h4><ul>" % self.env._("Import finished")
         html += "".join("<li>%s: <b>%s</b></li>" % (label, value) for label, value in rows)
         html += "</ul>"
-        if no_dni:
-            html += "<div class='alert alert-warning'>%s (%s):<br/>%s</div>" % (
-                self.env._("Paying role not assigned (relative has no DNI)"),
-                len(no_dni),
-                "<br/>".join(no_dni[:50]) + ("…" if len(no_dni) > 50 else ""),
-            )
         if errors:
             html += "<div class='alert alert-danger'><b>%s (%s)</b><br/>%s</div>" % (
                 self.env._("Rows with errors"),

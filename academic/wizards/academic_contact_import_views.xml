@@ -31,6 +31,13 @@
                         only grouped in the same family when they share a relative: different
                         relatives result in different families.
                     </p>
+                    <p>
+                        The <b>Student name</b> column holds only the name, without the surname
+                        (the surname goes in the <b>Surname</b> column): the import fails if the
+                        name starts with the surname. An empty DNI or a DNI of only zeros counts as
+                        no DNI, and the import fails if the same DNI is used for people with
+                        different names.
+                    </p>
                     The downloaded example file already includes a sample row (in grey, delete it
                     before importing), a help note on every column header, and dropdowns for
                     Relationship, Roles and Contacts and roles per student. The AFIP responsibility
