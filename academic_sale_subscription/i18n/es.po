@@ -243,7 +243,15 @@ msgstr ""
 #. odoo-python
 #: code:addons/academic_sale_subscription/wizard/academic_reenrollment_wizard.py:0
 msgid "A quotation template is required to create the re-enrollment orders."
+<<<<<<< ab658bbed29ffb48f35cfce42fbbbc82b251c9a2
 msgstr "Se requiere una plantilla de cotización para crear los pedidos de reinscripción."
+||||||| 0d4652c116a58f881f6fb765e86597dd79f91716
+msgstr ""
+=======
+msgstr ""
+"Se necesita una plantilla de presupuesto para crear los pedidos de "
+"reinscripción."
+>>>>>>> d730dd1184c2eff318448daddf204de45037b5c3
 
 #. module: academic_sale_subscription
 #. odoo-python
@@ -259,7 +267,13 @@ msgstr "Grupo Académico"
 #. module: academic_sale_subscription
 #: model:ir.model,name:academic_sale_subscription.model_academic_order_params
 msgid "Academic Order Parameters"
+<<<<<<< ab658bbed29ffb48f35cfce42fbbbc82b251c9a2
 msgstr "Parámetros de la orden académica"
+||||||| 0d4652c116a58f881f6fb765e86597dd79f91716
+msgstr ""
+=======
+msgstr "Parámetros de pedido académico"
+>>>>>>> d730dd1184c2eff318448daddf204de45037b5c3
 
 #. module: academic_sale_subscription
 #: model:ir.model,name:academic_sale_subscription.model_academic_order_wizard
@@ -293,12 +307,18 @@ msgstr "Asistente de reinscripción académica"
 #. module: academic_sale_subscription
 #: model:ir.model,name:academic_sale_subscription.model_academic_reenrollment_wizard_line
 msgid "Academic Re-enrollment Wizard Line"
+<<<<<<< ab658bbed29ffb48f35cfce42fbbbc82b251c9a2
 msgstr "Línea del asistente de reinscripción académica"
 
 #. module: academic_sale_subscription
 #: model:ir.module.module,shortdesc:base.module_academic_sale_subscription
 msgid "Academic Sale Subscription"
 msgstr "Suscripción de Venta Académica"
+||||||| 0d4652c116a58f881f6fb765e86597dd79f91716
+msgstr ""
+=======
+msgstr "Línea del asistente de reinscripción académica"
+>>>>>>> d730dd1184c2eff318448daddf204de45037b5c3
 
 #. module: academic_sale_subscription
 #: model:ir.model,name:academic_sale_subscription.model_account_chart_template
@@ -332,7 +352,13 @@ msgstr "Agregue una línea de Alumno."
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_line__excluded_enrolled_ids
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.academic_reenrollment_wizard_form
 msgid "Already Enrolled"
+<<<<<<< ab658bbed29ffb48f35cfce42fbbbc82b251c9a2
 msgstr "Ya inscripto"
+||||||| 0d4652c116a58f881f6fb765e86597dd79f91716
+msgstr ""
+=======
+msgstr "Ya inscriptos"
+>>>>>>> d730dd1184c2eff318448daddf204de45037b5c3
 
 #. module: academic_sale_subscription
 #: model:ir.model,name:academic_sale_subscription.model_archive_family_debt_wizard
@@ -413,7 +439,13 @@ msgstr "Cambiar Responsable de Pago"
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_line__company_id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_move__company_id
 msgid "Company"
+<<<<<<< ab658bbed29ffb48f35cfce42fbbbc82b251c9a2
 msgstr "Empresa"
+||||||| 0d4652c116a58f881f6fb765e86597dd79f91716
+msgstr ""
+=======
+msgstr "Compañía"
+>>>>>>> d730dd1184c2eff318448daddf204de45037b5c3
 
 #. module: academic_sale_subscription
 #. odoo-python
@@ -556,7 +588,13 @@ msgstr "Moneda"
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_line__source_group_id
 msgid "Current Group"
+<<<<<<< ab658bbed29ffb48f35cfce42fbbbc82b251c9a2
 msgstr "Grupo Actual"
+||||||| 0d4652c116a58f881f6fb765e86597dd79f91716
+msgstr ""
+=======
+msgstr "Grupo actual"
+>>>>>>> d730dd1184c2eff318448daddf204de45037b5c3
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_account_bank_statement_line__current_main_group_id
@@ -718,7 +756,7 @@ msgstr ""
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_crm_lead_family_member__email
 msgid "Email"
-msgstr ""
+msgstr "Correo electrónico"
 
 #. module: academic_sale_subscription
 #: model:ir.model,name:academic_sale_subscription.model_mail_thread
@@ -1073,7 +1111,14 @@ msgstr "Nivel"
 #. module: academic_sale_subscription
 #: model:ir.model.fields,help:academic_sale_subscription.field_academic_reenrollment_wizard_line__target_level_id
 msgid "Level of the group to create, suggested from the study plan sequence."
+<<<<<<< ab658bbed29ffb48f35cfce42fbbbc82b251c9a2
 msgstr "Nivel del grupo a crear, sugerido a partir de la secuencia del plan de estudios."
+||||||| 0d4652c116a58f881f6fb765e86597dd79f91716
+msgstr ""
+=======
+msgstr ""
+"Nivel del grupo a crear, sugerido según la secuencia del plan de estudios."
+>>>>>>> d730dd1184c2eff318448daddf204de45037b5c3
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_line__target_level_ids
@@ -1136,7 +1181,13 @@ msgstr ""
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_crm_lead_family_member__member_type
 msgid "Member Type"
+<<<<<<< ab658bbed29ffb48f35cfce42fbbbc82b251c9a2
 msgstr "Tipo de miembro"
+||||||| 0d4652c116a58f881f6fb765e86597dd79f91716
+msgstr ""
+=======
+msgstr "Tipo de integrante"
+>>>>>>> d730dd1184c2eff318448daddf204de45037b5c3
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard__mixed_plans_warning
@@ -1274,7 +1325,15 @@ msgstr ""
 #. odoo-python
 #: code:addons/academic_sale_subscription/wizard/academic_reenrollment_wizard.py:0
 msgid "No selected group has students to re-enroll into a next year group."
+<<<<<<< ab658bbed29ffb48f35cfce42fbbbc82b251c9a2
 msgstr "Ningún grupo seleccionado tiene alumnos para reinscribir en un grupo del año siguiente."
+||||||| 0d4652c116a58f881f6fb765e86597dd79f91716
+msgstr ""
+=======
+msgstr ""
+"Ninguno de los grupos seleccionados tiene alumnos para reinscribir en un "
+"grupo del año siguiente."
+>>>>>>> d730dd1184c2eff318448daddf204de45037b5c3
 
 #. module: academic_sale_subscription
 #. odoo-python
@@ -1845,7 +1904,14 @@ msgstr "Alumnos enviados a otro grupo"
 #: model:ir.model.fields,help:academic_sale_subscription.field_academic_reenrollment_wizard_line__excluded_enrolled_ids
 msgid ""
 "Students excluded because they are already enrolled in the next year group."
+<<<<<<< ab658bbed29ffb48f35cfce42fbbbc82b251c9a2
 msgstr "Alumnos excluidos porque ya están inscriptos en el grupo del año siguiente."
+||||||| 0d4652c116a58f881f6fb765e86597dd79f91716
+msgstr ""
+=======
+msgstr ""
+"Alumnos excluidos porque ya están inscriptos en el grupo del año siguiente."
+>>>>>>> d730dd1184c2eff318448daddf204de45037b5c3
 
 #. module: academic_sale_subscription
 #: model:ir.model.fields,help:academic_sale_subscription.field_academic_reenrollment_wizard_line__excluded_no_responsible_ids
@@ -1892,7 +1958,13 @@ msgstr ""
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_line__subject_id
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_move__subject_id
 msgid "Subject/Course"
+<<<<<<< ab658bbed29ffb48f35cfce42fbbbc82b251c9a2
 msgstr "Materia/Curso"
+||||||| 0d4652c116a58f881f6fb765e86597dd79f91716
+msgstr ""
+=======
+msgstr "Asignatura/Curso"
+>>>>>>> d730dd1184c2eff318448daddf204de45037b5c3
 
 #. module: academic_sale_subscription
 #: model:ir.model,name:academic_sale_subscription.model_sale_order_close_reason
@@ -1941,7 +2013,13 @@ msgstr "Resumen"
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_line__target_year
 #: model:ir.model.fields,field_description:academic_sale_subscription.field_academic_reenrollment_wizard_move__target_year
 msgid "Target Year"
+<<<<<<< ab658bbed29ffb48f35cfce42fbbbc82b251c9a2
 msgstr "Año destino"
+||||||| 0d4652c116a58f881f6fb765e86597dd79f91716
+msgstr ""
+=======
+msgstr "Año de destino"
+>>>>>>> d730dd1184c2eff318448daddf204de45037b5c3
 
 #. module: academic_sale_subscription
 #: model_terms:sale.order.close.reason,retention_message:academic_sale_subscription.close_reason_graduated
