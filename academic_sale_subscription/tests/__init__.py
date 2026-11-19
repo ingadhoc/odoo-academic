@@ -4,3 +4,4 @@ from . import test_reenrollment_wizard
 from . import test_update_subscription_prices
 from . import test_payment_responsible_role
 from . import test_order_wizard
+from . import test_background_orders
