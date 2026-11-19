@@ -44,6 +44,13 @@ class SaleOrder(models.Model):
             order.partner_invoice_id = order.partner_invoice_ids._origin[:1]
         super(SaleOrder, self - students_orders)._compute_partner_invoice_id()
 
+    def validate_and_send_invoice(self, invoice):
+        """With the grouped notice on, academic invoices are not sent one by one: they stay posted and unsent
+        until the daily notice groups them by payment responsible."""
+        if invoice.student_id and invoice.company_id.academic_grouped_invoice_notice:
+            return
+        return super().validate_and_send_invoice(invoice)
+
     def _prepare_invoice(self):
         res = super()._prepare_invoice()
         res["student_id"] = self.partner_id.id if self.is_academic_sale else False
