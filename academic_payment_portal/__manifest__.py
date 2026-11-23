@@ -26,7 +26,7 @@
     'website': 'www.adhoc.com.ar',
     'license': 'AGPL-3',
     'depends': [
-        'account_payment'
+        'account_payment_multi',
     ],
     'data': [
         'wizards/res_config_setting_views.xml',
