@@ -1,7 +1,7 @@
 id,name,model_id,group_id/id,operation,domain
-access_academic_group_manager,academic.group.manager,academic.group,academic.group_manager,crud,
-access_academic_group_user,academic.group.user,academic.group,academic.group_user,ru,
-access_group_global,academic.group.global,academic.group,base.group_user,r,
+access_academic_group_manager,academic.group.manager,academic.group,academic.group_manager,crud,"[] if not user.has_group('academic.group_portal_teacher') else [('id', 'in', user.teacher_group_ids.ids)]"
+access_academic_group_user,academic.group.user,academic.group,academic.group_user,ru,"[] if not user.has_group('academic.group_portal_teacher') else [('id', 'in', user.teacher_group_ids.ids)]"
+access_group_global,academic.group.global,academic.group,base.group_user,r,"[] if not user.has_group('academic.group_portal_teacher') else [('id', 'in', user.teacher_group_ids.ids)]"
 res_partner_group_teacher_rule,portal techaer: only teacher groups,academic.group,academic.group_portal_administrator,crud,"[('id','in',user.teacher_group_ids.ids)]"
 access_academic_group_portal_teacher,portal teacher: read only teacher groups,academic.group,academic.group_portal_teacher,r,"[('id','in',user.teacher_group_ids.ids)]"
 res_partner_group_gral_administrator_rule,portal gral administrator: all groups,academic.group,academic.group_portal_gral_administrator,crud,
