@@ -7,3 +7,4 @@ from . import account_move_send
 from . import archive_family_debt_wizard
 from . import update_payment_responsible_wizard
 from . import update_payment_responsible_partner_wizard
+from . import crm_lead2opportunity_partner
