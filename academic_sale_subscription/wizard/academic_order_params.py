@@ -24,6 +24,19 @@ class AcademicOrderParams(models.AbstractModel):
         for rec in self:
             rec.plan_id = rec.template_id.plan_id or False
 
+    @api.model
+    def _get_background_threshold(self):
+        """Above this many orders the wizards create them in a background job."""
+        value = (
+            self.env["ir.config_parameter"]
+            .sudo()
+            .get_param("academic_sale_subscription.background_order_threshold", 50)
+        )
+        try:
+            return int(value)
+        except (TypeError, ValueError):
+            return 50
+
     def _is_recurring_products(self, products):
         """Nothing configured yet counts as recurring: the wizards default to subscriptions."""
         return not products or any(products.mapped("recurring_invoice"))

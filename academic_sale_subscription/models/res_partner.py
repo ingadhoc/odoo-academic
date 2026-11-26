@@ -2,8 +2,14 @@
 # For copyright and license notices, see __manifest__.py file in module root
 # directory
 ##############################################################################
+import copy
+import logging
+
+from markupsafe import Markup, escape
 from odoo import fields, models
 from odoo.exceptions import UserError
+
+_logger = logging.getLogger(__name__)
 
 
 class ResPartner(models.Model):
@@ -163,3 +169,43 @@ class ResPartner(models.Model):
                     "sticky": False,
                 },
             }
+
+    def _create_academic_orders(self, orders_vals, confirm=False):
+        """Background job of the academic order wizards: one order per student, each on its own
+        savepoint so a failing student does not stop the rest. The summary returned is the
+        message base_bg sends to the user.
+
+        :param orders_vals: list of dicts with the `order_vals` of an order, the `student_ids`
+            that get it and the `group_ids` of its lines, which the duplicate check of
+            `academic.group` reads while the job waits
+        """
+        vals_by_student = {
+            student_id: entry["order_vals"] for entry in orders_vals for student_id in entry["student_ids"]
+        }
+        orders = self.env["sale.order"]
+        failed = []
+        for student in self:
+            try:
+                with self.env.cr.savepoint():
+                    order = self.env["sale.order"].create(
+                        {**copy.deepcopy(vals_by_student[student.id]), "partner_id": student.id}
+                    )
+                    if confirm:
+                        order.action_confirm()
+            except Exception as e:
+                # base_bg retries the whole job on database contention
+                if self.env["bg.job"]._is_transient_error(e):
+                    raise
+                _logger.warning("Academic order of student %s failed", student.id, exc_info=True)
+                failed.append((student, e))
+            else:
+                orders |= order
+        message = escape(self.env._("%(count)s academic order(s) created.", count=len(orders)))
+        if failed:
+            message += Markup("<br/>%s<ul>%s</ul>") % (
+                self.env._("These students failed: once fixed, run the wizard again for them."),
+                Markup().join(
+                    Markup("<li>%s: %s</li>") % (student.sudo().display_name, error) for student, error in failed
+                ),
+            )
+        return message
