@@ -258,6 +258,11 @@ class CrmLead(models.Model):
             "target": "current",
         }
 
+    def action_convert_to_opportunity(self):
+        """Convert without a customer: the academic flow builds its contacts in action_create_family."""
+        self.ensure_one()
+        self.convert_opportunity(self.partner_id)
+
     def _create_customer(self):
         if self.group_id:
             return super(
