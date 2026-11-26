@@ -16,6 +16,5 @@ class CrmLead2opportunityPartner(models.TransientModel):
     @api.depends("lead_id")
     def _compute_action(self):
         super()._compute_action()
-        # academic leads get their contacts from the family group, not from the conversion
-        for convert in self.filtered(lambda c: c.lead_id.group_id or c.lead_id.family_member_ids):
-            convert.action = "nothing"
+        # the academic flow builds its contacts from the family group, not from the conversion
+        self.action = "nothing"

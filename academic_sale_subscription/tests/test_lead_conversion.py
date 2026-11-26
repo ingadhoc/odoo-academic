@@ -34,7 +34,8 @@ class TestLeadConversion(TransactionCase):
     def test_academic_lead_defaults_to_no_customer(self):
         self.assertEqual(self._wizard(self.academic_lead).action, "nothing")
 
-    def test_plain_lead_keeps_standard_action(self):
+    def test_plain_lead_defaults_to_no_customer(self):
+        """A lead with no academic data yet gets the same default: the family is loaded later."""
         lead = self.env["crm.lead"].create(
             {
                 "name": "Test Conversion Plain Lead",
@@ -43,7 +44,34 @@ class TestLeadConversion(TransactionCase):
                 "email_from": "test.conversion.plain@example.com",
             }
         )
-        self.assertEqual(self._wizard(lead).action, "create")
+        self.assertEqual(self._wizard(lead).action, "nothing")
+
+    def test_matching_partner_defaults_to_no_customer(self):
+        """The default wins over 'exist': a matching partner would land on the opportunity too."""
+        partner = self.env["res.partner"].create(
+            {"name": "Test Conversion Known Partner", "email": "test.conversion.known@example.com"}
+        )
+        lead = self.env["crm.lead"].create(
+            {
+                "name": "Test Conversion Known Lead",
+                "type": "lead",
+                "email_from": partner.email,
+            }
+        )
+        self.assertEqual(lead._find_matching_partner(), partner)
+        self.assertEqual(self._wizard(lead).action, "nothing")
+
+    def test_mass_wizard_keeps_standard_action(self):
+        """The mass wizard computes its own action and must keep Odoo's default."""
+        wizard = (
+            self.env["crm.lead2opportunity.partner.mass"]
+            .with_context(
+                active_model="crm.lead",
+                active_ids=self.academic_lead.ids,
+            )
+            .create({})
+        )
+        self.assertEqual(wizard.action, "each_exist_or_create")
 
     def test_conversion_creates_no_contact(self):
         wizard = self._wizard(self.academic_lead)
