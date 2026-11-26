@@ -613,6 +613,12 @@ msgstr ""
 "si el plan de destino ya la usa, para no inventar una división."
 
 #. module: academic_sale_subscription
+#: model:ir.model.fields.selection,name:academic_sale_subscription.selection__crm_lead2opportunity_partner__action__nothing
+#: model:ir.model.fields.selection,name:academic_sale_subscription.selection__crm_lead2opportunity_partner_mass__action__nothing
+msgid "Do not link to a customer"
+msgstr "No vincular a un cliente"
+
+#. module: academic_sale_subscription
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.portal_my_home_debt_certificate
 msgid "Download certificates for students without debt"
 msgstr "Descargar certificados para estudiantes sin deuda"

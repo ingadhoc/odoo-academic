@@ -581,6 +581,12 @@ msgid ""
 msgstr ""
 
 #. module: academic_sale_subscription
+#: model:ir.model.fields.selection,name:academic_sale_subscription.selection__crm_lead2opportunity_partner__action__nothing
+#: model:ir.model.fields.selection,name:academic_sale_subscription.selection__crm_lead2opportunity_partner_mass__action__nothing
+msgid "Do not link to a customer"
+msgstr ""
+
+#. module: academic_sale_subscription
 #: model_terms:ir.ui.view,arch_db:academic_sale_subscription.portal_my_home_debt_certificate
 msgid "Download certificates for students without debt"
 msgstr ""
