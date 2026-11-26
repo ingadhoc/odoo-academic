@@ -48,16 +48,22 @@ class AcademicGroup(models.Model):
                 ).mapped("order_id.partner_id")
             )
 
-    def _get_pending_registration_students(self):
+    def _get_pending_registration_students(self, queued=None):
+        """`queued` is what `_get_queued_registration_students` returns, so a caller that looks
+        at several groups scans the jobs once."""
         # TODO tal vez deberiamos hacer una constraint que no pueda permitir dos lineas de venta "activas" para mismo academic_product_type, student y grupo
-        return (
-            self.registration_so_line_ids.filtered(lambda x: x.state in ["draft", "sent"]).order_id.partner_id
-            | self._get_queued_registration_students()
-        )
+        if queued is None:
+            queued = self._get_queued_registration_students()
+        queued_ids = set().union(*(queued.get(group_id, set()) for group_id in self.ids))
+        return self.registration_so_line_ids.filtered(
+            lambda x: x.state in ["draft", "sent"]
+        ).order_id.partner_id | self.env["res.partner"].browse(queued_ids)
 
     def _get_queued_registration_students(self):
-        """Students whose orders for these groups wait in a background job. Sudo: groups are
-        read by users that can not read jobs, and a job of another user still counts."""
+        """Ids of the students whose orders for these groups wait in a background job, by group
+        id. It reads the `orders_vals` argument of `res.partner._create_academic_orders`, not the
+        internals of base_bg. Sudo: groups are read by users that can not read jobs, and a job
+        of another user still counts."""
         jobs = (
             self.env["bg.job"]
             .sudo()
@@ -69,17 +75,18 @@ class AcademicGroup(models.Model):
                 ]
             )
         )
-        student_ids = set()
+        queued = {}
         for job in jobs:
-            kwargs = job.kwargs_json or {}
-            lines = (kwargs.get("order_vals") or {}).get("order_line") or []
-            if any(line[2].get("group_id") in self.ids for line in lines):
-                student_ids.update(kwargs.get("_record_ids") or [])
-        return self.env["res.partner"].browse(student_ids)
+            # no fallback: a job without `orders_vals` must fail here, not let its students be ordered twice
+            for entry in job.kwargs_json["orders_vals"]:
+                for group_id in set(entry["group_ids"]) & set(self.ids):
+                    queued.setdefault(group_id, set()).update(entry["student_ids"])
+        return queued
 
     def _compute_registration_student_count(self):
+        queued = self._get_queued_registration_students()
         for group in self:
-            group.registration_student_count = len(group._get_pending_registration_students())
+            group.registration_student_count = len(group._get_pending_registration_students(queued=queued))
 
     def _compute_opportunities_student_count(self):
         for group in self:

@@ -3,7 +3,7 @@
 # directory
 ##############################################################################
 import copy
-import json
+from datetime import date, datetime
 
 from odoo import Command, api, fields, models
 from odoo.exceptions import UserError, ValidationError
@@ -88,19 +88,41 @@ class OrderWizard(models.TransientModel):
 
     def _enqueue_mass_subscription(self, vals=None):
         """Same orders as `_create_mass_subscription`, created by a background job of base_bg."""
+        return self._enqueue_academic_orders(
+            self.student_ids, [self._prepare_background_order(vals=vals)], self.status_sale == "confirmed"
+        )
+
+    def _prepare_background_order(self, vals=None):
+        """One entry of the `orders_vals` of `res.partner._create_academic_orders`."""
+        order_vals = self._prepare_order_vals(vals=vals)
+        # dates go as strings, which create() reads back the same; anything else that does not
+        # serialize must reach the check of base_bg as it is
+        for key, value in order_vals.items():
+            if isinstance(value, datetime):
+                order_vals[key] = fields.Datetime.to_string(value)
+            elif isinstance(value, date):
+                order_vals[key] = fields.Date.to_string(value)
+        return {
+            "order_vals": order_vals,
+            "student_ids": self.student_ids.ids,
+            "group_ids": self.order_wizard_line_ids.academic_group_id.ids,
+        }
+
+    @api.model
+    def _enqueue_academic_orders(self, students, orders_vals, confirm):
+        """Queue the orders of a whole wizard run as one base_bg batch."""
         # only what the orders need: the wizard context carries active ids and defaults
         context = {k: v for k, v in self.env.context.items() if k in ("lang", "tz", "allowed_company_ids")}
         return (
             self.env["base.bg"]
             .with_env(self.env(context=context))
             .bg_enqueue_records(
-                self.student_ids,
+                students,
                 "_create_academic_orders",
                 threshold=self._get_background_threshold(),
-                # dates go as strings, which create() reads back the same
-                order_vals=json.loads(json.dumps(self._prepare_order_vals(vals=vals), default=str)),
-                confirm=self.status_sale == "confirmed",
-                name=self.env._("Academic orders for %(count)s student(s)", count=len(self.student_ids)),
+                orders_vals=orders_vals,
+                confirm=confirm,
+                name=self.env._("Academic orders for %(count)s student(s)", count=len(students)),
             )
         )
 

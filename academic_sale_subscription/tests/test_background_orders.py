@@ -7,6 +7,7 @@ from unittest.mock import patch
 from odoo import Command
 from odoo.tests.common import TransactionCase, new_test_user, tagged
 from odoo.tools import mute_logger
+from psycopg2.errors import SerializationFailure
 
 
 @tagged("post_install", "-at_install")
@@ -242,3 +243,73 @@ class TestBackgroundOrders(TransactionCase):
         self.assertEqual(Wizard._get_background_threshold(), 50, "without the parameter")
         self._set_threshold("fifty")
         self.assertEqual(Wizard._get_background_threshold(), 50, "with a wrong value")
+
+    def test_08_one_batch_for_the_whole_run(self):
+        """Two source groups in the same run share one batch, instead of one batch per group."""
+        self._set_threshold(2)
+        first, second = self._group(self.students[:2]), self._group(self.students[2:])
+        wizard = (
+            self.env["academic.reenrollment.wizard"]
+            .with_user(self.user)
+            .with_context(active_ids=(first | second).ids)
+            .create(
+                {
+                    "template_id": self.template.id,
+                    "next_invoice_date": "2027-03-01",
+                    "validity_date": "2027-02-01",
+                    "status_sale": "draft",
+                }
+            )
+        )
+        wizard.action_reenroll()
+
+        jobs = self._jobs()
+        self.assertEqual(len(jobs), 2, "4 students in jobs of 2")
+        self.assertEqual(len(set(jobs.mapped("batch_key"))), 1)
+        self._run_jobs()
+        self.assertEqual(len(self._orders(self.students)), 4)
+
+    def test_09_only_waiting_jobs_of_the_group_count(self):
+        self._set_threshold(2)
+        self._reenroll(self._group(self.students))
+        target = self.env["academic.group"].search([("year", "=", 2027), ("section_id", "=", self.section.id)])
+        other = self._group(self.env["res.partner"])
+
+        self.assertEqual(target._get_pending_registration_students(), self.students)
+        self.assertFalse(other._get_pending_registration_students(), "a job of another group must not count")
+        for state in ("failed", "done", "canceled"):
+            self._jobs().state = state
+            self.assertFalse(target._get_pending_registration_students(), f"a {state} job must not count")
+
+    def test_10_a_job_without_its_orders_fails_the_duplicate_check(self):
+        """If the job arguments change shape, the check fails instead of letting orders be duplicated."""
+        group = self._group(self.students)
+        self.env["base.bg"].bg_enqueue_records(self.students, "_create_academic_orders", order_vals={})
+        with self.assertRaises(KeyError):
+            group._get_queued_registration_students()
+
+    def test_11_database_contention_reaches_base_bg(self):
+        """A transient error must stop the job so base_bg retries it, not count as a failed student."""
+        entry = {"order_vals": {}, "student_ids": self.students.ids, "group_ids": []}
+        with (
+            patch.object(type(self.env["sale.order"]), "create", side_effect=SerializationFailure()),
+            self.assertRaises(SerializationFailure),
+        ):
+            self.students._create_academic_orders([entry])
+
+    def test_12_only_dates_are_converted_for_the_job(self):
+        wizard = self.env["academic.order.wizard"].create(
+            {
+                "student_ids": [Command.set(self.students.ids)],
+                "template_id": self.template.id,
+                "next_invoice_date": "2027-03-01",
+                "validity_date": "2027-02-01",
+            }
+        )
+        order_vals = wizard._prepare_background_order()["order_vals"]
+        self.assertEqual(order_vals["validity_date"], "2027-02-01")
+        self.assertEqual(order_vals["start_date"], "2027-03-01")
+
+        entry = {"order_vals": {"plan_id": self.plan}, "student_ids": self.students.ids, "group_ids": []}
+        with self.assertRaises(ValueError, msg="what does not serialize must reach the check of base_bg"):
+            wizard._enqueue_academic_orders(self.students, [entry], False)
